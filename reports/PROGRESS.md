@@ -169,3 +169,16 @@ cc707f65a87e78745333a524eafd2ec292ffe623b7b8b5916a8a875acd4b8059  scripts/condor
    - extend MAP in `scripts/analysis/override_test_v2.py` (B_QCD_llaa_1j/2j_is*, B_EW_llaajj_is*, F_QCD_lla_mlm, F_EW_llajj, F_Zjets_mlm, V_*) to replace the proxies
    - rerun `sensitivity.py` and `tables05.py` (commands in reports/05 §9).
 3. Do NOT submit production_v2.sub before D12 is decided.
+
+## FINAL RUN — 2026-11-02 (started 16:00 UTC)
+Decisions: D12 closed (expected-limit/significance study, current signal definition); deletion of scripts/condor duplicates approved; push approved; ggZH via Pythia8 Z->ll.
+**Done**
+- 16:05 Deleted 498 untracked files in scripts/condor/ that have a same-name, same-size copy under production/ (1.2 GB -> 83 MB). Kept 10 non-duplicate scratch files (gp.tar.gz, mg5.tgz, *.log, ME5_debug, py.py, run.mg5, additional_command).
+- 16:15 New cards cards/production_final/: F_QCD_llajj_vbs, F_EW_llajj_vbs (pta>25, mmjj>400 VBS-biased, for a direct Delphes fake-photon estimate) and H_ggZH_py8dec (no MadSpin; Pythia cmnd cards/phase03_smoke/py8_ggzh_zll_haa.cmnd forces Z->ee/mumu and H->gg).
+- 16:15 gridpacks_final.sub -> cluster **879181** (3 gridpacks).
+- 16:20 production_final_A.sub (H_ttH 20x2000, H_ZH_tautau 4x4000, T_ttaa 10x2000) -> cluster **879182**.
+**Running**: 879166 (14 v2 gridpacks), 879167 (test_v2, held until gridpacks), 879181, 879182.
+**Planned groups** (scripts/plan/make_submit_final.py <tag> <prefixes>; submit each ONCE when its gridpacks exist):
+- B: B_QCD_llaa_2j_is (4x25x1000) + B_EW_llaajj_is (4x5x1000), after 879166 procs 7-10, 13-16.
+- C: F_QCD_llajj_vbs (1000x2000) + F_EW_llajj_vbs (250x2000) + H_ggZH_py8dec (10x2000), after 879181.
+**Next action**: write scripts/analysis/final_analysis.py (direct Delphes only); poll condor every >=15 min; submit B and C when their gridpacks are ready.
