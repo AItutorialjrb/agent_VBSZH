@@ -5,6 +5,11 @@
 set -o pipefail
 CARD=$1; SEED=$2; OUTDIR=$3; EOSURL=root://eosuser.cern.ch
 WD=${_CONDOR_SCRATCH_DIR:-$PWD}; cd "$WD" || exit 10
+# Without transfer_output_files HTCondor copies every new top-level scratch file back to the submit dir
+# (scripts/condor). Everything needed is staged to EOS by xrdcp, so delete top-level job files on exit
+# (keeps condor's own _condor_* / dot files / executable; subdirectories are never transferred).
+trap 'find "$WD" -maxdepth 1 -type f ! -name "_condor_*" ! -name ".*" ! -name condor_exec.exe -newer "$WD/.vbszh_t0" -delete 2>/dev/null; find "$WD" -maxdepth 1 -type f \( -name "*.tar.gz" -o -name "*.lhe.gz" -o -name "*.tgz" -o -name "*.json" \) -delete 2>/dev/null' EXIT
+touch "$WD/.vbszh_t0"
 xrdfs $EOSURL stat "$OUTDIR/${CARD}_gridpack_s${SEED}.tar.gz" >/dev/null 2>&1 && { echo "exists, skip"; exit 0; }
 export PROJECT=$WD/proj; mkdir -p $PROJECT/scripts; cp setup_stack.sh $PROJECT/scripts/
 xrdcp -s $EOSURL//eos/user/r/rjiang/vbs_zh_codex_starter/software/install/MG5_aMC_v3.6.3_install.tgz mg5.tgz && tar xzf mg5.tgz || exit 11
@@ -19,6 +24,8 @@ gzip -c mg5.log > ${CARD}_mg5.log.gz
 GP=$(ls proc/*gridpack*.tar.gz 2>/dev/null | head -1)
 [ -n "$GP" ] && mv "$GP" ${CARD}_gridpack_s${SEED}.tar.gz
 for f in ${CARD}_status.txt ${CARD}_mg5.log.gz ${CARD}_gridpack_s${SEED}.tar.gz; do
-  [ -f "$f" ] && { xrdcp -s "$f" "$EOSURL/$OUTDIR/$f" || exit 16; }
+  # status/log are diagnostics -> overwrite on retry (-f); the gridpack itself is never overwritten
+  F=""; [ "$f" = "${CARD}_gridpack_s${SEED}.tar.gz" ] || F="-f"
+  [ -f "$f" ] && { xrdcp -s $F "$f" "$EOSURL/$OUTDIR/$f" || exit 16; }
 done
 [ $RC = 0 ] && [ -n "$GP" ] || exit 15

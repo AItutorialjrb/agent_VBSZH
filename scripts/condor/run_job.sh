@@ -10,10 +10,17 @@ set -o pipefail
 SAMPLE=$1; GP=$2; NEV=$3; SEED=$4; CMND=$5; OUTDIR=$6; KEEP_LHE=${7:-0}; KEEP_FULL=${8:-0}
 EOSURL=root://eosuser.cern.ch
 WD=${_CONDOR_SCRATCH_DIR:-$PWD}; cd "$WD" || exit 10
+# Without transfer_output_files HTCondor copies every new top-level scratch file back to the submit dir
+# (scripts/condor). Everything needed is staged to EOS by xrdcp, so delete top-level job files on exit
+# (keeps condor's own _condor_* / dot files / executable; subdirectories are never transferred).
+trap 'find "$WD" -maxdepth 1 -type f ! -name "_condor_*" ! -name ".*" ! -name condor_exec.exe -newer "$WD/.vbszh_t0" -delete 2>/dev/null; find "$WD" -maxdepth 1 -type f \( -name "*.tar.gz" -o -name "*.lhe.gz" -o -name "*.tgz" -o -name "*.json" \) -delete 2>/dev/null' EXIT
+touch "$WD/.vbszh_t0"
 TAG=${SAMPLE}_s${SEED}
 log(){ echo "[$(date -u +%FT%TZ)] $*"; }
 log "host=$(hostname) wd=$WD sample=$SAMPLE seed=$SEED nev=$NEV keep_lhe=$KEEP_LHE keep_full=$KEEP_FULL"
 if xrdfs $EOSURL stat "$OUTDIR/${TAG}.root" >/dev/null 2>&1; then log "output exists -> skip"; exit 0; fi
+# test_v2 jobs may start before their gridpack exists: exit 19 -> on_exit_hold, periodic_release retries later (see make_submit.py)
+xrdfs $EOSURL stat "$GP" >/dev/null 2>&1 || { log "gridpack not yet available: $GP"; exit 19; }
 export PROJECT=$WD/proj; mkdir -p $PROJECT/scripts $PROJECT/cards/phase03_smoke $PROJECT/cards/phase04_candidates
 cp setup_stack.sh run_py8_delphes.sh slim_gentruth.py $PROJECT/scripts/
 cp py8_common_CP5.cmnd "$CMND" $PROJECT/cards/phase03_smoke/

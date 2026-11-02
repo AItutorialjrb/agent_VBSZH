@@ -19,3 +19,14 @@ reference_ZGammaGamma.pdf
 __pycache__/
 # condor run-time logs (large); per-job logs live under production/condor_logs (ignored)
 *.log.gz
+# HTCondor output debris transferred back to the submit dir before the run-3 wrapper cleanup fix
+/scripts/condor/*.json
+/scripts/condor/*.log
+/scripts/condor/*_status.txt
+/scripts/condor/ME5_debug
+/scripts/condor/py.py
+/scripts/condor/run.mg5
+/scripts/condor/additional_command
+/scripts/condor/.sys.*
+/README.md
+/START_CODEX_PROMPT.md
