@@ -1,0 +1,12 @@
+# UNVALIDATED Phase 02 candidate (see README.md). Run-card pins as cards/phase03_smoke + YAML gen cuts.
+import model sm-no_b_mass
+define p = g u c d s b u~ c~ d~ s~ b~
+define j = g u c d s b u~ c~ d~ s~ b~
+define l+ = e+ mu+
+define l- = e- mu-
+define vl = ve vm
+define vl~ = ve~ vm~
+generate p p > z h, z > l+ l- @0
+add process p p > z h j, z > l+ l- @1
+add process p p > z h j j, z > l+ l- @2
+# run_card: ickkw=1, xqcut=15, dynamical_scale_choice=-1; PY8 JetMatching qCut=25, nJetMax=2 (DJR validation pending)

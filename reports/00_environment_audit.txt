@@ -1,0 +1,2572 @@
+Phase 00 read-only probes; UTC 2026-11-02T12:17:55.673367+00:00
+
+$ date -u +%Y-%m-%dT%H:%M:%SZ; hostname -f; uname -a; cat /etc/os-release; id; pwd
+2026-11-02T12:17:55Z
+lxplus924.cern.ch
+Linux lxplus924.cern.ch 5.14.0-687.59.1.el9_8.x86_64 #1 SMP PREEMPT_DYNAMIC Sat Oct 17 02:31:56 EDT 2026 x86_64 x86_64 x86_64 GNU/Linux
+NAME="Red Hat Enterprise Linux"
+VERSION="9.8 (Plow)"
+ID="rhel"
+ID_LIKE="fedora"
+VERSION_ID="9.8"
+PLATFORM_ID="platform:el9"
+PRETTY_NAME="Red Hat Enterprise Linux 9.8 (Plow)"
+ANSI_COLOR="0;31"
+LOGO="fedora-logo-icon"
+CPE_NAME="cpe:/o:redhat:enterprise_linux:9::baseos"
+HOME_URL="https://www.redhat.com/"
+DOCUMENTATION_URL="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9"
+BUG_REPORT_URL="https://issues.redhat.com/"
+
+REDHAT_BUGZILLA_PRODUCT="Red Hat Enterprise Linux 9"
+REDHAT_BUGZILLA_PRODUCT_VERSION=9.8
+REDHAT_SUPPORT_PRODUCT="Red Hat Enterprise Linux"
+REDHAT_SUPPORT_PRODUCT_VERSION="9.8"
+uid=155524(rjiang) gid=1399(zh) groups=1399(zh),1105211412 context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+/eos/home-r/rjiang/vbs_zh_codex_starter
+
+[exit 0]
+
+$ codex --version; command -v codex; git rev-parse --show-toplevel; git rev-parse HEAD; git status --short -- .
+codex-cli 0.158.0
+/eos/home-r/rjiang/bin/codex
+/eos/home-r/rjiang
+6ea6cb9462533bbc1b209f7d4b4b67fd49b4d737
+?? ./
+
+[exit 0]
+
+$ for x in python3 root root-config mg5_aMC pythia8-config DelphesHepMC DelphesHepMC2 DelphesHepMC3 lhapdf-config condor_submit condor_version eos quota fs gfortran gcc cmake; do command -v "$x" || true; done
+/cvmfs/cms.cern.ch/el8_amd64_gcc10/external/python3/3.9.6-67e5cf5b4952101922f1d4c8474baa39/bin/python3
+/usr/bin/root
+/usr/bin/root-config
+/usr/bin/condor_submit
+/usr/bin/condor_version
+/usr/bin/eos
+/usr/bin/quota
+/usr/bin/fs
+/usr/bin/gfortran
+/usr/lib64/ccache/gcc
+/usr/bin/cmake
+
+[exit 0]
+
+$ python3 --version; python3 -c "import sys; print(sys.executable); print(sys.version)"; /usr/bin/python3 --version; root-config --version; root-config --prefix; root -l -b -q -e 'std::cout << gROOT->GetVersion() << std::endl;'; gcc --version; gfortran --version; cmake --version
+Python 3.9.25
+/cvmfs/cms.cern.ch/el8_amd64_gcc10/external/python3/3.9.6-67e5cf5b4952101922f1d4c8474baa39/bin/python3
+3.9.25 (main, Aug  6 2026, 00:00:00) 
+[GCC 11.5.0 20240719 (Red Hat 11.5.0-14)]
+Python 3.9.25
+6.40.04
+/usr
+6.40.04
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+cmake version 3.31.8
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+
+[exit 0]
+
+$ ls -ld /cvmfs /cvmfs/sft.cern.ch /cvmfs/cms.cern.ch /cvmfs/sft.cern.ch/lcg/views; ls /cvmfs/sft.cern.ch/lcg/views | tail -12; ls -ld /afs/cern.ch/user/r/rjiang /eos/home-r/rjiang /eos/home-r/rjiang/vbs_zh_codex_starter; test -r /afs/cern.ch/user/r/rjiang; echo afs_read_rc=$?; test -w /afs/cern.ch/user/r/rjiang; echo afs_write_access_rc=$?; test -w .; echo project_write_access_rc=$?
+drwxr-xr-x.  47 root  root     0 Nov  2 10:32 /cvmfs
+drwxr-xr-x. 124 cvmfs cvmfs 4096 Aug 29  2014 /cvmfs/cms.cern.ch
+drwxr-xr-x.   3 cvmfs cvmfs    4 Mar 25  2011 /cvmfs/sft.cern.ch
+drwxr-xr-x. 509 cvmfs cvmfs   36 Oct 29 22:13 /cvmfs/sft.cern.ch/lcg/views
+devfcc
+devgeantv
+devkey
+devkey-head
+devnxcals
+devship
+devswan
+geant-latest
+ml
+run
+setupViews.csh
+setupViews.sh
+drwxr-xr-x. 37 rjiang zh 4096 Oct 29 15:55 /afs/cern.ch/user/r/rjiang
+drwx------.  2 rjiang zh 4096 Oct 31 18:16 /eos/home-r/rjiang
+drwxr-xr-x.  2 rjiang zh 4096 Oct 31 18:16 /eos/home-r/rjiang/vbs_zh_codex_starter
+afs_read_rc=0
+afs_write_access_rc=0
+project_write_access_rc=0
+
+[exit 0]
+
+$ ls -ld /eos/home-r/rjiang/MadGraph5_aMCatNLO; ls /eos/home-r/rjiang/MadGraph5_aMCatNLO; rg --files -g "VERSION*" -g "mg5_aMC" -g "pythia8-config" -g "DelphesHepMC*" -g "Version.xml" -g "delphes_card_CMS.tcl" /eos/home-r/rjiang/MadGraph5_aMCatNLO
+drwxr-xr-x. 2 rjiang zh 4096 Apr 10  2026 /eos/home-r/rjiang/MadGraph5_aMCatNLO
+examples
+production
+
+[exit 1]
+
+$ condor_version; condor_config_val SCHEDD_HOST; condor_config_val COLLECTOR_HOST; condor_q -submitter rjiang -totals
+$CondorVersion: 25.0.14 2026-08-30 BuildID: 947353 PackageID: 25.0.14-1 $
+$CondorPlatform: x86_64_AlmaLinux9 $
+bigbird26.cern.ch
+tweetybird04.cern.ch, tweetybird03.cern.ch
+Error: Collector has no record of schedd/submitter
+
+[exit 1]
+
+$ df -h . /tmp /afs/cern.ch/user/r/rjiang; df -i .; quota -s; fs lq /afs/cern.ch/user/r/rjiang; eos --version; eos root://eoshome-r.cern.ch quota -u rjiang
+Filesystem      Size  Used Avail Use% Mounted on
+home-r          4.0P  2.1P  2.0P  53% /eos/home-r
+/dev/vdb        147G  102G   44G  71% /tmp
+AFS             2.0T     0  2.0T   0% /afs
+Filesystem           Inodes      IUsed        IFree IUse% Mounted on
+home-r         219830799168 1566498095 218264301073    1% /eos/home-r
+Disk quotas for user rjiang (uid 155524): 
+     Filesystem   space   quota   limit   grace   files   quota   limit   grace
+       /dev/vdb   6808K    103G    103G              24   6882k   6882k        
+Volume Name                    Quota       Used %Used   Partition
+user.rjiang                 10485760   10407773   99%<<        2%    <<WARNING
+EOS 5.4.9 (2020)
+
+Developed by the CERN IT storage group
+Usage:
+      quota [<path>]                                                       : show personal quota for all or only the quota node responsible for <path>                                                                                                                                                                                                                                                                                                        
+      quota ls [-n] [-m] [-u <uid>] [-g <gid>] [[-p|x|q] <path>]           : list configured quota and quota node(s)
+                                                                       -p : find closest matching quotanode
+                                                                       -x : as -p but <path> has to exist
+                                                                       -q : as -p but <path> has to be a quotanode 
+      quota rm -u <uid>|-g <gid> [-v] [-i] [[-p] <path>]                   : remove configured quota type(s) for uid/gid in path                                                                                                                                                                                                                                                                                                                              
+      quota rmnode [-p] <path>                                             : remove quota node and every defined quota on that node                                                                                                                                                                                                                                                                                                                           
+      quota set -u <uid>|-g <gid> [-v <bytes>] [-i <inodes>] [[-p] <path>] : set volume and/or inode quota by uid or gid                                                                                                                                                                                                                                                                                                                                      
+
+      General options:
+        -m : print information in monitoring <key>=<value> format
+        -n : don't translate ids, print uid and gid number
+        -u/--uid <uid> : print information only for uid <uid>
+        -g/--gid <gid> : print information only for gid <gid>
+        -p/--path <path> : print information only for path <path> - this can also be given without -p or --path
+        -v/--volume <bytes> : refer to volume limit in <bytes>
+        -i/--inodes <inodes> : refer to inode limit in number of <inodes>
+
+      Notes:
+        => you have to specify either the user or the group identified by the unix id or the user/group name
+        => the space argument is by default assumed as 'default'
+        => you have to specify at least a volume or an inode limit to set quota
+        => for convenience all commands can just use <path> as last argument omitting the -p|--path e.g. quota ls /eos/ ...
+        => if <path> is not terminated with a '/' it is assumed to be a file so it won't match the quota node with <path>/ !
+
+[exit 22]
+
+$ getent hosts eoshome-r.cern.ch lxbatch.cern.ch arxiv.org; curl -I --max-time 10 https://arxiv.org/abs/2512.07689
+2001:1458:301:1b::100:1a eoshome-i02.cern.ch eoshome-r.cern.ch
+151.101.3.42    arxiv.org
+151.101.67.42   arxiv.org
+151.101.131.42  arxiv.org
+151.101.195.42  arxiv.org
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0 40135    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0 40135    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/2 200 
+content-type: text/html; charset=utf-8
+via: 1.1 google, 1.1 varnish, 1.1 varnish, 1.1 varnish
+x-frame-options: SAMEORIGIN
+x-cloud-trace-context: 470898943dc3297a47db500cc6e4794c
+content-security-policy: frame-ancestors 'none'
+cache-control: max-age=3600
+server: Google Frontend
+last-modified: Mon, 24 Aug 2026 19:07:41 GMT
+accept-ranges: bytes
+age: 207950
+date: Mon, 02 Nov 2026 12:17:57 GMT
+x-served-by: cache-lga-kjfk8660045-LGA, cache-lga-kjfk8660045-LGA, cache-lga-kjfk8660062-LGA, cache-mrs1530079-MRS
+x-cache: MISS, HIT, MISS
+x-timer: S1793621877.309752,VS0,VE278
+content-length: 40135
+
+
+[exit 0]
+
+$ sha256sum AGENTS.md PROJECT_BRIEF.md START_CODEX_PROMPT.md reference_ZGammaGamma.pdf reports/00_initial_design.md reports/00_preflight_output.txt; rg --files -g "*card*" -g "*.dat" -g "*.lhe*" -g "*.root" .
+488529d3633111acfb19402517fa10a719a0cf4b57b9d2c423464745c0da765c  AGENTS.md
+4f63818a6ca713c12a9ee36666de1b581a6f76d817d9357c5eeab46964510e98  PROJECT_BRIEF.md
+52429a6fbca801f75318225c5adf5d8155d79beec2a5f0ecaed3aee70be1ce9b  START_CODEX_PROMPT.md
+3a456511c4b1faa69397394895f42ea4b76d466580b1c30d51d58154804fcd0a  reference_ZGammaGamma.pdf
+07acceb28bc09910304257d4cd20cc0635e280941e919f700fbc4f1b69a9a254  reports/00_initial_design.md
+d0c4ae590aeac98e44f72bb4c53d48389cf801123766558851a303dcebdec1c5  reports/00_preflight_output.txt
+
+[exit 1]
+
+$ codex --help
+Codex CLI
+
+If no subcommand is specified, options will be forwarded to the interactive CLI.
+
+Usage: codex [OPTIONS] [PROMPT]
+       codex [OPTIONS] <COMMAND> [ARGS]
+
+Commands:
+  agents            Browse all agent sessions on the shared local app-server daemon
+  exec              Run Codex non-interactively [aliases: e]
+  review            Run a code review non-interactively
+  login             Manage login
+  logout            Remove stored authentication credentials
+  mcp               Manage external MCP servers for Codex
+  plugin            Manage Codex plugins
+  app-server        [experimental] Run the app server or related tooling
+  remote-control    [experimental] Manage the app-server daemon with remote control enabled
+  completion        Generate shell completion scripts
+  update            Update Codex to the latest version
+  doctor            Diagnose local Codex installation, config, auth, and runtime health
+  sandbox           Run commands within a Codex-provided sandbox
+  debug             Debugging tools
+  apply             Apply the latest diff produced by Codex agent as a `git apply` to your local working tree [aliases: a]
+  resume            Resume a previous interactive session (picker by default; use --last to continue the most recent)
+  queue             Queue a message for an existing session
+  archive           Archive a saved session by id or session name
+  delete            Permanently delete a saved session by id or session name
+  migrate-rollouts  Inspect or migrate legacy local sessions to paginated thread history
+  unarchive         Unarchive a saved session by id or session name
+  fork              Fork a previous interactive session (picker by default; use --last to fork the most recent)
+  cloud             [EXPERIMENTAL] Browse tasks from Codex Cloud and apply changes locally
+  exec-server       [EXPERIMENTAL] Run the standalone exec-server service
+  features          Inspect feature flags
+  help              Print this message or the help of the given subcommand(s)
+
+Arguments:
+  [PROMPT]
+          Optional user prompt to start the session
+
+Options:
+  -c, --config <key=value>
+          Override a configuration value that would otherwise be loaded from `~/.codex/config.toml`. Use a dotted path (`foo.bar.baz`) to override nested
+          values. The `value` portion is parsed as TOML. If it fails to parse as TOML, the raw string is used as a literal.
+          
+          Examples: - `-c model="o3"` - `-c 'sandbox_permissions=["disk-full-read-access"]'` - `-c shell_environment_policy.inherit=all`
+
+      --enable <FEATURE>
+          Enable a feature (repeatable). Equivalent to `-c features.<name>=true`
+
+      --disable <FEATURE>
+          Disable a feature (repeatable). Equivalent to `-c features.<name>=false`
+
+      --remote <ADDR>
+          Connect the TUI to a remote app server endpoint.
+          
+          Accepted forms: `ws://host:port`, `wss://host:port`, `unix://`, or `unix://PATH`.
+
+      --remote-auth-token-env <ENV_VAR>
+          Name of the environment variable containing the bearer token to send to a remote app server websocket
+
+      --strict-config
+          Error out when config.toml contains fields that are not recognized by this version of Codex
+
+  -i, --image <FILE>...
+          Optional image(s) to attach to the initial prompt
+
+  -m, --model <MODEL>
+          Model the agent should use
+
+      --oss
+          Use open-source provider
+
+      --local-provider <OSS_PROVIDER>
+          Specify which local provider to use (lmstudio or ollama). If not specified with --oss, will use config default or show selection
+
+  -p, --profile <CONFIG_PROFILE_V2>
+          Layer $CODEX_HOME/<name>.config.toml on top of the base user config
+
+  -s, --sandbox <SANDBOX_MODE>
+          Select the sandbox policy to use when executing model-generated shell commands
+          
+          [possible values: read-only, workspace-write, danger-full-access]
+
+      --approve-for-me
+          Route approval requests through automatic review using the workspace-write sandbox
+
+      --dangerously-bypass-approvals-and-sandbox
+          Skip all confirmation prompts and execute commands without sandboxing. EXTREMELY DANGEROUS. Intended solely for running in environments that are
+          externally sandboxed
+
+      --dangerously-bypass-hook-trust
+          Run enabled hooks without requiring persisted hook trust for this invocation. DANGEROUS. Intended only for automation that already vets hook
+          sources
+
+  -C, --cd <DIR>
+          Tell the agent to use the specified directory as its working root
+
+      --worktree
+          Run the session in a new managed Git worktree
+
+      --add-dir <DIR>
+          Additional directories that should be writable alongside the primary workspace
+
+  -a, --ask-for-approval <APPROVAL_POLICY>
+          Configure when the model requires human approval before executing a command
+
+          Possible values:
+          - on-request: The model decides when to ask the user for approval
+          - never:      Never ask for user approval Execution failures are immediately returned to the model
+
+      --search
+          Enable live web search. When enabled, the native Responses `web_search` tool is available to the model (no per‑call approval)
+
+      --no-alt-screen
+          Disable alternate screen mode
+          
+          Runs the TUI in inline mode, preserving terminal scrollback history.
+
+      --no-daemon
+          Run without the shared background server, even if it is already running
+
+  -h, --help
+          Print help (see a summary with '-h')
+
+  -V, --version
+          Print version
+
+[exit 0]
+
+$ eos root://eoshome-r.cern.ch quota /eos/home-r/rjiang/
+error: no quota for path /eos/home-r/rjiang/
+error: no quota for path /eos/home-r/rjiang/
+
+[exit 22]
+
+$ condor_q -name bigbird26.cern.ch rjiang -totals
+
+
+-- Schedd: bigbird26.cern.ch : <188.185.8.79:9618?... @ 11/02/26 13:18:24
+Total for query: 0 jobs; 0 completed, 0 removed, 0 idle, 0 running, 0 held, 0 suspended 
+Total for all users: 113463 jobs; 109000 completed, 0 removed, 1993 idle, 2470 running, 0 held, 0 suspended
+
+
+[exit 0]
+
+$ ls /cvmfs/sft.cern.ch/lcg/releases/MCGenerators; ls /cvmfs/sft.cern.ch/lcg/releases/MCGenerators/madgraph5amc; ls /cvmfs/sft.cern.ch/lcg/releases/MCGenerators/pythia8; ls /cvmfs/sft.cern.ch/lcg/releases/MCGenerators/delphes; ls /cvmfs/sft.cern.ch/lcg/releases/LCG_108
+FORM
+GENIE
+KKMCee
+SFGen
+agile
+alpgen
+ampt
+apfel
+baurmc
+blackhat
+cepgen
+chaplin
+collier
+compilebox
+contur
+crmc
+cython
+dire4pythia8
+epos4
+evtgen
+fastnlo_toolkit
+feynhiggs
+geneva
+ggvvamp
+ggxy
+gosam
+gosam_contrib
+hepmcanalysis
+heputils
+herwig
+herwig++
+herwigpp
+hijing
+hjets
+hoppet
+hto4l
+hydjet
+hydjet++
+hydjetpp
+jhu
+jimmy
+lhapdf
+log4cpp
+looptools
+madgraph
+madgraph5amc
+mcfm
+mctester
+mcutils
+njet
+nlox
+openloops
+pepper_kokkos
+photos
+photos++
+photospp
+powheg-box
+powheg-box-v2
+professor
+prophecy4f
+pyquen
+pythia6
+pythia8
+qd
+qgraf
+qqvvamp
+rapidsim
+recola
+recola_SM
+recola_SM_ATGC_WARSAW
+rivet
+sacrifice
+sherpa
+sherpa-mpich2
+starlight
+superchic
+syscalc
+tauola
+tauola++
+thep8i
+thepeg
+vbfnlo
+vincia
+whizard
+yaml-cpp
+yamlcpp
+yoda
+2.1.2-6434b
+2.1.2-ae50f
+2.1.2-c3c6e
+2.2.1-b9767
+2.2.1-c8376
+2.2.1-cb50b
+2.2.2-17bf6
+2.2.2-190e4
+2.2.2-1b546
+2.2.2-7a154
+2.2.2-cbf13
+2.3.3-49d9e
+2.3.3-83562
+2.3.3-c98f5
+2.3.3-f662b
+2.3.3-f87ce
+2.4.0
+2.4.0-1eaca
+2.4.0-1ece0
+2.4.0-5aadc
+2.4.0-7bad1
+2.4.0-805b2
+2.4.0-b448f
+2.4.0-c07fc
+2.4.0-d5810
+2.4.0-f4767
+2.4.0.atlas-12522
+2.4.0.atlas-13183
+2.4.0.atlas-3df88
+2.4.0.atlas-f522e
+2.4.0p1-3f736
+2.4.0p1-3fbad
+2.4.0p1-ab3c3
+2.4.0p1.atlas-10f54
+2.4.0p1.atlas-7a2dc
+2.4.0p1.atlas-cb377
+2.4.2
+2.4.2-0a3ef
+2.4.2-0c421
+2.4.2-83a81
+2.4.2-a13fd
+2.4.2-bad1e
+2.4.2-bca6e
+2.4.2-f2a78
+2.4.2-fadf2
+2.4.2.atlas-62d40
+2.4.2.atlas-cdf15
+2.4.2.atlas-e395c
+2.4.3
+2.4.3-1a1d2
+2.4.3-49c24
+2.4.3-5198c
+2.4.3-a9ac5
+2.4.3-fc8ad
+2.4.3.atlas-2ab82
+2.4.3.atlas-3d3a0
+2.4.3.atlas-67792
+2.4.3.atlas-69917
+2.4.3.atlas-84b0e
+2.4.3.atlas-a3ba7
+2.4.3.atlas-a4bd9
+2.4.3.atlas-b375e
+2.4.3.atlas-d2f35
+2.5.1-0fb6a
+2.5.1-383aa
+2.5.1-544c7
+2.5.1-6ba2b
+2.5.1-82120
+2.5.1-8d0af
+2.5.1-a7b70
+2.5.1-a895e
+2.5.1-f1d74
+2.5.1.atlas
+2.5.1.atlas-27e6c
+2.5.1.atlas-3ea03
+2.5.1.atlas-7346d
+2.5.1.atlas-a2834
+2.5.1.atlas-f700a
+2.5.2.atlas-6965c
+2.5.2.atlas-dcf47
+2.5.2.atlas-e66ab
+2.5.3-37513
+2.5.3-49d7a
+2.5.3-56c16
+2.5.3-750d3
+2.5.3-a66f0
+2.5.3-b3844
+2.5.3-e838c
+2.5.3.atlas-02562
+2.5.3.atlas-12fc0
+2.5.3.atlas-6a68e
+2.5.3.atlas-807ea
+2.5.3.atlas-c22d1
+2.5.3.atlas-d2ace
+2.5.3.atlas-e5305
+2.5.4-12b56
+2.5.4-6d1aa
+2.5.4-9542a
+2.5.4-bf291
+2.5.4-efe08
+2.5.4-f12ea
+2.5.4-f711b
+2.5.4-fdbdf
+2.5.5-06182
+2.5.5-0942c
+2.5.5-0fe85
+2.5.5-24331
+2.5.5-29852
+2.5.5-4455c
+2.5.5-49240
+2.5.5-73141
+2.5.5-7ce0a
+2.5.5-9052c
+2.5.5-fbba5
+2.5.5.atlas-05746
+2.5.5.atlas-0e435
+2.5.5.atlas-44154
+2.5.5.atlas-54d9a
+2.5.5.atlas-8e20e
+2.5.5.atlas-97d2b
+2.5.5.atlas-cd28e
+2.5.5.atlas-dea6b
+2.5.5p1-35c9d
+2.5.5p1-e4fbf
+2.6.0-275ce
+2.6.0-3e948
+2.6.0-3f8dd
+2.6.0-47a4d
+2.6.0-52bf0
+2.6.0-6c3f3
+2.6.0-72da7
+2.6.0-7b091
+2.6.0-ad81b
+2.6.0-d53b7
+2.6.0.atlas-01b14
+2.6.0.atlas-0bf84
+2.6.0.atlas-1a654
+2.6.0.atlas-6c92f
+2.6.0.atlas-72906
+2.6.0.atlas-742b8
+2.6.0.atlas-aece3
+2.6.0.atlas-afa8e
+2.6.0.atlas-b9aae
+2.6.0.atlas-dfd29
+2.6.1-058d6
+2.6.1-08cac
+2.6.1-092fe
+2.6.1-09fe9
+2.6.1-12d65
+2.6.1-270ec
+2.6.1-2a28f
+2.6.1-48888
+2.6.1-50593
+2.6.1-776e8
+2.6.1-7b226
+2.6.1-922e5
+2.6.1-a1105
+2.6.1-a4203
+2.6.1-afa26
+2.6.1-b41f7
+2.6.1-de572
+2.6.1-f05da
+2.6.1-f3413
+2.6.1.atlas-000ee
+2.6.1.atlas-125b9
+2.6.1.atlas-1794b
+2.6.1.atlas-1ad30
+2.6.1.atlas-21e2e
+2.6.1.atlas-2f715
+2.6.1.atlas-47351
+2.6.1.atlas-a1420
+2.6.1.atlas-ade8b
+2.6.1.atlas-b0cb9
+2.6.1.atlas-b85e7
+2.6.1.atlas-b93cd
+2.6.1.atlas-c867a
+2.6.1.atlas-ce3d6
+2.6.2-00a65
+2.6.2-01521
+2.6.2-03ea0
+2.6.2-0b089
+2.6.2-11e31
+2.6.2-187b7
+2.6.2-1cece
+2.6.2-21895
+2.6.2-2eb2b
+2.6.2-2fcf2
+2.6.2-32b88
+2.6.2-33fb0
+2.6.2-497a9
+2.6.2-4b586
+2.6.2-4d7b6
+2.6.2-58d70
+2.6.2-618c9
+2.6.2-67c6f
+2.6.2-6afd9
+2.6.2-703df
+2.6.2-7444a
+2.6.2-7c48f
+2.6.2-82ea4
+2.6.2-84fa3
+2.6.2-9519e
+2.6.2-a7223
+2.6.2-ad902
+2.6.2-b0c86
+2.6.2-bc1ac
+2.6.2-ce14a
+2.6.2-d0979
+2.6.2-dda44
+2.6.2-e4cd6
+2.6.2-e8123
+2.6.2-edb37
+2.6.2-f670d
+2.6.2-fe009
+2.6.2-ff34c
+2.6.2.atlas-05b04
+2.6.2.atlas-16a7a
+2.6.2.atlas-1c32f
+2.6.2.atlas-364ed
+2.6.2.atlas-37e74
+2.6.2.atlas-46a64
+2.6.2.atlas-47ac8
+2.6.2.atlas-528ed
+2.6.2.atlas-57b8c
+2.6.2.atlas-8386f
+2.6.2.atlas-8559f
+2.6.2.atlas-901e0
+2.6.2.atlas-ba8c2
+2.6.2.atlas-cc411
+2.6.2.atlas-d01a8
+2.6.2.atlas-d6aa6
+2.6.2.atlas-da0e7
+2.6.2.atlas-dd4ea
+2.6.2.atlas-ea267
+2.6.2.atlas-ea2b5
+2.6.2.atlas-f23a4
+2.6.2.atlas-f6822
+2.6.2.atlas-fa378
+2.6.2.atlas2-18661
+2.6.2.atlas2-1be77
+2.6.2.atlas2-1f440
+2.6.2.atlas2-23d50
+2.6.2.atlas2-a4019
+2.6.2.atlas2-cdf44
+2.6.2p1.atlas2-37156
+2.6.2p1.atlas2-b2368
+2.6.5-112b5
+2.6.5-193f5
+2.6.5-19b98
+2.6.5-1a7a1
+2.6.5-1d637
+2.6.5-2ce1d
+2.6.5-2f58d
+2.6.5-33cfd
+2.6.5-35a39
+2.6.5-4eb3e
+2.6.5-4f8c7
+2.6.5-4fee6
+2.6.5-53a6c
+2.6.5-560ad
+2.6.5-647ca
+2.6.5-64a36
+2.6.5-6985a
+2.6.5-70a48
+2.6.5-9daa2
+2.6.5-a1967
+2.6.5-a49ae
+2.6.5-a7ee7
+2.6.5-b621b
+2.6.5-b6359
+2.6.5-b9c5d
+2.6.5-e8537
+2.6.5-fcf2b
+2.6.5.atlas-0e4bd
+2.6.5.atlas-11cb9
+2.6.5.atlas-1508e
+2.6.5.atlas-83264
+2.6.5.atlas-a04fa
+2.6.5.atlas-aa034
+2.6.5.atlas-af59e
+2.6.5.atlas-b6785
+2.6.5.atlas-d44c2
+2.6.5.atlas-dfa80
+2.6.5.atlas-e7429
+2.6.5.atlas-ee7f2
+2.6.5.atlas-f6ed9
+2.6.5.atlas2-e023d
+2.6.5.atlas3-560a1
+2.6.5.atlas3-ba1c8
+2.6.5p1.atlas2-5fc73
+2.6.5p1.atlas2-71715
+2.6.5p2.atlas2-793f5
+2.6.5p2.atlas3-b6772
+2.6.5p3.atlas3-6dbc7
+2.6.6-63726
+2.6.6-9ef8f
+2.6.6-a60d7
+2.6.6-eab4f
+2.6.6-f53b3
+2.6.6.atlas-81527
+2.6.6.atlas2-47f6b
+2.6.6p3.atlas3-b4c10
+2.6.6p3.atlas4-99441
+2.6.7-0b4be
+2.6.7-20663
+2.6.7-2ac74
+2.6.7-3e1a3
+2.6.7-4aca4
+2.6.7-56a3d
+2.6.7-6ef8c
+2.6.7-a1d0c
+2.6.7-a3a27
+2.6.7-ab310
+2.6.7-c15ef
+2.6.7-ca5e6
+2.6.7.atlas-127f7
+2.6.7.atlas2-41e38
+2.6.7.atlas3-01572
+2.6.7.atlas3-68651
+2.6.7p3.atlas4-60c0f
+2.6.7p3.atlas5-4bfe1
+2.7.2-077f5
+2.7.2-255c1
+2.7.2-4aa0e
+2.7.2-4ba43
+2.7.2-68756
+2.7.2-694b6
+2.7.2-77482
+2.7.2-9469a
+2.7.2-9946a
+2.7.2-b614e
+2.7.2-b9db5
+2.7.2-c1d9d
+2.7.2-db2b5
+2.7.2-f6359
+2.7.2-f8f3f
+2.7.2-f9118
+2.7.2-fc455
+2.7.2.atlas3-e1369
+2.7.2p3.atlas5-a54cb
+2.7.3-afd8e
+2.7.3.atlas-120f0
+2.7.3.atlas3-28476
+2.7.3.atlas4-8841c
+2.7.3.py3.atlas-6c7d1
+2.7.3.py3.atlas-af132
+2.7.3.py3.atlas-fa769
+2.7.3.py3.atlas3-a3d24
+2.7.3.py3.atlas4-55559
+2.7.3p3.atlas5-81fb9
+2.7.3p3.atlas6-8a3ac
+2.8.0-a81cd
+2.8.0.atlas-d326b
+2.8.0.atlas-f91f1
+2.8.0.atlas4-79280
+2.8.0.atlas4-a4a94
+2.8.0p3.atlas6-5162b
+2.8.1-5225e
+2.8.1-e1fed
+2.8.1.atlas-101cc
+2.8.1.atlas-d8b00
+2.8.1.atlas2-4461e
+2.8.1.atlas3-35e08
+2.8.1.atlas3-834fd
+2.8.1p3.atlas10-901e7
+2.8.1p3.atlas6-c9b12
+2.8.1p3.atlas7-87323
+2.8.1p3.atlas8-c2ccd
+2.8.1p3.atlas9-857b7
+2.9.16.atlas3-3a7e9
+2.9.16.atlas4-cde77
+2.9.16.atlas5-a1b52
+2.9.2-abce8
+2.9.2.atlas-7de38
+2.9.2.atlas-86fe2
+2.9.2.atlas-d2e36
+2.9.3-6b306
+2.9.3-7706c
+2.9.3-a0671
+2.9.3-dc21d
+2.9.3.atlas-20eaa
+2.9.3.atlas-21d9c
+2.9.3.atlas-2dc2b
+2.9.3.atlas-33cb8
+2.9.3.atlas-a5843
+2.9.3.atlas-fbe62
+2.9.3.atlas.newclustering-a485b
+2.9.3.atlas1-1fe7a
+2.9.3.atlas1-32303
+2.9.3.atlas1-391df
+2.9.3.atlas1-3e872
+2.9.3.atlas1-58925
+2.9.3.atlas1-5bff4
+2.9.3.atlas1-d85b3
+2.9.3.atlas1-dff1c
+2.9.3.atlas1-ff68d
+2.9.3.atlas2-f2a0f
+2.9.5.atlas2-70ecd
+2.9.5.atlas3-bf4a5
+2.9.9.atlas2-c4dfe
+2.9.9.atlas3-6564f
+3.0.0.beta-17200
+3.0.0.beta-25e6d
+3.0.0.beta-2bb09
+3.0.0.beta-3dd4f
+3.0.0.beta-50cc6
+3.0.0.beta-585f1
+3.0.0.beta-605a1
+3.0.0.beta-628cb
+3.0.0.beta-649d3
+3.0.0.beta-6adb7
+3.0.0.beta-798c7
+3.0.0.beta-8dfd1
+3.0.0.beta-96007
+3.0.0.beta-9768f
+3.0.0.beta-981ac
+3.0.0.beta-aa809
+3.0.0.beta-aee69
+3.0.0.beta-bed73
+3.0.0.beta-c34d7
+3.0.0.beta-c34e0
+3.0.0.beta-d5bf1
+3.0.0.beta-e0943
+3.0.0.beta-e165e
+3.0.0.beta-e1d96
+3.0.0.beta-ec1b9
+3.0.0.beta-f335d
+3.0.0.beta-f6fce
+3.0.0.beta-f82ab
+3.0.0.beta-f83fe
+3.1.0-6f93d
+3.1.1.atlas-494bc
+3.1.2.beta.atlas1-77aa8
+3.2.0.atlas-b6c74
+3.2.0.atlas1-4c57b
+3.3.1.atlas1-a6ee0
+3.3.1.atlas3-13d41
+3.3.1.atlas3-43598
+3.3.1.atlas3-88164
+3.3.1.atlas3-ac3ee
+3.3.1.atlas3-dc45c
+3.3.1.atlas3-ec208
+3.3.1.atlas3-f49f0
+3.3.1.atlas4-1a556
+3.4.1.atlas1-75716
+3.4.1.atlas1-901f1
+3.4.1.atlas1-b63c0
+3.4.1.atlas1-f67a3
+3.4.2.atlas1-23cda
+3.4.2.atlas1-4a549
+3.4.2.atlas1-dd317
+3.4.2.atlas1-fbace
+3.5.0.atlas1-7de43
+3.5.0.atlas2-08272
+3.5.0.atlas2-b56ba
+3.5.1.atlas2-3b1bb
+3.5.1.atlas2-93b77
+3.5.1.atlas3-2036f
+3.5.11.atlas13-b1d01
+3.5.11.atlas13-dbd05
+3.5.11.atlas14-0fc5e
+3.5.11.atlas14-7f10e
+3.5.11.atlas14-95fa6
+3.5.11.atlas15-905e2
+3.5.11.atlas15-c33bd
+3.5.11.atlas16-eaff4
+3.5.2.atlas3-2c791
+3.5.2.atlas3-4ec73
+3.5.3.atlas4-8cb97
+3.5.3.atlas5-e6f9c
+3.5.3.atlas6-bc9f8
+3.5.3.atlas7-2c347
+3.5.3.atlas7-64c17
+3.5.3.atlas7-857d0
+3.5.3.atlas8-477af
+3.5.3.atlas9-10bac
+3.5.3.atlas9-64f0e
+3.5.4.atlas10-b3c8a
+3.5.5.atlas11-4cb7b
+3.5.5.atlas11-74eb7
+3.5.5.atlas11-b51a9
+3.5.5.atlas11-b55e4
+3.5.6.atlas13-13676
+3.5.6.atlas13-4fa27
+3.5.7.atlas11-3ae67
+3.5.7.atlas11-abcae
+3.5.7.atlas11-f240a
+3.5.7.atlas12-1ac71
+3.5.9.atlas13-44c2e
+3.5.9.atlas13-6be42
+3.5.9.atlas13-cfbfc
+3.5.9.atlas13-ebc2d
+3.6.4.atlas2-365b5
+3.6.4.atlas2-39299
+3.6.4.atlas2-6b6b2
+3.6.4.atlas2-b103e
+3.6.4.atlas2-cbb84
+3.6.7.atlas3-11409
+3.6.7.atlas3-f8dd7
+3.7.1.atlas1-8d93d
+3.7.1.atlas1-fa4fc
+3.8.1.atlas1-6ea8f
+175
+175-0e59e
+175-0f884
+175-18876
+175-2372f
+175-3c6b0
+175-52ac4
+175-5396c
+175-653fe
+175-707fa
+175-7aea9
+175-9b43c
+175-9fa1b
+175-a9af2
+175-aec73
+175-c30b1
+175-d51c0
+175-db7cc
+185-0341b
+185-05090
+185-38fda
+185-3fc14
+185-4ecf0
+185-7a7b2
+185-84210
+185-a187f
+185-efbe4
+185-f4b83
+186-0f312
+186-12fa6
+186-20586
+186-21920
+186-30a4b
+186-4a0e2
+186-4a4bf
+186-4f5d0
+186-6717f
+186-70e5f
+186-75bec
+186-75d11
+186-78d25
+186-94ac0
+186-9edcf
+186-b18be
+186-b1d4c
+186-b737c
+186-bfd35
+186-c26ac
+186-c82cb
+186-d30b3
+186-e0170
+186-e4b4a
+186-f3965
+201-07f54
+201-0c5ea
+201-57ff7
+201-5bd6c
+201-91d94
+201-93fbd
+201-ac051
+201-d1551
+205-0c9b1
+205-232a1
+205-23796
+205-6155d
+205-85c07
+205-8c202
+205-99b98
+205-c3749
+209-25c5f
+209-302e0
+209-4cd24
+209-6a74e
+209-6ce7a
+209-7b198
+209-dc741
+209-df6bc
+210-02e4d
+210-087b6
+210-1c120
+210-1e239
+210-2e056
+210-3bf54
+210-3d321
+210-3df9e
+210-4ed96
+210-534c7
+210-58e01
+210-613dc
+210-662df
+210-6c15b
+210-75596
+210-78498
+210-79be6
+210-7e450
+210-800fe
+210-820e3
+210-8eda7
+210-94e15
+210-9a718
+210-9f35e
+210-a0c1d
+210-a0d2a
+210-b53cb
+210-b73aa
+210-c3bce
+210-dc0e2
+210-def71
+210-ee035
+210-f76e0
+210-f8653
+210-fb618
+210-fbd51
+212-040d1
+212-0e176
+212-1076d
+212-18087
+212-23229
+212-5b68d
+212-5cde9
+212-6934a
+212-7f2dc
+212-8cc07
+212-90044
+212-a454d
+212-a65b9
+212-abe18
+212-b3a71
+212-d88f2
+212-f6bb5
+212-f7912
+212.pdf6plugin-057cd
+215
+215-2b875
+215-2d8f0
+215-335fa
+215-36b3a
+215-4ab26
+215-76aaa
+215-a356a
+215-a3f2c
+215-a91af
+215-c1780
+215-db74d
+215-de77e
+215-ea4f1
+219-08922
+219-26672
+219-2f0e3
+219-3357b
+219-38a2e
+219-429b6
+219-49d6c
+219-4f68b
+219-53622
+219-54f17
+219-651e4
+219-8053c
+219-8af52
+219-8edc0
+219-aa5d8
+219-b7b5c
+219-bb606
+219-c752c
+219-ca1d7
+219-d7cf2
+219-db00a
+219-e7cec
+219.pdf6plugin-0aef0
+219.pdf6plugin-125d5
+219.pdf6plugin-151e1
+219.pdf6plugin-15f48
+219.pdf6plugin-28d30
+219.pdf6plugin-2a309
+219.pdf6plugin-2d405
+219.pdf6plugin-37dba
+219.pdf6plugin-3a663
+219.pdf6plugin-42f1a
+219.pdf6plugin-43167
+219.pdf6plugin-57cea
+219.pdf6plugin-6942e
+219.pdf6plugin-699fb
+219.pdf6plugin-7b3c4
+219.pdf6plugin-7caf8
+219.pdf6plugin-7d03e
+219.pdf6plugin-7dc21
+219.pdf6plugin-86548
+219.pdf6plugin-93a6f
+219.pdf6plugin-a7a51
+219.pdf6plugin-ba625
+219.pdf6plugin-bf6ae
+219.pdf6plugin-c3414
+219.pdf6plugin-ca802
+219.pdf6plugin-ce51f
+219.pdf6plugin-e39d5
+219.pdf6plugin-fcfb5
+223-0469c
+223-08ae4
+223-0e1ed
+223-0e2e5
+223-0e6d8
+223-16928
+223-1768c
+223-17b14
+223-1860a
+223-1f9eb
+223-34eb2
+223-3c518
+223-413ca
+223-44534
+223-598e6
+223-5e9af
+223-63ad6
+223-6803f
+223-691a4
+223-69f9d
+223-77fd6
+223-79c50
+223-82590
+223-83c9b
+223-94727
+223-99611
+223-9a707
+223-a2594
+223-aeb53
+223-b0ce9
+223-b1372
+223-b87ba
+223-c11e6
+223-cad47
+223-d59af
+223-df94e
+223-e1253
+223-e1951
+223-e7f49
+223-e9b4b
+223-f2031
+223-f62b2
+223-f737d
+223-f8a27
+223-f921b
+223-f9399
+223-fa756
+223.pdf6plugin-272ff
+223.pdf6plugin-560b2
+223.pdf6plugin-a6fae
+226-0ca72
+226-1abdc
+226-32683
+226-45e1e
+226-4af47
+226-4b559
+226-4b86c
+226-748f6
+226-92ae2
+226-a3ea8
+226-ac233
+226-b22ff
+226-b48fd
+226-c3dcb
+226-c6f88
+226-d43ed
+226-e1e45
+226-ed620
+226-ef2fb
+226.pdf6plugin-22b02
+226.pdf6plugin-23ec6
+226.pdf6plugin-2f137
+226.pdf6plugin-54233
+226.pdf6plugin-640b5
+226.pdf6plugin-67b5a
+226.pdf6plugin-8be12
+226.pdf6plugin-a219e
+226.pdf6plugin-d3587
+226.pdf6plugin-d9e2a
+226.pdf6plugin-e06f1
+226.pdf6plugin-e2cf4
+226.pdf6plugin-eabd3
+226.pdf6plugin-f2b55
+230-16dc3
+230-24d5a
+230-2ec85
+230-3374b
+230-638f7
+230-6e9b3
+230-6eb2a
+230-7e7cc
+230-82451
+230-91c8f
+230-9eeb9
+230-a6e86
+230-ad997
+230-b1563
+230-bab74
+230-c737a
+230-cf4ef
+230-d027b
+230-d3518
+230-e1e6d
+230-e835e
+230-f40ab
+230-f49e9
+230-f9f6f
+230.lhapdf621-351c3
+230.pdf6plugin-16ae1
+230.pdf6plugin-18a5a
+230.pdf6plugin-34015
+230.pdf6plugin-4bcc1
+230.pdf6plugin-6e1e7
+230.pdf6plugin-afd03
+230.pdf6plugin-da1b8
+230.pdf6plugin-df08b
+235-07243
+235-0d59e
+235-0e43e
+235-11e53
+235-1210c
+235-1a72a
+235-1c577
+235-21c59
+235-2b7eb
+235-3442b
+235-34c38
+235-3a4b0
+235-423a2
+235-4b955
+235-4eff5
+235-51517
+235-5c3b4
+235-5e8d7
+235-64ca7
+235-65274
+235-72481
+235-79152
+235-79f35
+235-7ab03
+235-7bf0d
+235-92c0a
+235-9d3ba
+235-a1fef
+235-a588d
+235-b1fd7
+235-b3553
+235-c1b37
+235-c2285
+235-c37c5
+235-c4916
+235-d875a
+235-df7a5
+235-e2de4
+235-e7160
+235-f4956
+235-f6020
+235-f8924
+235-fd253
+235p1-33f68
+235p1-96617
+235p1-991c7
+240-04609
+240-05225
+240-0a794
+240-16856
+240-17034
+240-256b4
+240-2cf8d
+240-34250
+240-3739c
+240-39e1f
+240-3ab89
+240-46f66
+240-592c4
+240-5fa64
+240-63a5a
+240-693a6
+240-6e99c
+240-71a6b
+240-865e0
+240-8bc60
+240-979ba
+240-ac15c
+240-b09bf
+240-bafa8
+240-c5d69
+240-c69e6
+240-d52c4
+240-d5d31
+240-d90c8
+240-dae7a
+240-dc001
+240-debc5
+240-e07b8
+240-e934f
+240-f40be
+240.lhcb
+240.lhcb-77f34
+240.lhcb3
+240.lhcb3-faa72
+240.lhcb4-22756
+240.lhcb4-3383d
+240.lhcb4-585a0
+240.lhcb4-78529
+240.lhcb4-80565
+240.lhcb4-f22cc
+240.lhcbtest2
+240.lhcbtest2-ac227
+240p1-383a6
+240p1-4ef28
+240p1-ecd34
+240p1-ef074
+240p3-3b2b3
+240p3-6ce1e
+240p4-ee4bb
+243-45a87
+243-47236
+243-4e8f4
+243-5929c
+243-7903e
+243-813df
+243-a3d15
+243-ac0f1
+243-ae33f
+243-cdb29
+243-d55cf
+243p3-7a329
+243p3-e92a3
+243p4-aa2b8
+243p4-fcf56
+244-10e16
+244-21e33
+244-23759
+244-33c9b
+244-34121
+244-34e14
+244-36fb1
+244-4afaf
+244-4c13e
+244-5c4af
+244-5f94a
+244-675ca
+244-6c87c
+244-6e6cc
+244-6f1a3
+244-7dc32
+244-7f654
+244-80e4d
+244-83baa
+244-87539
+244-8a766
+244-90b9a
+244-93994
+244-93be9
+244-989d6
+244-a82f4
+244-b3090
+244-b5117
+244-bdb18
+244-e7694
+244-ec256
+244-fc4da
+244.lhcb4-040d9
+244.lhcb4-32904
+244.lhcb4-54822
+244.lhcb4-59e9e
+244.lhcb4-5f34a
+244.lhcb4-679eb
+244.lhcb4-698c9
+244.lhcb4-71fed
+244.lhcb4-81c49
+244.lhcb4-83bde
+244.lhcb4-983d5
+244.lhcb4-9b067
+244.lhcb4-abb2a
+244.lhcb4-ac2f6
+244.lhcb4-c6e0f
+244.lhcb4-dfbcc
+244.lhcb4-eceab
+244.lhcb4-fa404
+244.lhcb4.rangefix-0260d
+244.lhcb4.rangefix-0accb
+244.rangefix-12ee3
+244.rangefix-4b2af
+244p3-65fbc
+244p3-cba4a
+244p3.rangefix-8156e
+244p3.rangefix-e3ee3
+245-341dd
+245-956de
+245-b48b5
+245-b7e05
+245-d6a0f
+245-eb3cb
+245-f72f8
+245.mg5.atlas-ab924
+245p3-82c36
+245p3.lhcb5-4c0bf
+245p3.lhcb6-860ab
+245p3.lhcb7-a2c9b
+301-27bc2
+301-4e0e1
+301-66b63
+301-72a18
+301-c900f
+301-ea257
+301p3-5c7f4
+301p3-fb9d7
+302-39119
+302-4b166
+302-4bce7
+302-8a194
+302-960cd
+302-dcd2b
+302-f016a
+302p3-367ed
+302p3-ccaf6
+303-2f361
+303-4e6c7
+303-57fbe
+303-b14b7
+303-d985f
+303-f2203
+303-f49f8
+303p3-b96fb
+303p3m-2fe05
+303p3m-7e24b
+303p3m1-5d12a
+304-96bef
+304-cd881
+304p1.atlas1-e6c4f
+304p3-baba2
+305-99b20
+305-c2155
+306-0223b
+306-09e84
+306-2b3d4
+306-4474b
+306-8153f
+306-832b6
+306-9f264
+306-fce7e
+306.fxfx-50b48
+307p1-0d3c2
+307p1-3aa91
+307p1-62ed7
+307p1-6607c
+307p1-89f17
+307p1-92a66
+307p1-96556
+307p1-a31c1
+307p1-b4448
+307p1-c5381
+307p1-cc051
+307p1-d3736
+307p1-e23a8
+307p1-ea8a9
+307p1-ecf9d
+307p1-fcff2
+307p1.atlas-939c2
+307p1.fxfx-33a6e
+307p1.fxfx-66d00
+307p1.fxfx-95262
+307p1.fxfx-c6997
+308-16430
+308-1a15d
+308-1be1a
+308-2a60c
+308-3bacc
+308-3f34f
+308-4cbe0
+308-59c6e
+308-659ad
+308-7477f
+308-7d1da
+308-98b41
+308-aacf0
+308-ad840
+308-c92d6
+308-cc43c
+308-d0025
+308-e586d
+308-f5fff
+309-1ea66
+309-36906
+309-4d1e5
+309-50471
+309-52f25
+309-5ed0a
+309-8ce12
+309-923b4
+309-95b8b
+309-960e9
+309-a61ac
+309-b25bc
+309-bb414
+309-c036a
+309-dba9f
+309-ef893
+309-f4cdc
+309-f6091
+310-1fdfe
+310-2f242
+310-4b0bd
+310-6ff1c
+310-8da7b
+311-421f2
+311-c5bb2
+312-1b262
+312-37ba6
+312-532e8
+312-56848
+312-5b463
+312-6d267
+312-814b8
+312-88928
+312-a7975
+312.atlas1-fa392
+312.atlas2-5dc8a
+312.atlas2-75fb2
+312.atlas2-bb092
+312.atlas2-ca58d
+312.atlas2-cb25e
+313-2937c
+313-38fbb
+313-94d92
+313-ba28f
+313-ed5f2
+314-226f4
+315-20d72
+315-43321
+315-4b2bb
+315-4e204
+315-e0b0c
+316-b4ba2
+317-177d7
+317-414b9
+317-7ca9d
+317-bd2a2
+317-fcd99
+317.lhcb-c7eb6
+ls: cannot access '/cvmfs/sft.cern.ch/lcg/releases/MCGenerators/delphes': No such file or directory
+AIDA
+Authlib
+Boost
+C50
+CMake
+Catch2
+CouchDB
+CppUnit
+DD4hep
+Davix
+DecayLanguage
+EDM4hep
+GSL
+Garfield++
+Gaudi
+Geant4
+Geant4-vecgeom-scalar
+GitCondDB
+HeapDict
+HepMC
+HepPDT
+Jinja2
+LCG_contrib_aarch64-el9-gcc14-opt.txt
+LCG_contrib_aarch64-el9-gcc15-opt.txt
+LCG_contrib_x86_64-el9-clang19-opt.txt
+LCG_contrib_x86_64-el9-gcc13-opt.txt
+LCG_contrib_x86_64-el9-gcc14-dbg.txt
+LCG_contrib_x86_64-el9-gcc14-opt.txt
+LCG_contrib_x86_64-el9-gcc14fp-opt.txt
+LCG_contrib_x86_64-el9-gcc15-dbg.txt
+LCG_contrib_x86_64-el9-gcc15-opt.txt
+LCG_contrib_x86_64-ubuntu2204-gcc11-opt.txt
+LCG_contrib_x86_64-ubuntu2404-gcc13-opt.txt
+LCG_externals_aarch64-el9-gcc14-opt.txt
+LCG_externals_aarch64-el9-gcc15-opt.txt
+LCG_externals_arm64-mac13-clang150-opt.txt
+LCG_externals_arm64-mac14-clang160-opt.txt
+LCG_externals_arm64-mac15-clang170-opt.txt
+LCG_externals_x86_64-el9-clang19-opt.txt
+LCG_externals_x86_64-el9-gcc13-opt.txt
+LCG_externals_x86_64-el9-gcc14-dbg.txt
+LCG_externals_x86_64-el9-gcc14-opt.txt
+LCG_externals_x86_64-el9-gcc14fp-opt.txt
+LCG_externals_x86_64-el9-gcc15-dbg.txt
+LCG_externals_x86_64-el9-gcc15-opt.txt
+LCG_externals_x86_64-ubuntu2204-gcc11-opt.txt
+LCG_externals_x86_64-ubuntu2404-gcc13-opt.txt
+LCG_generators_aarch64-el9-gcc14-opt.txt
+LCG_generators_aarch64-el9-gcc15-opt.txt
+LCG_generators_arm64-mac13-clang150-opt.txt
+LCG_generators_arm64-mac14-clang160-opt.txt
+LCG_generators_arm64-mac15-clang170-opt.txt
+LCG_generators_x86_64-el9-clang19-opt.txt
+LCG_generators_x86_64-el9-gcc13-opt.txt
+LCG_generators_x86_64-el9-gcc14-dbg.txt
+LCG_generators_x86_64-el9-gcc14-opt.txt
+LCG_generators_x86_64-el9-gcc14fp-opt.txt
+LCG_generators_x86_64-el9-gcc15-dbg.txt
+LCG_generators_x86_64-el9-gcc15-opt.txt
+LCG_generators_x86_64-ubuntu2204-gcc11-opt.txt
+LCG_generators_x86_64-ubuntu2404-gcc13-opt.txt
+LCIO
+MCGenerators
+MarkupSafe
+OWSLib
+PyHEADTAIL
+PyJWT
+Python
+RELAX
+ROOT
+RooUnfold
+SIO
+VTK
+Vc
+VecGeom
+XercesC
+absl
+absl_py
+accelerate
+acts
+adaptyst
+aiofile
+aiohappyeyeballs
+aiohttp
+aiohttp_cors
+aiohttp_retry
+aiosignal
+aiostream
+alabaster
+alembic
+alpaka
+altair
+annotated_types
+ant
+antlr4_python3_runtime
+anyio
+appdirs
+appnope
+archspec
+argon2_cffi
+argon2_cffi_bindings
+armadillo
+arrow
+asciitree
+asdf
+asdf_standard
+asdf_transform_schemas
+asn1crypto
+assimp
+asteval
+astor
+astroid
+astropy
+astropy_iers_data
+asttokens
+astunparse
+async_generator
+async_lru
+async_timeout
+asyncache
+atomicwrites
+attrs
+auth_get_sso_cookie
+autoconf
+autograd
+automake
+autopep8
+avro
+awkward
+awkward_cpp
+babel
+backcall
+backoff
+bcrypt
+bear
+beautifulsoup4
+beniget
+bison
+black
+blas
+bleach
+blosc
+blosc2
+bokeh
+boost_histogram
+boto3
+botocore
+brotli
+build
+bzip2
+c_ares
+cabinetry
+cachetools
+caio
+cairo
+calmjs_parse
+capturer
+cartopy
+catboost
+ccache
+ccorp_yaml_include_relative_path
+certifi
+cffi
+cfgv
+cfitsio
+chardet
+charset_normalizer
+clhep
+cli11
+click
+click_default_group
+click_didyoumean
+clikit
+cln
+cloudpickle
+cma
+cmaketools
+coffea
+coin3d
+colorama
+colorcet
+colored
+coloredlogs
+colorlog
+comm
+commonmark
+configobj
+configparser
+confluent_kafka
+confuse
+cons
+contourpy
+control
+correctionlib
+coverage
+cppcheck
+cppgsl
+cppy
+cppzmq
+cpymad
+cramjam
+crashtest
+crc32c
+crypto
+cryptography
+curl
+cx_oracle
+cycler
+cython
+dask
+dask_awkward
+dask_histogram
+dask_jobqueue
+dask_kubernetes
+dask_lxplus
+dataclasses_json
+debugpy
+decorator
+defusedxml
+delphes
+deprecated
+deprecation
+dill
+distlib
+distributed
+distro
+dm_tree
+docopt
+docutils
+donfig
+dotmap
+double_conversion
+doxygen
+eigen
+elasticsearch
+entrypoints
+et_xmlfile
+etuples
+events
+exceptiongroup
+execnet
+executing
+expat
+extension_helpers
+faiss
+fastjet
+fastjsonschema
+fftw3
+filelock
+fjcontrib
+flake8
+flake8_bugbear
+flake8_builtins
+flatbuffers
+flex
+fmt
+fontconfig
+fonttools
+fpdf2
+fplll
+fqdn
+freetype
+fribidi
+frontier_client
+frozendict
+frozenlist
+fs
+fsspec
+fsspec_xrootd
+func_adl
+func_adl_xAOD
+funcsigs
+future
+gast
+gcovr
+gdal
+gdb
+genshi
+geos
+gettext
+gflags
+ginac
+git
+gl2ps
+glib
+globus_sdk
+glog
+gmp
+gnu_sed
+gnu_tar
+gnuplot
+go
+go.uuid
+go_demangle
+go_liner
+go_readline
+go_runewidth
+go_zmq4
+gomacro
+google_auth
+google_auth_oauthlib
+google_benchmark
+google_pasta
+googledrivedownloader
+googletest
+gophernotes
+gperf
+gperftools
+graphviz
+graphviz_py
+greenlet
+grpc
+grpcio
+gssapi
+h11
+h5py
+hadoop
+hadoop_xrootd
+harfbuzz
+hbase
+hdf5
+hdf5_mpi
+heaptrack
+hepdata_converter
+hepdata_lib
+hepdata_validator
+hepmc3
+hepstats
+hepunits
+hf_xet
+highfive
+hist
+histoprint
+hive
+horovod
+html5lib
+httpcore
+httpstan
+httpx
+httpx_sse
+httpx_ws
+huggingface_hub
+humanfriendly
+humanize
+hwloc
+hyperopt
+hypothesis
+identify
+idna
+igprof
+imageio
+imagemagick
+imagesize
+iminuit
+imjoy_rpc
+imjoy_utils
+importlib_metadata
+importlib_resources
+iniconfig
+ipydatawidgets
+ipykernel
+ipympl
+ipyparallel
+ipython
+ipython_genutils
+ipywidgets
+iso8601
+isodate
+isoduration
+isort
+itk
+itk_core
+itk_filtering
+itk_io
+itk_meshtopolydata
+itk_numerics
+itk_registration
+itk_segmentation
+itkwasm
+itkwasm_downsample
+itkwasm_downsample_wasi
+itkwidgets
+jacobi
+java
+jax
+jaxlib
+jedi
+jemalloc
+jl_ijulia
+jmespath
+joblib
+jpeg
+json_logger
+jsonc
+jsoncpp
+jsonmcpp
+jsonpatch
+jsonpointer
+jsonschema
+jsonschema_path
+jsonschema_specifications
+julia
+jupyter
+jupyter_client
+jupyter_console
+jupyter_contrib_core
+jupyter_contrib_nbextensions
+jupyter_core
+jupyter_events
+jupyter_highlight_selected_word
+jupyter_latex_envs
+jupyter_lsp
+jupyter_nbextensions_configurator
+jupyter_packaging
+jupyter_server
+jupyter_server_terminals
+jupyterlab
+jupyterlab_pygments
+jupyterlab_rise
+jupyterlab_server
+jupyterlab_widgets
+keras
+keras_applications
+keras_preprocessing
+keras_tuner
+kiwisolver
+kokkos
+kopf
+kr8s
+kt_legacy
+kubernetes
+kubernetes_asyncio
+langchain
+langchain_community
+langchain_core
+langchain_text_splitters
+langsmith
+lap
+lark
+lazy_loader
+lazy_object_proxy
+lcgenv
+lcov
+lhereader
+libaio
+libarchive
+libbpf
+libclang
+libedit
+libevent
+libffi
+libgeotiff
+libgit2
+libm_aocl
+libnuma
+libosxunwind
+libpqxx
+librdkafka
+libsodium
+libsvm
+libtool
+libtraceevent
+libunwind
+libuv
+libxml2
+libxslt
+libzip
+lightning_utilities
+linkify_it_py
+llvmlite
+lmfit
+locket
+log4cpp
+logical_unification
+logilabcommon
+looseversion
+lwtnn
+lxml
+lz4
+m2crypto
+m4
+madx
+make_it_sync
+mako
+markdown
+markdown_it_py
+marshmallow
+marshmallow_enum
+matplotlib
+matplotlib_inline
+maven
+mccabe
+mdit_py_plugins
+mdurl
+memory_profiler
+memray
+meson
+metakernel
+mimesis
+minikanren
+minio
+miniopy_async
+minrpc
+mistune
+ml_dtypes
+mock
+more_itertools
+motif
+mpfi
+mpfr
+mpi4py
+mplhep
+mplhep_data
+mpmath
+msgpack
+msgpackc
+multidict
+multipledispatch
+multiprocess
+mypy
+mypy_extensions
+mysql
+mysql_connector_python
+naked
+namex
+nanobind
+nanomsg
+narwhals
+nbclassic
+nbclient
+nbconvert
+nbformat
+ndindex
+nest_asyncio
+netcdfc
+networkx
+ngff_zarr
+ninja
+nltk
+nodeenv
+nodejs
+nose
+notebook
+notebook_shim
+numba
+numba_stats
+numcodecs
+numdifftools
+numexpr
+numpy
+oauthlib
+ocaml
+octave
+octavekernel
+odfpy
+omniorb
+onnx
+onnxruntime
+openai
+openapi_core
+openapi_schema_validator
+openapi_spec_validator
+opencv_python
+openmpi
+openpyxl
+openqasm3
+opensearch_py
+openssl
+opt_einsum
+optree
+optuna
+oracle
+oracledb
+ordered_set
+orjson
+outcome
+overrides
+p7zip
+packaging
+pacparser
+pandas
+pandocfilters
+panel
+pango
+param
+paramiko
+parse
+parsl
+parso
+partd
+particle
+pastel
+patchelf
+pathable
+pathos
+pathspec
+patsy
+pbr
+pcre
+pcre2
+pep517
+perf
+pexpect
+pickleshare
+pillow
+pip
+pipdeptree
+pipenv
+pixman
+pkg_config
+platformdirs
+plotext
+plotly
+pluggy
+plumbum
+ply
+png
+poco
+podio
+polars
+pooch
+postgresql
+pox
+ppft
+pprof
+prctl
+pre_commit
+prettytable
+proj
+prometheus_client
+prompt_toolkit
+propcache
+protobuf
+protobuf2
+psutil
+ptyprocess
+pure_eval
+py
+py4j
+py_lz4
+pyanalysis
+pyarrow
+pyasn1
+pyasn1_modules
+pybind11
+pycairo
+pycodestyle
+pycparser
+pycpuinfo
+pycryptodome
+pyct
+pydantic
+pydantic_core
+pydantic_settings
+pydigitalwavetools
+pydot
+pydot_ng
+pyeda
+pyerfa
+pyflakes
+pygments
+pygraphics
+pygraphviz
+pyhf
+pyjson5
+pykube_ng
+pylev
+pylhe
+pylint
+pynacl
+pyparsing
+pypdf
+pypi_arrow
+pypng
+pyproj
+pyqt5
+pyqt5_sip
+pyqt_builder
+pyroscope
+pyroscope_io
+pyrsistent
+pyserial
+pyshp
+pyshtools
+pysimdjson
+pyslha
+pystan
+pytables
+pytensor
+pytest
+pytest_cov
+pytest_runner
+pytest_xdist
+python_box
+python_dateutil
+python_dotenv
+python_gitlab
+python_jsonpath
+python_vxi11
+pythran
+pytools
+pytorch_lightning
+pytz
+pyviz_comms
+pywt
+pyxxhash
+pyyaml
+pyzmq
+qastle
+qcachegrind
+qibo
+qibojit
+qrcode
+qt5
+qt6
+qtconsole
+qtpy
+qulacs
+railroad_diagrams
+rangev3
+rapidjson
+rapidyaml
+rdflib
+re2
+readline
+redis
+referencing
+regex
+requests
+requests_gssapi
+requests_oauthlib
+requests_toolbelt
+requests_unixsocket
+resample
+retry
+retrying
+rfc3339_validator
+rfc3986_validator
+rich
+rich_argparse
+rise
+rpds_py
+rq
+rsa
+ruamel_yaml
+ruamel_yaml_clib
+ruff
+rust
+s3transfer
+safetensors
+scandir
+scikit_hep
+scikit_rf
+scikitbuild
+scikitimage
+scikitlearn
+scipy
+seaborn
+selenium
+semantic_version
+send2trash
+sentence_transformers
+sentencepiece
+servicex
+setuptools
+setuptools_scm
+shapely
+shellescape
+shellingham
+shortuuid
+simdjson
+simplegeneric
+simplejson
+singledispatch
+sip
+six
+snappy
+sniffio
+snowballstemmer
+sollya
+sortedcontainers
+soupsieve
+spark
+spdlog
+spey
+sphinx
+sphinx_rtd_theme
+sphinxcontrib_applehelp
+sphinxcontrib_devhelp
+sphinxcontrib_htmlhelp
+sphinxcontrib_jquery
+sphinxcontrib_jsmath
+sphinxcontrib_qthelp
+sphinxcontrib_serializinghtml
+sqlalchemy
+sqlite
+stack_data
+statsmodels
+stevedore
+stomppy
+storm
+suitesparse
+svgpath
+svgpathtools
+svgwrite
+swig
+sympy
+synr
+tabulate
+tbb
+tblib
+tcut_to_qastle
+tenacity
+tensorboard
+tensorboardX
+tensorboard_data_server
+tensorboard_plugin_wit
+tensorflow
+tensorflow_io_gcs_filesystem
+tensorflow_probability
+termcolor
+terminado
+testpath
+tex2pix
+texinfo
+texttable
+textual
+tf2onnx
+tf_keras
+tf_pwa
+tfs_pandas
+threadpoolctl
+thrift
+tiff
+tifffile
+tinycss2
+tinydb
+tokenizers
+toml
+tomli
+tomlkit
+toolz
+torch
+torch_cluster
+torch_geometric
+torch_scatter
+torch_sparse
+torchmetrics
+torchvision
+tornado
+tqdm
+traitlets
+traittypes
+transformers
+tricktrack
+trio
+trio_websocket
+typeguard
+typer
+types_python_dateutil
+types_pyyaml
+typing_extensions
+typing_inspect
+typing_inspection
+tzdata
+tzlocal
+uc_micro_py
+uhi
+ultralytics
+ultralytics_thop
+umesimd
+uncertainties
+unigen
+uproot
+uproot_browser
+uri_template
+urllib3
+utf8cpp
+utf8proc
+uuid
+valgrind
+vcversioner
+vdt
+veccore
+vector
+vectorclass
+verboselogs
+versioneer
+virtualenv
+virtualenv_clone
+virtualenvwrapper
+wasmtime
+watchdog
+wcwidth
+webargs
+webcolors
+webencodings
+webio_jupyter_extension
+websocket_client
+websockets
+werkzeug
+wheel
+widgetsnbextension
+wrapt
+wsproto
+xapian
+xarray
+xenv
+xgboost
+xlrd
+xqilla
+xrootd
+xxHash
+xyzservices
+xz
+yacs
+yamlcpp
+yarl
+zarr
+zeromq
+zfit
+zfit_interface
+zfit_physics
+zict
+zipp
+zlib
+zstandard
+
+[exit 0]
+
+$ readlink -f "$(command -v python3)"; rpm -q python3 root-core eos-client; fs listacl /afs/cern.ch/user/r/rjiang
+/cvmfs/cms.cern.ch/el8_amd64_gcc10/external/python3/3.9.6-67e5cf5b4952101922f1d4c8474baa39/bin/python3
+python3-3.9.25-7.el9_8.3.x86_64
+root-core-6.40.04-4.el9.x86_64
+eos-client-5.4.9-1.rh9.cern.x86_64
+Access list for /afs/cern.ch/user/r/rjiang is
+Normal rights:
+  system:administrators rlidwka
+  system:anyuser l
+  rjiang rlidwka
+
+[exit 0]
+
+$ rg -n '^(model|model_reasoning_effort|model_provider|profile)[[:space:]]*=' /eos/home-r/rjiang/.codex/config.toml
+
+[exit 1]
+
+$ eos root://eoshome-r.cern.ch quota
+
+By group:
+┏━> Quota Node: /eos/user/r/rjiang/
+┌──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
+│group     │used bytes│logi bytes│used files│aval bytes│aval logib│aval files│ filled[%]│vol-status│ino-status│
+└──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┘
+ project     780.39 GB  390.19 GB   737.31 K    2.00 TB    1.00 TB     5.00 M    39.02 %         [1;32mok[0m         [1;32mok[0m 
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+[exit 0]
+
+$ rg -n -i "madgraph|pythia8|lhapdf|delphes|^ROOT;|^Python;" /cvmfs/sft.cern.ch/lcg/releases/LCG_108/LCG_generators_x86_64-el9-gcc13-opt.txt /cvmfs/sft.cern.ch/lcg/releases/LCG_108/LCG_externals_x86_64-el9-gcc13-opt.txt; ls -l /cvmfs/sft.cern.ch/lcg/views/LCG_108/x86_64-el9-gcc13-opt/setup.sh
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/LCG_generators_x86_64-el9-gcc13-opt.txt:5:SFGen; a8578; 1.03.atlas2; ./MCGenerators/SFGen/1.03.atlas2/x86_64-el9-gcc13-opt; lhapdf-fc9c9
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/LCG_generators_x86_64-el9-gcc13-opt.txt:8:apfel; f6ce7; 3.1.0; ./MCGenerators/apfel/3.1.0/x86_64-el9-gcc13-opt; swig-f653a,lhapdf-fc9c9,Python-531c6
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/LCG_generators_x86_64-el9-gcc13-opt.txt:12:evtgen; 5fdf7; 2.2.1; ./MCGenerators/evtgen/2.2.1/x86_64-el9-gcc13-opt; hepmc3-1304c,pythia8-4b2bb,photos++-29dbc,tauola++-3301e
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/LCG_generators_x86_64-el9-gcc13-opt.txt:20:lhapdf; fc9c9; 6.5.5; ./MCGenerators/lhapdf/6.5.5/x86_64-el9-gcc13-opt; setuptools-2e821,cython-35f43,Python-531c6
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/LCG_generators_x86_64-el9-gcc13-opt.txt:29:pythia8; 4b2bb; 315; ./MCGenerators/pythia8/315/x86_64-el9-gcc13-opt; lhapdf-fc9c9,Python-531c6
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/LCG_generators_x86_64-el9-gcc13-opt.txt:36:superchic; a651f; 5.4.1; ./MCGenerators/superchic/5.4.1/x86_64-el9-gcc13-opt; lhapdf-fc9c9
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/LCG_generators_x86_64-el9-gcc13-opt.txt:37:syscalc; 25cfb; 1.1.7; ./MCGenerators/syscalc/1.1.7/x86_64-el9-gcc13-opt; lhapdf-fc9c9
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/LCG_generators_x86_64-el9-gcc13-opt.txt:38:tauola++; 3301e; 1.1.9.atlas1; ./MCGenerators/tauola++/1.1.9.atlas1/x86_64-el9-gcc13-opt; hepmc3-1304c,lhapdf-fc9c9
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/LCG_generators_x86_64-el9-gcc13-opt.txt:39:thep8i; 33f2d; 2.0.3; ./MCGenerators/thep8i/2.0.3/x86_64-el9-gcc13-opt; pythia8-4b2bb,thepeg-f89c3,GSL-31a51
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/LCG_generators_x86_64-el9-gcc13-opt.txt:40:thepeg; f89c3; 2.3.0; ./MCGenerators/thepeg/2.3.0/x86_64-el9-gcc13-opt; rivet-6fb74,Boost-7f2c3,fastjet-0da16,lhapdf-fc9c9,hepmc3-1304c,GSL-31a51
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/LCG_generators_x86_64-el9-gcc13-opt.txt:43:geneva; c2439; 1.0-rc3.atlas2; ./MCGenerators/geneva/1.0-rc3.atlas2/x86_64-el9-gcc13-opt; setuptools-2e821,openloops-186b9,Python-531c6,lhapdf-fc9c9,GSL-31a51
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/LCG_generators_x86_64-el9-gcc13-opt.txt:44:pepper_kokkos; e0fbd; 1.1.1; ./MCGenerators/pepper_kokkos/1.1.1/x86_64-el9-gcc13-opt; openmpi-b6c0d,lhapdf-fc9c9,hdf5_mpi-967d3,hepmc3-1304c,kokkos-b78a0
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/LCG_generators_x86_64-el9-gcc13-opt.txt:45:sherpa; c94f3; 3.0.1p3; ./MCGenerators/sherpa/3.0.1p3/x86_64-el9-gcc13-opt; mcfm-bf788,hepmc3-1304c,rivet-6fb74,pythia8-4b2bb,openloops-186b9,Python-531c6,ROOT-c35af,libzip-d9ab2,lhapdf-fc9c9,swig-f653a
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/LCG_generators_x86_64-el9-gcc13-opt.txt:46:sherpa-openmpi; 09597; 3.0.1p3.openmpi3; ./MCGenerators/sherpa/3.0.1p3.openmpi3/x86_64-el9-gcc13-opt; mcfm-bf788,hepmc3-1304c,rivet-6fb74,openmpi-b6c0d,pythia8-4b2bb,openloops-186b9,Python-531c6,ROOT-c35af,libzip-d9ab2,lhapdf-fc9c9,swig-f653a
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/LCG_generators_x86_64-el9-gcc13-opt.txt:48:herwig3; c0449; 7.3.0p1; ./MCGenerators/herwig++/7.3.0p1/x86_64-el9-gcc13-opt; Boost-7f2c3,vbfnlo-8c49c,openloops-186b9,njet-9dab8,Python-531c6,madgraph5amc-ebc2d,gosam-508bf,lhapdf-fc9c9,fastjet-0da16,thepeg-f89c3,GSL-31a51
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/LCG_generators_x86_64-el9-gcc13-opt.txt:49:mcfm; bf788; 10.3.atlas; ./MCGenerators/mcfm/10.3.atlas/x86_64-el9-gcc13-opt; lhapdf-fc9c9
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/LCG_generators_x86_64-el9-gcc13-opt.txt:52:madgraph5amc; ebc2d; 3.5.9.atlas13; ./MCGenerators/madgraph5amc/3.5.9.atlas13/x86_64-el9-gcc13-opt; syscalc-25cfb,Python-531c6,collier-d0321,lhapdf-fc9c9,six-efa51,gosam_contrib-02df3
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/LCG_generators_x86_64-el9-gcc13-opt.txt:53:vbfnlo; 8c49c; 3.0; ./MCGenerators/vbfnlo/3.0/x86_64-el9-gcc13-opt; looptools-5beb1,feynhiggs-461cb,lhapdf-fc9c9,GSL-31a51
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/LCG_generators_x86_64-el9-gcc13-opt.txt:62:cepgen; b7dad; 1.2.5patch2; ./MCGenerators/cepgen/1.2.5patch2/x86_64-el9-gcc13-opt; delphes-ae61c,photos++-29dbc,vdt-f1a43,tauola++-3301e,apfel-f6ce7,Boost-7f2c3,pythia8-4b2bb,Python-531c6,jsonmcpp-0cf2d,lhapdf-fc9c9,tbb-2a247,hepmc3-1304c,HepMC-d5a39,pythia6-5d3d1,GSL-31a51
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/LCG_generators_x86_64-el9-gcc13-opt.txt:67:compilebox; 4bd5c; 08.05; ./MCGenerators/compilebox/08.05/x86_64-el9-gcc13-opt; photos++-29dbc,qqvvamp-3aad1,recola-8db12,pythia8-4b2bb,openloops-186b9,ggvvamp-58368,nlox-93015,lhapdf-fc9c9,fastjet-0da16,looptools-5beb1,cln-88943,chaplin-86f7f,GSL-31a51
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/LCG_generators_x86_64-el9-gcc13-opt.txt:68:powheg-box-v2; 763d2; r3744.lhcb3.rdynamic; ./MCGenerators/powheg-box-v2/r3744.lhcb3.rdynamic/x86_64-el9-gcc13-opt; fastjet-0da16,lhapdf-fc9c9
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/LCG_externals_x86_64-el9-gcc13-opt.txt:26:Python; 531c6; 3.12.11; ./Python/3.12.11/x86_64-el9-gcc13-opt; sqlite-3c47f,libffi-a3607
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/LCG_externals_x86_64-el9-gcc13-opt.txt:28:ROOT; c35af; 6.36.02; ./ROOT/6.36.02/x86_64-el9-gcc13-opt; xrootd-1e12b,blas-57823,tiff-10be9,protobuf-2a1c0,vdt-f1a43,Vc-341bf,Davix-ff48a,cfitsio-c9663,gl2ps-d7797,png-17d9c,Python-531c6,jsonmcpp-0cf2d,numpy-f995e,tbb-2a247,libxml2-87838,GSL-31a51,fftw-33229
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/LCG_externals_x86_64-el9-gcc13-opt.txt:164:delphes; ae61c; 3.5.1pre12; ./delphes/3.5.1pre12/x86_64-el9-gcc13-opt; ROOT-c35af
+-rw-r--r--. 1 cvmfs cvmfs 21911 Sep 28 14:00 /cvmfs/sft.cern.ch/lcg/views/LCG_108/x86_64-el9-gcc13-opt/setup.sh
+
+[exit 0]
+
+$ ls /cvmfs/sft.cern.ch/lcg/releases/LCG_108/delphes; ls /cvmfs/sft.cern.ch/lcg/releases/MCGenerators/madgraph5amc | rg "^3\.6\.3"
+3.5.1pre12
+
+[exit 1]

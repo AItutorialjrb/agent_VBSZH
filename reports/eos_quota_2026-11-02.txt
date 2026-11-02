@@ -1,0 +1,1 @@
+2026-11-02 13:50 UTC, eos quota /eos/user/r/rjiang/: logical used 390.93 GB of 1.00 TB (≈610 GB free); files 743.83K of 5.00M. Project storage budget: ≤300 GB logical. Keep only Delphes ROOT long-term; LHE gzipped or deleted after validation; no HepMC on disk.

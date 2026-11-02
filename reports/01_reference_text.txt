@@ -1,0 +1,715 @@
+                                         Prospects for measuring electroweak production of Zγγ and 2 jets
+                                                                                  at the LHC
+
+                                                     Ran Ding,∗ Ruobing Jiang, Tianyi Yang, Andrew Levin, and Qiang Li
+                                                School of Physics and State Key Laboratory of Nuclear Physics and Technology,
+                                                                  Peking University, Beijing, 100871, China
+                                                                             (Dated: December 9, 2025)
+arXiv:2512.07689v1 [hep-ph] 8 Dec 2025
+
+
+
+
+                                                                                     Abstract
+                                             Vector boson scattering (VBS) serves as a powerful channel for probing the Standard Model,
+                                         particularly the electroweak symmetry breaking mechanism. Currently, studies of VBS mainly
+                                         focus on 2 → 2 scattering. In this study, we investigate the 2 → 3 VBS process of pp → Zγγ +2 jets
+                                         through Monte Carlo simulations, including signal generation and background analysis. The signal
+                                         significance is evaluated across different phase-space regions. With an integrated luminosity of 500
+                                         fb−1 , the signal significance can reach about 4.5 σ. These results suggest that, given the ongoing
+                                         release of the LHC Run 3 dataset, there will be promising opportunities to explore and potentially
+                                         discover a series of 2 → 3 VBS processes, starting with the Zγγ channel.
+
+
+
+
+                                         ∗
+                                             ran.ding@cern.ch
+
+
+                                                                                         1
+I.    INTRODUCTION
+
+
+     Following the observation of the Higgs boson at the Large Hadron Collider (LHC) in
+2012 [1, 2], the ATLAS [3] and CMS [4] collaborations have conducted both precision mea-
+surements of Higgs boson properties and detailed studies of electroweak (EWK) interac-
+tions [5, 6]. Crucially, vector boson scattering (VBS) stands out among these as a key
+channel for probing EWK interactions [7]. These processes involve multiple self-coupling
+vertices among the EWK bosons W , Z, and γ, thus offering direct sensitivity to the elec-
+troweak symmetry breaking mechanism [8].
+     Currently, studies of VBS processes mainly focus on 2 → 2 scattering, with outgoing
+vector bosons types including W W [9, 10], ZZ [11, 12], W Z [9, 13], W γ [14], and Zγ [15, 16].
+These analyses are largely based on data from LHC Run 2, with a total integrated luminosity
+                                                 √
+of about 140 fb−1 and a center-of-mass energy of s = 13 TeV. In recent years, the LHC
+                                            √
+has been conducting Run 3 data-taking at s = 13.6 TeV, and the combined luminosity of
+both Run 2 and Run 3 is expected to exceed 400 fb−1 [17]. With this large dataset, it will
+be possible not only to improve the precision of previous measurements but also to strongly
+support the search, discovery, and cross-section measurement of 2 → 3 VBS processes.
+     Though no officially released results for 2 → 3 VBS processes have been reported,
+studies on the production of triple vector bosons via vector boson fusion (VBF) are rel-
+atively common. Examples include final states with only weak bosons, such as W W W [18],
+W W Z [19, 20], W ZZ [19], and ZZZ [19], as well as processes involving photons like
+W W γ [21, 22], W Zγ [21, 23], W γγ [24, 25], and Zγγ [25, 26]. Although the phase space
+regions examined in these analyses differ considerably from those typical of VBS processes,
+their well-developed methodologies offer valuable insights for future VBS studies. In sum-
+mary, newly available data, together with established analysis techniques from diboson VBS
+and triboson VBF studies, provide a solid foundation for the next stage of 2 → 3 VBS
+research.
+     In this study, we investigate the VBS Zγγ process, with the corresponding example
+Feynman diagram as shown in Figure 1. It naturally mixes and interferes with other QCD-
+induced and EWK pp → Zγγ + 2 jets diagrams, which is a common challenge in VBS
+analyses. Following previous studies, we define the signal as the full EWK component of
+pp → Zγγ + 2 jets, while focus primarily on the VBS-enriched phase space region [7]. The
+
+                                             2
+QCD-induced processes are treated as a major background, and the interference between
+EWK and QCD contributions is examined in Section II C. For simplicity, only events with
+Z → ℓ+ ℓ− (ℓ = e, µ) are considered.
+
+                                                                   q
+
+                              q                                    Z
+
+                                                                   γ
+
+                              q̄                                   γ
+
+                                                                   q̄
+                       FIG. 1: Feynman diagram of VBS Zγγ production.
+
+
+      This paper is structured as follows. After this introduction, Section II details the signal
+definition, classifies relevant backgrounds, and describes the Monte Carlo (MC) simulation
+setup. Section III presents the event selection, then gives the comparison of the distributions
+among signal and background. Section IV shows the final signal and background event yields
+in different regions, together with the estimated signal significance. A summary of the study
+is provided in Section V.
+
+
+
+II.     PROCESS CLASSIFICATION AND SIMULATION
+
+
+      A.   Process classification
+
+
+      As introduced in Section I, the signal under study is the EWK-induced process pp →
+Zγγ + 2 jets, with Z → ℓ+ ℓ− (ℓ = e, µ). In the following study, we further categorize
+the signal process into two scenarios: the first is the EWK Zγγ + 2 jets process, where
+an on-shell Z boson subsequently decays to a lepton pair; the second is referred to as the
+inclusive process, namely the EWK production of ℓ+ ℓ− γγ + 2 jets. Typical VBS kinematics
+
+                                                3
+are characterized by two jets with large rapidity gap, |∆ηjj |, and large invariant mass, mjj ,
+which can be used to suppress both backgrounds and non-VBS electroweak contributions.
+   In typical real-world experiments, the backgrounds for VBS processes associated with W ,
+Z, and γ primarily include the following categories [14, 15]:
+
+   • QCD-induced processes,
+
+   • Fake photon backgrounds,
+
+   • Fake lepton backgrounds.
+
+   In our study, the QCD-induced background refers specifically to the Zγγ + n jets pro-
+cess produced via QCD interactions. Additionally, the fake photon or lepton backgrounds,
+referring to cases where these objects do not originate from hard scattering but result from
+soft processes or misidentification, must also be carefully evaluated. In processes involving
+γ and W bosons, both fake photons and fake leptons typically contribute significantly. In
+contrast, for processes with only γ and Z bosons, the dominant background comes from
+fake photons. These primarily arise from jet–photon misidentification, which occurs when a
+high-momentum π 0 decays into a photon pair and the resulting jet is reconstructed as a pho-
+ton. In experimental analysis, such backgrounds are commonly estimated using data-driven
+methods [25]. However, in our simulation-based study, the absence of real data prevents
+the use of this approach. Instead, we model the fake photon contribution using simulated
+Zγ + n jets events. The Z + n jets process is preliminarily neglected, as the probability of
+double misidentification is substantially lower than that of single misidentification. Other
+minor backgrounds, including tt̄γ and tW γ, are also estimated through direct simulation.
+Though these processes yield at least one fake photon, they are not covered by the Zγ
+simulation.
+
+
+   B.   Events simulation
+
+
+   The production cross-sections and MC event samples for both signal and background
+processes are generated using MadGraph5 aMC@NLO (MG5) v3.6.3 [27] at Leading Or-
+                                            √
+der (LO). The MG5 simulation is performed at s = 13.6 TeV with generator-level cuts,
+requiring pℓT > 10 GeV, pγT > 15 GeV, pjT > 20 GeV, |η ℓ,γ | < 2.5, |η j | < 5, ∆R > 0.4,
+
+                                             4
+  TABLE I: Summary of the signal and background processes investigated in this study.
+
+
+Category             Simulated Syntax
+
+Signal               p p > z a a j j QCD=0, z > l+ l-
+
+Signal (inclusive)   p p > l+ l- a a j j QCD=0
+
+                     p p > l+ l- a a
+QCD Zγγ              p p > l+ l- a a j
+                     p p > l+ l- a a j j
+
+                     p p > l+ l- a
+QCD Zγ               p p > l+ l- a j
+                     p p > l+ l- a j j
+
+EWK Zγ               p p > l+ l- a j j QCD=0
+
+tt̄γ                 p p > t t~ a, (t > w+ b , w+ > l+ vl) , (t~> w- b~, w- > l- vl~)
+
+                     p p > t~ w+ a , w+ > l+ vl , ( t~> w- b~, w- > l- vl~ )
+tW γ
+                     p p > t w- a , w- > l- vl~, ( t > w+ b , w+ > l+ vl )
+
+
+
+and mℓ+ ℓ− > 50 GeV. Then parton showering and hadronization are carried out using
+Pythia8 (PY8) [28] with its default models. The detector response is then simulated using
+Delphes [29] v3.5, employing the built-in CMS detector card. Specially for QCD Zγ and
+QCD Zγγ, we consider events with up to 2 jets and merge them using the MLM scheme.
+Table I gives a summary of the processes and their simulated syntax in MG5 investigated
+in this study.
+
+
+
+   C.    Interference study
+
+
+   The interference term between the Signal and QCD Zγγ can be evaluated by simulating
+through MG5 with requiring QCD^2==2. Table II shows the cross-sections comparison among
+the signal, QCD and interference. The interference contribution of Zγγ + 2 jets is more than
+an order of magnitude lower than the EWK signal, so it can be safely neglected in this study.
+
+                                            5
+TABLE II: Comparison of the cross-sections among the signal, QCD and interference (fb).
+
+
+ Signal                    Signal (inclusive)           QCD Zγγ                    Interference
+
+2.63E-1                         4.26E-1                  2.30E+1                     2.44E-2
+
+
+III.   SIGNAL SELECTION AND DISTRIBUTION
+
+
+   For events that have undergone Delphes simulation, the signal selection and background
+suppression procedures are applied sequentially. A signal candidate should contain at least
+two good photons, one pair of opposite-sign same-flavor good leptons, and two good jets.
+The definitions of good particles are pℓT > 15 GeV, pγT > 20 GeV, pjT > 25 GeV, |η ℓ,γ | < 2.5,
+and |η j | < 5. These criteria can effectively suppress soft photons and leptons produced
+during hadronization.
+   It is worth noting that since the photons can also be generated during PY8 simulation,
+there might be double counting effects between the processes QCD Zγ and QCD Zγγ,
+similarly EWK Zγ and the Signal. By tracking the parent particles of the reconstructed-
+level photons, they can be categorized into two types: those originating from quarks or
+bosons, referred to as hard photons, and those originating from leptons or hadrons, known
+as soft photons. For the Zγγ processes, ignoring the loss in detection efficiency, it should
+contain two hard photons. Therefore, we require those Zγ events that they must not contain
+two or more hard photons, thereby avoiding overlap with the Zγγ events.
+   For events that pass the initial selection, the signal jets and photons are defined as the
+top two jets or photons with the highest pT . Meanwhile, the signal leptons pair is the one
+with the closest Mℓ+ ℓ− to MZ (91.2 GeV). Then distributions of some variables are shown
+in Figure 2 and 3. All histograms, except for Figure 2a, employ capping at the endpoints
+to retain outliers; Figure 2a, in contrast, excludes events outside the plotted range. The
+per-event weight is calculating by wi = σi /Ni , where σi and Ni are the cross-section and
+the number of simulated events of the corresponding process, respectively. Due to the low
+cross-section of the signal processes, they are scaled 5 or 30 times in the plots for better
+illustrating the shapes.
+   It shows that the most significant background contribution comes from QCD Zγ, while
+the QCD Zγγ background is also non-negligible. These backgrounds can be efficiently
+
+                                                6
+             0.25                                                                                              0.8
+
+
+
+
+                                                                                       d /dpT, trailing [fb/GeV]
+d /dMll [fb/GeV]
+
+                                  QCD Z                tW                                                                   QCD Z               tW
+                                  QCD Z                Signal (5x)                                             0.7          QCD Z               Signal (30x)
+             0.20                 EWK Z                Signal (inclusive) (5x)                                              EWK Z               Signal (inclusive) (30x)
+                                  tt                                                                           0.6          tt
+
+             0.15                                                                                              0.5
+                                                                                                               0.4
+             0.10                                                                                              0.3
+                                                                                                               0.2
+             0.05
+                                                                                                               0.1
+             0.0060          70        80        90       100       110          120                           0.020   25        30        35         40       45          50
+                                                                  Mll [GeV]                                                                           pT, trailing [GeV]
+                                          (a) Mℓ+ ℓ−                                                                                (b) pγ,trailing
+                                                                                                                                         T
+
+
+
+
+                   0.6                                                                                         0.6
+                                                                                       jj| [fb]
+d /dMjj [fb/GeV]
+
+
+
+
+                                    Signal (5x)                     EWK Z                                                   QCD Z               tW
+                                    Signal (inclusive) (5x)         tt                                                      QCD Z               Signal (30x)
+                   0.5              QCD Z                           tW                                         0.5          EWK Z               Signal (inclusive) (30x)
+                                    QCD Z                                                                                   tt
+                                                                                       d /d|
+
+
+
+
+                   0.4                                                                                         0.4
+
+                   0.3                                                                                         0.3
+
+                   0.2                                                                                         0.2
+
+                   0.1                                                                                         0.1
+
+                   0.00       200         400         600         800        1000                              0.00          2             4               6                8
+                                                                  Mjj [GeV]                                                                                         |      jj|
+
+                                            (c) Mjj                                                                                   (d) |∆ηjj |
+
+
+                          FIG. 2: Distributions of signal and background after initial signal selection.
+
+
+
+
+    removed by applying a lower cut on Mjj . Furthermore, additional variables including Mℓ+ ℓ− ,
+    |∆ηjj |, and Mℓ+ ℓ− γγ may also be applied for background suppression.
+
+                                                                                       7
+                  1.0                                                                      0.9
+d /dMZ [fb/GeV]
+
+
+
+
+                                                                             d /dpT [fb/GeV]
+                              QCD Z            tW                                                      QCD Z            tW
+                              QCD Z            Signal (30x)                                0.8         QCD Z            Signal (30x)
+                  0.8         EWK Z            Signal (inclusive) (30x)                                EWK Z            Signal (inclusive) (30x)
+                              tt                                                           0.7         tt
+                                                                                           0.6
+                  0.6
+                                                                                           0.5
+                                                                                           0.4
+                  0.4
+                                                                                           0.3
+                  0.2                                                                      0.2
+                                                                                           0.1
+                  0.00       200       400     600         800        1000                 0.00   50      100     150       200       250          300
+                                                        MZ [GeV]                                                                   pT [GeV]
+                                      (a) Mℓ+ ℓ− γγ                                                             (b) pγγ
+                                                                                                                     T
+
+
+
+                         FIG. 3: Distributions of signal and background after initial signal selection.
+
+
+   IV.                  EVENTS YIELD AND SIGNIFICANT STUDY
+
+
+             Applying Mℓ+ ℓ− γγ > 100 GeV and 70 GeV < Mℓ+ ℓ− < 120 GeV sequentially to events
+   that pass the preliminary signal selection, the relative efficiency (ϵrel. ) and remaining cross-
+   section (σ) for each step are shown in Table III.
+             The background can be suppressed substantially by applying additional cuts on Mjj and
+   |∆ηjj |. Given the correlation between them, a two-dimensional parameter scan is adopted
+   to determine the optimal selection criteria, with lower cut of Mjj varying from 200 GeV
+   to 800 GeV in steps of 100 GeV and |∆ηjj | from 0 to 4.0 in steps of 0.5. The signal
+                           lower
+   significance for each (Mjj    , |∆ηjj |lower ) combination, derived from the corresponding signal
+   and background yields, is calculated by
+                                     r h            s   i
+                                Z = 2 (s + b) ln 1 +    −s ,                                                                                             (1)
+                                                     b
+
+   where s and b are the signal and the total background yield, respectively. Specially, the
+   signal yield is from the Signal (inclusive) process.
+             The results with L = 500 fb−1 is given in Figure 4. It shows a peak significance of
+   4.51 σ at (700 GeV, 2.5). Due to the limited statistics of the simulation, the statistical
+
+                                                                             8
+        Category            Initial Selection          Mℓ+ ℓ− γγ Cut        Mℓ+ ℓ− Cut
+
+                             σ (fb)      εrel.        σ (fb)    εrel.    σ (fb)    εrel.
+
+
+     Signal                 5.66E-2      21.56%      5.66E-2   100.00%   5.56E-2   98.25%
+
+     Signal (inclusive)     7.56E-2      17.76%      7.52E-2   99.51%    6.27E-2   83.39%
+
+
+     QCD Zγγ                3.76E-1      1.64%       3.64E-1   96.82%    2.18E-1   59.82%
+
+     QCD Zγ                 7.29E-1      0.01%       6.47E-1   88.69%    3.04E-1   47.06%
+
+     EWK Zγ                 4.54E-2      0.13%       4.31E-2   95.04%    2.61E-2   60.58%
+
+     tt̄γ                   6.44E-2      0.19%       6.40E-2   99.31%    1.76E-2   27.48%
+
+     tW γ                   4.41E-5      0.19%       4.39E-5   99.47%    7.43E-6   16.93%
+
+     Background in total   1.22E+0       0.01%       1.12E+0   92.01%    5.66E-1   50.62%
+
+
+TABLE III: Summary of the relative efficiency (ϵrel. ) and remaining cross-section (σ) after
+                                      each selection or cut.
+
+
+
+
+uncertainties of s and b must be considered. These are calculated from the number or
+proportion of the remaining events, where the signal yield follows a binomial distribution,
+and the background processes can be further approximated by a Poisson distribution. The
+statistical uncertainties of the regions among the peak significance are approximately around
+0.2. Therefore, the variations between points are mostly within one standard deviation,
+      lower
+when Mjj    is set greater than 700 and |∆ηjj |lower is within the range of 2.0–3.0. While
+a definitive choice would require higher statistics, we select (700 GeV, 2.0) as the final cut
+in a conservative manner. Table IV shows the event yields of each signal and background
+processes after the full selections. The final significance is 4.50 ± 0.17 σ at L = 500 fb−1 .
+And for the High-Luminosity LHC [30] with L = 3000 fb−1 , the significance can exceed 10 σ.
+
+                                                 9
+                                                                                                                   4.50
+           | jj| > 4.0       3.40         3.51         3.67         3.70          3.79         3.88         3.85
+                                                                                                                   4.25
+           | jj| > 3.5       3.38         3.71         3.97         4.08          4.22         4.24         4.16
+
+                                                                                                                   4.00
+           | jj| > 3.0       3.18         3.56         3.81         3.87          4.14         4.47         4.34
+
+                                                                                                                   3.75
+           | jj| > 2.5       3.24         3.65         3.92         3.99          4.22         4.51         4.36
+
+
+
+
+                                                                                                                      Significance (Z)
+ jj| Cut
+
+
+
+
+           | jj| > 2.0       3.10         3.55         3.80         3.93          4.22         4.50         4.37   3.50
+ |
+
+
+
+
+           | jj| > 1.5       2.75         3.11         3.43         3.54          3.80         3.91         3.72   3.25
+
+
+           | jj| > 1.0       2.63         2.98         3.25         3.34          3.50         3.62         3.64   3.00
+
+           | jj| > 0.5       2.54         2.86         3.10         3.26          3.47         3.62         3.64
+                                                                                                                   2.75
+
+           | jj| > 0.0       2.47         2.81         3.07         3.24          3.46         3.62         3.64
+                                                                                                                   2.50
+                           0
+
+
+
+
+                                        0
+
+
+
+
+                                                     0
+
+
+
+
+                                                                  0
+
+
+
+
+                                                                                0
+
+
+
+
+                                                                                             0
+
+
+
+
+                                                                                                          0
+                         20
+
+
+
+
+                                      30
+
+
+
+
+                                                   40
+
+
+
+
+                                                                50
+
+
+
+
+                                                                              60
+
+
+
+
+                                                                                           70
+
+
+
+
+                                                                                                        80
+                         >
+
+
+
+
+                                     >
+
+
+
+
+                                                  >
+
+
+
+
+                                                               >
+
+
+
+
+                                                                              >
+
+
+
+
+                                                                                          >
+
+
+
+
+                                                                                                       >
+                     Mjj
+
+
+
+
+                                    Mjj
+
+
+
+
+                                                 Mjj
+
+
+
+
+                                                              Mjj
+
+
+
+
+                                                                           Mjj
+
+
+
+
+                                                                                         Mjj
+
+
+
+
+                                                                                                      Mjj
+                                                              Mjj Cut [GeV]
+
+                                           lower
+           FIG. 4: Significance for each (Mjj    , |∆ηjj |lower ) combination, derived from the
+                             corresponding signal and background yields (L = 500 fb−1 ).
+
+
+V.         CONCLUSION
+
+
+     VBS is crucial for testing the SM, especially the EWK symmetry breaking mechanism.
+The ongoing release of the LHC Run 3 dataset presents opportunities to conduct searches
+for a series of 2 → 3 VBS processes, with the prospect of breakthroughs.
+     This study presents an investigation of the EWK pp → Zγγ +2 jets, Z → ℓ+ ℓ− (ℓ = e, µ)
+process, with particular focus on the VBS-enriched region. Using MG5, PY8, and Delphes
+to perform MC simulation and detector fast simulation, we get the distributions of the signal
+and series of background processes, and thus develop optimized selection criteria to suppress
+the background.
+     The analysis demonstrates that requirements on Mjj > 700 GeV and |∆ηjj | > 2.0 are
+crucial for QCD-induced background suppression, yielding a signal significance of 4.50 ±
+0.17 σ with an integrated luminosity of 500 fb−1 . The significance is projected to exceed
+10 σ at the HL-LHC with 3000 fb−1 , highlighting the potential for observation and detailed
+
+                                                                    10
+                         Category         Event Yield    Uncertainty (stat.)
+
+
+                           Signal           16.28              0.27
+
+                    Signal (inclusive)      17.55              0.46
+
+
+                       QCD Zγγ               3.32              0.53
+
+                        QCD Zγ               1.52              0.54
+
+                        EWK Zγ               5.36              0.40
+
+                           tt̄γ              0.15              0.10
+
+                          tW γ               0.00              0.00
+
+                    Background in total     10.36              0.86
+
+
+      TABLE IV: Event yields of each process after the full cut flow (L = 500 fb−1 ).
+
+
+study of this rare process in future LHC data. These findings establish a solid foundation
+for experimental searches and underscore the viability of 2 → 3 VBS processes.
+
+
+  ACKNOWLEDGMENTS
+
+
+  This study is supported by the National Natural Science Foundation of China under
+Grant No. 12325504.
+
+
+
+
+ [1] G. Aad et al. (ATLAS), Observation of a new particle in the search for the Standard
+    Model Higgs boson with the ATLAS detector at the LHC, Phys. Lett. B 716, 1 (2012),
+    arXiv:1207.7214 [hep-ex].
+ [2] S. Chatrchyan et al. (CMS), Observation of a New Boson at a Mass of 125 GeV with the CMS
+    Experiment at the LHC, Phys. Lett. B 716, 30 (2012), arXiv:1207.7235 [hep-ex].
+ [3] G. Aad et al. (ATLAS), The ATLAS Experiment at the CERN Large Hadron Collider, JINST
+    3, S08003.
+
+                                            11
+ [4] S. Chatrchyan et al. (CMS), The CMS Experiment at the CERN LHC, JINST 3, S08004.
+ [5] A. Tumasyan et al. (CMS), A portrait of the Higgs boson by the CMS experiment ten years
+    after the discovery., Nature 607, 60 (2022), [Erratum: Nature 623, (2023)], arXiv:2207.00043
+    [hep-ex].
+ [6] G. Aad et al. (ATLAS), A detailed map of Higgs boson interactions by the ATLAS experiment
+    ten years after the discovery, Nature 607, 52 (2022), [Erratum: Nature 612, E24 (2022)],
+    arXiv:2207.00092 [hep-ex].
+ [7] D. Buarque Franzosi et al., Vector boson scattering processes: Status and prospects, Rev.
+    Phys. 8, 100071 (2022), arXiv:2106.01393 [hep-ph].
+ [8] F. Englert and R. Brout, Broken Symmetry and the Mass of Gauge Vector Mesons, Phys.
+    Rev. Lett. 13, 321 (1964).
+ [9] A. M. Sirunyan et al. (CMS), Measurements of production cross sections of WZ and same-
+                                                                                    √
+     sign WW boson pairs in association with two jets in proton-proton collisions at s = 13 TeV,
+    Phys. Lett. B 809, 135710 (2020), arXiv:2005.01173 [hep-ex].
+[10] M. Aaboud et al. (ATLAS), Measurement of W ± W ± vector-boson scattering and limits on
+    anomalous quartic gauge couplings with the ATLAS detector, Phys. Rev. D 96, 012007 (2017),
+    arXiv:1611.02428 [hep-ex].
+[11] A. M. Sirunyan et al. (CMS), Evidence for electroweak production of four charged leptons
+                                                √
+     and two jets in proton-proton collisions at s = 13 TeV, Phys. Lett. B 812, 135992 (2021),
+    arXiv:2008.07013 [hep-ex].
+[12] G. Aad et al. (ATLAS), Observation of electroweak production of two jets and a Z-boson pair,
+    Nature Phys. 19, 237 (2023), arXiv:2004.10612 [hep-ex].
+[13] M. Aaboud et al. (ATLAS), Observation of electroweak W ± Z boson pair production in asso-
+                                              √
+     ciation with two jets in pp collisions at s = 13 TeV with the ATLAS detector, Phys. Lett.
+    B 793, 469 (2019), arXiv:1812.09740 [hep-ex].
+[14] A. M. Sirunyan et al. (CMS), Observation of electroweak production of Wγ with two jets in
+                                √
+     proton-proton collisions at s = 13 TeV, Phys. Lett. B 811, 135988 (2020), arXiv:2008.10521
+    [hep-ex].
+[15] A. M. Sirunyan et al. (CMS), Measurement of the cross section for electroweak production of
+                                                                    √
+     a Z boson, a photon and two jets in proton-proton collisions at s = 13 TeV and constraints
+    on anomalous quartic couplings, JHEP 06, 076, arXiv:2002.09902 [hep-ex].
+
+
+                                              12
+[16] G. Aad et al. (ATLAS), Evidence for electroweak production of two jets in association with a
+                                √
+     Zγ pair in pp collisions at s = 13 TeV with the ATLAS detector, Phys. Lett. B 803, 135341
+     (2020), arXiv:1910.09503 [hep-ex].
+[17] Run 3 luminosity targets,         https://lhc-commissioning.web.cern.ch/performance/
+     Run-3-targets.htm, accessed: 2025-11-26.
+[18] A. M. Sirunyan et al. (CMS), Observation of the Production of Three Massive Gauge Bosons
+        √
+     at s =13 TeV, Phys. Rev. Lett. 125, 151802 (2020), arXiv:2006.11191 [hep-ex].
+                                                                √
+[19] G. Aad et al. (ATLAS), Observation of V V Z production at s = 13 TeV with the ATLAS
+     detector, Phys. Lett. B 866, 139527 (2025), arXiv:2412.15123 [hep-ex].
+[20] A. Hayrapetyan et al. (CMS), Measurement of WWZ and ZH Production Cross Sections at
+     s=13 and 13.6 TeV, Phys. Rev. Lett. 135, 091802 (2025), arXiv:2505.20483 [hep-ex].
+                                                                                                √
+[21] M. Aaboud et al. (ATLAS), Study of W W γ and W Zγ production in pp collisions at               s=8
+     TeV and search for anomalous quartic gauge couplings with the ATLAS experiment, Eur.
+     Phys. J. C 77, 646 (2017), arXiv:1707.05597 [hep-ex].
+[22] A. Hayrapetyan et al. (CMS), Observation of WWγ production and search for Hγ pro-
+                                           √
+     duction in proton-proton collisions at s = 13 TeV, Phys. Rev. Lett. 132, 121901 (2024),
+     arXiv:2310.05164 [hep-ex].
+[23] V. Chekhovsky et al. (CMS), Observation of WZγ production and constraints on new physics
+                                             √
+     scenarios in proton-proton collisions at s = 13 TeV, Phys. Rev. D 112, 012009 (2025),
+     arXiv:2503.21977 [hep-ex].
+[24] G. Aad et al. (ATLAS), Observation of W γγ triboson production in proton-proton collisions at
+     √
+       s = 13 TeV with the ATLAS detector, Phys. Lett. B 848, 138400 (2024), arXiv:2308.03041
+     [hep-ex].
+[25] A. Tumasyan et al. (CMS), Measurements of the pp → W± γγ and pp → Zγγ cross sec-
+             √
+     tions at s = 13 TeV and limits on anomalous quartic gauge couplings, JHEP 10, 174,
+     arXiv:2105.12780 [hep-ex].
+                                                                                        √
+[26] G. Aad et al. (ATLAS), Measurement of Zγγ production in pp collisions at               s = 13 TeV
+     with the ATLAS detector, Eur. Phys. J. C 83, 539 (2023), arXiv:2211.14171 [hep-ex].
+[27] J. Alwall, R. Frederix, S. Frixione, V. Hirschi, F. Maltoni, O. Mattelaer, H. S. Shao, T. Stelzer,
+     P. Torrielli, and M. Zaro, The automated computation of tree-level and next-to-leading order
+     differential cross sections, and their matching to parton shower simulations, JHEP 07, 079,
+
+
+                                                13
+    arXiv:1405.0301 [hep-ph].
+[28] T. Sjöstrand, S. Ask, J. R. Christiansen, R. Corke, N. Desai, P. Ilten, S. Mrenna, S. Prestel,
+    C. O. Rasmussen, and P. Z. Skands, An introduction to PYTHIA 8.2, Comput. Phys. Commun.
+    191, 159 (2015), arXiv:1410.3012 [hep-ph].
+[29] J. de Favereau, C. Delaere, P. Demin, A. Giammanco, V. Lemaı̂tre, A. Mertens, and M. Sel-
+    vaggi (DELPHES 3), DELPHES 3, A modular framework for fast simulation of a generic
+    collider experiment, JHEP 02, 057, arXiv:1307.6346 [hep-ex].
+[30] I. Zurbano Fernandez et al., High-Luminosity Large Hadron Collider (HL-LHC): Technical
+    design report, CERN Yellow Reports: Monographs 10/2020, 10.23731/CYRM-2020-0010
+    (2020).
+
+
+
+
+                                               14
+

@@ -1,0 +1,21 @@
+2026-11-02T13:01:11.178547+00:00
+PASS independently computed BR product: 0.00015275738; not a yield
+PASS static-only guard checks: cards/phase01_candidates/ew_offshell_ll.mg5
+PASS static-only guard checks: cards/phase01_candidates/ew_on_shell.mg5
+PASS static-only guard checks: cards/phase01_candidates/ew_qcd_combined.mg5
+PASS static-only guard checks: cards/phase01_candidates/ew_qcd_interference.mg5
+PASS static-only guard checks: cards/phase01_candidates/ew_z_decay.mg5
+PASS static-only guard checks: cards/phase01_candidates/qcd_on_shell.mg5
+PASS local report/index/card links exist (verification and checksum files generated next)
+$ git rev-parse --show-toplevel
+/eos/home-r/rjiang
+exit=0
+$ git rev-parse HEAD
+6ea6cb9462533bbc1b209f7d4b4b67fd49b4d737
+exit=0
+$ git ls-files -- .
+exit=0
+$ git diff --check -- .
+exit=0
+PASS no project .git created; no project commit exists. Parent diff check cannot validate untracked report contents.
+No generator parser, matrix element, integration, decay, shower or detector tests were run. Six syntax candidates remain UNTESTED. Phase 01 BLOCKED.

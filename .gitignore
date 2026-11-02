@@ -1,0 +1,21 @@
+# Project-only repo (D10, 2026-11-02). MC outputs, software and agent state are NOT versioned.
+/production/
+/software/
+/work/
+*.lhe
+*.lhe.gz
+*.root
+*.hepmc
+*.hepmc.gz
+*.tar.gz
+*.tgz
+*_logs.tgz
+reference_ZGammaGamma.pdf
+*.pdf
+# agent state / editor junk
+.codex/
+.claude/
+*.swp
+__pycache__/
+# condor run-time logs (large); per-job logs live under production/condor_logs (ignored)
+*.log.gz

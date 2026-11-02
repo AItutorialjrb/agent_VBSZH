@@ -1,0 +1,175 @@
+# Phase 02 sample matrix — CANDIDATE / UNVALIDATED unless `validated:` points to an executed check.
+# Companion to reports/02_background_overlap.md.  Created 2026-11-02 UTC (Claude Code).
+# Conventions:
+#   orders = MG5 amplitude-level (QCD, QED) of the production ME; decays listed separately.
+#   BR_applied_in_ME: branching factors already inside the MG5 cross section (decay chain).
+#   BR_external: factors to multiply ONCE in the analysis normalisation ledger.
+#   B_gg = 0.002270 (YR4, mH=125.00); B_ee = 0.033632, B_mumu = 0.033662 (PDG 2025)  [01_signal_process.md]
+#   Z->ll ME decay samples: rescale per flavour by B_l(PDG)/B_l(MG5) measured in Phase 03 (03_generation_validation.md).
+common:
+  sqrt_s_GeV: 13600
+  lumi_fb: 500
+  model: sm-no_b_mass            # 5F, massless b, diagonal CKM, zero light/b Yukawa (D2)
+  pdf: {set: NNPDF31_nnlo_as_0118, lhaid: 303600}
+  scale_fixed_order: "dynamical_scale_choice=3 (sum mT / 2)"
+  scale_mlm: "dynamical_scale_choice=-1 (CKKW clustering), required for MLM"
+  shower: "Pythia 8.317, CP5 tune; SpaceShower:dipoleRecoil=on for EW/VBS-topology samples"
+  detector: "Delphes 3.5.1 delphes_card_CMS.tcl (no pileup in nominal card)"
+  gen_cuts_llaa: {ptl: 10, etal: 2.5, mmll: 50, pta: 15, etaa: 2.5, ptj: 20, etaj: 5, dR_all: 0.4, mmaa: 90, mmaamax: 190}
+  gen_cuts_zh: {ptj: 20, etaj: 5, drjj: 0.4, cut_decays: false}
+  prompt_photon_def: >-
+    status-1 photon whose ancestry contains no hadron (ME photon or QED shower photon off quark/lepton),
+    pT>15 GeV, |eta|<2.5, DeltaR>0.4 to every other prompt photon, prompt lepton (pT>10) and generator jet (anti-kT 0.4, pT>20, built without neutrinos/prompt photons/prompt leptons).
+
+samples:
+  # ---------------- signal ----------------
+  - id: S_EW_ZHjj
+    role: signal
+    process: "p p > z h j j QCD=0 QED=4, z > l+ l-"
+    orders: [0, 4]
+    njets_me: 2
+    merging: none
+    BR_applied_in_ME: "Z->ee,mumu (MG5 tree BR)"
+    BR_external: "B_gg x [B_l(PDG)/B_l(MG5)]"
+    h_decay: "Pythia8 25:onMode=off, 25:onIfMatch=22 22"
+    overlap: "Exclusive with QCD ZH+jets by coupling order; EW-QCD interference separate (I_ZHjj)."
+    target_mc: "N_eff >= 100x expected selected yield; >= 200k events (cheap)"
+    validated: "03_generation_validation.md (xsec, BR closure, PY8+Delphes 1k)"
+  - id: S_EW_ZHjj_offshell
+    role: signal-systematic (pole vs full ll)
+    process: "p p > l+ l- h j j QCD=0 QED=5"
+    orders: [0, 5]
+    BR_external: "B_gg only"
+    overlap: "ALTERNATIVE to S_EW_ZHjj; never add."
+    target_mc: "sigma + 50k events for shape comparison"
+  # ---------------- resonant Higgs backgrounds ----------------
+  - id: H_QCD_ZH_mlm
+    role: resonant-background (QCD-induced ZH + jets)
+    process: "p p > z h @0; p p > z h j @1; p p > z h j j @2 ; z > l+ l-"
+    orders: "minimal QED (=2 at production); QCD = njets"
+    merging: "MLM, xqcut=15, qCut=25 (to be validated with DJRs)"
+    BR_applied_in_ME: "Z->ll"
+    BR_external: "B_gg x B_l ratio"
+    overlap: "Its 2-jet ME is the (2,2) ZHjj; EW (0,4) excluded by order. Do NOT add H_QCD_ZHjj_fixed."
+    target_mc: ">= 2M events (VBS-region efficiency ~1e-2 or less)"
+  - id: H_QCD_ZHjj_fixed
+    role: cross-check only
+    process: "p p > z h j j QCD=2 QED=2, z > l+ l-"
+    overlap: "ALTERNATIVE to H_QCD_ZH_mlm 2-jet bin; never add."
+  - id: I_ZHjj
+    role: signed EW x QCD interference (resonant)
+    process: "p p > z h j j QCD^2==2 QED^2==6"
+    orders: "squared (2,6)"
+    treatment: "cross section + LO reweighting/weighted events; signed; assigned to signal-model uncertainty unless |I|/S > 10% after selection (then ask user)"
+  - id: H_ggZH
+    role: resonant-background (loop-induced)
+    process: "g g > z h [noborn=QCD] (loop_sm), Z->ll; jets from shower"
+    target_mc: "200k events; VBS-region tail checked"
+    validated: no
+  - id: H_ttH
+    role: resonant-background
+    process: "p p > t t~ h, t > b l+ vl, t~ > b~ l- vl~ (l=e,mu; tau via separate check)"
+    orders: [2, 1]
+    BR_applied_in_ME: "t->b l nu (both)"
+    BR_external: "B_gg"
+    rationale: "~1.2 fb x B_gg-included; dileptonic SF fraction gives O(1) event before cuts at 500/fb -> comparable to signal; b-veto + mll window are the handles"
+    target_mc: "200k events"
+  - id: H_tHW
+    role: resonant-background (justified small)
+    process: "p p > t w- h + c.c., dileptonic, DR"
+    rationale: "sigma~15 fb x B_gg x dilep SF x mll window -> O(0.05) events pre-selection; keep as estimate, generate only if ttH survives selection"
+  - id: H_ZH_tautau
+    role: resonant feed-down
+    process: "QCD/EW ZH with Z->tau tau->ll (Pythia tau decays)"
+    rationale: "mll shifted below Z window; estimate with 50k events"
+  - id: H_negligible_modes
+    role: documented-negligible
+    members: [ggF_H, VBF_H, WH, bbH, tHq]
+    rationale: "<=1 prompt lepton; require >=1 fake lepton with mll in Z window (f_l ~1e-4..1e-3 per jet); estimated < 1e-2 events at 500/fb; recheck if lepton ID loosened"
+  # ---------------- continuum prompt ----------------
+  - id: B_EW_llaajj
+    role: irreducible continuum (reference signal)
+    process: "p p > l+ l- a a j j QCD=0 QED=6"
+    orders: [0, 6]
+    cuts: gen_cuts_llaa
+    overlap: "exclusive with QCD llaa by order; interference I_llaajj separate"
+    target_mc: "500k events"
+  - id: B_QCD_llaa_mlm
+    role: irreducible continuum
+    process: "p p > l+ l- a a @0; + j @1; + j j @2"
+    merging: "MLM xqcut=10, qCut=20 (DJR validation in Phase 04)"
+    cuts: gen_cuts_llaa
+    overlap: "defines >=2 prompt photons phase space; Zgamma and Z+jets vetoed against it"
+    target_mc: ">= 5M events (VBS selection efficiency small) or HT/mjj-biased generation"
+  - id: I_llaajj
+    role: signed continuum interference
+    process: "p p > l+ l- a a j j QCD^2==2 QED^2==10"
+    treatment: "cross section in VBS region; smooth in mgg -> absorbed in sideband fit, quoted"
+  # ---------------- fake-photon ----------------
+  - id: F_QCD_lla_mlm
+    role: 1 jet->photon fake (+ e->photon)
+    process: "p p > l+ l- a @0; + j @1; + j j @2 (+ j j j @3 recommended: VBS needs 2 tag jets + 1 fake)"
+    merging: "MLM"
+    overlap_veto: "drop events with >=2 prompt photons (prompt_photon_def) -> covered by B_QCD_llaa_mlm"
+    fake_model: "parametrised f_j->gamma, see fake_scenarios"
+    target_mc: ">= 5M events"
+  - id: F_EW_llajj
+    role: 1 fake, EW
+    process: "p p > l+ l- a j j QCD=0 QED=5"
+    overlap_veto: "same >=2-prompt-photon veto vs B_EW_llaajj"
+  - id: F_Zjets_mlm
+    role: 2 jet->photon fakes
+    process: "p p > l+ l- @0..j j j j @4 (MLM)"
+    overlap_veto: "drop events with >=1 prompt photon -> covered by F_QCD_lla_mlm"
+    fake_model: "per-jet weight f^2 summed over jet pairs (not Delphes object fakes)"
+    target_mc: ">= 10M events or mjj/HT-sliced"
+  # ---------------- top ----------------
+  - id: T_ttaa
+    role: irreducible prompt (dilepton)
+    process: "p p > t t~ a a, dileptonic decays in ME"
+  - id: T_tta
+    role: 1 fake
+    process: "p p > t t~ a, dileptonic; veto >=2 prompt photons"
+  - id: T_tWa
+    role: 1 fake
+    process: "p p > t w- a $$ t~ + c.c. (diagram removal; DR vs DS as systematic)"
+  - id: T_tt
+    role: 2 fakes (b-veto check only)
+    process: "p p > t t~ dileptonic; veto >=1 prompt photon"
+  # ---------------- multiboson / e->gamma ----------------
+  - id: V_WZa_ZZa
+    role: e->gamma fake & extra-lepton
+    process: "p p > l+ l- l' v a (+jets via shower); p p > l+ l- l'+ l'- a"
+    rationale: "e->gamma (Delphes lacks pixel-seed veto) -> parametrised f_e->gamma"
+  - id: V_negligible
+    role: documented-negligible
+    members: [Wgamma_gamma_jets_with_fake_lepton, gammagamma_jets_with_two_fake_leptons]
+    rationale: "need fake lepton(s) with mll in Z window; estimate < 1e-2 events"
+
+fake_scenarios:
+  jet_to_photon:
+    note: "NOT data-driven. Applied as per-jet probability to generator/reco jets not matched to prompt photons; fake photon pT = x * pT(jet), x ~ Gauss(0.85, 0.10) truncated [0.5,1]."
+    f_nominal: 1.0e-3
+    pt_dependence: "f(pT) = f_nominal * (pT/50 GeV)^-0.5, |eta|<1.44 barrel; x2 endcap"
+    scenarios: {low: 0.3, nominal: 1.0, high: 3.0}     # multiplicative on f; double fakes scale as square
+  electron_to_photon:
+    f_nominal: 0.02
+    scenarios: {low: 0.01, nominal: 0.02, high: 0.05}
+  nonprompt_lepton:
+    f_nominal: 1.0e-4
+    scenarios: {low: 3.0e-5, high: 1.0e-3}
+
+# ---------------- run-2 revision (2026-11-02 UTC) ----------------
+# Numbers per sample (sigma_gen, sigma_phys x L, N_planned, weights, kB/event, storage, core-h, SR MC stats):
+#   config/production_v2.yaml (generated by scripts/plan/stats_table.py). Gridpack cards: cards/production_v2/.
+changes_v2:
+  storage: "Delphes slim_v1 card (stock physics, TreeWriter slimmed) + in-job GenTruth friend (scripts/slim_gentruth.py); 1.5-2.8 kB/event; Delphes RandomSeed pinned"
+  F_Zjets_mlm: "Z + 2,3,4 partons MLM (xqcut 10, qCut 19); 0/1-parton bins validated by F_Zjets_01j_check (50k); fake-factor on all jet pairs; HT filter rejected (pilot)"
+  F_QCD_lla_mlm: "Zgamma + 1,2,3 partons MLM; 0-parton bin validated by F_QCD_lla_0j_check (50k); fake-factor per jet; HT filter rejected (pilot)"
+  B_QCD_llaa_mlm: "split into B_QCD_llaa_0j, _1j, _2j_is1..4 (beam-1 parton class g | u c | d s b | antiquarks)"
+  B_EW_llaajj: "split into B_EW_llaajj_is1..4 (beam-1 class u c | d s b | u~ c~ | d~ s~ b~); split closure on Z+2j -1.4% (pull -2.1) to be rechecked"
+  I_llaajj: "event sample deferred (sigma only) pending decision D-P3"
+  H_QCD_ZH_mlm: "nominal resonant QCD ZH (0-2j MLM); H_QCD_ZHjj_fixed (100k, validated v1 gridpack) kept as VBS-region cross-check, never added"
+  H_ZH_tautau: "Z->tautau via ME decay chain + Pythia tau decays, 0-2j MLM"
+  V_WZa_ZZa: "split into V_WZa, V_ZZa; require group_subprocesses False (MG5 setcuts error); sigma pending (batch)"
+  measured_sigma_fb: {zll_0j: 1500000, lla_0j: 10080, llaa_0j_mgg90_190: 2.893, zh_0j_zll: 48.45, tt_dilep: 23470, tta_dilep: 85.67, ttaa_dilep_mgg90_190: 0.0949, twa_dilep: 13.07, ew_llajj: 35.6, zll_jj_ptj20: 211500, llajj_qcd_ptj20: 1775}

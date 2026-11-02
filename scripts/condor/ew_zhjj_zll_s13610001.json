@@ -1,0 +1,4 @@
+{"sample":"ew_zhjj_zll","mg_seed":13610001,"py_seed":113610001,"n_requested":2000,"n_lhe":2000,
+ "lhe_init_xsec_pb_err_pb_max_lprup":"1.296391e-03 9.697552e-06 1.305076e-03 1","pythia_sum_line":" | sum                                                |        2000       2000       2000 |   1.299e-12  2.915e-15 |",
+ "gridpack":"/eos/user/r/rjiang/vbs_zh_codex_starter/production/gridpacks/ew_zhjj_zll_v1.tar.gz","gridpack_sha256":"7edd608fef943ff51f6515d3162e6f554de323615cd3c0e8df4465da5d15b0cb","py_cmnd":"py8_ew_zhjj_haa.cmnd","stack":"LCG_110/x86_64-el9-gcc13-opt+MG5_aMC_v3.6.3(upstream)",
+ "host":"b9p26p6528.cern.ch","utc":"2026-11-02T13:55:42Z"}

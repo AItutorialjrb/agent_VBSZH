@@ -1,0 +1,65 @@
+Now generating 2000 events with random seed 13620001 and granularity 1 using 1 processes
+/pool/condor/dir_3461962/gp/madevent/bin/internal/banner.py:3356: SyntaxWarning: invalid escape sequence '\s'
+  function_pat = re.compile('^\s+(?:SUBROUTINE|(?:%(type)s)\s+function)\s+([a-zA-Z]\w*)' \
+************************************************************
+*                                                          *
+*                      W E L C O M E to                    *
+*             M A D G R A P H 5 _ a M C @ N L O            *
+*                      M A D E V E N T                     *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 3.6.3                                    *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*    https://server06.fynu.ucl.ac.be/projects/madgraph     *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************
+INFO: load configuration from /pool/condor/dir_3461962/gp/madevent/Cards/me5_configuration.txt  
+INFO: load configuration from /eos/home-r/rjiang/vbs_zh_codex_starter/software/install/MG5_aMC_v3.6.3/input/mg5_configuration.txt  
+INFO: load configuration from /pool/condor/dir_3461962/gp/madevent/Cards/me5_configuration.txt  
+No valid eps viewer found. Please set in ./input/mg5_configuration.txt
+No valid web browser found. Please set in ./input/mg5_configuration.txt
+WRITE GRIDCARD /pool/condor/dir_3461962/gp/madevent
+generate 2000 events
+P1_gg_zhqq_z_ll
+P1_gq_zhgq_z_ll
+P1_qq_zhqq_z_ll
+P1_qq_zhgg_z_ll
+sum of cpu time of last step: 47 seconds
+Using random number seed offset = 13620001
+INFO: Generating 2000.0 unweighted events. 
+sum of cpu time of last step: 47 seconds
+INFO: need to improve 22 channels 
+combine_events
+store_events
+  === Results Summary for run: GridRun_13620001 tag: tag_1 ===
+
+     Cross-section :   0 +- 0 pb
+     Nb of events :  2000
+ 
+INFO: # Events generated with PDF: NNPDF31_nnlo_as_0118 (303600) 
+INFO: # Will Compute 145 weights per event. 
+INFO: # Currently at event 0 [elapsed time: 0.0074 s] 
+INFO: #***************************************************************************
+#
+# original cross-section: 0.010169515571999677
+#     scale variation: +24.9% -18.7%
+#     central scheme variation: +5.21e-09% -27.9%
+# PDF variation: +0.658% -0.658%
+#
+# dynamical scheme # 1 : 0.00862344 +23.4% -17.8% # \sum ET
+# dynamical scheme # 2 : 0.00826689 +23% -17.6% # \sum\sqrt{m^2+pt^2}
+# dynamical scheme # 3 : 0.0101695 +24.9% -18.7% # 0.5 \sum\sqrt{m^2+pt^2}
+# dynamical scheme # 4 : 0.00733723 +21.8% -16.9% # \sqrt{\hat s}
+#***************************************************************************
+ 
+decay_events -from_cards
+DONE
+write ./events.lhe.gz

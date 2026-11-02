@@ -1,0 +1,30 @@
+timestamp UTC: 2026-10-31T17:16:30Z
+host: lxplus937.cern.ch
+uname: Linux lxplus937.cern.ch 5.14.0-687.59.1.el9_8.x86_64 #1 SMP PREEMPT_DYNAMIC Sat Oct 17 02:31:56 EDT 2026 x86_64 x86_64 x86_64 GNU/Linux
+cwd: /eos/home-r/rjiang/vbs_zh_codex_starter
+user: uid=155524(rjiang) gid=1399(zh) groups=1399(zh),1105204420 context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+
+codex: /eos/home-r/rjiang/bin/codex
+
+python3: /cvmfs/cms.cern.ch/el8_amd64_gcc10/external/python3/3.9.6-67e5cf5b4952101922f1d4c8474baa39/bin/python3
+
+root-config: /usr/bin/root-config
+
+mg5_aMC: 
+pythia8-config: 
+DelphesHepMC3: 
+condor_submit: /usr/bin/condor_submit
+
+eos: /usr/bin/eos
+codex-cli 0.158.0
+Python 3.9.25
+6.40.04
+
+CVMFS directories: drwxr-xr-x. 40 root  root  0 Oct 31 07:05 /cvmfs
+drwxr-xr-x.  3 cvmfs cvmfs 4 Mar 25  2011 /cvmfs/sft.cern.ch
+
+Disk quota indications:
+Filesystem      Size  Used Avail Use% Mounted on
+home-r          4.0P  2.1P  2.0P  53% /eos/home-r
+
+NOTE: This is read-only. Do not launch bulk jobs on lxplus login nodes.

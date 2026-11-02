@@ -1,0 +1,11 @@
+# UNVALIDATED Phase 02 candidate (see README.md). Run-card pins as cards/phase03_smoke + YAML gen cuts.
+import model sm-no_b_mass
+define p = g u c d s b u~ c~ d~ s~ b~
+define j = g u c d s b u~ c~ d~ s~ b~
+define l+ = e+ mu+
+define l- = e- mu-
+define vl = ve vm
+define vl~ = ve~ vm~
+generate p p > t w- h $$ t~, (t > b w+, w+ > l+ vl), w- > l- vl~
+add process p p > t~ w+ h $$ t, (t~ > b~ w-, w- > l- vl~), w+ > l+ vl
+# diagram removal (DR, not gauge invariant): DS as systematic

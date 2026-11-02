@@ -1,0 +1,23 @@
+# SUPERSEDED (run 2, 2026-11-02): replaced by gridpacks_v2.sub (split by jet multiplicity / beam-1 parton class). DO NOT SUBMIT.
+# NOT YET SUBMITTED (M7 plan, step G1). Builds gridpacks for the continuum llaa samples on batch (EosSubmit schedd):
+#   bash -lc 'module load lxbatch/eossubmit; cd /eos/user/r/rjiang/vbs_zh_codex_starter/scripts/condor; condor_submit gridpacks_llaa.sub'
+P            = /eos/user/r/rjiang/vbs_zh_codex_starter
+universe     = vanilla
+executable   = make_gridpack.sh
+arguments    = $(card) $(seed) /eos/user/r/rjiang/vbs_zh_codex_starter/production/gridpacks
+transfer_input_files = $(P)/scripts/setup_stack.sh, $(P)/cards/phase03_smoke/$(card).mg5
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+output       = $(P)/production/condor_logs/gp_$(card).out
+error        = $(P)/production/condor_logs/gp_$(card).err
+log          = $(P)/production/condor_logs/gridpacks_llaa.log
+request_cpus   = 8
+request_memory = 16000
+request_disk   = 20000000
+# testmatch (3 days): interactive survey finished 1/448 (QCD) and 0/1057 (EW) channels in 25 min on 4 cores
++JobFlavour  = "testmatch"
+max_retries  = 1
+queue card, seed from (
+  ew_llaajj      13600505
+  qcd_llaa_mlm02 13600506
+)

@@ -1,0 +1,14 @@
+2026-11-02T12:35:46.065575+00:00
+https://amcatnlo.web.cern.ch/co.htm
+52249f31a6366830ff351f84f79be5362c3469cbb03c7fd2cd674b06eae4cc1d  mg5_coupling_orders.html
+https://twiki.cern.ch/twiki/bin/view/LHCPhysics/CERNYellowReportPageBR
+7cfceb03ecaefe8f40070282d777b56910bd73b48e81d341de1716d39ac4112a  higgs_br_yr4.html
+https://pdg.lbl.gov/2025/listings/rpp2025-list-z-boson.pdf
+2a6c4dbe1e7cf20856b334ec7cf8a8a1c5144b6b2efc68a8eaced3f9cfa1d53f  pdg2025_z.pdf
+SM restrictions: restrict_default.dat, restrict_lepton_masses.dat, restrict_no_masses.dat, restrict_no_tau_mass.dat, restrict_no_widths.dat, restrict_c_mass.dat, restrict_zeromass_ckm.dat, restrict_ckm.dat, restrict_no_b_mass.dat
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/htmldoc/ParticleDataScheme.html
+e54a674149ee22f343a723aa271618da927bd635f06ec3cc91124bca0818ef64  ParticleDataScheme.html
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/htmldoc/HiggsProcesses.html
+0eb95ad59552b3073ef7c08de975497f0b9d42065b9cbc0ef724e47c19e43913  HiggsProcesses.html
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/madgraph5amc/3.5.9.atlas13/x86_64-el9-gcc13-opt/models/sm/restrict_no_b_mass.dat
+0b4f9f54a5f6197de945fec5d7030f42c3afa2f11d8e93ed39308003c5057377  restrict_no_b_mass.dat

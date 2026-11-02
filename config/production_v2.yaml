@@ -1,0 +1,323 @@
+production_v2:
+  generated_by: scripts/plan/stats_table.py
+  lumi_fb: 500.0
+  B_gg: 0.00227
+  Z_BR_PDG_over_MG: 0.9783
+  SR_definition: illustrative VBS (mjj>500,|deta|>2.5) + 120<mgg<130; NOT optimised
+  data_stat_SR_events: 1.634
+  samples:
+    S_EW_ZHjj:
+      sigma_gen_fb: 1.298
+      sigma_err_fb: 0.008
+      sigma_source: measured
+      gen_cuts_decay: pTj>20,|etaj|<5,dRjj>0.4; Z->ee/mumu ME
+      br_treatment: x B_gg x ZF (PY8 forced H->gg)
+      sigma_phys_x_L_events: 1.4413
+      N_planned: 200000
+      raw_event_weight: 7.21e-06
+      kB_per_event: 3.65
+      storage_GB: 0.73
+      core_h: 5.6
+      SR_yield_est: 0.105
+      SR_mc_eff_events: 14540
+      mcstat_over_datastat: 0.0005
+    S_EW_ZHjj_offshell:
+      sigma_gen_fb: 1.3
+      sigma_err_fb: null
+      sigma_source: ESTIMATE (~on-shell)
+      gen_cuts_decay: llHjj QED=5, mll>50
+      br_treatment: x B_gg
+      sigma_phys_x_L_events: 1.4755
+      N_planned: 50000
+      raw_event_weight: 2.95e-05
+      kB_per_event: 3.65
+      storage_GB: 0.18
+      core_h: 1.4
+      SR_yield_est: null
+      SR_mc_eff_events: null
+      mcstat_over_datastat: null
+    H_QCD_ZH_mlm:
+      sigma_gen_fb: 48.45
+      sigma_err_fb: 0.37
+      sigma_source: measured 0j LO proxy
+      gen_cuts_decay: ZH(+0,1,2j MLM), Z->ll ME
+      br_treatment: x B_gg x ZF
+      sigma_phys_x_L_events: 53.7975
+      N_planned: 500000
+      raw_event_weight: 0.000108
+      kB_per_event: 4.02
+      storage_GB: 2.01
+      core_h: 27.8
+      SR_yield_est: 0.099
+      SR_mc_eff_events: 920
+      mcstat_over_datastat: 0.002
+    H_QCD_ZHjj_fixed:
+      sigma_gen_fb: 10.25
+      sigma_err_fb: 0.03
+      sigma_source: measured
+      gen_cuts_decay: (2,2) ZHjj, jet cuts as signal
+      br_treatment: x B_gg x ZF
+      sigma_phys_x_L_events: 11.3813
+      N_planned: 100000
+      raw_event_weight: 0.000114
+      kB_per_event: 4.02
+      storage_GB: 0.4
+      core_h: 2.8
+      SR_yield_est: 0.099
+      SR_mc_eff_events: 870
+      mcstat_over_datastat: 0.0021
+    I_ZHjj:
+      sigma_gen_fb: -0.114
+      sigma_err_fb: 0.007
+      sigma_source: measured (undecayed)
+      gen_cuts_decay: QCD^2==2 QED^2==6, jet cuts
+      br_treatment: x B_ll(PDG) x B_gg
+      sigma_phys_x_L_events: -0.0087
+      N_planned: 50000
+      raw_event_weight: 1.74e-07
+      kB_per_event: 3.65
+      storage_GB: 0.18
+      core_h: 1.4
+      SR_yield_est: -0.0006
+      SR_mc_eff_events: null
+      mcstat_over_datastat: null
+    H_ggZH:
+      sigma_gen_fb: 9.1
+      sigma_err_fb: null
+      sigma_source: ESTIMATE YR4 13TeV x1.1 x B_ll
+      gen_cuts_decay: loop gg->ZH, Z->ll
+      br_treatment: x B_gg
+      sigma_phys_x_L_events: 10.3285
+      N_planned: 50000
+      raw_event_weight: 0.000207
+      kB_per_event: 3.75
+      storage_GB: 0.19
+      core_h: 2.8
+      SR_yield_est: 0.01
+      SR_mc_eff_events: 49
+      mcstat_over_datastat: 0.0009
+    H_ttH:
+      sigma_gen_fb: 17.98
+      sigma_err_fb: 0.2
+      sigma_source: measured
+      gen_cuts_decay: dilep e/mu (MG W BR), no jet cuts
+      br_treatment: x B_gg
+      sigma_phys_x_L_events: 20.4073
+      N_planned: 100000
+      raw_event_weight: 0.000204
+      kB_per_event: 3.75
+      storage_GB: 0.38
+      core_h: 2.8
+      SR_yield_est: 0.035
+      SR_mc_eff_events: 174
+      mcstat_over_datastat: 0.0016
+    H_tHW:
+      sigma_gen_fb: 0.71
+      sigma_err_fb: null
+      sigma_source: ESTIMATE YR4 15.2 fb x 0.0469
+      gen_cuts_decay: dilep, DR
+      br_treatment: x B_gg
+      sigma_phys_x_L_events: 0.8058
+      N_planned: 50000
+      raw_event_weight: 1.61e-05
+      kB_per_event: 3.75
+      storage_GB: 0.19
+      core_h: 1.4
+      SR_yield_est: 0.0005
+      SR_mc_eff_events: null
+      mcstat_over_datastat: null
+    H_ZH_tautau:
+      sigma_gen_fb: 24.2
+      sigma_err_fb: 0.2
+      sigma_source: derived from zh_0j (one flavour)
+      gen_cuts_decay: ZH, Z->tautau ME, PY8 tau decays
+      br_treatment: x B_gg
+      sigma_phys_x_L_events: 27.467
+      N_planned: 50000
+      raw_event_weight: 0.000549
+      kB_per_event: 3.75
+      storage_GB: 0.19
+      core_h: 1.4
+      SR_yield_est: 0.002
+      SR_mc_eff_events: null
+      mcstat_over_datastat: null
+    B_EW_llaajj:
+      sigma_gen_fb: 0.15
+      sigma_err_fb: null
+      sigma_source: ESTIMATE ref 0.426 fb x0.35 (mgg 90-190)
+      gen_cuts_decay: ref cuts + 90<mgg<190
+      br_treatment: none (ll in ME)
+      sigma_phys_x_L_events: 75.0
+      N_planned: 100000
+      raw_event_weight: 0.00075
+      kB_per_event: 2.5
+      storage_GB: 0.25
+      core_h: 27.8
+      SR_yield_est: 0.9
+      SR_mc_eff_events: 1200
+      mcstat_over_datastat: 0.0159
+    B_QCD_llaa_mlm:
+      sigma_gen_fb: 2.893
+      sigma_err_fb: 0.027
+      sigma_source: measured 0j LO proxy
+      gen_cuts_decay: ref cuts + 90<mgg<190, 0-2j MLM
+      br_treatment: none
+      sigma_phys_x_L_events: 1446.5
+      N_planned: 500000
+      raw_event_weight: 0.00289
+      kB_per_event: 2.5
+      storage_GB: 1.25
+      core_h: 138.9
+      SR_yield_est: 0.43
+      SR_mc_eff_events: 149
+      mcstat_over_datastat: 0.0216
+    I_llaajj:
+      sigma_gen_fb: 0.0085
+      sigma_err_fb: null
+      sigma_source: ESTIMATE ref 0.0244 fb x0.35
+      gen_cuts_decay: QCD^2==2 QED^2==10
+      br_treatment: none (signed)
+      sigma_phys_x_L_events: 4.25
+      N_planned: 50000
+      raw_event_weight: 8.5e-05
+      kB_per_event: 2.5
+      storage_GB: 0.12
+      core_h: 13.9
+      SR_yield_est: 0.05
+      SR_mc_eff_events: null
+      mcstat_over_datastat: null
+    F_QCD_lla_mlm:
+      sigma_gen_fb: 1775.0
+      sigma_err_fb: 6.0
+      sigma_source: measured Zgamma+2j pilot (lower bound for 1-3j MLM)
+      gen_cuts_decay: ref cuts, 1-3j MLM
+      br_treatment: none; x f(j->g) per jet
+      sigma_phys_x_L_events: 887500.0
+      N_planned: 1000000
+      raw_event_weight: 0.887
+      kB_per_event: 1.63
+      storage_GB: 1.63
+      core_h: 55.6
+      SR_yield_est: 0.59
+      SR_mc_eff_events: 226
+      mcstat_over_datastat: 0.024
+    F_EW_llajj:
+      sigma_gen_fb: 35.6
+      sigma_err_fb: 0.31
+      sigma_source: measured
+      gen_cuts_decay: ref cuts, QED=5
+      br_treatment: none; x f(j->g)
+      sigma_phys_x_L_events: 17800.0
+      N_planned: 200000
+      raw_event_weight: 0.089
+      kB_per_event: 1.63
+      storage_GB: 0.33
+      core_h: 8.3
+      SR_yield_est: 0.12
+      SR_mc_eff_events: null
+      mcstat_over_datastat: null
+    F_Zjets_mlm:
+      sigma_gen_fb: 211500.0
+      sigma_err_fb: 919.0
+      sigma_source: measured Z+2j pilot (lower bound for 2-4j MLM)
+      gen_cuts_decay: mll>50, ptj>20, 2-4j MLM
+      br_treatment: none; x f1 f2 per jet pair
+      sigma_phys_x_L_events: 105750000.0
+      N_planned: 1000000
+      raw_event_weight: 106.0
+      kB_per_event: 1.5
+      storage_GB: 1.5
+      core_h: 55.6
+      SR_yield_est: 0.19
+      SR_mc_eff_events: 814
+      mcstat_over_datastat: 0.0041
+    T_ttaa:
+      sigma_gen_fb: 0.0949
+      sigma_err_fb: 0.0013
+      sigma_source: measured
+      gen_cuts_decay: dilep, pTa>15,|eta|<2.5, 90<mgg<190
+      br_treatment: none (t,W in ME)
+      sigma_phys_x_L_events: 47.45
+      N_planned: 50000
+      raw_event_weight: 0.000949
+      kB_per_event: 2.5
+      storage_GB: 0.12
+      core_h: 1.4
+      SR_yield_est: 0.005
+      SR_mc_eff_events: null
+      mcstat_over_datastat: null
+    T_tta:
+      sigma_gen_fb: 85.67
+      sigma_err_fb: 1.0
+      sigma_source: measured
+      gen_cuts_decay: dilep, pTa>15,|eta|<2.5
+      br_treatment: none; 2nd photon x f(j->g)
+      sigma_phys_x_L_events: 42835.0
+      N_planned: 100000
+      raw_event_weight: 0.428
+      kB_per_event: 2.5
+      storage_GB: 0.25
+      core_h: 2.8
+      SR_yield_est: 0.05
+      SR_mc_eff_events: null
+      mcstat_over_datastat: null
+    T_tWa:
+      sigma_gen_fb: 13.07
+      sigma_err_fb: 0.16
+      sigma_source: measured
+      gen_cuts_decay: dilep, DR, pTa>15
+      br_treatment: none; x f(j->g)
+      sigma_phys_x_L_events: 6535.0
+      N_planned: 50000
+      raw_event_weight: 0.131
+      kB_per_event: 2.5
+      storage_GB: 0.12
+      core_h: 1.4
+      SR_yield_est: 0.01
+      SR_mc_eff_events: null
+      mcstat_over_datastat: null
+    T_tt:
+      sigma_gen_fb: 23470.0
+      sigma_err_fb: 238.0
+      sigma_source: measured
+      gen_cuts_decay: dilep e/mu
+      br_treatment: none; x f1 f2
+      sigma_phys_x_L_events: 11735000.0
+      N_planned: 1000000
+      raw_event_weight: 11.7
+      kB_per_event: 2.5
+      storage_GB: 2.5
+      core_h: 27.8
+      SR_yield_est: 0.05
+      SR_mc_eff_events: null
+      mcstat_over_datastat: null
+    V_WZa:
+      sigma_gen_fb: 7.0
+      sigma_err_fb: null
+      sigma_source: ESTIMATE (batch sigma job pending)
+      gen_cuts_decay: lllv+gamma
+      br_treatment: none; x f(e->g)
+      sigma_phys_x_L_events: 3500.0
+      N_planned: 50000
+      raw_event_weight: 0.07
+      kB_per_event: 2.5
+      storage_GB: 0.12
+      core_h: 1.4
+      SR_yield_est: 0.02
+      SR_mc_eff_events: null
+      mcstat_over_datastat: null
+    V_ZZa:
+      sigma_gen_fb: 1.0
+      sigma_err_fb: null
+      sigma_source: ESTIMATE (batch sigma job pending)
+      gen_cuts_decay: 4l+gamma
+      br_treatment: none; x f(e->g)
+      sigma_phys_x_L_events: 500.0
+      N_planned: 50000
+      raw_event_weight: 0.01
+      kB_per_event: 2.5
+      storage_GB: 0.12
+      core_h: 1.4
+      SR_yield_est: 0.005
+      SR_mc_eff_events: null
+      mcstat_over_datastat: null

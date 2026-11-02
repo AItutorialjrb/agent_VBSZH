@@ -1,0 +1,5 @@
+# UNTESTED Phase 01 candidate. No output or launch commands. Not production approved.
+import model sm-no_b_mass
+define p = g u c d s b u~ c~ d~ s~ b~
+define j = g u c d s b u~ c~ d~ s~ b~
+generate p p > z h j j QCD==2 QED==2

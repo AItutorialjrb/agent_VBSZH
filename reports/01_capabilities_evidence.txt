@@ -1,0 +1,3686 @@
+
+$ sed -n 575,615p /cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/madgraph5amc/3.5.9.atlas13/x86_64-el9-gcc13-opt/madgraph/interface/madgraph_interface.py
+        logger.info("   specifying it as an integer just before the [param_card]")
+        logger.info("   optional argument.")
+        logger.info(" > Notice multiparticle labels cannot be used with these checks.")
+        logger.info(" > \"--reduction=\" allows to change what reduction methods should be used.")
+        logger.info(" > \"--split_orders=\" allows to change what specific combination of coupling orders to consider.")
+        logger.info(" > For process syntax, please see help generate.")
+        logger.info(" > In order to save the directory generated or the reuse an existing one")
+        logger.info("   previously generated with the check command, one can add the '-reuse' ")
+        logger.info("   keyword just after the specification of the type of check desired.")
+        logger.info("Example: check profile g g > t t~ [virt=QCD]",'$MG:color:GREEN')
+
+
+    def help_generate(self):
+
+        logger.info("-- generate diagrams for a given process",'$MG:color:BLUE')
+        logger.info("General leading-order syntax:",'$MG:BOLD')
+        logger.info(" o generate INITIAL STATE > REQ S-CHANNEL > FINAL STATE $ EXCL S-CHANNEL / FORBIDDEN PARTICLES COUP1=ORDER1 COUP2^2=ORDER2 @N")
+        logger.info(" o Example: generate l+ vl > w+ > l+ vl a $ z / a h QED<=3 QCD=0 @1",'$MG:color:GREEN')
+        logger.info(" > Alternative required s-channels can be separated by \"|\":")
+        logger.info("   b b~ > W+ W- | H+ H- > ta+ vt ta- vt~")
+        logger.info(" > If no coupling orders are given, MG5 will try to determine")
+        logger.info("   orders to ensure maximum number of QCD vertices.")
+        logger.info(" > Desired coupling orders combination can be specified directly for")
+        logger.info("   the squared matrix element by appending '^2' to the coupling name.")
+        logger.info("   For example, 'p p > j j QED^2==2 QCD^2==2' selects the QED-QCD")
+        logger.info("   interference terms only. The other two operators '<=' and '>' are")
+        logger.info("   supported. Finally, a negative value COUP^2==-I refers to the")
+        logger.info("   N^(-I+1)LO term in the expansion of the COUP order.")
+        logger.info(" > allowed coupling operator are: \"==\", \"=\", \"<=\" and \">\".")
+        logger.info("    \"==\" request exactly that number of coupling while \"=\" is interpreted as \"<=\".")
+        logger.info(" > To generate a second process use the \"add process\" command")
+        logger.info("Decay chain syntax:",'$MG:BOLD')
+        logger.info(" o core process, decay1, (decay2, (decay2', ...)), ...  etc")
+        logger.info(" o Example: generate p p > t~ t QED=0, (t~ > W- b~, W- > l- vl~), t > j j b @2",'$MG:color:GREEN')
+        logger.info(" > Note that identical particles will all be decayed.")
+        logger.info("Loop processes syntax:",'$MG:BOLD')
+        logger.info(" o core process [ <NLO_mode=> LoopOrder1 LoopOrder2 ... ] SQUAREDCOUPi=ORDERi")
+        logger.info(" o Example: generate p p > t~ t QED=0 QCD=2 [ all= QCD ] QCD=6",'$MG:color:GREEN')
+        logger.info(" > Notice that in this format, decay chains are not allowed.")
+        logger.info(" > The LoopOrder(s) defined specify the kind of loops to consider (only QCD for now).")
+        logger.info(" > The coupling restrictions before '[' restrict the orders of born *amplitudes*.")
+
+exit=0
+
+$ rg -n 'onIfMatch|onMode|rescal|branching|external|SLHA' /cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/htmldoc/ParticleDataScheme.html
+146:should be handled by an external decay package or not, with the latter 
+177:<li><code>onMode</code>: integer code for use or not of channel,<br/> 
+189:<li><code>bRatio</code>: the branching ratio of the channel 
+199:decays according to the given branching ratios, while for a resonance 
+201:widths and thereby branching ratios as a function of the resonance mass 
+206:and the stored branching ratio. Thus, to enforce a new branching ratio 
+257:    &lt;channel onMode="..." bRatio="..." meMode="..." products="..." /&gt; 
+331:A further command is <code>rescaleBR</code>, which rescales each of the 
+332:existing branching ratios with a common factor, such that their new 
+340:<code>onMode</code>, <code>bRatio</code>, <code>meMode</code> or 
+353:    id:channel:all = onMode bRatio meMode product1 product2 .... 
+357:    id:addChannel = onMode bRatio meMode product1 product2 .... 
+362:setting its branching ratio vanishing is as effective. If you want to 
+366:    id:oneChannel = onMode bRatio meMode product1 product2 .... 
+373:When adding new channels or changing branching ratios in general, 
+374:note that, once a particle is to be decayed, the sum of branching 
+375:ratios is always rescaled to unity. Beforehand, <code>rescaleBR</code> 
+376:may be used to rescale an existing branching ratio by the given factor. 
+382:    id:onMode = onMode 
+384:will set the <code>onMode</code> property of all channels to the 
+392:will set the <code>onMode</code> 0, 1, 2 or 3, respectively, for all 
+406:will set the <code>onMode</code> 0, 1, 2 or 3, respectively, for all 
+414:    id:onIfMatch    = product1 product2 .... 
+427:<code>23:onMode = off</code> followed by <code>23:onIfAny = 1 2 3 4 5</code> 
+708:by being linked to an object that does the calculation of branching 
+750:branching-ratio-averaged threshold mass. 11 and 12 are like 1 and 2, 
+970:a flag telling whether a particle should be handled by an external 
+1135:<p/><strong> void ParticleData::rescaleBR(int id, double newSumBR = 1.) &nbsp;</strong> <br/>
+1136:rescales all partial branching ratios by a common factor, such that 
+1179:calculate the fraction of the full branching ratio that is left 
+1187:the factor used to rescale all partial widths in case the total 
+1427:a flag telling whether a particle should be handled by an external 
+1604:<p/><strong> void ParticleDataEntry::addChannel(int onMode = 0, double bRatio = 0., int meMode = 0, int prod0 = 0, int prod1 = 0, int prod2 = 0, int prod3 = 0, int prod4 = 0, int prod5 = 0, int prod6 = 0,  int prod7 = 0,) &nbsp;</strong> <br/>
+1622:<p/><strong> void ParticleDataEntry::rescaleBR(double newSumBR = 1.) &nbsp;</strong> <br/>
+1623:rescales all partial branching ratios by a common factor, such that 
+1634:pick a decay channel according to branching ratios from 
+1678:calculate the fraction of the full branching ratio that is left 
+1684:the factor used to rescale all partial widths in case the total 
+1701:<p/><strong> DecayChannel::DecayChannel(int onMode = 0, double bRatio = 0., int meMode = 0, int prod0 = 0, int prod1 = 0, int prod2 = 0, int prod3 = 0, int prod4 = 0, int prod5 = 0, int prod6 = 0, int prod7 = 0) &nbsp;</strong> <br/>
+1711:<p/><strong> void DecayChannel::onMode(int onMode) &nbsp;</strong> <br/>
+1714:<strong> int DecayChannel::onMode() &nbsp;</strong> <br/>
+1715:set or get the <code>onMode</code> of a decay channel,<br/> 
+1733:set or get the branching ratio of the channel. Second argument only 
+1738:<p/><strong> void DecayChannel::rescaleBR(double fac) &nbsp;</strong> <br/>
+1739:multiply the current branching ratio by <code>fac</code>. 
+1797:set or get the current branching ratio, taking into account on/off 
+
+exit=0
+
+$ rg -n 'NLOWidths|gamma|width|branching' /cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/htmldoc/HiggsProcesses.html
+29:The partial width of a Higgs particle to a pair of gauge bosons, 
+35:dependence on <i>mHat</i>, i.e. a width proportional to 
+37:<i>mHat^3</i> dependence. This does not affect the widths to 
+45:The partial width of a Higgs particle to a pair of gluons or photons, 
+46:or a <i>gamma Z^0</i> pair, proceeds in part through quark loops, 
+59:width variation with the mass of a Higgs. This implies that a Higgs 
+77:times the nominal width are forbidden. This is achieved by setting 
+88:<p/><code>flag&nbsp; </code><strong> HiggsSM:NLOWidths &nbsp;</strong> 
+90:The partial width of the SM Higgs particle are multiplied by the 
+91:respective factors needed to bring the LO widths encoded in PYTHIA 
+134:Scattering <i>gamma gamma &rarr; H^0</i> via loop contributions primarily 
+206:<i>g &rarr; b bbar</i> branching on either side, so that effectively 
+380:Scattering <i>gamma gamma &rarr; h^0(H_1^0)</i> via loop contributions 
+463:Scattering <i>gamma gamma &rarr; H^0(H_2^0)</i> via loop contributions 
+546:Scattering <i>gamma gamma &rarr; A^0(A_3^0)</i> via loop contributions 
+901:of the internal calculations of partial widths from the parameters provided 
+1129:does not affect the partial width of the channels, which is only based 
+1172:does not affect the partial width of the channels, which is only based 
+1215:does not affect the partial width of the channels, which is only based 
+
+exit=0
+
+$ rg -n '25 |22 22|NLOWidths' /cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml /cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/HiggsProcesses.xml
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/HiggsProcesses.xml:64:<flag name="HiggsSM:NLOWidths" default="on"> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/HiggsProcesses.xml:68:factors have been derived for a 125 GeV Higgs, but should apply for a 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/HiggsProcesses.xml:995:<!-- Copyright (C) 2025 Torbjorn Sjostrand --> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:336: <channel onMode="1" bRatio="0.0028438" products="22 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:343: <channel onMode="1" bRatio="0.0000000" meMode="103" products="1000025 1000022"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:344: <channel onMode="1" bRatio="0.0000000" meMode="103" products="1000025 1000023"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:345: <channel onMode="1" bRatio="0.0000000" meMode="103" products="1000025 1000025"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:458: <channel onMode="1" bRatio="0.0000150" products="22 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:463: <channel onMode="1" bRatio="0.0028890" products="25 25"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:467: <channel onMode="1" bRatio="0.0000000" products="25 36"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:472: <channel onMode="1" bRatio="0.0000000" meMode="103" products="1000025 1000022"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:473: <channel onMode="1" bRatio="0.0000000" meMode="103" products="1000025 1000023"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:474: <channel onMode="1" bRatio="0.0000000" meMode="103" products="1000025 1000025"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:545: <channel onMode="1" bRatio="0.0000150" products="22 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:550: <channel onMode="1" bRatio="0.0000000" products="25 25"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:556: <channel onMode="1" bRatio="0.0000000" meMode="103" products="1000025 1000022"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:557: <channel onMode="1" bRatio="0.0000000" meMode="103" products="1000025 1000023"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:558: <channel onMode="1" bRatio="0.0000000" meMode="103" products="1000025 1000025"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:630: <channel onMode="1" bRatio="0.0000000" meMode="103" products="1000025 1000024"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:631: <channel onMode="1" bRatio="0.0000000" meMode="103" products="1000025 1000037"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:708: <channel onMode="1" bRatio="0.000" products="25  25"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:736: <channel onMode="1" bRatio="0.050" products="25  25"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:826: <channel onMode="1" bRatio="0.9879900" products="22 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:854: <channel onMode="1" bRatio="0.0000090" products="22 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:867: <channel onMode="1" bRatio="0.0005471" products="22 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:896: <channel onMode="1" bRatio="0.3931181" products="22 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:898: <channel onMode="1" bRatio="0.0002700" products="111 22 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:941: <channel onMode="1" bRatio="0.0000026" products="22 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:1013: <channel onMode="1" bRatio="0.0219297" products="22 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:1264: <channel onMode="1" bRatio="0.0023000" products="225 211"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:1325: <channel onMode="1" bRatio="0.0002800" products="22 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:1361: <channel onMode="1" bRatio="0.0043000" products="225 223"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:1399: <channel onMode="1" bRatio="0.0002590" products="22 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:2399: <channel onMode="1" bRatio="0.0000023" products="225 211"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:2439: <channel onMode="1" bRatio="0.0008000" products="-425 211"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:2440: <channel onMode="1" bRatio="0.0038000" products="-425 213"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:3117: <channel onMode="1" bRatio="0.0000005" products="22 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:3578: <channel onMode="1" bRatio="0.9950249" products="3122 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:3588: <channel onMode="1" bRatio="0.0130000" meMode="3" products="3122 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:3630: <channel onMode="1" bRatio="0.0011700" products="3122 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:3723: <channel onMode="1" bRatio="0.0020000" products="3222 221"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:3724: <channel onMode="1" bRatio="0.0040000" products="3222 223"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:3754: <channel onMode="1" bRatio="0.0100000" products="4122 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:3940: <channel onMode="1" bRatio="0.0000650" products="3122 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:3959: <channel onMode="1" bRatio="0.0000570" products="203122 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:3960: <channel onMode="1" bRatio="0.0000560" products="103122 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:4614: <channel onMode="1" bRatio="0.0002600" products="22 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:4714: <channel onMode="1" bRatio="0.0100000" products="4122 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:5015: <channel onMode="1" bRatio="0.0002100" products="225 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:5140: <channel onMode="1" bRatio="0.008687" meMode="3" products="3122 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:5214: <channel onMode="1" bRatio="0.195402" meMode="3" products="3122 221"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:5467: <channel onMode="1" bRatio="0.350000" meMode="3" products="3222 221"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:5581: <channel onMode="1" bRatio="0.061224" meMode="3" products="3122 221"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:5601: <channel onMode="1" bRatio="0.0870731" products="100553 22 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6204: <channel onMode="1" bRatio="0.034483" meMode="7" products="3122 221"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6207: <channel onMode="1" bRatio="0.068966" meMode="6" products="3122 223"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6229: <channel onMode="1" bRatio="0.0000000" products="1000025 1"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6230: <channel onMode="1" bRatio="0.0000000" products="1000025 3"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6231: <channel onMode="1" bRatio="0.0000000" products="1000025 5"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6302: <channel onMode="1" bRatio="0.0000000" products="1000025 2"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6303: <channel onMode="1" bRatio="0.0000000" products="1000025 4"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6304: <channel onMode="1" bRatio="0.0000000" products="1000025 6"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6354: <channel onMode="1" bRatio="0.0000000" products="1000025 1"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6355: <channel onMode="1" bRatio="0.0000000" products="1000025 3"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6356: <channel onMode="1" bRatio="0.0000000" products="1000025 5"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6427: <channel onMode="1" bRatio="0.0000000" products="1000025 2"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6428: <channel onMode="1" bRatio="0.0000000" products="1000025 4"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6429: <channel onMode="1" bRatio="0.0000000" products="1000025 6"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6479: <channel onMode="1" bRatio="0.0000000" products="1000025 1"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6480: <channel onMode="1" bRatio="0.0000000" products="1000025 3"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6481: <channel onMode="1" bRatio="0.0000000" products="1000025 5"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6552: <channel onMode="1" bRatio="0.0000000" products="1000025 2"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6553: <channel onMode="1" bRatio="0.0000000" products="1000025 4"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6554: <channel onMode="1" bRatio="0.0000000" products="1000025 6"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6594: <channel onMode="1" bRatio="0.0000000" products="1000025 11"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6629: <channel onMode="1" bRatio="0.0000000" products="1000025 12"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6659: <channel onMode="1" bRatio="0.0000000" products="1000025 13"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6695: <channel onMode="1" bRatio="0.0000000" products="1000025 14"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6725: <channel onMode="1" bRatio="0.0000000" products="1000025 15"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6761: <channel onMode="1" bRatio="0.0000000" products="1000025 16"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6891: <channel onMode="1" bRatio="0.0000000" products="1000025 1 -1"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6892: <channel onMode="1" bRatio="0.0000000" products="1000025 1 -3"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6893: <channel onMode="1" bRatio="0.0000000" products="1000025 1 -5"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6894: <channel onMode="1" bRatio="0.0000000" products="1000025 3 -1"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6895: <channel onMode="1" bRatio="0.0000000" products="1000025 3 -3"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6896: <channel onMode="1" bRatio="0.0000000" products="1000025 3 -5"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6897: <channel onMode="1" bRatio="0.0000000" products="1000025 5 -1"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6898: <channel onMode="1" bRatio="0.0000000" products="1000025 5 -3"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6899: <channel onMode="1" bRatio="0.0000000" products="1000025 5 -5"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6900: <channel onMode="1" bRatio="0.0000000" products="1000025 2 -2"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6901: <channel onMode="1" bRatio="0.0000000" products="1000025 2 -4"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6902: <channel onMode="1" bRatio="0.0000000" products="1000025 2 -6"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6903: <channel onMode="1" bRatio="0.0000000" products="1000025 4 -2"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6904: <channel onMode="1" bRatio="0.0000000" products="1000025 4 -4"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6905: <channel onMode="1" bRatio="0.0000000" products="1000025 4 -6"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6906: <channel onMode="1" bRatio="0.0000000" products="1000025 6 -2"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6907: <channel onMode="1" bRatio="0.0000000" products="1000025 6 -4"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:6908: <channel onMode="1" bRatio="0.0000000" products="1000025 6 -6"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:7266: <channel onMode="1" bRatio="0.0000000" products="1000022 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:7628: <channel onMode="1" bRatio="0.0000000" products="1000025 24"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:7632: <channel onMode="1" bRatio="0.0000000" products="1000025 37"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:7652: <channel onMode="1" bRatio="0.0000000" products="1000025 -11 12"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:7653: <channel onMode="1" bRatio="0.0000000" products="1000025 -13 14"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:7654: <channel onMode="1" bRatio="0.0000000" products="1000025 -15 16"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:7676: <channel onMode="1" bRatio="0.0000000" products="1000025 -1 2"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:7677: <channel onMode="1" bRatio="0.0000000" products="1000025 -1 4"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:7678: <channel onMode="1" bRatio="0.0000000" products="1000025 -1 6"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:7679: <channel onMode="1" bRatio="0.0000000" products="1000025 -3 2"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:7680: <channel onMode="1" bRatio="0.0000000" products="1000025 -3 4"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:7681: <channel onMode="1" bRatio="0.0000000" products="1000025 -3 6"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:7682: <channel onMode="1" bRatio="0.0000000" products="1000025 -5 2"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:7683: <channel onMode="1" bRatio="0.0000000" products="1000025 -5 4"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:7684: <channel onMode="1" bRatio="0.0000000" products="1000025 -5 6"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:7923: <channel onMode="1" bRatio="0.0000000" products="1000022 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8315: <channel onMode="1" bRatio="0.0000000" products="1000022 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8325: <channel onMode="1" bRatio="0.0000000" products="1000025 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8326: <channel onMode="1" bRatio="0.0000000" products="1000025 23"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8327: <channel onMode="1" bRatio="0.0000000" products="1000025 25"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8328: <channel onMode="1" bRatio="0.0000000" products="1000025 35"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8329: <channel onMode="1" bRatio="0.0000000" products="1000025 36"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8350: <channel onMode="1" bRatio="0.0000000" products="1000025 11 -11"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8351: <channel onMode="1" bRatio="0.0000000" products="1000025 13 -13"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8352: <channel onMode="1" bRatio="0.0000000" products="1000025 15 -15"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8353: <channel onMode="1" bRatio="0.0000000" products="1000025 12 -12"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8354: <channel onMode="1" bRatio="0.0000000" products="1000025 14 -14"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8355: <channel onMode="1" bRatio="0.0000000" products="1000025 16 -16"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8496: <channel onMode="1" bRatio="0.0000000" products="1000025 1 -1"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8497: <channel onMode="1" bRatio="0.0000000" products="1000025 1 -3"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8498: <channel onMode="1" bRatio="0.0000000" products="1000025 1 -5"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8499: <channel onMode="1" bRatio="0.0000000" products="1000025 3 -1"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8500: <channel onMode="1" bRatio="0.0000000" products="1000025 3 -3"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8501: <channel onMode="1" bRatio="0.0000000" products="1000025 3 -5"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8502: <channel onMode="1" bRatio="0.0000000" products="1000025 5 -1"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8503: <channel onMode="1" bRatio="0.0000000" products="1000025 5 -3"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8504: <channel onMode="1" bRatio="0.0000000" products="1000025 5 -5"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8505: <channel onMode="1" bRatio="0.0000000" products="1000025 2 -2"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8506: <channel onMode="1" bRatio="0.0000000" products="1000025 2 -4"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8507: <channel onMode="1" bRatio="0.0000000" products="1000025 2 -6"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8508: <channel onMode="1" bRatio="0.0000000" products="1000025 4 -2"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8509: <channel onMode="1" bRatio="0.0000000" products="1000025 4 -4"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8510: <channel onMode="1" bRatio="0.0000000" products="1000025 4 -6"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8511: <channel onMode="1" bRatio="0.0000000" products="1000025 6 -2"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8512: <channel onMode="1" bRatio="0.0000000" products="1000025 6 -4"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8513: <channel onMode="1" bRatio="0.0000000" products="1000025 6 -6"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8739: <channel onMode="1" bRatio="0.0000000" products="1000025 24"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8743: <channel onMode="1" bRatio="0.0000000" products="1000025 37"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8757: <channel onMode="1" bRatio="0.0000000" products="1000025 -11 12"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8758: <channel onMode="1" bRatio="0.0000000" products="1000025 -13 14"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8759: <channel onMode="1" bRatio="0.0000000" products="1000025 -15 16"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8793: <channel onMode="1" bRatio="0.0000000" products="1000025 -1 2"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8794: <channel onMode="1" bRatio="0.0000000" products="1000025 -1 4"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8795: <channel onMode="1" bRatio="0.0000000" products="1000025 -1 6"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8796: <channel onMode="1" bRatio="0.0000000" products="1000025 -3 2"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8797: <channel onMode="1" bRatio="0.0000000" products="1000025 -3 4"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8798: <channel onMode="1" bRatio="0.0000000" products="1000025 -3 6"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8799: <channel onMode="1" bRatio="0.0000000" products="1000025 -5 2"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8800: <channel onMode="1" bRatio="0.0000000" products="1000025 -5 4"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:8801: <channel onMode="1" bRatio="0.0000000" products="1000025 -5 6"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9353: <channel onMode="1" bRatio="0.0000000" products="1000025 1"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9354: <channel onMode="1" bRatio="0.0000000" products="1000025 3"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9355: <channel onMode="1" bRatio="0.0000000" products="1000025 5"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9362: <channel onMode="1" bRatio="0.0000000" products="1000025 1"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9363: <channel onMode="1" bRatio="0.0000000" products="1000025 3"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9364: <channel onMode="1" bRatio="0.0000000" products="1000025 5"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9452: <channel onMode="1" bRatio="0.0000000" products="1000025 2"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9453: <channel onMode="1" bRatio="0.0000000" products="1000025 4"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9454: <channel onMode="1" bRatio="0.0000000" products="1000025 6"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9524: <channel onMode="1" bRatio="0.0000000" products="1000025 1"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9525: <channel onMode="1" bRatio="0.0000000" products="1000025 3"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9526: <channel onMode="1" bRatio="0.0000000" products="1000025 5"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9533: <channel onMode="1" bRatio="0.0000000" products="1000025 1"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9534: <channel onMode="1" bRatio="0.0000000" products="1000025 3"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9535: <channel onMode="1" bRatio="0.0000000" products="1000025 5"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9623: <channel onMode="1" bRatio="0.0000000" products="1000025 2"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9624: <channel onMode="1" bRatio="0.0000000" products="1000025 4"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9625: <channel onMode="1" bRatio="0.0000000" products="1000025 6"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9695: <channel onMode="1" bRatio="0.0000000" products="1000025 1"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9696: <channel onMode="1" bRatio="0.0000000" products="1000025 3"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9697: <channel onMode="1" bRatio="0.0000000" products="1000025 5"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9704: <channel onMode="1" bRatio="0.0000000" products="1000025 1"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9705: <channel onMode="1" bRatio="0.0000000" products="1000025 3"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9706: <channel onMode="1" bRatio="0.0000000" products="1000025 5"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9794: <channel onMode="1" bRatio="0.0000000" products="1000025 2"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9795: <channel onMode="1" bRatio="0.0000000" products="1000025 4"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9796: <channel onMode="1" bRatio="0.0000000" products="1000025 6"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9856: <channel onMode="1" bRatio="0.0000000" products="1000025 11"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9900: <channel onMode="1" bRatio="0.0000000" products="1000025 13"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:9944: <channel onMode="1" bRatio="0.0000000" products="1000025 15"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:11001: <channel onMode="1" bRatio="0.0409900" products="22 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:11004: <channel onMode="1" bRatio="0.0"       products="25 25"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:11028: <channel onMode="1" bRatio="0.01" meMode="3" products="22 22"/> 
+/cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/xmldoc/ParticleData.xml:11550:<!-- Copyright (C) 2025 Torbjorn Sjostrand --> 
+
+exit=0
+
+$ ls /cvmfs/sft.cern.ch/lcg/releases/delphes/3.5.0-90626/x86_64-centos9-gcc11-opt/bin
+CaloGrid
+DelphesHepMC2
+DelphesHepMC3
+DelphesLHEF
+DelphesROOT
+DelphesSTDHEP
+Example1
+hepmc2pileup
+lhco2root
+pileup2root
+root2lhco
+root2pileup
+stdhep2pileup
+
+exit=0
+
+$ cat /cvmfs/sft.cern.ch/lcg/releases/delphes/3.5.0-90626/x86_64-centos9-gcc11-opt/version.txt
+delphes=3.5.0/Boost=1.78.0-c319e/Davix=0.8.2-87b18/GSL=2.7-30ba4/Python=3.9.12-9a1bc/ROOT=6.26.08-69213/Vc=1.4.3-57098/bison=3.3.2-01341/blas=0.3.20.openblas-6339b/cfitsio=3.48-e4bb8/cython=0.29.28-aa7c8/fftw=3.3.8-cd301/gl2ps=1.4.0-26d26/jemalloc=5.2.1-8154a/jsonmcpp=3.10.5-f26c3/libffi=3.4.2-a3607/libsodium=1.0.18-0b20d/msgpackc=3.2.0-c4011/mysql=10.5.13-7d566/numpy=1.22.3-1af8f/oracle=19.11.0.0.0-40bff/pip=22.0.4-0a3af/pkg_config=0.29.2-c6baf/png=1.6.37-9c2fe/protobuf=3.18.1-5052d/setuptools=57.1.0-e5403/sqlite=3320300-3c47f/tbb=2020_U2-adcbe/vdt=0.4.3-7622c/wheel=0.37.1-0cbbc/xrootd=5.4.3-558a9/zeromq=4.3.4p1-df2eb
+
+exit=0
+
+$ ldd /cvmfs/sft.cern.ch/lcg/releases/delphes/3.5.0-90626/x86_64-centos9-gcc11-opt/bin/DelphesHepMC2
+	linux-vdso.so.1 (0x00007fff48297000)
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/13.1.0-b3d18/x86_64-el9/lib64/libstdc++.so.6 (0x00007f1ba2c00000)
+	libDelphes.so => not found
+	libCore.so => /usr/lib64/root/libCore.so (0x00007f1ba2600000)
+	libImt.so => /usr/lib64/root/libImt.so (0x00007f1ba3007000)
+	libRIO.so => /usr/lib64/root/libRIO.so (0x00007f1ba2000000)
+	libNet.so => /usr/lib64/root/libNet.so (0x00007f1ba2f32000)
+	libHist.so => /usr/lib64/root/libHist.so (0x00007f1ba1a00000)
+	libGraf.so => /usr/lib64/root/libGraf.so (0x00007f1ba2aba000)
+	libGraf3d.so => /usr/lib64/root/libGraf3d.so (0x00007f1ba2e92000)
+	libGpad.so => /usr/lib64/root/libGpad.so (0x00007f1ba2527000)
+	libROOTDataFrame.so => /usr/lib64/root/libROOTDataFrame.so (0x00007f1ba1e87000)
+	libTree.so => /usr/lib64/root/libTree.so (0x00007f1ba1875000)
+	libTreePlayer.so => /usr/lib64/root/libTreePlayer.so (0x00007f1ba1702000)
+	libRint.so => /usr/lib64/root/libRint.so (0x00007f1ba2e67000)
+	libPostscript.so => /usr/lib64/root/libPostscript.so (0x00007f1ba167d000)
+	libMatrix.so => /usr/lib64/root/libMatrix.so (0x00007f1ba1516000)
+	libPhysics.so => /usr/lib64/root/libPhysics.so (0x00007f1ba2a6b000)
+	libMathCore.so => /usr/lib64/root/libMathCore.so (0x00007f1ba1200000)
+	libThread.so => /usr/lib64/root/libThread.so (0x00007f1ba24cd000)
+	libMultiProc.so => /usr/lib64/root/libMultiProc.so (0x00007f1ba24c1000)
+	libROOTVecOps.so => /usr/lib64/root/libROOTVecOps.so (0x00007f1ba1482000)
+	libEG.so => /usr/lib64/root/libEG.so (0x00007f1ba1169000)
+	libEve.so => /usr/lib64/root/libEve.so (0x00007f1ba0e00000)
+	libGeom.so => /usr/lib64/root/libGeom.so (0x00007f1ba0a00000)
+	libGui.so => /usr/lib64/root/libGui.so (0x00007f1ba0400000)
+	libGuiHtml.so => /usr/lib64/root/libGuiHtml.so (0x00007f1ba1e35000)
+	libGenVector.so => /usr/lib64/root/libGenVector.so (0x00007f1ba0d7f000)
+	libRGL.so => /usr/lib64/root/libRGL.so (0x00007f1ba0000000)
+	libm.so.6 => /lib64/libm.so.6 (0x00007f1ba0ca2000)
+	libgcc_s.so.1 => /lib64/libgcc_s.so.1 (0x00007f1ba1465000)
+	libc.so.6 => /lib64/libc.so.6 (0x00007f1b9fc00000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f1ba303e000)
+	libpcre2-8.so.0 => /lib64/libpcre2-8.so.0 (0x00007f1ba0964000)
+	libz.so.1 => /lib64/libz.so.1 (0x00007f1ba144b000)
+	liblzma.so.5 => /lib64/liblzma.so.5 (0x00007f1ba141f000)
+	libxxhash.so.0 => /lib64/libxxhash.so.0 (0x00007f1ba1156000)
+	liblz4.so.1 => /lib64/liblz4.so.1 (0x00007f1ba0c7e000)
+	libzstd.so.1 => /lib64/libzstd.so.1 (0x00007f1ba08ad000)
+	libtbb.so.2 => /lib64/libtbb.so.2 (0x00007f1ba0869000)
+	liburing.so.2 => /lib64/liburing.so.2 (0x00007f1ba24b9000)
+	libssl.so.3 => /lib64/libssl.so.3 (0x00007f1ba0307000)
+	libcrypto.so.3 => /lib64/libcrypto.so.3 (0x00007f1b9f600000)
+	libfreetype.so.6 => /lib64/libfreetype.so.6 (0x00007f1ba0244000)
+	libfontconfig.so.1 => /lib64/libfontconfig.so.1 (0x00007f1b9ffb1000)
+	libROOTNTuple.so.6.40 => /usr/lib64/root/libROOTNTuple.so.6.40 (0x00007f1b9f200000)
+	libarrow.so.900 => /lib64/libarrow.so.900 (0x00007f1b9de00000)
+	libsqlite3.so.0 => /lib64/libsqlite3.so.0 (0x00007f1b9fe6a000)
+	libGLU.so.1 => /lib64/libGLU.so.1 (0x00007f1b9fe13000)
+	libROOTGlad.so.6.40 => /usr/lib64/root/libROOTGlad.so.6.40 (0x00007f1ba0c50000)
+	libGed.so.6.40 => /usr/lib64/root/libGed.so.6.40 (0x00007f1b9f4db000)
+	libROOTNTupleBrowse.so.6.40 => /usr/lib64/root/libROOTNTupleBrowse.so.6.40 (0x00007f1ba0843000)
+	libRCsg.so.6.40 => /usr/lib64/root/libRCsg.so.6.40 (0x00007f1ba113d000)
+	libASImage.so.6.40 => /usr/lib64/root/libASImage.so.6.40 (0x00007f1b9f166000)
+	libftgl.so.2 => /lib64/libftgl.so.2 (0x00007f1b9fbcf000)
+	libgl2ps.so.1 => /lib64/libgl2ps.so.1 (0x00007f1ba0829000)
+	libX11.so.6 => /lib64/libX11.so.6 (0x00007f1b9f01d000)
+	libGLX.so.0 => /lib64/libGLX.so.0 (0x00007f1b9f4a9000)
+	libOpenGL.so.0 => /lib64/libOpenGL.so.0 (0x00007f1b9ddd5000)
+	libbz2.so.1 => /lib64/libbz2.so.1 (0x00007f1b9f496000)
+	libpng16.so.16 => /lib64/libpng16.so.16 (0x00007f1b9dd9e000)
+	libharfbuzz.so.0 => /lib64/libharfbuzz.so.0 (0x00007f1b9dccf000)
+	libbrotlidec.so.1 => /lib64/libbrotlidec.so.1 (0x00007f1ba1411000)
+	libxml2.so.2 => /lib64/libxml2.so.2 (0x00007f1b9db46000)
+	libuuid.so.1 => /lib64/libuuid.so.1 (0x00007f1ba1e2b000)
+	libbrotlienc.so.1 => /lib64/libbrotlienc.so.1 (0x00007f1b9dab5000)
+	libsnappy.so.1 => /lib64/libsnappy.so.1 (0x00007f1b9daa8000)
+	libre2.so.9 => /lib64/libre2.so.9 (0x00007f1b9da34000)
+	libGL.so.1 => /lib64/libGL.so.1 (0x00007f1b9d9ad000)
+	libROOTNTupleUtil.so.6.40 => /usr/lib64/root/libROOTNTupleUtil.so.6.40 (0x00007f1b9d97e000)
+	libROOTTreeMap.so.6.40 => /usr/lib64/root/libROOTTreeMap.so.6.40 (0x00007f1b9d967000)
+	libgif.so.7 => /lib64/libgif.so.7 (0x00007f1b9d95b000)
+	libjpeg.so.62 => /lib64/libjpeg.so.62 (0x00007f1b9d8da000)
+	libtiff.so.5 => /lib64/libtiff.so.5 (0x00007f1b9d851000)
+	libxcb.so.1 => /lib64/libxcb.so.1 (0x00007f1b9d826000)
+	libXext.so.6 => /lib64/libXext.so.6 (0x00007f1b9d811000)
+	libGLdispatch.so.0 => /lib64/libGLdispatch.so.0 (0x00007f1b9d759000)
+	libglib-2.0.so.0 => /lib64/libglib-2.0.so.0 (0x00007f1b9d61f000)
+	libgraphite2.so.3 => /lib64/libgraphite2.so.3 (0x00007f1b9d5fe000)
+	libbrotlicommon.so.1 => /lib64/libbrotlicommon.so.1 (0x00007f1b9d5db000)
+	libwebp.so.7 => /lib64/libwebp.so.7 (0x00007f1b9d56e000)
+	libjbig.so.2.1 => /lib64/libjbig.so.2.1 (0x00007f1b9d560000)
+	libXau.so.6 => /lib64/libXau.so.6 (0x00007f1ba1135000)
+	libpcre.so.1 => /lib64/libpcre.so.1 (0x00007f1b9d4e8000)
+
+exit=0
+
+$ ldd /cvmfs/sft.cern.ch/lcg/releases/LCG_108/delphes/3.5.1pre12/x86_64-el9-gcc13-opt/bin/DelphesHepMC2
+	linux-vdso.so.1 (0x00007ffc05f9e000)
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/13.1.0-b3d18/x86_64-el9/lib64/libstdc++.so.6 (0x00007f4cc2e00000)
+	libDelphes.so => not found
+	libTree.so => /usr/lib64/root/libTree.so (0x00007f4cc2c75000)
+	libEG.so => /usr/lib64/root/libEG.so (0x00007f4cc2bde000)
+	libPhysics.so => /usr/lib64/root/libPhysics.so (0x00007f4cc3060000)
+	libGenVector.so => /usr/lib64/root/libGenVector.so (0x00007f4cc2b5d000)
+	libGraf3d.so => /usr/lib64/root/libGraf3d.so (0x00007f4cc2abd000)
+	libGpad.so => /usr/lib64/root/libGpad.so (0x00007f4cc29e4000)
+	libGraf.so => /usr/lib64/root/libGraf.so (0x00007f4cc289e000)
+	libHist.so => /usr/lib64/root/libHist.so (0x00007f4cc2400000)
+	libMatrix.so => /usr/lib64/root/libMatrix.so (0x00007f4cc2299000)
+	libMathCore.so => /usr/lib64/root/libMathCore.so (0x00007f4cc2000000)
+	libImt.so => /usr/lib64/root/libImt.so (0x00007f4cc2889000)
+	libMultiProc.so => /usr/lib64/root/libMultiProc.so (0x00007f4cc287d000)
+	libNet.so => /usr/lib64/root/libNet.so (0x00007f4cc1f2d000)
+	libRIO.so => /usr/lib64/root/libRIO.so (0x00007f4cc1a00000)
+	libThread.so => /usr/lib64/root/libThread.so (0x00007f4cc223f000)
+	libCore.so => /usr/lib64/root/libCore.so (0x00007f4cc1400000)
+	libpythia8.so => not found
+	libm.so.6 => /lib64/libm.so.6 (0x00007f4cc1923000)
+	libgcc_s.so.1 => /lib64/libgcc_s.so.1 (0x00007f4cc2860000)
+	libc.so.6 => /lib64/libc.so.6 (0x00007f4cc1000000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f4cc30d3000)
+	libfreetype.so.6 => /lib64/libfreetype.so.6 (0x00007f4cc133d000)
+	libfontconfig.so.1 => /lib64/libfontconfig.so.1 (0x00007f4cc1ede000)
+	libtbb.so.2 => /lib64/libtbb.so.2 (0x00007f4cc18df000)
+	libssl.so.3 => /lib64/libssl.so.3 (0x00007f4cc1244000)
+	libcrypto.so.3 => /lib64/libcrypto.so.3 (0x00007f4cc0a00000)
+	liburing.so.2 => /lib64/liburing.so.2 (0x00007f4cc2856000)
+	libpcre2-8.so.0 => /lib64/libpcre2-8.so.0 (0x00007f4cc0964000)
+	libz.so.1 => /lib64/libz.so.1 (0x00007f4cc283c000)
+	liblzma.so.5 => /lib64/liblzma.so.5 (0x00007f4cc2213000)
+	libxxhash.so.0 => /lib64/libxxhash.so.0 (0x00007f4cc2829000)
+	liblz4.so.1 => /lib64/liblz4.so.1 (0x00007f4cc1eba000)
+	libzstd.so.1 => /lib64/libzstd.so.1 (0x00007f4cc08ad000)
+	libbz2.so.1 => /lib64/libbz2.so.1 (0x00007f4cc18cc000)
+	libpng16.so.16 => /lib64/libpng16.so.16 (0x00007f4cc1895000)
+	libharfbuzz.so.0 => /lib64/libharfbuzz.so.0 (0x00007f4cc07de000)
+	libbrotlidec.so.1 => /lib64/libbrotlidec.so.1 (0x00007f4cc1887000)
+	libxml2.so.2 => /lib64/libxml2.so.2 (0x00007f4cc0655000)
+	libglib-2.0.so.0 => /lib64/libglib-2.0.so.0 (0x00007f4cc051b000)
+	libgraphite2.so.3 => /lib64/libgraphite2.so.3 (0x00007f4cc1866000)
+	libbrotlicommon.so.1 => /lib64/libbrotlicommon.so.1 (0x00007f4cc1221000)
+	libpcre.so.1 => /lib64/libpcre.so.1 (0x00007f4cc04a3000)
+
+exit=0
+
+$ ls /cvmfs/sft.cern.ch/lcg/external/lhapdfsets/current
+@DEPRECATED
+@README
+@UNVALIDATED
+ABMP15_3_nnlo
+ABMP15_3_nnlo.tar.gz
+ABMP15_4_nnlo
+ABMP15_4_nnlo.tar.gz
+ABMP15_5_nnlo
+ABMP15_5_nnlo.tar.gz
+ABMP16_3_nlo
+ABMP16_3_nlo.tar.gz
+ABMP16_3_nnlo
+ABMP16_3_nnlo.tar.gz
+ABMP16_4_nlo
+ABMP16_4_nlo.tar.gz
+ABMP16_4_nnlo
+ABMP16_4_nnlo.tar.gz
+ABMP16_5_nlo
+ABMP16_5_nlo.tar.gz
+ABMP16_5_nnlo
+ABMP16_5_nnlo.tar.gz
+ABMP16_5_nnlo_high_x
+ABMP16_5_nnlo_high_x.tar.gz
+ABMP16als112_5_nnlo
+ABMP16als112_5_nnlo.tar.gz
+ABMP16als113_5_nnlo
+ABMP16als113_5_nnlo.tar.gz
+ABMP16als114_5_nlo
+ABMP16als114_5_nlo.tar.gz
+ABMP16als114_5_nnlo
+ABMP16als114_5_nnlo.tar.gz
+ABMP16als115_5_nlo
+ABMP16als115_5_nlo.tar.gz
+ABMP16als115_5_nnlo
+ABMP16als115_5_nnlo.tar.gz
+ABMP16als116_5_nlo
+ABMP16als116_5_nlo.tar.gz
+ABMP16als116_5_nnlo
+ABMP16als116_5_nnlo.tar.gz
+ABMP16als117_5_nlo
+ABMP16als117_5_nlo.tar.gz
+ABMP16als117_5_nnlo
+ABMP16als117_5_nnlo.tar.gz
+ABMP16als118_5_nlo
+ABMP16als118_5_nlo.tar.gz
+ABMP16als118_5_nnlo
+ABMP16als118_5_nnlo.tar.gz
+ABMP16als119_5_nlo
+ABMP16als119_5_nlo.tar.gz
+ABMP16als119_5_nnlo
+ABMP16als119_5_nnlo.tar.gz
+ABMP16als120_5_nlo
+ABMP16als120_5_nlo.tar.gz
+ABMP16als120_5_nnlo
+ABMP16als120_5_nnlo.tar.gz
+ABMP16als121_5_nlo
+ABMP16als121_5_nlo.tar.gz
+ABMP16als122_5_nlo
+ABMP16als122_5_nlo.tar.gz
+ABMP16als123_5_nlo
+ABMP16als123_5_nlo.tar.gz
+ABMP16free_3_nlo
+ABMP16free_3_nlo.tar.gz
+ABMP16free_4_nlo
+ABMP16free_4_nlo.tar.gz
+ABMP16free_5_nlo
+ABMP16free_5_nlo.tar.gz
+ABMPtt_3_nnlo
+ABMPtt_3_nnlo.tar.gz
+ABMPtt_4_nnlo
+ABMPtt_4_nnlo.tar.gz
+ABMPtt_5_nnlo
+ABMPtt_5_nnlo.tar.gz
+ATLAS-epWZ12-EIG
+ATLAS-epWZ12-EIG.tar.gz
+ATLAS-epWZ12-VAR
+ATLAS-epWZ12-VAR.tar.gz
+ATLAS-epWZ16-EIG
+ATLAS-epWZ16-EIG.tar.gz
+ATLAS-epWZ16-THEO
+ATLAS-epWZ16-THEO.tar.gz
+ATLAS-epWZ16-VAR
+ATLAS-epWZ16-VAR.tar.gz
+ATLAS-epWZtop18-EIG
+ATLAS-epWZtop18-EIG.tar.gz
+ATLAS-epWZtop18-VAR
+ATLAS-epWZtop18-VAR.tar.gz
+ATLASepWZVjet20-EIG
+ATLASepWZVjet20-EIG.tar.gz
+ATLASepWZVjet20-MOD
+ATLASepWZVjet20-MOD.tar.gz
+ATLASepWZVjet20-PAR
+ATLASepWZVjet20-PAR.tar.gz
+ATLASpdf21_T1
+ATLASpdf21_T1.tar.gz
+ATLASpdf21_T3
+ATLASpdf21_T3.tar.gz
+BDSSV24-NLO
+BDSSV24-NLO.tar.gz
+BDSSV24-NNLO
+BDSSV24-NNLO.tar.gz
+CGMP_B-hadron_NNLO_as_0118
+CGMP_B-hadron_NNLO_as_0118.tar.gz
+CGMP_B-hadron_to_Jpsi_NNLO_as_0118
+CGMP_B-hadron_to_Jpsi_NNLO_as_0118.tar.gz
+CGMP_B-hadron_to_muon_NNLO_as_0118
+CGMP_B-hadron_to_muon_NNLO_as_0118.tar.gz
+CJ12max
+CJ12max.tar.gz
+CJ12mid
+CJ12mid.tar.gz
+CJ12min
+CJ12min.tar.gz
+CJ15lo
+CJ15lo.tar.gz
+CJ15nlo
+CJ15nlo.tar.gz
+CSKK_nnlo_EIG
+CSKK_nnlo_EIG.tar.gz
+CSKK_nnlo_THEO
+CSKK_nnlo_THEO.tar.gz
+CSKK_nnlo_VAR
+CSKK_nnlo_VAR.tar.gz
+CT09MC1
+CT09MC1.tar.gz
+CT09MC2
+CT09MC2.tar.gz
+CT09MCS
+CT09MCS.tar.gz
+CT10
+CT10.tar.gz
+CT10as
+CT10as.tar.gz
+CT10f3
+CT10f3.tar.gz
+CT10f4
+CT10f4.tar.gz
+CT10nlo
+CT10nlo.tar.gz
+CT10nlo_as_0112
+CT10nlo_as_0112.tar.gz
+CT10nlo_as_0113
+CT10nlo_as_0113.tar.gz
+CT10nlo_as_0114
+CT10nlo_as_0114.tar.gz
+CT10nlo_as_0115
+CT10nlo_as_0115.tar.gz
+CT10nlo_as_0116
+CT10nlo_as_0116.tar.gz
+CT10nlo_as_0117
+CT10nlo_as_0117.tar.gz
+CT10nlo_as_0118
+CT10nlo_as_0118.tar.gz
+CT10nlo_as_0119
+CT10nlo_as_0119.tar.gz
+CT10nlo_as_0120
+CT10nlo_as_0120.tar.gz
+CT10nlo_as_0121
+CT10nlo_as_0121.tar.gz
+CT10nlo_as_0122
+CT10nlo_as_0122.tar.gz
+CT10nlo_as_0123
+CT10nlo_as_0123.tar.gz
+CT10nlo_as_0124
+CT10nlo_as_0124.tar.gz
+CT10nlo_as_0125
+CT10nlo_as_0125.tar.gz
+CT10nlo_as_0126
+CT10nlo_as_0126.tar.gz
+CT10nlo_as_0127
+CT10nlo_as_0127.tar.gz
+CT10nlo_nf3
+CT10nlo_nf3.tar.gz
+CT10nlo_nf4
+CT10nlo_nf4.tar.gz
+CT10nnlo
+CT10nnlo.tar.gz
+CT10nnlo_as_0110
+CT10nnlo_as_0110.tar.gz
+CT10nnlo_as_0111
+CT10nnlo_as_0111.tar.gz
+CT10nnlo_as_0112
+CT10nnlo_as_0112.tar.gz
+CT10nnlo_as_0113
+CT10nnlo_as_0113.tar.gz
+CT10nnlo_as_0114
+CT10nnlo_as_0114.tar.gz
+CT10nnlo_as_0115
+CT10nnlo_as_0115.tar.gz
+CT10nnlo_as_0116
+CT10nnlo_as_0116.tar.gz
+CT10nnlo_as_0117
+CT10nnlo_as_0117.tar.gz
+CT10nnlo_as_0118
+CT10nnlo_as_0118.tar.gz
+CT10nnlo_as_0119
+CT10nnlo_as_0119.tar.gz
+CT10nnlo_as_0120
+CT10nnlo_as_0120.tar.gz
+CT10nnlo_as_0121
+CT10nnlo_as_0121.tar.gz
+CT10nnlo_as_0122
+CT10nnlo_as_0122.tar.gz
+CT10nnlo_as_0123
+CT10nnlo_as_0123.tar.gz
+CT10nnlo_as_0124
+CT10nnlo_as_0124.tar.gz
+CT10nnlo_as_0125
+CT10nnlo_as_0125.tar.gz
+CT10nnlo_as_0126
+CT10nnlo_as_0126.tar.gz
+CT10nnlo_as_0127
+CT10nnlo_as_0127.tar.gz
+CT10nnlo_as_0128
+CT10nnlo_as_0128.tar.gz
+CT10nnlo_as_0129
+CT10nnlo_as_0129.tar.gz
+CT10nnlo_as_0130
+CT10nnlo_as_0130.tar.gz
+CT10w
+CT10w.tar.gz
+CT10was
+CT10was.tar.gz
+CT10wf3
+CT10wf3.tar.gz
+CT10wf4
+CT10wf4.tar.gz
+CT10wnlo
+CT10wnlo.tar.gz
+CT10wnlo_as_0112
+CT10wnlo_as_0112.tar.gz
+CT10wnlo_as_0113
+CT10wnlo_as_0113.tar.gz
+CT10wnlo_as_0114
+CT10wnlo_as_0114.tar.gz
+CT10wnlo_as_0115
+CT10wnlo_as_0115.tar.gz
+CT10wnlo_as_0116
+CT10wnlo_as_0116.tar.gz
+CT10wnlo_as_0117
+CT10wnlo_as_0117.tar.gz
+CT10wnlo_as_0118
+CT10wnlo_as_0118.tar.gz
+CT10wnlo_as_0119
+CT10wnlo_as_0119.tar.gz
+CT10wnlo_as_0120
+CT10wnlo_as_0120.tar.gz
+CT10wnlo_as_0121
+CT10wnlo_as_0121.tar.gz
+CT10wnlo_as_0122
+CT10wnlo_as_0122.tar.gz
+CT10wnlo_as_0123
+CT10wnlo_as_0123.tar.gz
+CT10wnlo_as_0124
+CT10wnlo_as_0124.tar.gz
+CT10wnlo_as_0125
+CT10wnlo_as_0125.tar.gz
+CT10wnlo_as_0126
+CT10wnlo_as_0126.tar.gz
+CT10wnlo_as_0127
+CT10wnlo_as_0127.tar.gz
+CT10wnlo_nf3
+CT10wnlo_nf3.tar.gz
+CT10wnlo_nf4
+CT10wnlo_nf4.tar.gz
+CT14MC1nlo
+CT14MC1nlo.tar.gz
+CT14MC1nnlo
+CT14MC1nnlo.tar.gz
+CT14MC2nlo
+CT14MC2nlo.tar.gz
+CT14MC2nnlo
+CT14MC2nnlo.tar.gz
+CT14llo
+CT14llo.tar.gz
+CT14llo_NF3
+CT14llo_NF3.tar.gz
+CT14llo_NF4
+CT14llo_NF4.tar.gz
+CT14llo_NF6
+CT14llo_NF6.tar.gz
+CT14lo
+CT14lo.tar.gz
+CT14lo_NF3
+CT14lo_NF3.tar.gz
+CT14lo_NF4
+CT14lo_NF4.tar.gz
+CT14lo_NF6
+CT14lo_NF6.tar.gz
+CT14nlo
+CT14nlo.tar.gz
+CT14nlo_NF3
+CT14nlo_NF3.tar.gz
+CT14nlo_NF4
+CT14nlo_NF4.tar.gz
+CT14nlo_NF6
+CT14nlo_NF6.tar.gz
+CT14nlo_as_0111
+CT14nlo_as_0111.tar.gz
+CT14nlo_as_0112
+CT14nlo_as_0112.tar.gz
+CT14nlo_as_0113
+CT14nlo_as_0113.tar.gz
+CT14nlo_as_0114
+CT14nlo_as_0114.tar.gz
+CT14nlo_as_0115
+CT14nlo_as_0115.tar.gz
+CT14nlo_as_0116
+CT14nlo_as_0116.tar.gz
+CT14nlo_as_0117
+CT14nlo_as_0117.tar.gz
+CT14nlo_as_0118
+CT14nlo_as_0118.tar.gz
+CT14nlo_as_0119
+CT14nlo_as_0119.tar.gz
+CT14nlo_as_0120
+CT14nlo_as_0120.tar.gz
+CT14nlo_as_0121
+CT14nlo_as_0121.tar.gz
+CT14nlo_as_0122
+CT14nlo_as_0122.tar.gz
+CT14nlo_as_0123
+CT14nlo_as_0123.tar.gz
+CT14nnlo
+CT14nnlo.tar.gz
+CT14nnloIC
+CT14nnloIC.tar.gz
+CT14nnlo_NF3
+CT14nnlo_NF3.tar.gz
+CT14nnlo_NF4
+CT14nnlo_NF4.tar.gz
+CT14nnlo_NF6
+CT14nnlo_NF6.tar.gz
+CT14nnlo_as_0111
+CT14nnlo_as_0111.tar.gz
+CT14nnlo_as_0112
+CT14nnlo_as_0112.tar.gz
+CT14nnlo_as_0113
+CT14nnlo_as_0113.tar.gz
+CT14nnlo_as_0114
+CT14nnlo_as_0114.tar.gz
+CT14nnlo_as_0115
+CT14nnlo_as_0115.tar.gz
+CT14nnlo_as_0116
+CT14nnlo_as_0116.tar.gz
+CT14nnlo_as_0117
+CT14nnlo_as_0117.tar.gz
+CT14nnlo_as_0118
+CT14nnlo_as_0118.tar.gz
+CT14nnlo_as_0119
+CT14nnlo_as_0119.tar.gz
+CT14nnlo_as_0120
+CT14nnlo_as_0120.tar.gz
+CT14nnlo_as_0121
+CT14nnlo_as_0121.tar.gz
+CT14nnlo_as_0122
+CT14nnlo_as_0122.tar.gz
+CT14nnlo_as_0123
+CT14nnlo_as_0123.tar.gz
+CT14qed_inc_neutron
+CT14qed_inc_neutron.tar.gz
+CT14qed_inc_proton
+CT14qed_inc_proton.tar.gz
+CT14qed_neutron
+CT14qed_neutron.tar.gz
+CT14qed_proton
+CT14qed_proton.tar.gz
+CT18ANLO
+CT18ANLO.tar.gz
+CT18ANLO_as_0110
+CT18ANLO_as_0110.tar.gz
+CT18ANLO_as_0111
+CT18ANLO_as_0111.tar.gz
+CT18ANLO_as_0112
+CT18ANLO_as_0112.tar.gz
+CT18ANLO_as_0113
+CT18ANLO_as_0113.tar.gz
+CT18ANLO_as_0114
+CT18ANLO_as_0114.tar.gz
+CT18ANLO_as_0115
+CT18ANLO_as_0115.tar.gz
+CT18ANLO_as_0116
+CT18ANLO_as_0116.tar.gz
+CT18ANLO_as_0117
+CT18ANLO_as_0117.tar.gz
+CT18ANLO_as_0118
+CT18ANLO_as_0118.tar.gz
+CT18ANLO_as_0119
+CT18ANLO_as_0119.tar.gz
+CT18ANLO_as_0120
+CT18ANLO_as_0120.tar.gz
+CT18ANLO_as_0121
+CT18ANLO_as_0121.tar.gz
+CT18ANLO_as_0122
+CT18ANLO_as_0122.tar.gz
+CT18ANLO_as_0123
+CT18ANLO_as_0123.tar.gz
+CT18ANLO_as_0124
+CT18ANLO_as_0124.tar.gz
+CT18ANNLO
+CT18ANNLO.tar.gz
+CT18ANNLO_as_0110
+CT18ANNLO_as_0110.tar.gz
+CT18ANNLO_as_0111
+CT18ANNLO_as_0111.tar.gz
+CT18ANNLO_as_0112
+CT18ANNLO_as_0112.tar.gz
+CT18ANNLO_as_0113
+CT18ANNLO_as_0113.tar.gz
+CT18ANNLO_as_0114
+CT18ANNLO_as_0114.tar.gz
+CT18ANNLO_as_0115
+CT18ANNLO_as_0115.tar.gz
+CT18ANNLO_as_0116
+CT18ANNLO_as_0116.tar.gz
+CT18ANNLO_as_0117
+CT18ANNLO_as_0117.tar.gz
+CT18ANNLO_as_0118
+CT18ANNLO_as_0118.tar.gz
+CT18ANNLO_as_0119
+CT18ANNLO_as_0119.tar.gz
+CT18ANNLO_as_0120
+CT18ANNLO_as_0120.tar.gz
+CT18ANNLO_as_0121
+CT18ANNLO_as_0121.tar.gz
+CT18ANNLO_as_0122
+CT18ANNLO_as_0122.tar.gz
+CT18ANNLO_as_0123
+CT18ANNLO_as_0123.tar.gz
+CT18ANNLO_as_0124
+CT18ANNLO_as_0124.tar.gz
+CT18FC
+CT18FC.tar.gz
+CT18LO
+CT18LO.tar.gz
+CT18NLO
+CT18NLO.tar.gz
+CT18NLO_NF3
+CT18NLO_NF3.tar.gz
+CT18NLO_NF4
+CT18NLO_NF4.tar.gz
+CT18NLO_NF6
+CT18NLO_NF6.tar.gz
+CT18NLO_as_0110
+CT18NLO_as_0110.tar.gz
+CT18NLO_as_0111
+CT18NLO_as_0111.tar.gz
+CT18NLO_as_0112
+CT18NLO_as_0112.tar.gz
+CT18NLO_as_0113
+CT18NLO_as_0113.tar.gz
+CT18NLO_as_0114
+CT18NLO_as_0114.tar.gz
+CT18NLO_as_0115
+CT18NLO_as_0115.tar.gz
+CT18NLO_as_0116
+CT18NLO_as_0116.tar.gz
+CT18NLO_as_0117
+CT18NLO_as_0117.tar.gz
+CT18NLO_as_0118
+CT18NLO_as_0118.tar.gz
+CT18NLO_as_0119
+CT18NLO_as_0119.tar.gz
+CT18NLO_as_0120
+CT18NLO_as_0120.tar.gz
+CT18NLO_as_0121
+CT18NLO_as_0121.tar.gz
+CT18NLO_as_0122
+CT18NLO_as_0122.tar.gz
+CT18NLO_as_0123
+CT18NLO_as_0123.tar.gz
+CT18NLO_as_0124
+CT18NLO_as_0124.tar.gz
+CT18NNLO
+CT18NNLO.tar.gz
+CT18NNLO_NF3
+CT18NNLO_NF3.tar.gz
+CT18NNLO_NF4
+CT18NNLO_NF4.tar.gz
+CT18NNLO_NF6
+CT18NNLO_NF6.tar.gz
+CT18NNLO_as_0110
+CT18NNLO_as_0110.tar.gz
+CT18NNLO_as_0111
+CT18NNLO_as_0111.tar.gz
+CT18NNLO_as_0112
+CT18NNLO_as_0112.tar.gz
+CT18NNLO_as_0113
+CT18NNLO_as_0113.tar.gz
+CT18NNLO_as_0114
+CT18NNLO_as_0114.tar.gz
+CT18NNLO_as_0115
+CT18NNLO_as_0115.tar.gz
+CT18NNLO_as_0116
+CT18NNLO_as_0116.tar.gz
+CT18NNLO_as_0117
+CT18NNLO_as_0117.tar.gz
+CT18NNLO_as_0118
+CT18NNLO_as_0118.tar.gz
+CT18NNLO_as_0119
+CT18NNLO_as_0119.tar.gz
+CT18NNLO_as_0120
+CT18NNLO_as_0120.tar.gz
+CT18NNLO_as_0121
+CT18NNLO_as_0121.tar.gz
+CT18NNLO_as_0122
+CT18NNLO_as_0122.tar.gz
+CT18NNLO_as_0123
+CT18NNLO_as_0123.tar.gz
+CT18NNLO_as_0124
+CT18NNLO_as_0124.tar.gz
+CT18XNLO
+CT18XNLO.tar.gz
+CT18XNLO_as_0110
+CT18XNLO_as_0110.tar.gz
+CT18XNLO_as_0111
+CT18XNLO_as_0111.tar.gz
+CT18XNLO_as_0112
+CT18XNLO_as_0112.tar.gz
+CT18XNLO_as_0113
+CT18XNLO_as_0113.tar.gz
+CT18XNLO_as_0114
+CT18XNLO_as_0114.tar.gz
+CT18XNLO_as_0115
+CT18XNLO_as_0115.tar.gz
+CT18XNLO_as_0116
+CT18XNLO_as_0116.tar.gz
+CT18XNLO_as_0117
+CT18XNLO_as_0117.tar.gz
+CT18XNLO_as_0118
+CT18XNLO_as_0118.tar.gz
+CT18XNLO_as_0119
+CT18XNLO_as_0119.tar.gz
+CT18XNLO_as_0120
+CT18XNLO_as_0120.tar.gz
+CT18XNLO_as_0121
+CT18XNLO_as_0121.tar.gz
+CT18XNLO_as_0122
+CT18XNLO_as_0122.tar.gz
+CT18XNLO_as_0123
+CT18XNLO_as_0123.tar.gz
+CT18XNLO_as_0124
+CT18XNLO_as_0124.tar.gz
+CT18XNNLO
+CT18XNNLO.tar.gz
+CT18XNNLO_as_0110
+CT18XNNLO_as_0110.tar.gz
+CT18XNNLO_as_0111
+CT18XNNLO_as_0111.tar.gz
+CT18XNNLO_as_0112
+CT18XNNLO_as_0112.tar.gz
+CT18XNNLO_as_0113
+CT18XNNLO_as_0113.tar.gz
+CT18XNNLO_as_0114
+CT18XNNLO_as_0114.tar.gz
+CT18XNNLO_as_0115
+CT18XNNLO_as_0115.tar.gz
+CT18XNNLO_as_0116
+CT18XNNLO_as_0116.tar.gz
+CT18XNNLO_as_0117
+CT18XNNLO_as_0117.tar.gz
+CT18XNNLO_as_0118
+CT18XNNLO_as_0118.tar.gz
+CT18XNNLO_as_0119
+CT18XNNLO_as_0119.tar.gz
+CT18XNNLO_as_0120
+CT18XNNLO_as_0120.tar.gz
+CT18XNNLO_as_0121
+CT18XNNLO_as_0121.tar.gz
+CT18XNNLO_as_0122
+CT18XNNLO_as_0122.tar.gz
+CT18XNNLO_as_0123
+CT18XNNLO_as_0123.tar.gz
+CT18XNNLO_as_0124
+CT18XNNLO_as_0124.tar.gz
+CT18ZNLO
+CT18ZNLO.tar.gz
+CT18ZNLO_NF3
+CT18ZNLO_NF3.tar.gz
+CT18ZNLO_NF4
+CT18ZNLO_NF4.tar.gz
+CT18ZNLO_NF6
+CT18ZNLO_NF6.tar.gz
+CT18ZNLO_as_0110
+CT18ZNLO_as_0110.tar.gz
+CT18ZNLO_as_0111
+CT18ZNLO_as_0111.tar.gz
+CT18ZNLO_as_0112
+CT18ZNLO_as_0112.tar.gz
+CT18ZNLO_as_0113
+CT18ZNLO_as_0113.tar.gz
+CT18ZNLO_as_0114
+CT18ZNLO_as_0114.tar.gz
+CT18ZNLO_as_0115
+CT18ZNLO_as_0115.tar.gz
+CT18ZNLO_as_0116
+CT18ZNLO_as_0116.tar.gz
+CT18ZNLO_as_0117
+CT18ZNLO_as_0117.tar.gz
+CT18ZNLO_as_0118
+CT18ZNLO_as_0118.tar.gz
+CT18ZNLO_as_0119
+CT18ZNLO_as_0119.tar.gz
+CT18ZNLO_as_0120
+CT18ZNLO_as_0120.tar.gz
+CT18ZNLO_as_0121
+CT18ZNLO_as_0121.tar.gz
+CT18ZNLO_as_0122
+CT18ZNLO_as_0122.tar.gz
+CT18ZNLO_as_0123
+CT18ZNLO_as_0123.tar.gz
+CT18ZNLO_as_0124
+CT18ZNLO_as_0124.tar.gz
+CT18ZNNLO
+CT18ZNNLO.tar.gz
+CT18ZNNLO_NF3
+CT18ZNNLO_NF3.tar.gz
+CT18ZNNLO_NF4
+CT18ZNNLO_NF4.tar.gz
+CT18ZNNLO_NF6
+CT18ZNNLO_NF6.tar.gz
+CT18ZNNLO_as_0110
+CT18ZNNLO_as_0110.tar.gz
+CT18ZNNLO_as_0111
+CT18ZNNLO_as_0111.tar.gz
+CT18ZNNLO_as_0112
+CT18ZNNLO_as_0112.tar.gz
+CT18ZNNLO_as_0113
+CT18ZNNLO_as_0113.tar.gz
+CT18ZNNLO_as_0114
+CT18ZNNLO_as_0114.tar.gz
+CT18ZNNLO_as_0115
+CT18ZNNLO_as_0115.tar.gz
+CT18ZNNLO_as_0116
+CT18ZNNLO_as_0116.tar.gz
+CT18ZNNLO_as_0117
+CT18ZNNLO_as_0117.tar.gz
+CT18ZNNLO_as_0118
+CT18ZNNLO_as_0118.tar.gz
+CT18ZNNLO_as_0119
+CT18ZNNLO_as_0119.tar.gz
+CT18ZNNLO_as_0120
+CT18ZNNLO_as_0120.tar.gz
+CT18ZNNLO_as_0121
+CT18ZNNLO_as_0121.tar.gz
+CT18ZNNLO_as_0122
+CT18ZNNLO_as_0122.tar.gz
+CT18ZNNLO_as_0123
+CT18ZNNLO_as_0123.tar.gz
+CT18ZNNLO_as_0124
+CT18ZNNLO_as_0124.tar.gz
+CT18qed_neutron
+CT18qed_neutron.tar.gz
+CT18qed_neutron_elastic
+CT18qed_neutron_elastic.tar.gz
+CT18qed_neutron_inelastic
+CT18qed_neutron_inelastic.tar.gz
+CT18qed_proton
+CT18qed_proton.tar.gz
+CT18qed_proton_elastic
+CT18qed_proton_elastic.tar.gz
+CT18qed_proton_inelastic
+CT18qed_proton_inelastic.tar.gz
+CoSMAO22Kaon
+CoSMAO22Kaon.tar.gz
+CoSMAO22Pion
+CoSMAO22Pion.tar.gz
+CoSMAO22Proton
+CoSMAO22Proton.tar.gz
+DSSV14pol
+DSSV14pol.tar.gz
+EPPS16_B_90CL_Au_hess
+EPPS16_B_90CL_Au_hess.tar.gz
+EPPS16_B_90CL_Pb_hess
+EPPS16_B_90CL_Pb_hess.tar.gz
+EPPS16_B_c_90CL_Au_hess
+EPPS16_B_c_90CL_Au_hess.tar.gz
+EPPS16_B_c_90CL_Pb_hess
+EPPS16_B_c_90CL_Pb_hess.tar.gz
+EPPS16_B_d_90CL_Au_hess
+EPPS16_B_d_90CL_Au_hess.tar.gz
+EPPS16_B_d_90CL_Pb_hess
+EPPS16_B_d_90CL_Pb_hess.tar.gz
+EPPS16_B_u_90CL_Au_hess
+EPPS16_B_u_90CL_Au_hess.tar.gz
+EPPS16_B_u_90CL_Pb_hess
+EPPS16_B_u_90CL_Pb_hess.tar.gz
+EPPS16_D_90CL_Au_hess
+EPPS16_D_90CL_Au_hess.tar.gz
+EPPS16_D_90CL_Pb_hess
+EPPS16_D_90CL_Pb_hess.tar.gz
+EPPS16_D_c_90CL_Au_hess
+EPPS16_D_c_90CL_Au_hess.tar.gz
+EPPS16_D_c_90CL_Pb_hess
+EPPS16_D_c_90CL_Pb_hess.tar.gz
+EPPS16_D_d_90CL_Au_hess
+EPPS16_D_d_90CL_Au_hess.tar.gz
+EPPS16_D_d_90CL_Pb_hess
+EPPS16_D_d_90CL_Pb_hess.tar.gz
+EPPS16_D_u_90CL_Au_hess
+EPPS16_D_u_90CL_Au_hess.tar.gz
+EPPS16_D_u_90CL_Pb_hess
+EPPS16_D_u_90CL_Pb_hess.tar.gz
+EPPS16_Jpsi_90CL_Au_hess
+EPPS16_Jpsi_90CL_Au_hess.tar.gz
+EPPS16_Jpsi_90CL_Pb_hess
+EPPS16_Jpsi_90CL_Pb_hess.tar.gz
+EPPS16_Jpsi_c_90CL_Au_hess
+EPPS16_Jpsi_c_90CL_Au_hess.tar.gz
+EPPS16_Jpsi_c_90CL_Pb_hess
+EPPS16_Jpsi_c_90CL_Pb_hess.tar.gz
+EPPS16_Jpsi_d_90CL_Au_hess
+EPPS16_Jpsi_d_90CL_Au_hess.tar.gz
+EPPS16_Jpsi_d_90CL_Pb_hess
+EPPS16_Jpsi_d_90CL_Pb_hess.tar.gz
+EPPS16_Jpsi_u_90CL_Au_hess
+EPPS16_Jpsi_u_90CL_Au_hess.tar.gz
+EPPS16_Jpsi_u_90CL_Pb_hess
+EPPS16_Jpsi_u_90CL_Pb_hess.tar.gz
+EPPS16nlo_CT14nlo_Ag108
+EPPS16nlo_CT14nlo_Ag108.tar.gz
+EPPS16nlo_CT14nlo_Al27
+EPPS16nlo_CT14nlo_Al27.tar.gz
+EPPS16nlo_CT14nlo_Au197
+EPPS16nlo_CT14nlo_Au197.tar.gz
+EPPS16nlo_CT14nlo_Be9
+EPPS16nlo_CT14nlo_Be9.tar.gz
+EPPS16nlo_CT14nlo_C12
+EPPS16nlo_CT14nlo_C12.tar.gz
+EPPS16nlo_CT14nlo_Ca40
+EPPS16nlo_CT14nlo_Ca40.tar.gz
+EPPS16nlo_CT14nlo_Cu64
+EPPS16nlo_CT14nlo_Cu64.tar.gz
+EPPS16nlo_CT14nlo_Fe56
+EPPS16nlo_CT14nlo_Fe56.tar.gz
+EPPS16nlo_CT14nlo_He4
+EPPS16nlo_CT14nlo_He4.tar.gz
+EPPS16nlo_CT14nlo_Li6
+EPPS16nlo_CT14nlo_Li6.tar.gz
+EPPS16nlo_CT14nlo_Pb208
+EPPS16nlo_CT14nlo_Pb208.tar.gz
+EPPS16nlo_CT14nlo_Pt195
+EPPS16nlo_CT14nlo_Pt195.tar.gz
+EPPS16nlo_CT14nlo_Sn119
+EPPS16nlo_CT14nlo_Sn119.tar.gz
+EPPS16nlo_CT14nlo_W184
+EPPS16nlo_CT14nlo_W184.tar.gz
+EPPS21nlo_CT18Anlo_Ag108
+EPPS21nlo_CT18Anlo_Ag108.tar.gz
+EPPS21nlo_CT18Anlo_Al27
+EPPS21nlo_CT18Anlo_Al27.tar.gz
+EPPS21nlo_CT18Anlo_Ar40
+EPPS21nlo_CT18Anlo_Ar40.tar.gz
+EPPS21nlo_CT18Anlo_Au197
+EPPS21nlo_CT18Anlo_Au197.tar.gz
+EPPS21nlo_CT18Anlo_Be9
+EPPS21nlo_CT18Anlo_Be9.tar.gz
+EPPS21nlo_CT18Anlo_C12
+EPPS21nlo_CT18Anlo_C12.tar.gz
+EPPS21nlo_CT18Anlo_Ca40
+EPPS21nlo_CT18Anlo_Ca40.tar.gz
+EPPS21nlo_CT18Anlo_Cu64
+EPPS21nlo_CT18Anlo_Cu64.tar.gz
+EPPS21nlo_CT18Anlo_Fe56
+EPPS21nlo_CT18Anlo_Fe56.tar.gz
+EPPS21nlo_CT18Anlo_He3
+EPPS21nlo_CT18Anlo_He3.tar.gz
+EPPS21nlo_CT18Anlo_He4
+EPPS21nlo_CT18Anlo_He4.tar.gz
+EPPS21nlo_CT18Anlo_Li6
+EPPS21nlo_CT18Anlo_Li6.tar.gz
+EPPS21nlo_CT18Anlo_O16
+EPPS21nlo_CT18Anlo_O16.tar.gz
+EPPS21nlo_CT18Anlo_Pb208
+EPPS21nlo_CT18Anlo_Pb208.tar.gz
+EPPS21nlo_CT18Anlo_Pt195
+EPPS21nlo_CT18Anlo_Pt195.tar.gz
+EPPS21nlo_CT18Anlo_Sn119
+EPPS21nlo_CT18Anlo_Sn119.tar.gz
+EPPS21nlo_CT18Anlo_W184
+EPPS21nlo_CT18Anlo_W184.tar.gz
+FANTO10_15
+FANTO10_15.tar.gz
+FANTO10_n15
+FANTO10_n15.tar.gz
+GKG18_DPDF_FitA_LO
+GKG18_DPDF_FitA_LO.tar.gz
+GKG18_DPDF_FitA_NLO
+GKG18_DPDF_FitA_NLO.tar.gz
+GKG18_DPDF_FitB_LO
+GKG18_DPDF_FitB_LO.tar.gz
+GKG18_DPDF_FitB_NLO
+GKG18_DPDF_FitB_NLO.tar.gz
+GRVPI0
+GRVPI0.tar.gz
+GRVPI1
+GRVPI1.tar.gz
+H1PDF2017
+H1PDF2017.tar.gz
+HERAPDF15LO_EIG
+HERAPDF15LO_EIG.tar.gz
+HERAPDF15NLO_ALPHAS
+HERAPDF15NLO_ALPHAS.tar.gz
+HERAPDF15NLO_EIG
+HERAPDF15NLO_EIG.tar.gz
+HERAPDF15NLO_VAR
+HERAPDF15NLO_VAR.tar.gz
+HERAPDF15NNLO_ALPHAS
+HERAPDF15NNLO_ALPHAS.tar.gz
+HERAPDF15NNLO_EIG
+HERAPDF15NNLO_EIG.tar.gz
+HERAPDF15NNLO_VAR
+HERAPDF15NNLO_VAR.tar.gz
+HERAPDF20_AG_NLO_EIG
+HERAPDF20_AG_NLO_EIG.tar.gz
+HERAPDF20_AG_NNLO_EIG
+HERAPDF20_AG_NNLO_EIG.tar.gz
+HERAPDF20_HiQ2_NLO_EIG
+HERAPDF20_HiQ2_NLO_EIG.tar.gz
+HERAPDF20_HiQ2_NLO_VAR
+HERAPDF20_HiQ2_NLO_VAR.tar.gz
+HERAPDF20_HiQ2_NNLO_EIG
+HERAPDF20_HiQ2_NNLO_EIG.tar.gz
+HERAPDF20_HiQ2_NNLO_VAR
+HERAPDF20_HiQ2_NNLO_VAR.tar.gz
+HERAPDF20_Jets_NLO_EIG
+HERAPDF20_Jets_NLO_EIG.tar.gz
+HERAPDF20_Jets_NLO_VAR_Duv
+HERAPDF20_Jets_NLO_VAR_Duv.tar.gz
+HERAPDF20_Jets_NLO_VAR_fsdn
+HERAPDF20_Jets_NLO_VAR_fsdn.tar.gz
+HERAPDF20_Jets_NLO_VAR_fshdn
+HERAPDF20_Jets_NLO_VAR_fshdn.tar.gz
+HERAPDF20_Jets_NLO_VAR_fshup
+HERAPDF20_Jets_NLO_VAR_fshup.tar.gz
+HERAPDF20_Jets_NLO_VAR_fsup
+HERAPDF20_Jets_NLO_VAR_fsup.tar.gz
+HERAPDF20_Jets_NLO_VAR_haddn
+HERAPDF20_Jets_NLO_VAR_haddn.tar.gz
+HERAPDF20_Jets_NLO_VAR_hadup
+HERAPDF20_Jets_NLO_VAR_hadup.tar.gz
+HERAPDF20_Jets_NLO_VAR_mbdn
+HERAPDF20_Jets_NLO_VAR_mbdn.tar.gz
+HERAPDF20_Jets_NLO_VAR_mbup
+HERAPDF20_Jets_NLO_VAR_mbup.tar.gz
+HERAPDF20_Jets_NLO_VAR_mcdn
+HERAPDF20_Jets_NLO_VAR_mcdn.tar.gz
+HERAPDF20_Jets_NLO_VAR_mcup
+HERAPDF20_Jets_NLO_VAR_mcup.tar.gz
+HERAPDF20_Jets_NLO_VAR_q0dn
+HERAPDF20_Jets_NLO_VAR_q0dn.tar.gz
+HERAPDF20_Jets_NLO_VAR_q0up
+HERAPDF20_Jets_NLO_VAR_q0up.tar.gz
+HERAPDF20_Jets_NLO_VAR_q2mdn
+HERAPDF20_Jets_NLO_VAR_q2mdn.tar.gz
+HERAPDF20_Jets_NLO_VAR_q2mup
+HERAPDF20_Jets_NLO_VAR_q2mup.tar.gz
+HERAPDF20_Jets_NNLO_ALPHAS_1155_VAR
+HERAPDF20_Jets_NNLO_ALPHAS_1155_VAR.tar.gz
+HERAPDF20_Jets_NNLO_ALPHAS_118_VAR
+HERAPDF20_Jets_NNLO_ALPHAS_118_VAR.tar.gz
+HERAPDF20_LO_EIG
+HERAPDF20_LO_EIG.tar.gz
+HERAPDF20_NLO_ALPHAS_110
+HERAPDF20_NLO_ALPHAS_110.tar.gz
+HERAPDF20_NLO_ALPHAS_111
+HERAPDF20_NLO_ALPHAS_111.tar.gz
+HERAPDF20_NLO_ALPHAS_112
+HERAPDF20_NLO_ALPHAS_112.tar.gz
+HERAPDF20_NLO_ALPHAS_113
+HERAPDF20_NLO_ALPHAS_113.tar.gz
+HERAPDF20_NLO_ALPHAS_114
+HERAPDF20_NLO_ALPHAS_114.tar.gz
+HERAPDF20_NLO_ALPHAS_115
+HERAPDF20_NLO_ALPHAS_115.tar.gz
+HERAPDF20_NLO_ALPHAS_116
+HERAPDF20_NLO_ALPHAS_116.tar.gz
+HERAPDF20_NLO_ALPHAS_117
+HERAPDF20_NLO_ALPHAS_117.tar.gz
+HERAPDF20_NLO_ALPHAS_118
+HERAPDF20_NLO_ALPHAS_118.tar.gz
+HERAPDF20_NLO_ALPHAS_119
+HERAPDF20_NLO_ALPHAS_119.tar.gz
+HERAPDF20_NLO_ALPHAS_120
+HERAPDF20_NLO_ALPHAS_120.tar.gz
+HERAPDF20_NLO_ALPHAS_121
+HERAPDF20_NLO_ALPHAS_121.tar.gz
+HERAPDF20_NLO_ALPHAS_122
+HERAPDF20_NLO_ALPHAS_122.tar.gz
+HERAPDF20_NLO_ALPHAS_123
+HERAPDF20_NLO_ALPHAS_123.tar.gz
+HERAPDF20_NLO_ALPHAS_124
+HERAPDF20_NLO_ALPHAS_124.tar.gz
+HERAPDF20_NLO_ALPHAS_125
+HERAPDF20_NLO_ALPHAS_125.tar.gz
+HERAPDF20_NLO_ALPHAS_126
+HERAPDF20_NLO_ALPHAS_126.tar.gz
+HERAPDF20_NLO_ALPHAS_127
+HERAPDF20_NLO_ALPHAS_127.tar.gz
+HERAPDF20_NLO_ALPHAS_128
+HERAPDF20_NLO_ALPHAS_128.tar.gz
+HERAPDF20_NLO_ALPHAS_129
+HERAPDF20_NLO_ALPHAS_129.tar.gz
+HERAPDF20_NLO_ALPHAS_130
+HERAPDF20_NLO_ALPHAS_130.tar.gz
+HERAPDF20_NLO_EIG
+HERAPDF20_NLO_EIG.tar.gz
+HERAPDF20_NLO_FF3A_EIG
+HERAPDF20_NLO_FF3A_EIG.tar.gz
+HERAPDF20_NLO_FF3A_VAR
+HERAPDF20_NLO_FF3A_VAR.tar.gz
+HERAPDF20_NLO_FF3B_EIG
+HERAPDF20_NLO_FF3B_EIG.tar.gz
+HERAPDF20_NLO_FF3B_VAR
+HERAPDF20_NLO_FF3B_VAR.tar.gz
+HERAPDF20_NLO_VAR
+HERAPDF20_NLO_VAR.tar.gz
+HERAPDF20_NNLO_ALPHAS_110
+HERAPDF20_NNLO_ALPHAS_110.tar.gz
+HERAPDF20_NNLO_ALPHAS_111
+HERAPDF20_NNLO_ALPHAS_111.tar.gz
+HERAPDF20_NNLO_ALPHAS_112
+HERAPDF20_NNLO_ALPHAS_112.tar.gz
+HERAPDF20_NNLO_ALPHAS_113
+HERAPDF20_NNLO_ALPHAS_113.tar.gz
+HERAPDF20_NNLO_ALPHAS_114
+HERAPDF20_NNLO_ALPHAS_114.tar.gz
+HERAPDF20_NNLO_ALPHAS_115
+HERAPDF20_NNLO_ALPHAS_115.tar.gz
+HERAPDF20_NNLO_ALPHAS_116
+HERAPDF20_NNLO_ALPHAS_116.tar.gz
+HERAPDF20_NNLO_ALPHAS_117
+HERAPDF20_NNLO_ALPHAS_117.tar.gz
+HERAPDF20_NNLO_ALPHAS_118
+HERAPDF20_NNLO_ALPHAS_118.tar.gz
+HERAPDF20_NNLO_ALPHAS_119
+HERAPDF20_NNLO_ALPHAS_119.tar.gz
+HERAPDF20_NNLO_ALPHAS_120
+HERAPDF20_NNLO_ALPHAS_120.tar.gz
+HERAPDF20_NNLO_ALPHAS_121
+HERAPDF20_NNLO_ALPHAS_121.tar.gz
+HERAPDF20_NNLO_ALPHAS_122
+HERAPDF20_NNLO_ALPHAS_122.tar.gz
+HERAPDF20_NNLO_ALPHAS_123
+HERAPDF20_NNLO_ALPHAS_123.tar.gz
+HERAPDF20_NNLO_ALPHAS_124
+HERAPDF20_NNLO_ALPHAS_124.tar.gz
+HERAPDF20_NNLO_ALPHAS_125
+HERAPDF20_NNLO_ALPHAS_125.tar.gz
+HERAPDF20_NNLO_ALPHAS_126
+HERAPDF20_NNLO_ALPHAS_126.tar.gz
+HERAPDF20_NNLO_ALPHAS_127
+HERAPDF20_NNLO_ALPHAS_127.tar.gz
+HERAPDF20_NNLO_ALPHAS_128
+HERAPDF20_NNLO_ALPHAS_128.tar.gz
+HERAPDF20_NNLO_ALPHAS_129
+HERAPDF20_NNLO_ALPHAS_129.tar.gz
+HERAPDF20_NNLO_ALPHAS_130
+HERAPDF20_NNLO_ALPHAS_130.tar.gz
+HERAPDF20_NNLO_EIG
+HERAPDF20_NNLO_EIG.tar.gz
+HERAPDF20_NNLO_VAR
+HERAPDF20_NNLO_VAR.tar.gz
+JAM19FF_kaon_nlo
+JAM19FF_kaon_nlo.tar.gz
+JAM19FF_pion_nlo
+JAM19FF_pion_nlo.tar.gz
+JAM19PDF_proton_nlo
+JAM19PDF_proton_nlo.tar.gz
+JAM20-SIDIS_FF_hadron_nlo
+JAM20-SIDIS_FF_hadron_nlo.tar.gz
+JAM20-SIDIS_FF_kaon_nlo
+JAM20-SIDIS_FF_kaon_nlo.tar.gz
+JAM20-SIDIS_FF_pion_nlo
+JAM20-SIDIS_FF_pion_nlo.tar.gz
+JAM20-SIDIS_PDF_proton_nlo
+JAM20-SIDIS_PDF_proton_nlo.tar.gz
+JAM21PionPDFnlo
+JAM21PionPDFnlo.tar.gz
+JAM21PionPDFnlo_pT
+JAM21PionPDFnlo_pT.tar.gz
+JAM21PionPDFnlonll_cosine
+JAM21PionPDFnlonll_cosine.tar.gz
+JAM21PionPDFnlonll_double_Mellin
+JAM21PionPDFnlonll_double_Mellin.tar.gz
+JAM21PionPDFnlonll_expansion
+JAM21PionPDFnlonll_expansion.tar.gz
+JAM24_FF_hadron_nlo
+JAM24_FF_hadron_nlo.tar.gz
+JAM24_FF_kaon_nlo
+JAM24_FF_kaon_nlo.tar.gz
+JAM24_FF_pion_nlo
+JAM24_FF_pion_nlo.tar.gz
+JAM24_PDF_proton_nlo
+JAM24_PDF_proton_nlo.tar.gz
+JAM25kaon_nlonll
+JAM25kaon_nlonll.tar.gz
+JAM25pion_nlonll
+JAM25pion_nlonll.tar.gz
+JAMpol25-PPDF_proton_nlo
+JAMpol25-PPDF_proton_nlo.tar.gz
+JR14NLO08FF
+JR14NLO08FF.tar.gz
+JR14NLO08VF
+JR14NLO08VF.tar.gz
+JR14NNLO08FF
+JR14NNLO08FF.tar.gz
+JR14NNLO08VF
+JR14NNLO08VF.tar.gz
+JR14NNLO20FF
+JR14NNLO20FF.tar.gz
+JR14NNLO20VF
+JR14NNLO20VF.tar.gz
+LUXlep-NNPDF31_nlo_as_0118_luxqed
+LUXlep-NNPDF31_nlo_as_0118_luxqed.tar.gz
+LUXqed17_plus_PDF4LHC15_nnlo_100
+LUXqed17_plus_PDF4LHC15_nnlo_100.tar.gz
+LUXqed17_plus_PDF4LHC15_nnlo_30
+LUXqed17_plus_PDF4LHC15_nnlo_30.tar.gz
+LUXqed_plus_PDF4LHC15_nnlo_100
+LUXqed_plus_PDF4LHC15_nnlo_100.tar.gz
+MAP23Pion_PRVnlo
+MAP23Pion_PRVnlo.tar.gz
+MAPFF10NLOKAm
+MAPFF10NLOKAm.tar.gz
+MAPFF10NLOKAp
+MAPFF10NLOKAp.tar.gz
+MAPFF10NLOKAsum
+MAPFF10NLOKAsum.tar.gz
+MAPFF10NLOPIm
+MAPFF10NLOPIm.tar.gz
+MAPFF10NLOPIp
+MAPFF10NLOPIp.tar.gz
+MAPFF10NLOPIsum
+MAPFF10NLOPIsum.tar.gz
+MAPFF10NNLOKAm
+MAPFF10NNLOKAm.tar.gz
+MAPFF10NNLOKAp
+MAPFF10NNLOKAp.tar.gz
+MAPFF10NNLOKAsum
+MAPFF10NNLOKAsum.tar.gz
+MAPFF10NNLOPIm
+MAPFF10NNLOPIm.tar.gz
+MAPFF10NNLOPIp
+MAPFF10NNLOPIp.tar.gz
+MAPFF10NNLOPIsum
+MAPFF10NNLOPIsum.tar.gz
+MAPPDFpol10NLO
+MAPPDFpol10NLO.tar.gz
+MAPPDFpol10NNLO
+MAPPDFpol10NNLO.tar.gz
+METAv10LHC
+METAv10LHC.tar.gz
+METAv10LHCH
+METAv10LHCH.tar.gz
+METAv10LHCHfull
+METAv10LHCHfull.tar.gz
+METAv10LHCas0116
+METAv10LHCas0116.tar.gz
+METAv10LHCas0120
+METAv10LHCas0120.tar.gz
+MMHT2014lo68cl
+MMHT2014lo68cl.tar.gz
+MMHT2014lo_asmzsmallrange
+MMHT2014lo_asmzsmallrange.tar.gz
+MMHT2014nlo68cl
+MMHT2014nlo68cl.tar.gz
+MMHT2014nlo68cl_nf3
+MMHT2014nlo68cl_nf3.tar.gz
+MMHT2014nlo68cl_nf4
+MMHT2014nlo68cl_nf4.tar.gz
+MMHT2014nlo68cl_nf4as5
+MMHT2014nlo68cl_nf4as5.tar.gz
+MMHT2014nlo68clas118
+MMHT2014nlo68clas118.tar.gz
+MMHT2014nlo68clas118_nf3
+MMHT2014nlo68clas118_nf3.tar.gz
+MMHT2014nlo68clas118_nf4
+MMHT2014nlo68clas118_nf4.tar.gz
+MMHT2014nlo68clas118_nf4as5
+MMHT2014nlo68clas118_nf4as5.tar.gz
+MMHT2014nlo_asmzlargerange
+MMHT2014nlo_asmzlargerange.tar.gz
+MMHT2014nlo_asmzsmallrange
+MMHT2014nlo_asmzsmallrange.tar.gz
+MMHT2014nlo_asmzsmallrange_nf3
+MMHT2014nlo_asmzsmallrange_nf3.tar.gz
+MMHT2014nlo_asmzsmallrange_nf4
+MMHT2014nlo_asmzsmallrange_nf4.tar.gz
+MMHT2014nlo_mbrange_nf3
+MMHT2014nlo_mbrange_nf3.tar.gz
+MMHT2014nlo_mbrange_nf4
+MMHT2014nlo_mbrange_nf4.tar.gz
+MMHT2014nlo_mbrange_nf5
+MMHT2014nlo_mbrange_nf5.tar.gz
+MMHT2014nlo_mcrange_nf3
+MMHT2014nlo_mcrange_nf3.tar.gz
+MMHT2014nlo_mcrange_nf4
+MMHT2014nlo_mcrange_nf4.tar.gz
+MMHT2014nlo_mcrange_nf5
+MMHT2014nlo_mcrange_nf5.tar.gz
+MMHT2014nloas118_mbrange_nf3
+MMHT2014nloas118_mbrange_nf3.tar.gz
+MMHT2014nloas118_mbrange_nf4
+MMHT2014nloas118_mbrange_nf4.tar.gz
+MMHT2014nloas118_mbrange_nf5
+MMHT2014nloas118_mbrange_nf5.tar.gz
+MMHT2014nloas118_mcrange_nf3
+MMHT2014nloas118_mcrange_nf3.tar.gz
+MMHT2014nloas118_mcrange_nf4
+MMHT2014nloas118_mcrange_nf4.tar.gz
+MMHT2014nloas118_mcrange_nf5
+MMHT2014nloas118_mcrange_nf5.tar.gz
+MMHT2014nnlo68cl
+MMHT2014nnlo68cl.tar.gz
+MMHT2014nnlo68cl_nf3
+MMHT2014nnlo68cl_nf3.tar.gz
+MMHT2014nnlo68cl_nf4
+MMHT2014nnlo68cl_nf4.tar.gz
+MMHT2014nnlo68cl_nf4as5
+MMHT2014nnlo68cl_nf4as5.tar.gz
+MMHT2014nnlo_asmzlargerange
+MMHT2014nnlo_asmzlargerange.tar.gz
+MMHT2014nnlo_asmzsmallrange
+MMHT2014nnlo_asmzsmallrange.tar.gz
+MMHT2014nnlo_asmzsmallrange_nf3
+MMHT2014nnlo_asmzsmallrange_nf3.tar.gz
+MMHT2014nnlo_asmzsmallrange_nf4
+MMHT2014nnlo_asmzsmallrange_nf4.tar.gz
+MMHT2014nnlo_mbrange_nf3
+MMHT2014nnlo_mbrange_nf3.tar.gz
+MMHT2014nnlo_mbrange_nf4
+MMHT2014nnlo_mbrange_nf4.tar.gz
+MMHT2014nnlo_mbrange_nf5
+MMHT2014nnlo_mbrange_nf5.tar.gz
+MMHT2014nnlo_mcrange_nf3
+MMHT2014nnlo_mcrange_nf3.tar.gz
+MMHT2014nnlo_mcrange_nf4
+MMHT2014nnlo_mcrange_nf4.tar.gz
+MMHT2014nnlo_mcrange_nf5
+MMHT2014nnlo_mcrange_nf5.tar.gz
+MMHT2015qed_nlo
+MMHT2015qed_nlo.tar.gz
+MMHT2015qed_nlo_elastic
+MMHT2015qed_nlo_elastic.tar.gz
+MMHT2015qed_nlo_inelastic
+MMHT2015qed_nlo_inelastic.tar.gz
+MMHT2015qed_nnlo
+MMHT2015qed_nnlo.tar.gz
+MMHT2015qed_nnlo_elastic
+MMHT2015qed_nnlo_elastic.tar.gz
+MMHT2015qed_nnlo_inelastic
+MMHT2015qed_nnlo_inelastic.tar.gz
+MRST2004qed_neutron
+MRST2004qed_neutron.tar.gz
+MRST2004qed_proton
+MRST2004qed_proton.tar.gz
+MRST2007lomod
+MRST2007lomod.tar.gz
+MRSTMCal
+MRSTMCal.tar.gz
+MSHT20an3lo_as118
+MSHT20an3lo_as118.tar.gz
+MSHT20an3lo_as118_Kcorr
+MSHT20an3lo_as118_Kcorr.tar.gz
+MSHT20an3lo_as_smallrange
+MSHT20an3lo_as_smallrange.tar.gz
+MSHT20lo_as130
+MSHT20lo_as130.tar.gz
+MSHT20nlo_as118
+MSHT20nlo_as118.tar.gz
+MSHT20nlo_as120
+MSHT20nlo_as120.tar.gz
+MSHT20nlo_as120_mbrange_nf3
+MSHT20nlo_as120_mbrange_nf3.tar.gz
+MSHT20nlo_as120_mbrange_nf4
+MSHT20nlo_as120_mbrange_nf4.tar.gz
+MSHT20nlo_as120_mbrange_nf5
+MSHT20nlo_as120_mbrange_nf5.tar.gz
+MSHT20nlo_as120_mcrange_nf3
+MSHT20nlo_as120_mcrange_nf3.tar.gz
+MSHT20nlo_as120_mcrange_nf4
+MSHT20nlo_as120_mcrange_nf4.tar.gz
+MSHT20nlo_as120_mcrange_nf5
+MSHT20nlo_as120_mcrange_nf5.tar.gz
+MSHT20nlo_as120_nf3
+MSHT20nlo_as120_nf3.tar.gz
+MSHT20nlo_as120_nf4
+MSHT20nlo_as120_nf4.tar.gz
+MSHT20nlo_as_largerange
+MSHT20nlo_as_largerange.tar.gz
+MSHT20nlo_as_smallrange
+MSHT20nlo_as_smallrange.tar.gz
+MSHT20nlo_as_smallrange_nf3
+MSHT20nlo_as_smallrange_nf3.tar.gz
+MSHT20nlo_as_smallrange_nf4
+MSHT20nlo_as_smallrange_nf4.tar.gz
+MSHT20nlo_mbrange_nf3
+MSHT20nlo_mbrange_nf3.tar.gz
+MSHT20nlo_mbrange_nf4
+MSHT20nlo_mbrange_nf4.tar.gz
+MSHT20nlo_mbrange_nf5
+MSHT20nlo_mbrange_nf5.tar.gz
+MSHT20nlo_mcrange_nf3
+MSHT20nlo_mcrange_nf3.tar.gz
+MSHT20nlo_mcrange_nf4
+MSHT20nlo_mcrange_nf4.tar.gz
+MSHT20nlo_mcrange_nf5
+MSHT20nlo_mcrange_nf5.tar.gz
+MSHT20nlo_nf3
+MSHT20nlo_nf3.tar.gz
+MSHT20nlo_nf4
+MSHT20nlo_nf4.tar.gz
+MSHT20nnlo_as118
+MSHT20nnlo_as118.tar.gz
+MSHT20nnlo_as_largerange
+MSHT20nnlo_as_largerange.tar.gz
+MSHT20nnlo_as_smallrange
+MSHT20nnlo_as_smallrange.tar.gz
+MSHT20nnlo_as_smallrange_nf3
+MSHT20nnlo_as_smallrange_nf3.tar.gz
+MSHT20nnlo_as_smallrange_nf4
+MSHT20nnlo_as_smallrange_nf4.tar.gz
+MSHT20nnlo_mbrange_nf3
+MSHT20nnlo_mbrange_nf3.tar.gz
+MSHT20nnlo_mbrange_nf4
+MSHT20nnlo_mbrange_nf4.tar.gz
+MSHT20nnlo_mbrange_nf5
+MSHT20nnlo_mbrange_nf5.tar.gz
+MSHT20nnlo_mcrange_nf3
+MSHT20nnlo_mcrange_nf3.tar.gz
+MSHT20nnlo_mcrange_nf4
+MSHT20nnlo_mcrange_nf4.tar.gz
+MSHT20nnlo_mcrange_nf5
+MSHT20nnlo_mcrange_nf5.tar.gz
+MSHT20nnlo_nf3
+MSHT20nnlo_nf3.tar.gz
+MSHT20nnlo_nf4
+MSHT20nnlo_nf4.tar.gz
+MSHT20qed_an3lo
+MSHT20qed_an3lo.tar.gz
+MSHT20qed_an3lo_elastic
+MSHT20qed_an3lo_elastic.tar.gz
+MSHT20qed_an3lo_inelastic
+MSHT20qed_an3lo_inelastic.tar.gz
+MSHT20qed_lo
+MSHT20qed_lo.tar.gz
+MSHT20qed_lo_elastic
+MSHT20qed_lo_elastic.tar.gz
+MSHT20qed_lo_inelastic
+MSHT20qed_lo_inelastic.tar.gz
+MSHT20qed_nnlo
+MSHT20qed_nnlo.tar.gz
+MSHT20qed_nnlo_elastic
+MSHT20qed_nnlo_elastic.tar.gz
+MSHT20qed_nnlo_inelastic
+MSHT20qed_nnlo_inelastic.tar.gz
+MSHT20qed_nnlo_neutron
+MSHT20qed_nnlo_neutron.tar.gz
+MSHT20qed_nnlo_neutron_elastic
+MSHT20qed_nnlo_neutron_elastic.tar.gz
+MSHT20qed_nnlo_neutron_inelastic
+MSHT20qed_nnlo_neutron_inelastic.tar.gz
+MSTW2008CPdeutnlo68cl
+MSTW2008CPdeutnlo68cl.tar.gz
+MSTW2008CPdeutnnlo68cl
+MSTW2008CPdeutnnlo68cl.tar.gz
+MSTW2008lo68cl
+MSTW2008lo68cl.tar.gz
+MSTW2008lo68cl_nf3
+MSTW2008lo68cl_nf3.tar.gz
+MSTW2008lo68cl_nf4
+MSTW2008lo68cl_nf4.tar.gz
+MSTW2008lo68cl_nf4as5
+MSTW2008lo68cl_nf4as5.tar.gz
+MSTW2008lo90cl
+MSTW2008lo90cl.tar.gz
+MSTW2008lo90cl_nf3
+MSTW2008lo90cl_nf3.tar.gz
+MSTW2008lo90cl_nf4
+MSTW2008lo90cl_nf4.tar.gz
+MSTW2008lo90cl_nf4as5
+MSTW2008lo90cl_nf4as5.tar.gz
+MSTW2008nlo68cl
+MSTW2008nlo68cl.tar.gz
+MSTW2008nlo68cl_asmz+68cl
+MSTW2008nlo68cl_asmz+68cl.tar.gz
+MSTW2008nlo68cl_asmz+68clhalf
+MSTW2008nlo68cl_asmz+68clhalf.tar.gz
+MSTW2008nlo68cl_asmz-68cl
+MSTW2008nlo68cl_asmz-68cl.tar.gz
+MSTW2008nlo68cl_asmz-68clhalf
+MSTW2008nlo68cl_asmz-68clhalf.tar.gz
+MSTW2008nlo68cl_nf3
+MSTW2008nlo68cl_nf3.tar.gz
+MSTW2008nlo68cl_nf4
+MSTW2008nlo68cl_nf4.tar.gz
+MSTW2008nlo68cl_nf4as5
+MSTW2008nlo68cl_nf4as5.tar.gz
+MSTW2008nlo90cl
+MSTW2008nlo90cl.tar.gz
+MSTW2008nlo90cl_asmz+90cl
+MSTW2008nlo90cl_asmz+90cl.tar.gz
+MSTW2008nlo90cl_asmz+90clhalf
+MSTW2008nlo90cl_asmz+90clhalf.tar.gz
+MSTW2008nlo90cl_asmz-90cl
+MSTW2008nlo90cl_asmz-90cl.tar.gz
+MSTW2008nlo90cl_asmz-90clhalf
+MSTW2008nlo90cl_asmz-90clhalf.tar.gz
+MSTW2008nlo90cl_nf3
+MSTW2008nlo90cl_nf3.tar.gz
+MSTW2008nlo90cl_nf4
+MSTW2008nlo90cl_nf4.tar.gz
+MSTW2008nlo90cl_nf4as5
+MSTW2008nlo90cl_nf4as5.tar.gz
+MSTW2008nlo_asmzrange
+MSTW2008nlo_asmzrange.tar.gz
+MSTW2008nlo_mbrange
+MSTW2008nlo_mbrange.tar.gz
+MSTW2008nlo_mbrange_nf4
+MSTW2008nlo_mbrange_nf4.tar.gz
+MSTW2008nlo_mcrange
+MSTW2008nlo_mcrange.tar.gz
+MSTW2008nlo_mcrange_fixasmz
+MSTW2008nlo_mcrange_fixasmz.tar.gz
+MSTW2008nlo_mcrange_fixasmz_nf3
+MSTW2008nlo_mcrange_fixasmz_nf3.tar.gz
+MSTW2008nlo_mcrange_nf3
+MSTW2008nlo_mcrange_nf3.tar.gz
+MSTW2008nnlo68cl
+MSTW2008nnlo68cl.tar.gz
+MSTW2008nnlo68cl_asmz+68cl
+MSTW2008nnlo68cl_asmz+68cl.tar.gz
+MSTW2008nnlo68cl_asmz+68clhalf
+MSTW2008nnlo68cl_asmz+68clhalf.tar.gz
+MSTW2008nnlo68cl_asmz-68cl
+MSTW2008nnlo68cl_asmz-68cl.tar.gz
+MSTW2008nnlo68cl_asmz-68clhalf
+MSTW2008nnlo68cl_asmz-68clhalf.tar.gz
+MSTW2008nnlo68cl_nf3
+MSTW2008nnlo68cl_nf3.tar.gz
+MSTW2008nnlo68cl_nf4
+MSTW2008nnlo68cl_nf4.tar.gz
+MSTW2008nnlo68cl_nf4as5
+MSTW2008nnlo68cl_nf4as5.tar.gz
+MSTW2008nnlo90cl
+MSTW2008nnlo90cl.tar.gz
+MSTW2008nnlo90cl_asmz+90cl
+MSTW2008nnlo90cl_asmz+90cl.tar.gz
+MSTW2008nnlo90cl_asmz+90clhalf
+MSTW2008nnlo90cl_asmz+90clhalf.tar.gz
+MSTW2008nnlo90cl_asmz-90cl
+MSTW2008nnlo90cl_asmz-90cl.tar.gz
+MSTW2008nnlo90cl_asmz-90clhalf
+MSTW2008nnlo90cl_asmz-90clhalf.tar.gz
+MSTW2008nnlo90cl_nf3
+MSTW2008nnlo90cl_nf3.tar.gz
+MSTW2008nnlo90cl_nf4
+MSTW2008nnlo90cl_nf4.tar.gz
+MSTW2008nnlo90cl_nf4as5
+MSTW2008nnlo90cl_nf4as5.tar.gz
+MSTW2008nnlo_asmzrange
+MSTW2008nnlo_asmzrange.tar.gz
+MSTW2008nnlo_mbrange
+MSTW2008nnlo_mbrange.tar.gz
+MSTW2008nnlo_mbrange_nf4
+MSTW2008nnlo_mbrange_nf4.tar.gz
+MSTW2008nnlo_mcrange
+MSTW2008nnlo_mcrange.tar.gz
+MSTW2008nnlo_mcrange_fixasmz
+MSTW2008nnlo_mcrange_fixasmz.tar.gz
+MSTW2008nnlo_mcrange_fixasmz_nf3
+MSTW2008nnlo_mcrange_fixasmz_nf3.tar.gz
+MSTW2008nnlo_mcrange_nf3
+MSTW2008nnlo_mcrange_nf3.tar.gz
+NNFF10_KAm_lo
+NNFF10_KAm_lo.tar.gz
+NNFF10_KAm_nlo
+NNFF10_KAm_nlo.tar.gz
+NNFF10_KAm_nnlo
+NNFF10_KAm_nnlo.tar.gz
+NNFF10_KAp_lo
+NNFF10_KAp_lo.tar.gz
+NNFF10_KAp_nlo
+NNFF10_KAp_nlo.tar.gz
+NNFF10_KAp_nnlo
+NNFF10_KAp_nnlo.tar.gz
+NNFF10_KAsum_lo
+NNFF10_KAsum_lo.tar.gz
+NNFF10_KAsum_nlo
+NNFF10_KAsum_nlo.tar.gz
+NNFF10_KAsum_nnlo
+NNFF10_KAsum_nnlo.tar.gz
+NNFF10_PIm_lo
+NNFF10_PIm_lo.tar.gz
+NNFF10_PIm_nlo
+NNFF10_PIm_nlo.tar.gz
+NNFF10_PIm_nnlo
+NNFF10_PIm_nnlo.tar.gz
+NNFF10_PIp_lo
+NNFF10_PIp_lo.tar.gz
+NNFF10_PIp_nlo
+NNFF10_PIp_nlo.tar.gz
+NNFF10_PIp_nnlo
+NNFF10_PIp_nnlo.tar.gz
+NNFF10_PIsum_lo
+NNFF10_PIsum_lo.tar.gz
+NNFF10_PIsum_nlo
+NNFF10_PIsum_nlo.tar.gz
+NNFF10_PIsum_nnlo
+NNFF10_PIsum_nnlo.tar.gz
+NNFF10_PRm_lo
+NNFF10_PRm_lo.tar.gz
+NNFF10_PRm_nlo
+NNFF10_PRm_nlo.tar.gz
+NNFF10_PRm_nnlo
+NNFF10_PRm_nnlo.tar.gz
+NNFF10_PRp_lo
+NNFF10_PRp_lo.tar.gz
+NNFF10_PRp_nlo
+NNFF10_PRp_nlo.tar.gz
+NNFF10_PRp_nnlo
+NNFF10_PRp_nnlo.tar.gz
+NNFF10_PRsum_lo
+NNFF10_PRsum_lo.tar.gz
+NNFF10_PRsum_nlo
+NNFF10_PRsum_nlo.tar.gz
+NNFF10_PRsum_nnlo
+NNFF10_PRsum_nnlo.tar.gz
+NNFF11_HadronSum_nlo
+NNFF11_HadronSum_nlo.tar.gz
+NNPDF21_lo_as_0119_100
+NNPDF21_lo_as_0119_100.tar.gz
+NNPDF21_lo_as_0130_100
+NNPDF21_lo_as_0130_100.tar.gz
+NNPDF21_lostar_as_0119_100
+NNPDF21_lostar_as_0119_100.tar.gz
+NNPDF21_lostar_as_0130_100
+NNPDF21_lostar_as_0130_100.tar.gz
+NNPDF23_lo_as_0119_qed
+NNPDF23_lo_as_0119_qed.tar.gz
+NNPDF23_lo_as_0130_qed
+NNPDF23_lo_as_0130_qed.tar.gz
+NNPDF23_nlo_FFN_NF4_as_0116
+NNPDF23_nlo_FFN_NF4_as_0116.tar.gz
+NNPDF23_nlo_FFN_NF4_as_0116_mc
+NNPDF23_nlo_FFN_NF4_as_0116_mc.tar.gz
+NNPDF23_nlo_FFN_NF4_as_0117
+NNPDF23_nlo_FFN_NF4_as_0117.tar.gz
+NNPDF23_nlo_FFN_NF4_as_0117_mc
+NNPDF23_nlo_FFN_NF4_as_0117_mc.tar.gz
+NNPDF23_nlo_FFN_NF4_as_0118
+NNPDF23_nlo_FFN_NF4_as_0118.tar.gz
+NNPDF23_nlo_FFN_NF4_as_0118_mc
+NNPDF23_nlo_FFN_NF4_as_0118_mc.tar.gz
+NNPDF23_nlo_FFN_NF4_as_0119
+NNPDF23_nlo_FFN_NF4_as_0119.tar.gz
+NNPDF23_nlo_FFN_NF4_as_0119_mc
+NNPDF23_nlo_FFN_NF4_as_0119_mc.tar.gz
+NNPDF23_nlo_FFN_NF4_as_0120
+NNPDF23_nlo_FFN_NF4_as_0120.tar.gz
+NNPDF23_nlo_FFN_NF4_as_0120_mc
+NNPDF23_nlo_FFN_NF4_as_0120_mc.tar.gz
+NNPDF23_nlo_FFN_NF5_as_0116
+NNPDF23_nlo_FFN_NF5_as_0116.tar.gz
+NNPDF23_nlo_FFN_NF5_as_0116_mc
+NNPDF23_nlo_FFN_NF5_as_0116_mc.tar.gz
+NNPDF23_nlo_FFN_NF5_as_0117
+NNPDF23_nlo_FFN_NF5_as_0117.tar.gz
+NNPDF23_nlo_FFN_NF5_as_0117_mc
+NNPDF23_nlo_FFN_NF5_as_0117_mc.tar.gz
+NNPDF23_nlo_FFN_NF5_as_0118
+NNPDF23_nlo_FFN_NF5_as_0118.tar.gz
+NNPDF23_nlo_FFN_NF5_as_0118_mc
+NNPDF23_nlo_FFN_NF5_as_0118_mc.tar.gz
+NNPDF23_nlo_FFN_NF5_as_0119
+NNPDF23_nlo_FFN_NF5_as_0119.tar.gz
+NNPDF23_nlo_FFN_NF5_as_0119_mc
+NNPDF23_nlo_FFN_NF5_as_0119_mc.tar.gz
+NNPDF23_nlo_FFN_NF5_as_0120
+NNPDF23_nlo_FFN_NF5_as_0120.tar.gz
+NNPDF23_nlo_FFN_NF5_as_0120_mc
+NNPDF23_nlo_FFN_NF5_as_0120_mc.tar.gz
+NNPDF23_nlo_as_0114
+NNPDF23_nlo_as_0114.tar.gz
+NNPDF23_nlo_as_0115
+NNPDF23_nlo_as_0115.tar.gz
+NNPDF23_nlo_as_0116
+NNPDF23_nlo_as_0116.tar.gz
+NNPDF23_nlo_as_0116_mc
+NNPDF23_nlo_as_0116_mc.tar.gz
+NNPDF23_nlo_as_0117
+NNPDF23_nlo_as_0117.tar.gz
+NNPDF23_nlo_as_0117_mc
+NNPDF23_nlo_as_0117_mc.tar.gz
+NNPDF23_nlo_as_0117_qed
+NNPDF23_nlo_as_0117_qed.tar.gz
+NNPDF23_nlo_as_0117_qed_neutron
+NNPDF23_nlo_as_0117_qed_neutron.tar.gz
+NNPDF23_nlo_as_0118
+NNPDF23_nlo_as_0118.tar.gz
+NNPDF23_nlo_as_0118_mc
+NNPDF23_nlo_as_0118_mc.tar.gz
+NNPDF23_nlo_as_0118_qed
+NNPDF23_nlo_as_0118_qed.tar.gz
+NNPDF23_nlo_as_0118_qed_neutron
+NNPDF23_nlo_as_0118_qed_neutron.tar.gz
+NNPDF23_nlo_as_0119
+NNPDF23_nlo_as_0119.tar.gz
+NNPDF23_nlo_as_0119_mc
+NNPDF23_nlo_as_0119_mc.tar.gz
+NNPDF23_nlo_as_0119_qed
+NNPDF23_nlo_as_0119_qed.tar.gz
+NNPDF23_nlo_as_0119_qed_mc
+NNPDF23_nlo_as_0119_qed_mc.tar.gz
+NNPDF23_nlo_as_0119_qed_neutron
+NNPDF23_nlo_as_0119_qed_neutron.tar.gz
+NNPDF23_nlo_as_0120
+NNPDF23_nlo_as_0120.tar.gz
+NNPDF23_nlo_as_0120_mc
+NNPDF23_nlo_as_0120_mc.tar.gz
+NNPDF23_nlo_as_0121
+NNPDF23_nlo_as_0121.tar.gz
+NNPDF23_nlo_as_0122
+NNPDF23_nlo_as_0122.tar.gz
+NNPDF23_nlo_as_0123
+NNPDF23_nlo_as_0123.tar.gz
+NNPDF23_nlo_as_0124
+NNPDF23_nlo_as_0124.tar.gz
+NNPDF23_nlo_collider_as_0116
+NNPDF23_nlo_collider_as_0116.tar.gz
+NNPDF23_nlo_collider_as_0117
+NNPDF23_nlo_collider_as_0117.tar.gz
+NNPDF23_nlo_collider_as_0118
+NNPDF23_nlo_collider_as_0118.tar.gz
+NNPDF23_nlo_collider_as_0119
+NNPDF23_nlo_collider_as_0119.tar.gz
+NNPDF23_nlo_collider_as_0120
+NNPDF23_nlo_collider_as_0120.tar.gz
+NNPDF23_nlo_noLHC_as_0116
+NNPDF23_nlo_noLHC_as_0116.tar.gz
+NNPDF23_nlo_noLHC_as_0117
+NNPDF23_nlo_noLHC_as_0117.tar.gz
+NNPDF23_nlo_noLHC_as_0118
+NNPDF23_nlo_noLHC_as_0118.tar.gz
+NNPDF23_nlo_noLHC_as_0119
+NNPDF23_nlo_noLHC_as_0119.tar.gz
+NNPDF23_nlo_noLHC_as_0120
+NNPDF23_nlo_noLHC_as_0120.tar.gz
+NNPDF23_nnlo_FFN_NF4_as_0116
+NNPDF23_nnlo_FFN_NF4_as_0116.tar.gz
+NNPDF23_nnlo_FFN_NF4_as_0117
+NNPDF23_nnlo_FFN_NF4_as_0117.tar.gz
+NNPDF23_nnlo_FFN_NF4_as_0118
+NNPDF23_nnlo_FFN_NF4_as_0118.tar.gz
+NNPDF23_nnlo_FFN_NF4_as_0119
+NNPDF23_nnlo_FFN_NF4_as_0119.tar.gz
+NNPDF23_nnlo_FFN_NF4_as_0120
+NNPDF23_nnlo_FFN_NF4_as_0120.tar.gz
+NNPDF23_nnlo_FFN_NF5_as_0116
+NNPDF23_nnlo_FFN_NF5_as_0116.tar.gz
+NNPDF23_nnlo_FFN_NF5_as_0117
+NNPDF23_nnlo_FFN_NF5_as_0117.tar.gz
+NNPDF23_nnlo_FFN_NF5_as_0118
+NNPDF23_nnlo_FFN_NF5_as_0118.tar.gz
+NNPDF23_nnlo_FFN_NF5_as_0119
+NNPDF23_nnlo_FFN_NF5_as_0119.tar.gz
+NNPDF23_nnlo_FFN_NF5_as_0120
+NNPDF23_nnlo_FFN_NF5_as_0120.tar.gz
+NNPDF23_nnlo_as_0114
+NNPDF23_nnlo_as_0114.tar.gz
+NNPDF23_nnlo_as_0115
+NNPDF23_nnlo_as_0115.tar.gz
+NNPDF23_nnlo_as_0116
+NNPDF23_nnlo_as_0116.tar.gz
+NNPDF23_nnlo_as_0117
+NNPDF23_nnlo_as_0117.tar.gz
+NNPDF23_nnlo_as_0117_qed
+NNPDF23_nnlo_as_0117_qed.tar.gz
+NNPDF23_nnlo_as_0117_qed_neutron
+NNPDF23_nnlo_as_0117_qed_neutron.tar.gz
+NNPDF23_nnlo_as_0118
+NNPDF23_nnlo_as_0118.tar.gz
+NNPDF23_nnlo_as_0118_qed
+NNPDF23_nnlo_as_0118_qed.tar.gz
+NNPDF23_nnlo_as_0118_qed_neutron
+NNPDF23_nnlo_as_0118_qed_neutron.tar.gz
+NNPDF23_nnlo_as_0119
+NNPDF23_nnlo_as_0119.tar.gz
+NNPDF23_nnlo_as_0119_qed
+NNPDF23_nnlo_as_0119_qed.tar.gz
+NNPDF23_nnlo_as_0119_qed_mc
+NNPDF23_nnlo_as_0119_qed_mc.tar.gz
+NNPDF23_nnlo_as_0119_qed_neutron
+NNPDF23_nnlo_as_0119_qed_neutron.tar.gz
+NNPDF23_nnlo_as_0120
+NNPDF23_nnlo_as_0120.tar.gz
+NNPDF23_nnlo_as_0121
+NNPDF23_nnlo_as_0121.tar.gz
+NNPDF23_nnlo_as_0122
+NNPDF23_nnlo_as_0122.tar.gz
+NNPDF23_nnlo_as_0123
+NNPDF23_nnlo_as_0123.tar.gz
+NNPDF23_nnlo_as_0124
+NNPDF23_nnlo_as_0124.tar.gz
+NNPDF23_nnlo_collider_as_0116
+NNPDF23_nnlo_collider_as_0116.tar.gz
+NNPDF23_nnlo_collider_as_0117
+NNPDF23_nnlo_collider_as_0117.tar.gz
+NNPDF23_nnlo_collider_as_0118
+NNPDF23_nnlo_collider_as_0118.tar.gz
+NNPDF23_nnlo_collider_as_0119
+NNPDF23_nnlo_collider_as_0119.tar.gz
+NNPDF23_nnlo_collider_as_0120
+NNPDF23_nnlo_collider_as_0120.tar.gz
+NNPDF23_nnlo_noLHC_as_0116
+NNPDF23_nnlo_noLHC_as_0116.tar.gz
+NNPDF23_nnlo_noLHC_as_0117
+NNPDF23_nnlo_noLHC_as_0117.tar.gz
+NNPDF23_nnlo_noLHC_as_0118
+NNPDF23_nnlo_noLHC_as_0118.tar.gz
+NNPDF23_nnlo_noLHC_as_0119
+NNPDF23_nnlo_noLHC_as_0119.tar.gz
+NNPDF23_nnlo_noLHC_as_0120
+NNPDF23_nnlo_noLHC_as_0120.tar.gz
+NNPDF30_lo_as_0118
+NNPDF30_lo_as_0118.tar.gz
+NNPDF30_lo_as_0118_nf_3
+NNPDF30_lo_as_0118_nf_3.tar.gz
+NNPDF30_lo_as_0118_nf_4
+NNPDF30_lo_as_0118_nf_4.tar.gz
+NNPDF30_lo_as_0118_nf_6
+NNPDF30_lo_as_0118_nf_6.tar.gz
+NNPDF30_lo_as_0130
+NNPDF30_lo_as_0130.tar.gz
+NNPDF30_lo_as_0130_nf_3
+NNPDF30_lo_as_0130_nf_3.tar.gz
+NNPDF30_lo_as_0130_nf_4
+NNPDF30_lo_as_0130_nf_4.tar.gz
+NNPDF30_lo_as_0130_nf_6
+NNPDF30_lo_as_0130_nf_6.tar.gz
+NNPDF30_nlo_as_0115
+NNPDF30_nlo_as_0115.tar.gz
+NNPDF30_nlo_as_0115_nf_3
+NNPDF30_nlo_as_0115_nf_3.tar.gz
+NNPDF30_nlo_as_0115_nf_4
+NNPDF30_nlo_as_0115_nf_4.tar.gz
+NNPDF30_nlo_as_0115_nf_6
+NNPDF30_nlo_as_0115_nf_6.tar.gz
+NNPDF30_nlo_as_0117
+NNPDF30_nlo_as_0117.tar.gz
+NNPDF30_nlo_as_0117_atlas
+NNPDF30_nlo_as_0117_atlas.tar.gz
+NNPDF30_nlo_as_0117_cms
+NNPDF30_nlo_as_0117_cms.tar.gz
+NNPDF30_nlo_as_0117_cons
+NNPDF30_nlo_as_0117_cons.tar.gz
+NNPDF30_nlo_as_0117_hera
+NNPDF30_nlo_as_0117_hera.tar.gz
+NNPDF30_nlo_as_0117_nf_3
+NNPDF30_nlo_as_0117_nf_3.tar.gz
+NNPDF30_nlo_as_0117_nf_4
+NNPDF30_nlo_as_0117_nf_4.tar.gz
+NNPDF30_nlo_as_0117_nf_6
+NNPDF30_nlo_as_0117_nf_6.tar.gz
+NNPDF30_nlo_as_0117_nojet
+NNPDF30_nlo_as_0117_nojet.tar.gz
+NNPDF30_nlo_as_0117_nolhc
+NNPDF30_nlo_as_0117_nolhc.tar.gz
+NNPDF30_nlo_as_0118
+NNPDF30_nlo_as_0118.tar.gz
+NNPDF30_nlo_as_0118_1000
+NNPDF30_nlo_as_0118_1000.tar.gz
+NNPDF30_nlo_as_0118_atlas
+NNPDF30_nlo_as_0118_atlas.tar.gz
+NNPDF30_nlo_as_0118_cms
+NNPDF30_nlo_as_0118_cms.tar.gz
+NNPDF30_nlo_as_0118_cons
+NNPDF30_nlo_as_0118_cons.tar.gz
+NNPDF30_nlo_as_0118_hera
+NNPDF30_nlo_as_0118_hera.tar.gz
+NNPDF30_nlo_as_0118_hera_1000
+NNPDF30_nlo_as_0118_hera_1000.tar.gz
+NNPDF30_nlo_as_0118_hessian
+NNPDF30_nlo_as_0118_hessian.tar.gz
+NNPDF30_nlo_as_0118_mc
+NNPDF30_nlo_as_0118_mc.tar.gz
+NNPDF30_nlo_as_0118_nf_3
+NNPDF30_nlo_as_0118_nf_3.tar.gz
+NNPDF30_nlo_as_0118_nf_4
+NNPDF30_nlo_as_0118_nf_4.tar.gz
+NNPDF30_nlo_as_0118_nf_6
+NNPDF30_nlo_as_0118_nf_6.tar.gz
+NNPDF30_nlo_as_0118_nojet
+NNPDF30_nlo_as_0118_nojet.tar.gz
+NNPDF30_nlo_as_0118_nolhc
+NNPDF30_nlo_as_0118_nolhc.tar.gz
+NNPDF30_nlo_as_0118_nolhc_1000
+NNPDF30_nlo_as_0118_nolhc_1000.tar.gz
+NNPDF30_nlo_as_0119
+NNPDF30_nlo_as_0119.tar.gz
+NNPDF30_nlo_as_0119_atlas
+NNPDF30_nlo_as_0119_atlas.tar.gz
+NNPDF30_nlo_as_0119_cms
+NNPDF30_nlo_as_0119_cms.tar.gz
+NNPDF30_nlo_as_0119_cons
+NNPDF30_nlo_as_0119_cons.tar.gz
+NNPDF30_nlo_as_0119_hera
+NNPDF30_nlo_as_0119_hera.tar.gz
+NNPDF30_nlo_as_0119_nf_3
+NNPDF30_nlo_as_0119_nf_3.tar.gz
+NNPDF30_nlo_as_0119_nf_4
+NNPDF30_nlo_as_0119_nf_4.tar.gz
+NNPDF30_nlo_as_0119_nf_6
+NNPDF30_nlo_as_0119_nf_6.tar.gz
+NNPDF30_nlo_as_0119_nojet
+NNPDF30_nlo_as_0119_nojet.tar.gz
+NNPDF30_nlo_as_0119_nolhc
+NNPDF30_nlo_as_0119_nolhc.tar.gz
+NNPDF30_nlo_as_0121
+NNPDF30_nlo_as_0121.tar.gz
+NNPDF30_nlo_as_0121_nf_3
+NNPDF30_nlo_as_0121_nf_3.tar.gz
+NNPDF30_nlo_as_0121_nf_4
+NNPDF30_nlo_as_0121_nf_4.tar.gz
+NNPDF30_nlo_as_0121_nf_6
+NNPDF30_nlo_as_0121_nf_6.tar.gz
+NNPDF30_nlo_nf_4_pdfas
+NNPDF30_nlo_nf_4_pdfas.tar.gz
+NNPDF30_nlo_nf_5_pdfas
+NNPDF30_nlo_nf_5_pdfas.tar.gz
+NNPDF30_nnlo_as_0115
+NNPDF30_nnlo_as_0115.tar.gz
+NNPDF30_nnlo_as_0115_nf_3
+NNPDF30_nnlo_as_0115_nf_3.tar.gz
+NNPDF30_nnlo_as_0115_nf_4
+NNPDF30_nnlo_as_0115_nf_4.tar.gz
+NNPDF30_nnlo_as_0115_nf_6
+NNPDF30_nnlo_as_0115_nf_6.tar.gz
+NNPDF30_nnlo_as_0117
+NNPDF30_nnlo_as_0117.tar.gz
+NNPDF30_nnlo_as_0117_atlas
+NNPDF30_nnlo_as_0117_atlas.tar.gz
+NNPDF30_nnlo_as_0117_cms
+NNPDF30_nnlo_as_0117_cms.tar.gz
+NNPDF30_nnlo_as_0117_cons
+NNPDF30_nnlo_as_0117_cons.tar.gz
+NNPDF30_nnlo_as_0117_hera
+NNPDF30_nnlo_as_0117_hera.tar.gz
+NNPDF30_nnlo_as_0117_nf_3
+NNPDF30_nnlo_as_0117_nf_3.tar.gz
+NNPDF30_nnlo_as_0117_nf_4
+NNPDF30_nnlo_as_0117_nf_4.tar.gz
+NNPDF30_nnlo_as_0117_nf_6
+NNPDF30_nnlo_as_0117_nf_6.tar.gz
+NNPDF30_nnlo_as_0117_nojet
+NNPDF30_nnlo_as_0117_nojet.tar.gz
+NNPDF30_nnlo_as_0117_nolhc
+NNPDF30_nnlo_as_0117_nolhc.tar.gz
+NNPDF30_nnlo_as_0118
+NNPDF30_nnlo_as_0118.tar.gz
+NNPDF30_nnlo_as_0118_1000
+NNPDF30_nnlo_as_0118_1000.tar.gz
+NNPDF30_nnlo_as_0118_atlas
+NNPDF30_nnlo_as_0118_atlas.tar.gz
+NNPDF30_nnlo_as_0118_cms
+NNPDF30_nnlo_as_0118_cms.tar.gz
+NNPDF30_nnlo_as_0118_cons
+NNPDF30_nnlo_as_0118_cons.tar.gz
+NNPDF30_nnlo_as_0118_hera
+NNPDF30_nnlo_as_0118_hera.tar.gz
+NNPDF30_nnlo_as_0118_hera_1000
+NNPDF30_nnlo_as_0118_hera_1000.tar.gz
+NNPDF30_nnlo_as_0118_hessian
+NNPDF30_nnlo_as_0118_hessian.tar.gz
+NNPDF30_nnlo_as_0118_mc
+NNPDF30_nnlo_as_0118_mc.tar.gz
+NNPDF30_nnlo_as_0118_nf_3
+NNPDF30_nnlo_as_0118_nf_3.tar.gz
+NNPDF30_nnlo_as_0118_nf_4
+NNPDF30_nnlo_as_0118_nf_4.tar.gz
+NNPDF30_nnlo_as_0118_nf_6
+NNPDF30_nnlo_as_0118_nf_6.tar.gz
+NNPDF30_nnlo_as_0118_nojet
+NNPDF30_nnlo_as_0118_nojet.tar.gz
+NNPDF30_nnlo_as_0118_nolhc
+NNPDF30_nnlo_as_0118_nolhc.tar.gz
+NNPDF30_nnlo_as_0118_nolhc_1000
+NNPDF30_nnlo_as_0118_nolhc_1000.tar.gz
+NNPDF30_nnlo_as_0119
+NNPDF30_nnlo_as_0119.tar.gz
+NNPDF30_nnlo_as_0119_atlas
+NNPDF30_nnlo_as_0119_atlas.tar.gz
+NNPDF30_nnlo_as_0119_cms
+NNPDF30_nnlo_as_0119_cms.tar.gz
+NNPDF30_nnlo_as_0119_cons
+NNPDF30_nnlo_as_0119_cons.tar.gz
+NNPDF30_nnlo_as_0119_hera
+NNPDF30_nnlo_as_0119_hera.tar.gz
+NNPDF30_nnlo_as_0119_nf_3
+NNPDF30_nnlo_as_0119_nf_3.tar.gz
+NNPDF30_nnlo_as_0119_nf_4
+NNPDF30_nnlo_as_0119_nf_4.tar.gz
+NNPDF30_nnlo_as_0119_nf_6
+NNPDF30_nnlo_as_0119_nf_6.tar.gz
+NNPDF30_nnlo_as_0119_nojet
+NNPDF30_nnlo_as_0119_nojet.tar.gz
+NNPDF30_nnlo_as_0119_nolhc
+NNPDF30_nnlo_as_0119_nolhc.tar.gz
+NNPDF30_nnlo_as_0121
+NNPDF30_nnlo_as_0121.tar.gz
+NNPDF30_nnlo_as_0121_nf_3
+NNPDF30_nnlo_as_0121_nf_3.tar.gz
+NNPDF30_nnlo_as_0121_nf_4
+NNPDF30_nnlo_as_0121_nf_4.tar.gz
+NNPDF30_nnlo_as_0121_nf_6
+NNPDF30_nnlo_as_0121_nf_6.tar.gz
+NNPDF30_nnlo_nf_4_pdfas
+NNPDF30_nnlo_nf_4_pdfas.tar.gz
+NNPDF30_nnlo_nf_5_pdfas
+NNPDF30_nnlo_nf_5_pdfas.tar.gz
+NNPDF31_lo_as_0118
+NNPDF31_lo_as_0118.tar.gz
+NNPDF31_lo_as_0130
+NNPDF31_lo_as_0130.tar.gz
+NNPDF31_lo_pch_as_0118
+NNPDF31_lo_pch_as_0118.tar.gz
+NNPDF31_lo_pch_as_0130
+NNPDF31_lo_pch_as_0130.tar.gz
+NNPDF31_nlo_as_0116
+NNPDF31_nlo_as_0116.tar.gz
+NNPDF31_nlo_as_0118
+NNPDF31_nlo_as_0118.tar.gz
+NNPDF31_nlo_as_0118_1000
+NNPDF31_nlo_as_0118_1000.tar.gz
+NNPDF31_nlo_as_0118_C1p6
+NNPDF31_nlo_as_0118_C1p6.tar.gz
+NNPDF31_nlo_as_0118_hessian
+NNPDF31_nlo_as_0118_hessian.tar.gz
+NNPDF31_nlo_as_0118_luxqed
+NNPDF31_nlo_as_0118_luxqed.tar.gz
+NNPDF31_nlo_as_0118_mc
+NNPDF31_nlo_as_0118_mc.tar.gz
+NNPDF31_nlo_as_0118_nf_4
+NNPDF31_nlo_as_0118_nf_4.tar.gz
+NNPDF31_nlo_as_0118_nf_6
+NNPDF31_nlo_as_0118_nf_6.tar.gz
+NNPDF31_nlo_as_0120
+NNPDF31_nlo_as_0120.tar.gz
+NNPDF31_nlo_hessian_pdfas
+NNPDF31_nlo_hessian_pdfas.tar.gz
+NNPDF31_nlo_pch_as_0116
+NNPDF31_nlo_pch_as_0116.tar.gz
+NNPDF31_nlo_pch_as_0118
+NNPDF31_nlo_pch_as_0118.tar.gz
+NNPDF31_nlo_pch_as_0118_1000
+NNPDF31_nlo_pch_as_0118_1000.tar.gz
+NNPDF31_nlo_pch_as_0118_hessian
+NNPDF31_nlo_pch_as_0118_hessian.tar.gz
+NNPDF31_nlo_pch_as_0118_mc
+NNPDF31_nlo_pch_as_0118_mc.tar.gz
+NNPDF31_nlo_pch_as_0118_nf_3
+NNPDF31_nlo_pch_as_0118_nf_3.tar.gz
+NNPDF31_nlo_pch_as_0118_nf_4
+NNPDF31_nlo_pch_as_0118_nf_4.tar.gz
+NNPDF31_nlo_pch_as_0118_nf_6
+NNPDF31_nlo_pch_as_0118_nf_6.tar.gz
+NNPDF31_nlo_pch_as_0120
+NNPDF31_nlo_pch_as_0120.tar.gz
+NNPDF31_nlo_pch_hessian_pdfas
+NNPDF31_nlo_pch_hessian_pdfas.tar.gz
+NNPDF31_nlo_pch_pdfas
+NNPDF31_nlo_pch_pdfas.tar.gz
+NNPDF31_nlo_pdfas
+NNPDF31_nlo_pdfas.tar.gz
+NNPDF31_nnlo_as_0108
+NNPDF31_nnlo_as_0108.tar.gz
+NNPDF31_nnlo_as_0110
+NNPDF31_nnlo_as_0110.tar.gz
+NNPDF31_nnlo_as_0112
+NNPDF31_nnlo_as_0112.tar.gz
+NNPDF31_nnlo_as_0114
+NNPDF31_nnlo_as_0114.tar.gz
+NNPDF31_nnlo_as_0116
+NNPDF31_nnlo_as_0116.tar.gz
+NNPDF31_nnlo_as_0117
+NNPDF31_nnlo_as_0117.tar.gz
+NNPDF31_nnlo_as_0118
+NNPDF31_nnlo_as_0118.tar.gz
+NNPDF31_nnlo_as_0118_1000
+NNPDF31_nnlo_as_0118_1000.tar.gz
+NNPDF31_nnlo_as_0118_CMSW1
+NNPDF31_nnlo_as_0118_CMSW1.tar.gz
+NNPDF31_nnlo_as_0118_CMSW1_hessian_100
+NNPDF31_nnlo_as_0118_CMSW1_hessian_100.tar.gz
+NNPDF31_nnlo_as_0118_CMSW2
+NNPDF31_nnlo_as_0118_CMSW2.tar.gz
+NNPDF31_nnlo_as_0118_CMSW2_hessian_100
+NNPDF31_nnlo_as_0118_CMSW2_hessian_100.tar.gz
+NNPDF31_nnlo_as_0118_CMSW3
+NNPDF31_nnlo_as_0118_CMSW3.tar.gz
+NNPDF31_nnlo_as_0118_CMSW3_hessian_100
+NNPDF31_nnlo_as_0118_CMSW3_hessian_100.tar.gz
+NNPDF31_nnlo_as_0118_CMSW4
+NNPDF31_nnlo_as_0118_CMSW4.tar.gz
+NNPDF31_nnlo_as_0118_CMSW4_hessian_100
+NNPDF31_nnlo_as_0118_CMSW4_hessian_100.tar.gz
+NNPDF31_nnlo_as_0118_collider
+NNPDF31_nnlo_as_0118_collider.tar.gz
+NNPDF31_nnlo_as_0118_hessian
+NNPDF31_nnlo_as_0118_hessian.tar.gz
+NNPDF31_nnlo_as_0118_luxqed
+NNPDF31_nnlo_as_0118_luxqed.tar.gz
+NNPDF31_nnlo_as_0118_mc
+NNPDF31_nnlo_as_0118_mc.tar.gz
+NNPDF31_nnlo_as_0118_mc_138
+NNPDF31_nnlo_as_0118_mc_138.tar.gz
+NNPDF31_nnlo_as_0118_mc_164
+NNPDF31_nnlo_as_0118_mc_164.tar.gz
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas.tar.gz
+NNPDF31_nnlo_as_0118_nf_4
+NNPDF31_nnlo_as_0118_nf_4.tar.gz
+NNPDF31_nnlo_as_0118_nf_4_mc_hessian
+NNPDF31_nnlo_as_0118_nf_4_mc_hessian.tar.gz
+NNPDF31_nnlo_as_0118_nf_6
+NNPDF31_nnlo_as_0118_nf_6.tar.gz
+NNPDF31_nnlo_as_0118_noLHC
+NNPDF31_nnlo_as_0118_noLHC.tar.gz
+NNPDF31_nnlo_as_0118_noZpt
+NNPDF31_nnlo_as_0118_noZpt.tar.gz
+NNPDF31_nnlo_as_0118_nojets
+NNPDF31_nnlo_as_0118_nojets.tar.gz
+NNPDF31_nnlo_as_0118_notop
+NNPDF31_nnlo_as_0118_notop.tar.gz
+NNPDF31_nnlo_as_0118_proton
+NNPDF31_nnlo_as_0118_proton.tar.gz
+NNPDF31_nnlo_as_0118_wEMC
+NNPDF31_nnlo_as_0118_wEMC.tar.gz
+NNPDF31_nnlo_as_0119
+NNPDF31_nnlo_as_0119.tar.gz
+NNPDF31_nnlo_as_0120
+NNPDF31_nnlo_as_0120.tar.gz
+NNPDF31_nnlo_as_0122
+NNPDF31_nnlo_as_0122.tar.gz
+NNPDF31_nnlo_as_0124
+NNPDF31_nnlo_as_0124.tar.gz
+NNPDF31_nnlo_hessian_pdfas
+NNPDF31_nnlo_hessian_pdfas.tar.gz
+NNPDF31_nnlo_pch_as_0116
+NNPDF31_nnlo_pch_as_0116.tar.gz
+NNPDF31_nnlo_pch_as_0118
+NNPDF31_nnlo_pch_as_0118.tar.gz
+NNPDF31_nnlo_pch_as_0118_1000
+NNPDF31_nnlo_pch_as_0118_1000.tar.gz
+NNPDF31_nnlo_pch_as_0118_hessian
+NNPDF31_nnlo_pch_as_0118_hessian.tar.gz
+NNPDF31_nnlo_pch_as_0118_mc
+NNPDF31_nnlo_pch_as_0118_mc.tar.gz
+NNPDF31_nnlo_pch_as_0118_mc_138
+NNPDF31_nnlo_pch_as_0118_mc_138.tar.gz
+NNPDF31_nnlo_pch_as_0118_mc_164
+NNPDF31_nnlo_pch_as_0118_mc_164.tar.gz
+NNPDF31_nnlo_pch_as_0118_nf_3
+NNPDF31_nnlo_pch_as_0118_nf_3.tar.gz
+NNPDF31_nnlo_pch_as_0118_nf_4
+NNPDF31_nnlo_pch_as_0118_nf_4.tar.gz
+NNPDF31_nnlo_pch_as_0118_nf_6
+NNPDF31_nnlo_pch_as_0118_nf_6.tar.gz
+NNPDF31_nnlo_pch_as_0120
+NNPDF31_nnlo_pch_as_0120.tar.gz
+NNPDF31_nnlo_pch_hessian_pdfas
+NNPDF31_nnlo_pch_hessian_pdfas.tar.gz
+NNPDF31_nnlo_pch_pdfas
+NNPDF31_nnlo_pch_pdfas.tar.gz
+NNPDF31_nnlo_pdfas
+NNPDF31_nnlo_pdfas.tar.gz
+NNPDF40MC_lo_as_01180
+NNPDF40MC_lo_as_01180.tar.gz
+NNPDF40MC_lo_as_01180_qed
+NNPDF40MC_lo_as_01180_qed.tar.gz
+NNPDF40MC_nlo_as_01180
+NNPDF40MC_nlo_as_01180.tar.gz
+NNPDF40MC_nlo_as_01180_qed
+NNPDF40MC_nlo_as_01180_qed.tar.gz
+NNPDF40MC_nnlo_as_01180
+NNPDF40MC_nnlo_as_01180.tar.gz
+NNPDF40MC_nnlo_as_01180_qed
+NNPDF40MC_nnlo_as_01180_qed.tar.gz
+NNPDF40_an3lo_as_01180
+NNPDF40_an3lo_as_01180.tar.gz
+NNPDF40_an3lo_as_01180_hessian
+NNPDF40_an3lo_as_01180_hessian.tar.gz
+NNPDF40_an3lo_as_01180_mhou
+NNPDF40_an3lo_as_01180_mhou.tar.gz
+NNPDF40_an3lo_as_01180_mhou_hessian
+NNPDF40_an3lo_as_01180_mhou_hessian.tar.gz
+NNPDF40_an3lo_as_01180_mhou_pdfas
+NNPDF40_an3lo_as_01180_mhou_pdfas.tar.gz
+NNPDF40_an3lo_as_01180_mhou_pdfas_hessian
+NNPDF40_an3lo_as_01180_mhou_pdfas_hessian.tar.gz
+NNPDF40_an3lo_as_01180_pdfas
+NNPDF40_an3lo_as_01180_pdfas.tar.gz
+NNPDF40_an3lo_as_01180_pdfas_hessian
+NNPDF40_an3lo_as_01180_pdfas_hessian.tar.gz
+NNPDF40_an3lo_as_01180_qed
+NNPDF40_an3lo_as_01180_qed.tar.gz
+NNPDF40_an3lo_as_01180_qed_mhou
+NNPDF40_an3lo_as_01180_qed_mhou.tar.gz
+NNPDF40_lo_as_01180
+NNPDF40_lo_as_01180.tar.gz
+NNPDF40_lo_pch_as_01180
+NNPDF40_lo_pch_as_01180.tar.gz
+NNPDF40_nlo_as_01170
+NNPDF40_nlo_as_01170.tar.gz
+NNPDF40_nlo_as_01180
+NNPDF40_nlo_as_01180.tar.gz
+NNPDF40_nlo_as_01180_mhou
+NNPDF40_nlo_as_01180_mhou.tar.gz
+NNPDF40_nlo_as_01180_nf_4
+NNPDF40_nlo_as_01180_nf_4.tar.gz
+NNPDF40_nlo_as_01180_nf_6
+NNPDF40_nlo_as_01180_nf_6.tar.gz
+NNPDF40_nlo_as_01180_qed
+NNPDF40_nlo_as_01180_qed.tar.gz
+NNPDF40_nlo_as_01190
+NNPDF40_nlo_as_01190.tar.gz
+NNPDF40_nlo_nf_4_pdfas
+NNPDF40_nlo_nf_4_pdfas.tar.gz
+NNPDF40_nlo_pch_as_01180
+NNPDF40_nlo_pch_as_01180.tar.gz
+NNPDF40_nlo_pch_as_01180_nf_3
+NNPDF40_nlo_pch_as_01180_nf_3.tar.gz
+NNPDF40_nnlo_as_01160
+NNPDF40_nnlo_as_01160.tar.gz
+NNPDF40_nnlo_as_01170
+NNPDF40_nnlo_as_01170.tar.gz
+NNPDF40_nnlo_as_01175
+NNPDF40_nnlo_as_01175.tar.gz
+NNPDF40_nnlo_as_01180
+NNPDF40_nnlo_as_01180.tar.gz
+NNPDF40_nnlo_as_01180_1000
+NNPDF40_nnlo_as_01180_1000.tar.gz
+NNPDF40_nnlo_as_01180_hessian
+NNPDF40_nnlo_as_01180_hessian.tar.gz
+NNPDF40_nnlo_as_01180_mhou
+NNPDF40_nnlo_as_01180_mhou.tar.gz
+NNPDF40_nnlo_as_01180_nf_4
+NNPDF40_nnlo_as_01180_nf_4.tar.gz
+NNPDF40_nnlo_as_01180_nf_6
+NNPDF40_nnlo_as_01180_nf_6.tar.gz
+NNPDF40_nnlo_as_01180_qed
+NNPDF40_nnlo_as_01180_qed.tar.gz
+NNPDF40_nnlo_as_01180_qed_mhou
+NNPDF40_nnlo_as_01180_qed_mhou.tar.gz
+NNPDF40_nnlo_as_01185
+NNPDF40_nnlo_as_01185.tar.gz
+NNPDF40_nnlo_as_01190
+NNPDF40_nnlo_as_01190.tar.gz
+NNPDF40_nnlo_as_01200
+NNPDF40_nnlo_as_01200.tar.gz
+NNPDF40_nnlo_hessian_pdfas
+NNPDF40_nnlo_hessian_pdfas.tar.gz
+NNPDF40_nnlo_nf_4_pdfas
+NNPDF40_nnlo_nf_4_pdfas.tar.gz
+NNPDF40_nnlo_pch_as_01180
+NNPDF40_nnlo_pch_as_01180.tar.gz
+NNPDF40_nnlo_pch_as_01180_nf_3
+NNPDF40_nnlo_pch_as_01180_nf_3.tar.gz
+NNPDF40_nnlo_pdfas
+NNPDF40_nnlo_pdfas.tar.gz
+NNPDFpol10_100
+NNPDFpol10_100.tar.gz
+NNPDFpol11_100
+NNPDFpol11_100.tar.gz
+NNPDFpol20_lo_as_01180
+NNPDFpol20_lo_as_01180.tar.gz
+NNPDFpol20_lo_as_01180_1000
+NNPDFpol20_lo_as_01180_1000.tar.gz
+NNPDFpol20_lo_as_01180_mhou
+NNPDFpol20_lo_as_01180_mhou.tar.gz
+NNPDFpol20_lo_as_01180_mhou_1000
+NNPDFpol20_lo_as_01180_mhou_1000.tar.gz
+NNPDFpol20_nlo_as_01180
+NNPDFpol20_nlo_as_01180.tar.gz
+NNPDFpol20_nlo_as_01180_1000
+NNPDFpol20_nlo_as_01180_1000.tar.gz
+NNPDFpol20_nlo_as_01180_mhou
+NNPDFpol20_nlo_as_01180_mhou.tar.gz
+NNPDFpol20_nlo_as_01180_mhou_1000
+NNPDFpol20_nlo_as_01180_mhou_1000.tar.gz
+NNPDFpol20_nnlo_as_01180
+NNPDFpol20_nnlo_as_01180.tar.gz
+NNPDFpol20_nnlo_as_01180_1000
+NNPDFpol20_nnlo_as_01180_1000.tar.gz
+NNPDFpol20_nnlo_as_01180_mhou
+NNPDFpol20_nnlo_as_01180_mhou.tar.gz
+NNPDFpol20_nnlo_as_01180_mhou_1000
+NNPDFpol20_nnlo_as_01180_mhou_1000.tar.gz
+NNSFnu_Ag_highQ
+NNSFnu_Ag_highQ.tar.gz
+NNSFnu_Ag_lowQ
+NNSFnu_Ag_lowQ.tar.gz
+NNSFnu_Al_highQ
+NNSFnu_Al_highQ.tar.gz
+NNSFnu_Al_lowQ
+NNSFnu_Al_lowQ.tar.gz
+NNSFnu_Ar_highQ
+NNSFnu_Ar_highQ.tar.gz
+NNSFnu_Ar_lowQ
+NNSFnu_Ar_lowQ.tar.gz
+NNSFnu_Au_highQ
+NNSFnu_Au_highQ.tar.gz
+NNSFnu_Au_lowQ
+NNSFnu_Au_lowQ.tar.gz
+NNSFnu_Be_highQ
+NNSFnu_Be_highQ.tar.gz
+NNSFnu_Be_lowQ
+NNSFnu_Be_lowQ.tar.gz
+NNSFnu_C_highQ
+NNSFnu_C_highQ.tar.gz
+NNSFnu_C_lowQ
+NNSFnu_C_lowQ.tar.gz
+NNSFnu_Ca_highQ
+NNSFnu_Ca_highQ.tar.gz
+NNSFnu_Ca_lowQ
+NNSFnu_Ca_lowQ.tar.gz
+NNSFnu_Cu_highQ
+NNSFnu_Cu_highQ.tar.gz
+NNSFnu_Cu_lowQ
+NNSFnu_Cu_lowQ.tar.gz
+NNSFnu_D_highQ
+NNSFnu_D_highQ.tar.gz
+NNSFnu_D_lowQ
+NNSFnu_D_lowQ.tar.gz
+NNSFnu_Ea_highQ
+NNSFnu_Ea_highQ.tar.gz
+NNSFnu_Ea_lowQ
+NNSFnu_Ea_lowQ.tar.gz
+NNSFnu_Fe_highQ
+NNSFnu_Fe_highQ.tar.gz
+NNSFnu_Fe_lowQ
+NNSFnu_Fe_lowQ.tar.gz
+NNSFnu_He_highQ
+NNSFnu_He_highQ.tar.gz
+NNSFnu_He_lowQ
+NNSFnu_He_lowQ.tar.gz
+NNSFnu_Li_highQ
+NNSFnu_Li_highQ.tar.gz
+NNSFnu_Li_lowQ
+NNSFnu_Li_lowQ.tar.gz
+NNSFnu_N_highQ
+NNSFnu_N_highQ.tar.gz
+NNSFnu_N_lowQ
+NNSFnu_N_lowQ.tar.gz
+NNSFnu_O_highQ
+NNSFnu_O_highQ.tar.gz
+NNSFnu_O_lowQ
+NNSFnu_O_lowQ.tar.gz
+NNSFnu_Pb_highQ
+NNSFnu_Pb_highQ.tar.gz
+NNSFnu_Pb_lowQ
+NNSFnu_Pb_lowQ.tar.gz
+NNSFnu_Sn_highQ
+NNSFnu_Sn_highQ.tar.gz
+NNSFnu_Sn_lowQ
+NNSFnu_Sn_lowQ.tar.gz
+NNSFnu_W_highQ
+NNSFnu_W_highQ.tar.gz
+NNSFnu_W_lowQ
+NNSFnu_W_lowQ.tar.gz
+NNSFnu_Xe_highQ
+NNSFnu_Xe_highQ.tar.gz
+NNSFnu_Xe_lowQ
+NNSFnu_Xe_lowQ.tar.gz
+NPC23_CHHAm_nlo
+NPC23_CHHAm_nlo.tar.gz
+NPC23_CHHAp_nlo
+NPC23_CHHAp_nlo.tar.gz
+NPC23_CHHAsum_nlo
+NPC23_CHHAsum_nlo.tar.gz
+NPC23_K0s_nnlo
+NPC23_K0s_nnlo.tar.gz
+NPC23_KAm_nlo
+NPC23_KAm_nlo.tar.gz
+NPC23_KAm_nnlo
+NPC23_KAm_nnlo.tar.gz
+NPC23_KAp_nlo
+NPC23_KAp_nlo.tar.gz
+NPC23_KAp_nnlo
+NPC23_KAp_nnlo.tar.gz
+NPC23_KAsum_nlo
+NPC23_KAsum_nlo.tar.gz
+NPC23_KAsum_nnlo
+NPC23_KAsum_nnlo.tar.gz
+NPC23_PI0_nnlo
+NPC23_PI0_nnlo.tar.gz
+NPC23_PIm_nlo
+NPC23_PIm_nlo.tar.gz
+NPC23_PIm_nnlo
+NPC23_PIm_nnlo.tar.gz
+NPC23_PIp_nlo
+NPC23_PIp_nlo.tar.gz
+NPC23_PIp_nnlo
+NPC23_PIp_nnlo.tar.gz
+NPC23_PIsum_nlo
+NPC23_PIsum_nlo.tar.gz
+NPC23_PIsum_nnlo
+NPC23_PIsum_nnlo.tar.gz
+NPC23_PRm_nlo
+NPC23_PRm_nlo.tar.gz
+NPC23_PRp_nlo
+NPC23_PRp_nlo.tar.gz
+NPC23_PRsum_nlo
+NPC23_PRsum_nlo.tar.gz
+NPC23_lowQ_K0s_nlo
+NPC23_lowQ_K0s_nlo.tar.gz
+NPC23_lowQ_KAm_nlo
+NPC23_lowQ_KAm_nlo.tar.gz
+NPC23_lowQ_KAp_nlo
+NPC23_lowQ_KAp_nlo.tar.gz
+NPC23_lowQ_KAsum_nlo
+NPC23_lowQ_KAsum_nlo.tar.gz
+NPC23_lowQ_PI0_nlo
+NPC23_lowQ_PI0_nlo.tar.gz
+NPC23_lowQ_PIm_nlo
+NPC23_lowQ_PIm_nlo.tar.gz
+NPC23_lowQ_PIp_nlo
+NPC23_lowQ_PIp_nlo.tar.gz
+NPC23_lowQ_PIsum_nlo
+NPC23_lowQ_PIsum_nlo.tar.gz
+PDF4LHC15_nlo_100
+PDF4LHC15_nlo_100.tar.gz
+PDF4LHC15_nlo_100_pdfas
+PDF4LHC15_nlo_100_pdfas.tar.gz
+PDF4LHC15_nlo_30
+PDF4LHC15_nlo_30.tar.gz
+PDF4LHC15_nlo_30_pdfas
+PDF4LHC15_nlo_30_pdfas.tar.gz
+PDF4LHC15_nlo_asvar
+PDF4LHC15_nlo_asvar.tar.gz
+PDF4LHC15_nlo_mc
+PDF4LHC15_nlo_mc.tar.gz
+PDF4LHC15_nlo_mc_pdfas
+PDF4LHC15_nlo_mc_pdfas.tar.gz
+PDF4LHC15_nlo_nf4_30
+PDF4LHC15_nlo_nf4_30.tar.gz
+PDF4LHC15_nnlo_100
+PDF4LHC15_nnlo_100.tar.gz
+PDF4LHC15_nnlo_100_pdfas
+PDF4LHC15_nnlo_100_pdfas.tar.gz
+PDF4LHC15_nnlo_30
+PDF4LHC15_nnlo_30.tar.gz
+PDF4LHC15_nnlo_30_pdfas
+PDF4LHC15_nnlo_30_pdfas.tar.gz
+PDF4LHC15_nnlo_asvar
+PDF4LHC15_nnlo_asvar.tar.gz
+PDF4LHC15_nnlo_mc
+PDF4LHC15_nnlo_mc.tar.gz
+PDF4LHC15_nnlo_mc_pdfas
+PDF4LHC15_nnlo_mc_pdfas.tar.gz
+PDF4LHC21_40
+PDF4LHC21_40.tar.gz
+PDF4LHC21_40_nf4
+PDF4LHC21_40_nf4.tar.gz
+PDF4LHC21_40_pdfas
+PDF4LHC21_40_pdfas.tar.gz
+PDF4LHC21_40_pdfas_nf4
+PDF4LHC21_40_pdfas_nf4.tar.gz
+PDF4LHC21_mc
+PDF4LHC21_mc.tar.gz
+PDF4LHC21_mc_nf4
+PDF4LHC21_mc_nf4.tar.gz
+PDF4LHC21_mc_pdfas
+PDF4LHC21_mc_pdfas.tar.gz
+PDF4LHC21_mc_pdfas_nf4
+PDF4LHC21_mc_pdfas_nf4.tar.gz
+TUJU19_nlo_119_50
+TUJU19_nlo_119_50.tar.gz
+TUJU19_nlo_12_6
+TUJU19_nlo_12_6.tar.gz
+TUJU19_nlo_131_54
+TUJU19_nlo_131_54.tar.gz
+TUJU19_nlo_197_79
+TUJU19_nlo_197_79.tar.gz
+TUJU19_nlo_1_1
+TUJU19_nlo_1_1.tar.gz
+TUJU19_nlo_208_82
+TUJU19_nlo_208_82.tar.gz
+TUJU19_nlo_27_13
+TUJU19_nlo_27_13.tar.gz
+TUJU19_nlo_2_1
+TUJU19_nlo_2_1.tar.gz
+TUJU19_nlo_3_2
+TUJU19_nlo_3_2.tar.gz
+TUJU19_nlo_40_20
+TUJU19_nlo_40_20.tar.gz
+TUJU19_nlo_4_2
+TUJU19_nlo_4_2.tar.gz
+TUJU19_nlo_56_26
+TUJU19_nlo_56_26.tar.gz
+TUJU19_nlo_64_29
+TUJU19_nlo_64_29.tar.gz
+TUJU19_nlo_7_3
+TUJU19_nlo_7_3.tar.gz
+TUJU19_nnlo_119_50
+TUJU19_nnlo_119_50.tar.gz
+TUJU19_nnlo_12_6
+TUJU19_nnlo_12_6.tar.gz
+TUJU19_nnlo_131_54
+TUJU19_nnlo_131_54.tar.gz
+TUJU19_nnlo_197_79
+TUJU19_nnlo_197_79.tar.gz
+TUJU19_nnlo_1_1
+TUJU19_nnlo_1_1.tar.gz
+TUJU19_nnlo_208_82
+TUJU19_nnlo_208_82.tar.gz
+TUJU19_nnlo_27_13
+TUJU19_nnlo_27_13.tar.gz
+TUJU19_nnlo_2_1
+TUJU19_nnlo_2_1.tar.gz
+TUJU19_nnlo_3_2
+TUJU19_nnlo_3_2.tar.gz
+TUJU19_nnlo_40_20
+TUJU19_nnlo_40_20.tar.gz
+TUJU19_nnlo_4_2
+TUJU19_nnlo_4_2.tar.gz
+TUJU19_nnlo_56_26
+TUJU19_nnlo_56_26.tar.gz
+TUJU19_nnlo_64_29
+TUJU19_nnlo_64_29.tar.gz
+TUJU19_nnlo_7_3
+TUJU19_nnlo_7_3.tar.gz
+TUJU21_nlo_12_6
+TUJU21_nlo_12_6.tar.gz
+TUJU21_nlo_131_54
+TUJU21_nlo_131_54.tar.gz
+TUJU21_nlo_14_7
+TUJU21_nlo_14_7.tar.gz
+TUJU21_nlo_16_8
+TUJU21_nlo_16_8.tar.gz
+TUJU21_nlo_197_79
+TUJU21_nlo_197_79.tar.gz
+TUJU21_nlo_1_1
+TUJU21_nlo_1_1.tar.gz
+TUJU21_nlo_208_82
+TUJU21_nlo_208_82.tar.gz
+TUJU21_nlo_27_13
+TUJU21_nlo_27_13.tar.gz
+TUJU21_nlo_2_1
+TUJU21_nlo_2_1.tar.gz
+TUJU21_nlo_4_2
+TUJU21_nlo_4_2.tar.gz
+TUJU21_nlo_56_26
+TUJU21_nlo_56_26.tar.gz
+TUJU21_nnlo_12_6
+TUJU21_nnlo_12_6.tar.gz
+TUJU21_nnlo_131_54
+TUJU21_nnlo_131_54.tar.gz
+TUJU21_nnlo_14_7
+TUJU21_nnlo_14_7.tar.gz
+TUJU21_nnlo_16_8
+TUJU21_nnlo_16_8.tar.gz
+TUJU21_nnlo_197_79
+TUJU21_nnlo_197_79.tar.gz
+TUJU21_nnlo_1_1
+TUJU21_nnlo_1_1.tar.gz
+TUJU21_nnlo_208_82
+TUJU21_nnlo_208_82.tar.gz
+TUJU21_nnlo_27_13
+TUJU21_nnlo_27_13.tar.gz
+TUJU21_nnlo_2_1
+TUJU21_nnlo_2_1.tar.gz
+TUJU21_nnlo_4_2
+TUJU21_nnlo_4_2.tar.gz
+TUJU21_nnlo_56_26
+TUJU21_nnlo_56_26.tar.gz
+abkm09_3_nlo
+abkm09_3_nlo.tar.gz
+abkm09_3_nnlo
+abkm09_3_nnlo.tar.gz
+abkm09_4_nlo
+abkm09_4_nlo.tar.gz
+abkm09_4_nnlo
+abkm09_4_nnlo.tar.gz
+abkm09_5_nlo
+abkm09_5_nlo.tar.gz
+abkm09_5_nnlo
+abkm09_5_nnlo.tar.gz
+abm11_3n_nlo
+abm11_3n_nlo.tar.gz
+abm11_3n_nnlo
+abm11_3n_nnlo.tar.gz
+abm11_4n_nlo
+abm11_4n_nlo.tar.gz
+abm11_4n_nnlo
+abm11_4n_nnlo.tar.gz
+abm11_5n_as_nlo
+abm11_5n_as_nlo.tar.gz
+abm11_5n_as_nnlo
+abm11_5n_as_nnlo.tar.gz
+abm11_5n_nlo
+abm11_5n_nlo.tar.gz
+abm11_5n_nnlo
+abm11_5n_nnlo.tar.gz
+abm12lhc_3_nnlo
+abm12lhc_3_nnlo.tar.gz
+abm12lhc_4_nnlo
+abm12lhc_4_nnlo.tar.gz
+abm12lhc_5_nnlo
+abm12lhc_5_nnlo.tar.gz
+cteq61
+cteq61.tar.gz
+cteq66
+cteq66.tar.gz
+cteq6l1
+cteq6l1.tar.gz
+nCTEQ15FullNuc_108_54
+nCTEQ15FullNuc_108_54.tar.gz
+nCTEQ15FullNuc_119_59
+nCTEQ15FullNuc_119_59.tar.gz
+nCTEQ15FullNuc_12_6
+nCTEQ15FullNuc_12_6.tar.gz
+nCTEQ15FullNuc_131_54
+nCTEQ15FullNuc_131_54.tar.gz
+nCTEQ15FullNuc_14_7
+nCTEQ15FullNuc_14_7.tar.gz
+nCTEQ15FullNuc_184_74
+nCTEQ15FullNuc_184_74.tar.gz
+nCTEQ15FullNuc_197_79
+nCTEQ15FullNuc_197_79.tar.gz
+nCTEQ15FullNuc_197_98
+nCTEQ15FullNuc_197_98.tar.gz
+nCTEQ15FullNuc_1_1
+nCTEQ15FullNuc_1_1.tar.gz
+nCTEQ15FullNuc_207_103
+nCTEQ15FullNuc_207_103.tar.gz
+nCTEQ15FullNuc_208_82
+nCTEQ15FullNuc_208_82.tar.gz
+nCTEQ15FullNuc_20_10
+nCTEQ15FullNuc_20_10.tar.gz
+nCTEQ15FullNuc_27_13
+nCTEQ15FullNuc_27_13.tar.gz
+nCTEQ15FullNuc_3_2
+nCTEQ15FullNuc_3_2.tar.gz
+nCTEQ15FullNuc_40_18
+nCTEQ15FullNuc_40_18.tar.gz
+nCTEQ15FullNuc_40_20
+nCTEQ15FullNuc_40_20.tar.gz
+nCTEQ15FullNuc_4_2
+nCTEQ15FullNuc_4_2.tar.gz
+nCTEQ15FullNuc_56_26
+nCTEQ15FullNuc_56_26.tar.gz
+nCTEQ15FullNuc_64_32
+nCTEQ15FullNuc_64_32.tar.gz
+nCTEQ15FullNuc_6_3
+nCTEQ15FullNuc_6_3.tar.gz
+nCTEQ15FullNuc_7_3
+nCTEQ15FullNuc_7_3.tar.gz
+nCTEQ15FullNuc_84_42
+nCTEQ15FullNuc_84_42.tar.gz
+nCTEQ15FullNuc_9_4
+nCTEQ15FullNuc_9_4.tar.gz
+nCTEQ15HIX_108_47
+nCTEQ15HIX_108_47.tar.gz
+nCTEQ15HIX_119_50
+nCTEQ15HIX_119_50.tar.gz
+nCTEQ15HIX_12_6
+nCTEQ15HIX_12_6.tar.gz
+nCTEQ15HIX_131_54
+nCTEQ15HIX_131_54.tar.gz
+nCTEQ15HIX_14_7
+nCTEQ15HIX_14_7.tar.gz
+nCTEQ15HIX_184_74
+nCTEQ15HIX_184_74.tar.gz
+nCTEQ15HIX_197_79
+nCTEQ15HIX_197_79.tar.gz
+nCTEQ15HIX_1_1
+nCTEQ15HIX_1_1.tar.gz
+nCTEQ15HIX_208_82
+nCTEQ15HIX_208_82.tar.gz
+nCTEQ15HIX_27_13
+nCTEQ15HIX_27_13.tar.gz
+nCTEQ15HIX_2_1
+nCTEQ15HIX_2_1.tar.gz
+nCTEQ15HIX_3_2
+nCTEQ15HIX_3_2.tar.gz
+nCTEQ15HIX_40_20
+nCTEQ15HIX_40_20.tar.gz
+nCTEQ15HIX_4_2
+nCTEQ15HIX_4_2.tar.gz
+nCTEQ15HIX_56_26
+nCTEQ15HIX_56_26.tar.gz
+nCTEQ15HIX_64_29
+nCTEQ15HIX_64_29.tar.gz
+nCTEQ15HIX_6_3
+nCTEQ15HIX_6_3.tar.gz
+nCTEQ15HIX_7_3
+nCTEQ15HIX_7_3.tar.gz
+nCTEQ15HIX_84_36
+nCTEQ15HIX_84_36.tar.gz
+nCTEQ15HIX_9_4
+nCTEQ15HIX_9_4.tar.gz
+nCTEQ15HIX_FullNuc_108_47
+nCTEQ15HIX_FullNuc_108_47.tar.gz
+nCTEQ15HIX_FullNuc_119_50
+nCTEQ15HIX_FullNuc_119_50.tar.gz
+nCTEQ15HIX_FullNuc_12_6
+nCTEQ15HIX_FullNuc_12_6.tar.gz
+nCTEQ15HIX_FullNuc_131_54
+nCTEQ15HIX_FullNuc_131_54.tar.gz
+nCTEQ15HIX_FullNuc_14_7
+nCTEQ15HIX_FullNuc_14_7.tar.gz
+nCTEQ15HIX_FullNuc_184_74
+nCTEQ15HIX_FullNuc_184_74.tar.gz
+nCTEQ15HIX_FullNuc_197_79
+nCTEQ15HIX_FullNuc_197_79.tar.gz
+nCTEQ15HIX_FullNuc_1_1
+nCTEQ15HIX_FullNuc_1_1.tar.gz
+nCTEQ15HIX_FullNuc_208_82
+nCTEQ15HIX_FullNuc_208_82.tar.gz
+nCTEQ15HIX_FullNuc_27_13
+nCTEQ15HIX_FullNuc_27_13.tar.gz
+nCTEQ15HIX_FullNuc_2_1
+nCTEQ15HIX_FullNuc_2_1.tar.gz
+nCTEQ15HIX_FullNuc_3_2
+nCTEQ15HIX_FullNuc_3_2.tar.gz
+nCTEQ15HIX_FullNuc_40_20
+nCTEQ15HIX_FullNuc_40_20.tar.gz
+nCTEQ15HIX_FullNuc_4_2
+nCTEQ15HIX_FullNuc_4_2.tar.gz
+nCTEQ15HIX_FullNuc_56_26
+nCTEQ15HIX_FullNuc_56_26.tar.gz
+nCTEQ15HIX_FullNuc_64_29
+nCTEQ15HIX_FullNuc_64_29.tar.gz
+nCTEQ15HIX_FullNuc_6_3
+nCTEQ15HIX_FullNuc_6_3.tar.gz
+nCTEQ15HIX_FullNuc_7_3
+nCTEQ15HIX_FullNuc_7_3.tar.gz
+nCTEQ15HIX_FullNuc_84_36
+nCTEQ15HIX_FullNuc_84_36.tar.gz
+nCTEQ15HIX_FullNuc_9_4
+nCTEQ15HIX_FullNuc_9_4.tar.gz
+nCTEQ15HQ_108_54
+nCTEQ15HQ_108_54.tar.gz
+nCTEQ15HQ_119_59
+nCTEQ15HQ_119_59.tar.gz
+nCTEQ15HQ_12_6
+nCTEQ15HQ_12_6.tar.gz
+nCTEQ15HQ_131_54
+nCTEQ15HQ_131_54.tar.gz
+nCTEQ15HQ_14_7
+nCTEQ15HQ_14_7.tar.gz
+nCTEQ15HQ_16_8
+nCTEQ15HQ_16_8.tar.gz
+nCTEQ15HQ_184_74
+nCTEQ15HQ_184_74.tar.gz
+nCTEQ15HQ_197_79
+nCTEQ15HQ_197_79.tar.gz
+nCTEQ15HQ_197_98
+nCTEQ15HQ_197_98.tar.gz
+nCTEQ15HQ_1_1
+nCTEQ15HQ_1_1.tar.gz
+nCTEQ15HQ_207_103
+nCTEQ15HQ_207_103.tar.gz
+nCTEQ15HQ_208_82
+nCTEQ15HQ_208_82.tar.gz
+nCTEQ15HQ_27_13
+nCTEQ15HQ_27_13.tar.gz
+nCTEQ15HQ_2_1
+nCTEQ15HQ_2_1.tar.gz
+nCTEQ15HQ_3_1
+nCTEQ15HQ_3_1.tar.gz
+nCTEQ15HQ_40_20
+nCTEQ15HQ_40_20.tar.gz
+nCTEQ15HQ_4_2
+nCTEQ15HQ_4_2.tar.gz
+nCTEQ15HQ_56_26
+nCTEQ15HQ_56_26.tar.gz
+nCTEQ15HQ_56_28
+nCTEQ15HQ_56_28.tar.gz
+nCTEQ15HQ_64_32
+nCTEQ15HQ_64_32.tar.gz
+nCTEQ15HQ_6_3
+nCTEQ15HQ_6_3.tar.gz
+nCTEQ15HQ_7_3
+nCTEQ15HQ_7_3.tar.gz
+nCTEQ15HQ_84_42
+nCTEQ15HQ_84_42.tar.gz
+nCTEQ15HQ_9_4
+nCTEQ15HQ_9_4.tar.gz
+nCTEQ15HQ_FullNuc_108_54
+nCTEQ15HQ_FullNuc_108_54.tar.gz
+nCTEQ15HQ_FullNuc_119_59
+nCTEQ15HQ_FullNuc_119_59.tar.gz
+nCTEQ15HQ_FullNuc_12_6
+nCTEQ15HQ_FullNuc_12_6.tar.gz
+nCTEQ15HQ_FullNuc_131_54
+nCTEQ15HQ_FullNuc_131_54.tar.gz
+nCTEQ15HQ_FullNuc_14_7
+nCTEQ15HQ_FullNuc_14_7.tar.gz
+nCTEQ15HQ_FullNuc_16_8
+nCTEQ15HQ_FullNuc_16_8.tar.gz
+nCTEQ15HQ_FullNuc_184_74
+nCTEQ15HQ_FullNuc_184_74.tar.gz
+nCTEQ15HQ_FullNuc_197_79
+nCTEQ15HQ_FullNuc_197_79.tar.gz
+nCTEQ15HQ_FullNuc_197_98
+nCTEQ15HQ_FullNuc_197_98.tar.gz
+nCTEQ15HQ_FullNuc_1_1
+nCTEQ15HQ_FullNuc_1_1.tar.gz
+nCTEQ15HQ_FullNuc_207_103
+nCTEQ15HQ_FullNuc_207_103.tar.gz
+nCTEQ15HQ_FullNuc_208_82
+nCTEQ15HQ_FullNuc_208_82.tar.gz
+nCTEQ15HQ_FullNuc_27_13
+nCTEQ15HQ_FullNuc_27_13.tar.gz
+nCTEQ15HQ_FullNuc_2_1
+nCTEQ15HQ_FullNuc_2_1.tar.gz
+nCTEQ15HQ_FullNuc_3_1
+nCTEQ15HQ_FullNuc_3_1.tar.gz
+nCTEQ15HQ_FullNuc_40_20
+nCTEQ15HQ_FullNuc_40_20.tar.gz
+nCTEQ15HQ_FullNuc_4_2
+nCTEQ15HQ_FullNuc_4_2.tar.gz
+nCTEQ15HQ_FullNuc_56_26
+nCTEQ15HQ_FullNuc_56_26.tar.gz
+nCTEQ15HQ_FullNuc_56_28
+nCTEQ15HQ_FullNuc_56_28.tar.gz
+nCTEQ15HQ_FullNuc_64_32
+nCTEQ15HQ_FullNuc_64_32.tar.gz
+nCTEQ15HQ_FullNuc_6_3
+nCTEQ15HQ_FullNuc_6_3.tar.gz
+nCTEQ15HQ_FullNuc_7_3
+nCTEQ15HQ_FullNuc_7_3.tar.gz
+nCTEQ15HQ_FullNuc_84_42
+nCTEQ15HQ_FullNuc_84_42.tar.gz
+nCTEQ15HQ_FullNuc_9_4
+nCTEQ15HQ_FullNuc_9_4.tar.gz
+nCTEQ15WZSIH_108_54
+nCTEQ15WZSIH_108_54.tar.gz
+nCTEQ15WZSIH_119_59
+nCTEQ15WZSIH_119_59.tar.gz
+nCTEQ15WZSIH_12_6
+nCTEQ15WZSIH_12_6.tar.gz
+nCTEQ15WZSIH_131_54
+nCTEQ15WZSIH_131_54.tar.gz
+nCTEQ15WZSIH_14_7
+nCTEQ15WZSIH_14_7.tar.gz
+nCTEQ15WZSIH_16_8
+nCTEQ15WZSIH_16_8.tar.gz
+nCTEQ15WZSIH_184_74
+nCTEQ15WZSIH_184_74.tar.gz
+nCTEQ15WZSIH_197_79
+nCTEQ15WZSIH_197_79.tar.gz
+nCTEQ15WZSIH_197_98
+nCTEQ15WZSIH_197_98.tar.gz
+nCTEQ15WZSIH_1_1
+nCTEQ15WZSIH_1_1.tar.gz
+nCTEQ15WZSIH_207_103
+nCTEQ15WZSIH_207_103.tar.gz
+nCTEQ15WZSIH_208_82
+nCTEQ15WZSIH_208_82.tar.gz
+nCTEQ15WZSIH_27_13
+nCTEQ15WZSIH_27_13.tar.gz
+nCTEQ15WZSIH_2_1
+nCTEQ15WZSIH_2_1.tar.gz
+nCTEQ15WZSIH_3_1
+nCTEQ15WZSIH_3_1.tar.gz
+nCTEQ15WZSIH_40_20
+nCTEQ15WZSIH_40_20.tar.gz
+nCTEQ15WZSIH_4_2
+nCTEQ15WZSIH_4_2.tar.gz
+nCTEQ15WZSIH_56_26
+nCTEQ15WZSIH_56_26.tar.gz
+nCTEQ15WZSIH_56_28
+nCTEQ15WZSIH_56_28.tar.gz
+nCTEQ15WZSIH_64_32
+nCTEQ15WZSIH_64_32.tar.gz
+nCTEQ15WZSIH_6_3
+nCTEQ15WZSIH_6_3.tar.gz
+nCTEQ15WZSIH_7_3
+nCTEQ15WZSIH_7_3.tar.gz
+nCTEQ15WZSIH_84_42
+nCTEQ15WZSIH_84_42.tar.gz
+nCTEQ15WZSIH_9_4
+nCTEQ15WZSIH_9_4.tar.gz
+nCTEQ15WZSIH_FullNuc_108_54
+nCTEQ15WZSIH_FullNuc_108_54.tar.gz
+nCTEQ15WZSIH_FullNuc_119_59
+nCTEQ15WZSIH_FullNuc_119_59.tar.gz
+nCTEQ15WZSIH_FullNuc_12_6
+nCTEQ15WZSIH_FullNuc_12_6.tar.gz
+nCTEQ15WZSIH_FullNuc_131_54
+nCTEQ15WZSIH_FullNuc_131_54.tar.gz
+nCTEQ15WZSIH_FullNuc_14_7
+nCTEQ15WZSIH_FullNuc_14_7.tar.gz
+nCTEQ15WZSIH_FullNuc_16_8
+nCTEQ15WZSIH_FullNuc_16_8.tar.gz
+nCTEQ15WZSIH_FullNuc_184_74
+nCTEQ15WZSIH_FullNuc_184_74.tar.gz
+nCTEQ15WZSIH_FullNuc_197_79
+nCTEQ15WZSIH_FullNuc_197_79.tar.gz
+nCTEQ15WZSIH_FullNuc_197_98
+nCTEQ15WZSIH_FullNuc_197_98.tar.gz
+nCTEQ15WZSIH_FullNuc_1_1
+nCTEQ15WZSIH_FullNuc_1_1.tar.gz
+nCTEQ15WZSIH_FullNuc_207_103
+nCTEQ15WZSIH_FullNuc_207_103.tar.gz
+nCTEQ15WZSIH_FullNuc_208_82
+nCTEQ15WZSIH_FullNuc_208_82.tar.gz
+nCTEQ15WZSIH_FullNuc_27_13
+nCTEQ15WZSIH_FullNuc_27_13.tar.gz
+nCTEQ15WZSIH_FullNuc_2_1
+nCTEQ15WZSIH_FullNuc_2_1.tar.gz
+nCTEQ15WZSIH_FullNuc_3_1
+nCTEQ15WZSIH_FullNuc_3_1.tar.gz
+nCTEQ15WZSIH_FullNuc_40_20
+nCTEQ15WZSIH_FullNuc_40_20.tar.gz
+nCTEQ15WZSIH_FullNuc_4_2
+nCTEQ15WZSIH_FullNuc_4_2.tar.gz
+nCTEQ15WZSIH_FullNuc_56_26
+nCTEQ15WZSIH_FullNuc_56_26.tar.gz
+nCTEQ15WZSIH_FullNuc_56_28
+nCTEQ15WZSIH_FullNuc_56_28.tar.gz
+nCTEQ15WZSIH_FullNuc_64_32
+nCTEQ15WZSIH_FullNuc_64_32.tar.gz
+nCTEQ15WZSIH_FullNuc_6_3
+nCTEQ15WZSIH_FullNuc_6_3.tar.gz
+nCTEQ15WZSIH_FullNuc_7_3
+nCTEQ15WZSIH_FullNuc_7_3.tar.gz
+nCTEQ15WZSIH_FullNuc_84_42
+nCTEQ15WZSIH_FullNuc_84_42.tar.gz
+nCTEQ15WZSIH_FullNuc_9_4
+nCTEQ15WZSIH_FullNuc_9_4.tar.gz
+nCTEQ15WZ_108_47
+nCTEQ15WZ_108_47.tar.gz
+nCTEQ15WZ_108_54
+nCTEQ15WZ_108_54.tar.gz
+nCTEQ15WZ_119_50
+nCTEQ15WZ_119_50.tar.gz
+nCTEQ15WZ_119_59
+nCTEQ15WZ_119_59.tar.gz
+nCTEQ15WZ_12_6
+nCTEQ15WZ_12_6.tar.gz
+nCTEQ15WZ_131_54
+nCTEQ15WZ_131_54.tar.gz
+nCTEQ15WZ_14_7
+nCTEQ15WZ_14_7.tar.gz
+nCTEQ15WZ_16_8
+nCTEQ15WZ_16_8.tar.gz
+nCTEQ15WZ_184_74
+nCTEQ15WZ_184_74.tar.gz
+nCTEQ15WZ_197_79
+nCTEQ15WZ_197_79.tar.gz
+nCTEQ15WZ_197_98
+nCTEQ15WZ_197_98.tar.gz
+nCTEQ15WZ_1_0
+nCTEQ15WZ_1_0.tar.gz
+nCTEQ15WZ_1_1
+nCTEQ15WZ_1_1.tar.gz
+nCTEQ15WZ_207_103
+nCTEQ15WZ_207_103.tar.gz
+nCTEQ15WZ_207_82
+nCTEQ15WZ_207_82.tar.gz
+nCTEQ15WZ_208_82
+nCTEQ15WZ_208_82.tar.gz
+nCTEQ15WZ_20_10
+nCTEQ15WZ_20_10.tar.gz
+nCTEQ15WZ_27_13
+nCTEQ15WZ_27_13.tar.gz
+nCTEQ15WZ_2_1
+nCTEQ15WZ_2_1.tar.gz
+nCTEQ15WZ_3_1
+nCTEQ15WZ_3_1.tar.gz
+nCTEQ15WZ_3_2
+nCTEQ15WZ_3_2.tar.gz
+nCTEQ15WZ_40_18
+nCTEQ15WZ_40_18.tar.gz
+nCTEQ15WZ_40_20
+nCTEQ15WZ_40_20.tar.gz
+nCTEQ15WZ_4_2
+nCTEQ15WZ_4_2.tar.gz
+nCTEQ15WZ_56_26
+nCTEQ15WZ_56_26.tar.gz
+nCTEQ15WZ_56_28
+nCTEQ15WZ_56_28.tar.gz
+nCTEQ15WZ_64_29
+nCTEQ15WZ_64_29.tar.gz
+nCTEQ15WZ_64_32
+nCTEQ15WZ_64_32.tar.gz
+nCTEQ15WZ_6_3
+nCTEQ15WZ_6_3.tar.gz
+nCTEQ15WZ_7_3
+nCTEQ15WZ_7_3.tar.gz
+nCTEQ15WZ_84_36
+nCTEQ15WZ_84_36.tar.gz
+nCTEQ15WZ_84_42
+nCTEQ15WZ_84_42.tar.gz
+nCTEQ15WZ_9_4
+nCTEQ15WZ_9_4.tar.gz
+nCTEQ15WZ_9_4_iso
+nCTEQ15WZ_9_4_iso.tar.gz
+nCTEQ15WZ_FullNuc_108_47
+nCTEQ15WZ_FullNuc_108_47.tar.gz
+nCTEQ15WZ_FullNuc_108_54
+nCTEQ15WZ_FullNuc_108_54.tar.gz
+nCTEQ15WZ_FullNuc_119_50
+nCTEQ15WZ_FullNuc_119_50.tar.gz
+nCTEQ15WZ_FullNuc_119_59
+nCTEQ15WZ_FullNuc_119_59.tar.gz
+nCTEQ15WZ_FullNuc_12_6
+nCTEQ15WZ_FullNuc_12_6.tar.gz
+nCTEQ15WZ_FullNuc_131_54
+nCTEQ15WZ_FullNuc_131_54.tar.gz
+nCTEQ15WZ_FullNuc_14_7
+nCTEQ15WZ_FullNuc_14_7.tar.gz
+nCTEQ15WZ_FullNuc_16_8
+nCTEQ15WZ_FullNuc_16_8.tar.gz
+nCTEQ15WZ_FullNuc_184_74
+nCTEQ15WZ_FullNuc_184_74.tar.gz
+nCTEQ15WZ_FullNuc_197_79
+nCTEQ15WZ_FullNuc_197_79.tar.gz
+nCTEQ15WZ_FullNuc_197_98
+nCTEQ15WZ_FullNuc_197_98.tar.gz
+nCTEQ15WZ_FullNuc_1_0
+nCTEQ15WZ_FullNuc_1_0.tar.gz
+nCTEQ15WZ_FullNuc_1_1
+nCTEQ15WZ_FullNuc_1_1.tar.gz
+nCTEQ15WZ_FullNuc_207_103
+nCTEQ15WZ_FullNuc_207_103.tar.gz
+nCTEQ15WZ_FullNuc_207_82
+nCTEQ15WZ_FullNuc_207_82.tar.gz
+nCTEQ15WZ_FullNuc_208_82
+nCTEQ15WZ_FullNuc_208_82.tar.gz
+nCTEQ15WZ_FullNuc_20_10
+nCTEQ15WZ_FullNuc_20_10.tar.gz
+nCTEQ15WZ_FullNuc_27_13
+nCTEQ15WZ_FullNuc_27_13.tar.gz
+nCTEQ15WZ_FullNuc_2_1
+nCTEQ15WZ_FullNuc_2_1.tar.gz
+nCTEQ15WZ_FullNuc_3_1
+nCTEQ15WZ_FullNuc_3_1.tar.gz
+nCTEQ15WZ_FullNuc_3_2
+nCTEQ15WZ_FullNuc_3_2.tar.gz
+nCTEQ15WZ_FullNuc_40_18
+nCTEQ15WZ_FullNuc_40_18.tar.gz
+nCTEQ15WZ_FullNuc_40_20
+nCTEQ15WZ_FullNuc_40_20.tar.gz
+nCTEQ15WZ_FullNuc_4_2
+nCTEQ15WZ_FullNuc_4_2.tar.gz
+nCTEQ15WZ_FullNuc_56_26
+nCTEQ15WZ_FullNuc_56_26.tar.gz
+nCTEQ15WZ_FullNuc_56_28
+nCTEQ15WZ_FullNuc_56_28.tar.gz
+nCTEQ15WZ_FullNuc_64_29
+nCTEQ15WZ_FullNuc_64_29.tar.gz
+nCTEQ15WZ_FullNuc_64_32
+nCTEQ15WZ_FullNuc_64_32.tar.gz
+nCTEQ15WZ_FullNuc_6_3
+nCTEQ15WZ_FullNuc_6_3.tar.gz
+nCTEQ15WZ_FullNuc_7_3
+nCTEQ15WZ_FullNuc_7_3.tar.gz
+nCTEQ15WZ_FullNuc_84_36
+nCTEQ15WZ_FullNuc_84_36.tar.gz
+nCTEQ15WZ_FullNuc_84_42
+nCTEQ15WZ_FullNuc_84_42.tar.gz
+nCTEQ15WZ_FullNuc_9_4
+nCTEQ15WZ_FullNuc_9_4.tar.gz
+nCTEQ15WZ_FullNuc_9_4_iso
+nCTEQ15WZ_FullNuc_9_4_iso.tar.gz
+nCTEQ15_108_54
+nCTEQ15_108_54.tar.gz
+nCTEQ15_119_59
+nCTEQ15_119_59.tar.gz
+nCTEQ15_12_6
+nCTEQ15_12_6.tar.gz
+nCTEQ15_131_54
+nCTEQ15_131_54.tar.gz
+nCTEQ15_14_7
+nCTEQ15_14_7.tar.gz
+nCTEQ15_184_74
+nCTEQ15_184_74.tar.gz
+nCTEQ15_197_79
+nCTEQ15_197_79.tar.gz
+nCTEQ15_197_98
+nCTEQ15_197_98.tar.gz
+nCTEQ15_1_1
+nCTEQ15_1_1.tar.gz
+nCTEQ15_207_103
+nCTEQ15_207_103.tar.gz
+nCTEQ15_208_82
+nCTEQ15_208_82.tar.gz
+nCTEQ15_20_10
+nCTEQ15_20_10.tar.gz
+nCTEQ15_27_13
+nCTEQ15_27_13.tar.gz
+nCTEQ15_3_2
+nCTEQ15_3_2.tar.gz
+nCTEQ15_40_18
+nCTEQ15_40_18.tar.gz
+nCTEQ15_40_20
+nCTEQ15_40_20.tar.gz
+nCTEQ15_4_2
+nCTEQ15_4_2.tar.gz
+nCTEQ15_56_26
+nCTEQ15_56_26.tar.gz
+nCTEQ15_64_32
+nCTEQ15_64_32.tar.gz
+nCTEQ15_6_3
+nCTEQ15_6_3.tar.gz
+nCTEQ15_7_3
+nCTEQ15_7_3.tar.gz
+nCTEQ15_84_42
+nCTEQ15_84_42.tar.gz
+nCTEQ15_9_4
+nCTEQ15_9_4.tar.gz
+nCTEQ15_B_90CL_Au_hess
+nCTEQ15_B_90CL_Au_hess.tar.gz
+nCTEQ15_B_90CL_Pb_hess
+nCTEQ15_B_90CL_Pb_hess.tar.gz
+nCTEQ15_B_c_90CL_Au_hess
+nCTEQ15_B_c_90CL_Au_hess.tar.gz
+nCTEQ15_B_c_90CL_Pb_hess
+nCTEQ15_B_c_90CL_Pb_hess.tar.gz
+nCTEQ15_B_d_90CL_Au_hess
+nCTEQ15_B_d_90CL_Au_hess.tar.gz
+nCTEQ15_B_d_90CL_Pb_hess
+nCTEQ15_B_d_90CL_Pb_hess.tar.gz
+nCTEQ15_B_u_90CL_Au_hess
+nCTEQ15_B_u_90CL_Au_hess.tar.gz
+nCTEQ15_B_u_90CL_Pb_hess
+nCTEQ15_B_u_90CL_Pb_hess.tar.gz
+nCTEQ15_D_90CL_Au_hess
+nCTEQ15_D_90CL_Au_hess.tar.gz
+nCTEQ15_D_90CL_Pb_hess
+nCTEQ15_D_90CL_Pb_hess.tar.gz
+nCTEQ15_D_c_90CL_Au_hess
+nCTEQ15_D_c_90CL_Au_hess.tar.gz
+nCTEQ15_D_c_90CL_Pb_hess
+nCTEQ15_D_c_90CL_Pb_hess.tar.gz
+nCTEQ15_D_d_90CL_Au_hess
+nCTEQ15_D_d_90CL_Au_hess.tar.gz
+nCTEQ15_D_d_90CL_Pb_hess
+nCTEQ15_D_d_90CL_Pb_hess.tar.gz
+nCTEQ15_D_u_90CL_Au_hess
+nCTEQ15_D_u_90CL_Au_hess.tar.gz
+nCTEQ15_D_u_90CL_Pb_hess
+nCTEQ15_D_u_90CL_Pb_hess.tar.gz
+nCTEQ15_Jpsi_90CL_Au_hess
+nCTEQ15_Jpsi_90CL_Au_hess.tar.gz
+nCTEQ15_Jpsi_90CL_Pb_hess
+nCTEQ15_Jpsi_90CL_Pb_hess.tar.gz
+nCTEQ15_Jpsi_c_90CL_Au_hess
+nCTEQ15_Jpsi_c_90CL_Au_hess.tar.gz
+nCTEQ15_Jpsi_c_90CL_Pb_hess
+nCTEQ15_Jpsi_c_90CL_Pb_hess.tar.gz
+nCTEQ15_Jpsi_d_90CL_Au_hess
+nCTEQ15_Jpsi_d_90CL_Au_hess.tar.gz
+nCTEQ15_Jpsi_d_90CL_Pb_hess
+nCTEQ15_Jpsi_d_90CL_Pb_hess.tar.gz
+nCTEQ15_Jpsi_u_90CL_Au_hess
+nCTEQ15_Jpsi_u_90CL_Au_hess.tar.gz
+nCTEQ15_Jpsi_u_90CL_Pb_hess
+nCTEQ15_Jpsi_u_90CL_Pb_hess.tar.gz
+nCTEQ15npFullNuc_108_54
+nCTEQ15npFullNuc_108_54.tar.gz
+nCTEQ15npFullNuc_119_59
+nCTEQ15npFullNuc_119_59.tar.gz
+nCTEQ15npFullNuc_12_6
+nCTEQ15npFullNuc_12_6.tar.gz
+nCTEQ15npFullNuc_131_54
+nCTEQ15npFullNuc_131_54.tar.gz
+nCTEQ15npFullNuc_14_7
+nCTEQ15npFullNuc_14_7.tar.gz
+nCTEQ15npFullNuc_184_74
+nCTEQ15npFullNuc_184_74.tar.gz
+nCTEQ15npFullNuc_197_79
+nCTEQ15npFullNuc_197_79.tar.gz
+nCTEQ15npFullNuc_197_98
+nCTEQ15npFullNuc_197_98.tar.gz
+nCTEQ15npFullNuc_1_1
+nCTEQ15npFullNuc_1_1.tar.gz
+nCTEQ15npFullNuc_207_103
+nCTEQ15npFullNuc_207_103.tar.gz
+nCTEQ15npFullNuc_208_82
+nCTEQ15npFullNuc_208_82.tar.gz
+nCTEQ15npFullNuc_20_10
+nCTEQ15npFullNuc_20_10.tar.gz
+nCTEQ15npFullNuc_27_13
+nCTEQ15npFullNuc_27_13.tar.gz
+nCTEQ15npFullNuc_3_2
+nCTEQ15npFullNuc_3_2.tar.gz
+nCTEQ15npFullNuc_40_18
+nCTEQ15npFullNuc_40_18.tar.gz
+nCTEQ15npFullNuc_40_20
+nCTEQ15npFullNuc_40_20.tar.gz
+nCTEQ15npFullNuc_4_2
+nCTEQ15npFullNuc_4_2.tar.gz
+nCTEQ15npFullNuc_56_26
+nCTEQ15npFullNuc_56_26.tar.gz
+nCTEQ15npFullNuc_64_32
+nCTEQ15npFullNuc_64_32.tar.gz
+nCTEQ15npFullNuc_6_3
+nCTEQ15npFullNuc_6_3.tar.gz
+nCTEQ15npFullNuc_7_3
+nCTEQ15npFullNuc_7_3.tar.gz
+nCTEQ15npFullNuc_84_42
+nCTEQ15npFullNuc_84_42.tar.gz
+nCTEQ15npFullNuc_9_4
+nCTEQ15npFullNuc_9_4.tar.gz
+nCTEQ15np_108_54
+nCTEQ15np_108_54.tar.gz
+nCTEQ15np_119_59
+nCTEQ15np_119_59.tar.gz
+nCTEQ15np_12_6
+nCTEQ15np_12_6.tar.gz
+nCTEQ15np_131_54
+nCTEQ15np_131_54.tar.gz
+nCTEQ15np_14_7
+nCTEQ15np_14_7.tar.gz
+nCTEQ15np_184_74
+nCTEQ15np_184_74.tar.gz
+nCTEQ15np_197_79
+nCTEQ15np_197_79.tar.gz
+nCTEQ15np_197_98
+nCTEQ15np_197_98.tar.gz
+nCTEQ15np_1_1
+nCTEQ15np_1_1.tar.gz
+nCTEQ15np_207_103
+nCTEQ15np_207_103.tar.gz
+nCTEQ15np_208_82
+nCTEQ15np_208_82.tar.gz
+nCTEQ15np_20_10
+nCTEQ15np_20_10.tar.gz
+nCTEQ15np_27_13
+nCTEQ15np_27_13.tar.gz
+nCTEQ15np_3_2
+nCTEQ15np_3_2.tar.gz
+nCTEQ15np_40_18
+nCTEQ15np_40_18.tar.gz
+nCTEQ15np_40_20
+nCTEQ15np_40_20.tar.gz
+nCTEQ15np_4_2
+nCTEQ15np_4_2.tar.gz
+nCTEQ15np_56_26
+nCTEQ15np_56_26.tar.gz
+nCTEQ15np_64_32
+nCTEQ15np_64_32.tar.gz
+nCTEQ15np_6_3
+nCTEQ15np_6_3.tar.gz
+nCTEQ15np_7_3
+nCTEQ15np_7_3.tar.gz
+nCTEQ15np_84_42
+nCTEQ15np_84_42.tar.gz
+nCTEQ15np_9_4
+nCTEQ15np_9_4.tar.gz
+nNNPDF10_nlo_as_0118_Ag108
+nNNPDF10_nlo_as_0118_Ag108.tar.gz
+nNNPDF10_nlo_as_0118_Al27
+nNNPDF10_nlo_as_0118_Al27.tar.gz
+nNNPDF10_nlo_as_0118_Au197
+nNNPDF10_nlo_as_0118_Au197.tar.gz
+nNNPDF10_nlo_as_0118_Be9
+nNNPDF10_nlo_as_0118_Be9.tar.gz
+nNNPDF10_nlo_as_0118_C12
+nNNPDF10_nlo_as_0118_C12.tar.gz
+nNNPDF10_nlo_as_0118_Ca40
+nNNPDF10_nlo_as_0118_Ca40.tar.gz
+nNNPDF10_nlo_as_0118_Cu64
+nNNPDF10_nlo_as_0118_Cu64.tar.gz
+nNNPDF10_nlo_as_0118_D2
+nNNPDF10_nlo_as_0118_D2.tar.gz
+nNNPDF10_nlo_as_0118_Fe56
+nNNPDF10_nlo_as_0118_Fe56.tar.gz
+nNNPDF10_nlo_as_0118_He4
+nNNPDF10_nlo_as_0118_He4.tar.gz
+nNNPDF10_nlo_as_0118_Li6
+nNNPDF10_nlo_as_0118_Li6.tar.gz
+nNNPDF10_nlo_as_0118_N1
+nNNPDF10_nlo_as_0118_N1.tar.gz
+nNNPDF10_nlo_as_0118_N14
+nNNPDF10_nlo_as_0118_N14.tar.gz
+nNNPDF10_nlo_as_0118_Pb208
+nNNPDF10_nlo_as_0118_Pb208.tar.gz
+nNNPDF10_nlo_as_0118_Sn119
+nNNPDF10_nlo_as_0118_Sn119.tar.gz
+nNNPDF10_nlo_as_0118_Xe131
+nNNPDF10_nlo_as_0118_Xe131.tar.gz
+nNNPDF10_nnlo_as_0118_Ag108
+nNNPDF10_nnlo_as_0118_Ag108.tar.gz
+nNNPDF10_nnlo_as_0118_Al27
+nNNPDF10_nnlo_as_0118_Al27.tar.gz
+nNNPDF10_nnlo_as_0118_Au197
+nNNPDF10_nnlo_as_0118_Au197.tar.gz
+nNNPDF10_nnlo_as_0118_Be9
+nNNPDF10_nnlo_as_0118_Be9.tar.gz
+nNNPDF10_nnlo_as_0118_C12
+nNNPDF10_nnlo_as_0118_C12.tar.gz
+nNNPDF10_nnlo_as_0118_Ca40
+nNNPDF10_nnlo_as_0118_Ca40.tar.gz
+nNNPDF10_nnlo_as_0118_Cu64
+nNNPDF10_nnlo_as_0118_Cu64.tar.gz
+nNNPDF10_nnlo_as_0118_D2
+nNNPDF10_nnlo_as_0118_D2.tar.gz
+nNNPDF10_nnlo_as_0118_Fe56
+nNNPDF10_nnlo_as_0118_Fe56.tar.gz
+nNNPDF10_nnlo_as_0118_He4
+nNNPDF10_nnlo_as_0118_He4.tar.gz
+nNNPDF10_nnlo_as_0118_Li6
+nNNPDF10_nnlo_as_0118_Li6.tar.gz
+nNNPDF10_nnlo_as_0118_N1
+nNNPDF10_nnlo_as_0118_N1.tar.gz
+nNNPDF10_nnlo_as_0118_N14
+nNNPDF10_nnlo_as_0118_N14.tar.gz
+nNNPDF10_nnlo_as_0118_Pb208
+nNNPDF10_nnlo_as_0118_Pb208.tar.gz
+nNNPDF10_nnlo_as_0118_Sn119
+nNNPDF10_nnlo_as_0118_Sn119.tar.gz
+nNNPDF10_nnlo_as_0118_Xe131
+nNNPDF10_nnlo_as_0118_Xe131.tar.gz
+nNNPDF20_nlo_as_0118_Ag108
+nNNPDF20_nlo_as_0118_Ag108.tar.gz
+nNNPDF20_nlo_as_0118_Al27
+nNNPDF20_nlo_as_0118_Al27.tar.gz
+nNNPDF20_nlo_as_0118_Au197
+nNNPDF20_nlo_as_0118_Au197.tar.gz
+nNNPDF20_nlo_as_0118_Be9
+nNNPDF20_nlo_as_0118_Be9.tar.gz
+nNNPDF20_nlo_as_0118_C12
+nNNPDF20_nlo_as_0118_C12.tar.gz
+nNNPDF20_nlo_as_0118_Ca40
+nNNPDF20_nlo_as_0118_Ca40.tar.gz
+nNNPDF20_nlo_as_0118_Cu64
+nNNPDF20_nlo_as_0118_Cu64.tar.gz
+nNNPDF20_nlo_as_0118_D2
+nNNPDF20_nlo_as_0118_D2.tar.gz
+nNNPDF20_nlo_as_0118_Fe56
+nNNPDF20_nlo_as_0118_Fe56.tar.gz
+nNNPDF20_nlo_as_0118_He4
+nNNPDF20_nlo_as_0118_He4.tar.gz
+nNNPDF20_nlo_as_0118_Li6
+nNNPDF20_nlo_as_0118_Li6.tar.gz
+nNNPDF20_nlo_as_0118_N1
+nNNPDF20_nlo_as_0118_N1.tar.gz
+nNNPDF20_nlo_as_0118_N14
+nNNPDF20_nlo_as_0118_N14.tar.gz
+nNNPDF20_nlo_as_0118_O16
+nNNPDF20_nlo_as_0118_O16.tar.gz
+nNNPDF20_nlo_as_0118_Pb208
+nNNPDF20_nlo_as_0118_Pb208.tar.gz
+nNNPDF20_nlo_as_0118_Sn119
+nNNPDF20_nlo_as_0118_Sn119.tar.gz
+nNNPDF20_nlo_as_0118_W184
+nNNPDF20_nlo_as_0118_W184.tar.gz
+nNNPDF20_nlo_as_0118_Xe131
+nNNPDF20_nlo_as_0118_Xe131.tar.gz
+nNNPDF30_nlo_as_0118_A108_Z54
+nNNPDF30_nlo_as_0118_A108_Z54.tar.gz
+nNNPDF30_nlo_as_0118_A119_Z59
+nNNPDF30_nlo_as_0118_A119_Z59.tar.gz
+nNNPDF30_nlo_as_0118_A12_Z6
+nNNPDF30_nlo_as_0118_A12_Z6.tar.gz
+nNNPDF30_nlo_as_0118_A131_Z54
+nNNPDF30_nlo_as_0118_A131_Z54.tar.gz
+nNNPDF30_nlo_as_0118_A14_Z7
+nNNPDF30_nlo_as_0118_A14_Z7.tar.gz
+nNNPDF30_nlo_as_0118_A16_Z8
+nNNPDF30_nlo_as_0118_A16_Z8.tar.gz
+nNNPDF30_nlo_as_0118_A184_Z74
+nNNPDF30_nlo_as_0118_A184_Z74.tar.gz
+nNNPDF30_nlo_as_0118_A197_Z79
+nNNPDF30_nlo_as_0118_A197_Z79.tar.gz
+nNNPDF30_nlo_as_0118_A208_Z82
+nNNPDF30_nlo_as_0118_A208_Z82.tar.gz
+nNNPDF30_nlo_as_0118_A27_Z13
+nNNPDF30_nlo_as_0118_A27_Z13.tar.gz
+nNNPDF30_nlo_as_0118_A2_Z1
+nNNPDF30_nlo_as_0118_A2_Z1.tar.gz
+nNNPDF30_nlo_as_0118_A31_Z15
+nNNPDF30_nlo_as_0118_A31_Z15.tar.gz
+nNNPDF30_nlo_as_0118_A40_Z20
+nNNPDF30_nlo_as_0118_A40_Z20.tar.gz
+nNNPDF30_nlo_as_0118_A4_Z2
+nNNPDF30_nlo_as_0118_A4_Z2.tar.gz
+nNNPDF30_nlo_as_0118_A56_Z26
+nNNPDF30_nlo_as_0118_A56_Z26.tar.gz
+nNNPDF30_nlo_as_0118_A64_Z29
+nNNPDF30_nlo_as_0118_A64_Z29.tar.gz
+nNNPDF30_nlo_as_0118_A6_Z3
+nNNPDF30_nlo_as_0118_A6_Z3.tar.gz
+nNNPDF30_nlo_as_0118_A9_Z4
+nNNPDF30_nlo_as_0118_A9_Z4.tar.gz
+nNNPDF30_nlo_as_0118_p
+nNNPDF30_nlo_as_0118_p.tar.gz
+pdfsets.index
+safe-resync.sh
+sets
+xFitterPI_NLO_EIG
+xFitterPI_NLO_EIG.tar.gz
+xFitterPI_NLO_VAR
+xFitterPI_NLO_VAR.tar.gz
+
+exit=0
+
+AST particle-list search H,a,a: []
+0a4d978fb87f251253b622f6ed01cb6b4ae09dec31a131632f9494eb54541721  /cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/madgraph5amc/3.5.9.atlas13/x86_64-el9-gcc13-opt/models/sm/vertices.py
+c89fc6f38d118a50a1e562da8653a2ccc96a9e00be22696bf5fb771a4df313b4  /cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/madgraph5amc/3.5.9.atlas13/x86_64-el9-gcc13-opt/models/sm/coupling_orders.py
+b3040d14f56990b5624049752b3e54f2348b60f555bffad824f04c767dd75524  /cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/madgraph5amc/3.5.9.atlas13/x86_64-el9-gcc13-opt/models/sm/restrict_default.dat
+e54a674149ee22f343a723aa271618da927bd635f06ec3cc91124bca0818ef64  /cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/htmldoc/ParticleDataScheme.html
+0eb95ad59552b3073ef7c08de975497f0b9d42065b9cbc0ef724e47c19e43913  /cvmfs/sft.cern.ch/lcg/releases/LCG_108/MCGenerators/pythia8/315/x86_64-el9-gcc13-opt/share/Pythia8/htmldoc/HiggsProcesses.html

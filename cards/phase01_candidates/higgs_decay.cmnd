@@ -1,0 +1,10 @@
+! UNTESTED fragment for externally supplied LHE events with an undecayed PDG 25.
+! Requires a validated LHE driver and explicit normalization ledger.
+! Z is already decayed in ew_z_decay.mg5; do not force or redecay Z here.
+25:mayDecay = on
+25:onMode = off
+25:onIfMatch = 22 22
+HiggsSM:NLOWidths = on
+! Physical BR(H->gamma gamma)=0.002270 is an external normalization input,
+! never replace it with the conditional forced-decay probability of one.
+! Inspect initialized widths/SLHA precedence; no production approval.

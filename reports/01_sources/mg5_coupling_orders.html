@@ -1,0 +1,63 @@
+<html>
+  <body>
+    <font  color="#AA0000" face="Courier"><br><br>
+      <font size=+2>Setting coupling orders in MadGraph5_aMC@NLO</font><br><br><hr></font>
+    <font color="#000000" face="Courier"><p style="line-height:150%;">
+	<ul>
+	  <li> Example:  generate p p  > t t~ e+ e- <font color="#00AA00">QED<=4 QCD=0</font>
+	    <li> The QED=X and QCD=Y orders correspond to the powers
+	    of the electroweak/yukawa coupling (e, g, g&prime;, y,
+	    etc) and the strong coupling constant (g-strong),
+	    respectively, <i>at the diagram level</i> (i.e., amplitude
+	    level, not amplitude-squared level).
+	    <li> If no coupling orders are given, MG5 will try to
+	    determine orders to ensure maximum number of QCD vertices.
+	    <li> Allowed coupling operators are: "==", "=", "<=" and
+	    ">".  The difference between "==" and "=" is that the
+	    former imposes exactly that number of couplings, while
+	    "=" is interpreted as "<=".
+            <li> Desired coupling order combinations can be specified
+	    directly for the <i>amplitude-squared</i> by appending "^2" to
+	    the coupling name.  For example, "p p > j j QED^2==2
+	    QCD^2==2" selects the QED-QCD interference terms only. The
+            other operators, "=", "<=" and ">", are also supported.
+            <li> In order to facilitate the use of couplings at the
+            amplitude-squared level, one can also use "aS=X" and
+            "aEW=Y" to determine the maximum power of <i>alpha-S</i> and
+            <i>alpha-EW</i> to appear at the amplitude-squared
+            level. (These are interpreted as "QCD^2=2X" and
+            "QED^2=2Y" by the MG5_aMC interface, respectively).
+	    <li> In general,<font color="#AA0000"> restricting
+             couplings at the diagram level is not consistent for </font><font color="#00AA00">NLO</font>
+             <font color="#AA0000">processes</font>. It is strongly advised to use the
+             "<font color="#00AA00">aS=X</font>" and
+             "<font color="#00AA00">aEW=Y</font>" sytnax to set the
+             restriction on the powers of alpha-S and alpha-EW at the
+             amplitude-squared level. (The main exception to this rule
+             would be to restrict the number of higher-dimensional
+             interactions appearing in EFT models).
+	  </ul>
+	  <br>
+	  <font size=+1>Comments regarding <i>The automation of
+	  next-to-leading order electroweak calculations</i>,
+	  <font  color="#AA0000">arXiv:1804.10017</font></font><br>
+	  <ul>
+	    <li> The syntax used in that paper is no longer compatible
+	    with the current version of the MadGraph5_aMC@NLO code
+	    (>v3.1). In the paper, all the coupling orders had been
+	    understood at the amplitude-squared level, while, if the
+	    same syntax used in 1804.10017 were employed literally
+	    with the current version of the code, they would been
+	    applied at the diagram level. This obsolete syntax was
+	    only used in the v3.0.X beta versions of the code.
+	    <li> In the whole paper, for all the process's
+	    syntax, <font color="#AA0000">all the instances
+	    of</font> <font color="#00AA00">QCD=X</font>
+	    and <font color="#00AA00">QED=Y</font> <font color="#AA0000">need
+	    to replaced by</font> <font color="#00AA00">aS=X</font>
+	    and <font color="#00AA00">aEW=Y</font>, respectively, to
+	    make them compatible with the v3.1 syntax.
+	  </ul>
+	    
+  </body>
+</html>
