@@ -49,8 +49,8 @@ REG = {
  "H_tHW":      R([f"{M7}/tv2_H_tHW.npz"], None, BGG, "bkg", "other H->gg", "other", None, "res", "test_v2"),
  **{f"B_QCD_llaa_2j_is{i}": R(fin(f"B_QCD_llaa_2j_is{i}"), None, 1.0, "bkg", "Zgg (QCD+EW)", "other", None, "cont", "final (MLM, highest multiplicity)") for i in range(1, 5)},
  **{f"B_EW_llaajj_is{i}": R(fin(f"B_EW_llaajj_is{i}"), None, 1.0, "bkg", "Zgg (QCD+EW)", "other", None, "cont", "final") for i in range(1, 5)},
- "B_QCD_Zaajj_vbs": R(fin("B_QCD_zaajj_vbs"), None, 1.0, "bkg", "Zgg (QCD+EW)", "other", None, "cont", "final, fixed order, on-shell Z->ll, VBS-biased generation"),
- "B_EW_Zaajj_vbs": R(fin("B_EW_zaajj_vbs"), None, 1.0, "bkg", "Zgg (QCD+EW)", "other", None, "cont", "final, fixed order, on-shell Z->ll, VBS-biased generation"),
+ "B_QCD_Zaajj_vbs": R(fin("B_QCD_zaajj_vbs"), None, ZF, "bkg", "Zgg (QCD+EW)", "other", None, "cont", "final, fixed order, on-shell Z->ll, VBS-biased generation"),
+ **{f"B_EW_Zaajj_vbs_is{i}": R(fin(f"B_EW_zaajj_vbs_is{i}"), None, ZF, "bkg", "Zgg (QCD+EW)", "other", None, "cont", "final, fixed order 4F, on-shell Z->ll, VBS-biased, beam-1 split") for i in (1, 2, 3)},
  "B_QCD_llaa_0j": R([f"{M7}/tv2_B_QCD_llaa_0j.npz"], None, 1.0, "excl", "Zgg (QCD+EW)", "other", None, "cont", "test_v2 (MLM exclusive 0j)"),
  "T_ttaa":     R(fin("T_ttaa") + [f"{M7}/tv2_T_ttaa.npz"], None, 1.0, "bkg", "top (ttgg, ttg, tWg)", "other", None, "cont", "final + test_v2"),
  "F_QCD_Zajj": R(fin("F_QCD_llajj_vbs"), None, 1.0, "bkg", "Zg + fake g (QCD+EW)", "fake", 1, "cont", "final, direct Delphes fakes (VBS-biased generation)"),
@@ -58,7 +58,7 @@ REG = {
  "T_tta":      R([f"{M7}/tv2_T_tta.npz"], None, 1.0, "bkg", "top (ttgg, ttg, tWg)", "fake", 1, "tf", "test_v2 x Delphes TF from F_QCD_Zajj"),
  "T_tWa":      R([f"{M7}/tv2_T_tWa.npz"], None, 1.0, "bkg", "top (ttgg, ttg, tWg)", "fake", 1, "tf", "test_v2 x Delphes TF from F_QCD_Zajj"),
 }
-SIGSRC = {"B_QCD_Zaajj_vbs": ("B_QCD_zaajj_vbs", "fin"), "B_EW_Zaajj_vbs": ("B_EW_zaajj_vbs", "fin"), "H_ggZH": ("H_ggZH_py8dec", "fin"), "H_ttH": ("H_ttH", "fin"), "H_ZH_tautau": ("H_ZH_tautau", "fin"), "T_ttaa": ("T_ttaa", "fin"),
+SIGSRC = {"B_QCD_Zaajj_vbs": ("B_QCD_zaajj_vbs", "fin"), **{f"B_EW_Zaajj_vbs_is{i}": (f"B_EW_zaajj_vbs_is{i}", "fin") for i in (1, 2, 3)}, "H_ggZH": ("H_ggZH_py8dec", "fin"), "H_ttH": ("H_ttH", "fin"), "H_ZH_tautau": ("H_ZH_tautau", "fin"), "T_ttaa": ("T_ttaa", "fin"),
           "F_QCD_Zajj": ("F_QCD_llajj_vbs", "fin"), "F_EW_Zajj": ("F_EW_llajj_vbs", "fin"), "H_tHW": ("H_tHW", "tv2"),
           "B_QCD_llaa_0j": ("B_QCD_llaa_0j", "tv2m"), "T_tta": ("T_tta", "tv2"), "T_tWa": ("T_tWa", "tv2"),
           **{f"B_QCD_llaa_2j_is{i}": (f"B_QCD_llaa_2j_is{i}", "fin") for i in range(1, 5)},
@@ -69,10 +69,11 @@ for k, (s, how) in SIGSRC.items():
         try: REG[k]["sig"] = tv2_sigma(s, how == "tv2m" or k == "H_ZH_tautau")
         except Exception: pass
 # prompt Zgg+jj: use the VBS-biased fixed-order samples when produced, else the MLM / split samples (never both)
-_vbs = {"B_QCD_Zaajj_vbs": "B_QCD_llaa_2j_is", "B_EW_Zaajj_vbs": "B_EW_llaajj_is"}
+_vbs = {"B_QCD_Zaajj_vbs": "B_QCD_llaa_2j_is", "B_EW_Zaajj_vbs_is": "B_EW_llaajj_is"}
 for kv, pref in _vbs.items():
-    if REG[kv]["chunks"]: [REG.pop(k) for k in list(REG) if k.startswith(pref)]
-    else: REG.pop(kv)
+    new = [k for k in REG if k.startswith(kv)]
+    if any(REG[k]["chunks"] for k in new): [REG.pop(k) for k in list(REG) if k.startswith(pref)]
+    else: [REG.pop(k) for k in new]
 MISSING = [k for k, r in REG.items() if not r["chunks"] or r["sig"] is None or not all(os.path.exists(c) for c in r["chunks"])]
 if "F_QCD_Zajj" in MISSING: MISSING += [k for k, r in REG.items() if r["kind"] == "tf" and k not in MISSING]
 for k in MISSING: REG[k]["missing"] = True
@@ -257,7 +258,7 @@ RESULTS = results(OPT, "opt"); RES_BASE = results(BASE, "base")
 # ------------------------------------------------------------------ cutflow (Table III-like), 500 fb^-1
 def cutflow(c, L=500.0):
     steps = [("N generated x sigma x BR", None), ("OSSF + >=2 photons + >=2 jets", "pre"), ("+ Z window & m_llgg", "z"),
-             ("+ photon pT, pT/m_gg", "g"), ("+ b-veto", "bv"), ("+ mjj, |deta_jj|", "vbs"), ("+ Zeppenfeld", "zep"),
+             ("+ photon pT, pT/m_gg", "g"), ("+ b-veto", "bv"), ("+ mjj, deta_jj", "vbs"), ("+ Zeppenfeld", "zep"),
              (f"+ m_gg window ({MU - c['wk']*SIG:.1f}-{MU + c['wk']*SIG:.1f})", "win")]
     rows = []
     for name, key in steps:
@@ -348,7 +349,8 @@ FIT = fit_results(OPT)
 # ------------------------------------------------------------------ robustness / checks
 ROB = {}
 for name, c in [("optimum", OPT), ("window +-1.5 sigma", dict(OPT, wk=1.5)), ("reference-like baseline", BASE),
-                ("no b-veto", dict(OPT, bveto=False)), ("no Zeppenfeld", dict(OPT, zep=99.))]:
+                ("b-veto toggled", dict(OPT, bveto=not OPT["bveto"])), ("Zeppenfeld z* < 1.0" if OPT["zep"] > 50 else "no Zeppenfeld", dict(OPT, zep=1.0 if OPT["zep"] > 50 else 99.)),
+                ("mjj > 700, |deta| > 3.0", dict(OPT, mjj=700., deta=3.0))]:
     T = totals(c, 500.); ROB[name] = dict(s=T["s"], b=T["b"], Z_eq1=zeq1(T["s"], T["b"]), Z_syst=z_syst(T["s"], T["b"], T["sigma_b"]))
 for fs in (0.25, 1.0):
     T = totals(OPT, 500., fake_syst=fs); ROB[f"fake syst {int(fs*100)}%"] = dict(s=T["s"], b=T["b"], Z_eq1=zeq1(T["s"], T["b"]), Z_syst=z_syst(T["s"], T["b"], T["sigma_b"]))
@@ -406,12 +408,12 @@ if "--plots" in sys.argv:
             for sid, r in REG.items():
                 if r.get("missing") or r["grp"] != g or r["role"] == "excl" or r["kind"] == "tf": continue
                 d = DATA[sid]; m = sel(d, c) & (np.isfinite(d["mgg"]) if var != "mgg" else (d["mgg"] > 0))
-                hh += np.histogram(np.clip(d[var][m], bins[0], bins[-1] - 1e-6), bins=bins, weights=d["w"][m]*LPL)[0]
+                hh += np.histogram(d[var][m], bins=bins, weights=d["w"][m]*LPL)[0]
             if hh.sum() > 0:
                 ax.bar(bins[:-1], hh, width=np.diff(bins), bottom=bottom, align="edge", color=COL[g], edgecolor="white", linewidth=0.6, label=g)
                 bottom += hh
         d = DATA["S_EW_ZHjj"]; m = sel(d, c)
-        hs = np.histogram(np.clip(d[var][m], bins[0], bins[-1] - 1e-6), bins=bins, weights=d["w"][m]*LPL)[0]
+        hs = np.histogram(d[var][m], bins=bins, weights=d["w"][m]*LPL)[0]
         ax.step(bins, np.r_[hs, hs[-1]], where="post", color="#111", lw=2, label="EW ZHjj signal")
         ax.set_yscale("log"); top = max(bottom.max(), hs.max()); ax.set_ylim(max(1e-5, 1e-4*top), top*30)
         ax.set_xlabel(lab); ax.set_ylabel(f"events / bin ({LPL:.0f} fb$^{{-1}}$, 13.6 TeV)")
