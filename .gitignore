@@ -28,5 +28,3 @@ __pycache__/
 /scripts/condor/run.mg5
 /scripts/condor/additional_command
 /scripts/condor/.sys.*
-/README.md
-/START_CODEX_PROMPT.md

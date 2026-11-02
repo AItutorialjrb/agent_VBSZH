@@ -15,7 +15,7 @@ print("\n### T2 — Per-process expected yield at the optimum, 500 fb^-1 (events
 print("| process | role | sigma used [fb] | x BR | yield | MC-stat | raw MC events | method | source |")
 print("|---|---|---|---|---|---|---|---|---|")
 for k, v in R["500_a"]["comp"].items():
-    r = REG[k]; role = "signal" if k == "S_EW_ZHjj" else ("bkg (a) / signal (b)" if k == "H_QCD_ZHjj" else ("order-of-magnitude only (not in b)" if r.get("oom") else "background"))
+    r = REG[k]; role = "signal" if k == "S_EW_ZHjj" else ("bkg (a) / signal (b)" if k == "H_QCD_ZHjj" else ("order-of-magnitude only (not in b)" if r.get("oom") else ("cross-check only (not in b)" if r.get("xcheck") else "background")))
     sig = r.get("sig") if r.get("sig") is not None else v.get("sigma_fb")
     kf = r.get("k", 1.0)
     print(f"| {k} | {role} | {f(sig, 4)} | {f(kf, 4)} | {v['y']:.4f} | {v['mcstat']:.4f} | {v['raw']} | {v['method']} | {r.get('src', '')} |")

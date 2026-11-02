@@ -132,3 +132,40 @@ d51258707be579e8c9e50912b63127f5d852eb8fbe180034b1f2f97e362e018b  scripts/condor
 ed95d658a8feb9dccc3dabf22f2c2fb9b15e49e0068b2d2773800d91fdb2b0b7  scripts/condor/gridpacks_v2.sub
 cc707f65a87e78745333a524eafd2ec292ffe623b7b8b5916a8a875acd4b8059  scripts/condor/test_v2.sub
 977c6e78463d3bfb78d3c22c62d989b002c39c9c721e329075c2621fedd79cbd  scripts/condor/production_v2.sub
+
+## Run 3 checkpoint — 2026-11-02 15:55 UTC (submission + Phase 05 pilot)
+**Decisions applied**
+- D-S1 approved: keep the full-record test outputs until Phase 04 sign-off.
+- D10 approved: `git init` in $PROJECT (show-toplevel = $PROJECT verified; parent repo untouched at 6ea6cb9). Commits 777277f and a998b00, plus the run-3 report commit.
+  - Remote `origin` = git@github.com:AItutorialjrb/agent_VBSZH.git.
+  - **NOT pushed:** `ssh -T git@github.com` returns "Permission denied (publickey)". The user must add an SSH key for lxplus.
+- D11 b/c **rejected**: these are detector-model changes, not stock-restoring fixes. The stock CMS card physics is kept.
+
+**Submitted** (EosSubmit schedd)
+- Tier-1 `production_tier1.sub` → cluster 879165: 150/150 exit 0; 200k EW + 100k QCD ZHjj in production/v1.
+- `gridpacks_v2.sub` → 879166:
+  - 13 gridpacks OK.
+  - H_ggZH **failed** (MadSpin in gridpack mode).
+  - 15 heavy or merged gridpacks still running.
+- `test_v2.sub` → 879167:
+  - 12 done (production/test_v2).
+  - H_ggZH removed (gridpack missing).
+  - The rest are held and auto-released every 30 min until their gridpacks exist (exit 19 → on_exit_hold; give up after 200 starts).
+- **production_v2.sub is HELD** (D12; recommendation in reports/05 §5: do not run the full campaign).
+
+**Wrapper fix (run 3)**
+- Without transfer_output_files, HTCondor copied job scratch files back into scripts/condor/: about 1.1 GB of duplicate LHE, log tarballs, gridpack copies and json. These duplicates are NOT deleted; that needs user approval.
+- run_job.sh and make_gridpack.sh now delete top-level scratch files on exit. Jobs already running still return files.
+- make_gridpack.sh now overwrites its status/log diagnostics on retry (xrdcp -f); the gridpack itself is never overwritten.
+
+**Phase 05 pilot result (500 fb⁻¹, definition a):** s = 0.067, b = 0.094, Z_syst = 0.20, μ95 = 44.6. At 3000 fb⁻¹: s = 0.40, Z = 0.48, μ95 = 7.4. Details in reports/05_pilot_sensitivity.md.
+
+**Restart**
+1. Check jobs:
+   `bash -lc 'module load lxbatch/eossubmit; condor_q 879166 879167'`
+2. When the test_v2 outputs exist:
+   - `source scripts/setup_stack.sh`
+   - build `work/m7_analysis/tv2_<id>.npz` with `scripts/analysis/ntuple.py`
+   - extend MAP in `scripts/analysis/override_test_v2.py` (B_QCD_llaa_1j/2j_is*, B_EW_llaajj_is*, F_QCD_lla_mlm, F_EW_llajj, F_Zjets_mlm, V_*) to replace the proxies
+   - rerun `sensitivity.py` and `tables05.py` (commands in reports/05 §9).
+3. Do NOT submit production_v2.sub before D12 is decided.

@@ -33,3 +33,7 @@ Stopped after Phase 01 for human review. Phase 00 blockers remain unresolved; ne
 - [03_generation_validation.md](03_generation_validation.md) — appended **M6 test-job audit** (2×2000 events, σ consistent, 105/124 kB/ev stock; Delphes clock-seed reproducibility finding fixed) and **M6b** (slim storage 1.5–2.8 kB/ev validated; 11 new σ; fake-factor pilots; split-gridpack closure −1.4 %, PLAUSIBLE).
 - [04_production_plan.md](04_production_plan.md) — **v2** (replaces v1): per-sample σ/N/weight/storage/CPU table ([04_stats_table.md](04_stats_table.md), `config/production_v2.yaml`); ≈29 GB of the 300 GB budget; ≈0.8k core-h expected; bulk BLOCKED pending decisions.
 - [eos_quota_2026-11-02.txt](eos_quota_2026-11-02.txt) — user-supplied quota record (supersedes the Phase 00 quota estimate).
+
+## Appended 2026-11-02 UTC — Claude Code run 3 (submission + pilot sensitivity)
+- [05_pilot_sensitivity.md](05_pilot_sensitivity.md) — **PASS (pilot)**: normalisation/BR-once evidence, exit-code-2 root cause, reference-aligned background model (proxies and fake-factor band labelled), optimisation on expected yields, results at 500/1000/3000 fb⁻¹, and the D12 recommendation (do not run the full production_v2; reduced campaign). s < 1 at all luminosities.
+- Project-only git repository initialised in $PROJECT (D10); see PROGRESS.md for commits and push status.

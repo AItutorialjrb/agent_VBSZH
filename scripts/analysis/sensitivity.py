@@ -45,7 +45,9 @@ REG = {
  "T_ttaa":      dict(npz="ttaa_dilep", sig=0.0949, k=1.0, kind="cont", syst="other", src="work/m5/ttaa_dilep LHE 200 ev"),
 }
 if len(sys.argv) > 3:
-    for k, v in json.load(open(sys.argv[3])).items(): REG.setdefault(k, {}).update(v)
+    for k, v in json.load(open(sys.argv[3])).items():
+        if k in REG: v = dict(v, src=v["src"] + " [replaces: " + REG[k]["src"] + "]")
+        REG.setdefault(k, {}).update(v)
 SIG_QCD_ZAAJJ = 2.893 * 1775.0 / 10080.0          # fb, 90<m_aa<190, ptj>20 (cross-check: x sigma(ZHjj)/sigma(ZH) = 0.61 fb)
 SIG_EW_ZAAJJ = 2.893 * (0.263 / 23.0) * 1.4       # fb, reference EW/QCD Zaa ratio x (QCD 0-2j ~ 1.4 x 0j); range 0.010-0.045
 ALT_SIG = {"B_QCD_Zaajj": (2.893*sQCD/48.45, "x sigma(QCD ZHjj)/sigma(ZH 0j)"), "B_EW_Zaajj": (2.893*35.6/10080, "x sigma(EW llajj)/sigma(lla_0j)")}
@@ -61,7 +63,9 @@ for sid, r in REG.items():
     d["w_pt"] = r["sig"]*r["k"]/N * d["wf_pt"]
     r["N"] = N; r["w_evt_fb"] = r["sig"]*r["k"]/N
     DATA[sid] = d
-LLAA = load("llaa_0j"); LLAJ = load("llajj_pilot")
+import os
+LLAA_NAME = "tv2_B_QCD_llaa_0j" if os.path.exists(f"{D}/tv2_B_QCD_llaa_0j.npz") else "llaa_0j"
+LLAA = load(LLAA_NAME); LLAJ = load("llajj_pilot")
 # ------------------------------------------------------------------ m_gg resolution from the Delphes EW signal
 m = DATA["S_EW_ZHjj"]["mgg"]; m = m[np.isfinite(m) & (m > 110) & (m < 140)]
 h, e = np.histogram(m, bins=60, range=(110, 140)); c = 0.5*(e[1:] + e[:-1]); cw = (c > 121) & (c < 129)
@@ -190,7 +194,7 @@ def estimate(sid, c, scale=1.0, wkey="w"):
     return y, y*rel, int(min(nA, max(nV, 0))), meth + "+factorised", dict(f_win=f, n_A=nA, n_V=nV, eps_V=eV, eps_V_method=meth_v, direct_raw=n)
 
 SYST = {"fake": 0.50, "other": 0.10}
-def totals(c, L, sigdef="a", scale=1.0, fake_syst=0.5, wkey="w", proxy_syst=None, incl_oom=False):
+def totals(c, L, sigdef="a", scale=1.0, fake_syst=0.5, wkey="w", proxy_syst=None, incl_oom=False, incl_x=False):
     s = 0.0; b = 0.0; var = 0.0; comp = {}
     for sid in REG:
         y, e, n, meth, det = estimate(sid, c, scale, wkey if REG[sid]["kind"] in ("ff1", "ff2") else "w")
@@ -199,6 +203,7 @@ def totals(c, L, sigdef="a", scale=1.0, fake_syst=0.5, wkey="w", proxy_syst=None
         is_sig = sid == "S_EW_ZHjj" or (sigdef == "b" and sid == "H_QCD_ZHjj")
         if is_sig: s += y; continue
         if REG[sid].get("oom") and not incl_oom: continue   # double-fake classes: order-of-magnitude only (reference: neglected)
+        if REG[sid].get("xcheck") and not (incl_x and sid != "X_QCD_ZH_mlm"): continue   # cross-check samples: reported, not in b
         rs = fake_syst if REG[sid]["syst"] == "fake" else SYST["other"]
         if proxy_syst is not None and REG[sid]["kind"] == "proxy": rs = proxy_syst
         b += y; var += (rs*y)**2 + e**2
@@ -287,7 +292,7 @@ for L in (500., 1000., 3000.):
 ROB = {}
 for lab, kw in (("nominal", {}), ("fake syst 25%", dict(fake_syst=0.25)), ("fake syst 100%", dict(fake_syst=1.0)),
                 ("proxy Zgg syst 50%", dict(proxy_syst=0.5)), ("m_gg resolution x0.75", dict(scale=0.75)),
-                ("m_gg resolution x1.25", dict(scale=1.25)), ("fake rate pT-dependent", dict(wkey="w_pt")), ("incl. Z+jets & tt (2 fakes)", dict(incl_oom=True))):
+                ("m_gg resolution x1.25", dict(scale=1.25)), ("fake rate pT-dependent", dict(wkey="w_pt")), ("incl. Z+jets & tt (2 fakes)", dict(incl_oom=True)), ("incl. other H (ggZH, tHW, ZH(tautau)) where available", dict(incl_x=True))):
     s, b, sb, comp = totals(OPT, 500., "a", **kw); ROB[lab] = dict(s=s, b=b, sb=sb, Z_stat=z_stat(s, b), Z_syst=z_syst(s, b, sb))
 for lab, fs in (("f=5e-4", 0.5), ("f=2e-3", 2.0)):
     s, b, sb, comp = totals(OPT, 500., "a")
@@ -310,7 +315,7 @@ for lab, (gname, val) in (("EW Zaajj sigma low (0.010 fb)", ("SIG_EW_ZAAJJ", ALT
     s, b, sb, _ = totals(OPT, 500., "a"); ROB[lab] = dict(s=s, b=b, sb=sb, Z_stat=z_stat(s, b), Z_syst=z_syst(s, b, sb))
     globals()[gname] = keep
 
-out = dict(resolution=RES, optimum={k: (list(v) if isinstance(v, tuple) else v) for k, v in OPT.items()}, opt_log=log, scan_mjj_deta=SCAN,
+out = dict(llaa_sample=LLAA_NAME, resolution=RES, optimum={k: (list(v) if isinstance(v, tuple) else v) for k, v in OPT.items()}, opt_log=log, scan_mjj_deta=SCAN,
            results=RESULTS, robustness=ROB, cutflow=cutflow(OPT), cutflow_reference=cutflow(BASE), ff_crosscheck=FFX,
            registry={k: {kk: vv for kk, vv in v.items()} for k, v in REG.items()},
            sigma_proxy=dict(QCD_Zaajj=SIG_QCD_ZAAJJ, EW_Zaajj=SIG_EW_ZAAJJ, alt={k: v[0] for k, v in ALT_SIG.items()}),
