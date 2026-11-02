@@ -182,3 +182,12 @@ Decisions: D12 closed (expected-limit/significance study, current signal definit
 - B: B_QCD_llaa_2j_is (4x25x1000) + B_EW_llaajj_is (4x5x1000), after 879166 procs 7-10, 13-16.
 - C: F_QCD_llajj_vbs (1000x2000) + F_EW_llajj_vbs (250x2000) + H_ggZH_py8dec (10x2000), after 879181.
 **Next action**: write scripts/analysis/final_analysis.py (direct Delphes only); poll condor every >=15 min; submit B and C when their gridpacks are ready.
+- 16:40 Group A (879182) 34/34 verified (scripts/analysis/verify_final.py → work/final_ntuples/verify.json; σ closure ttH −0.12 %, ttγγ −0.12 %). Ntupling submitted: ntuple_final_A.sub → cluster **879187**.
+- 16:40 Analysis code written and smoke-tested on available samples: scripts/analysis/final_analysis.py (+ --plots), final_tables.py, ntuple_job.sh, skim_npz.py.
+**Next action**: when 879181 gridpacks exist, submit group C (`python3 scripts/plan/make_submit_final.py C F_QCD_llajj_vbs F_EW_llajj_vbs H_ggZH_py8dec`); when the B_* gridpacks exist (879166), submit group B (`... B B_QCD_llaa_2j_is B_EW_llaajj_is`).
+- 16:45 Gridpacks F_QCD_llajj_vbs (σ=69.46±0.32 fb) and H_ggZH_py8dec (74.33 fb; consistent with failed MadSpin build's 74.5 fb) OK. Group C (F_QCD_llajj_vbs 1000×2000, H_ggZH_py8dec 10×2000) → cluster **879188**. Pending: F_EW_llajj_vbs gridpack (879181) → group D; B_* gridpacks (879166) → group B.
+- 17:00 Group C: H_ggZH_py8dec 10/10 OK (σ_PY8 75.0 vs gridpack 74.33 fb, +0.9 %); ntupling submitted (ntuple_final_C.sub). F_QCD_llajj_vbs 995/1000 OK, 3 bad, 2 still running (closure −0.18 %).
+**RESUME HERE (interrupted by usage limit, ~17:00 UTC)**
+1. `python3 -P scripts/analysis/verify_final.py` → inspect the 3 bad F_QCD_llajj_vbs seeds (json/n_delphes); remove the bad outputs only with approval, or resubmit just those seeds. Then `verify_final.py --ntuple C2` and submit to ntuple F_QCD_llajj_vbs (direct + ff1).
+2. Wait for gridpacks F_EW_llajj_vbs (879181) → `make_submit_final.py D F_EW_llajj_vbs`; B_QCD_llaa_2j_is*/B_EW_llaajj_is* (879166) → `make_submit_final.py B B_QCD_llaa_2j_is B_EW_llaajj_is`. Submit each once, then verify and ntuple.
+3. `python3 -P scripts/analysis/final_analysis.py work/final_ntuples/final.json --plots figures`, then `final_tables.py`. Write reports/FINAL_report.md and 08_reproducibility.md, update INDEX.md, commit, push.
