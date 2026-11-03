@@ -34,3 +34,8 @@ utc,process,arm,run_id,role,model,phase,event,assisted,session_id,note
 2026-11-03T21:57:03Z,WH,multi,multi_r1,reviewer,claude-opus-5-5,G1,end,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,verdict PASS-with-conditions: 2 sev-1 (I_WHjj N unflagged; frozen ZH mmjj>400 reuse unsafe), 8 sev-2, 4 sev-3; reviews/wh_01-03.md
 2026-11-03T22:00:05Z,WH,multi,multi_r1,orchestrator,claude-opus-5-5,G1,gate,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,G1 reached; reviewer PASS-with-conditions; decisions D1-D16 in SPEC §6; stop for human
 2026-11-03T22:00:05Z,HH,multi,multi_r1,orchestrator,claude-opus-5-5,G1,gate,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,G1 reached; reviewer PASS-with-conditions; decisions D1-D16 in SPEC §6; stop for human
+2026-11-03T22:22:36Z,ALL,multi,multi_r1,human,human,G1,gate,unknown,2c106b12-2d30-41fb-b453-fd56bc82a4cd,G1 decisions received (D1-D16 answered except D9/D10 → orchestrator defaults; D17-D22 protocol); recorded in SPEC §6; SPEC_G0.md frozen
+2026-11-03T22:22:36Z,ZH,multi,multi_r1,human,human,G1,human_intervention,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,human deleted 19 ZH figures/*.pdf (scp size) and restored them from zh-final-v1.1; not an agent violation
+2026-11-03T22:22:36Z,ALL,multi,multi_r1,orchestrator,claude-opus-5-5,P2-SETUP,human_intervention,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,correction: prompt 1 assisted=yes (human, D17); see prompts/multi_r1.csv
+2026-11-03T22:22:36Z,WH,multi,multi_r1,orchestrator,claude-opus-5-5,PRE-G2,start,unknown,2c106b12-2d30-41fb-b453-fd56bc82a4cd,pre-G2 fixes + WH Phase 03 completion (D22)
+2026-11-03T22:22:36Z,HH,multi,multi_r1,orchestrator,claude-opus-5-5,PRE-G2,start,unknown,2c106b12-2d30-41fb-b453-fd56bc82a4cd,pre-G2 fixes (D22)
