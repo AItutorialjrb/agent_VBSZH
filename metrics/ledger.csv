@@ -1,0 +1,27 @@
+utc,process,arm,role,phase,event,session_id,note
+2026-11-02T12:16:44Z,ZH,single-agent,codex,P00,start,01a19c30-c21b-74a0-b6c3-c5ed08265005,retro: Phase 00 environment & reference audit (Codex)
+2026-11-02T12:24:09Z,ZH,single-agent,codex,P00,end,01a19c30-c21b-74a0-b6c3-c5ed08265005,retro: next phase prompt (phase boundary = human prompt time)
+2026-11-02T12:24:09Z,ZH,single-agent,codex,P01,start,01a19c37-8e3c-7fe0-a736-6961c9441aa5,retro: Phase 01 signal/process definition (Codex)
+2026-11-02T13:29:21Z,ZH,single-agent,claude,R1,start,c6cda945-009c-4d75-b4e6-15b1e7b55c21,retro: Claude run 1: Phase 01 audit + Phases 02-04 validation (M1-M7)
+2026-11-02T13:29:21Z,ZH,single-agent,codex,P01,end,01a19c37-8e3c-7fe0-a736-6961c9441aa5,retro: next phase prompt (phase boundary = human prompt time)
+2026-11-02T14:20:06Z,ZH,single-agent,claude,R1,end,c6cda945-009c-4d75-b4e6-15b1e7b55c21,retro: next phase prompt (phase boundary = human prompt time)
+2026-11-02T14:20:06Z,ZH,single-agent,claude,R2,start,c6cda945-009c-4d75-b4e6-15b1e7b55c21,retro: Run 2: Phase 04 production-plan revision
+2026-11-02T14:20:06Z,ZH,single-agent,human,R2,human_intervention,c6cda945-009c-4d75-b4e6-15b1e7b55c21,"retro: [statistics;storage/resources] Stop bulk plan; require N>=max(50k, sigma*L), filters/fake factors for infeasible samples, MC-stat adequacy, slim Delphes, CPU re-plan"
+2026-11-02T15:15:53Z,ZH,single-agent,claude,R2,end,c6cda945-009c-4d75-b4e6-15b1e7b55c21,retro: next phase prompt (phase boundary = human prompt time)
+2026-11-02T15:15:53Z,ZH,single-agent,claude,R3,start,c6cda945-009c-4d75-b4e6-15b1e7b55c21,retro: Run 3: submission + Phase 05 pilot sensitivity
+2026-11-02T15:17:07Z,ZH,single-agent,claude,R3,compaction,c6cda945-009c-4d75-b4e6-15b1e7b55c21,"retro: manual compaction, preTokens=363418 postTokens=14400"
+2026-11-02T16:02:53Z,ZH,single-agent,claude,FINAL,start,c6cda945-009c-4d75-b4e6-15b1e7b55c21,retro: FINAL RUN: Phases 06-08 (production; Delphes analysis; reports)
+2026-11-02T16:02:53Z,ZH,single-agent,claude,R3,end,c6cda945-009c-4d75-b4e6-15b1e7b55c21,retro: next phase prompt (phase boundary = human prompt time)
+2026-11-02T16:03:48Z,ZH,single-agent,claude,FINAL,compaction,c6cda945-009c-4d75-b4e6-15b1e7b55c21,"retro: manual compaction, preTokens=253721 postTokens=12737"
+2026-11-02T16:07:21Z,ZH,single-agent,human,FINAL,human_intervention,c6cda945-009c-4d75-b4e6-15b1e7b55c21,"retro: [background model] FINAL RUN: Delphes-level only, no proxy/parton-level estimates in final yields (Phase 05 used proxies)"
+2026-11-02T17:03:28Z,ZH,single-agent,system,FINAL,interrupt,c6cda945-009c-4d75-b4e6-15b1e7b55c21,retro: Usage limit reached · continuing automatically at 7pm · esc to cancel
+2026-11-02T18:01:28Z,ZH,single-agent,system,FINAL,interrupt,c6cda945-009c-4d75-b4e6-15b1e7b55c21,retro: Usage limit reset · Continuing automatically
+2026-11-03T03:16:02Z,ZH,single-agent,claude,FINAL,compaction,c6cda945-009c-4d75-b4e6-15b1e7b55c21,"retro: auto compaction, preTokens=310006 postTokens=13519"
+2026-11-03T11:25:14Z,ZH,single-agent,claude,FINAL,end,c6cda945-009c-4d75-b4e6-15b1e7b55c21,retro: next phase prompt (phase boundary = human prompt time)
+2026-11-03T11:25:14Z,ZH,single-agent,claude,POST,start,c6cda945-009c-4d75-b4e6-15b1e7b55c21,retro: Post-final completion: A physics / E couplings / B self-review / C metrics / D freeze
+2026-11-03T11:25:14Z,ZH,single-agent,human,POST,human_intervention,c6cda945-009c-4d75-b4e6-15b1e7b55c21,"retro: [statistics;normalisation;background model;other] Physics completion: scan-boundary optimum, missing theory unc., interference, off-shell, undocumented 0.9783 factor, detector, ggZH"
+2026-11-03T11:27:21Z,ZH,single-agent,human,POST,interrupt,c6cda945-009c-4d75-b4e6-15b1e7b55c21,retro: [] [Request interrupted by user]
+2026-11-03T11:28:48Z,ZH,single-agent,claude,POST,compaction,c6cda945-009c-4d75-b4e6-15b1e7b55c21,"retro: manual compaction, preTokens=103672 postTokens=15686"
+2026-11-03T11:29:32Z,ZH,single-agent,human,POST,human_intervention,c6cda945-009c-4d75-b4e6-15b1e7b55c21,"retro: [constraint violation not flagged;statistics] Adds A9/A10: ttgamma/tWgamma 2000 events each violate N>=sigma*L (3000 fb-1), not flagged; approves cleanupPeriodDays"
+2026-11-03T11:34:49Z,ZH,single-agent,human,POST,interrupt,c6cda945-009c-4d75-b4e6-15b1e7b55c21,retro: [] [Request interrupted by user for tool use]
+2026-11-03T11:37:15Z,ZH,single-agent,human,POST,human_intervention,c6cda945-009c-4d75-b4e6-15b1e7b55c21,"retro: [missing deliverable;scope] Adds E: VH coupling (lambda_WZ) interpretation, planned (FINAL_report outlook) but absent until requested"

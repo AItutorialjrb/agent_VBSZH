@@ -1,0 +1,16 @@
+n,utc,agent,session,labels,corrective_classes,chars,file,note
+1,2026-11-02T12:16:47.659Z,codex,rollout-2026-11-02T13-16-44-01a19c30-c21b-74a0-b6c3-c5ed08265005.jsonl,task,,896,01_2026-11-02T121647Z_codex.md,Codex: execute Phase 00
+2,2026-11-02T12:24:12.010Z,codex,rollout-2026-11-02T13-24-09-01a19c37-8e3c-7fe0-a736-6961c9441aa5.jsonl,task;decision,,2720,02_2026-11-02T122412Z_codex.md,Codex: continue to Phase 01; new mandatory storage policy (constraint set by human)
+3,2026-11-02T13:29:21.381Z,claude,c6cda945-009c-4d75-b4e6-15b1e7b55c21,task,,4713,03_2026-11-02T132921Z_claude.md,Claude handoff: continue study under handoff rules
+4,2026-11-02T14:20:06.815Z,claude,c6cda945-009c-4d75-b4e6-15b1e7b55c21,corrective-intervention;decision;task,statistics;storage/resources,2802,04_2026-11-02T142006Z_claude.md,"Stop bulk plan; require N>=max(50k, sigma*L), filters/fake factors for infeasible samples, MC-stat adequacy, slim Delphes, CPU re-plan"
+5,2026-11-02T15:15:53.321Z,claude,c6cda945-009c-4d75-b4e6-15b1e7b55c21,compaction,,8,05_2026-11-02T151553Z_claude.md,manual compaction command
+6,2026-11-02T15:17:07.280Z,claude,c6cda945-009c-4d75-b4e6-15b1e7b55c21,decision;task,,2548,06_2026-11-02T151707Z_claude.md,"Approve D-S1, D10 (git), D11 policy; submit tier1/gridpacks/test; write Phase 05 pilot"
+7,2026-11-02T16:02:53.026Z,claude,c6cda945-009c-4d75-b4e6-15b1e7b55c21,compaction,,8,07_2026-11-02T160253Z_claude.md,manual compaction command
+8,2026-11-02T16:07:21.741Z,claude,c6cda945-009c-4d75-b4e6-15b1e7b55c21,decision;task;corrective-intervention,background model,3427,08_2026-11-02T160721Z_claude.md,"FINAL RUN: Delphes-level only, no proxy/parton-level estimates in final yields (Phase 05 used proxies)"
+9,2026-11-03T11:25:14.594Z,claude,c6cda945-009c-4d75-b4e6-15b1e7b55c21,corrective-intervention;task,statistics;normalisation;background model;other,3023,09_2026-11-03T112514Z_claude.md,"Physics completion: scan-boundary optimum, missing theory unc., interference, off-shell, undocumented 0.9783 factor, detector, ggZH"
+10,2026-11-03T11:27:40.607Z,claude,c6cda945-009c-4d75-b4e6-15b1e7b55c21,compaction,,8,10_2026-11-03T112740Z_claude.md,manual compaction command
+11,2026-11-03T11:29:32.772Z,claude,c6cda945-009c-4d75-b4e6-15b1e7b55c21,corrective-intervention;decision;task,constraint violation not flagged;statistics,5056,11_2026-11-03T112932Z_claude.md,"Adds A9/A10: ttgamma/tWgamma 2000 events each violate N>=sigma*L (3000 fb-1), not flagged; approves cleanupPeriodDays"
+12,2026-11-03T11:34:55.679Z,claude,c6cda945-009c-4d75-b4e6-15b1e7b55c21,compaction,,8,12_2026-11-03T113455Z_claude.md,manual compaction command (typed with a backslash: not executed as a command)
+13,2026-11-03T11:37:15.221Z,claude,c6cda945-009c-4d75-b4e6-15b1e7b55c21,corrective-intervention;task,missing deliverable;scope,6701,13_2026-11-03T113715Z_claude.md,"Adds E: VH coupling (lambda_WZ) interpretation, planned (FINAL_report outlook) but absent until requested"
+i1,2026-11-03T11:27:21.841Z,claude,c6cda945-009c-4d75-b4e6-15b1e7b55c21,interrupt,,29,,[Request interrupted by user]
+i2,2026-11-03T11:34:49.916Z,claude,c6cda945-009c-4d75-b4e6-15b1e7b55c21,interrupt,,42,,[Request interrupted by user for tool use]

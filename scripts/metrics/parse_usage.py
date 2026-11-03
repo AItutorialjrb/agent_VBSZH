@@ -20,11 +20,15 @@ def phase_of(t):
     return None
 U = {r["phase"]: dict(input=0, output=0, cache_create=0, cache_read=0, api_msgs=0, prompts=0, tool_calls=0, compactions=0, active_s=0.0, records=0) for r in ph}
 seen = set(); last = None; lastp = None
+RECS = []
 for f in sorted(glob.glob(f"{M}/raw/claude/*.jsonl")):
     for l in open(f):
         d = json.loads(l); ts = d.get("timestamp")
-        if not ts: continue
-        t = T(ts); p = phase_of(t)
+        if ts: RECS.append((T(ts), d))
+RECS.sort(key=lambda x: x[0])   # records are not strictly time-ordered in the file (background tasks, sidechains)
+if True:
+    for t, d in RECS:
+        p = phase_of(t)
         if p is None: continue
         u = U[p]; u["records"] += 1
         if last is not None and lastp == p and 0 < (t - last).total_seconds() < 600: u["active_s"] += (t - last).total_seconds()

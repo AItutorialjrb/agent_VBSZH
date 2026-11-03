@@ -1,6 +1,6 @@
 # Phase report index
 
-Updated UTC: 2026-11-02.
+Updated UTC: 2026-11-03 (completion run: physics completion A, coupling interpretation E, self-review B, metrics C, freeze D).
 
 - [00_environment.md](00_environment.md) — **BLOCKED**: environment/reference audit executed; production stack, live session status and project commit pins unresolved. No MC generated.
 - [00_environment_audit.txt](00_environment_audit.txt) — exact fresh commands and outputs.
@@ -43,3 +43,21 @@ Stopped after Phase 01 for human review. Phase 00 blockers remain unresolved; ne
 - [08_reproducibility.md](08_reproducibility.md): versions, seeds, checksums, commands.
 - `figures/`: mγγ, mℓℓ, mjj, |Δηjj|, photon pT, Zeppenfeld, mjj–|Δηjj| scans (PDF + PNG).
 - [PROGRESS.md](PROGRESS.md): FINAL RUN log with condor cluster IDs.
+
+## Appended 2026-11-03 UTC — completion run (Claude Code; tag zh-final-v1)
+- [FINAL_report.md](FINAL_report.md): regenerated, **PASS with limitations**. New content:
+  - theory (scale ⊕ PDF), off-shell/FSR and interference nuisances;
+  - direct tt̄γ/tWγ samples (N ≥ 4 σ×BR×3000 fb⁻¹);
+  - the generator-mjj correction for QCD-type samples;
+  - the BR-once ledger and the code-enforced N_MC ≥ σ×BR×3000 fb⁻¹ table;
+  - the CMS-like efficiency and ggZH ×2/×0.5 rows;
+  - §9, the VH coupling interpretation (λWZ, κZ, CP-odd c_A).
+- [08_reproducibility.md](08_reproducibility.md): regenerated (ZF derivation, coupling-model provenance, new commands and checksums).
+- [ZH_self_review.md](ZH_self_review.md): single-agent referee-style self-review, with an issue list and resolutions.
+- Metrics (paper baseline), in `../metrics/`:
+  - `ledger.csv` (retrospective);
+  - `usage_by_phase.{csv,md}`;
+  - `prompts/ZH/`;
+  - `ZH_failure_modes.md`.
+- Raw transcripts are backed up to `metrics/raw/` on EOS and are not versioned.
+- Theory and generator studies: `work/theory/theory_summary.json` (not versioned; summarised in FINAL_report §4 and §7).

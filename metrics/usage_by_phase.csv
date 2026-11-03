@@ -1,0 +1,8 @@
+phase,agent,label,start_utc,end_utc,wall_h,active_h,prompts,api_msgs,tool_calls,compactions,input,cache_create,cache_read,output,reasoning,condor_jobs,condor_core_h
+P00,codex,Phase 00 environment & reference audit (Codex),2026-11-02T12:16:44Z,2026-11-02T12:24:09Z,0.12,0.08,1,11,10,0,47288,0,366976,7260,93,0,0.0
+P01,codex,Phase 01 signal/process definition (Codex),2026-11-02T12:24:09Z,2026-11-02T13:29:21Z,1.09,0.62,1,24,23,0,84258,0,1519232,14689,539,0,0.0
+R1,claude,Claude run 1: Phase 01 audit + Phases 02-04 validation (M1-M7),2026-11-02T13:29:21Z,2026-11-02T14:20:06Z,0.85,0.69,1,93,105,0,186,205759,13787609,121643,,2,0.1
+R2,claude,Run 2: Phase 04 production-plan revision,2026-11-02T14:20:06Z,2026-11-02T15:15:53Z,0.93,0.73,1,39,45,0,82,124973,11401544,100979,,0,0.0
+R3,claude,Run 3: submission + Phase 05 pilot sensitivity,2026-11-02T15:15:53Z,2026-11-02T16:02:53Z,0.78,0.65,2,74,73,1,150,223531,11492720,114386,,208,1657.5
+FINAL,claude,FINAL RUN: Phases 06-08 (production; Delphes analysis; reports),2026-11-02T16:02:53Z,2026-11-03T11:25:14Z,19.37,9.02,2,187,186,2,380,280155,38850076,168455,,3473,543.3
+POST,claude,Post-final completion: A physics / E couplings / B self-review / C metrics / D freeze,2026-11-03T11:25:14Z,"(open, 2026-11-03T13:47Z)",2.37,2.2,5,204,207,1,414,514372,57485920,232662,,1010,174.7
