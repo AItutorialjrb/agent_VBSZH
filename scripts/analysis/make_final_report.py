@@ -167,7 +167,7 @@ The background model is aligned with the reference: prompt Zγ and Zγγ (QCD an
 - **L0:** direct, ≥ 10 raw events in the window.
 - **L1:** continuum, N(105–165 GeV) × f_win (exponential MLE of the sample's Delphes mγγ).
 - **L2:** VBS-factorised.
-- **L2b:** VBS- and window-factorised, using the direct sample (tt̄γ, tWγ).
+- **L2b:** VBS- and window-factorised, using the direct sample (fallback when L2 has no support in the wide mγγ range).
 - **UL:** zero support, central value 1.14 w_evt.
 - L2, L2b and UL carry 100 % uncertainty. **The transfer-factor method (old L3) is no longer used for yields.**
 
@@ -203,7 +203,7 @@ The background model is aligned with the reference: prompt Zγ and Zγγ (QCD an
   - Z window 70–120 GeV: {TX['T_tta|ovl=False|gpt=20']['rows'][2]['eff_rel']:.2f};
   - mjj > 700 GeV, |Δηjj| > 2.0: {TX['T_tta|ovl=False|gpt=20']['rows'][3]['eff_rel']:.3f};
   - pT/mγγ cuts (ours, not in the reference): {TX['T_tta|ovl=False|gpt=20']['rows'][4]['eff_rel']:.2f}.
-- **In the signal region** (Z window ±25 GeV, mjj > 500 GeV, |Δηjj| > 3.5, mγγ window), tt̄γ/tWγ have **zero raw events** and enter through the L2b factorised estimate (100 % uncertainty). The direct zero-count 95 % upper limits are a robustness row.
+- **In the signal region** (Z window ±25 GeV, mjj > 500 GeV, |Δηjj| > 3.5, mγγ window), tt̄γ/tWγ have **zero raw events** and enter through a factorised estimate ({R['500_a']['comp']['T_tta']['method']}, 100 % uncertainty): tt̄γ {R['500_a']['comp']['T_tta']['y']:.4f}, tWγ {R['500_a']['comp']['T_tWa']['y']:.4f} events at 500 fb⁻¹. The direct zero-count 95 % upper limits are a robustness row.
 
 **Zγγ on-shell Z and off-shell/FSR (A4).**
 - The Zγγjj samples are `p p > z a a j j, z > l+ l-`, so photons radiated in the Z decay and off-shell γ*/Z are missing.
@@ -308,7 +308,7 @@ The background model is aligned with the reference: prompt Zγ and Zγγ (QCD an
    - LO EW ZHjj only.
    - ggZH, tt̄H and tHW are kept at the SM. ggZH depends on κZ (triangle) and κt (box), which is neglected (ggZH is {R['500_a']['comp'].get('H_ggZH', {}).get('y', float('nan')):.3f} events at 500 fb⁻¹).
    - The headline keeps BR(H→γγ) at the SM. The resolved-κγ variant assumes κt = 1 and no BSM loops.
-9. **tt̄γ / tWγ** have **zero raw events in the signal region** (N_MC ≥ 4 × σ×BR×3000 fb⁻¹), so they are estimated by factorisation (L2b, 100 % uncertainty). Replacing them by their direct zero-count 95 % upper limits raises **b at 500 fb⁻¹ from {ROB['optimum']['b']:.3f} to {ROB['ttgamma, tWgamma at their direct zero-count 95% UL (3 w_evt each)']['b']:.2f}** (robustness row; μ₉₅ {ROB['optimum']['mu95']:.1f} → {ROB['ttgamma, tWgamma at their direct zero-count 95% UL (3 w_evt each)']['mu95']:.1f}).
+9. **tt̄γ / tWγ** have **zero raw events in the signal region** (N_MC ≥ 4 × σ×BR×3000 fb⁻¹), so they are estimated by factorisation (L2: N(all cuts except VBS, wide mγγ) × ε(VBS | preselection) × f_win; 100 % uncertainty). Replacing them by their direct zero-count 95 % upper limits raises **b at 500 fb⁻¹ from {ROB['optimum']['b']:.3f} to {ROB['ttgamma, tWgamma at their direct zero-count 95% UL (3 w_evt each)']['b']:.2f}** (robustness row; μ₉₅ {ROB['optimum']['mu95']:.1f} → {ROB['ttgamma, tWgamma at their direct zero-count 95% UL (3 w_evt each)']['mu95']:.1f}).
 10. **The λWZ sensitivity is modest by construction.** In ZH the SM κW–κZ interference in EW ZHjj is destructive, but flipping the sign of κW raises σ by only a moderate factor: σ(λWZ = −1)/σ(SM) = {CP['points']['lam_m100']['sigma_fb']/CP['points']['lam_p100']['sigma_fb']:.2f} at generator level and {CP['points']['lam_m100']['s_SR_500']/CP['points']['lam_p100']['s_SR_500']:.1f} in the signal region. In addition, λWZ → 0⁻ is almost degenerate with the SM. In VBS/VBF WH, instead, λWZ < 0 breaks the gauge cancellation of the W W → W H amplitude and enhances the high-energy cross section by large factors, which both CMS and ATLAS exploit.
 11. **The c_A sensitivity is dominated by the unclipped high-energy tail**, where the validity of the dimension-6 EFT is questionable. With clipping at m(ℓℓγγ) < 500 GeV, the expected 95 % interval at 3000 fb⁻¹ widens from {iv(CP['cA|3000|noclip']['int95']) if 'cA|3000|noclip' in CP else '—'} to {iv(CP['cA|3000|clip500']['int95']) if 'cA|3000|clip500' in CP else '—'}.
 {("12. **" + PEND + "**") if PEND else ""}

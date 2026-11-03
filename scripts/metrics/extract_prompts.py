@@ -19,6 +19,7 @@ LAB = {  # utc minute -> (labels, classes for corrective items, note)
  "2026-11-03T11:27": ("interrupt", "", "[Request interrupted by user] then /compact"),
  "2026-11-03T11:29": ("corrective-intervention;decision;task", "constraint violation not flagged;statistics", "Adds A9/A10: ttgamma/tWgamma 2000 events each violate N>=sigma*L (3000 fb-1), not flagged; approves cleanupPeriodDays"),
  "2026-11-03T11:34": ("interrupt", "", "[Request interrupted by user for tool use] (rejected login-node analysis run); '\\compact' typed"),
+ "2026-11-03T14:01": ("decision;task;corrective-intervention", "background model;other", "Closeout: option A for ttgamma/tWgamma conditional on a cut-flow cross-check vs the reference; C statistics; explicit limitations; comparison with CMS/ATLAS; tag zh-final-v1.1"),
  "2026-11-03T11:37": ("corrective-intervention;task", "missing deliverable;scope", "Adds E: VH coupling (lambda_WZ) interpretation, planned (FINAL_report outlook) but absent until requested"),
 }
 def clean(t): return t.replace('<pasted_content id="90a1">', "").replace('</pasted_content id="90a1">', "").strip()
