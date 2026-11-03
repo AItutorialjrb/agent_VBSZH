@@ -19,9 +19,11 @@ for s, v in seeds.items():
     gsha = json.load(open(js[0]))["gridpack_sha256"] if js else "—"
     ss = sorted(v["seeds"]); vv = V.get(s, {})
     rows.append(f"| {s} | {v['gseed']} | {ss[0]}–{ss[-1]} ({len(ss)} jobs) | {v['nev']} | {v['cmnd']} | {vv.get('ok', '—')} | `{gsha[:16]}…` |")
-files = (sorted(glob.glob(f"{P}/cards/production_final/*.mg5")) + [f"{P}/cards/phase03_smoke/{c}" for c in sorted({v['cmnd'] for v in seeds.values()})]
+files = (sorted(glob.glob(f"{P}/cards/production_final/*.mg5")) + sorted(glob.glob(f"{P}/cards/theory/*.mg5")) + sorted(glob.glob(f"{P}/cards/coupling/*.mg5")) + [f"{P}/cards/phase03_smoke/{c}" for c in sorted({v['cmnd'] for v in seeds.values()})]
          + [f"{P}/cards/phase03_smoke/py8_common_CP5.cmnd", f"{P}/cards/phase04_candidates/delphes_card_CMS_slim_v1.tcl"]
-         + [f"{P}/scripts/condor/{x}" for x in ("run_job.sh", "make_gridpack.sh")]
+         + [f"{P}/scripts/condor/{x}" for x in ("run_job.sh", "make_gridpack.sh", "lhe_only.sh", "mg5_run.sh", "pyjob.sh")]
+         + sorted(glob.glob(f"{P}/scripts/theory/*.py")) + sorted(glob.glob(f"{P}/scripts/models/*.sh")) + sorted(glob.glob(f"{P}/scripts/metrics/*.py"))
+         + [f"{P}/software/install/HC_NLO_X0_kVV.tgz", f"{P}/software/models_dl/HC_NLO_X0_UFO.zip", f"{P}/work/theory/theory_summary.json"]
          + [f"{P}/scripts/{x}" for x in ("setup_stack.sh", "run_py8_delphes.sh", "slim_gentruth.py")]
          + sorted(glob.glob(f"{P}/scripts/analysis/*.py")) + [f"{P}/scripts/analysis/ntuple_job.sh", f"{P}/scripts/plan/make_submit_final.py", J])
 chk = "\n".join(f"{sha(f)}  {rel(f)}" for f in files if os.path.exists(f))
@@ -43,6 +45,7 @@ txt = f"""# 08 — Reproducibility (FINAL RUN)
 | PDF | NNPDF31_nnlo_as_0118, LHAID 303600, LHAPDF 6.5.5 |
 | Batch | HTCondor EosSubmit schedd (`module load lxbatch/eossubmit`) |
 | Agent | Claude Code session (this run); the Codex CLI was not used in the FINAL run |
+| Coupling model | Higgs Characterisation HC_NLO_X0 UFO (FeynRules database, README model version 1.3, `__init__` 1.2; zip sha256 b91d8788ed66a12a3eaf9e1f8771f98b789b4b3fc8b10eeb32c9c04f057ae1bd, fetched 2026-11-03) + patch `scripts/models/make_hc_kvv.sh` (kSMW, kSMZ) → `software/install/HC_NLO_X0_kVV.tgz` |
 
 ## Seeds and samples (FINAL RUN productions)
 
@@ -55,6 +58,15 @@ txt = f"""# 08 — Reproducibility (FINAL RUN)
 {chr(10).join(rows)}
 
 Dropped segments (no output, not resubmitted): F_QCD_llajj_vbs 140000354, 140000409 (deterministic Delphes segfault), 141600295, 141600415, 141600900 (lost after the LHE stage).
+
+## Normalisation constants (applied once; asserted in code)
+
+- B(H→γγ) = 0.002270 (YR4, mH = 125 GeV): every forced-H→γγ sample.
+- **ZF = 0.9783**: MG5 LO width-derived Z→ℓℓ BR → PDG. The MG5 sm model gives 2Γ_ℓℓ/Γ_Z = 2 × 83.965 MeV / 2.441404 GeV = 0.068784 for ee + μμ; PDG gives 0.033632 + 0.033662 = 0.067294; the ratio is 0.9783. The closure test σ(ZHjj→ℓℓHjj)/σ(ZHjj) = 0.06964 ± 0.00083 is in 01_addendum_claude.md item 5.
+  - Applied to samples whose Z→ℓℓ is an MG5 decay or decay chain: EW/QCD ZHjj, the on-shell-Z Zγγjj samples and the coupling samples.
+- BR(Z→ee+μμ) = 0.067294: ggZH, where Z→ℓℓ is forced in Pythia8.
+- `final_analysis.py` builds the per-sample BR ledger (`br_table` in final.json, FINAL_report §3) and aborts if a factor is applied twice or the product differs from the event-weight k. `nmc_check()` aborts if N_MC < σ×BR×3000 fb⁻¹ for any sample entering s or b.
+- Off-shell/FSR correction of the on-shell-Z Zγγ samples: 1.128 (work/theory/theory_summary.json).
 
 ## Checksums (sha256)
 
@@ -85,6 +97,15 @@ python3 scripts/plan/make_submit_final.py H1 B_EW_zaajj_vbs_is1h; python3 script
 python3 -P scripts/analysis/verify_final.py --ntuple <tag> --allow F_QCD_llajj_vbs
 (cd scripts/condor; condor_submit ntuple_final_<tag>.sub)
 # analysis, figures, tables, reports
+# 2026-11-03 completion (A, E): theory weights, interference, off-shell, mjj resolution, object efficiencies, coupling samples
+(cd scripts/condor; condor_submit production_final_I.sub)        # ttgamma 520x2000, tWgamma 80x2000 (reference Table I)
+(cd scripts/condor; condor_submit theory_lhe.sub theory_mg5.sub theory_mg5b.sub theory_parse.sub mjjres.sub objeff.sub)
+bash scripts/models/make_hc_kvv.sh                               # HC_NLO_X0 + kSMW/kSMZ patch
+(cd scripts/condor; condor_submit gridpacks_coupling.sub gridpacks_nomjj.sub production_final_K.sub production_final_N.sub)
+python3 -P scripts/analysis/verify_final.py --ntuple <tag>       # I, K, N; then condor_submit ntuple_final_<tag>.sub
+for f in work/theory/*.lhe.gz; do python3 -P scripts/theory/lhe_theory.py <kind> work/theory/th_<name>.json $f; done   # kinds as in theory_summary.py docstring
+python3 -P scripts/theory/theory_summary.py
+# final analysis runs on a worker: scripts/condor/final_analysis.sub (pyjob.sh -> final_analysis.py ... --plots figures)
 python3 -P scripts/analysis/final_analysis.py work/final_ntuples/final.json --plots figures
 python3 -P scripts/analysis/final_tables.py work/final_ntuples/final.json > work/final_ntuples/tables_final.md
 python3 -P scripts/analysis/make_final_report.py work/final_ntuples/final.json work/final_ntuples/tables_final.md <commit> reports/FINAL_report.md

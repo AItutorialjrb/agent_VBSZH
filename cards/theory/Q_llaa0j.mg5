@@ -1,0 +1,34 @@
+# Theory (2026-11-03): off-shell/FSR bound, QCD 0-jet proxy. Q_llaa0j = full l+l-aa (incl. off-shell gamma*/Z, FSR-like radiation off leptons);
+# Q_zaa0j = on-shell Z -> l+l- (as in the final Zgg samples). Same generator cuts; ratio after analysis-like cuts.
+set automatic_html_opening False
+set auto_update 0
+set nb_core 4
+set run_mode 2
+set lhapdf_py3 lhapdf-config
+import model sm-no_b_mass
+define p = g u c d s b u~ c~ d~ s~ b~
+define l+ = e+ mu+
+define l- = e- mu-
+generate p p > l+ l- a a
+output OUTDIR -nojpeg
+launch OUTDIR
+0
+set run_card ebeam1 6800
+set run_card ebeam2 6800
+set run_card pdlabel lhapdf
+set run_card lhaid 303600
+set run_card use_syst False
+set run_card nevents 20000
+set run_card ptl 10
+set run_card etal 2.5
+set run_card mmll 30
+set run_card drll 0.4
+set run_card pta 20
+set run_card etaa 2.5
+set run_card draa 0.4
+set run_card dral 0.4
+set run_card mmaa 100
+set run_card mmaamax 170
+set run_card dynamical_scale_choice 3
+set run_card iseed SEED
+done

@@ -30,3 +30,6 @@ __pycache__/
 /scripts/condor/.sys.*
 # FINAL RUN figures are deliverables (PDF + PNG)
 !figures/*.pdf
+
+# raw agent transcripts (backup on EOS only; derived metrics are versioned)
+/metrics/raw/

@@ -10,8 +10,8 @@ Estimation hierarchy per background (all Delphes-level; method recorded per numb
   L1 shape (cont.) : continuum samples: N(all cuts, 105<m_gg<165) x f_win(exponential MLE fit of that sample), when
                      the wide-range count has >= 10 raw events.
   L2 VBS-factorised: N(all cuts except mjj/deta/Zeppenfeld [+window via L0/L1]) x eps(VBS | preselection), 100% unc.
-  L3 transfer      : T_tta / T_tWa (one prompt photon): N(1-photon-level cuts) x TF, TF = P(second Delphes photon
-                     passes photon/window cuts | 1-photon level) measured in the direct F_QCD_llajj_vbs sample, 100% unc.
+  L3 transfer      : no longer used for yields (2026-11-03): ttgamma / tWgamma are now direct Delphes samples with
+                     N >= 4 x sigma x BR x 3000 fb^-1; the transfer factor survives only as a cross-check (tf_xcheck).
   UL               : zero raw support: central = 1.14 x w_evt (68% CL Poisson bound), 100% unc.; 95% UL = 3 x w_evt.
 Overlap removal (hard/soft photon): samples with one ME photon keep GenTruth n_prompt_photons <= 1 (pT>15, |eta|<2.5,
 dR>0.4: the Zgg/ttgg ME phase space); photon-less samples keep n_prompt_photons == 0.
@@ -24,6 +24,13 @@ P = "/eos/home-r/rjiang/vbs_zh_codex_starter"; NT = f"{P}/work/final_ntuples"; M
 MZ, BGG, ZF = 91.1876, 0.002270, 0.9783
 BR_ZLL = 0.033632 + 0.033662          # PDG Z -> ee + mumu (ggZH: Z decayed in Pythia8, e/mu only)
 LUMI_UNC = 0.025
+# 2026-11-03 additions: theory (scale+PDF per process, correlated within a theory group), off-shell/FSR correction of the
+# on-shell-Z Zgg samples, Zggjj EW x QCD interference, ggZH x2/x0.5 normalisation, CMS-like object efficiencies.
+TS = json.load(open(f"{P}/work/theory/theory_summary.json"))
+OFFSHELL = TS["offshell_Zaa"]["applied_factor"]; OFFSHELL_UNC = TS["offshell_Zaa"]["applied_unc"]/TS["offshell_Zaa"]["applied_factor"]
+INT_ZAA = abs(TS["interference_Zaajj"]["frac_of_EW"])
+GGZH_LN = np.log(2.0)          # x2 / x0.5 normalisation nuisance (log-normal sigma)
+NMC_L = 3000.0                 # N_MC >= sigma x BR x NMC_L required for every sample entering s or b
 VER = json.load(open(f"{NT}/verify.json")) if os.path.exists(f"{NT}/verify.json") else {}
 
 def tier1_sigma(s):
@@ -51,16 +58,15 @@ REG = {
  **{f"B_EW_llaajj_is{i}": R(fin(f"B_EW_llaajj_is{i}"), None, 1.0, "bkg", "Zgg (QCD+EW)", "other", None, "cont", "final") for i in range(1, 5)},
  "B_QCD_Zaajj_vbs": R(fin("B_QCD_zaajj_vbs"), None, ZF, "bkg", "Zgg (QCD+EW)", "other", None, "cont", "final, fixed order, on-shell Z->ll, VBS-biased generation"),
  **{f"B_EW_Zaajj_vbs_is{i}": R(fin(f"B_EW_zaajj_vbs_is{i}h") or fin(f"B_EW_zaajj_vbs_is{i}"), None, ZF, "bkg", "Zgg (QCD+EW)", "other", None, "cont", "final, fixed order 4F, on-shell Z->ll, VBS-biased, beam-1 split") for i in (1, 2, 3)},
- "B_QCD_llaa_0j": R([f"{M7}/tv2_B_QCD_llaa_0j.npz"], None, 1.0, "excl", "Zgg (QCD+EW)", "other", None, "cont", "test_v2 (MLM exclusive 0j)"),
  "T_ttaa":     R(fin("T_ttaa") + [f"{M7}/tv2_T_ttaa.npz"], None, 1.0, "bkg", "top (ttgg, ttg, tWg)", "other", None, "cont", "final + test_v2"),
  "F_QCD_Zajj": R(fin("F_QCD_llajj_vbs"), None, 1.0, "bkg", "Zg + fake g (QCD+EW)", "fake", 1, "cont", "final, direct Delphes fakes (VBS-biased generation)"),
  "F_EW_Zajj":  R(fin("F_EW_llajj_vbs"), None, 1.0, "bkg", "Zg + fake g (QCD+EW)", "fake", 1, "cont", "final, direct Delphes fakes (VBS-biased generation)"),
- "T_tta":      R([f"{M7}/tv2_T_tta.npz"], None, 1.0, "bkg", "top (ttgg, ttg, tWg)", "fake", 1, "tf", "test_v2 x Delphes TF from F_QCD_Zajj"),
- "T_tWa":      R([f"{M7}/tv2_T_tWa.npz"], None, 1.0, "bkg", "top (ttgg, ttg, tWg)", "fake", 1, "tf", "test_v2 x Delphes TF from F_QCD_Zajj"),
+ "T_tta":      R(fin("T_tta"), None, 1.0, "bkg", "top (ttgg, ttg, tWg)", "fake", 1, "cont", "final, direct Delphes (ref. Table I: both t -> b l nu), N = 4.05 x sigma x 3000 fb^-1"),
+ "T_tWa":      R(fin("T_tWa"), None, 1.0, "bkg", "top (ttgg, ttg, tWg)", "fake", 1, "cont", "final, direct Delphes (ref. Table I: tW-a + t~W+a, both W -> l nu), N = 4.1 x sigma x 3000 fb^-1"),
 }
 SIGSRC = {"B_QCD_Zaajj_vbs": ("B_QCD_zaajj_vbs", "fin"), **{f"B_EW_Zaajj_vbs_is{i}": ((f"B_EW_zaajj_vbs_is{i}h" if fin(f"B_EW_zaajj_vbs_is{i}h") else f"B_EW_zaajj_vbs_is{i}"), "fin") for i in (1, 2, 3)}, "H_ggZH": ("H_ggZH_py8dec", "fin"), "H_ttH": ("H_ttH", "fin"), "H_ZH_tautau": ("H_ZH_tautau", "fin"), "T_ttaa": ("T_ttaa", "fin"),
           "F_QCD_Zajj": ("F_QCD_llajj_vbs", "fin"), "F_EW_Zajj": ("F_EW_llajj_vbs", "fin"), "H_tHW": ("H_tHW", "tv2"),
-          "B_QCD_llaa_0j": ("B_QCD_llaa_0j", "tv2m"), "T_tta": ("T_tta", "tv2"), "T_tWa": ("T_tWa", "tv2"),
+          "T_tta": ("T_tta", "fin"), "T_tWa": ("T_tWa", "fin"),
           **{f"B_QCD_llaa_2j_is{i}": (f"B_QCD_llaa_2j_is{i}", "fin") for i in range(1, 5)},
           **{f"B_EW_llaajj_is{i}": (f"B_EW_llaajj_is{i}", "fin") for i in range(1, 5)}}
 for k, (s, how) in SIGSRC.items():
@@ -97,8 +103,124 @@ for sid, r in REG.items():
     vs = SIGSRC.get(sid, (None,))[0]
     if vs in VER and VER[vs]["ok"] > 0 and all(os.path.dirname(c) == NT for c in r["chunks"]):
         r["N_verify"] = VER[vs]["n_delphes"]; r["N_closure_ok"] = bool(r["N_verify"] == d["N"])   # ntuples cover exactly the verified jobs
-    r["N"] = d["N"]; r["w_evt_fb"] = r["sig"]*r["k"]/d["N"]; d["w"] = np.full(len(d["mll"]), r["w_evt_fb"])
+    r["corr"] = OFFSHELL if sid.startswith(("B_QCD_Zaajj", "B_EW_Zaajj")) else 1.0   # off-shell/FSR correction (A4)
+    r["N"] = d["N"]; r["w_evt_fb"] = r["sig"]*r["k"]*r["corr"]/d["N"]; d["w"] = np.full(len(d["mll"]), r["w_evt_fb"])
     DATA[sid] = d
+
+# ------------------------------------------------------------------ A1: generator mjj>400 bias of QCD-type VBS-biased samples
+# C(c) = Y(no-mjj-cut twin) / Y(VBS-biased sample) at a relaxed Delphes selection with the same VBS-jet, Z-window and photon
+# pT cuts (1 photon for Zg+jets, 2 photons in 105-165 GeV for Zgg); applied as a multiplicative correction, its statistical
+# uncertainty as a per-process nuisance. EW-type samples: 1.4% (EW ZHjj proxy, work/theory/mjj_resolution.json), not corrected.
+GENMJJ = {"F_QCD_Zajj": ("F_QCD_llajj_nomjj", 1), "B_QCD_Zaajj_vbs": ("B_QCD_zaajj_nomjj", 2)}
+AUX = {}
+for sid, (tw, ng_) in GENMJJ.items():
+    ch = fin(tw)
+    if sid in DATA and ch and tw in VER and VER[tw]["ok"] > 0:
+        d = load(ch); keep = d["npr"] <= (REG[sid]["ovl"] if REG[sid]["ovl"] is not None else 99)
+        d = {k: (v[keep] if isinstance(v, np.ndarray) and len(v) == len(keep) else v) for k, v in d.items()}
+        AUX[sid] = dict(d=d, w=VER[tw]["sigma_used_fb"]*REG[sid]["k"]/d["N"], N=d["N"], sig=VER[tw]["sigma_used_fb"], ng=ng_, twin=tw)
+GMC = {}
+def genmjj_corr(sid, c):
+    if sid not in AUX: return 1.0, 0.0
+    key = (sid, json.dumps(c, sort_keys=True))
+    if key in GMC: return GMC[key]
+    out = []
+    for d, w in ((AUX[sid]["d"], AUX[sid]["w"]), (DATA[sid], REG[sid]["w_evt_fb"]/REG[sid]["corr"])):
+        with np.errstate(invalid="ignore"):
+            lo, hi = c["zwin"] if isinstance(c["zwin"], tuple) else (MZ - c["zwin"], MZ + c["zwin"])
+            m = np.isfinite(d["mll"]) & (d["mll"] > lo) & (d["mll"] < hi) & (d["nj"] >= 2) & (d["mjj"] > c["mjj"]) & (d["detajj"] > c["deta"])
+            m &= (d["ng"] >= 1) & (d["g1pt"] > c["gpt"]) if AUX[sid]["ng"] == 1 else (d["ng"] >= 2) & (d["g2pt"] > c["gpt"]) & (d["mgg"] > WIDE[0]) & (d["mgg"] < WIDE[1])
+        n = raw(d, m); out.append((n*w, n))
+    (ya, na), (yb, nb_) = out
+    C = ya/yb if yb > 0 else 1.0; rel = np.sqrt(1/max(na, 1) + 1/max(nb_, 1))
+    GMC[key] = (C, rel, na, nb_); return GMC[key]
+
+# ------------------------------------------------------------------ BR applied exactly once (A6) and N_MC >= sigma x BR x L (A10)
+# per sample: where each decay happens and which factors enter k. The product of the listed factors must equal k.
+BRF = dict(BGG=BGG, ZF=ZF, BR_ZLL=BR_ZLL, one=1.0)
+BRDEF = {
+ "S_EW_ZHjj":  ("Z->ll in MG5 ME (e,mu)", "H->gg forced in PY8 (cond. BR 1)", ["ZF", "BGG"]),
+ "H_QCD_ZHjj": ("Z->ll in MG5 ME (e,mu)", "H->gg forced in PY8 (cond. BR 1)", ["ZF", "BGG"]),
+ "H_ggZH":     ("Z->ee/mumu forced in PY8 (cond. BR 1)", "H->gg forced in PY8 (cond. BR 1)", ["BR_ZLL", "BGG"]),
+ "H_ttH":      ("t->b l nu in MG5 (l=e,mu)", "H->gg forced in PY8 (cond. BR 1)", ["BGG"]),
+ "H_ZH_tautau":("Z->tautau in MG5 ME", "H->gg forced in PY8 (cond. BR 1)", ["BGG"]),
+ "H_tHW":      ("t, W -> l nu in MG5", "H->gg forced in PY8 (cond. BR 1)", ["BGG"]),
+ "B_QCD_Zaajj_vbs": ("Z->ll in MG5 decay chain", "no H (prompt photons in ME)", ["ZF"]),
+ **{f"B_EW_Zaajj_vbs_is{i}": ("Z->ll in MG5 decay chain", "no H (prompt photons in ME)", ["ZF"]) for i in (1, 2, 3)},
+ "T_ttaa":     ("t->b l nu in MG5", "no H", ["one"]), "T_tta": ("t->b l nu in MG5", "no H", ["one"]), "T_tWa": ("t, W -> l nu in MG5", "no H", ["one"]),
+ "F_QCD_Zajj": ("l+l- in ME (gamma*/Z, no decay chain)", "no H", ["one"]), "F_EW_Zajj": ("l+l- in ME (gamma*/Z, no decay chain)", "no H", ["one"]),
+}
+BRTAB = {}
+for sid, r in REG.items():
+    if r.get("missing"): continue
+    zdec, hdec, fac = BRDEF[sid]; prod = float(np.prod([BRF[x] for x in fac]))
+    if abs(prod - r["k"]) > 1e-12*max(1.0, r["k"]): raise SystemExit(f"BR ledger mismatch for {sid}: k={r['k']} vs product {fac}={prod}")
+    if fac.count("BGG") > 1 or fac.count("ZF") + fac.count("BR_ZLL") > 1: raise SystemExit(f"BR factor applied twice for {sid}")
+    BRTAB[sid] = dict(z_or_W_decay=zdec, h_decay=hdec, factors=fac, k=r["k"], offshell_corr=r["corr"])
+def nmc_check(reg, L=NMC_L):
+    """A10: every sample entering s or b must have N_MC >= sigma x BR x L. Fails loudly (SystemExit) otherwise."""
+    rows, bad = {}, []
+    for sid, r in reg.items():
+        if r.get("missing"): continue
+        need = r["sig"]*r["k"]*L; rows[sid] = dict(N=r["N"], sigmaBR_fb=r["sig"]*r["k"], sigmaBRL=need, ratio=r["N"]/need, w_evt_L=need/r["N"])
+        if r["N"] < need: bad.append(f"{sid}: N={r['N']} < sigma x BR x {L:.0f} = {need:.0f}")
+    if bad: raise SystemExit("N_MC >= sigma x BR x L VIOLATED:\n  " + "\n  ".join(bad))
+    return rows
+NCHECK = nmc_check(REG)
+# auxiliary twins (A1) enter b only through the ratio C, whose MC-stat uncertainty is a nuisance; listed and FLAGGED, not exempted silently
+for sid, a in AUX.items():
+    need = a["sig"]*REG[sid]["k"]*NMC_L
+    NCHECK[f"{a['twin']} (aux, ratio only)"] = dict(N=a["N"], sigmaBR_fb=a["sig"]*REG[sid]["k"], sigmaBRL=need, ratio=a["N"]/need, w_evt_L=need/a["N"],
+        aux=True, note="DECISION: auxiliary ratio sample for the generator-mjj correction C; N < sigma x BR x L accepted because only the ratio C enters b and its MC-stat uncertainty is propagated as a nuisance")
+
+# ------------------------------------------------------------------ nuisance model (counting and fit)
+TH = TS["processes"]
+def th(name, proxy=None):
+    if name in TH: return TH[name]["total"], name
+    return TH[proxy]["total"], f"{proxy} (proxy)"
+THMAP = {"S_EW_ZHjj": ("S_EW_ZHjj", None, "th_sig"), "H_QCD_ZHjj": ("H_QCD_ZHjj", None, "th_qcdzh"), "H_ggZH": ("H_ggZH_py8dec", None, "th_ggzh"),
+         "H_ttH": ("H_ttH", None, "th_tth"), "H_tHW": ("H_tHW", "H_ttH", "th_tth"), "H_ZH_tautau": ("H_ZH_tautau", "H_QCD_ZHjj", "th_zhtt"),
+         "B_QCD_Zaajj_vbs": ("B_QCD_zaajj_vbs", "F_QCD_llajj_vbs", "th_qcdzaa"), "B_EW_Zaajj_vbs_is1": ("B_EW_zaajj_vbs_is1h", None, "th_ewzaa"),
+         "B_EW_Zaajj_vbs_is2": ("B_EW_zaajj_vbs_is2", None, "th_ewzaa"), "B_EW_Zaajj_vbs_is3": ("B_EW_zaajj_vbs_is3", None, "th_ewzaa"),
+         "F_QCD_Zajj": ("F_QCD_llajj_vbs", None, "th_fqcd"), "F_EW_Zajj": ("F_EW_llajj_vbs", None, "th_few"),
+         "T_ttaa": ("T_ttaa", None, "th_top"), "T_tta": ("T_tta", None, "th_top"), "T_tWa": ("T_tWa", None, "th_top")}
+NUIS, THSRC = {}, {}
+for sid, r in REG.items():
+    if r.get("missing"): continue
+    nm, px, grp = THMAP[sid]; rel, src = th(nm, px); THSRC[sid] = dict(group=grp, rel=rel, source=src)
+    n = {grp: rel, "lumi": LUMI_UNC}
+    if sid.startswith(("B_QCD_Zaajj", "B_EW_Zaajj")): n["offshell"] = OFFSHELL_UNC
+    if sid.startswith("B_EW_Zaajj"): n["int_zaa"] = INT_ZAA
+    if sid == "H_ggZH": n["ggzh_norm"] = GGZH_LN
+    NUIS[sid] = n
+THEORY_GROUPS = lambda g: g.startswith("th_") or g in ("offshell", "int_zaa", "ggzh_norm")
+SCALE = {}        # per-sample yield multipliers for robustness variations (ggZH x2 / x0.5)
+EFFON = [False]   # CMS-like object-efficiency reweighting (A7)
+OE = TS.get("object_eff")
+CMS_EFF = {  # assumed CMS-like reco x ID x iso efficiencies (Run 2/3 performance; JINST 16 (2021) P05014, JINST 13 (2018) P06015)
+ "e": dict(eta=[0, 1.5, 2.5], pt=[10, 20, 30, 50, 1e9], eff=[[0.70, 0.80, 0.88, 0.92], [0.65, 0.75, 0.83, 0.88]]),
+ "m": dict(eta=[0, 1.5, 2.4], pt=[10, 20, 30, 50, 1e9], eff=[[0.93, 0.96, 0.96, 0.96], [0.93, 0.96, 0.96, 0.96]]),
+ "g": dict(eta=[0, 1.4442, 2.5], pt=[20, 30, 40, 60, 1e9], eff=[[0.85, 0.88, 0.92, 0.92], [0.80, 0.83, 0.88, 0.88]])}
+def _lookup(tab, k, pt, eta):
+    e = np.clip(np.searchsorted(tab[k]["eta" if "eta" in tab[k] else "eta_edges"], np.abs(eta)) - 1, 0, 1)
+    p = np.clip(np.searchsorted(tab[k]["pt" if "pt" in tab[k] else "pt_edges"], pt) - 1, 0, 3)
+    return np.asarray(tab[k]["eff"])[e, p]
+if OE:
+    for sid, d in DATA.items():
+        w = np.ones(len(d["mll"]))
+        with np.errstate(invalid="ignore", divide="ignore"):
+            for lk in ("la", "lb"):
+                pt, eta = np.nan_to_num(d[lk][:, 0], nan=0.), np.nan_to_num(d[lk][:, 1], nan=0.); k = np.where(d["flav"] == 11, "e", "m")
+                for t in ("e", "m"):
+                    m = (k == t) & (pt > 10); de = _lookup(OE, t, pt[m], eta[m]); w[m] *= np.where(de > 0, _lookup(CMS_EFF, t, pt[m], eta[m])/np.maximum(de, 1e-9), 1.0)
+            for i in range(2):
+                pt, eta = np.nan_to_num(d["g"][:, i, 0], nan=0.), np.nan_to_num(d["g"][:, i, 1], nan=0.); m = pt > 20
+                de = _lookup(OE, "g", pt[m], eta[m]); w[m] *= np.where(de > 0, _lookup(CMS_EFF, "g", pt[m], eta[m])/np.maximum(de, 1e-9), 1.0)
+        d["w_cms"] = w
+def effcorr(sid, c):
+    if not EFFON[0] or "w_cms" not in DATA[sid]: return 1.0
+    d = DATA[sid]; pre, lg, jb, vbs, win, wide = masks(d, c); m = pre & lg & jb
+    return float(d["w_cms"][m].mean()) if m.sum() else float(d["w_cms"][pre].mean() if pre.sum() else 1.0)
 
 # ------------------------------------------------------------------ m_gg peak from the Delphes EW signal
 m = DATA["S_EW_ZHjj"]["mgg"]; m = m[np.isfinite(m) & (m > 110) & (m < 140)]
@@ -182,20 +304,36 @@ def estimate(sid, c):
         else: f = 1.0
         y = nL*we*f*ev
         return y, y, nwin, nwide, "L2 VBS-factorised (100% unc.)", dict(n_noVBS=nL, eps_vbs=ev, n_presel=nP, n_presel_vbs=nPV)
+    # L2b (2026-11-03): direct sample, VBS AND window factorised: N(pre & lepton/photon cuts) x eps(VBS | pre) x f(window | pre)
+    nLb = raw(d, pre & lg & jb)
+    if nLb > 0 and nP > 0 and r["kind"] == "cont":
+        ev = nPV/nP if nPV > 0 else 0.5/(nP + 1)
+        pw = raw(d, pre & wide)/nP; fw, _ = fwin(d["mgg"][pre & wide], c); fw *= pw
+        y = nLb*we*ev*fw
+        return y, y, nwin, nwide, "L2b VBS+window-factorised, direct sample (100% unc.)", dict(n_lep_pho=nLb, eps_vbs=ev, f_win=fw, n_presel=nP, UL95_direct=3.0*we)
     return 1.14*we, 1.14*we, nwin, nwide, "UL (zero support): 1.14 w_evt", dict(UL95=3.0*we)
 
 SYST = {"fake": 0.50, "other": 0.10}
-def totals(c, L, sigdef="a", fake_syst=0.5, details=False):
-    s = b = vs = vb = var_syst = 0.0; comp = {}
+def totals(c, L, sigdef="a", fake_syst=0.5, details=False, theory=True):
+    """s, b, MC stat, sigma_b (per-process normalisation (+) MC stat (+) correlated groups: theory per group, off-shell,
+    Zgg interference, ggZH x2, luminosity; groups summed linearly over processes, then in quadrature) and sigma_s"""
+    s = b = vs = vb = var_proc = 0.0; comp = {}; Gb = {}; Gs = {}
     for sid, r in REG.items():
         if r.get("missing") or r["role"] == "excl": continue
-        y, e, nw, nwd, meth, det = estimate(sid, c); y, e = y*L, e*L
+        y, e, nw, nwd, meth, det = estimate(sid, c); gc = genmjj_corr(sid, c); f = SCALE.get(sid, 1.0)*effcorr(sid, c)*gc[0]; y, e = y*L*f, e*L*f
         if details: comp[sid] = dict(y=y, mcstat=e, raw_win=nw, raw_wide=nwd, method=meth, w_evt=r["w_evt_fb"]*L, **{k: float(v) for k, v in det.items()})
-        if r["role"] == "sig" or (sigdef == "b" and r["role"] == "qcdzh"): s += y; vs += e**2; continue
+        sig = r["role"] == "sig" or (sigdef == "b" and r["role"] == "qcdzh")
+        G = Gs if sig else Gb
+        for g, rel in list(NUIS[sid].items()) + ([(f"genmjj_{sid}", gc[1])] if sid in AUX else []):
+            if theory or not THEORY_GROUPS(g): G[g] = G.get(g, 0.0) + rel*y
+        if details and sid in AUX: comp[sid].update(genmjj_C=float(gc[0]), genmjj_rel=float(gc[1]), genmjj_raw_twin=gc[2], genmjj_raw_vbs=gc[3])
+        if sig: s += y; vs += e**2; continue
         b += y; vb += e**2
         rs = fake_syst if r["syst"] == "fake" else SYST["other"]
-        var_syst += (rs*y)**2 + (LUMI_UNC*y)**2
-    return dict(s=s, b=b, s_mc=np.sqrt(vs), b_mc=np.sqrt(vb), sigma_b=np.sqrt(var_syst + vb), comp=comp)
+        var_proc += (rs*y)**2
+    sb = np.sqrt(var_proc + vb + sum(v**2 for v in Gb.values())); ss = np.sqrt(vs + sum(v**2 for v in Gs.values()))
+    return dict(s=s, b=b, s_mc=np.sqrt(vs), b_mc=np.sqrt(vb), sigma_b=sb, sigma_s=ss, comp=comp,
+                groups_b={k: float(v) for k, v in Gb.items()}, groups_s={k: float(v) for k, v in Gs.items()})
 
 def zeq1(s, b): return np.sqrt(2*((s + b)*np.log(1 + s/b) - s)) if b > 0 and s > 0 else 0.0
 def zeq1_err(s, b, ds, db):
@@ -206,15 +344,19 @@ def z_syst(s, b, sb):
     if sb <= 0: return zeq1(s, b)
     t1 = (s + b)*np.log((s + b)*(b + sb**2)/(b**2 + (s + b)*sb**2)); t2 = b**2/sb**2*np.log(1 + sb**2*s/(b*(b + sb**2)))
     return float(np.sqrt(max(2*(t1 - t2), 0)))
-def cls_limit(s, b, sb, alpha=0.05):
-    """median expected 95% CL CLs upper limit on mu: exact Poisson counting, b marginalised over a log-normal(sb/b)"""
-    rel = sb/b if b > 0 else 0
-    gx, gw = np.polynomial.hermite_e.hermegauss(40); gw = gw/gw.sum()
-    bs = b*np.exp(np.sqrt(np.log(1 + rel**2))*gx - 0.5*np.log(1 + rel**2)) if rel > 0 else np.full(1, b)
-    if rel == 0: gw = np.ones(1)
-    cdf = lambda n, mu: (gw*stats.poisson.cdf(n, mu*s + bs)).sum()
-    nn = np.arange(0, int(b + 10*np.sqrt(b + 1) + 10*sb + 20)); nmed = nn[np.searchsorted(np.array([cdf(k, 0) for k in nn]), 0.5)]
-    f = lambda mu: cdf(nmed, mu)/cdf(nmed, 0) - alpha; hi = 1.0
+def cls_limit(s, b, sb, alpha=0.05, ss=0.0):
+    """median expected 95% CL CLs upper limit on mu: exact Poisson counting; b and s marginalised over log-normals
+    (relative widths sb/b and ss/s, independent)"""
+    gx, gw = np.polynomial.hermite_e.hermegauss(30); gw = gw/gw.sum()
+    def ln(x, rel):
+        if rel <= 0: return np.full(1, x), np.ones(1)
+        v = np.log(1 + rel**2); return x*np.exp(np.sqrt(v)*gx - 0.5*v), gw
+    bs, wb = ln(b, sb/b if b > 0 else 0); s_, ws = ln(s, ss/s if s > 0 else 0)
+    BS, SS = np.meshgrid(bs, s_); W2 = np.outer(ws, wb)
+    cdf = lambda n, mu: (W2*stats.poisson.cdf(n, mu*SS + BS)).sum()
+    cdf0 = lambda n: (wb*stats.poisson.cdf(n, bs)).sum()
+    nn = np.arange(0, int(b + 10*np.sqrt(b + 1) + 10*sb + 20)); nmed = nn[np.searchsorted(np.array([cdf0(k) for k in nn]), 0.5)]
+    f = lambda mu: cdf(nmed, mu)/cdf0(nmed) - alpha; hi = 1.0
     while f(hi) > 0: hi *= 2
     return float(optimize.brentq(f, 0, hi)), int(nmed)
 
@@ -246,11 +388,13 @@ def results(c, tag):
     out = {}
     for L in (500., 1000., 3000.):
         for sd in ("a", "b"):
-            T = totals(c, L, sd, details=(L == 500. or L == 3000.))
-            mu, nmed = cls_limit(T["s"], T["b"], T["sigma_b"]); mu0, _ = cls_limit(T["s"], T["b"], 0.0)
-            out[f"{int(L)}_{sd}"] = dict(L=L, sigdef=sd, s=T["s"], b=T["b"], s_mc=T["s_mc"], b_mc=T["b_mc"], sigma_b=T["sigma_b"],
-                Z_eq1=zeq1(T["s"], T["b"]), Z_eq1_mcerr=zeq1_err(T["s"], T["b"], T["s_mc"], T["b_mc"]),
-                Z_syst_counting=z_syst(T["s"], T["b"], T["sigma_b"]), mu95_cls=mu, mu95_cls_stat=mu0, n_median=nmed,
+            T = totals(c, L, sd, details=(L == 500. or L == 3000.)); T0 = totals(c, L, sd, theory=False)
+            mu, nmed = cls_limit(T["s"], T["b"], T["sigma_b"], ss=T["sigma_s"]); mu0, _ = cls_limit(T["s"], T["b"], 0.0)
+            mu_nth, _ = cls_limit(T0["s"], T0["b"], T0["sigma_b"], ss=T0["sigma_s"])
+            out[f"{int(L)}_{sd}"] = dict(L=L, sigdef=sd, s=T["s"], b=T["b"], s_mc=T["s_mc"], b_mc=T["b_mc"], sigma_b=T["sigma_b"], sigma_s=T["sigma_s"],
+                sigma_b_notheory=T0["sigma_b"], Z_eq1=zeq1(T["s"], T["b"]), Z_eq1_mcerr=zeq1_err(T["s"], T["b"], T["s_mc"], T["b_mc"]),
+                Z_syst_counting=z_syst(T["s"], T["b"], T["sigma_b"]), Z_syst_counting_notheory=z_syst(T0["s"], T0["b"], T0["sigma_b"]),
+                mu95_cls=mu, mu95_cls_stat=mu0, mu95_cls_notheory=mu_nth, n_median=nmed, groups_b=T["groups_b"], groups_s=T["groups_s"],
                 comp=T["comp"])
     return out
 RESULTS = results(OPT, "opt"); RES_BASE = results(BASE, "base")
@@ -308,21 +452,27 @@ def templates(c, L, sigdef):
             cdf = (x0/Lw) if abs(lam) < 1e-6 else (1 - np.exp(-lam*x0))/(1 - np.exp(-lam*Lw))
             nu = (y*L/max(fw, 1e-12))*np.diff(cdf)
         rel_mc = (e/y) if y > 0 else 1.0
-        T.append(dict(id=sid, role=role, nu=nu, syst=(0.5 if r["syst"] == "fake" else 0.10), mc=min(rel_mc, 1.0),
-                      lumi=LUMI_UNC))
+        gc = genmjj_corr(sid, c); f = SCALE.get(sid, 1.0)*effcorr(sid, c)*gc[0]
+        gr = {g: v for g, v in NUIS[sid].items() if THEORY_ON[0] or not THEORY_GROUPS(g)}
+        if sid in AUX: gr[f"genmjj_{sid}"] = gc[1]
+        T.append(dict(id=sid, role=role, nu=nu*f, syst=(0.5 if r["syst"] == "fake" else 0.10), mc=min(rel_mc, 1.0), groups=gr))
     return T
+THEORY_ON = [True]
+def fit_groups(T): return sorted({g for t in T for g in t["groups"]})
 def nll_fit(T, data, mu, theta):
-    """theta: per background process (log-normal syst+MC combined into one nuisance per process) + lumi"""
-    lam = np.zeros(len(EDGES) - 1); k = 0; pen = 0.0; tl = theta[-1]
+    """theta = [one log-normal per background process (normalisation (+) MC stat)] + [one per correlated group: theory
+    groups, off-shell, Zgg interference, ggZH x2 (log-normal ln 2), luminosity], shared by signal and backgrounds"""
+    GL = fit_groups(T); nbk = sum(1 for t in T if t["role"] != "sig"); th = dict(zip(GL, theta[nbk:]))
+    lam = np.zeros(len(EDGES) - 1); k = 0; pen = 0.5*np.sum(np.asarray(theta)**2)
     for t in T:
-        lumi = (1 + t["lumi"])**tl
-        if t["role"] == "sig": lam += mu*lumi*t["nu"]
+        mod = np.exp(sum(np.log(1 + v)*th[g] if g != "ggzh_norm" else v*th[g] for g, v in t["groups"].items()))
+        if t["role"] == "sig": lam += mu*mod*t["nu"]
         else:
-            sg = np.sqrt(np.log(1 + t["syst"]**2 + t["mc"]**2)); lam += lumi*t["nu"]*np.exp(sg*theta[k]); pen += 0.5*theta[k]**2; k += 1
-    lam = np.maximum(lam, 1e-12); pen += 0.5*tl**2
+            sg = np.sqrt(np.log(1 + t["syst"]**2 + t["mc"]**2)); lam += mod*t["nu"]*np.exp(sg*theta[k]); k += 1
+    lam = np.maximum(lam, 1e-12)
     return (lam - data*np.log(lam)).sum() + pen
 def profile(T, data, mu, fixed_theta=False):
-    nb = sum(1 for t in T if t["role"] != "sig") + 1
+    nb = sum(1 for t in T if t["role"] != "sig") + len(fit_groups(T))
     if fixed_theta: return nll_fit(T, data, mu, np.zeros(nb))
     return optimize.minimize(lambda th: nll_fit(T, data, mu, th), np.zeros(nb), method="L-BFGS-B").fun
 def fit_results(c):
@@ -346,17 +496,66 @@ def fit_results(c):
     return out
 FIT = fit_results(OPT)
 
-# ------------------------------------------------------------------ robustness / checks
+# ------------------------------------------------------------------ robustness / checks (500 fb^-1, def. a; each row with mu95)
 ROB = {}
-for name, c in [("optimum", OPT), ("window +-1.5 sigma", dict(OPT, wk=1.5)), ("reference-like baseline", BASE),
+def rob(name, c, **kw):
+    T = totals(c, 500., **kw); mu, _ = cls_limit(T["s"], T["b"], T["sigma_b"], ss=T["sigma_s"])
+    ROB[name] = dict(s=T["s"], b=T["b"], Z_eq1=zeq1(T["s"], T["b"]), Z_syst=z_syst(T["s"], T["b"], T["sigma_b"]), mu95=mu)
+for name, c in [("optimum", OPT), ("window +-1.5 sigma", dict(OPT, wk=1.5)), ("reference-like baseline (photon pT > 25 GeV, not 20)", BASE),
                 ("b-veto toggled", dict(OPT, bveto=not OPT["bveto"])), ("Zeppenfeld z* < 1.0" if OPT["zep"] > 50 else "no Zeppenfeld", dict(OPT, zep=1.0 if OPT["zep"] > 50 else 99.)),
                 ("mjj > 700, |deta| > 3.0", dict(OPT, mjj=700., deta=3.0))]:
-    T = totals(c, 500.); ROB[name] = dict(s=T["s"], b=T["b"], Z_eq1=zeq1(T["s"], T["b"]), Z_syst=z_syst(T["s"], T["b"], T["sigma_b"]))
-for fs in (0.25, 1.0):
-    T = totals(OPT, 500., fake_syst=fs); ROB[f"fake syst {int(fs*100)}%"] = dict(s=T["s"], b=T["b"], Z_eq1=zeq1(T["s"], T["b"]), Z_syst=z_syst(T["s"], T["b"], T["sigma_b"]))
-# resolution dependence: rescale the window width (signal efficiency from the Delphes shape, continuum linear)
-for sc in (0.75, 1.25):
-    c2 = dict(OPT, wk=OPT["wk"]*sc); T = totals(c2, 500.); ROB[f"window x{sc} (resolution proxy)"] = dict(s=T["s"], b=T["b"], Z_eq1=zeq1(T["s"], T["b"]), Z_syst=z_syst(T["s"], T["b"], T["sigma_b"]))
+    rob(name, c)
+for fs in (0.25, 1.0): rob(f"fake syst {int(fs*100)}%", OPT, fake_syst=fs)
+for sc in (0.75, 1.25): rob(f"window x{sc} (resolution proxy)", dict(OPT, wk=OPT["wk"]*sc))
+rob("theory / off-shell / interference nuisances removed", OPT, theory=False)
+for fct in (2.0, 0.5):
+    SCALE["H_ggZH"] = fct; rob(f"ggZH normalisation x{fct:g}", OPT); SCALE.clear()
+_c = OFFSHELL
+for sid in REG:
+    if sid.startswith(("B_QCD_Zaajj", "B_EW_Zaajj")) and sid in DATA: SCALE[sid] = 1.0/_c
+rob("no off-shell/FSR correction of Zgg (x1/1.128)", OPT); SCALE.clear()
+for sid in ("T_tta", "T_tWa"):
+    if sid in DATA:
+        y = estimate(sid, OPT)[0]; SCALE[sid] = (3.0*REG[sid]["w_evt_fb"])/y if y > 0 else 1.0
+rob("ttgamma, tWgamma at their direct zero-count 95% UL (3 w_evt each)", OPT); SCALE.clear()
+EFFON[0] = True; rob("CMS-like e/mu/gamma efficiencies (A7 reweighting)", OPT)
+T3 = {}
+for L in (500., 3000.):
+    for sd in ("a", "b"):
+        T = totals(OPT, L, sd); mu, _ = cls_limit(T["s"], T["b"], T["sigma_b"], ss=T["sigma_s"])
+        T3[f"{int(L)}_{sd}"] = dict(s=T["s"], b=T["b"], Z_eq1=zeq1(T["s"], T["b"]), Z_syst=z_syst(T["s"], T["b"], T["sigma_b"]), mu95=mu)
+EFFON[0] = False
+EFF_SUMMARY = dict(results=T3, cms_eff=CMS_EFF, delphes_eff=OE, mean_w_signal=float(DATA["S_EW_ZHjj"]["w_cms"][masks(DATA["S_EW_ZHjj"], OPT)[0]].mean()) if OE else None)
+
+# ------------------------------------------------------------------ A1: 1D significance curves vs the mjj and |deta_jj| thresholds
+MJJ1 = [400., 450., 500., 550., 600., 700., 800., 900., 1000., 1200.]; DETA1 = [2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]
+SCAN1D = {}
+for L in (500., 3000.):
+    for var, vals in (("mjj", MJJ1), ("deta", DETA1)):
+        for v in vals:
+            T = totals(dict(OPT, **{var: v}), L)
+            SCAN1D[f"{int(L)}|{var}|{v:g}"] = dict(Z=zeq1(T["s"], T["b"]), Zsyst=z_syst(T["s"], T["b"], T["sigma_b"]), s=T["s"], b=T["b"],
+                                                   gen_cut_region=bool(var == "mjj" and v < 500.))
+
+# ------------------------------------------------------------------ A9: ttgamma at the reference-like baseline before any m_gg window (vs reference 0.15 +- 0.10 / 500 fb^-1)
+TTA_XCHECK = {}
+for sid in ("T_tta", "T_tWa"):
+    if sid not in DATA: continue
+    d = DATA[sid]; pre, lg, jb, vbs, win, wide = masks(d, BASE); m = pre & lg & jb & vbs; n = raw(d, m)
+    TTA_XCHECK[sid] = dict(raw=n, y500=n*REG[sid]["w_evt_fb"]*500, y500_ul95=3.0*REG[sid]["w_evt_fb"]*500 if n == 0 else None,
+                           raw_presel=raw(d, pre), raw_lg=raw(d, pre & lg))
+TTA_XCHECK["reference"] = dict(T_tta=[0.15, 0.10], T_tWa=[0.00, 0.00], note="arXiv:2512.07689 Table IV (full reference cut flow, no m_gg window, photon pT > 20 GeV)")
+# transfer-factor cross-check (the old L3 method) for the direct ttgamma result
+TF_XCHECK = {}
+if "F_QCD_Zajj" in DATA:
+    tf, ntf, nden = transfer_factor(OPT)
+    for sid in ("T_tta", "T_tWa"):
+        if sid not in DATA: continue
+        d = DATA[sid]; we = REG[sid]["w_evt_fb"]
+        with np.errstate(invalid="ignore"):
+            lo, hi = OPT["zwin"] if isinstance(OPT["zwin"], tuple) else (MZ - OPT["zwin"], MZ + OPT["zwin"])
+            one = np.isfinite(d["mll"]) & (d["ng"] >= 1) & (d["nj"] >= 2) & (d["mll"] > lo) & (d["mll"] < hi) & (d["g1pt"] > OPT["gpt"]) & (d["mjj"] > OPT["mjj"]) & (d["detajj"] > OPT["deta"])
+        TF_XCHECK[sid] = dict(n_1photon=raw(d, one), TF=tf, y500_tf=raw(d, one)*we*tf*500, y500_direct=RESULTS["500_a"]["comp"][sid]["y"])
 
 # fake-factor cross-check on Delphes jets (F_QCD_Zajj ff1 rows): f = 5e-4, 1e-3, 2e-3 and pT-dependent
 FF = {}
@@ -372,10 +571,18 @@ if ffc and "F_QCD_Zajj" in DATA:
     FF["direct Delphes"] = dict(final=RESULTS["500_a"]["comp"]["F_QCD_Zajj"]["y"], noVBS=float(raw(dd, pre & lg & jb & win)*r["w_evt_fb"]*500),
                                 raw_noVBS=raw(dd, pre & lg & jb & win))
 
+# ------------------------------------------------------------------ E: coupling interpretation (same framework, exec'd in this namespace)
+exec(compile(open(f"{P}/scripts/analysis/coupling_section.py").read(), f"{P}/scripts/analysis/coupling_section.py", "exec"))
+
 json.dump(dict(registry={k: {kk: vv for kk, vv in v.items() if kk != "chunks"} | dict(chunks=[os.path.basename(x) for x in v["chunks"]]) for k, v in REG.items()},
                missing=MISSING, resolution=RES, base=BASE, optimum=OPT, opt_history=HIST, results=RESULTS, results_baseline=RES_BASE,
                cutflow=CUTFLOW, cutflow_baseline=CUTFLOW_BASE, scan=SCAN, fit=FIT, fit_edges=EDGES.tolist(), robustness=ROB, ff_xcheck=FF,
-               lumi_unc=LUMI_UNC, syst=SYST, br=dict(BGG=BGG, ZF=ZF, BR_ZLL=BR_ZLL)),
+               lumi_unc=LUMI_UNC, syst=SYST, br=dict(BGG=BGG, ZF=ZF, BR_ZLL=BR_ZLL), br_table=BRTAB, nmc_check=NCHECK, nmc_L=NMC_L,
+               nuisances=NUIS, theory_sources=THSRC, theory_summary={k: v for k, v in TS.items() if k not in ("object_eff",)},
+               offshell=dict(factor=OFFSHELL, rel_unc=OFFSHELL_UNC), int_zaa=INT_ZAA, cms_eff=EFF_SUMMARY, scan1d=SCAN1D,
+               tta_xcheck=TTA_XCHECK, tf_xcheck=TF_XCHECK, coupling=CPL,
+               genmjj={sid: dict(twin=a["twin"], N=a["N"], sigma_fb=a["sig"], C_opt=genmjj_corr(sid, OPT)[0], rel_opt=genmjj_corr(sid, OPT)[1],
+                                 raw_twin=genmjj_corr(sid, OPT)[2], raw_vbs=genmjj_corr(sid, OPT)[3]) for sid, a in AUX.items()}),
           open(OUT, "w"), indent=1, default=lambda o: o.tolist() if isinstance(o, np.ndarray) else (float(o) if isinstance(o, np.floating) else str(o)))
 print("optimum:", OPT); print("missing:", MISSING)
 for k, v in RESULTS.items():
@@ -407,8 +614,11 @@ if "--plots" in sys.argv:
             hh = np.zeros(len(bins) - 1)
             for sid, r in REG.items():
                 if r.get("missing") or r["grp"] != g or r["role"] == "excl" or r["kind"] == "tf": continue
-                d = DATA[sid]; m = sel(d, c) & (np.isfinite(d["mgg"]) if var != "mgg" else (d["mgg"] > 0))
-                hh += np.histogram(d[var][m], bins=bins, weights=d["w"][m]*LPL)[0]
+                if sid in AUX:   # QCD-type samples: plot the unbiased no-mjj-cut twin (the VBS-biased sample has a cliff at mjj = 400 GeV)
+                    d = AUX[sid]["d"]; wv = np.full(len(d["mll"]), AUX[sid]["w"]*REG[sid]["corr"])
+                else: d = DATA[sid]; wv = d["w"]
+                m = sel(d, c) & (np.isfinite(d["mgg"]) if var != "mgg" else (d["mgg"] > 0))
+                hh += np.histogram(d[var][m], bins=bins, weights=wv[m]*LPL)[0]
             if hh.sum() > 0:
                 ax.bar(bins[:-1], hh, width=np.diff(bins), bottom=bottom, align="edge", color=COL[g], edgecolor="white", linewidth=0.6, label=g)
                 bottom += hh
@@ -434,4 +644,54 @@ if "--plots" in sys.argv:
         fig.colorbar(im, ax=ax, label="Z (Eq. 1, stat. only)"); fig.tight_layout()
         for ext in ("pdf", "png"): fig.savefig(f"{FIG}/scan_mjj_deta_{L}.{ext}", dpi=150)
         plt.close(fig)
+    # A1: Z vs the mjj and |deta_jj| lower cuts (other cuts at the optimum)
+    MR = TS.get("mjj_resolution") or {}
+    for var, vals, xl, fname in (("mjj", MJJ1, r"$m_{jj}$ lower cut [GeV]", "z_vs_mjj"), ("deta", DETA1, r"$|\Delta\eta_{jj}|$ lower cut", "z_vs_deta")):
+        fig, ax = plt.subplots(figsize=(6.4, 4.4))
+        for L, col in ((500, "#2a78d6"), (3000, "#eb6834")):
+            z = [SCAN1D[f"{L}|{var}|{v:g}"]["Z"] for v in vals]; zs = [SCAN1D[f"{L}|{var}|{v:g}"]["Zsyst"] for v in vals]
+            ax.plot(vals, z, "-o", color=col, lw=2, ms=5, label=f"Z Eq. 1, {L} fb$^{{-1}}$"); ax.plot(vals, zs, "--", color=col, lw=1.5, label=f"Z with $\\sigma_b$, {L} fb$^{{-1}}$")
+        if var == "mjj":
+            ax.axvspan(min(vals) - 25, 500, color="#999", alpha=0.18, lw=0)
+            ax.text(405, ax.get_ylim()[1]*0.93, "affected by generator\nmjj > 400 GeV cut", fontsize=8, color="#444", va="top")
+            r = MR.get("ew_zhjj_zll", {})
+            if r: ax.set_title(f"Delphes mjj resolution (EW ZHjj, matched GenJets): $\\sigma_{{68}}$ = {100*r['sigma68_rel']:.0f}%", fontsize=9, color="#444")
+        ax.axvline(OPT[var], color="#111", lw=1, ls=":"); ax.set_xlabel(xl); ax.set_ylabel("expected significance (def. a)")
+        ax.set_ylim(bottom=0); ax.legend(fontsize=8, loc="lower left" if var == "deta" else "lower right"); fig.tight_layout()
+        for ext in ("pdf", "png"): fig.savefig(f"{FIG}/{fname}.{ext}", dpi=150)
+        plt.close(fig)
+    # E: coupling figures
+    if "choice" in CPL:
+        fig, ax = plt.subplots(figsize=(6.4, 4.4))
+        for L, col in ((500, "#2a78d6"), (1000, "#1baf7a"), (3000, "#eb6834")):
+            r = CPL[f"lambda|{L}|fixed"]; ax.plot(r["lam"], r["q"], color=col, lw=2, label=f"{L} fb$^{{-1}}$, BR(H$\\to\\gamma\\gamma$) SM")
+            r = CPL[f"lambda|{L}|resolved"]; ax.plot(r["lam"], r["q"], color=col, lw=1.2, ls="--", label=f"{L} fb$^{{-1}}$, resolved $\\kappa_\\gamma(\\kappa_W)$")
+        for y, t in ((1, "68%"), (3.84, "95%")): ax.axhline(y, color="#777", lw=0.8, ls=":"); ax.text(1.75, y + 0.1, t, fontsize=8, color="#555")
+        ax.set_xlabel(r"$\lambda_{WZ} = \kappa_W/\kappa_Z$ ($\kappa_Z = 1$)"); ax.set_ylabel(r"$-2\Delta\ln L$ (Asimov SM, profiled)"); ax.set_ylim(0, 12)
+        ax.set_title(f"EW ZHjj, H$\\to\\gamma\\gamma$: binned fit in {CPL['choice']['observable']} (signal region)", fontsize=9, color="#444"); ax.legend(fontsize=7, ncol=2)
+        fig.tight_layout(); [fig.savefig(f"{FIG}/lambdaWZ_scan.{e}", dpi=150) for e in ("pdf", "png")]; plt.close(fig)
+        for L in (500, 3000):
+            r = CPL[f"2d|{L}"]; K, Lm = np.meshgrid(r["lam"], r["kZ"]); Q = np.array(r["q"])
+            fig, ax = plt.subplots(figsize=(6.0, 4.6)); cs = ax.contour(K, Lm, Q, levels=[2.30, 5.99], colors=["#2a78d6", "#eb6834"], linewidths=2)
+            ax.clabel(cs, fmt={2.30: "68%", 5.99: "95%"}, fontsize=8); ax.plot([1], [1], "k*", ms=10, label="SM")
+            ax.set_xlabel(r"$\lambda_{WZ}$"); ax.set_ylabel(r"$\kappa_Z$"); ax.legend(fontsize=8, loc="upper left")
+            ax.set_title(f"Expected 2D contours, {L} fb$^{{-1}}$ (BR(H$\\to\\gamma\\gamma$) SM)", fontsize=9, color="#444")
+            fig.tight_layout(); [fig.savefig(f"{FIG}/kappaZ_lambdaWZ_{L}.{e}", dpi=150) for e in ("pdf", "png")]; plt.close(fig)
+        for var, lab, bins in (("mllgg", r"$m_{\ell\ell\gamma\gamma}$ [GeV]", np.linspace(100, 1500, 29)), ("ptgg", r"$p_T^{\gamma\gamma}$ [GeV]", np.linspace(0, 600, 25)),
+                               ("mjj", r"$m_{jj}$ [GeV]", np.linspace(500, 4000, 29)), ("detajj", r"$|\Delta\eta_{jj}|$", np.linspace(3, 9, 25))):
+            fig, ax = plt.subplots(figsize=(6.4, 4.4))
+            for tag, col, lb in (("lam_p100", "#111", r"SM ($\lambda_{WZ}=1$)"), ("lam_m100", "#eb6834", r"$\lambda_{WZ}=-1$"), ("lam_p000", "#2a78d6", r"$\lambda_{WZ}=0$")):
+                d = KREG[tag]["d"]; m = sr_mask(d); h = np.histogram(d[var][m], bins=bins, weights=np.full(m.sum(), KREG[tag]["w"]*3000))[0]
+                ax.step(bins, np.r_[h, h[-1]], where="post", color=col, lw=2, label=lb)
+            ax.set_xlabel(lab); ax.set_ylabel("events / bin (3000 fb$^{-1}$), signal region"); ax.legend(fontsize=8)
+            ax.set_title("Delphes EW ZHjj at the optimum selection (incl. m$_{\\gamma\\gamma}$ window)", fontsize=9, color="#444")
+            fig.tight_layout(); [fig.savefig(f"{FIG}/lambdaWZ_dist_{var}.{e}", dpi=150) for e in ("pdf", "png")]; plt.close(fig)
+        if "cA|3000|noclip" in CPL:
+            fig, ax = plt.subplots(figsize=(6.4, 4.4))
+            for L, col in ((500, "#2a78d6"), (3000, "#eb6834")):
+                for cl, ls in (("noclip", "-"), ("clip500", "--")):
+                    r = CPL[f"cA|{L}|{cl}"]; ax.plot(r["cA"], r["q"], color=col, ls=ls, lw=2 if cl == "noclip" else 1.3, label=f"{L} fb$^{{-1}}$" + (", $m_{\\ell\\ell\\gamma\\gamma}$ < 500 GeV" if cl == "clip500" else ""))
+            ax.axhline(3.84, color="#777", lw=0.8, ls=":"); ax.axhline(1, color="#777", lw=0.8, ls=":")
+            ax.set_xlim(-1, 1); ax.set_ylim(0, 10); ax.set_xlabel(r"CP-odd $c_A = \sin\alpha\,\kappa_{AVV}$ ($\Lambda$ = 1 TeV)"); ax.set_ylabel(r"$-2\Delta\ln L$"); ax.legend(fontsize=8)
+            fig.tight_layout(); [fig.savefig(f"{FIG}/cA_scan.{e}", dpi=150) for e in ("pdf", "png")]; plt.close(fig)
     print("figures ->", FIG)

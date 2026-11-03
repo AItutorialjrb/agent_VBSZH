@@ -1,0 +1,45 @@
+# Theory (2026-11-03): I term of on-shell Z(undecayed) gamma gamma jj, beam-1 split is2; squared orders cannot be combined with a decay chain in MG5 3.6.3, so Z is left undecayed in BOTH the interference (I) and EW (E) runs; the ratio I/E is unaffected (on-shell Z decay factorises). Photon/jet cuts as B_EW_zaajj_vbs_is2.
+# FINAL RUN card (2026-11-02 20:55): EW prompt Zgg+jj with on-shell Z (narrow width, Z->ee/mumu decay chain), VBS-biased; replaces the EW l+l-aajj hedge (>100 h projected integration). See FINAL_report limitations. SPLIT is1: beam-1 parton class (u c), 4-flavour (no b in p/j; b-initiated EW Zaajj negligible, b-jets vetoed). Sum of is1-3 = full 4F process. VARIANT is1h: identical process with Monte-Carlo helicity sampling (nhel=1) for integration speed; used instead of is1 only if it finishes first.
+# production_v2 gridpack card — UNVALIDATED until its gridpack job + one test job pass (reports/04_production_plan.md).
+# OUTDIR/SEED substituted by scripts/condor/make_gridpack.sh
+set automatic_html_opening False
+set auto_update 0
+set nb_core 4
+set run_mode 2
+set lhapdf_py3 lhapdf-config
+import model sm-no_b_mass
+define p = g u c d s u~ c~ d~ s~
+define j = g u c d s u~ c~ d~ s~
+define l+ = e+ mu+
+define l- = e- mu-
+define vl = ve vm
+define vl~ = ve~ vm~
+define b1 = d s
+generate b1 p > z a a j j QCD^2==2 QED^2==8
+output OUTDIR -nojpeg
+launch OUTDIR
+0
+set run_card ebeam1 6800
+set run_card ebeam2 6800
+set run_card pdlabel lhapdf
+set run_card lhaid 303600
+set run_card maxjetflavor 5
+set run_card asrwgtflavor 5
+set run_card use_syst True
+set run_card gridpack False
+set run_card nevents 1000
+set run_card pta 25
+set run_card etaa 2.5
+set run_card draa 0.4
+set run_card draj 0.4
+set run_card ptj 20
+set run_card etaj 5
+set run_card mmjj 400
+set run_card nhel 1
+set run_card mmaa 100
+set run_card mmaamax 170
+set run_card draa 0.4
+set run_card drjj 0.4
+set run_card dynamical_scale_choice 3
+set run_card iseed SEED
+done

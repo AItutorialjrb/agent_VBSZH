@@ -1,0 +1,15 @@
+# A1/A2/A3 analysis jobs (2026-11-03) on workers: LHE theory weights (v1 signal / QCD ZHjj, 20 files each) and mjj resolution
+universe = vanilla
+executable = /eos/user/r/rjiang/vbs_zh_codex_starter/scripts/condor/pyjob.sh
+arguments = $(args)
+should_transfer_files = YES
+transfer_output_files = ""
+output = /eos/user/r/rjiang/vbs_zh_codex_starter/production/condor_logs/theory/parse_$(tag).out
+error  = /eos/user/r/rjiang/vbs_zh_codex_starter/production/condor_logs/theory/parse_$(tag).err
+log    = /eos/user/r/rjiang/vbs_zh_codex_starter/production/condor_logs/theory.log
+request_cpus = 1
+request_memory = 4000
++JobFlavour = "longlunch"
+queue tag, args from (
+  mjjres2 scripts/analysis/mjj_resolution.py 20
+)

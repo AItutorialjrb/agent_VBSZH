@@ -14,6 +14,8 @@ xrdfs $EOSURL stat "$OUTDIR/${CARD}_gridpack_s${SEED}.tar.gz" >/dev/null 2>&1 &&
 export PROJECT=$WD/proj; mkdir -p $PROJECT/scripts; cp setup_stack.sh $PROJECT/scripts/
 xrdcp -s $EOSURL//eos/user/r/rjiang/vbs_zh_codex_starter/software/install/MG5_aMC_v3.6.3_install.tgz mg5.tgz && tar xzf mg5.tgz || exit 11
 export MG5_HOME=$WD/MG5_aMC_v3.6.3
+# optional extra UFO (2026-11-03, coupling study): a transferred HC_NLO_X0_kVV.tgz is unpacked into MG5 models/
+[ -f HC_NLO_X0_kVV.tgz ] && { tar xzf HC_NLO_X0_kVV.tgz -C $MG5_HOME/models || exit 11; }
 source $PROJECT/scripts/setup_stack.sh || exit 12
 NC=${4:-8}   # 4th argument = request_cpus from the submit file
 sed -e "s#OUTDIR#$WD/proc#g" -e "s#SEED#$SEED#g" -e "s#set nb_core 4#set nb_core $NC#" "$CARD.mg5" > run.mg5

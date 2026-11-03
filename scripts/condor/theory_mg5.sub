@@ -1,0 +1,24 @@
+# Theory runs (2026-11-03): EW x QCD interference of Zgg+jj (beam-1 splits) and the off-shell/FSR 0-jet proxy pair -> work/theory/
+P            = /eos/user/r/rjiang/vbs_zh_codex_starter
+universe     = vanilla
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+transfer_output_files   = ""
+executable   = mg5_run.sh
+arguments    = $(card) $(seed) /eos/user/r/rjiang/vbs_zh_codex_starter/work/theory $(ncore)
+transfer_input_files = $(P)/scripts/setup_stack.sh, $(P)/cards/theory/$(card).mg5
+output       = $(P)/production/condor_logs/theory/$(card).out
+error        = $(P)/production/condor_logs/theory/$(card).err
+log          = $(P)/production/condor_logs/theory.log
+request_cpus   = $(ncore)
+request_memory = $(mem)
+request_disk   = 20000000
++JobFlavour  = "$(flav)"
+max_retries  = 1
+queue card, seed, ncore, mem, flav from (
+  I_zaajj_vbs_is1 150100001 16 24000 tomorrow
+  I_zaajj_vbs_is2 150100002 16 24000 tomorrow
+  I_zaajj_vbs_is3 150100003 16 24000 tomorrow
+  Q_llaa0j 150100004 8 12000 workday
+  Q_zaa0j 150100005 8 12000 workday
+)

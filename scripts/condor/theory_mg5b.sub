@@ -1,0 +1,25 @@
+# Theory runs b (2026-11-03): Zgg+jj EW x QCD interference and EW term with undecayed on-shell Z (beam-1 splits) -> work/theory/
+P            = /eos/user/r/rjiang/vbs_zh_codex_starter
+universe     = vanilla
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+transfer_output_files   = ""
+executable   = mg5_run.sh
+arguments    = $(card) $(seed) /eos/user/r/rjiang/vbs_zh_codex_starter/work/theory $(ncore)
+transfer_input_files = $(P)/scripts/setup_stack.sh, $(P)/cards/theory/$(card).mg5
+output       = $(P)/production/condor_logs/theory/$(card).out
+error        = $(P)/production/condor_logs/theory/$(card).err
+log          = $(P)/production/condor_logs/theory.log
+request_cpus   = $(ncore)
+request_memory = $(mem)
+request_disk   = 20000000
++JobFlavour  = "$(flav)"
+max_retries  = 1
+queue card, seed, ncore, mem, flav from (
+  I_zaajj_nodec_is1 150100011 16 24000 tomorrow
+  I_zaajj_nodec_is2 150100012 16 24000 tomorrow
+  I_zaajj_nodec_is3 150100013 16 24000 tomorrow
+  E_zaajj_nodec_is1 150100021 16 24000 tomorrow
+  E_zaajj_nodec_is2 150100022 16 24000 tomorrow
+  E_zaajj_nodec_is3 150100023 16 24000 tomorrow
+)
