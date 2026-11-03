@@ -25,3 +25,6 @@ utc,process,arm,role,phase,event,session_id,note
 2026-11-03T11:29:32Z,ZH,single-agent,human,POST,human_intervention,c6cda945-009c-4d75-b4e6-15b1e7b55c21,"retro: [constraint violation not flagged;statistics] Adds A9/A10: ttgamma/tWgamma 2000 events each violate N>=sigma*L (3000 fb-1), not flagged; approves cleanupPeriodDays"
 2026-11-03T11:34:49Z,ZH,single-agent,human,POST,interrupt,c6cda945-009c-4d75-b4e6-15b1e7b55c21,retro: [] [Request interrupted by user for tool use]
 2026-11-03T11:37:15Z,ZH,single-agent,human,POST,human_intervention,c6cda945-009c-4d75-b4e6-15b1e7b55c21,"retro: [missing deliverable;scope] Adds E: VH coupling (lambda_WZ) interpretation, planned (FINAL_report outlook) but absent until requested"
+2026-11-03T14:01:34Z,ZH,single-agent,claude,CLOSE,start,c6cda945-009c-4d75-b4e6-15b1e7b55c21,retro: ZH closeout: ttgamma/tWgamma cut-flow cross-check
+2026-11-03T14:01:34Z,ZH,single-agent,claude,POST,end,c6cda945-009c-4d75-b4e6-15b1e7b55c21,retro: next phase prompt (phase boundary = human prompt time)
+2026-11-03T14:01:34Z,ZH,single-agent,human,CLOSE,human_intervention,c6cda945-009c-4d75-b4e6-15b1e7b55c21,retro: [background model;other] Closeout: option A for ttgamma/tWgamma conditional on a cut-flow cross-check vs the reference; C statistics; explicit limitations; comparison with CMS/ATLAS; tag zh-final-v1.1

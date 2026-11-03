@@ -8,7 +8,8 @@
 | R2 | claude | 0.93 | 0.73 | 1 | 39 | 45 | 0 | 82 | 124,973 | 11,401,544 | 100,979 | 0 | 0.0 |
 | R3 | claude | 0.78 | 0.65 | 2 | 74 | 73 | 1 | 150 | 223,531 | 11,492,720 | 114,386 | 208 | 1657.5 |
 | FINAL | claude | 19.37 | 9.02 | 2 | 187 | 186 | 2 | 380 | 280,155 | 38,850,076 | 168,455 | 3473 | 543.3 |
-| POST | claude | 2.37 | 2.2 | 5 | 204 | 207 | 1 | 414 | 514,372 | 57,485,920 | 232,662 | 1010 | 174.7 |
-| **total** | | | | 13 | 632 | | | 132,758 | 1,348,790 | 134,904,077 | 760,074 | 4693 | 2375.6 |
+| POST | claude | 2.61 | 2.56 | 5 | 218 | 219 | 1 | 444 | 532,180 | 64,123,855 | 244,073 | 1010 | 174.7 |
+| CLOSE | claude | 0.39 | 0.39 | 1 | 20 | 21 | 0 | 44 | 33,828 | 10,078,437 | 22,344 | 0 | 0.0 |
+| **total** | | | | 14 | 666 | | | 132,832 | 1,400,426 | 151,620,449 | 793,829 | 4693 | 2375.6 |
 
 Phase windows: metrics/phases.csv (boundaries = human prompt times). Codex: input excludes cached input (cache read column). Claude: input = uncached input tokens. Condor: jobs whose QDate falls in the phase window, from condor_history (retention-limited: older jobs may be missing; see the jobs column).

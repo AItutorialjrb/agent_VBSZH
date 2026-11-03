@@ -1,8 +1,8 @@
 # 08 — Reproducibility (FINAL RUN)
 
-- **Date:** 2026-11-03 13:37 UTC
+- **Date:** 2026-11-03 14:25 UTC
 - **Status:** PASS (all inputs pinned; the commands below regenerate every number in FINAL_report.md from the EOS outputs).
-- **Git commit of the code:** `a5610b9`. Repository git@github.com:AItutorialjrb/agent_VBSZH.git (project-only; the parent repo is untouched).
+- **Git commit of the code:** `b8f2a7d`. Repository git@github.com:AItutorialjrb/agent_VBSZH.git (project-only; the parent repo is untouched).
 
 ## Versions
 
@@ -111,9 +111,9 @@ f9e0dafba6afe36eab93ff12c1447bd04590c614457f6200f406ad57de063616  scripts/condor
 4ae19b9d99ad00703be1e05d064c8723354015d19f15c91dd4308510279cb25a  scripts/theory/lhe_theory.py
 1dbaaf25fb4e84e8757545032e7968ebbbe909b7e2d9528e834bbbe6325395c8  scripts/theory/theory_summary.py
 55e5500adc6dcb785899294487da5cfea5547b55056ed6bc103ffe413d360643  scripts/models/make_hc_kvv.sh
-049d9e5f087c6b4ba2d19f3285e1dbef4967209f17542f65ae160a17b4604690  scripts/metrics/extract_prompts.py
+c290ad525cbe5fbbafba14e7701b331bc1b5fce3fbbee7ab3061d6051b4d95ee  scripts/metrics/extract_prompts.py
 55c351187382640d52ea0c669011dafa11db078a45bf7c78f8d0c251ac7df4f6  scripts/metrics/make_ledger.py
-0c1386df2f22f7b729db38ba2644f06a28a3bdf89023eba7b14449f0754829d0  scripts/metrics/parse_usage.py
+558470985f741ba54ca26818badde9c2cce3c869d3f5e4ced35b93d05fa0c2ab  scripts/metrics/parse_usage.py
 7e260a66be3e58b18b7a0a0f87775a99a9e9497d61012bab3f890ab622052f41  software/install/HC_NLO_X0_kVV.tgz
 b91d8788ed66a12a3eaf9e1f8771f98b789b4b3fc8b10eeb32c9c04f057ae1bd  software/models_dl/HC_NLO_X0_UFO.zip
 d818079e8391ab3ab2054bd1c2593c60400ce17ce36216e0b0830d0910bd077b  work/theory/theory_summary.json
@@ -121,9 +121,9 @@ d818079e8391ab3ab2054bd1c2593c60400ce17ce36216e0b0830d0910bd077b  work/theory/th
 88741f21624adfe00f60d936e646cb21ae5dc9e1a6383fc119092ee658f580fb  scripts/run_py8_delphes.sh
 685f87d91ada2b412cbe79f0cf46d97e29a0ca6314b29487cb176d1278fffeaa  scripts/slim_gentruth.py
 f9c3fc48d65b25978e320d838d1f99615c9d60cd00b0570a7bf14568e8d98736  scripts/analysis/coupling_section.py
-f2bad77658676ce667315007dea11c66b549531d8fb5bebb33a68d73f38b07da  scripts/analysis/final_analysis.py
+a8cff114c7c7f09973744d4ecff0506a1766e445d9c78d96dc445ca1d2679f27  scripts/analysis/final_analysis.py
 ca607ed65081d071a240e2f4548ff57d602434f810f535ceaeacb5a12a8be56f  scripts/analysis/final_tables.py
-a603c9b4148c7d7cec5404c5df417855b268c981e0f2c5676de5a3e00be7a8c6  scripts/analysis/make_final_report.py
+df1d662dda8e569ac84d748712774f0fba20300111486f556b24381282b95a5c  scripts/analysis/make_final_report.py
 156a915f508c7bb10f0fdb1fbcc36e6aedad46d1b6fefd2984e645a31dbba396  scripts/analysis/make_repro.py
 6d941a3dd2cf5394789c87ee20e2abb104fe9cc26f7e0cff7ca5e85e1f8e44eb  scripts/analysis/mjj_resolution.py
 b01d808db1c1ed4f1d90ea0338239a3d9993c88e75e2385dd237b4e91bf63784  scripts/analysis/ntuple.py
@@ -132,10 +132,11 @@ b01d808db1c1ed4f1d90ea0338239a3d9993c88e75e2385dd237b4e91bf63784  scripts/analys
 abd5c52d3f5115fd66e41ebec7467c699f327a22c328f7749ffbc1f2e8253022  scripts/analysis/sensitivity.py
 0085b62307ddca6f6661a78a9825803945456643d29354b4c5c92678b8483381  scripts/analysis/skim_npz.py
 0f8e4f1615d001e493d8dd399496146cde93b6d4d3d4e54c8bb53667e2e888c5  scripts/analysis/tables05.py
+8cbb9cc95238c1ab9863703bca0adaaf64e899f4b002a5e24f91dc8ca167d667  scripts/analysis/tta_xcheck.py
 d23890a34cf619bf7822ac0e2c432e506af90d6ab6402342ecf241a1a0486b25  scripts/analysis/verify_final.py
 b657f72cd4ae2adb8a43f455e64ef862f7c3ef035cd13cf182ba0430e2c57e56  scripts/analysis/ntuple_job.sh
 e18e6e508f6e3c67b70ecad39a98628cc42c3c894c767882f370abad7283f511  scripts/plan/make_submit_final.py
-24bf66cbeef2407e2250c8ace263cb96ebe259896b65c0a29ee87b54f973e697  work/final_ntuples/final.json
+a9876b6101f861a0071ab164762623a7c1139282fc24dfcce2326604c0543cc8  work/final_ntuples/final.json
 ```
 
 Gridpack status files (σ and the integration record):

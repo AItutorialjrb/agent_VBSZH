@@ -61,3 +61,12 @@ Stopped after Phase 01 for human review. Phase 00 blockers remain unresolved; ne
   - `ZH_failure_modes.md`.
 - Raw transcripts are backed up to `metrics/raw/` on EOS and are not versioned.
 - Theory and generator studies: `work/theory/theory_summary.json` (not versioned; summarised in FINAL_report §4 and §7).
+
+## Appended 2026-11-03 UTC — closeout (tag zh-final-v1.1; zh-final-v1 kept)
+- [FINAL_report.md](FINAL_report.md): regenerated. Changes:
+  - tt̄γ/tWγ cut-flow cross-check vs the reference (§4; gate passed, option A kept). tt̄γ/tWγ are no longer overlap-removed.
+  - Ratio-C statistics table (§4).
+  - Limitations 9–11.
+  - Comparison with CMS/ATLAS λWZ results (§9).
+- [ZH_self_review.md](ZH_self_review.md): issues 25–28 added.
+- Metrics: closeout phase CLOSE in metrics/phases.csv, ledger.csv and usage_by_phase.*; prompt 14.

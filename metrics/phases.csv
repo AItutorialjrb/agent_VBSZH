@@ -5,4 +5,5 @@ R1,claude,2026-11-02T13:29:21Z,2026-11-02T14:20:06Z,Claude run 1: Phase 01 audit
 R2,claude,2026-11-02T14:20:06Z,2026-11-02T15:15:53Z,Run 2: Phase 04 production-plan revision
 R3,claude,2026-11-02T15:15:53Z,2026-11-02T16:02:53Z,Run 3: submission + Phase 05 pilot sensitivity
 FINAL,claude,2026-11-02T16:02:53Z,2026-11-03T11:25:14Z,FINAL RUN: Phases 06-08 (production; Delphes analysis; reports)
-POST,claude,2026-11-03T11:25:14Z,,Post-final completion: A physics / E couplings / B self-review / C metrics / D freeze
+POST,claude,2026-11-03T11:25:14Z,2026-11-03T14:01:34Z,Post-final completion: A physics / E couplings / B self-review / C metrics / D freeze
+CLOSE,claude,2026-11-03T14:01:34Z,,ZH closeout: ttgamma/tWgamma cut-flow cross-check, ratio-C statistics, limitations, experiment comparison, tag zh-final-v1.1

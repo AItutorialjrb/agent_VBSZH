@@ -1,17 +1,17 @@
 # FINAL report — EW ZHjj (Z→ee/μμ, H→γγ) at √s = 13.6 TeV: Delphes-level feasibility study and VH coupling interpretation
 
-- **Date:** 2026-11-03 13:37 UTC
+- **Date:** 2026-11-03 14:25 UTC
 - **Status:** **PASS with limitations**. Expected-limit/significance study for the current signal definition, plus the λWZ / κZ / CP-odd coupling interpretation (§9).
-- **Git commit:** `a5610b9`. Reproduction: [08_reproducibility.md](08_reproducibility.md). Self-review: [ZH_self_review.md](ZH_self_review.md).
+- **Git commit:** `b8f2a7d`. Reproduction: [08_reproducibility.md](08_reproducibility.md). Self-review: [ZH_self_review.md](ZH_self_review.md).
 - **Inputs:** `work/final_ntuples/final.json` (written by `scripts/analysis/final_analysis.py`, which also executes `scripts/analysis/coupling_section.py`), `work/final_ntuples/verify.json`, `work/theory/theory_summary.json`.
 - **Comparison with the reference** (arXiv:2512.07689: same Delphes CMS card, Eq. 1, Fig. 4-style scan). **Deviation marked everywhere it matters: our photon pT threshold is 25 GeV, the reference's is 20 GeV.** The reason is that the VBS-biased Zγ/Zγγ samples are generated with pT(γ) > 25 GeV. Every comparison to reference numbers below carries the tag **[γ pT 25 vs 20 GeV]**.
 - **Luminosity:** 3000 fb⁻¹ is a pure luminosity scaling at 13.6 TeV, not an HL-LHC detector projection.
 
 ## Summary
 
-At the optimised Delphes-level selection, the EW ZHjj signal is **s = 0.088 events at 500 fb⁻¹** and 0.53 at 3000 fb⁻¹. The background is b = 0.516 (3.10).
-- **Significance:** Z_Eq1 = 0.119 ± 0.002 (MC) at 500 fb⁻¹ and 0.292 ± 0.005 at 3000 fb⁻¹, definition (a).
-- **Systematics:** they now include theory (scale ⊕ PDF per process, correlated within groups), the off-shell/FSR correction of Zγγ, the Zγγjj interference, the ggZH ×2 normalisation and the generator-mjj correction of the QCD-type samples. With these, Z_syst = 0.118 and μ₉₅ = 35 at 500 fb⁻¹; Z_syst = 0.283 and μ₉₅ = 10.4 at 3000 fb⁻¹.
+At the optimised Delphes-level selection, the EW ZHjj signal is **s = 0.088 events at 500 fb⁻¹** and 0.53 at 3000 fb⁻¹. The background is b = 0.520 (3.12).
+- **Significance:** Z_Eq1 = 0.119 ± 0.002 (MC) at 500 fb⁻¹ and 0.291 ± 0.005 at 3000 fb⁻¹, definition (a).
+- **Systematics:** they now include theory (scale ⊕ PDF per process, correlated within groups), the off-shell/FSR correction of Zγγ, the Zγγjj interference, the ggZH ×2 normalisation and the generator-mjj correction of the QCD-type samples. With these, Z_syst = 0.118 and μ₉₅ = 35 at 500 fb⁻¹; Z_syst = 0.282 and μ₉₅ = 10.4 at 3000 fb⁻¹.
 - **s < 1 at every luminosity, so Z alone is not a meaningful measure of sensitivity.** The process is not observable in this channel at Run 3 or with 3000 fb⁻¹.
 - **Dominant background:** the irreducible EW Zγγjj continuum under the mγγ peak.
 - **Coupling interpretation (§9):** the measured observable is the yield and the mllgg shape of EW ZHjj in the signal region.
@@ -138,7 +138,7 @@ The background model is aligned with the reference: prompt Zγ and Zγγ (QCD an
 - **L0:** direct, ≥ 10 raw events in the window.
 - **L1:** continuum, N(105–165 GeV) × f_win (exponential MLE of the sample's Delphes mγγ).
 - **L2:** VBS-factorised.
-- **L2b:** VBS- and window-factorised, using the direct sample (tt̄γ, tWγ).
+- **L2b:** VBS- and window-factorised, using the direct sample (fallback when L2 has no support in the wide mγγ range).
 - **UL:** zero support, central value 1.14 w_evt.
 - L2, L2b and UL carry 100 % uncertainty. **The transfer-factor method (old L3) is no longer used for yields.**
 
@@ -146,14 +146,83 @@ The background model is aligned with the reference: prompt Zγ and Zγγ (QCD an
 
 **tt̄γ / tWγ (A9).**
 - **Direct yields at the optimum:**
-  - tt̄γ: 0.0001 events at 500 fb⁻¹ via L2b VBS+window-factorised, direct sample (100% unc.).
-  - tWγ: 0.0001 events via L2b VBS+window-factorised, direct sample (100% unc.).
+  - tt̄γ: 0.0031 events at 500 fb⁻¹ via L2 VBS-factorised (100% unc.).
+  - tWγ: 0.0003 events via L2 VBS-factorised (100% unc.).
   - Zero raw events pass all cuts. The direct zero-count 95 % UL is 3 w_evt = 0.123 and 0.122 events; using it instead is a robustness row.
 - **Transfer-factor cross-check** (old method): 0.0006 and 0.0001 events.
 - **Cross-check against the reference [γ pT 25 vs 20 GeV]:**
-  - Reference-like baseline (70 < mℓℓ < 120 GeV, mℓℓγγ > 100 GeV, mjj > 700 GeV, |Δηjj| > 2.0, **photon pT > 25 GeV**), **before any mγγ window**: tt̄γ has 0 raw events, so y < 0.123 events at 500 fb⁻¹ (95 % CL). The preselection has 60 raw events and the lepton/photon cuts keep 5.
+  - Reference-like baseline (70 < mℓℓ < 120 GeV, mℓℓγγ > 100 GeV, mjj > 700 GeV, |Δηjj| > 2.0, **photon pT > 25 GeV**), **before any mγγ window**: tt̄γ has 5 raw events, so y < 0.000 events at 500 fb⁻¹ (95 % CL). The preselection has 480 raw events and the lepton/photon cuts keep 84.
   - The reference quotes **0.15 ± 0.10** events (Table IV, photon pT > 20 GeV, no Higgs window). The results are compatible within the reference's uncertainty.
   - Expected differences: the higher photon threshold, the n_prompt ≤ 1 overlap removal (not applied in the reference), and the reference's 2.5-event-weight statistics.
+
+**tt̄γ / tWγ cut-flow cross-check against the reference (closeout check 1; `scripts/analysis/tta_xcheck.py`, `work/final_ntuples/tta_xcheck.json`).**
+- Reference cut flow, before any mγγ window, at 500 fb⁻¹.
+- The reference column gives arXiv:2512.07689 Table III, converted to events, and Table IV for the final row (0.15 ± 0.10).
+- `ovl` = our hard/soft-photon overlap removal (n_prompt ≤ 1).
+- `gpt` = photon pT threshold: 20 GeV is the reference's, 25 GeV ours.
+
+*T_tta, ovl=True, gpt=20* (w_evt = 0.0411 events at 500 fb⁻¹)
+
+| step | raw | yield at 500 fb⁻¹ | eff. vs previous step | reference |
+|---|---|---|---|---|
+| initial selection | 60 | 2.469 | — | 32.2 |
+| + m_llgg > 100 | 59 | 2.428 | 0.983 | 32 |
+| + 70 < m_ll < 120 | 10 | 0.411 | 0.169 | 8.8 |
+| + mjj > 700, |deta| > 2.0 (full ref. cut flow) | 0 | 0 (< 0.047 @68 %, < 0.123 @95 %) | 0.000 | 0.15 |
+| [ours] + pT1/mgg > 1/3, pT2/mgg > 1/4 | 0 | 0 (< 0.047 @68 %, < 0.123 @95 %) | 0.000 | — |
+
+*T_tta, ovl=False, gpt=20* (w_evt = 0.0411 events at 500 fb⁻¹)
+
+| step | raw | yield at 500 fb⁻¹ | eff. vs previous step | reference |
+|---|---|---|---|---|
+| initial selection | 479 | 19.708 | — | 32.2 |
+| + m_llgg > 100 | 474 | 19.502 | 0.990 | 32 |
+| + 70 < m_ll < 120 | 115 | 4.732 | 0.243 | 8.8 |
+| + mjj > 700, |deta| > 2.0 (full ref. cut flow) | 5 | 0.206 | 0.043 | 0.15 |
+| [ours] + pT1/mgg > 1/3, pT2/mgg > 1/4 | 4 | 0.165 | 0.800 | — |
+
+*T_tta, ovl=False, gpt=25* (w_evt = 0.0411 events at 500 fb⁻¹)
+
+| step | raw | yield at 500 fb⁻¹ | eff. vs previous step | reference |
+|---|---|---|---|---|
+| initial selection | 350 | 14.400 | — | 32.2 |
+| + m_llgg > 100 | 349 | 14.359 | 0.997 | 32 |
+| + 70 < m_ll < 120 | 84 | 3.456 | 0.241 | 8.8 |
+| + mjj > 700, |deta| > 2.0 (full ref. cut flow) | 5 | 0.206 | 0.060 | 0.15 |
+| [ours] + pT1/mgg > 1/3, pT2/mgg > 1/4 | 4 | 0.165 | 0.800 | — |
+
+*T_tWa, ovl=True, gpt=20* (w_evt = 0.0408 events at 500 fb⁻¹)
+
+| step | raw | yield at 500 fb⁻¹ | eff. vs previous step | reference |
+|---|---|---|---|---|
+| initial selection | 10 | 0.408 | — | 32.2 |
+| + m_llgg > 100 | 10 | 0.408 | 1.000 | 32 |
+| + 70 < m_ll < 120 | 5 | 0.204 | 0.500 | 8.8 |
+| + mjj > 700, |deta| > 2.0 (full ref. cut flow) | 0 | 0 (< 0.046 @68 %, < 0.122 @95 %) | 0.000 | 0.15 |
+| [ours] + pT1/mgg > 1/3, pT2/mgg > 1/4 | 0 | 0 (< 0.046 @68 %, < 0.122 @95 %) | 0.000 | — |
+
+*T_tWa, ovl=False, gpt=20* (w_evt = 0.0408 events at 500 fb⁻¹)
+
+| step | raw | yield at 500 fb⁻¹ | eff. vs previous step | reference |
+|---|---|---|---|---|
+| initial selection | 67 | 2.730 | — | 32.2 |
+| + m_llgg > 100 | 67 | 2.730 | 1.000 | 32 |
+| + 70 < m_ll < 120 | 23 | 0.937 | 0.343 | 8.8 |
+| + mjj > 700, |deta| > 2.0 (full ref. cut flow) | 0 | 0 (< 0.046 @68 %, < 0.122 @95 %) | 0.000 | 0.15 |
+| [ours] + pT1/mgg > 1/3, pT2/mgg > 1/4 | 0 | 0 (< 0.046 @68 %, < 0.122 @95 %) | 0.000 | — |
+
+- **Finding:**
+  - With `ovl=True`, 87 % of the tt̄γ initial selection was discarded (479 → 60 raw). The second "prompt" photon in those events is mostly radiated by top-decay products, which the decay-chain tt̄γγ matrix element does not contain.
+  - Without the removal, the full reference cut flow at pT > 20 GeV gives 5 raw events = 0.21 ± 0.09, against **0.15 ± 0.10** in the reference: consistent at 0.4σ.
+  - The initial selection is 1.6× below the reference (19.7 vs 32.2 events). This is expected from the different generator lepton cuts and pT thresholds, and it does not propagate to the final row.
+- **Fix applied:** tt̄γ/tWγ are **not** overlap-removed. This is conservative and follows the reference. Double counting with tt̄γγ is bounded by the latter's full yield.
+- **Measured efficiencies on our sample** (tt̄γ, no overlap removal):
+  - photon pT > 25 vs 20 GeV: 350/479 = 0.73 at the initial selection;
+  - mℓℓγγ > 100 GeV: 0.99;
+  - Z window 70–120 GeV: 0.24;
+  - mjj > 700 GeV, |Δηjj| > 2.0: 0.043;
+  - pT/mγγ cuts (ours, not in the reference): 0.80.
+- **In the signal region** (Z window ±25 GeV, mjj > 500 GeV, |Δηjj| > 3.5, mγγ window), tt̄γ/tWγ have **zero raw events** and enter through a factorised estimate (L2 VBS-factorised (100% unc.), 100 % uncertainty): tt̄γ 0.0031, tWγ 0.0003 events at 500 fb⁻¹. The direct zero-count 95 % upper limits are a robustness row.
 
 **Zγγ on-shell Z and off-shell/FSR (A4).**
 - The Zγγjj samples are `p p > z a a j j, z > l+ l-`, so photons radiated in the Z decay and off-shell γ*/Z are missing.
@@ -175,10 +244,17 @@ The background model is aligned with the reference: prompt Zγ and Zγγ (QCD an
   - **QCD ZHjj: 64 %.** In QCD-type events the reco tag jets are often parton-shower jets, so **the cut is not safe for QCD-type samples.**
 - **Correction for QCD-type samples:** QCD Zγjj and QCD Zγγjj are corrected by C(cuts) = Y(no-mjj-cut twin)/Y(VBS-biased), measured directly at Delphes level with the same VBS, Z-window and photon cuts. The twins are 200 k / 100 k events with mmjj = 0.
   - F_QCD_Zajj: C = 2.05 ± 3 % (raw 875 / 150317); B_QCD_Zaajj_vbs: C = 2.37 ± 6 % (raw 412 / 1340).
-  - The statistical uncertainty of C is a nuisance.
+  - The statistical uncertainty of C is a nuisance. C statistics at the optimum (relaxed selection: same VBS, Z-window and photon pT cuts; 1 photon for Zγ+jets, 2 photons in 105–165 GeV for Zγγ):
+
+| process | twin sample | raw (twin) | raw (VBS-biased) | C | MC stat twin | MC stat biased | rel. unc. of C | δb at 500 fb⁻¹ | δb / b |
+|---|---|---|---|---|---|---|---|---|---|
+| F_QCD_Zajj | F_QCD_llajj_nomjj | 875 | 150317 | 2.052 | 3.4 % | 0.26 % | 3.4 % | 0.0013 | 0.24 % |
+| B_QCD_Zaajj_vbs | B_QCD_zaajj_nomjj | 412 | 1340 | 2.366 | 4.9 % | 2.73 % | 5.6 % | 0.0042 | 0.80 % |
+
+  - The last two columns are the `genmjj_*` entries of the b uncertainty budget (§6).
 - **The optimum at the mjj = 500 GeV scan boundary** (`figures/z_vs_mjj`, `z_vs_deta`):
   - Cuts below 500 GeV are shaded in the figure because, for the QCD-type samples, they rely entirely on the correction above.
-  - Z_Eq1 (Z with σ_b) at 500 fb⁻¹ for mjj > 400 / 450 / 500 / 600 GeV, with the other cuts at the optimum: 0.119 (0.119) / 0.119 (0.118) / 0.119 (0.118) / 0.118 (0.117).
+  - Z_Eq1 (Z with σ_b) at 500 fb⁻¹ for mjj > 400 / 450 / 500 / 600 GeV, with the other cuts at the optimum: 0.119 (0.118) / 0.119 (0.118) / 0.119 (0.118) / 0.117 (0.117).
   - Going below the boundary therefore changes Z by +0 % at most. That gain would rely on the QCD-type correction extrapolated to a region where the generator cut sits inside the resolution tail.
 
 **Fake-factor cross-check (Delphes jets).**
@@ -193,7 +269,7 @@ The background model is aligned with the reference: prompt Zγ and Zγγ (QCD an
 - **mjj × |Δηjj| landscape** (`figures/scan_mjj_deta_*`, tables below): Z_Eq1 at 500 fb⁻¹ ranges from 0.087 to 0.121.
 - **1D curves (A1):**
   - mjj cut from 400 to 1200 GeV: Z_Eq1 at 500 fb⁻¹ ranges from 0.090 to 0.119.
-  - |Δηjj| from 2.0 to 5.0: Z_Eq1 ranges from 0.108 to 0.121.
+  - |Δηjj| from 2.0 to 5.0: Z_Eq1 ranges from 0.107 to 0.121.
 
 ## 6. Results
 
@@ -201,12 +277,12 @@ The background model is aligned with the reference: prompt Zγ and Zγγ (QCD an
 
 | L [fb⁻¹] | signal definition | s | b | Z_Eq1 ± MC | Z_syst counting (incl. theory) | Z_syst (binned PL fit, incl. theory) | μ₉₅ CLs (exact Poisson, syst incl. theory) | μ₉₅ (binned PL fit, asymptotic) |
 |---|---|---|---|---|---|---|---|---|
-| 500 | (a) EW ZHjj; QCD ZHjj in b | 0.088 | 0.516 | 0.119 ± 0.002 | 0.118 | 0.125 | 34.5 | 32.4 |
-| 500 | (b) EW + QCD ZHjj | 0.135 | 0.469 | 0.189 ± 0.005 | 0.188 | 0.200 | 22.7 | 20.8 |
-| 1000 | (a) EW ZHjj; QCD ZHjj in b | 0.176 | 1.033 | 0.168 ± 0.003 | 0.167 | 0.177 | 23.7 | 19.2 |
-| 1000 | (b) EW + QCD ZHjj | 0.271 | 0.938 | 0.267 ± 0.006 | 0.265 | 0.282 | 15.8 | 12.2 |
-| 3000 | (a) EW ZHjj; QCD ZHjj in b | 0.527 | 3.098 | 0.292 ± 0.005 | 0.283 | 0.301 | 10.4 | 9.1 |
-| 3000 | (b) EW + QCD ZHjj | 0.812 | 2.814 | 0.463 ± 0.011 | 0.449 | 0.480 | 7.0 | 5.7 |
+| 500 | (a) EW ZHjj; QCD ZHjj in b | 0.088 | 0.520 | 0.119 ± 0.002 | 0.118 | 0.125 | 34.5 | 32.5 |
+| 500 | (b) EW + QCD ZHjj | 0.135 | 0.472 | 0.188 ± 0.005 | 0.187 | 0.200 | 22.7 | 20.8 |
+| 1000 | (a) EW ZHjj; QCD ZHjj in b | 0.176 | 1.039 | 0.168 ± 0.003 | 0.166 | 0.176 | 23.7 | 19.3 |
+| 1000 | (b) EW + QCD ZHjj | 0.271 | 0.944 | 0.266 ± 0.006 | 0.264 | 0.281 | 15.8 | 12.3 |
+| 3000 | (a) EW ZHjj; QCD ZHjj in b | 0.527 | 3.118 | 0.291 ± 0.005 | 0.282 | 0.300 | 10.4 | 9.1 |
+| 3000 | (b) EW + QCD ZHjj | 0.812 | 2.833 | 0.462 ± 0.011 | 0.447 | 0.478 | 7.0 | 5.7 |
 
 - **s < 1 in every row:** Z alone is not meaningful.
 - **μ₉₅ (exact-Poisson CLs):** counting in the window, with b and s marginalised over log-normals (σ_b and σ_s include theory). This is the robust number.
@@ -217,35 +293,35 @@ The background model is aligned with the reference: prompt Zγ and Zγγ (QCD an
 
 | L [fb^-1] | signal def. | s +- MC | b +- MC | sigma_b (incl. theory) | Z_Eq1 +- MC | Z_syst (counting, incl. theory) | Z_syst (no theory) | mu95 CLs (syst incl. theory) | mu95 (no theory) | mu95 (stat only) | median n_obs (b-only) |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 500 | (a) EW ZHjj; QCD ZHjj in b | 0.088 +- 0.001 | 0.516 +- 0.017 | 0.070 | 0.119 +- 0.002 | 0.118 | 0.119 | 34.5 | 34.1 | 34.1 | 0 |
-| 500 | (b) EW+QCD ZHjj | 0.135 +- 0.002 | 0.469 +- 0.017 | 0.068 | 0.189 +- 0.005 | 0.188 | 0.189 | 22.7 | 22.2 | 22.1 | 0 |
-| 1000 | (a) EW ZHjj; QCD ZHjj in b | 0.176 +- 0.002 | 1.033 +- 0.035 | 0.140 | 0.168 +- 0.003 | 0.167 | 0.168 | 23.7 | 23.4 | 23.3 | 1 |
-| 1000 | (b) EW+QCD ZHjj | 0.271 +- 0.005 | 0.938 +- 0.035 | 0.136 | 0.267 +- 0.006 | 0.265 | 0.267 | 15.8 | 15.3 | 15.3 | 1 |
-| 3000 | (a) EW ZHjj; QCD ZHjj in b | 0.527 +- 0.005 | 3.098 +- 0.105 | 0.420 | 0.292 +- 0.005 | 0.283 | 0.289 | 10.4 | 10.2 | 10.1 | 3 |
-| 3000 | (b) EW+QCD ZHjj | 0.812 +- 0.015 | 2.814 +- 0.104 | 0.407 | 0.463 +- 0.011 | 0.449 | 0.459 | 7.0 | 6.8 | 6.8 | 3 |
+| 500 | (a) EW ZHjj; QCD ZHjj in b | 0.088 +- 0.001 | 0.520 +- 0.018 | 0.070 | 0.119 +- 0.002 | 0.118 | 0.119 | 34.5 | 34.1 | 34.1 | 0 |
+| 500 | (b) EW+QCD ZHjj | 0.135 +- 0.002 | 0.472 +- 0.018 | 0.068 | 0.188 +- 0.005 | 0.187 | 0.188 | 22.7 | 22.2 | 22.1 | 0 |
+| 1000 | (a) EW ZHjj; QCD ZHjj in b | 0.176 +- 0.002 | 1.039 +- 0.035 | 0.140 | 0.168 +- 0.003 | 0.166 | 0.167 | 23.7 | 23.4 | 23.3 | 1 |
+| 1000 | (b) EW+QCD ZHjj | 0.271 +- 0.005 | 0.944 +- 0.035 | 0.136 | 0.266 +- 0.006 | 0.264 | 0.266 | 15.8 | 15.3 | 15.3 | 1 |
+| 3000 | (a) EW ZHjj; QCD ZHjj in b | 0.527 +- 0.005 | 3.118 +- 0.106 | 0.421 | 0.291 +- 0.005 | 0.282 | 0.288 | 10.4 | 10.2 | 10.1 | 3 |
+| 3000 | (b) EW+QCD ZHjj | 0.812 +- 0.015 | 2.833 +- 0.105 | 0.407 | 0.462 +- 0.011 | 0.447 | 0.457 | 7.0 | 6.8 | 6.8 | 3 |
 
 ### Table R2 - SUPPLEMENTARY: binned profile-likelihood fit in m_gg (window + sidebands, Asimov, asymptotic)
 
 | L [fb^-1] | signal def. | Z (fit, stat only) | Z_syst (fit) | mu95 (fit, stat only) | mu95 (fit, syst) |
 |---|---|---|---|---|---|
-| 500 | (a) EW ZHjj; QCD ZHjj in b | 0.126 | 0.125 | 32.1 | 32.4 |
+| 500 | (a) EW ZHjj; QCD ZHjj in b | 0.126 | 0.125 | 32.2 | 32.5 |
 | 500 | (b) EW+QCD ZHjj | 0.201 | 0.200 | 20.4 | 20.8 |
-| 1000 | (a) EW ZHjj; QCD ZHjj in b | 0.178 | 0.177 | 19.0 | 19.2 |
-| 1000 | (b) EW+QCD ZHjj | 0.285 | 0.282 | 12.0 | 12.2 |
-| 3000 | (a) EW ZHjj; QCD ZHjj in b | 0.309 | 0.301 | 8.9 | 9.1 |
-| 3000 | (b) EW+QCD ZHjj | 0.493 | 0.480 | 5.5 | 5.7 |
+| 1000 | (a) EW ZHjj; QCD ZHjj in b | 0.178 | 0.176 | 19.0 | 19.3 |
+| 1000 | (b) EW+QCD ZHjj | 0.284 | 0.281 | 12.0 | 12.3 |
+| 3000 | (a) EW ZHjj; QCD ZHjj in b | 0.308 | 0.300 | 8.9 | 9.1 |
+| 3000 | (b) EW+QCD ZHjj | 0.492 | 0.478 | 5.6 | 5.7 |
 
 ### Table III-like - cutflow at the optimum, 500 fb^-1: expected events (raw MC events)
 
 | step | S_EW_ZHjj | H_QCD_ZHjj | H_ggZH | H_ttH | H_ZH_tautau | H_tHW | B_QCD_Zaajj_vbs | B_EW_Zaajj_vbs_is1 | B_EW_Zaajj_vbs_is2 | B_EW_Zaajj_vbs_is3 | T_ttaa | F_QCD_Zajj | F_EW_Zajj | T_tta | T_tWa |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | N generated x sigma x BR | 1.44 (200000) | 11.3 (100000) | 5.68 (20000) | 20.6 (42000) | 28.3 (6565) | 0.893 (2000) | 17.4 (100000) | 8.15 (20000) | 7.7 (20000) | 3.33 (20000) | 48.5 (22000) | 3.47e+04 (5989548) | 5.52e+03 (500000) | 4.28e+04 (1040000) | 6.52e+03 (160000) |
-| OSSF + >=2 photons + >=2 jets | 0.199 (27721) | 1.09 (9644) | 0.429 (1513) | 0.952 (1945) | 0.013 (3) | 0.0487 (109) | 2.24 (11410) | 1.86 (4052) | 1.7 (3909) | 0.776 (4135) | 2.02 (917) | 8.34 (1439) | 2.14 (194) | 2.47 (60) | 0.407 (10) |
-| + Z window & m_llgg | 0.195 (27194) | 1.07 (9453) | 0.427 (1503) | 0.3 (614) | 0 (0) | 0.0129 (29) | 2.2 (11216) | 1.83 (3987) | 1.66 (3829) | 0.763 (4068) | 0.505 (229) | 5.83 (1005) | 1.91 (173) | 0.453 (11) | 0.163 (4) |
-| + photon pT, pT/m_gg | 0.169 (23532) | 0.933 (8229) | 0.376 (1324) | 0.249 (509) | 0 (0) | 0.00982 (22) | 1.7 (8675) | 1.36 (2961) | 1.24 (2850) | 0.563 (2998) | 0.328 (149) | 2.6 (449) | 0.928 (84) | 0.165 (4) | 0.0407 (1) |
-| + b-veto | 0.169 (23532) | 0.933 (8229) | 0.376 (1324) | 0.249 (509) | 0 (0) | 0.00982 (22) | 1.7 (8675) | 1.36 (2961) | 1.24 (2850) | 0.563 (2998) | 0.328 (149) | 2.6 (449) | 0.928 (84) | 0.165 (4) | 0.0407 (1) |
-| + mjj, deta_jj | 0.0945 (13152) | 0.05 (441) | 0.0559 (197) | 0.00783 (16) | 0 (0) | 0 (0) | 0.238 (1213) | 0.948 (2062) | 0.867 (1994) | 0.35 (1863) | 0.00882 (4) | 0.475 (82) | 0.564 (51) | 0 (0) | 0 (0) |
-| + Zeppenfeld | 0.0945 (13152) | 0.05 (441) | 0.0559 (197) | 0.00783 (16) | 0 (0) | 0 (0) | 0.238 (1213) | 0.948 (2062) | 0.867 (1994) | 0.35 (1863) | 0.00882 (4) | 0.475 (82) | 0.564 (51) | 0 (0) | 0 (0) |
+| OSSF + >=2 photons + >=2 jets | 0.199 (27721) | 1.09 (9644) | 0.429 (1513) | 0.952 (1945) | 0.013 (3) | 0.0487 (109) | 2.24 (11410) | 1.86 (4052) | 1.7 (3909) | 0.776 (4135) | 2.02 (917) | 8.34 (1439) | 2.14 (194) | 19.7 (480) | 2.73 (67) |
+| + Z window & m_llgg | 0.195 (27194) | 1.07 (9453) | 0.427 (1503) | 0.3 (614) | 0 (0) | 0.0129 (29) | 2.2 (11216) | 1.83 (3987) | 1.66 (3829) | 0.763 (4068) | 0.505 (229) | 5.83 (1005) | 1.91 (173) | 4.94 (120) | 0.774 (19) |
+| + photon pT, pT/m_gg | 0.169 (23532) | 0.933 (8229) | 0.376 (1324) | 0.249 (509) | 0 (0) | 0.00982 (22) | 1.7 (8675) | 1.36 (2961) | 1.24 (2850) | 0.563 (2998) | 0.328 (149) | 2.6 (449) | 0.928 (84) | 2.92 (71) | 0.285 (7) |
+| + b-veto | 0.169 (23532) | 0.933 (8229) | 0.376 (1324) | 0.249 (509) | 0 (0) | 0.00982 (22) | 1.7 (8675) | 1.36 (2961) | 1.24 (2850) | 0.563 (2998) | 0.328 (149) | 2.6 (449) | 0.928 (84) | 2.92 (71) | 0.285 (7) |
+| + mjj, deta_jj | 0.0945 (13152) | 0.05 (441) | 0.0559 (197) | 0.00783 (16) | 0 (0) | 0 (0) | 0.238 (1213) | 0.948 (2062) | 0.867 (1994) | 0.35 (1863) | 0.00882 (4) | 0.475 (82) | 0.564 (51) | 0.0823 (2) | 0.0407 (1) |
+| + Zeppenfeld | 0.0945 (13152) | 0.05 (441) | 0.0559 (197) | 0.00783 (16) | 0 (0) | 0 (0) | 0.238 (1213) | 0.948 (2062) | 0.867 (1994) | 0.35 (1863) | 0.00882 (4) | 0.475 (82) | 0.564 (51) | 0.0823 (2) | 0.0407 (1) |
 | + m_gg window (120.8-129.1) | 0.0879 (12226) | 0.0474 (418) | 0.0539 (190) | 0.00783 (16) | 0 (0) | 0 (0) | 0.0312 (159) | 0.109 (237) | 0.112 (258) | 0.0467 (249) | 0.0022 (1) | 0.029 (5) | 0.0111 (1) | 0 (0) | 0 (0) |
 
 ### Table III-like - cutflow at the reference-like baseline (photon pT > 25 GeV; the reference uses 20 GeV), 500 fb^-1: expected events (raw MC events)
@@ -253,12 +329,12 @@ The background model is aligned with the reference: prompt Zγ and Zγγ (QCD an
 | step | S_EW_ZHjj | H_QCD_ZHjj | H_ggZH | H_ttH | H_ZH_tautau | H_tHW | B_QCD_Zaajj_vbs | B_EW_Zaajj_vbs_is1 | B_EW_Zaajj_vbs_is2 | B_EW_Zaajj_vbs_is3 | T_ttaa | F_QCD_Zajj | F_EW_Zajj | T_tta | T_tWa |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | N generated x sigma x BR | 1.44 (200000) | 11.3 (100000) | 5.68 (20000) | 20.6 (42000) | 28.3 (6565) | 0.893 (2000) | 17.4 (100000) | 8.15 (20000) | 7.7 (20000) | 3.33 (20000) | 48.5 (22000) | 3.47e+04 (5989548) | 5.52e+03 (500000) | 4.28e+04 (1040000) | 6.52e+03 (160000) |
-| OSSF + >=2 photons + >=2 jets | 0.199 (27721) | 1.09 (9644) | 0.429 (1513) | 0.952 (1945) | 0.013 (3) | 0.0487 (109) | 2.24 (11410) | 1.86 (4052) | 1.7 (3909) | 0.776 (4135) | 2.02 (917) | 8.34 (1439) | 2.14 (194) | 2.47 (60) | 0.407 (10) |
-| + Z window & m_llgg | 0.195 (27125) | 1.07 (9446) | 0.426 (1501) | 0.297 (606) | 0 (0) | 0.0121 (27) | 2.21 (11226) | 1.84 (3994) | 1.66 (3825) | 0.765 (4076) | 0.503 (228) | 5.39 (929) | 1.87 (169) | 0.411 (10) | 0.204 (5) |
-| + photon pT, pT/m_gg | 0.185 (25738) | 1.02 (8991) | 0.406 (1432) | 0.281 (574) | 0 (0) | 0.0103 (23) | 2.15 (10925) | 1.81 (3932) | 1.64 (3768) | 0.751 (4003) | 0.403 (183) | 3.62 (625) | 1.33 (120) | 0.206 (5) | 0.0815 (2) |
-| + b-veto | 0.185 (25738) | 1.02 (8991) | 0.406 (1432) | 0.281 (574) | 0 (0) | 0.0103 (23) | 2.15 (10925) | 1.81 (3932) | 1.64 (3768) | 0.751 (4003) | 0.403 (183) | 3.62 (625) | 1.33 (120) | 0.206 (5) | 0.0815 (2) |
-| + mjj, deta_jj | 0.0901 (12533) | 0.0449 (396) | 0.0528 (186) | 0.00685 (14) | 0 (0) | 0 (0) | 0.351 (1784) | 1.34 (2916) | 1.21 (2787) | 0.477 (2543) | 0.0176 (8) | 0.574 (99) | 0.751 (68) | 0 (0) | 0 (0) |
-| + Zeppenfeld | 0.0901 (12533) | 0.0449 (396) | 0.0528 (186) | 0.00685 (14) | 0 (0) | 0 (0) | 0.351 (1784) | 1.34 (2916) | 1.21 (2787) | 0.477 (2543) | 0.0176 (8) | 0.574 (99) | 0.751 (68) | 0 (0) | 0 (0) |
+| OSSF + >=2 photons + >=2 jets | 0.199 (27721) | 1.09 (9644) | 0.429 (1513) | 0.952 (1945) | 0.013 (3) | 0.0487 (109) | 2.24 (11410) | 1.86 (4052) | 1.7 (3909) | 0.776 (4135) | 2.02 (917) | 8.34 (1439) | 2.14 (194) | 19.7 (480) | 2.73 (67) |
+| + Z window & m_llgg | 0.195 (27125) | 1.07 (9446) | 0.426 (1501) | 0.297 (606) | 0 (0) | 0.0121 (27) | 2.21 (11226) | 1.84 (3994) | 1.66 (3825) | 0.765 (4076) | 0.503 (228) | 5.39 (929) | 1.87 (169) | 4.73 (115) | 0.937 (23) |
+| + photon pT, pT/m_gg | 0.185 (25738) | 1.02 (8991) | 0.406 (1432) | 0.281 (574) | 0 (0) | 0.0103 (23) | 2.15 (10925) | 1.81 (3932) | 1.64 (3768) | 0.751 (4003) | 0.403 (183) | 3.62 (625) | 1.33 (120) | 3.46 (84) | 0.53 (13) |
+| + b-veto | 0.185 (25738) | 1.02 (8991) | 0.406 (1432) | 0.281 (574) | 0 (0) | 0.0103 (23) | 2.15 (10925) | 1.81 (3932) | 1.64 (3768) | 0.751 (4003) | 0.403 (183) | 3.62 (625) | 1.33 (120) | 3.46 (84) | 0.53 (13) |
+| + mjj, deta_jj | 0.0901 (12533) | 0.0449 (396) | 0.0528 (186) | 0.00685 (14) | 0 (0) | 0 (0) | 0.351 (1784) | 1.34 (2916) | 1.21 (2787) | 0.477 (2543) | 0.0176 (8) | 0.574 (99) | 0.751 (68) | 0.206 (5) | 0 (0) |
+| + Zeppenfeld | 0.0901 (12533) | 0.0449 (396) | 0.0528 (186) | 0.00685 (14) | 0 (0) | 0 (0) | 0.351 (1784) | 1.34 (2916) | 1.21 (2787) | 0.477 (2543) | 0.0176 (8) | 0.574 (99) | 0.751 (68) | 0.206 (5) | 0 (0) |
 | + m_gg window (120.8-129.1) | 0.083 (11550) | 0.0416 (367) | 0.0502 (177) | 0.00685 (14) | 0 (0) | 0 (0) | 0.0523 (266) | 0.156 (340) | 0.15 (345) | 0.0625 (333) | 0 (0) | 0.029 (5) | 0.0442 (4) | 0 (0) | 0 (0) |
 
 ### Table IV-like - per-process expected yields at the optimum (events), MC-stat, raw MC support, method
@@ -278,50 +354,50 @@ The background model is aligned with the reference: prompt Zγ and Zγγ (QCD an
 | T_ttaa | background | 0.097 | 1 | 22000 | 0.0022 | 0.0011 | 0.0021 | 0.0063 | 0.0011 | 1 | 3 | L2 VBS-factorised (100% unc.) |
 | F_QCD_Zajj | background | 69.46 | 1 | 5989548 | 0.0058 | 0.0372 | 0.0744 | 0.2231 | 0.0085 | 5 | 19 | L1 m_gg-shape (exp. fit, Delphes) |
 | F_EW_Zajj | background | 11.05 | 1 | 500000 | 0.0111 | 0.0218 | 0.0436 | 0.1308 | 0.0063 | 1 | 12 | L1 m_gg-shape (exp. fit, Delphes) |
-| T_tta | background | 85.58 | 1 | 1040000 | 0.0411 | 0.0001 | 0.0002 | 0.0006 | 0.0001 | 0 | 0 | L2b VBS+window-factorised, direct sample (100% unc.) |
-| T_tWa | background | 13.04 | 1 | 160000 | 0.0407 | 0.0001 | 0.0001 | 0.0003 | 0.0001 | 0 | 0 | L2b VBS+window-factorised, direct sample (100% unc.) |
+| T_tta | background | 85.58 | 1 | 1040000 | 0.0411 | 0.0031 | 0.0062 | 0.0186 | 0.0031 | 0 | 1 | L2 VBS-factorised (100% unc.) |
+| T_tWa | background | 13.04 | 1 | 160000 | 0.0407 | 0.0003 | 0.0007 | 0.0020 | 0.0003 | 0 | 0 | L2 VBS-factorised (100% unc.) |
 
 ### Robustness at 500 fb^-1, definition (a) (all rows include the theory nuisances unless stated)
 
 | variation | s | b | Z_Eq1 | Z_syst | mu95 CLs |
 |---|---|---|---|---|---|
-| optimum | 0.088 | 0.516 | 0.119 | 0.118 | 34.5 |
-| window +-1.5 sigma | 0.080 | 0.403 | 0.121 | 0.121 | 38.1 |
-| reference-like baseline (photon pT > 25 GeV, not 20) | 0.083 | 0.641 | 0.102 | 0.101 | 36.5 |
-| b-veto toggled | 0.084 | 0.567 | 0.109 | 0.108 | 35.9 |
-| Zeppenfeld z* < 1.0 | 0.088 | 0.516 | 0.119 | 0.118 | 34.5 |
-| mjj > 700, |deta| > 3.0 | 0.076 | 0.445 | 0.111 | 0.111 | 39.9 |
-| fake syst 25% | 0.088 | 0.516 | 0.119 | 0.119 | 34.5 |
-| fake syst 100% | 0.088 | 0.516 | 0.119 | 0.118 | 34.5 |
-| window x0.75 (resolution proxy) | 0.080 | 0.403 | 0.121 | 0.121 | 38.1 |
-| window x1.25 (resolution proxy) | 0.091 | 0.626 | 0.113 | 0.112 | 33.2 |
-| theory / off-shell / interference nuisances removed | 0.088 | 0.516 | 0.119 | 0.119 | 34.1 |
-| ggZH normalisation x2 | 0.088 | 0.570 | 0.114 | 0.113 | 34.5 |
-| ggZH normalisation x0.5 | 0.088 | 0.489 | 0.122 | 0.122 | 34.5 |
-| no off-shell/FSR correction of Zgg (x1/1.128) | 0.088 | 0.477 | 0.124 | 0.123 | 34.5 |
+| optimum | 0.088 | 0.520 | 0.119 | 0.118 | 34.5 |
+| window +-1.5 sigma | 0.080 | 0.406 | 0.121 | 0.121 | 38.1 |
+| reference-like baseline (photon pT > 25 GeV, not 20) | 0.083 | 0.646 | 0.101 | 0.101 | 36.5 |
+| b-veto toggled | 0.084 | 0.520 | 0.114 | 0.113 | 35.9 |
+| Zeppenfeld z* < 1.0 | 0.088 | 0.520 | 0.119 | 0.118 | 34.5 |
+| mjj > 700, |deta| > 3.0 | 0.076 | 0.448 | 0.111 | 0.110 | 39.9 |
+| fake syst 25% | 0.088 | 0.520 | 0.119 | 0.118 | 34.5 |
+| fake syst 100% | 0.088 | 0.520 | 0.119 | 0.118 | 34.5 |
+| window x0.75 (resolution proxy) | 0.080 | 0.406 | 0.121 | 0.121 | 38.1 |
+| window x1.25 (resolution proxy) | 0.091 | 0.630 | 0.112 | 0.112 | 33.2 |
+| theory / off-shell / interference nuisances removed | 0.088 | 0.520 | 0.119 | 0.119 | 34.1 |
+| ggZH normalisation x2 | 0.088 | 0.574 | 0.113 | 0.112 | 34.5 |
+| ggZH normalisation x0.5 | 0.088 | 0.493 | 0.122 | 0.121 | 34.5 |
+| no off-shell/FSR correction of Zgg (x1/1.128) | 0.088 | 0.481 | 0.123 | 0.123 | 34.5 |
 | ttgamma, tWgamma at their direct zero-count 95% UL (3 w_evt each) | 0.088 | 0.762 | 0.099 | 0.096 | 48.9 |
-| CMS-like e/mu/gamma efficiencies (A7 reweighting) | 0.180 | 1.108 | 0.166 | 0.165 | 23.0 |
+| CMS-like e/mu/gamma efficiencies (A7 reweighting) | 0.180 | 1.117 | 0.166 | 0.164 | 23.0 |
 
 ### CMS-like object-efficiency variation (A7), all luminosities
 
 | L | def | s | b | Z_Eq1 | Z_syst | mu95 CLs |
 |---|---|---|---|---|---|---|
-| 500 | a | 0.180 | 1.108 | 0.166 | 0.165 | 23.0 |
-| 500 | b | 0.275 | 1.013 | 0.262 | 0.259 | 15.4 |
-| 3000 | a | 1.078 | 6.650 | 0.408 | 0.384 | 6.2 |
-| 3000 | b | 1.650 | 6.079 | 0.642 | 0.603 | 4.3 |
+| 500 | a | 0.180 | 1.117 | 0.166 | 0.164 | 23.0 |
+| 500 | b | 0.275 | 1.021 | 0.261 | 0.258 | 15.4 |
+| 3000 | a | 1.078 | 6.700 | 0.406 | 0.383 | 6.2 |
+| 3000 | b | 1.650 | 6.128 | 0.640 | 0.601 | 4.3 |
 
 ### Uncertainty budget on b at 500 fb^-1, def. (a): correlated groups (events, summed linearly over processes)
 
 | group | delta b [events] | delta b / b |
 |---|---|---|
 | ggzh_norm | 0.0374 | 7.2 % |
-| th_qcdzaa | 0.0241 | 4.7 % |
+| th_qcdzaa | 0.0241 | 4.6 % |
 | th_ewzaa | 0.0238 | 4.6 % |
-| offshell | 0.0194 | 3.8 % |
+| offshell | 0.0194 | 3.7 % |
 | th_qcdzh | 0.0156 | 3.0 % |
-| th_ggzh | 0.0148 | 2.9 % |
-| lumi | 0.0129 | 2.5 % |
+| th_ggzh | 0.0148 | 2.8 % |
+| lumi | 0.0130 | 2.5 % |
 | th_fqcd | 0.0118 | 2.3 % |
 | int_zaa | 0.0061 | 1.2 % |
 | genmjj_B_QCD_Zaajj_vbs | 0.0042 | 0.8 % |
@@ -329,20 +405,20 @@ The background model is aligned with the reference: prompt Zγ and Zγγ (QCD an
 | th_zhtt | 0.0016 | 0.3 % |
 | th_few | 0.0016 | 0.3 % |
 | genmjj_F_QCD_Zajj | 0.0013 | 0.2 % |
-| th_top | 0.0003 | 0.1 % |
-| per-process normalisation (+) MC stat (uncorrelated) | 0.0338 | |
-| **total sigma_b** | 0.0700 | 13.6 % |
+| th_top | 0.0012 | 0.2 % |
+| per-process normalisation (+) MC stat (uncorrelated) | 0.0340 | |
+| **total sigma_b** | 0.0701 | 13.5 % |
 
 ### Reference-like baseline results (photon pT > 25 GeV instead of the reference's 20 GeV)
 
 | L | def | s | b | Z_Eq1 +- MC | mu95 |
 |---|---|---|---|---|---|
-| 500 | a | 0.083 | 0.641 | 0.102 +- 0.002 | 36.5 |
-| 500 | b | 0.125 | 0.599 | 0.156 +- 0.004 | 24.6 |
-| 1000 | a | 0.166 | 1.282 | 0.144 +- 0.002 | 24.5 |
-| 1000 | b | 0.249 | 1.199 | 0.220 +- 0.005 | 16.7 |
-| 3000 | a | 0.498 | 3.846 | 0.249 +- 0.004 | 12.3 |
-| 3000 | b | 0.748 | 3.597 | 0.382 +- 0.009 | 7.1 |
+| 500 | a | 0.083 | 0.646 | 0.101 +- 0.002 | 36.5 |
+| 500 | b | 0.125 | 0.604 | 0.155 +- 0.004 | 24.6 |
+| 1000 | a | 0.166 | 1.292 | 0.143 +- 0.002 | 24.5 |
+| 1000 | b | 0.249 | 1.209 | 0.220 +- 0.005 | 16.7 |
+| 3000 | a | 0.498 | 3.876 | 0.248 +- 0.004 | 12.3 |
+| 3000 | b | 0.748 | 3.627 | 0.380 +- 0.009 | 7.1 |
 
 ### Fake-factor cross-check on Delphes jets (QCD Zg+jets, 500 fb^-1)
 
@@ -358,11 +434,11 @@ The background model is aligned with the reference: prompt Zγ and Zγγ (QCD an
 
 | mjj \ deta | >2.0 | >2.5 | >3.0 | >3.5 | >4.0 | >4.5 |
 |---|---|---|---|---|---|---|
-| >500 | 0.108 | 0.111 | 0.114 | 0.119 | 0.121 | 0.117 |
-| >600 | 0.107 | 0.109 | 0.113 | 0.118 | 0.120 | 0.117 |
-| >700 | 0.106 | 0.108 | 0.111 | 0.115 | 0.117 | 0.116 |
-| >800 | 0.103 | 0.104 | 0.107 | 0.110 | 0.113 | 0.112 |
-| >900 | 0.099 | 0.100 | 0.102 | 0.105 | 0.109 | 0.108 |
+| >500 | 0.107 | 0.110 | 0.114 | 0.119 | 0.121 | 0.117 |
+| >600 | 0.107 | 0.109 | 0.112 | 0.117 | 0.120 | 0.117 |
+| >700 | 0.106 | 0.108 | 0.111 | 0.114 | 0.117 | 0.115 |
+| >800 | 0.103 | 0.104 | 0.106 | 0.110 | 0.113 | 0.111 |
+| >900 | 0.098 | 0.100 | 0.102 | 0.105 | 0.109 | 0.108 |
 | >1000 | 0.095 | 0.096 | 0.098 | 0.101 | 0.104 | 0.104 |
 | >1200 | 0.087 | 0.087 | 0.088 | 0.090 | 0.093 | 0.094 |
 
@@ -370,13 +446,13 @@ The background model is aligned with the reference: prompt Zγ and Zγγ (QCD an
 
 | mjj \ deta | >2.0 | >2.5 | >3.0 | >3.5 | >4.0 | >4.5 |
 |---|---|---|---|---|---|---|
-| >500 | 0.263 | 0.271 | 0.280 | 0.292 | 0.296 | 0.286 |
-| >600 | 0.262 | 0.268 | 0.276 | 0.288 | 0.294 | 0.287 |
-| >700 | 0.260 | 0.265 | 0.272 | 0.281 | 0.287 | 0.283 |
-| >800 | 0.252 | 0.256 | 0.262 | 0.270 | 0.278 | 0.273 |
-| >900 | 0.241 | 0.245 | 0.251 | 0.258 | 0.267 | 0.265 |
-| >1000 | 0.233 | 0.235 | 0.240 | 0.247 | 0.255 | 0.255 |
-| >1200 | 0.213 | 0.214 | 0.217 | 0.221 | 0.229 | 0.231 |
+| >500 | 0.262 | 0.270 | 0.279 | 0.291 | 0.296 | 0.286 |
+| >600 | 0.261 | 0.267 | 0.275 | 0.287 | 0.293 | 0.287 |
+| >700 | 0.259 | 0.264 | 0.271 | 0.280 | 0.287 | 0.282 |
+| >800 | 0.251 | 0.255 | 0.261 | 0.269 | 0.277 | 0.273 |
+| >900 | 0.241 | 0.244 | 0.250 | 0.258 | 0.266 | 0.264 |
+| >1000 | 0.232 | 0.235 | 0.240 | 0.247 | 0.255 | 0.255 |
+| >1200 | 0.213 | 0.214 | 0.216 | 0.221 | 0.228 | 0.231 |
 
 
 ## 7. Systematic uncertainties
@@ -435,6 +511,9 @@ The background model is aligned with the reference: prompt Zγ and Zγγ (QCD an
    - LO EW ZHjj only.
    - ggZH, tt̄H and tHW are kept at the SM. ggZH depends on κZ (triangle) and κt (box), which is neglected (ggZH is 0.054 events at 500 fb⁻¹).
    - The headline keeps BR(H→γγ) at the SM. The resolved-κγ variant assumes κt = 1 and no BSM loops.
+9. **tt̄γ / tWγ** have **zero raw events in the signal region** (N_MC ≥ 4 × σ×BR×3000 fb⁻¹), so they are estimated by factorisation (L2: N(all cuts except VBS, wide mγγ) × ε(VBS | preselection) × f_win; 100 % uncertainty). Replacing them by their direct zero-count 95 % upper limits raises **b at 500 fb⁻¹ from 0.520 to 0.76** (robustness row; μ₉₅ 34.5 → 48.9).
+10. **The λWZ sensitivity is modest by construction.** In ZH the SM κW–κZ interference in EW ZHjj is destructive, but flipping the sign of κW raises σ by only a moderate factor: σ(λWZ = −1)/σ(SM) = 2.95 at generator level and 3.8 in the signal region. In addition, λWZ → 0⁻ is almost degenerate with the SM. In VBS/VBF WH, instead, λWZ < 0 breaks the gauge cancellation of the W W → W H amplitude and enhances the high-energy cross section by large factors, which both CMS and ATLAS exploit.
+11. **The c_A sensitivity is dominated by the unclipped high-energy tail**, where the validity of the dimension-6 EFT is questionable. With clipping at m(ℓℓγγ) < 500 GeV, the expected 95 % interval at 3000 fb⁻¹ widens from [-0.70, +0.80] to [-3.80, +3.80].
 
 
 ## 9. VH coupling interpretation: λWZ = κW/κZ, κZ, CP-odd (E)
@@ -509,6 +588,22 @@ Intervals are the expected (Asimov SM) ranges where −2Δln L < 1 (68 %) or < 3
 - The **headline** is the BR(H→γγ)-fixed row: a production-only interpretation in which κγ is a free effective coupling constrained by inclusive H→γγ.
 - In the **resolved** variant, κγ² = 1.59κW² + 0.07 − 0.67κW (κt = 1). λWZ = −1 then multiplies BR(H→γγ) by about 2.3, a constraint dominated by the inclusive H→γγ rate.
 - The CP-odd interpretation is linear + quadratic in c_A, with and without an energy clipping m(ℓℓγγ) < 500 GeV. The rate is dominated by the quadratic term (0.018 = |linear/quadratic| at c_A = ±2), so clipping mainly shows how much of the sensitivity comes from high energies, where the EFT validity is questionable.
+**Comparison with experiment (closeout item 4).** This study is complementary, not competitive: it has an independent final state (Z→ℓℓ, H→γγ) and an independent production mode (EW ZHjj).
+
+| analysis | process, decays | √s, L | 95 % CL limit on the SM signal strength (obs. / exp.) | λWZ < 0 |
+|---|---|---|---|---|
+| CMS, PLB 860 (2025) 139202, arXiv:2405.16566 | VBS WH, W→ℓν, H→bb̄ | 13 TeV, 138 fb⁻¹ | 14.3 / 9.9 (VBS WH) | excluded beyond 5σ (all scenarios consistent with current measurements) |
+| ATLAS, PRL 133 (2024) 141801, arXiv:2402.00426 | VBF WH, W→ℓν, H→bb̄ | 13 TeV, 140 fb⁻¹ | 9.0 / 8.7 (VBF WH) | excluded at ≫ 5σ |
+| **this study (expected)** | EW ZHjj, Z→ee/μμ, H→γγ | 13.6 TeV, 500 / 3000 fb⁻¹ | — / 34.5 (500), 10.4 (3000) | Z(all λWZ < 0) = 0.14 / 0.33; Z(λWZ = −1) = 0.43 / 1.05 |
+
+Quantitative reasons for the gap:
+- **Higgs decay:** BR(H→γγ)/BR(H→bb̄) = 0.00227/0.5809 ≈ 1/256.
+- **Vector-boson decay:** BR(Z→ee+μμ)/BR(W→eν+μν) = 0.0673/0.214 ≈ 0.31.
+- **Interference structure:** σ(λWZ = −1)/σ(SM) = 3.0 in EW ZHjj (limitation 10). In VBS/VBF WH the λWZ < 0 enhancement grows with energy.
+- **Luminosity:** the experiments use 138–140 fb⁻¹ of observed data at 13 TeV. Our expected numbers need 500–3000 fb⁻¹ to reach μ₉₅ ≈ 35–10, and λWZ = −1 still reaches only Z ≈ 1 at 3000 fb⁻¹.
+- **CP-odd:** published HVV CP limits are quoted as f_a3, defined in the H→ZZ decay (JHU convention, with the a₃ normalised to the H→ZZ*→4ℓ cross section). Our c_A = sin α·κ_AVV with Λ = 1 TeV is defined in the HC UFO for production in EW ZHjj, with κ_AZZ = κ_AWW.
+  - A reliable conversion needs σ₃/σ₁ for H→ZZ*→4ℓ in the HC normalisation, which was not computed here.
+  - **We therefore make no numerical comparison with published f_a3 limits.** Only the convention difference is stated.
 - Figures: `lambdaWZ_scan`, `kappaZ_lambdaWZ_500/3000`, `lambdaWZ_dist_{mllgg,ptgg,mjj,detajj}` (SM vs λWZ = −1 and 0), `cA_scan`.
 
 ## 10. Figures (`figures/`, PDF + PNG)

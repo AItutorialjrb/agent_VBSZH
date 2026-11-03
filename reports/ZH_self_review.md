@@ -41,12 +41,21 @@
 | 24 | S3 (found in this review) | PROGRESS.md entries of 2026-11-03 carried estimated, not measured, times (twice; up to +2 h off) | `date -u` vs the entry labels; transcript timestamps | All affected entries relabelled with the true window; subsequent entries use `date -u`. The metrics use transcript timestamps, never PROGRESS labels. | FIXED |
 | 23 | S3 | One coupling job (cpo_m2 seed 143200002) crashed after LHE | condor log | Dropped (24/25), as for earlier deterministic segfaults. N = 48 000 is used. | ACCEPTED |
 
+## Closeout addendum (2026-11-03, after prompt "ZH closeout (final)")
+
+| # | sev. | issue | evidence | resolution | status |
+|---|---|---|---|---|---|
+| 25 | S2 | The hard/soft-photon overlap removal (n_prompt ≤ 1) applied to tt̄γ/tWγ removed 87 % of the tt̄γ initial selection. Their second "prompt" photon is mostly radiated by top-decay products, which the decay-chain tt̄γγ ME does not contain, so those events were counted nowhere (bias low). | `work/final_ntuples/tta_xcheck.json`: 479 → 60 raw at the initial selection. Without the removal, the full reference cut flow gives 5 raw = 0.21 ± 0.09 vs reference 0.15 ± 0.10 (0.4σ). | No overlap removal for tt̄γ/tWγ, as in the reference. Double counting with tt̄γγ is bounded by its full yield (0.001 events). tt̄γ is now 0.0031 events in the SR (L2); b at 500 fb⁻¹ goes 0.516 → 0.520. The cross-check gate (> 3σ) was not triggered; option A is kept. | FIXED |
+| 26 | S3 | The ratio-C statistics were not reported explicitly | final.json `genmjj` | FINAL_report §4 table: raw counts 875 / 150 317 (QCD Zγjj) and 412 / 1340 (QCD Zγγjj). Relative uncertainties are 3.4 % and 5.6 %, i.e. δb/b = 0.24 % and 0.80 %, which match the budget entries. | FIXED |
+| 27 | S2 | The limitations did not state explicitly the zero raw tt̄γ/tWγ SR events, the reason for the modest λWZ sensitivity (destructive SM κW–κZ interference, σ(λWZ = −1)/σ(SM) ≈ 3), or the EFT-validity issue of the unclipped c_A tail | FINAL_report §8 (pre-closeout) | Limitations 9–11 added | FIXED |
+| 28 | S2 | No quantitative comparison with CMS and ATLAS λWZ results; c_A not related to f_a3 | §9 | Comparison table added (μ₉₅ and λWZ < 0 exclusion), with the reasons for the gap: BR(γγ)/BR(bb̄) ≈ 1/256, BR(Z→ℓℓ)/BR(W→ℓν) ≈ 0.31, interference, luminosity. The c_A → f_a3 conversion was not computed, so only the convention difference is stated and no numerical comparison is made. | FIXED |
+
 ## Net effect of the review-driven fixes on the headline (500 fb⁻¹, def. a)
 
 | quantity | pre-review FINAL (commit 2503e4c) | after A + E + review (this freeze) |
 |---|---|---|
 | s | 0.088 | 0.088 |
-| b | 0.420 | 0.516 |
+| b | 0.420 | 0.520 (v1.1; 0.516 in v1) |
 | Z_Eq1 ± MC | 0.131 ± 0.002 | 0.119 ± 0.002 |
 | μ₉₅ (CLs, exact Poisson) | 34.1 | 34.5 (incl. theory) |
 

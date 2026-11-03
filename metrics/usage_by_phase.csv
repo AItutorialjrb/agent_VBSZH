@@ -5,4 +5,5 @@ R1,claude,Claude run 1: Phase 01 audit + Phases 02-04 validation (M1-M7),2026-11
 R2,claude,Run 2: Phase 04 production-plan revision,2026-11-02T14:20:06Z,2026-11-02T15:15:53Z,0.93,0.73,1,39,45,0,82,124973,11401544,100979,,0,0.0
 R3,claude,Run 3: submission + Phase 05 pilot sensitivity,2026-11-02T15:15:53Z,2026-11-02T16:02:53Z,0.78,0.65,2,74,73,1,150,223531,11492720,114386,,208,1657.5
 FINAL,claude,FINAL RUN: Phases 06-08 (production; Delphes analysis; reports),2026-11-02T16:02:53Z,2026-11-03T11:25:14Z,19.37,9.02,2,187,186,2,380,280155,38850076,168455,,3473,543.3
-POST,claude,Post-final completion: A physics / E couplings / B self-review / C metrics / D freeze,2026-11-03T11:25:14Z,"(open, 2026-11-03T13:47Z)",2.37,2.2,5,204,207,1,414,514372,57485920,232662,,1010,174.7
+POST,claude,Post-final completion: A physics / E couplings / B self-review / C metrics / D freeze,2026-11-03T11:25:14Z,2026-11-03T14:01:34Z,2.61,2.56,5,218,219,1,444,532180,64123855,244073,,1010,174.7
+CLOSE,claude,ZH closeout: ttgamma/tWgamma cut-flow cross-check,2026-11-03T14:01:34Z,"(open, 2026-11-03T14:25Z)",0.39,0.39,1,20,21,0,44,33828,10078437,22344,,0,0.0
