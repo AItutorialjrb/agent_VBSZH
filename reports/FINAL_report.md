@@ -1,8 +1,8 @@
 # FINAL report — EW ZHjj (Z→ee/μμ, H→γγ) at √s = 13.6 TeV: Delphes-level feasibility study
 
-- **Date:** 2026-11-03 02:20 UTC
+- **Date:** 2026-11-03 02:21 UTC
 - **Status:** **PASS with limitations**. Expected-limit/significance study for the current signal definition (D12 closed).
-- **Git commit:** `55d4b11`. Reproduction: [08_reproducibility.md](08_reproducibility.md).
+- **Git commit:** `bfaf707`. Reproduction: [08_reproducibility.md](08_reproducibility.md).
 - **Inputs:** `work/final_ntuples/final.json` (written by `scripts/analysis/final_analysis.py`), `work/final_ntuples/verify.json`.
 - **Comparison:** the reference ZγγJJ study, arXiv:2512.07689, is the methodological reference: same Delphes CMS card, Eq. 1 counting significance and the Fig. 4-style mjj–|Δηjj| scan.
 - **Luminosity:** 3000 fb⁻¹ is a pure luminosity scaling at 13.6 TeV, not an HL-LHC detector projection.
