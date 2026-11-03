@@ -11,5 +11,5 @@ request_cpus = 1
 request_memory = 8000
 +JobFlavour = "longlunch"
 queue tag, args from (
-  fa_final scripts/analysis/final_analysis.py /eos/user/r/rjiang/vbs_zh_codex_starter/work/final_ntuples/final.json --plots /eos/user/r/rjiang/vbs_zh_codex_starter/figures
+  fa_close scripts/analysis/final_analysis.py /eos/user/r/rjiang/vbs_zh_codex_starter/work/final_ntuples/final.json --plots /eos/user/r/rjiang/vbs_zh_codex_starter/figures
 )

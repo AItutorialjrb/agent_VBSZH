@@ -13,7 +13,10 @@ Estimation hierarchy per background (all Delphes-level; method recorded per numb
   L3 transfer      : no longer used for yields (2026-11-03): ttgamma / tWgamma are now direct Delphes samples with
                      N >= 4 x sigma x BR x 3000 fb^-1; the transfer factor survives only as a cross-check (tf_xcheck).
   UL               : zero raw support: central = 1.14 x w_evt (68% CL Poisson bound), 100% unc.; 95% UL = 3 x w_evt.
-Overlap removal (hard/soft photon): samples with one ME photon keep GenTruth n_prompt_photons <= 1 (pT>15, |eta|<2.5,
+Overlap removal (hard/soft photon): ttgamma / tWgamma are NOT overlap-removed (closeout 2026-11-03: their second "prompt"
+photon is mostly radiated by top-decay products, which the decay-chain ttgg ME does not contain; removal discarded 87 % of
+the initial selection; no removal reproduces the reference cut flow; double counting with ttgg is bounded by its full yield).
+Other samples with one ME photon keep GenTruth n_prompt_photons <= 1 (pT>15, |eta|<2.5,
 dR>0.4: the Zgg/ttgg ME phase space); photon-less samples keep n_prompt_photons == 0.
 """
 import sys, os, glob, json, numpy as np
@@ -61,8 +64,8 @@ REG = {
  "T_ttaa":     R(fin("T_ttaa") + [f"{M7}/tv2_T_ttaa.npz"], None, 1.0, "bkg", "top (ttgg, ttg, tWg)", "other", None, "cont", "final + test_v2"),
  "F_QCD_Zajj": R(fin("F_QCD_llajj_vbs"), None, 1.0, "bkg", "Zg + fake g (QCD+EW)", "fake", 1, "cont", "final, direct Delphes fakes (VBS-biased generation)"),
  "F_EW_Zajj":  R(fin("F_EW_llajj_vbs"), None, 1.0, "bkg", "Zg + fake g (QCD+EW)", "fake", 1, "cont", "final, direct Delphes fakes (VBS-biased generation)"),
- "T_tta":      R(fin("T_tta"), None, 1.0, "bkg", "top (ttgg, ttg, tWg)", "fake", 1, "cont", "final, direct Delphes (ref. Table I: both t -> b l nu), N = 4.05 x sigma x 3000 fb^-1"),
- "T_tWa":      R(fin("T_tWa"), None, 1.0, "bkg", "top (ttgg, ttg, tWg)", "fake", 1, "cont", "final, direct Delphes (ref. Table I: tW-a + t~W+a, both W -> l nu), N = 4.1 x sigma x 3000 fb^-1"),
+ "T_tta":      R(fin("T_tta"), None, 1.0, "bkg", "top (ttgg, ttg, tWg)", "fake", None, "cont", "final, direct Delphes (ref. Table I: both t -> b l nu), N = 4.05 x sigma x 3000 fb^-1"),
+ "T_tWa":      R(fin("T_tWa"), None, 1.0, "bkg", "top (ttgg, ttg, tWg)", "fake", None, "cont", "final, direct Delphes (ref. Table I: tW-a + t~W+a, both W -> l nu), N = 4.1 x sigma x 3000 fb^-1"),
 }
 SIGSRC = {"B_QCD_Zaajj_vbs": ("B_QCD_zaajj_vbs", "fin"), **{f"B_EW_Zaajj_vbs_is{i}": ((f"B_EW_zaajj_vbs_is{i}h" if fin(f"B_EW_zaajj_vbs_is{i}h") else f"B_EW_zaajj_vbs_is{i}"), "fin") for i in (1, 2, 3)}, "H_ggZH": ("H_ggZH_py8dec", "fin"), "H_ttH": ("H_ttH", "fin"), "H_ZH_tautau": ("H_ZH_tautau", "fin"), "T_ttaa": ("T_ttaa", "fin"),
           "F_QCD_Zajj": ("F_QCD_llajj_vbs", "fin"), "F_EW_Zajj": ("F_EW_llajj_vbs", "fin"), "H_tHW": ("H_tHW", "tv2"),

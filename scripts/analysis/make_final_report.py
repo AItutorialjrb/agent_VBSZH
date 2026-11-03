@@ -3,6 +3,7 @@
 Every number in the report is read from those files (no hand-copied yields).
 Usage: python3 -P make_final_report.py <final.json> <tables.md> <git_commit> <out.md> [--pending "<text>"]"""
 import sys, json, datetime
+import numpy as np
 J, TAB, COMMIT, OUT = sys.argv[1:5]
 PEND = sys.argv[sys.argv.index("--pending") + 1] if "--pending" in sys.argv else ""
 d = json.load(open(J)); R = d["results"]; REG = d["registry"]; F = d["fit"]; O = d["optimum"]; RES = d["resolution"]
@@ -50,6 +51,16 @@ def res_row(k, v):
     return (f"| {int(v['L'])} | {lab} | {v['s']:.3f} | {v['b']:.3f} | {v['Z_eq1']:.3f} ± {v['Z_eq1_mcerr']:.3f} | "
             f"{fk['Z_syst']:.3f} | {v['mu95_cls']:.1f} | {fk['mu95_syst']:.1f} |")
 
+TX = json.load(open("/eos/home-r/rjiang/vbs_zh_codex_starter/work/final_ntuples/tta_xcheck.json"))
+def txrows(key):
+    out = []
+    for r in TX[key]["rows"]:
+        y = f"{r['y500']:.3f}" if r["raw"] else f"0 (< {r['y500_ul68']:.3f} @68 %, < {r['y500_ul95']:.3f} @95 %)"
+        out.append(f"| {r['step']} | {r['raw']} | {y} | {'—' if r['eff_rel'] is None else format(r['eff_rel'], '.3f')} | {'—' if r['ref'] is None else format(r['ref'], '.3g')} |")
+    return "\n".join(out)
+txtab = "\n\n".join(f"*{k.replace('|', ', ')}* (w_evt = {v['w500']:.4f} events at 500 fb⁻¹)\n\n| step | raw | yield at 500 fb⁻¹ | eff. vs previous step | reference |\n|---|---|---|---|---|\n" + txrows(k)
+                      for k, v in TX.items() if k.endswith("gpt=20") or k.startswith("T_tta|ovl=False|gpt=25"))
+cstat = "\n".join(f"| {k} | {v['twin']} | {v['raw_twin']} | {v['raw_vbs']} | {v['C_opt']:.3f} | {100/np.sqrt(v['raw_twin']):.1f} % | {100/np.sqrt(v['raw_vbs']):.2f} % | {100*v['rel_opt']:.1f} % | {R['500_a']['groups_b'].get('genmjj_' + k, float('nan')):.4f} | {100*R['500_a']['groups_b'].get('genmjj_' + k, float('nan'))/R['500_a']['b']:.2f} % |" for k, v in GM.items())
 cpl_ok = "choice" in CP
 def lamrow(L):
     global rng; rng = (-2.0, 2.0); r, rr, rb = CP[f"lambda|{L}|fixed"], CP[f"lambda|{L}|resolved"], CP[f"lambda_defb|{L}"]
@@ -173,6 +184,27 @@ The background model is aligned with the reference: prompt Zγ and Zγγ (QCD an
   - The reference quotes **0.15 ± 0.10** events (Table IV, photon pT > 20 GeV, no Higgs window). The results are compatible within the reference's uncertainty.
   - Expected differences: the higher photon threshold, the n_prompt ≤ 1 overlap removal (not applied in the reference), and the reference's 2.5-event-weight statistics.
 
+**tt̄γ / tWγ cut-flow cross-check against the reference (closeout check 1; `scripts/analysis/tta_xcheck.py`, `work/final_ntuples/tta_xcheck.json`).**
+- Reference cut flow, before any mγγ window, at 500 fb⁻¹.
+- The reference column gives arXiv:2512.07689 Table III, converted to events, and Table IV for the final row (0.15 ± 0.10).
+- `ovl` = our hard/soft-photon overlap removal (n_prompt ≤ 1).
+- `gpt` = photon pT threshold: 20 GeV is the reference's, 25 GeV ours.
+
+{txtab}
+
+- **Finding:**
+  - With `ovl=True`, 87 % of the tt̄γ initial selection was discarded (479 → 60 raw). The second "prompt" photon in those events is mostly radiated by top-decay products, which the decay-chain tt̄γγ matrix element does not contain.
+  - Without the removal, the full reference cut flow at pT > 20 GeV gives {TX['T_tta|ovl=False|gpt=20']['rows'][3]['raw']} raw events = {TX['T_tta|ovl=False|gpt=20']['rows'][3]['y500']:.2f} ± {TX['T_tta|ovl=False|gpt=20']['rows'][3]['y500']/max(TX['T_tta|ovl=False|gpt=20']['rows'][3]['raw'],1)**0.5:.2f}, against **0.15 ± 0.10** in the reference: consistent at 0.4σ.
+  - The initial selection is 1.6× below the reference (19.7 vs 32.2 events). This is expected from the different generator lepton cuts and pT thresholds, and it does not propagate to the final row.
+- **Fix applied:** tt̄γ/tWγ are **not** overlap-removed. This is conservative and follows the reference. Double counting with tt̄γγ is bounded by the latter's full yield.
+- **Measured efficiencies on our sample** (tt̄γ, no overlap removal):
+  - photon pT > 25 vs 20 GeV: {TX['T_tta|ovl=False|gpt=25']['rows'][0]['raw']}/{TX['T_tta|ovl=False|gpt=20']['rows'][0]['raw']} = {TX['T_tta|ovl=False|gpt=25']['rows'][0]['raw']/TX['T_tta|ovl=False|gpt=20']['rows'][0]['raw']:.2f} at the initial selection;
+  - mℓℓγγ > 100 GeV: {TX['T_tta|ovl=False|gpt=20']['rows'][1]['eff_rel']:.2f};
+  - Z window 70–120 GeV: {TX['T_tta|ovl=False|gpt=20']['rows'][2]['eff_rel']:.2f};
+  - mjj > 700 GeV, |Δηjj| > 2.0: {TX['T_tta|ovl=False|gpt=20']['rows'][3]['eff_rel']:.3f};
+  - pT/mγγ cuts (ours, not in the reference): {TX['T_tta|ovl=False|gpt=20']['rows'][4]['eff_rel']:.2f}.
+- **In the signal region** (Z window ±25 GeV, mjj > 500 GeV, |Δηjj| > 3.5, mγγ window), tt̄γ/tWγ have **zero raw events** and enter through the L2b factorised estimate (100 % uncertainty). The direct zero-count 95 % upper limits are a robustness row.
+
 **Zγγ on-shell Z and off-shell/FSR (A4).**
 - The Zγγjj samples are `p p > z a a j j, z > l+ l-`, so photons radiated in the Z decay and off-shell γ*/Z are missing.
 - **Bound from a dedicated MG5 pair** (`cards/theory/Q_*0j.mg5`, 20 k events each, QCD 0-jet proxy, all non-jet analysis cuts):
@@ -193,7 +225,13 @@ The background model is aligned with the reference: prompt Zγ and Zγγ (QCD an
   - **QCD ZHjj: {100*MR.get('qcd_zhjj_zll', {}).get('P(parton_mjj<400 | reco_mjj>500, deta>3.5)', float('nan')):.0f} %.** In QCD-type events the reco tag jets are often parton-shower jets, so **the cut is not safe for QCD-type samples.**
 - **Correction for QCD-type samples:** QCD Zγjj and QCD Zγγjj are corrected by C(cuts) = Y(no-mjj-cut twin)/Y(VBS-biased), measured directly at Delphes level with the same VBS, Z-window and photon cuts. The twins are 200 k / 100 k events with mmjj = 0.
   - {"; ".join(f"{k}: C = {v['C_opt']:.2f} ± {100*v['rel_opt']:.0f} % (raw {v['raw_twin']} / {v['raw_vbs']})" for k, v in GM.items()) if GM else "**twin samples not available in this run**"}.
-  - The statistical uncertainty of C is a nuisance.
+  - The statistical uncertainty of C is a nuisance. C statistics at the optimum (relaxed selection: same VBS, Z-window and photon pT cuts; 1 photon for Zγ+jets, 2 photons in 105–165 GeV for Zγγ):
+
+| process | twin sample | raw (twin) | raw (VBS-biased) | C | MC stat twin | MC stat biased | rel. unc. of C | δb at 500 fb⁻¹ | δb / b |
+|---|---|---|---|---|---|---|---|---|---|
+{cstat}
+
+  - The last two columns are the `genmjj_*` entries of the b uncertainty budget (§6).
 - **The optimum at the mjj = 500 GeV scan boundary** (`figures/z_vs_mjj`, `z_vs_deta`):
   - Cuts below 500 GeV are shaded in the figure because, for the QCD-type samples, they rely entirely on the correction above.
   - Z_Eq1 (Z with σ_b) at 500 fb⁻¹ for mjj > 400 / 450 / 500 / 600 GeV, with the other cuts at the optimum: {" / ".join(f"{d['scan1d'][f'500|mjj|{m}']['Z']:.3f} ({d['scan1d'][f'500|mjj|{m}']['Zsyst']:.3f})" for m in (400, 450, 500, 600))}.
@@ -270,7 +308,10 @@ The background model is aligned with the reference: prompt Zγ and Zγγ (QCD an
    - LO EW ZHjj only.
    - ggZH, tt̄H and tHW are kept at the SM. ggZH depends on κZ (triangle) and κt (box), which is neglected (ggZH is {R['500_a']['comp'].get('H_ggZH', {}).get('y', float('nan')):.3f} events at 500 fb⁻¹).
    - The headline keeps BR(H→γγ) at the SM. The resolved-κγ variant assumes κt = 1 and no BSM loops.
-{("9. **" + PEND + "**") if PEND else ""}
+9. **tt̄γ / tWγ** have **zero raw events in the signal region** (N_MC ≥ 4 × σ×BR×3000 fb⁻¹), so they are estimated by factorisation (L2b, 100 % uncertainty). Replacing them by their direct zero-count 95 % upper limits raises **b at 500 fb⁻¹ from {ROB['optimum']['b']:.3f} to {ROB['ttgamma, tWgamma at their direct zero-count 95% UL (3 w_evt each)']['b']:.2f}** (robustness row; μ₉₅ {ROB['optimum']['mu95']:.1f} → {ROB['ttgamma, tWgamma at their direct zero-count 95% UL (3 w_evt each)']['mu95']:.1f}).
+10. **The λWZ sensitivity is modest by construction.** In ZH the SM κW–κZ interference in EW ZHjj is destructive, but flipping the sign of κW raises σ by only a moderate factor: σ(λWZ = −1)/σ(SM) = {CP['points']['lam_m100']['sigma_fb']/CP['points']['lam_p100']['sigma_fb']:.2f} at generator level and {CP['points']['lam_m100']['s_SR_500']/CP['points']['lam_p100']['s_SR_500']:.1f} in the signal region. In addition, λWZ → 0⁻ is almost degenerate with the SM. In VBS/VBF WH, instead, λWZ < 0 breaks the gauge cancellation of the W W → W H amplitude and enhances the high-energy cross section by large factors, which both CMS and ATLAS exploit.
+11. **The c_A sensitivity is dominated by the unclipped high-energy tail**, where the validity of the dimension-6 EFT is questionable. With clipping at m(ℓℓγγ) < 500 GeV, the expected 95 % interval at 3000 fb⁻¹ widens from {iv(CP['cA|3000|noclip']['int95']) if 'cA|3000|noclip' in CP else '—'} to {iv(CP['cA|3000|clip500']['int95']) if 'cA|3000|clip500' in CP else '—'}.
+{("12. **" + PEND + "**") if PEND else ""}
 
 ## 9. VH coupling interpretation: λWZ = κW/κZ, κZ, CP-odd (E)
 
@@ -310,6 +351,22 @@ The background model is aligned with the reference: prompt Zγ and Zγγ (QCD an
 - The **headline** is the BR(H→γγ)-fixed row: a production-only interpretation in which κγ is a free effective coupling constrained by inclusive H→γγ.
 - In the **resolved** variant, κγ² = 1.59κW² + 0.07 − 0.67κW (κt = 1). λWZ = −1 then multiplies BR(H→γγ) by about 2.3, a constraint dominated by the inclusive H→γγ rate.
 - The CP-odd interpretation is linear + quadratic in c_A, with and without an energy clipping m(ℓℓγγ) < 500 GeV. The rate is dominated by the quadratic term ({CP.get('cA_rates', {}).get('linear_over_quad', float('nan')):.3f} = |linear/quadratic| at c_A = ±2), so clipping mainly shows how much of the sensitivity comes from high energies, where the EFT validity is questionable.
+**Comparison with experiment (closeout item 4).** This study is complementary, not competitive: it has an independent final state (Z→ℓℓ, H→γγ) and an independent production mode (EW ZHjj).
+
+| analysis | process, decays | √s, L | 95 % CL limit on the SM signal strength (obs. / exp.) | λWZ < 0 |
+|---|---|---|---|---|
+| CMS, PLB 860 (2025) 139202, arXiv:2405.16566 | VBS WH, W→ℓν, H→bb̄ | 13 TeV, 138 fb⁻¹ | 14.3 / 9.9 (VBS WH) | excluded beyond 5σ (all scenarios consistent with current measurements) |
+| ATLAS, PRL 133 (2024) 141801, arXiv:2402.00426 | VBF WH, W→ℓν, H→bb̄ | 13 TeV, 140 fb⁻¹ | 9.0 / 8.7 (VBF WH) | excluded at ≫ 5σ |
+| **this study (expected)** | EW ZHjj, Z→ee/μμ, H→γγ | 13.6 TeV, 500 / 3000 fb⁻¹ | — / {R['500_a']['mu95_cls']:.1f} (500), {R['3000_a']['mu95_cls']:.1f} (3000) | Z(all λWZ < 0) = {CP['lambda|500|fixed']['Z_excl_lambda_neg']:.2f} / {CP['lambda|3000|fixed']['Z_excl_lambda_neg']:.2f}; Z(λWZ = −1) = {CP['lambda|500|fixed']['Z_excl_lambda_m1']:.2f} / {CP['lambda|3000|fixed']['Z_excl_lambda_m1']:.2f} |
+
+Quantitative reasons for the gap:
+- **Higgs decay:** BR(H→γγ)/BR(H→bb̄) = 0.00227/0.5809 ≈ 1/256.
+- **Vector-boson decay:** BR(Z→ee+μμ)/BR(W→eν+μν) = 0.0673/0.214 ≈ 0.31.
+- **Interference structure:** σ(λWZ = −1)/σ(SM) = {CP['points']['lam_m100']['sigma_fb']/CP['points']['lam_p100']['sigma_fb']:.1f} in EW ZHjj (limitation 10). In VBS/VBF WH the λWZ < 0 enhancement grows with energy.
+- **Luminosity:** the experiments use 138–140 fb⁻¹ of observed data at 13 TeV. Our expected numbers need 500–3000 fb⁻¹ to reach μ₉₅ ≈ 35–10, and λWZ = −1 still reaches only Z ≈ 1 at 3000 fb⁻¹.
+- **CP-odd:** published HVV CP limits are quoted as f_a3, defined in the H→ZZ decay (JHU convention, with the a₃ normalised to the H→ZZ*→4ℓ cross section). Our c_A = sin α·κ_AVV with Λ = 1 TeV is defined in the HC UFO for production in EW ZHjj, with κ_AZZ = κ_AWW.
+  - A reliable conversion needs σ₃/σ₁ for H→ZZ*→4ℓ in the HC normalisation, which was not computed here.
+  - **We therefore make no numerical comparison with published f_a3 limits.** Only the convention difference is stated.
 - Figures: `lambdaWZ_scan`, `kappaZ_lambdaWZ_500/3000`, `lambdaWZ_dist_{{mllgg,ptgg,mjj,detajj}}` (SM vs λWZ = −1 and 0), `cA_scan`.
 
 ## 10. Figures (`figures/`, PDF + PNG)
