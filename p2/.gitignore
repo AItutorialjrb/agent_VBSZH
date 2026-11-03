@@ -1,0 +1,7 @@
+# p2: transcripts, heavy MC and per-machine state are not versioned
+metrics/raw/
+production/
+runs/*/*/work/
+runs/*/.claude/settings.local.json
+# re-include run-level agent definitions and isolation settings (root .gitignore excludes .claude/)
+!runs/*/.claude/

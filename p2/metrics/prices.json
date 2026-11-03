@@ -1,0 +1,8 @@
+{
+ "_source": "https://platform.claude.com/docs/en/about-claude/pricing (fetched 2026-11-03 UTC by multi_r1 orchestrator); USD per million tokens; standard (global) routing, no fast mode, no batch",
+ "_run_date": "2026-11-03",
+ "claude-opus-5-5":   {"input": 4.00, "cache_write_5m": 5.00,  "cache_write_1h": 8.00, "cache_read": 0.20, "output": 20.00},
+ "claude-sonnet-5-5": {"input": 2.00, "cache_write_5m": 2.50,  "cache_write_1h": 4.00, "cache_read": 0.10, "output": 10.00},
+ "claude-haiku-5-5":  {"input": 0.10, "cache_write_5m": 0.125, "cache_write_1h": 0.20, "cache_read": 0.01, "output": 0.50,
+                       "_long_context_over_100k_prompt": {"input": 0.50, "cache_write_5m": 0.625, "cache_write_1h": 1.00, "cache_read": 0.05, "output": 2.50}}
+}

@@ -1,0 +1,4 @@
+utc,process,arm,run_id,role,model,phase,event,assisted,session_id,note
+2026-11-03T15:33:46Z,ALL,multi,multi_r1,orchestrator,claude-opus-5-5,P2-SETUP,start,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,first human prompt (S-start variant incl. explicit setup step and 5-item report list; see prompts/multi_r1.csv)
+2026-11-03T16:12:55Z,ALL,multi,multi_r1,orchestrator,claude-opus-5-5,P2-SETUP,end,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,setup done; G0 waived by human prompt (proceed without waiting)
+2026-11-03T16:12:55Z,ALL,multi,multi_r1,orchestrator,claude-opus-5-5,G0,gate,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,G0 auto-passed per first prompt; deviation logged SPEC §7

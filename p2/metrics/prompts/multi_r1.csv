@@ -1,0 +1,2 @@
+utc,run_id,phase,class,assisted,verbatim_or_ref,note
+2026-11-03T15:33:46Z,multi_r1,P2-SETUP,task,unknown,"first prompt: S-start variant (explicit §8 step 1 setup + permission-syntax verification + 5-item G1 report incl. setup summary)",deviates from verbatim S-start text (§7); classified task (not corrective) because it is the first prompt and adds only setup scope that §8 step 1 already requires; assisted flag to be set by the human

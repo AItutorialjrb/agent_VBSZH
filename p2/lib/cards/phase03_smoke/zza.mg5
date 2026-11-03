@@ -1,0 +1,43 @@
+# Phase 03b sigma/pilot card (UNVALIDATED until reports/03_generation_validation.md M6b section). OUTDIR/SEED substituted by scripts/mg5_smoke.sh
+set automatic_html_opening False
+set auto_update 0
+set nb_core 4
+set run_mode 2
+set group_subprocesses False
+set lhapdf_py3 lhapdf-config
+import model sm-no_b_mass
+define p = g u c d s b u~ c~ d~ s~ b~
+define j = g u c d s b u~ c~ d~ s~ b~
+define l+ = e+ mu+
+define l- = e- mu-
+define vl = ve vm
+define vl~ = ve~ vm~
+generate p p > l+ l- l+ l- a
+output OUTDIR -nojpeg
+launch OUTDIR
+0
+set run_card ebeam1 6800
+set run_card ebeam2 6800
+set run_card pdlabel lhapdf
+set run_card lhaid 303600
+set run_card maxjetflavor 5
+set run_card asrwgtflavor 5
+set run_card use_syst False
+set run_card dynamical_scale_choice 3
+set run_card gridpack False
+set run_card ptl 10
+set run_card etal 2.5
+set run_card mmll 50
+set run_card drll 0.4
+set run_card pta 15
+set run_card etaa 2.5
+set run_card draa 0.4
+set run_card draj 0.4
+set run_card dral 0.4
+set run_card ptj 0
+set run_card drjj 0
+set run_card drjl 0
+set run_card draj 0
+set run_card nevents 200
+set run_card iseed SEED
+done

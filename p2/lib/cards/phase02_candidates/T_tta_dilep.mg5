@@ -1,0 +1,10 @@
+# UNVALIDATED Phase 02 candidate (see README.md). Run-card pins as cards/phase03_smoke + YAML gen cuts.
+import model sm-no_b_mass
+define p = g u c d s b u~ c~ d~ s~ b~
+define j = g u c d s b u~ c~ d~ s~ b~
+define l+ = e+ mu+
+define l- = e- mu-
+define vl = ve vm
+define vl~ = ve~ vm~
+generate p p > t t~ a, (t > b w+, w+ > l+ vl), (t~ > b~ w-, w- > l- vl~)
+# photons from top-decay products not covered by the decay-chain ME; compare with p p > l+ vl l- vl~ b b~ a

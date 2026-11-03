@@ -1,0 +1,30 @@
+! Pythia 8.317 common settings — CMS CP5 tune (CMS-GEN-17-001), NNPDF3.1 NNLO via LHAPDF6. UNVALIDATED outside 03 report.
+Main:timesAllowErrors = 100
+Next:numberCount = 500
+Beams:frameType = 4
+PDF:pSet = LHAPDF6:NNPDF31_nnlo_as_0118
+Tune:pp = 14
+Tune:ee = 7
+MultipartonInteractions:ecmPow = 0.03344
+MultipartonInteractions:bProfile = 2
+MultipartonInteractions:pT0Ref = 1.41
+MultipartonInteractions:coreRadius = 0.7634
+MultipartonInteractions:coreFraction = 0.63
+ColourReconnection:range = 5.176
+SigmaTotal:zeroAXB = off
+SpaceShower:alphaSorder = 2
+SpaceShower:alphaSvalue = 0.118
+SigmaProcess:alphaSvalue = 0.118
+SigmaProcess:alphaSorder = 2
+MultipartonInteractions:alphaSvalue = 0.118
+MultipartonInteractions:alphaSorder = 2
+TimeShower:alphaSorder = 2
+TimeShower:alphaSvalue = 0.118
+SigmaTotal:mode = 0
+SigmaTotal:sigmaEl = 21.89
+SigmaTotal:sigmaTot = 100.309
+! QED shower must stay ON for the prompt-photon partition (02 §3) — Pythia defaults, stated explicitly:
+TimeShower:QEDshowerByQ = on
+TimeShower:QEDshowerByL = on
+SpaceShower:QEDshowerByQ = on
+SpaceShower:QEDshowerByL = on

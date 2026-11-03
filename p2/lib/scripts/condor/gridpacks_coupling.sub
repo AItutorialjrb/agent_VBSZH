@@ -1,0 +1,26 @@
+# E2 (2026-11-03): coupling-study gridpacks (HC_NLO_X0_kVV, cards/coupling) -> production/gridpacks
+P            = /eos/user/r/rjiang/vbs_zh_codex_starter
+universe     = vanilla
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+executable   = make_gridpack.sh
+arguments    = $(card) $(gseed) /eos/user/r/rjiang/vbs_zh_codex_starter/production/gridpacks $(ncore)
+transfer_input_files = $(P)/scripts/setup_stack.sh, $(P)/cards/coupling/$(card).mg5, $(P)/software/install/HC_NLO_X0_kVV.tgz
+output       = $(P)/production/condor_logs/gpK_$(card).out
+error        = $(P)/production/condor_logs/gpK_$(card).err
+log          = $(P)/production/condor_logs/gridpacks_coupling.log
+request_cpus   = $(ncore)
+request_memory = 16000
+request_disk   = 20000000
++JobFlavour  = "workday"
+max_retries  = 1
+queue card, gseed, ncore from (
+  K_EW_ZHjj_lam_m100 1365000 8
+  K_EW_ZHjj_lam_m050 1365100 8
+  K_EW_ZHjj_lam_p000 1365200 8
+  K_EW_ZHjj_lam_p050 1365300 8
+  K_EW_ZHjj_lam_p100 1365400 8
+  K_EW_ZHjj_lam_p150 1365500 8
+  K_EW_ZHjj_cpo_p2 1365600 8
+  K_EW_ZHjj_cpo_m2 1365700 8
+)

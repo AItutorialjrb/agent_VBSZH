@@ -1,0 +1,52 @@
+# E2 (2026-11-03): EW ZHjj (Z->ll in ME, X0=H undecayed; H->gg forced in Pythia8 exactly as the SM signal) in the
+# patched Higgs Characterisation model HC_NLO_X0_kVV (scripts/models/make_hc_kvv.sh). Same cuts as the Tier-1 SM
+# signal (ew_zhjj_zll v1) except mmjj>400 (VBS-biased generation; safety shown in A1 and by the lambda=1 closure).
+# Tree-level SM matching: effective X0gg/X0aa/X0Za couplings off, CKM diagonal. Point: cosa 0.7071067811865476 kSM 1.4142135623730951 kSMZ 1 kSMW 1 kAzz -2.8284271247461903 kAww -2.8284271247461903
+set automatic_html_opening False
+set auto_update 0
+set nb_core 4
+set run_mode 2
+set lhapdf_py3 lhapdf-config
+import model HC_NLO_X0_kVV-no_b_mass
+define p = g u c d s b u~ c~ d~ s~ b~
+define j = g u c d s b u~ c~ d~ s~ b~
+define l+ = e+ mu+
+define l- = e- mu-
+generate p p > z x0 j j QCD=0, z > l+ l-
+output OUTDIR -nojpeg
+launch OUTDIR
+0
+set run_card ebeam1 6800
+set run_card ebeam2 6800
+set run_card pdlabel lhapdf
+set run_card lhaid 303600
+set run_card maxjetflavor 5
+set run_card asrwgtflavor 5
+set run_card use_syst True
+set run_card gridpack True
+set run_card nevents 2000
+set run_card ptj 20
+set run_card etaj 5
+set run_card drjj 0.4
+set run_card drjl 0.4
+set run_card mmjj 400
+set run_card dynamical_scale_choice 3
+set run_card cut_decays False
+set run_card iseed SEED
+set param_card kHaa 0
+set param_card kAaa 0
+set param_card kHza 0
+set param_card kAza 0
+set param_card kHzz 0
+set param_card kHww 0
+set param_card kHda 0
+set param_card kHdz 0
+set param_card kHdwR 0
+set param_card kHdwI 0
+set param_card cosa 0.7071067811865476
+set param_card kSM 1.4142135623730951
+set param_card kSMZ 1
+set param_card kSMW 1
+set param_card kAzz -2.8284271247461903
+set param_card kAww -2.8284271247461903
+done

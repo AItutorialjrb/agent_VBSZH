@@ -1,0 +1,14 @@
+! MLM-merged (llaa): nJetMax=2, xqcut=10 (MG5), qCut=19 GeV. UNVALIDATED until DJR check (Phase 04).
+Main:numberOfEvents = NEVENTS
+Beams:LHEF = LHEFILE
+Random:setSeed = on
+Random:seed = PYSEED
+JetMatching:merge = on
+JetMatching:scheme = 1
+JetMatching:setMad = off
+JetMatching:qCut = 19.0
+JetMatching:coneRadius = 1.0
+JetMatching:etaJetMax = 5.0
+JetMatching:nJetMax = 2
+JetMatching:nQmatch = 5
+JetMatching:doShowerKt = off

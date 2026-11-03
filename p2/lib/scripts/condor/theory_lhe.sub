@@ -1,0 +1,31 @@
+# Theory weights (2026-11-03): LHE-only runs of the production gridpacks (use_syst=True) -> work/theory/
+P            = /eos/user/r/rjiang/vbs_zh_codex_starter
+universe     = vanilla
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+transfer_output_files   = ""
+executable   = lhe_only.sh
+arguments    = $(name) /eos/user/r/rjiang/vbs_zh_codex_starter/production/gridpacks/$(gp) $(nev) $(seed) /eos/user/r/rjiang/vbs_zh_codex_starter/work/theory
+transfer_input_files = $(P)/scripts/setup_stack.sh
+output       = $(P)/production/condor_logs/theory/$(name)_$(seed).out
+error        = $(P)/production/condor_logs/theory/$(name)_$(seed).err
+log          = $(P)/production/condor_logs/theory.log
+request_cpus   = 1
+request_memory = 3000
++JobFlavour  = "workday"
+max_retries  = 1
+queue name, gp, nev, seed from (
+  B_EW_zaajj_vbs_is1h B_EW_zaajj_vbs_is1h_gridpack_s1364000.tar.gz 3000 150000001
+  B_EW_zaajj_vbs_is2 B_EW_zaajj_vbs_is2_gridpack_s1363800.tar.gz 3000 150000002
+  B_EW_zaajj_vbs_is3 B_EW_zaajj_vbs_is3_gridpack_s1363900.tar.gz 3000 150000003
+  B_QCD_zaajj_vbs B_QCD_zaajj_vbs_gridpack_s1363500.tar.gz 10000 150000004
+  F_QCD_llajj_vbs F_QCD_llajj_vbs_gridpack_s1363000.tar.gz 10000 150000005
+  F_EW_llajj_vbs F_EW_llajj_vbs_gridpack_s1363100.tar.gz 10000 150000006
+  H_ggZH_py8dec H_ggZH_py8dec_gridpack_s1363200.tar.gz 5000 150000007
+  H_ttH H_ttH_gridpack_s1360500.tar.gz 5000 150000008
+  T_ttaa T_ttaa_gridpack_s1362400.tar.gz 5000 150000009
+  I_ZHjj I_ZHjj_gridpack_s1360300.tar.gz 10000 150000010
+  I_ZHjj I_ZHjj_gridpack_s1360300.tar.gz 10000 150000011
+  T_tta T_tta_gridpack_s1362500.tar.gz 5000 150000012
+  T_tWa T_tWa_gridpack_s1362600.tar.gz 5000 150000013
+)

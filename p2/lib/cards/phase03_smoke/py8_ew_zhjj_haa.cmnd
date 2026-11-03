@@ -1,0 +1,11 @@
+! EW ZHjj (Z->ll in ME, H undecayed in LHE) -> force H->gamma gamma.  LHEF/seed/nEvents substituted by runner.
+Main:numberOfEvents = NEVENTS
+Beams:LHEF = LHEFILE
+Random:setSeed = on
+Random:seed = PYSEED
+SpaceShower:dipoleRecoil = on
+25:mayDecay = on
+25:onMode = off
+25:onIfMatch = 22 22
+HiggsSM:NLOWidths = on
+! physical B(H->gamma gamma)=0.002270 applied ONCE in the analysis ledger (conditional BR=1 here).

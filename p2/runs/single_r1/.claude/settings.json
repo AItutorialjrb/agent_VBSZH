@@ -1,0 +1,43 @@
+{
+ "permissions": {
+  "deny": [
+   "Agent",
+   "Read(//eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/multi_r1/**)",
+   "Edit(//eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/multi_r1/**)",
+   "Read(//eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/multi_r2/**)",
+   "Edit(//eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/multi_r2/**)",
+   "Read(//eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/multi_r3/**)",
+   "Edit(//eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/multi_r3/**)",
+   "Read(//eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r2/**)",
+   "Edit(//eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r2/**)",
+   "Read(//eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r3/**)",
+   "Edit(//eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r3/**)",
+   "Read(//eos/home-r/rjiang/vbs_zh_codex_starter/p2/metrics/raw/**)",
+   "Edit(//eos/home-r/rjiang/vbs_zh_codex_starter/p2/lib/**)",
+   "Edit(//eos/home-r/rjiang/vbs_zh_codex_starter/p2/HANDOFF_VH_HH_multiagent.md)",
+   "Edit(//eos/home-r/rjiang/vbs_zh_codex_starter/reports/**)",
+   "Edit(//eos/home-r/rjiang/vbs_zh_codex_starter/cards/**)",
+   "Edit(//eos/home-r/rjiang/vbs_zh_codex_starter/config/**)",
+   "Edit(//eos/home-r/rjiang/vbs_zh_codex_starter/scripts/**)",
+   "Edit(//eos/home-r/rjiang/vbs_zh_codex_starter/work/**)",
+   "Edit(//eos/home-r/rjiang/vbs_zh_codex_starter/production/**)",
+   "Edit(//eos/home-r/rjiang/vbs_zh_codex_starter/figures/**)",
+   "Edit(//eos/home-r/rjiang/vbs_zh_codex_starter/metrics/**)",
+   "Edit(//eos/home-r/rjiang/vbs_zh_codex_starter/handoff/**)",
+   "Edit(//eos/home-r/rjiang/vbs_zh_codex_starter/software/**)",
+   "Edit(//eos/home-r/rjiang/vbs_zh_codex_starter/AGENTS.md)",
+   "Edit(//eos/home-r/rjiang/vbs_zh_codex_starter/PROJECT_BRIEF.md)",
+   "Edit(//eos/home-r/rjiang/vbs_zh_codex_starter/.gitignore)",
+   "Read(//eos/home-r/rjiang/.git/**)",
+   "Edit(//eos/home-r/rjiang/.git/**)",
+   "Read(~/.codex/**)",
+   "Edit(~/.codex/**)",
+   "Bash(git push --force *)",
+   "Bash(git push -f *)",
+   "Bash(git reset --hard *)",
+   "Bash(git tag -d *)",
+   "Bash(git push --delete *)",
+   "Bash(codex *)"
+  ]
+ }
+}

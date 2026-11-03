@@ -1,0 +1,1 @@
+utc,run_id,process,phase,gate,issue_id,severity,summary,status[open|confirmed|rejected|fixed],confirmed_by,evidence

@@ -1,0 +1,23 @@
+# SUPERSEDED by production_tier1.sub (v2 wrapper) — kept for the M6 record of cluster 879052.
+# HTCondor TEST submission (M6): one small job per ZHjj sample type.
+# Submit from scripts/condor/:   condor_submit test_zhjj.sub
+# Logs go to EOS-visible production/condor_logs via the schedd spool (output/error transferred back).
+P            = /eos/user/r/rjiang/vbs_zh_codex_starter
+universe     = vanilla
+executable   = run_job.sh
+arguments    = $(sample) /eos/user/r/rjiang/vbs_zh_codex_starter/production/gridpacks/$(sample)_v1.tar.gz $(nevents) $(seed) $(cmnd) /eos/user/r/rjiang/vbs_zh_codex_starter/production/test/$(sample)
+transfer_input_files = $(P)/scripts/setup_stack.sh, $(P)/scripts/run_py8_delphes.sh, $(P)/cards/phase03_smoke/py8_common_CP5.cmnd, $(P)/cards/phase03_smoke/$(cmnd)
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+output       = $(P)/production/condor_logs/$(sample)_s$(seed).out
+error        = $(P)/production/condor_logs/$(sample)_s$(seed).err
+log          = $(P)/production/condor_logs/test_zhjj.log
+request_cpus   = 1
+request_memory = 2000
++JobFlavour  = "microcentury"
+max_retries  = 2
+success_exit_code = 0
+queue sample, nevents, seed, cmnd from (
+  ew_zhjj_zll  2000 13610001 py8_ew_zhjj_haa.cmnd
+  qcd_zhjj_zll 2000 13620001 py8_qcd_zhjj_haa.cmnd
+)
