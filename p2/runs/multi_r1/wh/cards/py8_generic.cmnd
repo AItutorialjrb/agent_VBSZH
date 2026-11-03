@@ -1,0 +1,5 @@
+! Generic sample without Higgs (backgrounds, pilots). Global recoil (QCD-type). LHEF/seed/nEvents substituted by runner.
+Main:numberOfEvents = NEVENTS
+Beams:LHEF = LHEFILE
+Random:setSeed = on
+Random:seed = PYSEED

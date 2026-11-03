@@ -1,0 +1,911 @@
+meta:
+  process: HH(boosted VBF HH->4b)
+  run: multi_r1
+  seed_scheme: 1e6*3+1e4*11+J+1000*idx; J=0 gridpack,1 test,2 LHE closure
+  n_mc_rule: 'signal: N>=max(50k, sigma*BR*3000/fb); backgrounds: effective-N policy (SPEC 4.3)'
+br_inputs:
+  B_bb:
+    value: 0.5824
+    source: LHC Higgs WG YR4 SM prediction at mH=125.0 GeV (= model mass; not 125.09), B(H->bb)=5.824E-01; PDG has no SM BR, cross-check closed; BR uncertainty = Phase-06 nuisance
+  B_Zqq:
+    value: 0.6991
+    source: PDG 2024 B(Z->hadrons)=0.6991 (Z forced to q qbar, q=d,u,s,c,b, in PY8; PDG used directly, no MG5 width involved)
+  B_Wqq:
+    value: 0.6741
+    source: PDG 2024 B(W->hadrons)=0.6741 (W forced hadronic in PY8)
+  one:
+    value: 1.0
+    source: no BR factor (inclusive PY8 decays, or no decay)
+samples:
+- idx: 1
+  name: S_HHjj_kV1_k2V1_kl1
+  cls: signal
+  role: basis
+  model: sm_kVk2VkL-no_b_mass
+  process: generate p p > h h j j QCD=0 QED=4
+  generator_cuts:
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    dynamical_scale_choice: 3
+    deltaeta: 2.5
+    xetamin: 200
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_hh_bb.cmnd
+  br_ledger:
+  - B_bb@H1
+  - B_bb@H2
+  br_total: 0.33918976
+  seed_gridpack: 3111000
+  seed_test: 3111001
+  seed_lhe_closure: 3111002
+  phase03_gridpack: true
+  phase03_test_job: true
+  description: EW pp>HHjj (QCD==0, QED==4), H undecayed in LHE, both H->bb forced in PY8
+  coupling_kV_k2V_kl:
+  - 1
+  - 1
+  - 1
+- idx: 2
+  name: S_HHjj_kV1p5_k2V0_kl1
+  cls: signal
+  role: basis
+  model: sm_kVk2VkL-no_b_mass
+  process: generate p p > h h j j QCD=0 QED=4
+  generator_cuts:
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    dynamical_scale_choice: 3
+    deltaeta: 2.5
+    xetamin: 200
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_hh_bb.cmnd
+  br_ledger:
+  - B_bb@H1
+  - B_bb@H2
+  br_total: 0.33918976
+  seed_gridpack: 3112000
+  seed_test: 3112001
+  seed_lhe_closure: 3112002
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: EW pp>HHjj (QCD==0, QED==4), H undecayed in LHE, both H->bb forced in PY8
+  coupling_kV_k2V_kl:
+  - 1.5
+  - 0
+  - 1
+- idx: 3
+  name: S_HHjj_kV1p5_k2V0_kl0
+  cls: signal
+  role: basis
+  model: sm_kVk2VkL-no_b_mass
+  process: generate p p > h h j j QCD=0 QED=4
+  generator_cuts:
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    dynamical_scale_choice: 3
+    deltaeta: 2.5
+    xetamin: 200
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_hh_bb.cmnd
+  br_ledger:
+  - B_bb@H1
+  - B_bb@H2
+  br_total: 0.33918976
+  seed_gridpack: 3113000
+  seed_test: 3113001
+  seed_lhe_closure: 3113002
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: EW pp>HHjj (QCD==0, QED==4), H undecayed in LHE, both H->bb forced in PY8
+  coupling_kV_k2V_kl:
+  - 1.5
+  - 0
+  - 0
+- idx: 4
+  name: S_HHjj_kV0p5_k2V2_kl0
+  cls: signal
+  role: basis
+  model: sm_kVk2VkL-no_b_mass
+  process: generate p p > h h j j QCD=0 QED=4
+  generator_cuts:
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    dynamical_scale_choice: 3
+    deltaeta: 2.5
+    xetamin: 200
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_hh_bb.cmnd
+  br_ledger:
+  - B_bb@H1
+  - B_bb@H2
+  br_total: 0.33918976
+  seed_gridpack: 3114000
+  seed_test: 3114001
+  seed_lhe_closure: 3114002
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: EW pp>HHjj (QCD==0, QED==4), H undecayed in LHE, both H->bb forced in PY8
+  coupling_kV_k2V_kl:
+  - 0.5
+  - 2
+  - 0
+- idx: 5
+  name: S_HHjj_kV1_k2V0_kl2
+  cls: signal
+  role: basis
+  model: sm_kVk2VkL-no_b_mass
+  process: generate p p > h h j j QCD=0 QED=4
+  generator_cuts:
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    dynamical_scale_choice: 3
+    deltaeta: 2.5
+    xetamin: 200
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_hh_bb.cmnd
+  br_ledger:
+  - B_bb@H1
+  - B_bb@H2
+  br_total: 0.33918976
+  seed_gridpack: 3115000
+  seed_test: 3115001
+  seed_lhe_closure: 3115002
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: EW pp>HHjj (QCD==0, QED==4), H undecayed in LHE, both H->bb forced in PY8
+  coupling_kV_k2V_kl:
+  - 1
+  - 0
+  - 2
+- idx: 6
+  name: S_HHjj_kV1_k2V2_klm1
+  cls: signal
+  role: basis
+  model: sm_kVk2VkL-no_b_mass
+  process: generate p p > h h j j QCD=0 QED=4
+  generator_cuts:
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    dynamical_scale_choice: 3
+    deltaeta: 2.5
+    xetamin: 200
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_hh_bb.cmnd
+  br_ledger:
+  - B_bb@H1
+  - B_bb@H2
+  br_total: 0.33918976
+  seed_gridpack: 3116000
+  seed_test: 3116001
+  seed_lhe_closure: 3116002
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: EW pp>HHjj (QCD==0, QED==4), H undecayed in LHE, both H->bb forced in PY8
+  coupling_kV_k2V_kl:
+  - 1
+  - 2
+  - -1
+- idx: 7
+  name: S_HHjj_kV1_k2V0_kl1
+  cls: signal
+  role: closure
+  model: sm_kVk2VkL-no_b_mass
+  process: generate p p > h h j j QCD=0 QED=4
+  generator_cuts:
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    dynamical_scale_choice: 3
+    deltaeta: 2.5
+    xetamin: 200
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_hh_bb.cmnd
+  br_ledger:
+  - B_bb@H1
+  - B_bb@H2
+  br_total: 0.33918976
+  seed_gridpack: 3117000
+  seed_test: 3117001
+  seed_lhe_closure: 3117002
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: EW pp>HHjj (QCD==0, QED==4), H undecayed in LHE, both H->bb forced in PY8
+  coupling_kV_k2V_kl:
+  - 1
+  - 0
+  - 1
+- idx: 8
+  name: S_HHjj_kV1_k2V2_kl1
+  cls: signal
+  role: closure
+  model: sm_kVk2VkL-no_b_mass
+  process: generate p p > h h j j QCD=0 QED=4
+  generator_cuts:
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    dynamical_scale_choice: 3
+    deltaeta: 2.5
+    xetamin: 200
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_hh_bb.cmnd
+  br_ledger:
+  - B_bb@H1
+  - B_bb@H2
+  br_total: 0.33918976
+  seed_gridpack: 3118000
+  seed_test: 3118001
+  seed_lhe_closure: 3118002
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: EW pp>HHjj (QCD==0, QED==4), H undecayed in LHE, both H->bb forced in PY8
+  coupling_kV_k2V_kl:
+  - 1
+  - 2
+  - 1
+- idx: 9
+  name: S_HHjj_SM_twin_loose
+  cls: signal
+  role: twin(gen-cut safety)
+  model: sm_kVk2VkL-no_b_mass
+  process: generate p p > h h j j QCD=0 QED=4
+  generator_cuts:
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    dynamical_scale_choice: 3
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_hh_bb.cmnd
+  br_ledger:
+  - B_bb@H1
+  - B_bb@H2
+  br_total: 0.33918976
+  seed_gridpack: 3119000
+  seed_test: 3119001
+  seed_lhe_closure: 3119002
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: twin of SM point WITHOUT VBS generator filter (parton-level cut-safety check only)
+  coupling_kV_k2V_kl:
+  - 1
+  - 1
+  - 1
+- idx: 10
+  name: G_ggHH_loop_kl1
+  cls: ggF_HH
+  role: bkg(kl-dep.)
+  model: loop_sm_kl-no_b_mass
+  process: generate g g > h h [noborn=QCD]
+  generator_cuts:
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    dynamical_scale_choice: -1
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_hh_bb.cmnd
+  br_ledger:
+  - B_bb@H1
+  - B_bb@H2
+  br_total: 0.33918976
+  seed_gridpack: 3120000
+  seed_test: 3120001
+  seed_lhe_closure: 3120002
+  phase03_gridpack: true
+  phase03_test_job: true
+  description: LO loop-induced ggF HH (loop_sm, full top mass), kl by 3-point quadratic morphing
+- idx: 11
+  name: G_ggHH_loop_kl0
+  cls: ggF_HH
+  role: bkg(kl-dep.)
+  model: loop_sm_kl-no_b_mass
+  process: generate g g > h h [noborn=QCD]
+  generator_cuts:
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    dynamical_scale_choice: -1
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_hh_bb.cmnd
+  br_ledger:
+  - B_bb@H1
+  - B_bb@H2
+  br_total: 0.33918976
+  seed_gridpack: 3121000
+  seed_test: 3121001
+  seed_lhe_closure: 3121002
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: LO loop-induced ggF HH (loop_sm, full top mass), kl by 3-point quadratic morphing
+- idx: 12
+  name: G_ggHH_loop_kl2
+  cls: ggF_HH
+  role: bkg(kl-dep.)
+  model: loop_sm_kl-no_b_mass
+  process: generate g g > h h [noborn=QCD]
+  generator_cuts:
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    dynamical_scale_choice: -1
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_hh_bb.cmnd
+  br_ledger:
+  - B_bb@H1
+  - B_bb@H2
+  br_total: 0.33918976
+  seed_gridpack: 3122000
+  seed_test: 3122001
+  seed_lhe_closure: 3122002
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: LO loop-induced ggF HH (loop_sm, full top mass), kl by 3-point quadratic morphing
+- idx: 13
+  name: G_ggHH_loop_kl5
+  cls: ggF_HH
+  role: closure(kl)
+  model: loop_sm_kl-no_b_mass
+  process: generate g g > h h [noborn=QCD]
+  generator_cuts:
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    dynamical_scale_choice: -1
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_hh_bb.cmnd
+  br_ledger:
+  - B_bb@H1
+  - B_bb@H2
+  br_total: 0.33918976
+  seed_gridpack: 3123000
+  seed_test: 3123001
+  seed_lhe_closure: 3123002
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: LO loop-induced ggF HH (loop_sm, full top mass), kl by 3-point quadratic morphing
+- idx: 20
+  name: Q_4j_vbs
+  cls: QCD_multijet
+  role: bkg
+  model: sm-no_b_mass
+  process: generate p p > j j j j
+  generator_cuts:
+    dynamical_scale_choice: -1
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    deltaeta: 3.0
+    xetamin: 400
+    ihtmin: 500
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_qcd.cmnd
+  br_ledger:
+  - one
+  br_total: 1.0
+  seed_gridpack: 3130000
+  seed_test: 3130001
+  seed_lhe_closure: 3130002
+  phase03_gridpack: true
+  phase03_test_job: true
+  description: QCD 4-parton (g,u,d,s,c,b) + PS; b/c content from g->bb/cc in PS and ME; fixed-order exclusive, NO merging with 5j (flagged)
+- idx: 21
+  name: Q_bbjj_vbs
+  cls: QCD_multijet
+  role: bkg
+  model: sm-no_b_mass
+  process: generate p p > b b~ j j
+  generator_cuts:
+    dynamical_scale_choice: -1
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    deltaeta: 3.0
+    xetamin: 400
+    ihtmin: 500
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_qcd.cmnd
+  br_ledger:
+  - one
+  br_total: 1.0
+  seed_gridpack: 3131000
+  seed_test: 3131001
+  seed_lhe_closure: 3131002
+  phase03_gridpack: true
+  phase03_test_job: true
+  description: QCD b bbar + 2 jets (ME-level b content) + PS
+- idx: 22
+  name: Q_4b_ht
+  cls: QCD_multijet
+  role: bkg(planned)
+  model: sm-no_b_mass
+  process: generate p p > b b~ b b~
+  generator_cuts:
+    dynamical_scale_choice: -1
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    ihtmin: 500
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_qcd.cmnd
+  br_ledger:
+  - one
+  br_total: 1.0
+  seed_gridpack: 3132000
+  seed_test: 3132001
+  seed_lhe_closure: 3132002
+  phase03_gridpack: false
+  phase03_test_job: false
+  description: QCD bbbb, HT-filtered, no VBS filter (VBS jets would come from PS only) -> bound/shape sample; planned
+- idx: 30
+  name: T_ttbar_boost
+  cls: ttbar
+  role: bkg
+  model: sm-no_b_mass
+  process: generate p p > t t~
+  generator_cuts:
+    dynamical_scale_choice: 3
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    ptheavy: 250
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_tt.cmnd
+  br_ledger:
+  - one
+  br_total: 1.0
+  seed_gridpack: 3140000
+  seed_test: 3140001
+  seed_lhe_closure: 3140002
+  phase03_gridpack: true
+  phase03_test_job: true
+  description: tt-bar inclusive, PY8 inclusive decays (all-had + semilep + dilep in one sample), >=1 top pT>250 GeV filter
+- idx: 31
+  name: T_ttbar_boost_vbs
+  cls: ttbar
+  role: bkg(planned)
+  model: sm-no_b_mass
+  process: generate p p > t t~ j j
+  generator_cuts:
+    dynamical_scale_choice: -1
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    deltaeta: 3.0
+    xetamin: 400
+    ptheavy: 250
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_tt.cmnd
+  br_ledger:
+  - one
+  br_total: 1.0
+  seed_gridpack: 3141000
+  seed_test: 3141001
+  seed_lhe_closure: 3141002
+  phase03_gridpack: false
+  phase03_test_job: false
+  description: tt-bar + 2 jets with VBS filter (VBS-jet topology from ME); planned
+- idx: 40
+  name: H_VBFH_bb
+  cls: single_H
+  role: bkg
+  model: sm-no_b_mass
+  process: generate p p > h j j QCD=0 QED=3
+  generator_cuts:
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    dynamical_scale_choice: 3
+    deltaeta: 2.5
+    xetamin: 200
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_hh_bb.cmnd
+  br_ledger:
+  - B_bb
+  br_total: 0.5824
+  seed_gridpack: 3150000
+  seed_test: 3150001
+  seed_lhe_closure: 3150002
+  phase03_gridpack: true
+  phase03_test_job: true
+  description: VBF H, H->bb forced in PY8
+- idx: 41
+  name: H_ZH_Zqq_bb
+  cls: single_H
+  role: bkg
+  model: sm-no_b_mass
+  process: generate p p > z h
+  generator_cuts:
+    dynamical_scale_choice: 3
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    ptheavy: 150
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_vh.cmnd
+  br_ledger:
+  - B_Zqq
+  - B_bb
+  br_total: 0.40715584000000005
+  seed_gridpack: 3151000
+  seed_test: 3151001
+  seed_lhe_closure: 3151002
+  phase03_gridpack: true
+  phase03_test_job: true
+  description: ZH (QCD DY-like), Z->qq (incl. bb), H->bb forced in PY8; >=1 heavy boson pT>150
+- idx: 42
+  name: H_WpH_Wqq_bb
+  cls: single_H
+  role: bkg(planned)
+  model: sm-no_b_mass
+  process: generate p p > w+ h
+  generator_cuts:
+    dynamical_scale_choice: 3
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    ptheavy: 150
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_vh.cmnd
+  br_ledger:
+  - B_Wqq
+  - B_bb
+  br_total: 0.39259584000000003
+  seed_gridpack: 3152000
+  seed_test: 3152001
+  seed_lhe_closure: 3152002
+  phase03_gridpack: false
+  phase03_test_job: false
+  description: W+H, W->qq', H->bb
+- idx: 43
+  name: H_WmH_Wqq_bb
+  cls: single_H
+  role: bkg(planned)
+  model: sm-no_b_mass
+  process: generate p p > w- h
+  generator_cuts:
+    dynamical_scale_choice: 3
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    ptheavy: 150
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_vh.cmnd
+  br_ledger:
+  - B_Wqq
+  - B_bb
+  br_total: 0.39259584000000003
+  seed_gridpack: 3153000
+  seed_test: 3153001
+  seed_lhe_closure: 3153002
+  phase03_gridpack: false
+  phase03_test_job: false
+  description: W-H, W->qq', H->bb
+- idx: 44
+  name: H_ttH_bb
+  cls: single_H
+  role: bkg
+  model: sm-no_b_mass
+  process: generate p p > t t~ h
+  generator_cuts:
+    dynamical_scale_choice: 3
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    ptheavy: 150
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_hh_bb.cmnd
+  br_ledger:
+  - B_bb
+  br_total: 0.5824
+  seed_gridpack: 3154000
+  seed_test: 3154001
+  seed_lhe_closure: 3154002
+  phase03_gridpack: true
+  phase03_test_job: true
+  description: ttH, H->bb forced, tops decay inclusively in PY8; >=1 heavy pT>150
+- idx: 45
+  name: H_ggH_jj_heft
+  cls: single_H
+  role: bkg(planned)
+  model: heft
+  process: generate p p > h j j HIG=1 QCD=2
+  generator_cuts:
+    dynamical_scale_choice: -1
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    deltaeta: 3.0
+    xetamin: 400
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_hh_bb.cmnd
+  br_ledger:
+  - B_bb
+  br_total: 0.5824
+  seed_gridpack: 3155000
+  seed_test: 3155001
+  seed_lhe_closure: 3155002
+  phase03_gridpack: false
+  phase03_test_job: false
+  description: ggH+2j (HEFT, MLM/exclusive decision pending); planned, not a Phase-03 type
+- idx: 50
+  name: V_Zjj_QCD_vbs
+  cls: V+jets
+  role: bkg
+  model: sm-no_b_mass
+  process: generate p p > z j j QED=1
+  generator_cuts:
+    dynamical_scale_choice: -1
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    deltaeta: 3.0
+    xetamin: 400
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_vh.cmnd
+  br_ledger:
+  - B_Zqq
+  br_total: 0.6991
+  seed_gridpack: 3160000
+  seed_test: 3160001
+  seed_lhe_closure: 3160002
+  phase03_gridpack: true
+  phase03_test_job: true
+  description: Z+2j QCD (Z undecayed in LHE, Z->qq forced in PY8) with VBS filter; W+2j analogous (idx 51 planned)
+- idx: 51
+  name: V_Wjj_QCD_vbs
+  cls: V+jets
+  role: bkg(planned)
+  model: sm-no_b_mass
+  process: generate p p > w+ j j QED=1
+  generator_cuts:
+    dynamical_scale_choice: -1
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    deltaeta: 3.0
+    xetamin: 400
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_vh.cmnd
+  br_ledger:
+  - B_Wqq
+  br_total: 0.6741
+  seed_gridpack: 3161000
+  seed_test: 3161001
+  seed_lhe_closure: 3161002
+  phase03_gridpack: false
+  phase03_test_job: false
+  description: W+ + 2j (and W-) planned
+- idx: 53
+  name: V_ZZjj_EW
+  cls: VBS_VV
+  role: bkg
+  model: sm-no_b_mass
+  process: generate p p > z z j j QCD=0
+  generator_cuts:
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    dynamical_scale_choice: 3
+    deltaeta: 2.5
+    xetamin: 200
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_vh.cmnd
+  br_ledger:
+  - B_Zqq@Z1
+  - B_Zqq@Z2
+  br_total: 0.4887408100000001
+  seed_gridpack: 3163000
+  seed_test: 3163001
+  seed_lhe_closure: 3163002
+  phase03_gridpack: true
+  phase03_test_job: true
+  description: EW ZZjj (VBS), both Z->qq forced in PY8 (ZH Z->bb lives in H_ZH_Zqq_bb)
+- idx: 70
+  name: X_tW_boost
+  cls: extra_bkg
+  role: bkg(sigma only)
+  model: sm-no_b_mass
+  process: 'generate p p > t w-
+
+    add process p p > t~ w+'
+  generator_cuts:
+    dynamical_scale_choice: 3
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    ptheavy: 250
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_tt.cmnd
+  br_ledger:
+  - one
+  br_total: 1.0
+  seed_gridpack: 3180000
+  seed_test: 3180001
+  seed_lhe_closure: 3180002
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: single-top tW (5F LO), inclusive PY8 decays, >=1 heavy pT>250
+- idx: 71
+  name: X_ttZ_boost
+  cls: extra_bkg
+  role: bkg(sigma only)
+  model: sm-no_b_mass
+  process: generate p p > t t~ z
+  generator_cuts:
+    dynamical_scale_choice: 3
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    ptheavy: 250
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_tt.cmnd
+  br_ledger:
+  - one
+  br_total: 1.0
+  seed_gridpack: 3181000
+  seed_test: 3181001
+  seed_lhe_closure: 3181002
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: ttZ, inclusive PY8 decays (Z->bb included), >=1 heavy pT>250
+- idx: 72
+  name: X_ttW_boost
+  cls: extra_bkg
+  role: bkg(sigma only)
+  model: sm-no_b_mass
+  process: 'generate p p > t t~ w+
+
+    add process p p > t t~ w-'
+  generator_cuts:
+    dynamical_scale_choice: 3
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    ptheavy: 250
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_tt.cmnd
+  br_ledger:
+  - one
+  br_total: 1.0
+  seed_gridpack: 3182000
+  seed_test: 3182001
+  seed_lhe_closure: 3182002
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: ttW+- , inclusive PY8 decays, >=1 heavy pT>250
+- idx: 73
+  name: X_Zjj_EW_vbs
+  cls: extra_bkg
+  role: bkg(sigma only)
+  model: sm-no_b_mass
+  process: generate p p > z j j QCD=0
+  generator_cuts:
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    dynamical_scale_choice: 3
+    deltaeta: 2.5
+    xetamin: 200
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_vh.cmnd
+  br_ledger:
+  - B_Zqq
+  br_total: 0.6991
+  seed_gridpack: 3183000
+  seed_test: 3183001
+  seed_lhe_closure: 3183002
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: EW (VBF) Zjj, Z->qq forced in PY8
+- idx: 74
+  name: X_ZZ_QCD_boost
+  cls: extra_bkg
+  role: bkg(sigma only)
+  model: sm-no_b_mass
+  process: generate p p > z z
+  generator_cuts:
+    dynamical_scale_choice: 3
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    ptheavy: 250
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_vh.cmnd
+  br_ledger:
+  - B_Zqq@Z1
+  - B_Zqq@Z2
+  br_total: 0.4887408100000001
+  seed_gridpack: 3184000
+  seed_test: 3184001
+  seed_lhe_closure: 3184002
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: QCD ZZ (0 ME jets), both Z->qq forced; WZ analogous (not generated)
+- idx: 60
+  name: V_HHjj_SM_noSchanV
+  cls: validation
+  role: validation(diagram class)
+  model: sm_kVk2VkL-no_b_mass
+  process: generate p p > h h j j QCD=0 QED=4 $$ w+ w- z
+  generator_cuts:
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    dynamical_scale_choice: 3
+    deltaeta: 2.5
+    xetamin: 200
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_hh_bb.cmnd
+  br_ledger:
+  - B_bb@H1
+  - B_bb@H2
+  br_total: 0.33918976
+  seed_gridpack: 3170000
+  seed_test: 3170001
+  seed_lhe_closure: 3170002
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: SM EW HHjj WITHOUT any s-channel W/Z diagram (t-channel/VBF-like topologies only); same cuts as S_HHjj SM; parton-level validation
+  coupling_kV_k2V_kl:
+  - 1
+  - 1
+  - 1
+- idx: 61
+  name: V_ZHH_Zjj_SM
+  cls: validation
+  role: validation(diagram class)
+  model: sm_kVk2VkL-no_b_mass
+  process: generate p p > z h h QCD=0, z > j j
+  generator_cuts:
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    dynamical_scale_choice: 3
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_hh_bb.cmnd
+  br_ledger:
+  - B_bb@H1
+  - B_bb@H2
+  br_total: 0.33918976
+  seed_gridpack: 3171000
+  seed_test: 3171001
+  seed_lhe_closure: 3171002
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: Higgsstrahlung-like ZHH, Z->jj inside MG5 (sigma x MG5 BR(Z->jj)); inclusive, no VBS filter; parton-level validation
+  coupling_kV_k2V_kl:
+  - 1
+  - 1
+  - 1
+- idx: 62
+  name: V_WHH_Wjj_SM
+  cls: validation
+  role: validation(diagram class)
+  model: sm_kVk2VkL-no_b_mass
+  process: generate p p > w+ h h QCD=0, w+ > j j
+  generator_cuts:
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    dynamical_scale_choice: 3
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_hh_bb.cmnd
+  br_ledger:
+  - B_bb@H1
+  - B_bb@H2
+  br_total: 0.33918976
+  seed_gridpack: 3172000
+  seed_test: 3172001
+  seed_lhe_closure: 3172002
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: Higgsstrahlung-like W+HH, W->jj inside MG5; (W- by charge symmetry up to PDFs, not generated); parton-level validation
+  coupling_kV_k2V_kl:
+  - 1
+  - 1
+  - 1

@@ -1,0 +1,25 @@
+# GENERATED (closure LHE jobs, J=2): parton-level validation only
+universe = vanilla
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+executable = /eos/user/r/rjiang/vbs_zh_codex_starter/p2/lib/scripts/condor/lhe_only.sh
+arguments = $(name) /eos/user/r/rjiang/vbs_zh_codex_starter/p2/runs/multi_r1/hh/work/gridpacks_v2/$(name)_gridpack_s$(gseed).tar.gz $(nev) $(seed) /eos/user/r/rjiang/vbs_zh_codex_starter/p2/runs/multi_r1/hh/work/lhe
+transfer_input_files = /eos/user/r/rjiang/vbs_zh_codex_starter/p2/lib/scripts/setup_stack.sh
+output = /eos/user/r/rjiang/vbs_zh_codex_starter/p2/runs/multi_r1/hh/work/condor/lhe_$(name).out
+error = /eos/user/r/rjiang/vbs_zh_codex_starter/p2/runs/multi_r1/hh/work/condor/lhe_$(name).err
+log = /eos/user/r/rjiang/vbs_zh_codex_starter/p2/runs/multi_r1/hh/work/condor/lhe.log
+request_cpus = 1
+request_memory = 3000
++JobFlavour = "longlunch"
+queue name, gseed, nev, seed from (
+  S_HHjj_kV1_k2V1_kl1 3111000 5000 3111002
+  S_HHjj_kV1p5_k2V0_kl1 3112000 5000 3112002
+  S_HHjj_kV1p5_k2V0_kl0 3113000 5000 3113002
+  S_HHjj_kV0p5_k2V2_kl0 3114000 5000 3114002
+  S_HHjj_kV1_k2V0_kl2 3115000 5000 3115002
+  S_HHjj_kV1_k2V2_klm1 3116000 5000 3116002
+  S_HHjj_kV1_k2V0_kl1 3117000 5000 3117002
+  S_HHjj_kV1_k2V2_kl1 3118000 5000 3118002
+  S_HHjj_SM_twin_loose 3119000 5000 3119002
+  V_HHjj_SM_noSchanV 3170000 5000 3170002
+)

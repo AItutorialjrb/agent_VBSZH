@@ -1,0 +1,35 @@
+# WH production card — UNVALIDATED until its gridpack job + one test job pass (reports/03_generation_validation.md). OUTDIR/SEED substituted by runner.
+set automatic_html_opening False
+set auto_update 0
+set nb_core 4
+set run_mode 2
+set lhapdf_py3 lhapdf-config
+import model sm-no_b_mass
+define p = g u c d s u~ c~ d~ s~
+define j = g u c d s u~ c~ d~ s~
+define l+ = e+ mu+
+define l- = e- mu-
+define vl = ve vm
+define vl~ = ve~ vm~
+define q = u c d s u~ c~ d~ s~
+generate p p > w+ h j j QCD=0 QED=4, w+ > l+ vl
+add process p p > w- h j j QCD=0 QED=4, w- > l- vl~
+output OUTDIR -nojpeg
+launch OUTDIR
+0
+set run_card ebeam1 6800
+set run_card ebeam2 6800
+set run_card pdlabel lhapdf
+set run_card lhaid 303600
+set run_card maxjetflavor 5
+set run_card asrwgtflavor 5
+set run_card use_syst True
+set run_card cut_decays False
+set run_card nevents 500
+set run_card ptj 20
+set run_card etaj 5
+set run_card drjj 0.4
+set run_card drjl 0.4
+set run_card dynamical_scale_choice 3
+set run_card iseed SEED
+done

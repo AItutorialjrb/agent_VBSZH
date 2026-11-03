@@ -103,6 +103,22 @@ To be filled after multi_r1 Phase 01 from measured usage (`p2/metrics/parse_usag
 
 | ID | raised | by | question | options | answer | answered |
 |---|---|---|---|---|---|---|
+| D1 | 2026-11-03T22:00Z | orch | SPEC §3.4 seed formula collides across runs for sample idx>=10 (my error) | adopt seed=1e7*P+1e5*R+1000*idx+J before r2/single runs start; multi_r1 test seeds unchanged / other | open | |
+| D2 | 2026-11-03T22:00Z | executor-hh (D-HH-1) | software/install/MG5_aMC_v3.6.3/HEPTools (15 MB) written into shared ZH install | human: rm -rf it (deny rules block agents) + accept ZH-install integrity note | open | |
+| D3 | 2026-11-03T22:00Z | executor-wh (D-WH-0) | WH signal = light-flavour external partons only; top-resonant b class excluded (+108%), non-top b +5% as syst | accept / include b-initiated classes | open | |
+| D4 | 2026-11-03T22:00Z | executor-wh (D-WH-2,7) | N>=σ·BR·3000 infeasible: W+jets 2-fake ~1e10, tt̄ 1ℓ ~4e8, F_QCD_Wajj_nomjj 1.6e7 | extend an effective-N/bound policy to WH (handoff deviation) / VBS-biased samples / other | open | |
+| D5 | 2026-11-03T22:00Z | executor-wh (D-WH-3) | frozen ZH samples below 50k: ggZH 20000, ttH 42000, ZH→ττ 6565 | top up / accept with N_eff | open | |
+| D6 | 2026-11-03T22:00Z | executor-wh (D-WH-4,5) | non-prompt-lepton (γγ+jj 0.07/0.25/2.5 ev) and WZγ/WWγ/ZZγ (e→γ) unquantified | dedicated samples / approve f_lepton range / bound | open | |
+| D7 | 2026-11-03T22:00Z | executor-wh (D-WH-6) | B_EW_Waajj_vbs gridpack 884456.3 running >5 h | wait / condor_rm + split by initial state / close Phase 03 without EW test | open | |
+| D8 | 2026-11-03T22:00Z | executor-wh (D-WH-7) + reviewer WH-G1-2 | mmjj>400 generator cut unsafe for QCD-type (37–48% loss); frozen ZH samples affected; EW twins missing | regenerate with looser cut / apply C=1/(1-f) with syst / EW twins first | open | |
+| D9 | 2026-11-03T22:00Z | executor-wh (D-WH-8) | τ: W→τν signal-like part kept in b; background cards e/μ only (+18.8% lepton uplift not applied) | keep τ in b + add τ to bkg cards / treat as signal (deviation) | open | |
+| D10 | 2026-11-03T22:00Z | executor-wh (D-WH-9) | 11/20 WH sample types untested; tt̄γγ vs tt̄γ double counting 0.554 fb | test all before G2 (recommended) / accept subset | open | |
+| D11 | 2026-11-03T22:00Z | executor-hh (D-HH-2) | ggF HH+2j at LO, K-factor, EW×loop interference not covered (~½ SM signal in SR) | limitation / HEFT ggF HHjj sample | open | |
+| D12 | 2026-11-03T22:00Z | executor-hh (D-HH-3,7) | tt̄ VBS topology and ME jet multiplicity (Z/W+3j, VH+2j, ggH+jj) | ttjj ME+filter vs MLM; higher-multiplicity samples vs PS-modelling unc. | open | |
+| D13 | 2026-11-03T22:00Z | executor-hh (D-HH-4) | QCD multijet: 6-parton MEs infeasible (82k–139k diagrams) | accept 4j+bbjj VBS-filtered + PS + truth-tag with large unc. / other | open | |
+| D14 | 2026-11-03T22:00Z | executor-hh (D-HH-5,8,9) | SM HH boosted ~0.07 [0.009,0.25] ev @500/fb → deliverable κ2V≠1; pT thresholds 300/450 provisional; m(HH) clip value; trigger 450 + 500/550 variation | confirm / specify | open | |
+| D15 | 2026-11-03T22:00Z | executor-hh (D-HH-6,10,11) | bkg twins + N_eff≥10 before G2; tagging class definition (bb_nonH rate); extra bkgs tW/ttZ/ttW/EW Zjj/QCD ZZ bounds | approve plan / dedicated samples | open | |
+| D16 | 2026-11-03T22:00Z | executor-hh (D-HH-12) | full N instead of effective-N for ggF HH, ZH, ZZjj, ttH (~3.5 GB, ~15 CPU-h) | full N (recommended by executor and reviewer) / effective-N | open | |
 
 ## 7. Protocol deviations log
 (any deviation from the handoff, logged here and on the ledger)
@@ -112,3 +128,8 @@ To be filled after multi_r1 Phase 01 from measured usage (`p2/metrics/parse_usag
 | 2026-11-03T16:12:55Z | multi_r1 | custom agent types (.claude/agents) not loadable in the running session (no live reload); roles spawned as general-purpose subagents with model override + verbatim definition body + ROLE= tag; tools: restriction not applied | files created after session start | verifier/reviewer technically able to write; audited post hoc (metrics/ENFORCEMENT.md) |
 | 2026-11-03T16:12:55Z | multi_r1 | G0 human check skipped: the first human prompt instructed to proceed to Phase 01–03 "without waiting" | human instruction | SPEC.md reviewed by human only at G1 |
 | 2026-11-03T16:12:55Z | all | isolation deny rules bypassable by subprocess file access (python open, grep -r from parent) | Claude Code limitation (docs + test) | post-hoc transcript audit |
+| 2026-11-03T21:27:06Z | multi_r1/hh | W-width factor not derived for HH (reviewer HH-G1-9) | not applicable to undecayed-V HH samples? to be justified by executor-hh | BR ledger for V→qq̄ samples |
+| 2026-11-03T21:27:06Z | multi_r1/hh | interactive MG5 loop_sm output wrote software/install/MG5_aMC_v3.6.3/HEPTools (15 MB) into the shared ZH install (D-HH-1); diagram audits used a private MG5 copy work/mg5priv without recorded checksum | agent action; flagged by agent | ZH install integrity: human cleanup + checksum of ZH-used MG5 files needed |
+| 2026-11-03T21:27:06Z | multi_r1 | session interruption 17:45–21:26Z; after restart custom agent types load natively; further spawns use them | Claude Code restart | earlier spawns ran as general-purpose (see first row) |
+| 2026-11-03T22:00Z | multi_r1/wh | WH signal restricted to light-flavour external partons (D3); W→τν part in b (D9); effective-N-type bounds proposed for WH (D4, handoff defines it for HH only); SPEC §3.4 seed defect (D1) | physics / orchestrator error | pending human decisions |
+| 2026-11-03T22:00Z | multi_r1 | G1 reached with WH Phase 03 IN-PROGRESS (EW gridpack running, 11/20 types untested) and HH Phase 03 missing 5 handoff sample types | long gridpacks / scope | G1 review done on current state; completion before G2 |

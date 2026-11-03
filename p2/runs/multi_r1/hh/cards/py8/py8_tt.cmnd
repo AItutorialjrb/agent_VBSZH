@@ -1,0 +1,5 @@
+! hh: ttbar/inclusive tops, default PY8 decays (all-had+semilep+dilep in one sample, BR=1).
+Main:numberOfEvents = NEVENTS
+Beams:LHEF = LHEFILE
+Random:setSeed = on
+Random:seed = PYSEED

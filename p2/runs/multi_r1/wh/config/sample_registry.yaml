@@ -1,0 +1,23 @@
+# Sample registry for WH (multi_r1). idx used in seeds: seed = 1e6*P + 1e4*R + J + 1000*idx, P=2 (WH), R=11 (multi_r1). J=0 gridpack, J=1 test job, J>=2 production jobs.
+# Smoke tests (interactive sigma runs) use idx 0 (seeds 2110001..2110099). Frozen ZH samples are reused and have no seeds here.
+samples:
+  S_EW_WHjj: 1
+  S_EW_WHjj_taunu: 2
+  H_QCD_WH_mlm: 3
+  H_QCD_WHjj_fixed: 4
+  I_WHjj: 5
+  H_ttH_1l: 6
+  H_tHq_lep: 7
+  H_tHW_1l: 8
+  T_tta_1l: 9
+  T_ttaa_1l: 10
+  T_tWa_1l: 11
+  T_tt_1l: 12
+  B_EW_Waajj_vbs: 13
+  B_QCD_Waajj_vbs: 14
+  B_QCD_Waajj_nomjj: 15
+  F_EW_Wajj_vbs: 16
+  F_QCD_Wajj_vbs: 17
+  F_QCD_Wajj_nomjj: 18
+  F_Wjj_pilot: 19
+  F_Wajj_pilot: 20

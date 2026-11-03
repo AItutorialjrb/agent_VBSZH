@@ -1,0 +1,16 @@
+# PROGRESS (wh, multi_r1)
+- 2026-11-03T16:14:48Z Phase 01 START
+- 2026-11-03T16:29:27Z smoke sigma runs + PY8/Delphes validation script done (wp light wdec)
+- 2026-11-03T16:36:00Z LHE classification (b-class) done; Phase 02/03 cards written (cards/prod, cards/smoke)
+- 2026-11-03T16:44:34Z condor: gridpacks cluster 884456 (11 jobs), test jobs submitted (hold-release until gridpack)
+- 2026-11-03T16:47:53Z PY8+Delphes validation done wp/wm/tau (1000/1000/500 ev)
+- 2026-11-03T16:51:29Z Phase 01 END (report written; bwcutoff row pending)
+- 2026-11-03T16:51:29Z Phase 02 START
+- 2026-11-03T16:57:16Z released held test jobs with existing gridpacks (S_EW_WHjj, H_QCD_WH_mlm, F_Wjj_pilot)
+- 2026-11-03T16:58:47Z report 02 draft (.in) written; awaiting gridpacks/test jobs
+- 2026-11-03T17:08:52Z pilot F_Wjj analysed
+- 2026-11-03T17:10:07Z Phase 02 END (ledger; sigma of 6 continuum samples pending gridpacks); Phase 03 reports drafted (IN-PROGRESS)
+- 2026-11-03T17:10:12Z session end: STATUS/VERIFY_REQUEST/INDEX written; Phase 03 IN-PROGRESS
+- 2026-11-03T17:19:33Z verifier FAIL items fixed; VERIFY_REQUEST #2
+- 2026-11-03T21:50:27Z Phase 03 NOT complete: B_EW_Waajj_vbs gridpack pending; reports/03 finalised as IN-PROGRESS; extra tests B_QCD vbs/nomjj, twin numbers done
+- 2026-11-03T21:59:27Z G1 review fixes applied (items 1-9,11-14, F-1); Phase 03 still IN-PROGRESS (no end time)

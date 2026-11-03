@@ -2,3 +2,35 @@ utc,process,arm,run_id,role,model,phase,event,assisted,session_id,note
 2026-11-03T15:33:46Z,ALL,multi,multi_r1,orchestrator,claude-opus-5-5,P2-SETUP,start,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,first human prompt (S-start variant incl. explicit setup step and 5-item report list; see prompts/multi_r1.csv)
 2026-11-03T16:12:55Z,ALL,multi,multi_r1,orchestrator,claude-opus-5-5,P2-SETUP,end,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,setup done; G0 waived by human prompt (proceed without waiting)
 2026-11-03T16:12:55Z,ALL,multi,multi_r1,orchestrator,claude-opus-5-5,G0,gate,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,G0 auto-passed per first prompt; deviation logged SPEC §7
+2026-11-03T16:13:19Z,WH,multi,multi_r1,executor-wh,claude-sonnet-5-5,P01,start,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,spawned (Phase 01-03 task; PHASE tag 01-03)
+2026-11-03T16:13:19Z,WH,multi,multi_r1,orchestrator,claude-opus-5-5,P01,start,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,orchestrator window for WH Phase 01
+2026-11-03T16:13:19Z,HH,multi,multi_r1,executor-hh,claude-sonnet-5-5,P01,start,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,spawned (Phase 01-03 task; PHASE tag 01-03)
+2026-11-03T16:13:19Z,HH,multi,multi_r1,orchestrator,claude-opus-5-5,P01,start,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,orchestrator window for HH Phase 01
+2026-11-03T16:51:29Z,WH,multi,multi_r1,executor-wh,claude-sonnet-5-5,P01,end,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,from wh/PROGRESS.md; Phase 01 PASS
+2026-11-03T16:51:29Z,WH,multi,multi_r1,executor-wh,claude-sonnet-5-5,P02,start,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,from wh/PROGRESS.md
+2026-11-03T17:10:07Z,WH,multi,multi_r1,executor-wh,claude-sonnet-5-5,P02,end,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,Phase 02 PASS as ledger; 6 continuum sigma pending gridpacks
+2026-11-03T17:10:07Z,WH,multi,multi_r1,executor-wh,claude-sonnet-5-5,P03,start,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,Phase 03 IN-PROGRESS; condor 884456/884457/884460
+2026-11-03T16:51:29Z,WH,multi,multi_r1,orchestrator,claude-opus-5-5,P01,end,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,from wh/PROGRESS.md; Phase 01 PASS
+2026-11-03T16:51:29Z,WH,multi,multi_r1,orchestrator,claude-opus-5-5,P02,start,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,from wh/PROGRESS.md
+2026-11-03T17:10:07Z,WH,multi,multi_r1,orchestrator,claude-opus-5-5,P02,end,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,Phase 02 PASS as ledger; 6 continuum sigma pending gridpacks
+2026-11-03T17:10:07Z,WH,multi,multi_r1,orchestrator,claude-opus-5-5,P03,start,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,Phase 03 IN-PROGRESS; condor 884456/884457/884460
+2026-11-03T17:10:14Z,HH,multi,multi_r1,executor-hh,claude-sonnet-5-5,P01,end,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,from hh/PROGRESS.md; Phase 01 PASS
+2026-11-03T17:10:14Z,HH,multi,multi_r1,executor-hh,claude-sonnet-5-5,P02,start,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,from hh/PROGRESS.md
+2026-11-03T17:19:49Z,HH,multi,multi_r1,executor-hh,claude-sonnet-5-5,P02,end,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,Phase 02 PASS with infeasibilities D-HH-2..6
+2026-11-03T17:19:49Z,HH,multi,multi_r1,executor-hh,claude-sonnet-5-5,P03,start,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,Phase 03 window (executor notes first gridpack submit 16:40Z overlapping P01/P02)
+2026-11-03T17:10:14Z,HH,multi,multi_r1,orchestrator,claude-opus-5-5,P01,end,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,from hh/PROGRESS.md; Phase 01 PASS
+2026-11-03T17:10:14Z,HH,multi,multi_r1,orchestrator,claude-opus-5-5,P02,start,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,from hh/PROGRESS.md
+2026-11-03T17:19:49Z,HH,multi,multi_r1,orchestrator,claude-opus-5-5,P02,end,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,Phase 02 PASS with infeasibilities D-HH-2..6
+2026-11-03T17:19:49Z,HH,multi,multi_r1,orchestrator,claude-opus-5-5,P03,start,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,Phase 03 window (executor notes first gridpack submit 16:40Z overlapping P01/P02)
+2026-11-03T17:26:43Z,HH,multi,multi_r1,executor-hh,claude-sonnet-5-5,P03,constraint_violation,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,D-HH-1: interactive MG5 loop_sm output created software/install/MG5_aMC_v3.6.3/HEPTools (15 MB; ninja/oneloop) in shared ZH install; flagged by agent; not in tag-frozen dirs but outside run isolation; cleanup needs human
+2026-11-03T17:41:01Z,HH,multi,multi_r1,executor-hh,claude-sonnet-5-5,P03,end,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,Phase 03 PASS after 2 verifier rounds (Q_4j test 884577 rc0)
+2026-11-03T17:41:01Z,HH,multi,multi_r1,orchestrator,claude-opus-5-5,P03,end,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,Phase 03 PASS after 2 verifier rounds (Q_4j test 884577 rc0)
+2026-11-03T17:41:01Z,HH,multi,multi_r1,reviewer,claude-opus-5-5,G1,start,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,reviewer spawned on hh reports 01-03
+2026-11-03T21:27:06Z,ALL,multi,multi_r1,orchestrator,claude-opus-5-5,G1,interrupt,unknown,2c106b12-2d30-41fb-b453-fd56bc82a4cd,session interrupted ~17:45-21:26Z; human sent S-continue; background watch on 884456 lost; custom agents now load natively (deviation resolved for later spawns)
+2026-11-03T21:27:06Z,HH,multi,multi_r1,reviewer,claude-opus-5-5,G1,end,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,verdict PASS-with-conditions: 1 sev-1 (tagging code vs declared g->bb class), 8 sev-2, 5 sev-3; reviews/hh_01-03.md
+2026-11-03T21:50:56Z,WH,multi,multi_r1,orchestrator,claude-opus-5-5,P03,gate,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,WH Phase 03 IN-PROGRESS at G1 (B_EW_Waajj_vbs gridpack 884456.3 running ~5h; D-WH-6); G1 review on current state
+2026-11-03T21:50:56Z,WH,multi,multi_r1,reviewer,claude-opus-5-5,G1,start,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,reviewer (native agent type) on wh reports 01-03
+2026-11-03T21:55:42Z,WH,multi,multi_r1,verifier,claude-haiku-5-5,P03,constraint_violation,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,verifier (read-only role) wrote twin_recheck.py + 2 json to orchestrator scratchpad /tmp (transient; not run tree); role scope violation minor; tools: restriction cannot prevent Bash writes
+2026-11-03T21:57:03Z,WH,multi,multi_r1,reviewer,claude-opus-5-5,G1,end,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,verdict PASS-with-conditions: 2 sev-1 (I_WHjj N unflagged; frozen ZH mmjj>400 reuse unsafe), 8 sev-2, 4 sev-3; reviews/wh_01-03.md
+2026-11-03T22:00:05Z,WH,multi,multi_r1,orchestrator,claude-opus-5-5,G1,gate,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,G1 reached; reviewer PASS-with-conditions; decisions D1-D16 in SPEC §6; stop for human
+2026-11-03T22:00:05Z,HH,multi,multi_r1,orchestrator,claude-opus-5-5,G1,gate,no,2c106b12-2d30-41fb-b453-fd56bc82a4cd,G1 reached; reviewer PASS-with-conditions; decisions D1-D16 in SPEC §6; stop for human

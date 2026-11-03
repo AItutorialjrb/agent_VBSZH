@@ -1,0 +1,70 @@
+--- ../../../lib/cards/phase04_candidates/delphes_card_CMS_slim_v1.tcl	2026-11-03 15:25:27.000000000 +0100
++++ cards/delphes/delphes_card_CMS_slim_hh_v1.tcl	2026-11-03 17:35:19.455665654 +0100
+@@ -1,3 +1,5 @@
++# slim_hh_v1 = slim_v1 + (i) FatJet branch re-enabled (anti-kT R=0.8, EFlow input, nsubjettiness/trimming/pruning/softdrop already computed by the stock module),
++#   (ii) particle-level GenFatJet (same algorithm on NeutrinoFilter particles) + branch. NO detector-physics change for existing objects. See hh/patches/002.
+ # slim_v1 — LCG_110 Delphes 3.5.1 delphes_card_CMS.tcl (sha256 e363da8b...) with IDENTICAL detector physics;
+ # only TreeWriter output branches Track/Tower/EFlowTrack/EFlowPhoton/EFlowNeutralHadron/FatJet removed.
+ # Particle is still written; scripts/slim_gentruth.py extracts overlap truth and drops it in-job.
+@@ -41,6 +43,7 @@
+ 
+   NeutrinoFilter
+   GenJetFinder
++  GenFatJetFinder
+   GenMissingET
+   
+   FastJetFinder
+@@ -685,6 +688,43 @@
+ 
+ 
+ ##################
++# Gen (particle-level) Fat Jet finder  [hh patch 002]
++##################
++
++module FastJetFinder GenFatJetFinder {
++  set InputArray NeutrinoFilter/filteredParticles
++
++  set OutputArray jets
++
++  # algorithm: 1 CDFJetClu, 2 MidPoint, 3 SIScone, 4 kt, 5 Cambridge/Aachen, 6 antikt
++  set JetAlgorithm 6
++  set ParameterR 0.8
++
++  set ComputeNsubjettiness 1
++  set Beta 1.0
++  set AxisMode 4
++
++  set ComputeTrimming 1
++  set RTrim 0.2
++  set PtFracTrim 0.05
++
++  set ComputePruning 1
++  set ZcutPrun 0.1
++  set RcutPrun 0.5
++  set RPrun 0.8
++
++  set ComputeSoftDrop 1
++  set BetaSoftDrop 0.0
++  set SymmetryCutSoftDrop 0.1
++  set R0SoftDrop 0.8
++
++  set JetPTMin 200.0
++}
++
++
++
++
++##################
+ # Jet Energy Scale
+ ##################
+ 
+@@ -801,7 +841,8 @@
+   add Branch UniqueObjectFinder/photons Photon Photon
+   add Branch UniqueObjectFinder/muons Muon Muon
+ 
+-# [slim_v1 removed] add Branch FatJetFinder/jets FatJet Jet
++add Branch FatJetFinder/jets FatJet Jet
++  add Branch GenFatJetFinder/jets GenFatJet Jet
+ 
+   add Branch MissingET/momentum MissingET MissingET
+   add Branch ScalarHT/energy ScalarHT ScalarHT

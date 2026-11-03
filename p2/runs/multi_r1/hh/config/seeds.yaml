@@ -1,0 +1,315 @@
+3111000:
+  J: 0
+  sample: S_HHjj_kV1_k2V1_kl1
+3111001:
+  J: 1
+  sample: S_HHjj_kV1_k2V1_kl1
+3111002:
+  J: 2
+  sample: S_HHjj_kV1_k2V1_kl1
+3112000:
+  J: 0
+  sample: S_HHjj_kV1p5_k2V0_kl1
+3112001:
+  J: 1
+  sample: S_HHjj_kV1p5_k2V0_kl1
+3112002:
+  J: 2
+  sample: S_HHjj_kV1p5_k2V0_kl1
+3113000:
+  J: 0
+  sample: S_HHjj_kV1p5_k2V0_kl0
+3113001:
+  J: 1
+  sample: S_HHjj_kV1p5_k2V0_kl0
+3113002:
+  J: 2
+  sample: S_HHjj_kV1p5_k2V0_kl0
+3114000:
+  J: 0
+  sample: S_HHjj_kV0p5_k2V2_kl0
+3114001:
+  J: 1
+  sample: S_HHjj_kV0p5_k2V2_kl0
+3114002:
+  J: 2
+  sample: S_HHjj_kV0p5_k2V2_kl0
+3115000:
+  J: 0
+  sample: S_HHjj_kV1_k2V0_kl2
+3115001:
+  J: 1
+  sample: S_HHjj_kV1_k2V0_kl2
+3115002:
+  J: 2
+  sample: S_HHjj_kV1_k2V0_kl2
+3116000:
+  J: 0
+  sample: S_HHjj_kV1_k2V2_klm1
+3116001:
+  J: 1
+  sample: S_HHjj_kV1_k2V2_klm1
+3116002:
+  J: 2
+  sample: S_HHjj_kV1_k2V2_klm1
+3117000:
+  J: 0
+  sample: S_HHjj_kV1_k2V0_kl1
+3117001:
+  J: 1
+  sample: S_HHjj_kV1_k2V0_kl1
+3117002:
+  J: 2
+  sample: S_HHjj_kV1_k2V0_kl1
+3118000:
+  J: 0
+  sample: S_HHjj_kV1_k2V2_kl1
+3118001:
+  J: 1
+  sample: S_HHjj_kV1_k2V2_kl1
+3118002:
+  J: 2
+  sample: S_HHjj_kV1_k2V2_kl1
+3119000:
+  J: 0
+  sample: S_HHjj_SM_twin_loose
+3119001:
+  J: 1
+  sample: S_HHjj_SM_twin_loose
+3119002:
+  J: 2
+  sample: S_HHjj_SM_twin_loose
+3120000:
+  J: 0
+  sample: G_ggHH_loop_kl1
+3120001:
+  J: 1
+  sample: G_ggHH_loop_kl1
+3120002:
+  J: 2
+  sample: G_ggHH_loop_kl1
+3121000:
+  J: 0
+  sample: G_ggHH_loop_kl0
+3121001:
+  J: 1
+  sample: G_ggHH_loop_kl0
+3121002:
+  J: 2
+  sample: G_ggHH_loop_kl0
+3122000:
+  J: 0
+  sample: G_ggHH_loop_kl2
+3122001:
+  J: 1
+  sample: G_ggHH_loop_kl2
+3122002:
+  J: 2
+  sample: G_ggHH_loop_kl2
+3123000:
+  J: 0
+  sample: G_ggHH_loop_kl5
+3123001:
+  J: 1
+  sample: G_ggHH_loop_kl5
+3123002:
+  J: 2
+  sample: G_ggHH_loop_kl5
+3130000:
+  J: 0
+  sample: Q_4j_vbs
+3130001:
+  J: 1
+  sample: Q_4j_vbs
+3130002:
+  J: 2
+  sample: Q_4j_vbs
+3131000:
+  J: 0
+  sample: Q_bbjj_vbs
+3131001:
+  J: 1
+  sample: Q_bbjj_vbs
+3131002:
+  J: 2
+  sample: Q_bbjj_vbs
+3132000:
+  J: 0
+  sample: Q_4b_ht
+3132001:
+  J: 1
+  sample: Q_4b_ht
+3132002:
+  J: 2
+  sample: Q_4b_ht
+3140000:
+  J: 0
+  sample: T_ttbar_boost
+3140001:
+  J: 1
+  sample: T_ttbar_boost
+3140002:
+  J: 2
+  sample: T_ttbar_boost
+3141000:
+  J: 0
+  sample: T_ttbar_boost_vbs
+3141001:
+  J: 1
+  sample: T_ttbar_boost_vbs
+3141002:
+  J: 2
+  sample: T_ttbar_boost_vbs
+3150000:
+  J: 0
+  sample: H_VBFH_bb
+3150001:
+  J: 1
+  sample: H_VBFH_bb
+3150002:
+  J: 2
+  sample: H_VBFH_bb
+3151000:
+  J: 0
+  sample: H_ZH_Zqq_bb
+3151001:
+  J: 1
+  sample: H_ZH_Zqq_bb
+3151002:
+  J: 2
+  sample: H_ZH_Zqq_bb
+3152000:
+  J: 0
+  sample: H_WpH_Wqq_bb
+3152001:
+  J: 1
+  sample: H_WpH_Wqq_bb
+3152002:
+  J: 2
+  sample: H_WpH_Wqq_bb
+3153000:
+  J: 0
+  sample: H_WmH_Wqq_bb
+3153001:
+  J: 1
+  sample: H_WmH_Wqq_bb
+3153002:
+  J: 2
+  sample: H_WmH_Wqq_bb
+3154000:
+  J: 0
+  sample: H_ttH_bb
+3154001:
+  J: 1
+  sample: H_ttH_bb
+3154002:
+  J: 2
+  sample: H_ttH_bb
+3155000:
+  J: 0
+  sample: H_ggH_jj_heft
+3155001:
+  J: 1
+  sample: H_ggH_jj_heft
+3155002:
+  J: 2
+  sample: H_ggH_jj_heft
+3160000:
+  J: 0
+  sample: V_Zjj_QCD_vbs
+3160001:
+  J: 1
+  sample: V_Zjj_QCD_vbs
+3160002:
+  J: 2
+  sample: V_Zjj_QCD_vbs
+3161000:
+  J: 0
+  sample: V_Wjj_QCD_vbs
+3161001:
+  J: 1
+  sample: V_Wjj_QCD_vbs
+3161002:
+  J: 2
+  sample: V_Wjj_QCD_vbs
+3163000:
+  J: 0
+  sample: V_ZZjj_EW
+3163001:
+  J: 1
+  sample: V_ZZjj_EW
+3163002:
+  J: 2
+  sample: V_ZZjj_EW
+3170000:
+  J: 0
+  sample: V_HHjj_SM_noSchanV
+3170001:
+  J: 1
+  sample: V_HHjj_SM_noSchanV
+3170002:
+  J: 2
+  sample: V_HHjj_SM_noSchanV
+3171000:
+  J: 0
+  sample: V_ZHH_Zjj_SM
+3171001:
+  J: 1
+  sample: V_ZHH_Zjj_SM
+3171002:
+  J: 2
+  sample: V_ZHH_Zjj_SM
+3172000:
+  J: 0
+  sample: V_WHH_Wjj_SM
+3172001:
+  J: 1
+  sample: V_WHH_Wjj_SM
+3172002:
+  J: 2
+  sample: V_WHH_Wjj_SM
+3180000:
+  J: 0
+  sample: X_tW_boost
+3180001:
+  J: 1
+  sample: X_tW_boost
+3180002:
+  J: 2
+  sample: X_tW_boost
+3181000:
+  J: 0
+  sample: X_ttZ_boost
+3181001:
+  J: 1
+  sample: X_ttZ_boost
+3181002:
+  J: 2
+  sample: X_ttZ_boost
+3182000:
+  J: 0
+  sample: X_ttW_boost
+3182001:
+  J: 1
+  sample: X_ttW_boost
+3182002:
+  J: 2
+  sample: X_ttW_boost
+3183000:
+  J: 0
+  sample: X_Zjj_EW_vbs
+3183001:
+  J: 1
+  sample: X_Zjj_EW_vbs
+3183002:
+  J: 2
+  sample: X_Zjj_EW_vbs
+3184000:
+  J: 0
+  sample: X_ZZ_QCD_boost
+3184001:
+  J: 1
+  sample: X_ZZ_QCD_boost
+3184002:
+  J: 2
+  sample: X_ZZ_QCD_boost

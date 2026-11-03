@@ -1,0 +1,17 @@
+# PROGRESS (hh, multi_r1)
+- Phase 01 start 2026-11-03T16:15:11Z
+- gridpack cluster 884453 (18 jobs) submitted 2026-11-03T16:36:41Z
+- validation gridpacks cluster 884454 (3 jobs: noSchanV,ZHH,WHH) 2026-11-03T16:39:19Z
+- Items done so far (UTC ~17:00): UFO sm_kVk2VkL + loop_sm_kl built (config/ufo_checksums.txt); diagrams QCD0 = 87 procs/456 diagrams; sample registry scripts/hh_samples.py (29 samples, seeds unique); Delphes fatjet card patch (patches/002); slim_hh_truth.py validated on 100 PY8 ZH events; gridpack clusters 884453 (18) + 884454 (3) running.
+- INCIDENT: interactive MG5 loop_sm `output` (my ggHH diagram test) auto-started a HEPTools (ninja/oneloop) install inside frozen software/install/MG5_aMC_v3.6.3/HEPTools (killed by timeout); rm blocked by deny rule -> needs human cleanup (D-HH-1). Private MG5 copy in work/mg5priv used afterwards.
+- 2026-11-03T16:41:34Z BUG: kV,k2V,kl fixed by MG5 restriction (default=1) -> sigma identical at all points. Fixed: restrict defaults 1.337; resubmitted 13 gridpacks (see rerun)
+- 2026-11-03T16:49:30Z BUG2: restrict merged identical-valued kappas into one card entry; defaults now 1.11/1.22/1.33; resubmitted 13 gridpacks cluster (see STATUS)
+- 2026-11-03T17:02:40Z gridpacks_v2 (signal) done, sigma closure OK; test jobs batch A submitted (7 types)
+- 2026-11-03T17:08:37Z ggHH gridpack kl1 ok (14.4 fb); kl0/2/5 gridpacks cluster 884465; test jobs clusters 884462 (7), 884464 (Q_bbjj), ggHH test
+- Phase 01 end 2026-11-03T17:10:14Z (report written; PASS)
+- Phase 02 start 2026-11-03T17:10:14Z
+- Phase 02 end 2026-11-03T17:19:49Z; Phase 03 start 2026-11-03T16:40Z (first gridpack submit), end pending (Q_4j gridpack + ggHH kl gridpacks running)
+- Phase 03 interim end 2026-11-03T17:26:12Z (all but Q_4j done)
+- Phase 03 end 2026-11-03T17:38:40Z (all 10 types done; post-audit fixes applied)
+- 2026-11-03T17:40:51Z re-audit fixes: role normalisation (closure(kl)), planned-unchecked rows, run_job_hh exit 30
+- 2026-11-03T21:33:28Z G1-fix done: sr_feasibility classes, 02 §6/8/9/9b, 01/03 consistency, extra-bkg sigma gridpacks (884857), pre-G2 plan 03 §13, mg5priv checksums

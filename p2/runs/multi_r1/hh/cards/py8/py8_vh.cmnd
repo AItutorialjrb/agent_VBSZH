@@ -1,0 +1,15 @@
+! hh: V(->qq) + optional H(->bb) forced.
+Main:numberOfEvents = NEVENTS
+Beams:LHEF = LHEFILE
+Random:setSeed = on
+Random:seed = PYSEED
+SpaceShower:dipoleRecoil = on
+! H->bb forced (conditional BR=1); physical B(H->bb) applied ONCE in the ledger (config/sample_matrix.yaml br_inputs).
+25:mayDecay = on
+25:onMode = off
+25:onIfMatch = 5 -5
+! V -> hadrons (q=d,u,s,c,b) forced; PDG B(V->had) applied ONCE in the ledger.
+23:onMode = off
+23:onIfAny = 1 2 3 4 5
+24:onMode = off
+24:onIfAny = 1 2 3 4 5

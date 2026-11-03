@@ -1,0 +1,5 @@
+! hh: QCD multijet LHE (fixed-order exclusive, no merging), default shower; g->bb/cc by PS.
+Main:numberOfEvents = NEVENTS
+Beams:LHEF = LHEFILE
+Random:setSeed = on
+Random:seed = PYSEED

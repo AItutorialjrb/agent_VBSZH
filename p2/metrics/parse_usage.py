@@ -84,6 +84,9 @@ def parse(files, run, role0, sub):
     seen, last = set(), {}
     for t, d, f in recs:
         if not sub and d.get("isSidechain"): continue      # older layout: sidechains counted via their own files
+        if sub and d.get("type") == "user":                 # resumed subagents: latest PHASE= tag wins
+            mp = PTAG.search(text_of(d))
+            if mp: ptag = mp.group(1)
         model = d.get("message", {}).get("model") if d.get("type") == "assistant" else None
         ph = ptag or phase_of(t, run, role if not sub else role)
         key0 = (run, ARM(run), role, ph)

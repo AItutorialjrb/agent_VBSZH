@@ -4,3 +4,9 @@
 - [ ] HH Phase 01–03 (executor-hh)
 - [ ] verifier audits of condor test jobs
 - [ ] G1 reviewer (wh, hh)
+- 2026-11-03T17:22Z verifier WH audit #1: finished tests PASS; FAIL items: matrix σ (I_WHjj negative, F_Wajj_pilot, H_ttH_1l), F_Wjj fake-factor σ input, SPEC §3.4 seed formula collides across runs for sample idx ≥ 10 (orchestrator error -> decision D1). Sent to executor-wh.
+- 2026-11-03T17:35Z executor-hh returned: 01 PASS, 02 PASS (D-HH-2..6), 03 9/10 types; incident D-HH-1 (HEPTools written in shared software/ install; flagged, cleanup left to human).
+- 2026-11-03T17:31Z verifier HH audit #1: tests/closure/seeds/N PASS; FAIL: BR rounding vs strict tol, repeated-factor false positive (ZZ), role wiring sig vs basis/closure (strict N rule not applied to HH signal), gridpack provenance, exit-code hygiene. Sent to executor-hh with Q_4j test job.
+- 2026-11-03T21:33Z executor-hh G1 fixes: sev-1 tagging class fixed, 02 §8 restated; D-HH-1..12; σ-only gridpacks 884857 for extra bkgs; 5 handoff sample types still lack gridpack/test (stated).
+- 2026-11-03T21:50Z executor-wh: 10/11 gridpacks; 8 test types done; B_EW_Waajj_vbs gridpack still running (D-WH-6); twin test: mmjj>400 gen cut UNSAFE for QCD-type (47.6±5.5% loss Waajj, 37±9% Wajj).
+- 2026-11-03T21:55Z verifier WH #3 (native type): all finished jobs/σ/N/seeds/twin numbers PASS; FAIL F-1 twin_safety.py not reproducible in pinned env (uproot/zstandard); docs F-2,F-4,F-5. Note: verifier wrote a recheck script + 2 json into the orchestrator scratchpad (/tmp), not the run tree — role says never write; logged.

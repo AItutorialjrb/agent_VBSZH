@@ -1,0 +1,30 @@
+# hh Phase-03 card, UNVALIDATED until reports/03 says otherwise. OUTDIR substituted by scripts/condor/make_gridpack_hh.sh
+set automatic_html_opening False
+set auto_update 0
+set nb_core 4
+set run_mode 2
+set lhapdf_py3 lhapdf-config
+import model sm-no_b_mass
+define p = g u c d s b u~ c~ d~ s~ b~
+define j = g u c d s b u~ c~ d~ s~ b~
+generate p p > h j j QCD=0 QED=3
+output OUTDIR -nojpeg
+launch OUTDIR
+0
+set run_card ebeam1 6800
+set run_card ebeam2 6800
+set run_card pdlabel lhapdf
+set run_card lhaid 303600
+set run_card maxjetflavor 5
+set run_card asrwgtflavor 5
+set run_card use_syst True
+set run_card gridpack True
+set run_card nevents 2000
+set run_card iseed 3150000
+set run_card ptj 20
+set run_card etaj 5
+set run_card drjj 0.4
+set run_card dynamical_scale_choice 3
+set run_card deltaeta 2.5
+set run_card xetamin 200
+done

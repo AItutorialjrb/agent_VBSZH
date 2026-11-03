@@ -1,0 +1,11 @@
+# STATUS wh multi_r1 (executor-wh) — after G1 review fixes
+Phase 01 PASS (G1 PASS). Phase 02 PASS-with-conditions (B_EW_Waajj_vbs sigma pending). Phase 03 IN-PROGRESS: 8/20 samples have a finished test job; missing: B_EW_Waajj_vbs gridpack (884456.3, running ~5 h+, no log until end) + held test 884457.3, EW twins, verifier audit of new jobs.
+Clusters: 884456 10/11 done; 884457 5/6 done (.3 held); 884460 done; 884860 done. No duplicate test runs.
+G1 fixes done: matrix flags EVERY N shortfall and build_sample_matrix.py now exits loudly on an unflagged one (I_WHjj N 20000->50000); QCD-type mmjj>400 samples (own + frozen ZH_Zaajj_QCD, ZH_Zajj_eFake QCD part) carry C=1/(1-f) = 1.91 / 1.59 (proxies from W twins), EW-type C unquantified; pilot wording (N_eff~2, comparable, not shown negligible); ttgamma/ttgammagamma 19x-signal sigma*k stated; tt-bar two-fake and Z->nunu H estimates added (labelled ESTIMATES, assumed eps); I_WHjj ledger clarified (sigma-only, BR_WLL once); items 11-14 and twin_safety usage fixed. Verifier F-2/F-4/F-5 texts not available to me (not in reviews/): please resend if more than the above is needed.
+Decisions (human): D-WH-0 light-flavour signal def (+5%/-0 syst); D-WH-1 seed overlap (orchestrator); D-WH-2 infeasible N + double-fake/ttbar bound method (W+2j pilot 1.5 ev peak, N_eff 1.9; Wg+2j 1.3, N_eff 2.0: comparable to signal ~0.9, cannot be shown negligible);
+ D-WH-3 frozen ZH N<50k (ggZH 20000, ttH 42000, ZH->tautau 6565); D-WH-4 non-prompt-lepton estimates not negligible (gg+jj 0.07/0.25/2.5 ev); D-WH-5 WZg unquantified;
+ D-WH-6 B_EW_Waajj_vbs gridpack long: wait / split by initial-state class (needs OK to condor_rm .3) / accept Phase 03 without EW test;
+ D-WH-7 mmjj>400 generator cut on every VBS-biased sample, frozen ones included; QCD loss 37-48 %, EW twins missing; F_QCD_Wajj_nomjj N_req 1.6e7 unmet; twin selection loose/low stats;
+ D-WH-8 tau: S_EW_WHjj_taunu kept in b (signal extension = deviation); background cards e/mu only -> +18.8 % lepton-yield uplift not applied;
+ D-WH-9 untested sample types (11 of 20), tt-gamma-gamma double counting (0.554 fb = 19x signal sigma before cuts), I_WHjj ledger note.
+Next action: await verifier / human decisions; when 884456.3 finishes: condor_release 884457.3, python3 scripts/assemble_reports.py.

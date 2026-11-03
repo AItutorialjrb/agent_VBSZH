@@ -1,0 +1,25 @@
+# Pre-declared H->bb large-R tagging + trigger scenarios (boosted VBF HH->4b).  DECLARED BEFORE ANY SR YIELD IS LOOKED AT (Phase 03, 2026-11-03).
+# Delphes has NO jet-substructure tagger: tagging is a PARAMETRISED per-fat-jet probability applied by TRUTH-TAG WEIGHTING (weight = product of per-jet probabilities of the two selected
+# large-R jets; no tag cut).  Truth class of a fat jet (scripts/slim_hh_truth.py, dR<0.8): bb (>=2 B hadrons, incl. H->bb contained), b (1 B hadron), c (>=1 C, no B), l (light/gluon), top (3-prong: nWq=2 & ntb=1).
+# CLASS DEFINITION (explicit, resolves G1 review item 1): per selected fat jet, first match wins:
+#   top   : nWq==2 & ntb==1            -> mistag_top
+#   Hbb   : nHb==2 (both b quarks of a Higgs inside dR<0.8) -> eff_Hbb_contained
+#   bb_nonH: nB>=2 and not Hbb (g->bb, Z->bb, any other bb pair) -> mistag_bb_nonH   (Z->bb is additionally suppressed by the m_SD window)
+#   b     : nB==1                      -> mistag_g2bb_or_b
+#   c     : nC>=1, nB==0               -> mistag_c
+#   l     : otherwise (gluon/light)    -> mistag_gluon_light
+# All numbers below are ASSUMPTIONS anchored loosely to published Run-2 CMS tagger performance (JINST 15 (2020) P06005, arXiv:2004.08262 DeepAK8(-MD); CMS-DP-2020/002 ParticleNet;
+# boosted VBF HH->4b: arXiv:2205.06667 for context only).  They are NOT measured here and are NOT data-driven; to be re-checked in Phase 04 against those references; the spread
+# (pessimistic..optimistic) is the stated uncertainty.  Applied inside the m_SD window 90-150 GeV (or the window chosen blinded-style in Phase 06), pT>=300 GeV, |eta|<2.4.
+tagging:
+  pessimistic: {eff_Hbb_contained: 0.45, mistag_gluon_light: 0.020, mistag_g2bb_or_b: 0.10, mistag_bb_nonH: 0.10, mistag_c: 0.040, mistag_top: 0.06}
+  nominal:     {eff_Hbb_contained: 0.60, mistag_gluon_light: 0.010, mistag_g2bb_or_b: 0.05, mistag_bb_nonH: 0.05, mistag_c: 0.020, mistag_top: 0.03}
+  optimistic:  {eff_Hbb_contained: 0.75, mistag_gluon_light: 0.005, mistag_g2bb_or_b: 0.025, mistag_bb_nonH: 0.025, mistag_c: 0.010, mistag_top: 0.015}
+trigger:
+  baseline_assumption: "offline leading large-R jet pT >= 450 GeV (assumed to lie on the Run-3 AK8 single-jet/HT trigger plateau; NOT emulated, NOT measured)"
+  predeclared_variations: "leading large-R pT >= 500 and >= 550 GeV (the 450 GeV plateau may be too low for the Run-3 single-AK8 trigger); all reported in Phase 07; decision D-HH-9"
+  alternative: "offline HT(AK4, pT>30) >= 1000 GeV"
+  note: "both stated as assumptions; reported variations in Phase 07; trigger efficiency taken as 1 above the offline threshold"
+preliminary_reco_anchor_for_generator_cut_safety:   # NOT the final selection (frozen in Phase 05 before yields); used only to demonstrate that generator cuts are looser
+  fat_jets: "2 anti-kT R=0.8, pT>=300 (leading >=450), |eta|<2.4"
+  vbs_jets: "2 anti-kT R=0.5 AK5 pT>=30, |eta|<4.7, dR>0.8 from fat jets, mjj>=500, |d eta|>=3.5, opposite hemispheres"
