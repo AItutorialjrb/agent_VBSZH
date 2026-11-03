@@ -1,8 +1,8 @@
 # 08 — Reproducibility (FINAL RUN)
 
-- **Date:** 2026-11-02 23:24 UTC
+- **Date:** 2026-11-03 02:21 UTC
 - **Status:** PASS (all inputs pinned; the commands below regenerate every number in FINAL_report.md from the EOS outputs).
-- **Git commit of the code:** `41898ef`. Repository git@github.com:AItutorialjrb/agent_VBSZH.git (project-only; the parent repo is untouched).
+- **Git commit of the code:** `55d4b11`. Repository git@github.com:AItutorialjrb/agent_VBSZH.git (project-only; the parent repo is untouched).
 
 ## Versions
 
@@ -31,6 +31,9 @@
 | H_ggZH_py8dec | 1363200 | 141300000–141300009 (10 jobs) | 2000 | py8_ggzh_zll_haa.cmnd | 10 | `265f9d6af4462e08…` |
 | F_EW_llajj_vbs | 1363100 | 140100000–140100249 (250 jobs) | 2000 | py8_generic_dipole.cmnd | 250 | `b6836a2a24284195…` |
 | B_QCD_zaajj_vbs | 1363500 | 141700000–141700049 (50 jobs) | 2000 | py8_generic.cmnd | 50 | `4fd73edb86b3ec46…` |
+| B_EW_zaajj_vbs_is1h | 1364000 | 142100000–142100009 (10 jobs) | 2000 | py8_generic_dipole.cmnd | 10 | `99c36c4ca8bcd4c4…` |
+| B_EW_zaajj_vbs_is2 | 1363800 | 141900000–141900009 (10 jobs) | 2000 | py8_generic_dipole.cmnd | 10 | `cbe47d95e00b1386…` |
+| B_EW_zaajj_vbs_is3 | 1363900 | 142000000–142000009 (10 jobs) | 2000 | py8_generic_dipole.cmnd | 10 | `ce5073ac48b2e1a9…` |
 
 Dropped segments (no output, not resubmitted): F_QCD_llajj_vbs 140000354, 140000409 (deterministic Delphes segfault), 141600295, 141600415, 141600900 (lost after the LHE stage).
 
@@ -43,6 +46,7 @@ a93c5f479a3be57c2f95c555a508878314ff0256775a58c3185c62eee06804b3  cards/producti
 8d95a49897ec49114e7c0f50a8b0162bf13ecb5c116ca285de3eee5761d6dce7  cards/production_final/B_EW_zaajj_vbs_is1h.mg5
 c0cbaa7b0e40c5d7479c7aa21c475b94184ce4437d9a0865384eb5a25210f0e4  cards/production_final/B_EW_zaajj_vbs_is2.mg5
 94d48cbb1e8d8a52d9ff77f22ce6dec0cde02412d98164605c7626f28509930a  cards/production_final/B_EW_zaajj_vbs_is3.mg5
+7f72cd46449f33e1dbfdcdcc862b72afbe0ad7d3ad7827d2876beedaca203690  cards/production_final/B_EW_zaajj_vbs_is3h.mg5
 b306d666b259a4d78cc756bb023906728ac0ed0484d7b2b3fa6259ae52bd611c  cards/production_final/B_QCD_llaajj_vbs.mg5
 6c3ed23b8fb3fdca0bbe179db3af82833a70a5fb85c3527b707c278974b8a162  cards/production_final/B_QCD_zaajj_vbs.mg5
 3951b7ee4c73492832d229a2f94327136fd838fe0f499ede99babe583dd57cc5  cards/production_final/F_EW_llajj_vbs.mg5
@@ -60,10 +64,10 @@ febb819f363ac52f014e98c38c586b370ce682eef5fd60361a78ee983d59f77a  scripts/condor
 85a904327200169cd292a8425bf771c4a67e92b1bab0fae8fbd8f3b70eef7abf  scripts/setup_stack.sh
 88741f21624adfe00f60d936e646cb21ae5dc9e1a6383fc119092ee658f580fb  scripts/run_py8_delphes.sh
 685f87d91ada2b412cbe79f0cf46d97e29a0ca6314b29487cb176d1278fffeaa  scripts/slim_gentruth.py
-4066711c567e50f5629d25baf3035b903b377790eba9cef0c1db2ca1a6f4b589  scripts/analysis/final_analysis.py
+f793bfc7d1f7c024d21e3d5d0c88930549a27d0749bab2770a2d5be00e10007a  scripts/analysis/final_analysis.py
 cab379709d065124190397870b788e573b29c763cfb7b484ac9f6c3c6aaa7090  scripts/analysis/final_tables.py
-24d586062c2da70646adc924f4ccb27939fb9820f0ceb56745466e95d701e34b  scripts/analysis/make_final_report.py
-7a5c40307bb684bdabb686228bc64c58ae88a53f82571520b783ad3492322395  scripts/analysis/make_repro.py
+48f263b43932e8ef94323ddf2a8c396ab18ac6c3c65b0efa28b1be076e94188f  scripts/analysis/make_final_report.py
+31ba90373b0af33abc65a7644449d4211eaab34f0622724dabf77bf276976cd6  scripts/analysis/make_repro.py
 b01d808db1c1ed4f1d90ea0338239a3d9993c88e75e2385dd237b4e91bf63784  scripts/analysis/ntuple.py
 18858ca1aa0284c3d4abb6b89f19cdcdabfcc31fd181372733a6963d5ecd8c67  scripts/analysis/override_test_v2.py
 abd5c52d3f5115fd66e41ebec7467c699f327a22c328f7749ffbc1f2e8253022  scripts/analysis/sensitivity.py
@@ -71,12 +75,15 @@ abd5c52d3f5115fd66e41ebec7467c699f327a22c328f7749ffbc1f2e8253022  scripts/analys
 0f8e4f1615d001e493d8dd399496146cde93b6d4d3d4e54c8bb53667e2e888c5  scripts/analysis/tables05.py
 d23890a34cf619bf7822ac0e2c432e506af90d6ab6402342ecf241a1a0486b25  scripts/analysis/verify_final.py
 b657f72cd4ae2adb8a43f455e64ef862f7c3ef035cd13cf182ba0430e2c57e56  scripts/analysis/ntuple_job.sh
-305ed108e25e6b89f7fbb9359fdd0bdab6c6d355522c2092a3359a0138cba36e  scripts/plan/make_submit_final.py
-08007cb84947fbd583e73c4669708c0f7e66d77ddc46ebea724e44d043c5b304  work/final_ntuples/final_draft.json
+5ec95eb2ac6d10d05f1bb1ea151725e3d881f319160bd21f0975863209235fc7  scripts/plan/make_submit_final.py
+3be5d55d9ea350d63a2485fbf9888d5a1b3e34d371e8c00dc0a294c52a7a4bef  work/final_ntuples/final.json
 ```
 
 Gridpack status files (σ and the integration record):
 ```
+3a152591e450e58f38a0a4b5daeb3e07181b458059c148893d503f554ddf1ce9  production/gridpacks/B_EW_zaajj_vbs_is1h_status.txt
+67f671b713b2ffb3a8d6f1435de8c636d8a4e46d60b5ae8904c130ce97f4ee4d  production/gridpacks/B_EW_zaajj_vbs_is2_status.txt
+0e6b68e21f93dca2c261f42b9a1589f6cc4ac59268f2813f879c4b715a876211  production/gridpacks/B_EW_zaajj_vbs_is3_status.txt
 9ca0cfd1419b55858dd524cf13a4a0530786249e5fc6dceeb3d31a71c6144eae  production/gridpacks/B_QCD_llaa_0j_status.txt
 c6acd12736161cb3b766a1c42b37a74502dceb6cbd6c8db87563184ee402904b  production/gridpacks/B_QCD_llaa_1j_status.txt
 37e0810ed9df48244f4d5e8718c82bbd2918297e9643a51808459fdcf78b6aa9  production/gridpacks/B_QCD_zaajj_vbs_status.txt
@@ -105,14 +112,14 @@ aaf22f8bc2c9994923aa355f15b3bbbc91ff8de9682dec87437fec028e8cbe2c  production/gri
 ```bash
 cd /eos/home-r/rjiang/vbs_zh_codex_starter && source scripts/setup_stack.sh
 # gridpacks (once):
-#   scripts/condor/gridpacks_final.sub, gridpacks_final3.sub (QCD Zgg on-shell Z), gridpacks_final4.sub (EW Zgg split)
+#   scripts/condor/gridpacks_final.sub, gridpacks_final3.sub (QCD Zgg on-shell Z), gridpacks_final4.sub (EW Zgg split is2, is3), gridpacks_final5.sub (is1h, nhel=1)
 # productions (each group submitted once; jobs skip existing outputs):
 python3 scripts/plan/make_submit_final.py A H_ttH H_ZH_tautau T_ttaa
 python3 scripts/plan/make_submit_final.py C F_QCD_llajj_vbs H_ggZH_py8dec
 python3 scripts/plan/make_submit_final.py D F_EW_llajj_vbs
 python3 scripts/plan/make_submit_final.py F "F_QCD_llajj_vbs#ext"
 python3 scripts/plan/make_submit_final.py G B_QCD_zaajj_vbs
-python3 scripts/plan/make_submit_final.py H B_EW_zaajj_vbs_is
+python3 scripts/plan/make_submit_final.py H1 B_EW_zaajj_vbs_is1h; python3 scripts/plan/make_submit_final.py H2 B_EW_zaajj_vbs_is2; python3 scripts/plan/make_submit_final.py H3 B_EW_zaajj_vbs_is3
 (module load lxbatch/eossubmit; cd scripts/condor; condor_submit production_final_<tag>.sub)
 # verification + batch ntupling (direct mode skimmed to OSSF & >=1 photon & >=2 jets; ff1 for the Zg+jets samples)
 python3 -P scripts/analysis/verify_final.py --ntuple <tag> --allow F_QCD_llajj_vbs

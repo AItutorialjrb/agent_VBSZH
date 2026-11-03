@@ -50,7 +50,7 @@ REG = {
  **{f"B_QCD_llaa_2j_is{i}": R(fin(f"B_QCD_llaa_2j_is{i}"), None, 1.0, "bkg", "Zgg (QCD+EW)", "other", None, "cont", "final (MLM, highest multiplicity)") for i in range(1, 5)},
  **{f"B_EW_llaajj_is{i}": R(fin(f"B_EW_llaajj_is{i}"), None, 1.0, "bkg", "Zgg (QCD+EW)", "other", None, "cont", "final") for i in range(1, 5)},
  "B_QCD_Zaajj_vbs": R(fin("B_QCD_zaajj_vbs"), None, ZF, "bkg", "Zgg (QCD+EW)", "other", None, "cont", "final, fixed order, on-shell Z->ll, VBS-biased generation"),
- **{f"B_EW_Zaajj_vbs_is{i}": R(fin(f"B_EW_zaajj_vbs_is{i}"), None, ZF, "bkg", "Zgg (QCD+EW)", "other", None, "cont", "final, fixed order 4F, on-shell Z->ll, VBS-biased, beam-1 split") for i in (1, 2, 3)},
+ **{f"B_EW_Zaajj_vbs_is{i}": R(fin(f"B_EW_zaajj_vbs_is{i}h") or fin(f"B_EW_zaajj_vbs_is{i}"), None, ZF, "bkg", "Zgg (QCD+EW)", "other", None, "cont", "final, fixed order 4F, on-shell Z->ll, VBS-biased, beam-1 split") for i in (1, 2, 3)},
  "B_QCD_llaa_0j": R([f"{M7}/tv2_B_QCD_llaa_0j.npz"], None, 1.0, "excl", "Zgg (QCD+EW)", "other", None, "cont", "test_v2 (MLM exclusive 0j)"),
  "T_ttaa":     R(fin("T_ttaa") + [f"{M7}/tv2_T_ttaa.npz"], None, 1.0, "bkg", "top (ttgg, ttg, tWg)", "other", None, "cont", "final + test_v2"),
  "F_QCD_Zajj": R(fin("F_QCD_llajj_vbs"), None, 1.0, "bkg", "Zg + fake g (QCD+EW)", "fake", 1, "cont", "final, direct Delphes fakes (VBS-biased generation)"),
@@ -58,7 +58,7 @@ REG = {
  "T_tta":      R([f"{M7}/tv2_T_tta.npz"], None, 1.0, "bkg", "top (ttgg, ttg, tWg)", "fake", 1, "tf", "test_v2 x Delphes TF from F_QCD_Zajj"),
  "T_tWa":      R([f"{M7}/tv2_T_tWa.npz"], None, 1.0, "bkg", "top (ttgg, ttg, tWg)", "fake", 1, "tf", "test_v2 x Delphes TF from F_QCD_Zajj"),
 }
-SIGSRC = {"B_QCD_Zaajj_vbs": ("B_QCD_zaajj_vbs", "fin"), **{f"B_EW_Zaajj_vbs_is{i}": (f"B_EW_zaajj_vbs_is{i}", "fin") for i in (1, 2, 3)}, "H_ggZH": ("H_ggZH_py8dec", "fin"), "H_ttH": ("H_ttH", "fin"), "H_ZH_tautau": ("H_ZH_tautau", "fin"), "T_ttaa": ("T_ttaa", "fin"),
+SIGSRC = {"B_QCD_Zaajj_vbs": ("B_QCD_zaajj_vbs", "fin"), **{f"B_EW_Zaajj_vbs_is{i}": ((f"B_EW_zaajj_vbs_is{i}h" if fin(f"B_EW_zaajj_vbs_is{i}h") else f"B_EW_zaajj_vbs_is{i}"), "fin") for i in (1, 2, 3)}, "H_ggZH": ("H_ggZH_py8dec", "fin"), "H_ttH": ("H_ttH", "fin"), "H_ZH_tautau": ("H_ZH_tautau", "fin"), "T_ttaa": ("T_ttaa", "fin"),
           "F_QCD_Zajj": ("F_QCD_llajj_vbs", "fin"), "F_EW_Zajj": ("F_EW_llajj_vbs", "fin"), "H_tHW": ("H_tHW", "tv2"),
           "B_QCD_llaa_0j": ("B_QCD_llaa_0j", "tv2m"), "T_tta": ("T_tta", "tv2"), "T_tWa": ("T_tWa", "tv2"),
           **{f"B_QCD_llaa_2j_is{i}": (f"B_QCD_llaa_2j_is{i}", "fin") for i in range(1, 5)},

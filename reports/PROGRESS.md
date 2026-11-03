@@ -210,3 +210,14 @@ Decisions: D12 closed (expected-limit/significance study, current signal definit
   → cluster **879247**.
 - 23:10 Group G 50/50 OK (closure −0.10 %); ntupled (879248). Next: draft analysis with EW Zγγjj pending.
 - 23:45 Draft FINAL_report.md, 08_reproducibility.md and figures/ generated with EW Zγγjj pending (marked DRAFT in the report). **Next action**: when the 879242/879246 EW gridpacks land → group H (`make_submit_final.py H B_EW_zaajj_vbs_is`; if is1h wins, use it instead of is1), verify, ntuple, then rerun final_analysis → final_tables → make_final_report (without --pending) → make_repro → commit and push.
+- 23:55 EW gridpacks: is1 removed (13 h projected), is1h (nhel=1, 16 cores, about 2.7 h left) used instead; is3h (nhel=1) submitted as an accelerated alternative to is3 (about 7.5 h left); is2 nearly done. The analysis uses the 'h' variant whenever its ntuples exist.
+- 00:57 B_EW_zaajj_vbs_is2 gridpack OK (σ = 0.01575 fb) → group H2 (10×2000) → cluster **880550**.
+- 01:20 is2 production 10/10 OK (closure +0.04 %), ntupling → 880551.
+- 01:30 B_EW_zaajj_vbs_is1h gridpack OK (σ = 0.01666 fb, nhel=1, 16 cores, 2.9 h) → group H1 (10×2000); see the next line for the cluster. Remaining: is3 (879242.2, 286/311 channels) vs is3h (879259, 76/311).
+  → cluster **880559**.
+- 01:45 is1h production 10/10 OK (closure −0.19 %), ntupling → 880560. Waiting for is3/is3h.
+- 02:00 Interim with is1h+is2: EW Zγγjj = 0.196 events at 500 fb⁻¹ (0.097+0.099, 237/258 raw in the window), dominant background, b ≈ 0.38 → Z_Eq1 ≈ 0.14. Cross-checked against the reference (Tables II–III: EW Zγγjj = their signal, 0.263 fb inclusive; 0.057 fb after initial selection): consistent in magnitude; no H→γγ peak in the sample (the sm model has no hγγ vertex). The Phase-05 proxy (0.029) underestimated it by about 7–10×.
+- 02:05 B_EW_zaajj_vbs_is3 gridpack OK (σ = 0.0068 fb) → group H3 → cluster **880564** (10 is3 jobs; 10 is3h jobs, queued by prefix, removed). is3h gridpack job 879259 removed (is3 finished first).
+- 02:15 All final samples verified and ntupled (is3 10/10, closure −0.36 %). Final analysis running → work/final_ntuples/final.json + figures/.
+- 02:35 **FINAL results produced** (work/final_ntuples/final.json; reports/FINAL_report.md; reports/08_reproducibility.md; figures/). 500 fb⁻¹, def. (a): s = 0.088, b = 0.420, Z_Eq1 = 0.131 ± 0.002, μ95 = 34.1; 3000 fb⁻¹: s = 0.53, b = 2.52, Z = 0.321 ± 0.006, μ95 = 8.7. EW Zγγjj is the dominant background (0.237 events at 500 fb⁻¹).
+**State**: FINAL RUN complete. Nothing is pending in condor that is used by the results. 879166 (old v2 MLM/split gridpacks, unused) and 879167 (held test_v2 jobs waiting for them) are still queued: they can be removed with `condor_rm 879166 879167` (not done without approval; harmless but they use batch slots).

@@ -23,7 +23,7 @@ top = sorted(((v["y"], k) for k, v in bkg.items()), reverse=True)[:5]
 
 # sample table
 SRC = {"H_ggZH": "H_ggZH_py8dec", "H_ttH": "H_ttH", "H_ZH_tautau": "H_ZH_tautau", "T_ttaa": "T_ttaa", "F_QCD_Zajj": "F_QCD_llajj_vbs",
-       "F_EW_Zajj": "F_EW_llajj_vbs", "B_QCD_Zaajj_vbs": "B_QCD_zaajj_vbs", **{f"B_EW_Zaajj_vbs_is{i}": f"B_EW_zaajj_vbs_is{i}" for i in (1, 2, 3)}}
+       "F_EW_Zajj": "F_EW_llajj_vbs", "B_QCD_Zaajj_vbs": "B_QCD_zaajj_vbs", **{f"B_EW_Zaajj_vbs_is{i}": (f"B_EW_zaajj_vbs_is{i}h" if f"B_EW_zaajj_vbs_is{i}h" in V and V[f"B_EW_zaajj_vbs_is{i}h"]["ok"] else f"B_EW_zaajj_vbs_is{i}") for i in (1, 2, 3)}}
 srows = []
 for k, r in REG.items():
     if r.get("missing"): srows.append(f"| {k} | — | — | — | — | — | **not available** ({r['src']}) |"); continue
@@ -51,11 +51,12 @@ txt = f"""# FINAL report — EW ZHjj (Z→ee/μμ, H→γγ) at √s = 13.6 TeV:
 ## Summary
 
 At the optimised Delphes-level selection, the EW ZHjj signal is **s = {r5['s']:.3f} events at 500 fb⁻¹** and {r3['s']:.2f} at 3000 fb⁻¹. The total background is b = {r5['b']:.3f} ({r3['b']:.2f}) events.
-- **Significance:** Eq. 1 gives Z = {r5['Z_eq1']:.2f} ± {r5['Z_eq1_mcerr']:.2f} (MC) at 500 fb⁻¹ and {r3['Z_eq1']:.2f} ± {r3['Z_eq1_mcerr']:.2f} at 3000 fb⁻¹, for definition (a).
+- **Significance:** Eq. 1 gives Z = {r5['Z_eq1']:.3f} ± {r5['Z_eq1_mcerr']:.3f} (MC) at 500 fb⁻¹ and {r3['Z_eq1']:.3f} ± {r3['Z_eq1_mcerr']:.3f} at 3000 fb⁻¹, for definition (a).
 - **s < 1 at every luminosity and for both signal definitions, so Z alone is not a meaningful measure of sensitivity.** The physically meaningful quantity is the expected 95 % CL upper limit on the signal strength.
   - μ₉₅ = {r5['mu95_cls']:.0f} at 500 fb⁻¹ and {r3['mu95_cls']:.1f} at 3000 fb⁻¹ (exact-Poisson CLs, definition a).
   - The median background-only count is {r5['n_median']} at 500 fb⁻¹, so the limit is close to the zero-background value 3/s.
-- **The process is not observable at the LHC Run 3 or with 3000 fb⁻¹ in this channel.** The limiting factor is the tiny signal rate: σ×BR×L = 1.44 events produced at 500 fb⁻¹ before any selection. The background model is not the limiting factor.
+- **The process is not observable at the LHC Run 3 or with 3000 fb⁻¹ in this channel.** The tiny signal rate is the limiting factor: σ×BR×L = 1.44 events produced at 500 fb⁻¹ before any selection.
+- **Dominant background:** the irreducible EW Zγγjj continuum under the mγγ peak. It cannot be suppressed by the VBS-jet cuts, because it shares the signal's VBS topology.
 
 ## 1. Setup
 
@@ -122,7 +123,12 @@ The model is aligned with the reference: prompt Zγ and Zγγ (QCD and EW), tt̄
   - the mγγ range is 105–165 GeV.
   - For this reason the reference-like baseline uses photon pT > 25 GeV instead of 20 GeV.
 - **Zγγ on-shell Z:** the full ℓℓγγjj gridpack integration projected to 15 h (QCD) and >100 h (EW), so Zγγjj is generated as `p p > z a a j j, z > l+ l-`. Photons radiated in the Z decay are therefore missing. Such events have mℓℓγ or mℓℓγγ ≈ mZ and fail |mℓℓ − mZ| < {zw if zw else 25:.0f} GeV or mℓℓγγ > {O['mllgg']:.0f} GeV; this is a limitation (§8).
-- **EW Zγγjj** uses 4 flavours with a 3-way beam-1 split.
+- **EW Zγγjj** is 4-flavour with a 3-way split in the beam-1 parton class: u c / d s / ū c̄ d̄ s̄. Gluon-initiated processes do not exist at QCD⁰.
+  - Split 1 was integrated with Monte-Carlo helicity sampling (`nhel 1`, same process) because helicity summation projected to 13 h.
+  - σ closure per split is below 0.4 %.
+- **EW Zγγjj is the dominant background** at the final selection. This was cross-checked against the reference, where EW Zγγjj is the *signal*: 0.263 fb inclusive and 0.057 fb after their initial selection. Our window-and-VBS yield corresponds to a few percent of that, as expected from the falling mγγ spectrum.
+  - The sample contains no H→γγ peak, and the `sm` model has no hγγ vertex, so there is no double counting with the signal.
+  - The Phase-05 pilot proxy (0.029 events at 500 fb⁻¹) underestimated this background by about an order of magnitude; the pilot results in report 05 are superseded.
 - **Fake-factor cross-check (Delphes jets):** in the QCD Zγjj sample with the ff1 mode of `ntuple.py`, f = 5×10⁻⁴, 10⁻³ and 2×10⁻³ plus a pT-dependent variant give {d['ff_xcheck']['f=0.001']['final']:.4f} events (f = 10⁻³; band {d['ff_xcheck']['f=0.0005']['final']:.4f}–{d['ff_xcheck']['f=0.002']['final']:.4f}) at the final selection, 500 fb⁻¹. The direct Delphes result is {d['ff_xcheck']['direct Delphes']['final']:.4f}. Without the VBS cuts it is {d['ff_xcheck']['direct Delphes']['noVBS']:.3f} (direct, {d['ff_xcheck']['direct Delphes']['raw_noVBS']} raw) vs {d['ff_xcheck']['f=0.001']['noVBS']:.3f} (FF). The Delphes fake rate therefore corresponds to f ≈ {1e-3*d['ff_xcheck']['direct Delphes']['noVBS']/d['ff_xcheck']['f=0.001']['noVBS']:.1e} per jet.
 
 ## 5. Selection and optimisation
@@ -137,7 +143,10 @@ The model is aligned with the reference: prompt Zγ and Zγγ (QCD and EW), tt̄
   - FOM: Z with σ_b (MC-stat ⊕ systematics).
   - **Plateau rule** against noisy scans: among points with Z ≥ 0.97 Z_max, take the one with the largest signal.
 - **Optimum:** {cuts}.
-- The mjj × |Δηjj| landscape (Fig. 4-style: `figures/scan_mjj_deta_*.png`, tables below) is flat. At 500 fb⁻¹ all points lie within the MC uncertainty of each other, so the choice of optimum does not affect the conclusions.
+- The mjj × |Δηjj| landscape (Fig. 4-style: `figures/scan_mjj_deta_*.png`, tables below) is smooth: at 500 fb⁻¹, Z_Eq1 ranges from {min(v['Z'] for k, v in d['scan'].items() if k.startswith('500|')):.3f} to {max(v['Z'] for k, v in d['scan'].items() if k.startswith('500|')):.3f}.
+  - Z rises slowly towards looser mjj and tighter |Δηjj|.
+  - **The optimum lies on the mjj = 500 GeV scan boundary.** This is the loosest threshold allowed by the generator-level mjj > 400 GeV bias of the Zγ and Zγγ samples. The trend suggests only a few-percent gain below it.
+  - Moving to mjj > 700 GeV, |Δηjj| > 3.0 changes Z by {d['robustness']['mjj > 700, |deta| > 3.0']['Z_syst'] - d['robustness']['optimum']['Z_syst']:+.3f} (robustness table). This does not affect the conclusions.
 
 ## 6. Results
 
@@ -177,12 +186,13 @@ The model is aligned with the reference: prompt Zγ and Zγγ (QCD and EW), tt̄
    - The **Delphes jet→photon fake rate is an assumption of the detector card**, not a measurement. The FF band (§4) brackets it within a factor of about 2.
 3. **Zγγjj uses an on-shell Z.** Photons radiated in the Z decay are not included (§4).
 4. **Generator-level biasing** of Zγ and Zγγ: pT(γ) > 25 GeV and mjj > 400 GeV. The reference-like baseline therefore uses photon pT > 25 GeV.
-5. **Factorised and transfer-factor estimates assume cut independence.** These are tt̄γ, tWγ, tt̄γγ and tHW, all ≪ s. Each carries 100 % uncertainty.
-6. **Everything is LO, with no k-factors.** QCD ZHjj uses fixed-order ZH+2j; the merged 0–2j cross-check is in report 05.
-7. **Double-fake backgrounds** (Z+jets, tt̄) are not in b. They are order-of-magnitude only, as in the reference.
-8. **3000 fb⁻¹ is luminosity scaling at 13.6 TeV,** with no pile-up and no HL-LHC detector.
-9. **EW–QCD ZHjj interference** is not included; its size is in report 03.
-{("10. **" + PEND + "**") if PEND else ""}
+5. **ggZH jets come only from the parton shower.** ggZH is LO loop-induced with no ME jets, so its VBS-region jets come from the Pythia8 power shower. Its selection efficiency is therefore about 2× that of fixed-order QCD ZHjj, and the yield is uncertain by about a factor of 2. A merged gg→ZH+jets sample is beyond LO MG5 in this setup.
+6. **Factorised and transfer-factor estimates assume cut independence.** These are tt̄γ, tWγ, tt̄γγ and tHW, all ≪ s. Each carries 100 % uncertainty.
+7. **Everything is LO, with no k-factors.** QCD ZHjj uses fixed-order ZH+2j; the merged 0–2j cross-check is in report 05.
+8. **Double-fake backgrounds** (Z+jets, tt̄) are not in b. They are order-of-magnitude only, as in the reference.
+9. **3000 fb⁻¹ is luminosity scaling at 13.6 TeV,** with no pile-up and no HL-LHC detector.
+10. **EW–QCD ZHjj interference** is not included; its size is in report 03.
+{("11. **" + PEND + "**") if PEND else ""}
 
 ## 9. Outlook: VHjj
 

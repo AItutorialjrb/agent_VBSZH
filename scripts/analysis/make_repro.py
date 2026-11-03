@@ -72,14 +72,14 @@ Gridpack status files (σ and the integration record):
 ```bash
 cd /eos/home-r/rjiang/vbs_zh_codex_starter && source scripts/setup_stack.sh
 # gridpacks (once):
-#   scripts/condor/gridpacks_final.sub, gridpacks_final3.sub (QCD Zgg on-shell Z), gridpacks_final4.sub (EW Zgg split)
+#   scripts/condor/gridpacks_final.sub, gridpacks_final3.sub (QCD Zgg on-shell Z), gridpacks_final4.sub (EW Zgg split is2, is3), gridpacks_final5.sub (is1h, nhel=1)
 # productions (each group submitted once; jobs skip existing outputs):
 python3 scripts/plan/make_submit_final.py A H_ttH H_ZH_tautau T_ttaa
 python3 scripts/plan/make_submit_final.py C F_QCD_llajj_vbs H_ggZH_py8dec
 python3 scripts/plan/make_submit_final.py D F_EW_llajj_vbs
 python3 scripts/plan/make_submit_final.py F "F_QCD_llajj_vbs#ext"
 python3 scripts/plan/make_submit_final.py G B_QCD_zaajj_vbs
-python3 scripts/plan/make_submit_final.py H B_EW_zaajj_vbs_is
+python3 scripts/plan/make_submit_final.py H1 B_EW_zaajj_vbs_is1h; python3 scripts/plan/make_submit_final.py H2 B_EW_zaajj_vbs_is2; python3 scripts/plan/make_submit_final.py H3 B_EW_zaajj_vbs_is3
 (module load lxbatch/eossubmit; cd scripts/condor; condor_submit production_final_<tag>.sub)
 # verification + batch ntupling (direct mode skimmed to OSSF & >=1 photon & >=2 jets; ff1 for the Zg+jets samples)
 python3 -P scripts/analysis/verify_final.py --ntuple <tag> --allow F_QCD_llajj_vbs
