@@ -30,6 +30,8 @@ samples:
   condor_test: EW fixed-order
   status: candidate
   note: N_planned follows ZH (200k)
+  in_bs: true
+  weighted: false
   N_shortfall_flag: null
 - id: S_EW_WHjj_taunu
   idx: 2
@@ -39,9 +41,9 @@ samples:
   - 0
   - 4
   gen_cuts: ptj>20,|etaj|<5,drjj>0.4,drjl>0.4, cut_decays=False (no cuts on decay leptons), scale choice 3
-  sigma_fb: 6.71
-  sigma_err_fb: 0.1055
-  sigma_source: 'SMOKE RUN (no gridpack sigma yet): smoke S_EW_WHjj_taunu_smoke'
+  sigma_fb: 6.884
+  sigma_err_fb: 0.018770000000000002
+  sigma_source: gridpack init sigma (smoke run gave 6.71 +- 0.11 fb)
   br_factors_external:
   - WFTAU
   - BGG
@@ -55,6 +57,8 @@ samples:
   condor_test: null
   status: candidate
   note: ''
+  in_bs: true
+  weighted: false
   N_shortfall_flag: null
 - id: H_QCD_WH_mlm
   idx: 3
@@ -74,12 +78,14 @@ samples:
   br_in_ME: W->l nu in MG5 ME
   h_decay: H->gg forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once
   N_required: 50000
-  N_planned: 1000000
+  N_planned: 200000
   infeasible_N: false
   overlap_rule: its 2-jet ME is QCD (2,2); EW (0,4) excluded by order; do NOT add H_QCD_WHjj_fixed
   condor_test: MLM
   status: candidate
-  note: DJR validation required in Phase 04 (as ZH)
+  note: N_planned = ACCEPTED events (LHE generated = N_planned/0.346 from the test job); DJR validation required in Phase 04 (as ZH)
+  in_bs: true
+  weighted: false
   N_shortfall_flag: null
 - id: H_QCD_WHjj_fixed
   idx: 4
@@ -89,9 +95,9 @@ samples:
   - 2
   - 2
   gen_cuts: ptj>20,|etaj|<5,drjj>0.4,drjl>0.4, cut_decays=False (no cuts on decay leptons), scale choice 3
-  sigma_fb: 57.81
-  sigma_err_fb: 0.4996
-  sigma_source: 'SMOKE RUN (no gridpack sigma yet): smoke H_QCD_WHjj_fixed_smoke'
+  sigma_fb: 58.61
+  sigma_err_fb: 0.1385
+  sigma_source: gridpack init sigma (smoke run gave 57.81 +- 0.5 fb)
   br_factors_external:
   - WF
   - BGG
@@ -105,6 +111,8 @@ samples:
   condor_test: null
   status: candidate
   note: ''
+  in_bs: true
+  weighted: false
   N_shortfall_flag: null
 - id: I_WHjj
   idx: 5
@@ -115,9 +123,9 @@ samples:
   - sq 2
   - sq 6
   gen_cuts: ptj>20,|etaj|<5,drjj>0.4,drjl>0.4, cut_decays=False (no cuts on decay leptons), scale choice 3
-  sigma_fb: -0.26439999999999997
-  sigma_err_fb: 0.01341
-  sigma_source: 'SMOKE RUN (no gridpack sigma yet): smoke I_WHjj_smoke (W,H undecayed, both charges)'
+  sigma_fb: -0.2503
+  sigma_err_fb: 0.004189
+  sigma_source: gridpack init sigma (smoke run gave -0.2644 +- 0.013 fb)
   br_factors_external:
   - BR_WLL
   - BGG
@@ -132,6 +140,8 @@ samples:
   condor_test: null
   status: candidate
   note: N_planned raised 20000->50000 (>= N_required, G1 item 1)
+  in_bs: true
+  weighted: false
   N_shortfall_flag: null
 - id: H_ttH_1l
   idx: 6
@@ -158,6 +168,8 @@ samples:
   condor_test: top
   status: candidate
   note: ''
+  in_bs: true
+  weighted: false
   N_shortfall_flag: null
 - id: H_tHq_lep
   idx: 7
@@ -167,9 +179,9 @@ samples:
   - tHq
   - t-channel
   gen_cuts: no jet cuts
-  sigma_fb: 14.88
-  sigma_err_fb: 0.14809999999999998
-  sigma_source: 'SMOKE RUN (no gridpack sigma yet): smoke H_tHq_lep_smoke (5F, j light)'
+  sigma_fb: 15.63
+  sigma_err_fb: 0.06819
+  sigma_source: gridpack init sigma (smoke run gave 14.88 +- 0.15 fb)
   br_factors_external:
   - WF
   - BGG
@@ -183,6 +195,8 @@ samples:
   condor_test: null
   status: candidate
   note: ''
+  in_bs: true
+  weighted: false
   N_shortfall_flag: null
 - id: H_tHW_1l
   idx: 8
@@ -191,9 +205,9 @@ samples:
   orders:
   - tHW
   gen_cuts: no jet cuts
-  sigma_fb: 4.668
-  sigma_err_fb: 0.03496
-  sigma_source: 'SMOKE RUN (no gridpack sigma yet): smoke H_tHW_1l_smoke'
+  sigma_fb: 4.679
+  sigma_err_fb: 0.01151
+  sigma_source: gridpack init sigma (smoke run gave 4.668 +- 0.035 fb)
   br_factors_external:
   - WF
   - WHAD
@@ -208,6 +222,8 @@ samples:
   condor_test: null
   status: candidate
   note: ''
+  in_bs: true
+  weighted: false
   N_shortfall_flag: null
 - id: T_tta_1l
   idx: 9
@@ -217,22 +233,25 @@ samples:
   - 2
   - 1
   gen_cuts: pta>15,|etaa|<2.5, no jet cuts
-  sigma_fb: 511.2
-  sigma_err_fb: 3.3939999999999997
-  sigma_source: 'SMOKE RUN (no gridpack sigma yet): smoke T_tta_1l_smoke'
+  sigma_fb: 512.0
+  sigma_err_fb: 1.129
+  sigma_source: gridpack init sigma (smoke run gave 511.2 +- 3.4 fb)
   br_factors_external:
   - WF
   - WHAD
   k_external: 0.9705553979618913
   br_in_ME: t->b W->l nu / q q' in MG5 ME
   h_decay: no H
-  N_required: 1488444
-  N_planned: null
+  N_required: 1490773
+  N_planned: 1491000
   infeasible_N: false
-  overlap_rule: 'NOT overlap-removed (ZH closeout convention: 2nd photon mostly from top-decay products absent in the ttgg chain ME); double counting with T_ttaa_1l bounded by the T_ttaa_1l yield'
+  overlap_rule: 'overlap with T_ttaa_1l: events with 2 prompt photons are dropped from T_tta_1l at analysis (as ZH closeout); residual double counting bounded at reco (after b-veto) in report 04 sec. 6,
+    NOT called negligible'
   condor_test: top
   status: candidate
   note: ''
+  in_bs: true
+  weighted: false
   N_shortfall_flag: null
 - id: T_ttaa_1l
   idx: 10
@@ -242,9 +261,9 @@ samples:
   - 2
   - 2
   gen_cuts: pta>15,|etaa|<2.5, 90<maa<190
-  sigma_fb: 0.5709000000000001
-  sigma_err_fb: 0.004682
-  sigma_source: 'SMOKE RUN (no gridpack sigma yet): smoke T_ttaa_1l_smoke'
+  sigma_fb: 0.5816
+  sigma_err_fb: 0.001667
+  sigma_source: gridpack init sigma (smoke run gave 0.5709 +- 0.0047 fb)
   br_factors_external:
   - WF
   - WHAD
@@ -252,12 +271,14 @@ samples:
   br_in_ME: t->b W in MG5 ME
   h_decay: no H
   N_required: 50000
-  N_planned: null
+  N_planned: 50000
   infeasible_N: false
-  overlap_rule: full sample kept (sets the double-counting bound for T_tta_1l)
+  overlap_rule: full sample kept (>=2 prompt photons); T_tta_1l events with >=2 prompt photons removed
   condor_test: null
   status: candidate
   note: ''
+  in_bs: true
+  weighted: false
   N_shortfall_flag: null
 - id: T_tWa_1l
   idx: 11
@@ -267,22 +288,24 @@ samples:
   - 2
   - 1
   gen_cuts: pta>15,|etaa|<2.5
-  sigma_fb: 77.86999999999999
-  sigma_err_fb: 0.6141
-  sigma_source: 'SMOKE RUN (no gridpack sigma yet): smoke T_tWa_1l_smoke'
+  sigma_fb: 78.60000000000001
+  sigma_err_fb: 0.2026
+  sigma_source: gridpack init sigma (smoke run gave 77.87 +- 0.61 fb)
   br_factors_external:
   - WF
   - WHAD
   k_external: 0.9705553979618913
   br_in_ME: t->b W; W->l nu/qq' in MG5 ME
   h_decay: no H
-  N_required: 226731
-  N_planned: null
+  N_required: 228857
+  N_planned: 229000
   infeasible_N: false
-  overlap_rule: NOT overlap-removed (as T_tta_1l); DR vs DS as systematic
+  overlap_rule: events with >=2 prompt photons removed (as T_tta_1l); DR vs DS as systematic
   condor_test: null
   status: candidate
   note: ''
+  in_bs: true
+  weighted: false
   N_shortfall_flag: null
 - id: T_tt_1l
   idx: 12
@@ -293,8 +316,8 @@ samples:
   - 0
   gen_cuts: none
   sigma_fb: 141700.0
-  sigma_err_fb: 990.3
-  sigma_source: 'SMOKE RUN (no gridpack sigma yet): smoke T_tt_1l_smoke'
+  sigma_err_fb: 458.8
+  sigma_source: gridpack init sigma (smoke run gave 1.417e+05 +- 9.9e+02 fb)
   br_factors_external:
   - WF
   - WHAD
@@ -304,22 +327,24 @@ samples:
   N_required: 412583100
   N_planned: null
   infeasible_N: true
-  overlap_rule: N_prompt_gamma==0; bound by fake-factor pilot
+  overlap_rule: 'N_prompt_gamma==0; inclusive tt (jets from PS): CHECK sample only, superseded by T_ttjj_1l in b'
   condor_test: null
   status: candidate
-  note: 'N_required infeasible: DECISION D-WH-2'
-  N_shortfall_flag: D-WH-2
-- id: B_EW_Waajj_vbs
-  idx: 13
-  role: irreducible continuum (EW)
+  note: check only; N_required infeasible (D-WH-2) is why T_ttjj_1l with fake-factor weights replaces it
+  in_bs: false
+  weighted: false
+  N_shortfall_flag: 'NOT IN s/b (cross-check/pilot/superseded): N rule n/a; test job only, no production'
+- id: B_EW_Waajj_nomjj
+  idx: 21
+  role: irreducible continuum (EW), NOMINAL (no generator mjj cut)
   process: p p > w+ a a j j QCD=0 QED=5, w+>l+ vl (+c.c.), on-shell W chain
   orders:
   - 0
   - 5
-  gen_cuts: pta>25,|etaa|<2.5,100<maa<170,mjj>400,ptj>20,|etaj|<5,dR>0.4,cut_decays=False
+  gen_cuts: pta>25,|etaa|<2.5,100<maa<170,ptj>20,|etaj|<5,dR>0.4,cut_decays=False, mmjj 0
   sigma_fb: null
   sigma_err_fb: null
-  sigma_source: gridpack init sigma if available else pending (ESTIMATE ~0.4 fb from ZH analogue x10.6)
+  sigma_source: 'gridpack init sigma (pending: 884934.13)'
   br_factors_external:
   - WF
   k_external: 0.9600764922914165
@@ -328,22 +353,73 @@ samples:
   N_required: null
   N_planned: null
   infeasible_N: false
-  overlap_rule: order-exclusive vs QCD; ZH-style VBS-biased generation; interference I_Waajj via twin/aux
+  overlap_rule: 'order-exclusive vs QCD; EW-QCD interference I_Waajj: bound/aux, see 04 caveats'
   condor_test: continuum
   status: candidate
-  note: 20520 diagrams / 44 subprocesses (generate+output 155 s)
-  c_gen_cut:
-    factor: null
-    note: 'EW-type: NO twin for W; ZH measured 1.4 % loss at its selection (placeholder only) -> D-WH-7'
+  note: same diagrams as B_EW_Waajj_vbs (20520 diagrams / 44 subprocesses); no mmjj => removes the need for the (unquantified) EW C
+  in_bs: true
+  weighted: false
   N_shortfall_flag: null
-- id: B_QCD_Waajj_vbs
-  idx: 14
-  role: irreducible continuum (QCD)
+- id: B_EW_Waajj_vbs
+  idx: 13
+  role: EW twin cross-check (mmjj>400)
+  process: p p > w+ a a j j QCD=0 QED=5, w+>l+ vl (+c.c.)
+  orders:
+  - 0
+  - 5
+  gen_cuts: pta>25,|etaa|<2.5,100<maa<170,ptj>20,|etaj|<5,dR>0.4,cut_decays=False, mmjj 400
+  sigma_fb: 0.203
+  sigma_err_fb: 0.00026530000000000005
+  sigma_source: gridpack init sigma (smoke run gave 0.203 +- 0.00027 fb)
+  br_factors_external:
+  - WF
+  k_external: 0.9600764922914165
+  br_in_ME: W->l nu in MG5 ME
+  h_decay: no H
+  N_required: 50000
+  N_planned: null
+  infeasible_N: false
+  overlap_rule: cross-check of the EW twin ratio only; never added to b
+  condor_test: continuum
+  status: candidate
+  note: '20520 diagrams / 44 subprocesses (generate+output 155 s); D-WH-6: waiting for 884456.3'
+  in_bs: false
+  weighted: false
+  N_shortfall_flag: 'NOT IN s/b (cross-check/pilot/superseded): N rule n/a; test job only, no production'
+- id: B_QCD_Waajj_nomjj
+  idx: 15
+  role: irreducible continuum (QCD), NOMINAL (no generator mjj cut)
   process: p p > w+ a a j j QCD=2 QED=3 ,w+>l+ vl (+c.c.)
   orders:
   - 2
   - 3
-  gen_cuts: as B_EW + mjj>400
+  gen_cuts: pta>25,|etaa|<2.5,100<maa<170,ptj>20,|etaj|<5,dR>0.4,cut_decays=False, mmjj 0
+  sigma_fb: 3.5820000000000003
+  sigma_err_fb: 0.006376
+  sigma_source: gridpack init sigma (smoke run gave 3.582 +- 0.0064 fb)
+  br_factors_external:
+  - WF
+  k_external: 0.9600764922914165
+  br_in_ME: W->l nu in MG5 ME
+  h_decay: no H
+  N_required: 50000
+  N_planned: 50000
+  infeasible_N: false
+  overlap_rule: fixed order; nominal by D8
+  condor_test: continuum
+  status: candidate
+  note: 6984 diagrams / 52 subprocesses
+  in_bs: true
+  weighted: false
+  N_shortfall_flag: null
+- id: B_QCD_Waajj_vbs
+  idx: 14
+  role: QCD twin cross-check (mmjj>400)
+  process: as B_QCD_Waajj_nomjj + mmjj 400
+  orders:
+  - 2
+  - 3
+  gen_cuts: pta>25,|etaa|<2.5,100<maa<170,ptj>20,|etaj|<5,dR>0.4,cut_decays=False, mmjj 400
   sigma_fb: 0.6327
   sigma_err_fb: 0.00113
   sigma_source: gridpack init sigma (smoke run gave 0.6327 +- 0.0011 fb)
@@ -355,50 +431,47 @@ samples:
   N_required: 50000
   N_planned: null
   infeasible_N: false
-  overlap_rule: fixed order; mjj>400 gen cut safe for reco mjj>500 only if twin ratio C holds
-  condor_test: null
+  overlap_rule: cross-check of the twin ratio only; never added to b
+  condor_test: continuum
   status: candidate
-  note: 6984 diagrams / 52 subprocesses
-  c_gen_cut:
-    factor: 1.908
-    up: 0.224
-    down: 0.181
-    loss_fraction: 0.476
-    loss_err: 0.055
-    source: W gamma gamma QCD twin B_QCD_Waajj_nomjj (82 selected events, loose selection)
-  N_shortfall_flag: null
-- id: B_QCD_Waajj_nomjj
-  idx: 15
-  role: aux twin (ratio C only)
-  process: as B_QCD_Waajj_vbs with mmjj=0
+  note: ''
+  in_bs: false
+  weighted: false
+  N_shortfall_flag: 'NOT IN s/b (cross-check/pilot/superseded): N rule n/a; test job only, no production'
+- id: F_EW_Wajj_nomjj
+  idx: 22
+  role: 1 fake gamma (EW), NOMINAL (no generator mjj cut)
+  process: p p > w+ a j j QCD=0 QED=4, w+>l+ vl (+c.c.)
   orders:
-  - 2
-  - 3
-  gen_cuts: as above, mmjj 0
-  sigma_fb: 3.5820000000000003
-  sigma_err_fb: 0.006376
-  sigma_source: gridpack init sigma (smoke run gave 3.582 +- 0.0064 fb)
+  - 0
+  - 4
+  gen_cuts: pta>25,ptj>20,..., mmjj 0
+  sigma_fb: 167.7
+  sigma_err_fb: 0.19469999999999998
+  sigma_source: gridpack init sigma (smoke run gave 167.7 +- 0.19 fb)
   br_factors_external:
   - WF
   k_external: 0.9600764922914165
   br_in_ME: W->l nu in MG5 ME
   h_decay: no H
-  N_required: 50000
-  N_planned: null
+  N_required: 483014
+  N_planned: 484000
   infeasible_N: false
-  overlap_rule: 'never added to b: correction factor C only (as ZH)'
-  condor_test: null
+  overlap_rule: drop events with >=2 prompt photons (-> B_*)
+  condor_test: 1 fake gamma
   status: candidate
-  note: ''
+  note: 2700 diagrams
+  in_bs: true
+  weighted: false
   N_shortfall_flag: null
 - id: F_EW_Wajj_vbs
   idx: 16
-  role: 1 fake gamma (EW)
-  process: p p > w+ a j j QCD=0 QED=4, w+>l+ vl (+c.c.)
+  role: EW twin cross-check (mmjj>400)
+  process: as F_EW_Wajj_nomjj + mmjj 400
   orders:
   - 0
   - 4
-  gen_cuts: pta>25,mjj>400,...
+  gen_cuts: pta>25,mmjj 400,...
   sigma_fb: 89.63
   sigma_err_fb: 0.16110000000000002
   sigma_source: gridpack init sigma (smoke run gave 89.63 +- 0.16 fb)
@@ -410,22 +483,47 @@ samples:
   N_required: 258155
   N_planned: null
   infeasible_N: false
-  overlap_rule: drop events with >=2 prompt photons (-> B_*)
-  condor_test: null
+  overlap_rule: cross-check only
+  condor_test: 1 fake gamma
   status: candidate
-  note: 2700 diagrams
-  c_gen_cut:
-    factor: null
-    note: 'EW-type: NO twin for W; ZH measured 1.4 % loss at its selection (placeholder only) -> D-WH-7'
-  N_shortfall_flag: null
-- id: F_QCD_Wajj_vbs
-  idx: 17
-  role: 1 fake gamma (QCD)
+  note: ''
+  in_bs: false
+  weighted: false
+  N_shortfall_flag: 'NOT IN s/b (cross-check/pilot/superseded): N rule n/a; test job only, no production'
+- id: F_QCD_Wajj_nomjj
+  idx: 18
+  role: 1 fake gamma (QCD), NOMINAL (no generator mjj cut)
   process: p p > w+ a j j QCD=2 QED=2, w+>l+ vl (+c.c.)
   orders:
   - 2
   - 2
-  gen_cuts: pta>25,mjj>400,...
+  gen_cuts: pta>25,ptj>20,..., mmjj 0
+  sigma_fb: 5683.0
+  sigma_err_fb: 10.149999999999999
+  sigma_source: gridpack init sigma (smoke run gave 5683 +- 10 fb)
+  br_factors_external:
+  - WF
+  k_external: 0.9600764922914165
+  br_in_ME: W->l nu in MG5 ME
+  h_decay: no H
+  N_required: 16368344
+  N_planned: 16369000
+  infeasible_N: false
+  overlap_rule: drop events with >=2 prompt photons
+  condor_test: 1 fake gamma
+  status: candidate
+  note: 1024 diagrams; N_required 1.64e7 events (~520 core-h, ~40 GB)
+  in_bs: true
+  weighted: false
+  N_shortfall_flag: null
+- id: F_QCD_Wajj_vbs
+  idx: 17
+  role: QCD twin cross-check (mmjj>400)
+  process: as F_QCD_Wajj_nomjj + mmjj 400
+  orders:
+  - 2
+  - 2
+  gen_cuts: pta>25,mmjj 400,...
   sigma_fb: 712.4
   sigma_err_fb: 1.474
   sigma_source: gridpack init sigma (smoke run gave 712.4 +- 1.5 fb)
@@ -437,45 +535,69 @@ samples:
   N_required: 2051875
   N_planned: null
   infeasible_N: false
-  overlap_rule: drop events with >=2 prompt photons
-  condor_test: null
+  overlap_rule: cross-check only
+  condor_test: 1 fake gamma
   status: candidate
-  note: 1024 diagrams
-  c_gen_cut:
-    factor: 1.587
-    up: 0.275
-    down: 0.204
-    loss_fraction: 0.37
-    loss_err: 0.093
-    source: W gamma QCD twin F_QCD_Wajj_nomjj (27 selected events, loose selection)
-  N_shortfall_flag: null
-- id: F_QCD_Wajj_nomjj
-  idx: 18
-  role: aux twin (ratio C only)
-  process: as F_QCD_Wajj_vbs, mmjj 0
+  note: ''
+  in_bs: false
+  weighted: false
+  N_shortfall_flag: 'NOT IN s/b (cross-check/pilot/superseded): N rule n/a; test job only, no production'
+- id: F_Wjjjj
+  idx: 26
+  role: 2 fake gammas (weighted; replaces the W+2j pilot)
+  process: p p > w+ j j j j QCD=4 QED=1, w+>l+ vl (+c.c.), light-flavour j
   orders:
-  - 2
-  - 2
-  gen_cuts: mmjj 0
-  sigma_fb: 5683.0
-  sigma_err_fb: 10.149999999999999
-  sigma_source: gridpack init sigma (smoke run gave 5683 +- 10 fb)
+  - 4
+  - 1
+  gen_cuts: ptj>20,|etaj|<5,dR>0.4, no bias cut (no safe bias cut established)
+  sigma_fb: 414700.0
+  sigma_err_fb: 413.3
+  sigma_source: gridpack init sigma (smoke run gave 4.147e+05 +- 4.1e+02 fb)
   br_factors_external:
   - WF
   k_external: 0.9600764922914165
   br_in_ME: W->l nu in MG5 ME
   h_decay: no H
-  N_required: 16368344
+  N_required: 1194431164
   N_planned: null
-  infeasible_N: false
-  overlap_rule: ratio C only
-  condor_test: null
+  infeasible_N: true
+  overlap_rule: N_prompt_gamma==0; photons from jets by Delphes-j->gamma-rate probability weights (D-WH-2)
+  condor_test: fake weighted
   status: candidate
-  note: ''
-  N_shortfall_flag: null
+  note: N_planned set by N_eff>=10 in the SR (from test job) in report 04, not by sigma*L
+  in_bs: true
+  weighted: true
+  N_shortfall_flag: D-WH-2 (N_eff rule, N set in report 04)
+- id: T_ttjj_1l
+  idx: 27
+  role: tt 1l, 2 fake gammas (weighted)
+  process: p p > t t~ j j, single-lepton (2 assignments), light j
+  orders:
+  - 4
+  - 0
+  gen_cuts: ptj>20,|etaj|<5,dR>0.4, no bias cut
+  sigma_fb: 85790.0
+  sigma_err_fb: 147.5
+  sigma_source: gridpack init sigma (smoke run gave 85790 +- 1.5e+02 fb)
+  br_factors_external:
+  - WF
+  - WHAD
+  k_external: 0.9705553979618913
+  br_in_ME: t->b W in MG5 ME
+  h_decay: no H
+  N_required: 249791843
+  N_planned: null
+  infeasible_N: true
+  overlap_rule: N_prompt_gamma==0; weights as F_Wjjjj; b-veto kept in the selection
+  condor_test: fake weighted
+  status: candidate
+  note: 'gluon-splitting/ISR double counting with PS jets of T_tt_1l is irrelevant: T_tt_1l is not in b'
+  in_bs: true
+  weighted: true
+  N_shortfall_flag: D-WH-2 (N_eff rule, N set in report 04)
 - id: F_Wjj_pilot
   idx: 19
-  role: 2 fake gammas (bound) pilot
+  role: pilot (exploratory bound), superseded by F_Wjjjj
   process: p p > w+ j j , w+>l+ vl (+c.c.), fixed 2 partons
   orders:
   - 2
@@ -492,14 +614,16 @@ samples:
   N_required: 9893588253
   N_planned: null
   infeasible_N: true
-  overlap_rule: N_prompt_gamma==0; fake-factor weights (not Delphes fakes)
+  overlap_rule: pilot only; never in b
   condor_test: fake pilot
   status: candidate
-  note: 'N_required infeasible: DECISION D-WH-2'
-  N_shortfall_flag: D-WH-2
+  note: 'superseded: VBS jets had to come from the PS'
+  in_bs: false
+  weighted: false
+  N_shortfall_flag: 'NOT IN s/b (cross-check/pilot/superseded): N rule n/a; test job only, no production'
 - id: F_Wajj_pilot
   idx: 20
-  role: 1 fake gamma pilot
+  role: pilot (exploratory), covered by F_*_Wajj_nomjj
   process: p p > w+ a j j, w+>l+ vl (+c.c.)
   orders:
   - 2
@@ -516,11 +640,171 @@ samples:
   N_required: 28450907
   N_planned: null
   infeasible_N: true
-  overlap_rule: N_prompt_gamma==1
+  overlap_rule: pilot only; never in b
   condor_test: fake pilot
   status: candidate
+  note: same process as F_QCD_Wajj (QCD part)
+  in_bs: false
+  weighted: false
+  N_shortfall_flag: 'NOT IN s/b (cross-check/pilot/superseded): N rule n/a; test job only, no production'
+- id: V_WZa_WH
+  idx: 23
+  role: WZ gamma -> l l l nu gamma, lost lepton / e->gamma
+  process: p p > l+ l- l+ vl a (+ l- vl~), group_subprocesses False
+  orders:
+  - 0
+  - 5
+  gen_cuts: ptl>5,|etal|<3.5,mmll>10,dRll>0.1,pta>15,|etaa|<2.5; NO ME jets (jets from PS only)
+  sigma_fb: 5.128
+  sigma_err_fb: 0.005756
+  sigma_source: gridpack init sigma (smoke run gave 5.128 +- 0.0058 fb)
+  br_factors_external:
+  - one
+  k_external: 1.0
+  br_in_ME: leptons in ME (e,mu final state; k=1, fiducial sigma)
+  h_decay: no H
+  N_required: 50000
+  N_planned: 50000
+  infeasible_N: false
+  overlap_rule: 'V gamma: ME jets absent => VBS SR yield from PS jets only (lower bound-like, see 04)'
+  condor_test: V gamma
+  status: candidate
+  note: D-WH-5
+  in_bs: true
+  weighted: false
+  N_shortfall_flag: null
+- id: V_WWa_WH
+  idx: 24
+  role: WW gamma / ZZ(llnunu) gamma -> l nu l nu gamma
+  process: p p > l+ vl l- vl~ a, group_subprocesses False
+  orders:
+  - 0
+  - 5
+  gen_cuts: ptl>5,|etal|<3.5,mmll>10,dRll>0.1,pta>15,|etaa|<2.5; NO ME jets (jets from PS only)
+  sigma_fb: 28.09
+  sigma_err_fb: 0.03841
+  sigma_source: gridpack init sigma (smoke run gave 28.09 +- 0.038 fb)
+  br_factors_external:
+  - one
+  k_external: 1.0
+  br_in_ME: leptons in ME (k=1)
+  h_decay: no H
+  N_required: 84270
+  N_planned: 85000
+  infeasible_N: false
+  overlap_rule: as V_WZa_WH
+  condor_test: V gamma
+  status: candidate
+  note: D-WH-5
+  in_bs: true
+  weighted: false
+  N_shortfall_flag: null
+- id: V_ZZa_WH
+  idx: 25
+  role: ZZ gamma -> 4l gamma, 3 leptons lost
+  process: p p > l+ l- l+ l- a, group_subprocesses False
+  orders:
+  - 0
+  - 5
+  gen_cuts: ptl>5,|etal|<3.5,mmll>10,dRll>0.1,pta>15,|etaa|<2.5; NO ME jets (jets from PS only)
+  sigma_fb: null
+  sigma_err_fb: null
+  sigma_source: 'gridpack init sigma (pending: 884934.12)'
+  br_factors_external:
+  - one
+  k_external: 1.0
+  br_in_ME: leptons in ME (k=1)
+  h_decay: no H
+  N_required: null
+  N_planned: null
+  infeasible_N: false
+  overlap_rule: as V_WZa_WH
+  condor_test: V gamma
+  status: candidate
+  note: D-WH-5
+  in_bs: true
+  weighted: false
+  N_shortfall_flag: null
+- id: H_ggZH_wh
+  idx: 28
+  role: ggZH loop, Z->ee/mumu (PY8), 1 lepton lost (D-WH-3 top-up)
+  process: gg > Z H [noborn=QCD] (ZH gridpack H_ggZH_py8dec_s1363200, read-only), Z->ee/mumu and H->gg forced in PY8
+  orders:
+  - loop
+  gen_cuts: none (PY8 decay, no cuts)
+  sigma_fb: 74.33
+  sigma_err_fb: 0.7
+  sigma_source: 'SMOKE RUN (no gridpack sigma yet): ZH FINAL_report table (same gridpack)'
+  br_factors_external:
+  - BR_ZLL
+  - BGG
+  k_external: 0.00015275737999999997
+  br_in_ME: Z undecayed in LHE; forced to e/mu in PY8
+  h_decay: H->gg forced in PY8
+  N_required: 50000
+  N_planned: 50000
+  infeasible_N: false
+  overlap_rule: Z lepton lost covered; independent seeds from the frozen sample
+  condor_test: resonant bkg
+  status: candidate
   note: ''
-  N_shortfall_flag: D-WH-2
+  in_bs: true
+  weighted: false
+  N_shortfall_flag: null
+- id: H_ttH_dilep_wh
+  idx: 29
+  role: ttH dilepton, 1 lepton lost (D-WH-3 top-up)
+  process: p p > t t~ h, both t->b l nu ... (ZH gridpack H_ttH_s1360500, read-only)
+  orders:
+  - 2
+  - 1
+  gen_cuts: no jet cuts, scale 3
+  sigma_fb: 18.11
+  sigma_err_fb: 0.2
+  sigma_source: 'SMOKE RUN (no gridpack sigma yet): ZH FINAL_report table (same gridpack)'
+  br_factors_external:
+  - WF
+  - WF
+  - BGG
+  k_external: 0.0020923653972848397
+  br_in_ME: 't->b W->l nu in MG5 ME (ZH H_ttH gridpack: dilepton)'
+  h_decay: H->gg forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once
+  N_required: 50000
+  N_planned: 50000
+  infeasible_N: false
+  overlap_rule: ttH 1l is H_ttH_1l; this is the dilepton topology
+  condor_test: resonant bkg
+  status: candidate
+  note: ''
+  in_bs: true
+  weighted: false
+  N_shortfall_flag: null
+- id: H_ZH_tautau_wh
+  idx: 30
+  role: ZH, Z->tautau (MLM 0-2j), tau->l feed-down (D-WH-3 top-up)
+  process: p p > z h (+j,+jj), z>ta+ ta- (ZH gridpack H_ZH_tautau_s1360700, read-only), MLM
+  orders:
+  - 2
+  - 2
+  gen_cuts: xqcut as ZH
+  sigma_fb: 24.97
+  sigma_err_fb: 0.3
+  sigma_source: 'SMOKE RUN (no gridpack sigma yet): ZH FINAL_report table (sigma after matching)'
+  br_factors_external:
+  - BGG
+  k_external: 0.00227
+  br_in_ME: Z->tautau in MG5 ME
+  h_decay: H->gg forced in PY8
+  N_required: 50000
+  N_planned: 50000
+  infeasible_N: false
+  overlap_rule: tau->e/mu nu nu feed-down; MLM accepted events counted
+  condor_test: resonant bkg
+  status: candidate
+  note: ''
+  in_bs: true
+  weighted: false
+  N_shortfall_flag: null
 - id: ZH_EW_ZHjj_lostlep
   role: ZHjj EW, Z->ll, 1 lepton lost
   sigma_fb: 1.295
@@ -554,7 +838,7 @@ samples:
   status: frozen reuse
   N_shortfall_flag: null
 - id: ZH_ggZH_lostlep
-  role: ggZH loop, Z->ee/mumu (PY8), 1 lepton lost
+  role: ggZH loop, Z->ee/mumu (PY8), 1 lepton lost -- SUPERSEDED by the D-WH-3 top-up sample (not mixed)
   sigma_fb: 74.33
   sigma_source: FINAL_report.md table (ZH, LO MG5 init)
   br_factors_external:
@@ -568,9 +852,10 @@ samples:
   coverage: 'Z decayed in PY8 (no cuts): covered'
   gen_cuts: none
   status: frozen reuse
-  N_shortfall_flag: D-WH-3
+  in_bs: false
+  N_shortfall_flag: 'SUPERSEDED frozen ZH sample (D-WH-3 top-up used instead): not in b'
 - id: ZH_ttH_dilep_lostlep
-  role: ttH dilepton, 1 lepton lost
+  role: ttH dilepton, 1 lepton lost -- SUPERSEDED by the D-WH-3 top-up sample (not mixed)
   sigma_fb: 18.11
   sigma_source: FINAL_report.md table (ZH, LO MG5 init)
   br_factors_external:
@@ -585,7 +870,8 @@ samples:
   coverage: 't->b l nu both in ME, cut_decays False: covered. NOTE: ZH ledger used k=B_gg (MG tree W BR); here WF^2 applied (physical W BR) - differs by 7.8% from ZH convention'
   gen_cuts: none
   status: frozen reuse
-  N_shortfall_flag: D-WH-3
+  in_bs: false
+  N_shortfall_flag: 'SUPERSEDED frozen ZH sample (D-WH-3 top-up used instead): not in b'
 - id: ZH_Zaajj_EW_lostlep
   role: Zgg jj EW (on-shell Z->ll), 1 lepton lost
   sigma_fb: 0.0393
@@ -603,7 +889,7 @@ samples:
   status: frozen reuse
   c_gen_cut:
     factor: null
-    note: 'EW-type: NO twin for W; ZH measured 1.4 % loss at its selection (placeholder only) -> D-WH-7'
+    source: 'EW part: ZH measured 1.4 % loss at the ZH selection; W EW twin (B_EW_Waajj_nomjj vs _vbs) pending as proxy; syst = full difference'
   N_shortfall_flag: null
 - id: ZH_Zaajj_QCD_lostlep
   role: Zgg jj QCD (on-shell Z->ll), 1 lepton lost
@@ -620,12 +906,10 @@ samples:
   gen_cuts: pta>25,etaa<2.5,100<maa<170,mjj>400
   status: frozen reuse
   c_gen_cut:
-    factor: 1.908
-    up: 0.224
-    down: 0.181
-    loss_fraction: 0.476
-    loss_err: 0.055
-    source: 'PROXY: W gamma gamma QCD twin (same QCD-type topology); ZH itself needed C=2.37 at the ZH selection; to be re-derived at the WH selection (Phase 05)'
+    factor: 1.955
+    rel_err_stat: 0.067
+    syst_full_difference: 0.955
+    source: frozen ZH twin pair B_QCD_zaajj_nomjj/_vbs (100k+100k ev) at the WH SR proxy, ng=2
   N_shortfall_flag: null
 - id: ZH_Zajj_eFake
   role: Z(ll)gamma jj with e->gamma (QCD+EW), lepton+photon pairs
@@ -642,10 +926,8 @@ samples:
   gen_cuts: ptl>10,mmll>50,mjj>400,pta>25
   status: frozen reuse
   c_gen_cut:
-    factor: 1.587
-    up: 0.275
-    down: 0.204
-    loss_fraction: 0.37
-    loss_err: 0.093
-    source: 'PROXY (QCD part only): W gamma QCD twin; EW part unquantified'
+    factor: 1.866
+    rel_err_stat: 0.051
+    syst_full_difference: 0.866
+    source: frozen ZH twin pair F_QCD_llajj_nomjj/_vbs (first 200k ev each), ng=1; QCD part only, EW part uses the W EW twin proxy
   N_shortfall_flag: null

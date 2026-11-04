@@ -34,7 +34,7 @@ mkdir gp && tar xzf gp.tar.gz -C gp || exit 13
 T0=$(date +%s)
 ( cd gp && ./run.sh "$NEV" "$SEED" ) > mg_gridpack.log 2>&1 || { tail -20 mg_gridpack.log; exit 14; }
 T1=$(date +%s); NLHE=$(zgrep -c '<event>' gp/events.lhe.gz); log "LHE events: $NLHE"
-XS=$(zcat gp/events.lhe.gz | sed -n '/<init>/,/<\/init>/p' | sed -n 3p)
+XS=$(zcat gp/events.lhe.gz | sed -n '/<init>/,/<\/init>/p' | sed -n '3,$p' | grep -v '</init>' | grep -v '^<' | tr '\n' ';')
 PYSEED=$((SEED + 100000000))
 DELPHES_CARD=$PROJECT/cards/phase04_candidates/delphes_card_CMS_slim_hh_v1.tcl \
   bash $PROJECT/scripts/run_py8_delphes.sh "$WD/gp/events.lhe.gz" "$PROJECT/cards/phase03_smoke/$CMND" "$NLHE" "$PYSEED" "$WD/out/full.root" > py8_delphes.log 2>&1 || { tail -30 py8_delphes.log; exit 15; }

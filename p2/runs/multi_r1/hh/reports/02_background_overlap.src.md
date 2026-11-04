@@ -22,8 +22,8 @@ Notes: `ptheavy` = minimum pT for at least one heavy final-state particle (top, 
 ## 4. Overlap ledger
 | # | Pair | Overlap mechanism | Rule |
 |---|---|---|---|
-| O1 | `Q_4j_vbs` ⊃ `Q_bbjj_vbs` ⊃ `Q_4b_ht` | 4j with j ∋ b contains every b b̄ + 2-parton ME of `p p > b b~ j j`, which contains `b b~ b b~` | **Flavour partition on the hard-process record** (status-23 partons, stored as `g_nhard_b`, `g_nhard_bbar` by `slim_hh_truth.py`): events of `Q_4j` with both a b and a b̄ in the hard final state are removed and replaced by `Q_bbjj` (enriched statistics). `Q_4b_ht` is used only as a bound/shape sample, never summed. Partition equality is a Phase-04 validation (σ of the b b̄-containing subset of `Q_4j` must equal σ(`Q_bbjj`) within errors) |
-| O2 | `T_ttbar_boost` vs `T_ttbar_boost_vbs` (tt̄jj, planned) | PS jets vs ME jets for the VBS pair | no MLM matching validated → decision D-HH-3: use the tt̄jj ME sample with the VBS filter for the SR; `T_ttbar_boost` only as non-VBS cross-check, never summed |
+| O1 | `Q_4j_vbs` ⊃ `Q_bbjj_vbs` ⊃ `Q_4b_ht` | 4j with j ∋ b contains every b b̄ + 2-parton ME of `p p > b b~ j j`, which contains `b b~ b b~` | **Flavour partition on the hard-process record** (status-23 partons, stored as `g_nhard_b`, `g_nhard_bbar` by `slim_hh_truth.py`): events of `Q_4j` with both a b and a b̄ in the hard final state are removed and replaced by `Q_bbjj` (enriched statistics). `Q_4b_ht` is used only as a bound/shape sample, never summed. Partition equality validated at G2-FIX (04 §17.2: ratio 0.986 nominal, 0.992 twin) (σ of the b b̄-containing subset of `Q_4j` must equal σ(`Q_bbjj`) within errors) |
+| O2 | `T_ttbar_mlm` (tt̄+0,1,2j MLM, nominal, D-HH-3) vs `T_ttbar_boost` (PS-only, 0 ME jets) | PS jets vs ME jets for the VBS pair | the MLM sample is the nominal; the PS-only sample is a cross-check, never summed; the ttjj ME+filter option of the first draft is superseded (needed only if N_eff failed; it did not) |
 | O3 | `H_VBFH_bb` (`p p > h j j QCD=0`) vs `H_ZH_Zqq_bb`, W±H | EW pp→Hjj contains s-channel V→jj H diagrams | generator filter mjj>200 excludes the resonant region (m(jj)≈mV); parton-level evidence of the same mechanism for HHjj: −2 ± 2 % effect of s-channel diagrams inside VBS acceptance (01 report §3.1) → VBF H and VH samples are summed; for H_ZH/H_WH only the boosted-V topology (pT(V)>150) is generated |
 | O4 | EW `S_HHjj` vs ggF HH (`G_ggHH_loop`) | different initial states/orders | separate samples; interference neglected (01 §4); ggF HH+2j missing (D-HH-2) |
 | O5 | SM VBF HH vs κ2V scan | SM HH is signal for the SM μ, part of the background for κ2V≠1 | statistical model fixed in Phase 07; SM point is directly generated and also reproduced by morphing |
@@ -60,22 +60,23 @@ After the explicit class definition the table is **unchanged in value** for the 
 
 Reading: (i) SM EW signal: 0.070 expected events at 500 fb⁻¹ (nominal) from k = 2 raw events, 95 % interval **[0.009, 0.25]**; even the upper end is ≪ 1 event, so the a-priori negligible SM sensitivity of the boosted category (and the κ2V ≠ 1 framing, κ2V = 0 has σ ≈ 14× SM) is supported, not an overclaim; (ii) ggF HH (LO, no K-factor, 0 ME jets + PS) retains about half of that (0.037 [0.001, 0.20], k = 1): it is a first-order background (D-HH-2); (iii) tt̄ and ttH populate the SR with k = 1–2 raw events out of 2000, QCD (Q_4j, Q_bbjj), Z+jets, VBF H, ZH and ZZjj with k = 0: all N_eff ≲ 2, the upper limits in the table are **limits of the test statistics, not estimates, and the corresponding backgrounds must not be read as negligible**; (iv) a class-resolved N_eff estimate for QCD and tt̄ (weights span ≈ 10⁻⁴ for light-light to 0.36 for Hbb-Hbb, so N_eff is set by the rare shower g→bb̄ and Higgs-like fraction, not by raw counts) replaces the naive "10⁵–10⁶ events" scaling and is pre-G2 work (03 §13).
 
-## 9. Infeasibilities and decisions (never relaxed silently)
-Numbering is common to 01/02/03/STATUS.
-- **D-HH-1** frozen-tree incident (partial HEPTools install in `software/install/MG5_aMC_v3.6.3/HEPTools`, removal blocked): human `rm -rf`.
-- **D-HH-2** ggF HH: κλ covered by 3-point morphing, but ggF HH + 2 jets (VBS-like topology), K-factor (LO σ = 14.4 fb; higher-order value from LHCHWG in Phase 04, expected larger by a factor of a few — not quoted here) and interference with EW HHjj are missing; ggF HH is ≈ half of the SM signal in the anchor SR (§8): accept as limitation or approve a HEFT ggF HHjj sample?
-- **D-HH-3** tt̄ with VBS-like jets: tt̄jj ME + VBS filter (planned idx 31) vs MLM-matched tt̄ + 0,1,2j (not validated for HH).
-- **D-HH-4** QCD multijet: `p p > b b~ b b~ j j` has 82 352 diagrams (96 processes), `p p > j j j j j` 139 015 (636), `p p > b b~ b b~ j` 3 370: exclusive 6-parton MEs are not buildable. Proposed: 4j + bb̄jj with VBS filter + PS (Phase 03) + truth-tag weights + looser twin; large residual uncertainty, no data-driven estimate possible: approve?
-- **D-HH-5** SM acceptance ≈ 2.5 % (two fat jets pT > 250) → 0.07 [0.009, 0.25] events at 500 fb⁻¹: confirm the deliverable is the κ2V ≠ 1 sensitivity (SM μ95 as expected limit, no discovery claim) and the provisional 300/450 GeV thresholds.
-- **D-HH-6** background twin samples (ihtmin, VBS filter 3.0/400, ptheavy) and N_eff ≥ 10 statistics are required before G2; HH storage ≤ 150 GB.
-- **D-HH-7** ME jet multiplicity below what the SR needs: Z/W + jets and VBF H (`z j j`, `h j j`) need one PS jet in the SR, H_ZH/WH (`z h`) need both VBS jets from the PS, ggH + jj needs more: add Z/W + 3j and VH + 2j (or matched) samples, or quote a PS-modelling uncertainty?
-- **D-HH-8** m(HH) clipping value (needed "with and without", handoff §5.2): which threshold?
-- **D-HH-9** trigger: baseline leading large-R pT ≥ 450 GeV on an assumed plateau; pre-declared variations 500/550 GeV (Phase 07); confirm.
-- **D-HH-10** tagging-class definition (§6): top / Hbb / bb_nonH / b / c / l with bb_nonH = b/g→bb̄ rate: confirm or change (before Phase 05).
-- **D-HH-11** extra backgrounds (§9b): accept the bounds/plans given there, or require dedicated samples?
-- **D-HH-12** full N instead of the effective-N exception for ggF HH, ZH, ZZjj, ttH (brute force is feasible): cost of applying max(50k, σ·BR·3000 fb⁻¹): ggF HH 50 k per κλ point × 4 points = 2×10⁵ events (≈ 0.6 GB, ≈ 3 CPU-h); ZH 1.03×10⁵ (≈ 0.4 GB, ≈ 2 CPU-h); ZZjj 1.12×10⁵ (≈ 0.4 GB, ≈ 2 CPU-h); ttH 4.33×10⁵ (≈ 2 GB, ≈ 7 CPU-h; PY8+Delphes 0.06 s/event). Total ≈ 3.5 GB and ≈ 15 CPU-h plus gridpack runs — cheap; recommended: apply full N (the §5.3 justification does not hold for these four). Not implemented.
-- Types of the handoff list **without** a Phase-03 gridpack/test job: W±H (idx 42/43), ggH + jj (45), W + jets (51), QCD bbbb (22), tt̄jj (31): planned only; required before G2.
-- Brute-force N for QCD (Q_4j 1.1×10¹¹, bbjj 2×10⁹), Z+jets (6×10⁸), tt̄ (9×10⁷), VBF H (4×10⁶) violates SPEC §1.5 if read literally; the effective-N policy of handoff §5.3 applies to these only, requiring twin proofs and N_eff ≥ 10 at G2.
+## 9. Infeasibilities and decisions (never relaxed silently) — status after G1
+Common numbering D-HH-1 … D-HH-12 (identical in 01, 02, 03, STATUS.md and `04_production_plan.md`); human answers are quoted verbatim in `p2/SPEC.md` §6 (D2, D11–D16). Implementation of every answer is documented in **04**.
+| ID | topic | G1 answer (SPEC §6) | implemented in |
+|---|---|---|---|
+| D-HH-1 | partial HEPTools install in the shared MG5 tree | leave in place; listing/sha256 in SPEC §7 (D2); further installs only under `p2/software/` | no action; all new MG5 runs on batch (private copy per job) or `work/mg5priv` |
+| D-HH-2 | ggF HH normalisation | LO loop-induced + PS, normalised to LHC HWG NNLO at 13.6 TeV, +30 % in the VBF region, EW-loop interference neglected | 04 §3, `config/g2_predeclared.yaml`, 01 §4(c) |
+| D-HH-3 | tt̄ VBS topology | nominal MLM tt̄+0,1,2j validated by matching-scale variation; ttjj ME+filter only if N_eff fails | `T_ttbar_mlm*`, 04 §9 |
+| D-HH-4 | QCD multijet | 4j + bb̄jj + PS + truth tag; class-resolved N_eff; b-enriched; ±100 %, ×0.5/×2 | 04 §6, §10 |
+| D-HH-5 | SM acceptance / deliverable | κ2V ≠ 1; 300/450 provisional; SM 0.07 with Poisson interval | 04 §8, §10 |
+| D-HH-6 | background twins, N_eff ≥ 10, storage ≤ 150 GB | accepted | 04 §5, §6, §11 |
+| D-HH-7 | ME jet multiplicity (Z/W+3j, VH+2j, ggH+jj) | ME sample only if PS-based yield > 10 % of the SR background | 04 §7 |
+| D-HH-8 | m(HH) clip | primary unclipped; clipped < 1.5 TeV variation + 1.0 TeV check | `config/g2_predeclared.yaml`, 04 §10 |
+| D-HH-9 | trigger, m_SD | 450 baseline; 500/550 pre-declared; m_SD window on the Delphes peak, ±5 % scale | `config/g2_predeclared.yaml`, 04 §10 |
+| D-HH-10 | tag-class definition | accepted (item 1 of the G1 review) | §6 (unchanged) |
+| D-HH-11 | extra backgrounds | 95 % UL in the SR; dedicated sample only if UL > 10 % of the SR background | 04 §7 |
+| D-HH-12 | full N for ggF HH, ZH, ZZjj, ttH | accepted | 04 §4 (WH added by the same cost argument) |
+New numbered items raised after G1 are listed in `STATUS.md` (D-HH-13 …).
 
 ### 9b. Backgrounds not otherwise in the ledger (G1 review item 12)
 LO MG5 σ at the stated generator cuts (σ-only gridpacks, cluster 884857; no events generated); “brute-force N” for reference.

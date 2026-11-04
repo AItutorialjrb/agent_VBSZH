@@ -1,0 +1,41 @@
+# Pre-declared choices and variations (G1 decisions, fixed BEFORE any SR yield from production is looked at).  Date: 2026-11-03 (pre-G2).
+ggF_HH_normalisation:           # D-HH-2
+  generator: "MG5_aMC 3.6.3 loop_sm_kl, LO loop-induced g g > h h (full top mass) + PY8; sigma_LO(kl=1) = 14.41 fb at 13.6 TeV (gridpack integration)"
+  reference_sigma_fb: 33.62     # LHC HWG recommendation sigma_rec = sigma_NNLO-FTapprox x K3 x K_EW at mH=125 GeV, 13.6 TeV
+  reference_components: {sigma_NNLO_FTapprox_fb: 34.01, K3: 1.030812, K_EW: 0.959}
+  reference_uncertainty: "QCD scale +2.07/-4.85 %, PDF+alpha_s 2.43 %, mt-scheme +5/-16 % (not included in the 30 % below)"
+  reference_source: "LHCHWG-2026-010 (CDS 2969777, 'Higgs Boson Pair Production via Gluon Fusion: Higher-Order Corrections and Theoretical Uncertainties'); TWiki LHCPhysics/LHCHWGHHRecommendations rev r3 (2026-09-29), fetched 2026-11-03 UTC; m_t=173.0, PDF4LHC21_40"
+  K_factor: "33.62 / 14.41 = 2.333 applied to all kappa_lambda points (SM-value K; the kl-dependence of K is NOT modelled -- stated approximation)"
+  extra_uncertainty_vbf_region: 0.30      # on top of the HWG uncertainty, because the 0-jet + PS sample does not model the VBF-like jet pair at NNLO; ggHH+2j and EW-loop interference are not simulated
+  ew_loop_interference: "neglected (EW HHjj x loop-induced ggF HH); stated limitation"
+multijet:                       # D-HH-4
+  normalisation_uncertainty: 1.0
+  variations: {scale_factors: [0.5, 2.0], note: "all results also quoted with the QCD multijet (Q_4j, Q_bbjj, Q_4b) normalisation x0.5 and x2"}
+trigger:                        # D-HH-9
+  baseline_lead_fatjet_pt_GeV: 450
+  variations_GeV: [500, 550]
+mSD:                            # D-HH-9
+  window_GeV: [90, 150]          # provisional, fixed by expected-only optimisation in Phase 06 on the Delphes peak (116 GeV; no fat-jet JES in Delphes)
+  mass_scale_variation: 0.05
+mHH:                            # D-HH-8
+  primary: "unclipped"
+  variation_clip_GeV: 1500
+  check_clip_GeV: 1000
+  note: "clip applied to the reco m(HH) proxy = invariant mass of the two selected fat jets (events above the clip are dropped, not weighted)"
+fatjet_pt_thresholds_GeV: {lead: 450, sublead: 300, status: "provisional (D-HH-5); fixed by expected-only optimisation in Phase 06"}
+deliverable: "kappa_2V != 1 sensitivity; SM expectation 0.070 events at 500 fb-1 with its Poisson interval [0.009, 0.25] (k=2 raw events, 2000-event test) -- re-quoted from the pilot in 04"
+rules:
+  D-HH-7: "add an ME+jets sample (Z/W+3j, VH+2j, ggH+jj) only if that background's PS-based expected SR yield is > 10 % of the total SR background (nominal tagging); otherwise 100 % PS-modelling uncertainty"
+  D-HH-11: "each extra background gets a 95 % UL in the SR; a dedicated sample only if the UL > 10 % of the total SR background"
+  D-HH-12: "full N = max(50k, sigma*BR*3000 fb-1) for ggF HH, ZH (and WH), ZZjj, ttH"
+phase06_anti_tuning_guard:       # G2 review item 7; declared 2026-11-04 BEFORE any optimisation
+  rule: "The expected-only optimisation of the m_SD window, the fat-jet pT thresholds (300/450) and the VBS cuts in Phase 06 uses the class-aware smoothed (factorised) background estimator of scripts/neff_project.py / variations.py, or an independent half of each background sample (events with even/odd event number: optimise on one half, quote on the other), never the raw hard-window MC count of the full sample. The choice of region is frozen before the SR yields of the other half are examined; the quoted yields use the unselected half."
+  reason: "raw window counts are tiny (QCD twin: 6 raw events in 200 k); tuning on them would tune on MC fluctuations"
+n_eff_sizing_and_topup:          # G2 review item 9
+  sizing: "N_planned from min(factorised projection, MEASURED pilot hard-window N_eff) scaled linearly, target 10 (30 if share > 10 %), safety x1.5, all three scenarios"
+  topup_rule: "if scripts/nmc_post_production.py fails for an effective-N row: one top-up of N_new = 1.2 * N_planned * (target/N_eff,measured - 1) events (new seeds, same gridpack, cap 3 M per sample), then re-check; if it still fails the sample becomes bound-only (structured Poisson-95 % record + conservative variant)"
+variations_region_Neff:           # G2 review item 6 (choice: smoothed estimator)
+  rule: "ALL pre-declared variations (trigger 500/550, m_SD scale, m(HH) clips) of the backgrounds use the class-aware smoothed estimator; its effective number of events in each variation region at planned N is tabulated in 04 section 10 (QCD: >= 64 in every region) and its MC error is quoted with every varied yield. Hard-window N_eff is NOT required to be >= 10 in the variation regions."
+tagging_scenarios_note: "all three scenarios scale every mistag class by the same factor (pessimistic = x2 of nominal for mistags, x0.75 efficiency; optimistic = x0.5, x1.25): the ratios light:c:b:bb_nonH:top mistag are NOT varied, so background N_eff and background shapes are identical in p/n/o; only the overall mistag scale and eps_Hbb vary. A variation of the light-vs-b mistag ratio is not part of the pre-declared set."
+ttbar_MLM_modelling_systematic: "+-(10-20) % (xqcut 20/30/45 variation, 04 section 9; stat-limited at the VBS stage; no DJR)"
+ggHH_premise_note: "G2 pilot: ggF HH (LO+PS) = 0.92 SR events @500/fb (nominal tag, N_eff 4.6 at 10 k events) vs SM EW HH 0.047, i.e. ~20x the SM signal; negligible for kappa2V (<0.1 % of the background). D-HH-2 was decided on '~1/2 of the SM signal'; re-raised as D-HH-16"

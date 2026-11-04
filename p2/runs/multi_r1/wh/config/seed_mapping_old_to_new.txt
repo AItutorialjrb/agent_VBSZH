@@ -1,0 +1,47 @@
+# D-WH-1 mapping. Part A: every OLD seed used (old formula 2e6+1e4*11+1000*idx+J) -> the value the NEW formula gives for the same (sample, J). Already-produced samples KEEP the old seed; the new-formula values are NEVER USED.
+# Part B: ALL (sample, J=0/1) new-formula values that collide with a used old seed (informational; new jobs use J>=100, so none is requested; scripts/check_sub_seeds.py enforces this on every submit file).
+# PART A: old_seed sample J_old new_equiv(not used) flag
+2111000 S_EW_WHjj 0 2101000 not-used
+2111001 S_EW_WHjj 1 2101001 not-used
+2113000 H_QCD_WH_mlm 0 2103000 not-used
+2113001 H_QCD_WH_mlm 1 2103001 not-used
+2116000 H_ttH_1l 0 2106000 not-used
+2116001 H_ttH_1l 1 2106001 not-used
+2123000 B_EW_Waajj_vbs 0 2113000 COLLIDES-with-used-old-seed(NOT USED)
+2123001 B_EW_Waajj_vbs 1 2113001 COLLIDES-with-used-old-seed(NOT USED)
+2124000 B_QCD_Waajj_vbs 0 2114000 not-used
+2124001 B_QCD_Waajj_vbs 1 2114001 not-used
+2125000 B_QCD_Waajj_nomjj 0 2115000 not-used
+2125001 B_QCD_Waajj_nomjj 1 2115001 not-used
+2126000 F_EW_Wajj_vbs 0 2116000 COLLIDES-with-used-old-seed(NOT USED)
+2127000 F_QCD_Wajj_vbs 0 2117000 not-used
+2128000 F_QCD_Wajj_nomjj 0 2118000 not-used
+2128001 F_QCD_Wajj_nomjj 1 2118001 not-used
+2129000 F_Wjj_pilot 0 2119000 not-used
+2129001 F_Wjj_pilot 1 2119001 not-used
+2130000 F_Wajj_pilot 0 2120000 not-used
+2130001 F_Wajj_pilot 1 2120001 not-used
+# PART B: sample J new_formula_value used_old_seed_it_collides_with
+T_ttaa_1l 0 2110000 collides
+T_ttaa_1l 1 2110001 collides
+T_tWa_1l 0 2111000 collides
+T_tWa_1l 1 2111001 collides
+B_EW_Waajj_vbs 0 2113000 collides
+B_EW_Waajj_vbs 1 2113001 collides
+F_EW_Wajj_vbs 0 2116000 collides
+F_EW_Wajj_vbs 1 2116001 collides
+V_WZa_WH 0 2123000 collides
+V_WZa_WH 1 2123001 collides
+V_WWa_WH 0 2124000 collides
+V_WWa_WH 1 2124001 collides
+V_ZZa_WH 0 2125000 collides
+V_ZZa_WH 1 2125001 collides
+F_Wjjjj 0 2126000 collides
+T_ttjj_1l 0 2127000 collides
+H_ggZH_wh 0 2128000 collides
+H_ggZH_wh 1 2128001 collides
+H_ttH_dilep_wh 0 2129000 collides
+H_ttH_dilep_wh 1 2129001 collides
+H_ZH_tautau_wh 0 2130000 collides
+H_ZH_tautau_wh 1 2130001 collides
+# PART B total collisions: 22

@@ -15,3 +15,11 @@
 - Phase 03 end 2026-11-03T17:38:40Z (all 10 types done; post-audit fixes applied)
 - 2026-11-03T17:40:51Z re-audit fixes: role normalisation (closure(kl)), planned-unchecked rows, run_job_hh exit 30
 - 2026-11-03T21:33:28Z G1-fix done: sr_feasibility classes, 02 §6/8/9/9b, 01/03 consistency, extra-bkg sigma gridpacks (884857), pre-G2 plan 03 §13, mg5priv checksums
+- 2026-11-03T22:30:28Z ROLE=executor-hh PHASE=PRE-G2 start; registry rewritten (new seeds, pre-G1 list kept); g2 gridpacks batch A (20) submitted
+- 2026-11-03T22:33:48Z pilotA production submitted (80 jobs x 10k, outputs p2/production/hh/<sample>/); nmc_check_hh item-5 fix done+selftest
+- 2026-11-03T22:37:01Z gp_B (ggZH loop, EW Wjj, QCD WZ) submitted; pilotB, test WH/B submitted
+- 2026-11-03T22:47:54Z tests WH/ggHjj/Wjj/Q4b/ttMLM exit0; pilots C (nominal new types + twins), D (MLM) submitted
+- 2026-11-03T23:04:57Z pilot E (QCD+MLM twins, 45 jobs) submitted; morph_delphes closure ok; ALERT kl-scan morph amplification -> D-HH-13 candidate
+- 2026-11-04T09:17:44Z pilots+twins analysed, g2_plan nmc_check PASS, reports/04 + INDEX + VERIFY_REQUEST written; D-HH-13/14 raised
+- 2026-11-04T09:50:04Z G2-FIX done: twin2/QCD-held subs, sha audit, O1, tagw twins, report edits; nothing submitted
+- 2026-11-04T09:54:20Z G2-FIX2: tchan log retained, UL direct Poisson added, live twin2/tchan subs removed, cpu_h->wall_h

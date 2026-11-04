@@ -1,0 +1,122 @@
+# seeds used (or reserved) in multi_r1 before the G1 seed revision; OLD formula seed = 2e6 + 1e4*11 + 1000*idx + J (R=11). Kept unchanged; seeds.py asserts no new seed collides.
+# seed sample role   (smoke range 2110001..2110099 reserved in full)
+2110000 smoke(idx0) J=0
+2110001 smoke(idx0) interactive sigma smoke run
+2110002 smoke(idx0) interactive sigma smoke run
+2110003 smoke(idx0) interactive sigma smoke run
+2110004 smoke(idx0) interactive sigma smoke run
+2110005 smoke(idx0) interactive sigma smoke run
+2110006 smoke(idx0) interactive sigma smoke run
+2110007 smoke(idx0) interactive sigma smoke run
+2110008 smoke(idx0) interactive sigma smoke run
+2110009 smoke(idx0) interactive sigma smoke run
+2110010 smoke(idx0) interactive sigma smoke run
+2110011 smoke(idx0) interactive sigma smoke run
+2110012 smoke(idx0) interactive sigma smoke run
+2110013 smoke(idx0) interactive sigma smoke run
+2110014 smoke(idx0) interactive sigma smoke run
+2110015 smoke(idx0) interactive sigma smoke run
+2110016 smoke(idx0) interactive sigma smoke run
+2110017 smoke(idx0) interactive sigma smoke run
+2110018 smoke(idx0) interactive sigma smoke run
+2110019 smoke(idx0) interactive sigma smoke run
+2110020 smoke(idx0) interactive sigma smoke run
+2110021 smoke(idx0) interactive sigma smoke run
+2110022 smoke(idx0) interactive sigma smoke run
+2110023 smoke(idx0) interactive sigma smoke run
+2110024 smoke(idx0) interactive sigma smoke run
+2110025 smoke(idx0) interactive sigma smoke run
+2110026 smoke(idx0) interactive sigma smoke run
+2110027 smoke(idx0) interactive sigma smoke run
+2110028 smoke(idx0) interactive sigma smoke run
+2110029 smoke(idx0) interactive sigma smoke run
+2110030 smoke(idx0) interactive sigma smoke run
+2110031 smoke(idx0) interactive sigma smoke run
+2110032 smoke(idx0) interactive sigma smoke run
+2110033 smoke(idx0) interactive sigma smoke run
+2110034 smoke(idx0) interactive sigma smoke run
+2110035 smoke(idx0) interactive sigma smoke run
+2110036 smoke(idx0) interactive sigma smoke run
+2110037 smoke(idx0) interactive sigma smoke run
+2110038 smoke(idx0) interactive sigma smoke run
+2110039 smoke(idx0) interactive sigma smoke run
+2110040 smoke(idx0) interactive sigma smoke run
+2110041 smoke(idx0) interactive sigma smoke run
+2110042 smoke(idx0) interactive sigma smoke run
+2110043 smoke(idx0) interactive sigma smoke run
+2110044 smoke(idx0) interactive sigma smoke run
+2110045 smoke(idx0) interactive sigma smoke run
+2110046 smoke(idx0) interactive sigma smoke run
+2110047 smoke(idx0) interactive sigma smoke run
+2110048 smoke(idx0) interactive sigma smoke run
+2110049 smoke(idx0) interactive sigma smoke run
+2110050 smoke(idx0) interactive sigma smoke run
+2110051 smoke(idx0) interactive sigma smoke run
+2110052 smoke(idx0) interactive sigma smoke run
+2110053 smoke(idx0) interactive sigma smoke run
+2110054 smoke(idx0) interactive sigma smoke run
+2110055 smoke(idx0) interactive sigma smoke run
+2110056 smoke(idx0) interactive sigma smoke run
+2110057 smoke(idx0) interactive sigma smoke run
+2110058 smoke(idx0) interactive sigma smoke run
+2110059 smoke(idx0) interactive sigma smoke run
+2110060 smoke(idx0) interactive sigma smoke run
+2110061 smoke(idx0) interactive sigma smoke run
+2110062 smoke(idx0) interactive sigma smoke run
+2110063 smoke(idx0) interactive sigma smoke run
+2110064 smoke(idx0) interactive sigma smoke run
+2110065 smoke(idx0) interactive sigma smoke run
+2110066 smoke(idx0) interactive sigma smoke run
+2110067 smoke(idx0) interactive sigma smoke run
+2110068 smoke(idx0) interactive sigma smoke run
+2110069 smoke(idx0) interactive sigma smoke run
+2110070 smoke(idx0) interactive sigma smoke run
+2110071 smoke(idx0) interactive sigma smoke run
+2110072 smoke(idx0) interactive sigma smoke run
+2110073 smoke(idx0) interactive sigma smoke run
+2110074 smoke(idx0) interactive sigma smoke run
+2110075 smoke(idx0) interactive sigma smoke run
+2110076 smoke(idx0) interactive sigma smoke run
+2110077 smoke(idx0) interactive sigma smoke run
+2110078 smoke(idx0) interactive sigma smoke run
+2110079 smoke(idx0) interactive sigma smoke run
+2110080 smoke(idx0) interactive sigma smoke run
+2110081 smoke(idx0) interactive sigma smoke run
+2110082 smoke(idx0) interactive sigma smoke run
+2110083 smoke(idx0) interactive sigma smoke run
+2110084 smoke(idx0) interactive sigma smoke run
+2110085 smoke(idx0) interactive sigma smoke run
+2110086 smoke(idx0) interactive sigma smoke run
+2110087 smoke(idx0) interactive sigma smoke run
+2110088 smoke(idx0) interactive sigma smoke run
+2110089 smoke(idx0) interactive sigma smoke run
+2110090 smoke(idx0) interactive sigma smoke run
+2110091 smoke(idx0) interactive sigma smoke run
+2110092 smoke(idx0) interactive sigma smoke run
+2110093 smoke(idx0) interactive sigma smoke run
+2110094 smoke(idx0) interactive sigma smoke run
+2110095 smoke(idx0) interactive sigma smoke run
+2110096 smoke(idx0) interactive sigma smoke run
+2110097 smoke(idx0) interactive sigma smoke run
+2110098 smoke(idx0) interactive sigma smoke run
+2110099 smoke(idx0) interactive sigma smoke run
+2111000 S_EW_WHjj gridpack
+2111001 S_EW_WHjj test job
+2113000 H_QCD_WH_mlm gridpack
+2113001 H_QCD_WH_mlm test job
+2116000 H_ttH_1l gridpack
+2116001 H_ttH_1l test job
+2123000 B_EW_Waajj_vbs gridpack
+2123001 B_EW_Waajj_vbs test job
+2124000 B_QCD_Waajj_vbs gridpack
+2124001 B_QCD_Waajj_vbs test job
+2125000 B_QCD_Waajj_nomjj gridpack
+2125001 B_QCD_Waajj_nomjj test job
+2126000 F_EW_Wajj_vbs gridpack
+2127000 F_QCD_Wajj_vbs gridpack
+2128000 F_QCD_Wajj_nomjj gridpack
+2128001 F_QCD_Wajj_nomjj test job
+2129000 F_Wjj_pilot gridpack
+2129001 F_Wjj_pilot test job
+2130000 F_Wajj_pilot gridpack
+2130001 F_Wajj_pilot test job

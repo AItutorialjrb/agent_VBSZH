@@ -10,3 +10,8 @@
 - 2026-11-03T21:33Z executor-hh G1 fixes: sev-1 tagging class fixed, 02 §8 restated; D-HH-1..12; σ-only gridpacks 884857 for extra bkgs; 5 handoff sample types still lack gridpack/test (stated).
 - 2026-11-03T21:50Z executor-wh: 10/11 gridpacks; 8 test types done; B_EW_Waajj_vbs gridpack still running (D-WH-6); twin test: mmjj>400 gen cut UNSAFE for QCD-type (47.6±5.5% loss Waajj, 37±9% Wajj).
 - 2026-11-03T21:55Z verifier WH #3 (native type): all finished jobs/σ/N/seeds/twin numbers PASS; FAIL F-1 twin_safety.py not reproducible in pinned env (uproot/zstandard); docs F-2,F-4,F-5. Note: verifier wrote a recheck script + 2 json into the orchestrator scratchpad (/tmp), not the run tree — role says never write; logged.
+
+## 2026-11-03T22:24:19Z — G1 decisions received
+- Answers recorded in SPEC §6. D9 (τ) and D10 (untested types) were not answered, so orchestrator defaults are in the briefs, for confirmation at G2. Protocol decisions are D17–D22. SPEC_G0.md is frozen, and the repeat-isolation script is prepared for the human. Commit b77d5cd.
+- No severity-1 WH review item is uncovered: item 1 is fixed, and item 2 is covered by the twin decision.
+- Native executor-wh and executor-hh were spawned with brief_{wh,hh}.md (PRE-G2). Next steps: the verifier on each VERIFY_REQUEST, then the reviewer on 04_production_plan.md at G2.

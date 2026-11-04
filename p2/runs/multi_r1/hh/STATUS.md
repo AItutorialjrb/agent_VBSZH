@@ -1,19 +1,9 @@
-# STATUS hh (multi_r1) — updated 2026-11-03 UTC (after G1 review, PASS-with-conditions)
-Done: 01 PASS; 02 PASS (review item 1 fixed: explicit tag classes top/Hbb/bb_nonH/b/c/l, 02 §8 restated for 3 scenarios with 95% intervals/ULs; SM 0.070 [0.009,0.25] ev @500/fb);
- 03 PASS for the 10 types with gridpack+test job; NOT met: W±H, ggH+jj, W+jets, QCD 4b, ttjj (planned only). Pre-G2 plan: reports/03 §13. Extra bkg sigma-only gridpacks (cluster 884857, done) ledgered in 02 §9b.
-Running: none.  Verifier: not requested for the G1-fix edits (docs/scripts only; matrix re-rendered, nmc_check passes).
-Decisions (no implementation):
- D-HH-1 HEPTools dir in frozen software/ (human rm -rf).
- D-HH-2 ggF HH+2j / K-factor / EW-loop interference (ggF HH ~ half of SM signal in anchor SR).
- D-HH-3 ttbar VBS topology: ttjj ME+filter vs validated MLM.
- D-HH-4 QCD multijet: 6-parton MEs infeasible; accept 4j+bbjj+PS+truth-tag, large residual unc.?
- D-HH-5 SM boosted acceptance ~2.5% -> deliverable = kappa2V!=1; thresholds 300/450 provisional.
- D-HH-6 background twins + N_eff>=10 before G2; HH storage <=150 GB.
- D-HH-7 ME jet multiplicity: Z/W+3j, VH+2j, ggH+jj (or PS-modelling unc.).
- D-HH-8 m(HH) clipping value.
- D-HH-9 trigger 450 GeV baseline + pre-declared 500/550 variation (+ no fat-jet JES in m_SD window).
- D-HH-10 tagging class definition (bb_nonH rate = b/g->bb column).
- D-HH-11 extra backgrounds tW/ttZ/ttW/EWZjj/QCD ZZ (sigma 1.83/0.162/0.104/8.78/0.086 pb): bounds+plan in 02 §9b; accept or dedicated samples.
- D-HH-12 full N instead of effective-N for ggF HH/ZH/ZZjj/ttH: cost ~3.5 GB, ~15 CPU-h (recommended).
-W-width factor: none needed (no MG5 decays in yields), 01 §7. mg5priv diff + sha256: config/mg5priv_diff.md (03 §14).
-Next action: await human answers D-HH-1..12 and G2 plan (03 §13).
+# STATUS hh (multi_r1) G2-FIX — 2026-11-04 UTC — COMPLETE, NOTHING SUBMITTED
+Done (reviews/hh_G2.md, all non-decision items): QCD options prepared (held): option 1 twin2 (ihtmin 250, VBS 1.5/100) gp+prod subs in scripts/condor/HELD_do_not_submit/, ~1.5 M events ~53 wall-h; option 2 particle-level fat-jet filter tested (python hook 18 % pass, 0.0087 s/ev) but NOT deliverable to Delphes without a custom C++ driver (04 §17.1);
+ pilot sha256 audit (all pilot jobs = MANIFEST gridpack, work/g2/sha_check_pilots.md); deliverable stated = kappa2V only; 01:62(c) fixed (ggF HH 0.92 vs SM 0.047, ~20x); tagw twin test applied (ttH impact-level only); variations use smoothed estimator (N_eff tabulated);
+ Phase-06 anti-tuning guard + top-up rule + mistag-ratio note + ttbar MLM +-(10-20) % in config/g2_predeclared.yaml; class N_eff header fixed; sizing now min(projection, measured) (345 jobs, 3.45 M ev, ~135 wall-h, 19.2 GB); O1 partition validated (0.986/0.992); stale 02/03 text fixed; t-channel single top bound (sigma 2.894 pb = 1.58 x tW; UL ~0.2 % of SR bkg).
+Running clusters: none. Submitted: nothing. Blocks: block1 (62 jobs) + block2 (66) ready after D-HH-13/15; block3 QCD (217 jobs) HELD in HELD_do_not_submit/.
+Decisions needed: D-HH-13 (kl/kV: direct (1,1,0),(1,1,2) samples recommended); D-HH-14a (QCD: option 1 measurement vs option 2), 14b (impact criterion; ttH), 14c (bound-only <1 %); D-HH-15 (pilot reuse = brief violation, orchestrator to log in SPEC 7); D-HH-16 (ggF HH ~20x SM signal; 30 % allowance; K(kl) reuse).
+VERIFY_REQUEST.md: PENDING (updated for G2-FIX).
+Next: human answers; then submit blocks per 04 §14.
+G2-FIX2: t-channel sigma log retained (work/g2/tchan/); tW UL now direct proper Poisson95(k=11) = 0.88 ev (max of class-aware 0.82 and direct), checker method poisson95_direct added; live twin2/t-channel subs removed from scripts/condor (only HELD copies of D14a files remain; no t-channel sub); plan.json cpu_h -> wall_h (wall-clock). Nothing submitted.

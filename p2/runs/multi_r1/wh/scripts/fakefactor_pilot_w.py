@@ -9,7 +9,8 @@ Usage: python3 -P fakefactor_pilot.py <slim.root> <gen.root> <events.lhe.gz> <si
           VBS = PRE + mjj>500, |deta_jj|>2.5;  PEAK = VBS + 120<m_gg<130.
 Reports sum of weights (fb, F0=1e-3 nominal), effective N, mean physical event weight, and the fraction of
 fake-weighted VBS/PRE yield lost by parton-level HT filters (from the LHE)."""
-import sys, gzip, json, numpy as np, awkward as ak, uproot
+import sys, os, gzip, json, numpy as np, awkward as ak, uproot
+BVETO = os.environ.get("BVETO", "0") == "1"   # G2: drop combinations with a b-tagged jet (pT>30,|eta|<2.5) that is not one of the fake-photon jets
 
 slim, genf, lhe, sigma, nfake, outj = sys.argv[1:7]; sigma = float(sigma); nfake = int(nfake)
 lumi = float(sys.argv[7]) if len(sys.argv) > 7 else 500.0
@@ -44,7 +45,7 @@ def m(a, b):
 def photon_ok(pt, eta): return pt > 20 and abs(eta) < 2.5 and not (1.4442 < abs(eta) < 1.566)
 def frate(pt, eta): return F0 * (pt/50.0)**-0.5 * (2.0 if abs(eta) > 1.566 else 1.0)
 
-jpt, jeta, jphi = A("Jet/Jet.PT"), A("Jet/Jet.Eta"), A("Jet/Jet.Phi")
+jpt, jeta, jphi, jbt = A("Jet/Jet.PT"), A("Jet/Jet.Eta"), A("Jet/Jet.Phi"), A("Jet/Jet.BTag")
 ept, eeta, ephi, eq = A("Electron/Electron.PT"), A("Electron/Electron.Eta"), A("Electron/Electron.Phi"), A("Electron/Electron.Charge")
 mpt, meta, mphi, mq = A("Muon/Muon.PT"), A("Muon/Muon.Eta"), A("Muon/Muon.Phi"), A("Muon/Muon.Charge")
 gpt, geta, gphi = A("Photon/Photon.PT"), A("Photon/Photon.Eta"), A("Photon/Photon.Phi")
@@ -60,13 +61,15 @@ def zcand(i):
 reg = {r: [] for r in ("PRE", "VBS", "PEAK")}   # entries: (event index, fake weight)
 for i in range(N):
     if npr[i] != (0 if nfake == 2 else 1) or not zcand(i): continue
-    J = [(jpt[i][k], jeta[i][k], jphi[i][k]) for k in range(len(jpt[i])) if jpt[i][k] > 20 and abs(jeta[i][k]) < 4.7]
+    KJ = [k for k in range(len(jpt[i])) if jpt[i][k] > 20 and abs(jeta[i][k]) < 4.7]
+    J = [(jpt[i][k], jeta[i][k], jphi[i][k]) for k in KJ]; JB = [bool(jbt[i][k] > 0 and jpt[i][k] > 30 and abs(jeta[i][k]) < 2.5) for k in KJ]
     xs = np.clip(rng.normal(0.85, 0.10, len(J)), 0.5, 1.0)
     real = [(gpt[i][k], geta[i][k], gphi[i][k]) for k in range(len(gpt[i])) if photon_ok(gpt[i][k], geta[i][k])]
     if nfake == 1:
         if len(real) < 1: continue
         r0 = real[0]
-        J = [(j, x) for j, x in zip(J, xs) if np.hypot(j[1]-r0[1], (j[2]-r0[2]+np.pi) % (2*np.pi)-np.pi) > 0.4]
+        keep = [np.hypot(j[1]-r0[1], (j[2]-r0[2]+np.pi) % (2*np.pi)-np.pi) > 0.4 for j in J]
+        JB = [b for b, kp in zip(JB, keep) if kp]; J = [(j, x) for j, x, kp in zip(J, xs, keep) if kp]
         combos = [((k,), [r0]) for k in range(len(J))]
     else:
         J = list(zip(J, xs))
@@ -80,6 +83,7 @@ for i in range(N):
             if not photon_ok(x*pt, eta): ok = False; break
             phs.append((x*pt, eta, phi)); wf *= frate(pt, eta)
         if not ok: continue
+        if BVETO and any(JB[k] for k in range(len(J)) if k not in fk): continue
         tags = sorted([J[k][0] for k in range(len(J)) if k not in fk and J[k][0][0] > 30], reverse=True)
         if len(tags) < 2: continue
         acc["PRE"] += wf
@@ -90,7 +94,7 @@ for i in range(N):
     for r in reg:
         if acc[r] > 0: reg[r].append((i, acc[r]))
 
-res = {"slim": slim, "N_gen": N, "sigma_fb": sigma, "lumi_fb": lumi, "F0": F0, "w_evt_unweighted": w_evt,
+res = {"selection": {"bveto": BVETO, "bveto_def": "no b-tagged jet (BTag>0, pT>30, |eta|<2.5) outside the two fake-photon jets", "nfake": nfake, "lepton": "exactly 1 e/mu pT>25, no 2nd pT>15, MET>30", "regions": "PRE=1l+MET+2 fake photons(pT>20)+>=2 tag jets pT>30; VBS=PRE+mjj>500,|deta|>2.5; PEAK=VBS+120<m_gg<130 (= the final-SR-like region)"}, "slim": slim, "N_gen": N, "sigma_fb": sigma, "lumi_fb": lumi, "F0": F0, "w_evt_unweighted": w_evt,
        "frac_events_HT_gt": {str(c): float((ht > c).mean()) for c in (50, 100, 150, 200, 300)}, "regions": {}}
 for r, lst in reg.items():
     if not lst: res["regions"][r] = {"n_events": 0}; continue

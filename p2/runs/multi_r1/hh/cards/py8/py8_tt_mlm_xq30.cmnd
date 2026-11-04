@@ -1,0 +1,18 @@
+! hh: tt+0,1,2j MLM (kT-MLM, MadGraph scheme), ME xqcut=30 GeV, shower qCut=40 GeV (=1.3 xqcut rounded), nJetMax=2; inclusive PY8 top decays (BR=1).
+Main:numberOfEvents = NEVENTS
+Main:timesAllowErrors = 1000000
+Beams:LHEF = LHEFILE
+Random:setSeed = on
+Random:seed = PYSEED
+JetMatching:merge = on
+JetMatching:scheme = 1
+JetMatching:setMad = off
+JetMatching:qCut = 40
+JetMatching:coneRadius = 1.0
+JetMatching:etaJetMax = 10.0
+JetMatching:nJetMax = 2
+JetMatching:jetAlgorithm = 2
+JetMatching:slowJetPower = 1
+JetMatching:nQmatch = 5
+JetMatching:clFact = 1.0
+JetMatching:exclusive = 2

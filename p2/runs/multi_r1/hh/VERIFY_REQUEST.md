@@ -1,6 +1,13 @@
-# VERIFY_REQUEST (hh, multi_r1) — post-audit items ONLY
-Base: /eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/multi_r1/hh
-1. Q_4j_vbs: gridpack work/gridpacks/Q_4j_vbs_status.txt (rc0, sigma 3.766e4 pb) + test job cluster 884577 -> work/test/Q_4j_vbs/ (exit 0, n_lhe = n_delphes = 2000, row in work/sigma_closure.md: LHE/gridpack 0.997, PY8/LHE 1.001).
-2. config/sample_matrix.yaml br_total at full precision and = product of br_inputs over br_ledger (labels B_bb@H1/@H2, B_Zqq@Z1/@Z2); run: source ../../../lib/scripts/setup_stack.sh; python3 -P scripts/nmc_check_hh.py config/sample_matrix.yaml (self-test must print "OK (raised on all 5 bad entries)" and the matrix check must pass).
-3. Strict signal N rule is applied to roles sig/basis/closure (scripts/nmc_check_hh.py SIG_ROLES); ZZ ledger no longer a false positive.
-4. reports/03 §3: provenance table (which tarball per sample) and exit-code notes; verify sigma in work/gridpacks/ (884459) == work/gridpacks_v2/ (884461) for S_*, V_*HH*, G_ggHH_loop_kl1; wrappers scripts/condor/*_hh.sh exit 30 on no-op.
+# VERIFY_REQUEST (hh, multi_r1, pre-G2) — PENDING
+Please verify independently (paths relative to p2/runs/multi_r1/hh unless absolute):
+1. Test jobs exit 0, N_LHE=N_Delphes=2000, sigma closure: clusters 884941 (H_WH_Wqq_bb), 884943 (H_ggH_jj_heft, V_Wjj_QCD_vbs, Q_4b_ht), 884945 (T_ttbar_mlm; N_Delphes=616 by MLM veto, sigma_matched=sigma_MG5 x accepted/processed). Expected sigma_gridpack [pb]: WH 0.1525 (sum of W+,W- in LHE init), ggHjj 2.642, Wjj 839, 4b 4.138, ttMLM(xq30) 180.3 (MG5) -> 55.5 matched in the 2000-ev test (PY8 56.07), 54.2 in the 100k pilot. work/g2/sigma_closure_tests.md.
+2. Gridpacks (production/hh/gridpacks, sha256 in production/hh/MANIFEST.tsv): clusters 884937 (20), 884944 (3: ggZH loop 21.3 fb, EW Wjj 90.0 pb, QCD WZ 163 fb), 884946 (tt MLM twin).
+3. Pilots: clusters 884938, 884942, 884947, 884948, 884949; 2.19 M events in production/hh/<sample>/; expected PY8/ref sigma in work/g2/pilot.md (0.98-1.02), seed uniqueness (scripts/check_seed_uniq.py), no duplicated seeds.
+4. Twins: work/g2/twins.md (QCD nominal filter loses +25+-5 % / +29+-6 %); morphing closure work/g2/morph_delphes.json (T3 = (1.25,1.5,2), pulls <1.3); MLM variation work/g2/mlm_check.json.
+5. nmc_check_hh: python3 scripts/nmc_check_hh.py (self-test with 6 malformed bounds) and work/g2/plan.txt ("PASSED, 24 rows"); plan numbers work/g2/plan.json.
+6. ggF HH normalisation 33.62 fb @13.6 TeV (LHCHWG-2026-010; TWiki LHCHWGHHRecommendations r3): re-fetch and compare.
+
+## G2-FIX additions (PENDING)
+7. work/g2/sha_check_pilots.md: all pilot jobs' gridpack_sha256 equal MANIFEST.tsv. 8. work/g2/o1_partition.txt (0.986, 0.992). 9. twins.md tagw rows; plan.json twin basis. 10. HELD_do_not_submit/*.sub (twin2 gp+prod, QCD block, t-channel gp) are NOT submitted; condor_q must show no hh job. 11. X_tchan_boost sigma 2.894 +- 0.024 pb (interactive private-MG5 run, 500 ev; /tmp log not kept). 12. Python hook test: scripts/py8_fatjet_filter_proto.py (359/2000 pass, 17 s).
+
+13. work/g2/tchan/mg5_log_X_tchan_sigma_only.txt (2.894 +- 0.0235 pb), tW UL 0.879 (04 §7), no live D14a/tchan .sub in scripts/condor, plan.json uses wall_h_new.

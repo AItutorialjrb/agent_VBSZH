@@ -1,7 +1,7 @@
 # Phase 03 — Generation validation (boosted VBF HH → bb̄bb̄)
 
 - **Date UTC:** 2026-11-03 (start/end in PROGRESS.md)
-- **Status: PASS for the 10 sample types that have a gridpack and a successful test job** (signal SM, ggF HH, VBF H, ZH, ttH, tt̄, Z+jets, ZZjj, Q_bbjj, Q_4j_vbs); σ, BR and morphing closures pass; verifier audits passed. **NOT met:** handoff-listed types W±H, ggH + jj, W + jets, QCD 4b, tt̄jj are planned only (no gridpack, no test job) — required before G2 (D-HH-7, §13). G1 review: PASS-with-conditions (`reviews/hh_01-03.md`); open decisions D-HH-1 … D-HH-12 (02 §9, STATUS.md)
+- **Status: PASS** — every handoff sample type now has a gridpack and a verified test job (exit 0, N_LHE = N_Delphes, σ closure 0.977–1.017 (within the MG5 integration errors)): the 10 original types plus W±H (884941), ggH+jj, W+jets, QCD 4b (884943) and tt̄+0,1,2j MLM (884945, replaces ttjj ME+filter per D-HH-3). Details, pilots, twins, closure and the production plan: `04_production_plan.md`. The §9, §13 items below were the pre-G2 plan and are now implemented in 04 (G1 decisions D-HH-1…12 answered, SPEC §6).
 - **git commit:** recorded by orchestrator
 
 ## 1. Goal
@@ -60,7 +60,7 @@ Fat-jet limitations repeated: no JES for fat jets, no fat-jet b-tag, no cleaning
 ## 8. Resource and storage
 Measured: gridpack build 0.5–2.5 min (signal, 4 cores), 9.5 min (ggF HH loop), 12 min (ZZjj), 25 min (Q_bbjj); test jobs ≈ 2.5 min per 2000 events (PY8+Delphes ≈ 0.06 s/event). Slim output 2.3–5.2 kB/event (Q_4j 5.2); full ROOT (with Particle) ≈ 95 kB/event kept only for tests (`work/test/*_full.root`, 190 MB each for signal-like). Storage estimate: 02 §10.
 
-## 9. Open items at the time of writing
+## 9. Open items at the time of writing (superseded: Q_4j finished, twins done in 04)
 - `Q_4j_vbs`: gridpack rc 0 (43 min, σ = 3.766e4 ± 73 pb), test job 884577 rc 0, LHE = Delphes = 2000, σ closure in §4 (LHE/gridpack 0.997, PY8/LHE 1.001). Fat-jet census: in the 2000 events 153 have ≥ 2 fat jets pT>300, 10 pass the VBS pair, 0 the mass window; fat-jet truth census (pT>250): 1213 light, 168 c, 28 b, 32 bb. Brute-force N for σ·L = 1.1×10¹¹: effective-N policy only.
 - Background twin samples for cut safety (ihtmin, VBS filter) not generated (required before G2).
 

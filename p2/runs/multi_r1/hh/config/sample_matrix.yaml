@@ -1,8 +1,8 @@
 meta:
   process: HH(boosted VBF HH->4b)
   run: multi_r1
-  seed_scheme: 1e6*3+1e4*11+J+1000*idx; J=0 gridpack,1 test,2 LHE closure
-  n_mc_rule: 'signal: N>=max(50k, sigma*BR*3000/fb); backgrounds: effective-N policy (SPEC 4.3)'
+  seed_scheme: 'OLD samples (pre-G1): 1e6*3+1e4*11+J+1000*idx (J=0,1,2; config/seeds_used_preG1.txt). NEW: seed = 3e6 + 1e5*1 + 1000*idx + J, J=3 gridpack,4 test,5 twin/closure, 10+k production job k'
+  n_mc_rule: 'signal and D-HH-12 samples: N>=max(50k, sigma*BR*3000/fb); other backgrounds: effective-N policy (SPEC 4.3)'
 br_inputs:
   B_bb:
     value: 0.5824
@@ -39,9 +39,11 @@ samples:
   seed_gridpack: 3111000
   seed_test: 3111001
   seed_lhe_closure: 3111002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: true
   description: EW pp>HHjj (QCD==0, QED==4), H undecayed in LHE, both H->bb forced in PY8
+  twin_of: null
   coupling_kV_k2V_kl:
   - 1
   - 1
@@ -50,10 +52,13 @@ samples:
   sigma_err_pb: 1.781e-05
   sigma_source: MG5 LO gridpack integration (gridpacks_v2/S_HHjj_kV1_k2V1_kl1_status.txt)
   sigma_fb: 1.153
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 0.39108579328000004
   sigma_x_BR_fb: 0.39108579328000004
   brute_force_N_for_3000fb: 1174
+  rule: full-N
   N_MC_required: 50000
-  N_MC_policy: 'signal: N>=max(50k, sigma*BR*3000 fb^-1)'
+  N_MC_policy: 'full N: N>=max(50k, sigma*BR*3000 fb^-1) (signal / D-HH-12)'
   storage_kB_per_event: 2.85
   storage_GB_planned: 0.14
 - idx: 2
@@ -78,9 +83,11 @@ samples:
   seed_gridpack: 3112000
   seed_test: 3112001
   seed_lhe_closure: 3112002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: false
   description: EW pp>HHjj (QCD==0, QED==4), H undecayed in LHE, both H->bb forced in PY8
+  twin_of: null
   coupling_kV_k2V_kl:
   - 1.5
   - 0
@@ -89,10 +96,13 @@ samples:
   sigma_err_pb: 0.001218
   sigma_source: MG5 LO gridpack integration (gridpacks_v2/S_HHjj_kV1p5_k2V0_kl1_status.txt)
   sigma_fb: 95.05
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 32.239986688
   sigma_x_BR_fb: 32.239986688
   brute_force_N_for_3000fb: 96720
+  rule: full-N
   N_MC_required: 96720
-  N_MC_policy: 'signal: N>=max(50k, sigma*BR*3000 fb^-1)'
+  N_MC_policy: 'full N: N>=max(50k, sigma*BR*3000 fb^-1) (signal / D-HH-12)'
   storage_kB_per_event: 2.85
   storage_GB_planned: 0.28
 - idx: 3
@@ -117,9 +127,11 @@ samples:
   seed_gridpack: 3113000
   seed_test: 3113001
   seed_lhe_closure: 3113002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: false
   description: EW pp>HHjj (QCD==0, QED==4), H undecayed in LHE, both H->bb forced in PY8
+  twin_of: null
   coupling_kV_k2V_kl:
   - 1.5
   - 0
@@ -128,10 +140,13 @@ samples:
   sigma_err_pb: 0.00154
   sigma_source: MG5 LO gridpack integration (gridpacks_v2/S_HHjj_kV1p5_k2V0_kl0_status.txt)
   sigma_fb: 119.0
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 40.363581440000004
   sigma_x_BR_fb: 40.363581440000004
   brute_force_N_for_3000fb: 121091
+  rule: full-N
   N_MC_required: 121091
-  N_MC_policy: 'signal: N>=max(50k, sigma*BR*3000 fb^-1)'
+  N_MC_policy: 'full N: N>=max(50k, sigma*BR*3000 fb^-1) (signal / D-HH-12)'
   storage_kB_per_event: 2.85
   storage_GB_planned: 0.35
 - idx: 4
@@ -156,9 +171,11 @@ samples:
   seed_gridpack: 3114000
   seed_test: 3114001
   seed_lhe_closure: 3114002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: false
   description: EW pp>HHjj (QCD==0, QED==4), H undecayed in LHE, both H->bb forced in PY8
+  twin_of: null
   coupling_kV_k2V_kl:
   - 0.5
   - 2
@@ -167,10 +184,13 @@ samples:
   sigma_err_pb: 0.0001996
   sigma_source: MG5 LO gridpack integration (gridpacks_v2/S_HHjj_kV0p5_k2V2_kl0_status.txt)
   sigma_fb: 31.150000000000002
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 10.565761024
   sigma_x_BR_fb: 10.565761024
   brute_force_N_for_3000fb: 31698
+  rule: full-N
   N_MC_required: 50000
-  N_MC_policy: 'signal: N>=max(50k, sigma*BR*3000 fb^-1)'
+  N_MC_policy: 'full N: N>=max(50k, sigma*BR*3000 fb^-1) (signal / D-HH-12)'
   storage_kB_per_event: 2.85
   storage_GB_planned: 0.14
 - idx: 5
@@ -195,9 +215,11 @@ samples:
   seed_gridpack: 3115000
   seed_test: 3115001
   seed_lhe_closure: 3115002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: false
   description: EW pp>HHjj (QCD==0, QED==4), H undecayed in LHE, both H->bb forced in PY8
+  twin_of: null
   coupling_kV_k2V_kl:
   - 1
   - 0
@@ -206,10 +228,13 @@ samples:
   sigma_err_pb: 7.607e-05
   sigma_source: MG5 LO gridpack integration (gridpacks_v2/S_HHjj_kV1_k2V0_kl2_status.txt)
   sigma_fb: 11.99
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 4.0668852224
   sigma_x_BR_fb: 4.0668852224
   brute_force_N_for_3000fb: 12201
+  rule: full-N
   N_MC_required: 50000
-  N_MC_policy: 'signal: N>=max(50k, sigma*BR*3000 fb^-1)'
+  N_MC_policy: 'full N: N>=max(50k, sigma*BR*3000 fb^-1) (signal / D-HH-12)'
   storage_kB_per_event: 2.85
   storage_GB_planned: 0.14
 - idx: 6
@@ -234,9 +259,11 @@ samples:
   seed_gridpack: 3116000
   seed_test: 3116001
   seed_lhe_closure: 3116002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: false
   description: EW pp>HHjj (QCD==0, QED==4), H undecayed in LHE, both H->bb forced in PY8
+  twin_of: null
   coupling_kV_k2V_kl:
   - 1
   - 2
@@ -245,10 +272,13 @@ samples:
   sigma_err_pb: 4.119e-05
   sigma_source: MG5 LO gridpack integration (gridpacks_v2/S_HHjj_kV1_k2V2_klm1_status.txt)
   sigma_fb: 5.038
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 1.70883801088
   sigma_x_BR_fb: 1.70883801088
   brute_force_N_for_3000fb: 5127
+  rule: full-N
   N_MC_required: 50000
-  N_MC_policy: 'signal: N>=max(50k, sigma*BR*3000 fb^-1)'
+  N_MC_policy: 'full N: N>=max(50k, sigma*BR*3000 fb^-1) (signal / D-HH-12)'
   storage_kB_per_event: 2.85
   storage_GB_planned: 0.14
 - idx: 7
@@ -273,9 +303,11 @@ samples:
   seed_gridpack: 3117000
   seed_test: 3117001
   seed_lhe_closure: 3117002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: false
   description: EW pp>HHjj (QCD==0, QED==4), H undecayed in LHE, both H->bb forced in PY8
+  twin_of: null
   coupling_kV_k2V_kl:
   - 1
   - 0
@@ -284,10 +316,13 @@ samples:
   sigma_err_pb: 0.0001422
   sigma_source: MG5 LO gridpack integration (gridpacks_v2/S_HHjj_kV1_k2V0_kl1_status.txt)
   sigma_fb: 16.68
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 5.6576851968
   sigma_x_BR_fb: 5.6576851968
   brute_force_N_for_3000fb: 16974
+  rule: full-N
   N_MC_required: 50000
-  N_MC_policy: 'signal: N>=max(50k, sigma*BR*3000 fb^-1)'
+  N_MC_policy: 'full N: N>=max(50k, sigma*BR*3000 fb^-1) (signal / D-HH-12)'
   storage_kB_per_event: 2.85
   storage_GB_planned: 0.14
 - idx: 8
@@ -312,9 +347,11 @@ samples:
   seed_gridpack: 3118000
   seed_test: 3118001
   seed_lhe_closure: 3118002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: false
   description: EW pp>HHjj (QCD==0, QED==4), H undecayed in LHE, both H->bb forced in PY8
+  twin_of: null
   coupling_kV_k2V_kl:
   - 1
   - 2
@@ -323,10 +360,13 @@ samples:
   sigma_err_pb: 4.266e-05
   sigma_source: MG5 LO gridpack integration (gridpacks_v2/S_HHjj_kV1_k2V2_kl1_status.txt)
   sigma_fb: 8.425
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 2.8576737280000004
   sigma_x_BR_fb: 2.8576737280000004
   brute_force_N_for_3000fb: 8574
+  rule: full-N
   N_MC_required: 50000
-  N_MC_policy: 'signal: N>=max(50k, sigma*BR*3000 fb^-1)'
+  N_MC_policy: 'full N: N>=max(50k, sigma*BR*3000 fb^-1) (signal / D-HH-12)'
   storage_kB_per_event: 2.85
   storage_GB_planned: 0.14
 - idx: 9
@@ -349,9 +389,11 @@ samples:
   seed_gridpack: 3119000
   seed_test: 3119001
   seed_lhe_closure: 3119002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: false
   description: twin of SM point WITHOUT VBS generator filter (parton-level cut-safety check only)
+  twin_of: null
   coupling_kV_k2V_kl:
   - 1
   - 1
@@ -360,10 +402,13 @@ samples:
   sigma_err_pb: 2.606e-05
   sigma_source: MG5 LO gridpack integration (gridpacks_v2/S_HHjj_SM_twin_loose_status.txt)
   sigma_fb: 1.591
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 0.53965090816
   sigma_x_BR_fb: 0.53965090816
   brute_force_N_for_3000fb: 1619
+  rule: full-N
   N_MC_required: 50000
-  N_MC_policy: 'signal: N>=max(50k, sigma*BR*3000 fb^-1)'
+  N_MC_policy: 'full N: N>=max(50k, sigma*BR*3000 fb^-1) (signal / D-HH-12)'
   storage_kB_per_event: 2.85
   storage_GB_planned: 0.14
 - idx: 10
@@ -386,17 +431,25 @@ samples:
   seed_gridpack: 3120000
   seed_test: 3120001
   seed_lhe_closure: 3120002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: true
   description: LO loop-induced ggF HH (loop_sm, full top mass), kl by 3-point quadratic morphing
+  twin_of: null
   sigma_pb: 0.01441
   sigma_err_pb: 8.621e-05
   sigma_source: MG5 LO gridpack integration (gridpacks_v2/G_ggHH_loop_kl1_status.txt)
   sigma_fb: 14.409999999999998
-  sigma_x_BR_fb: 4.8877244416
-  brute_force_N_for_3000fb: 14664
-  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  K_factor: 2.3331020124913255
+  K_source: LHC HWG NNLO-FTapprox x K3 x K_EW 33.62 fb (13.6 TeV) / MG5 LO kl=1 sigma; applied to all kl (config/g2_predeclared.yaml)
+  sigma_LO_x_BR_fb: 4.8877244416
+  sigma_x_BR_fb: 11.4035597312
+  brute_force_N_for_3000fb: 34211
+  rule: full-N
+  N_MC_required: 50000
+  N_MC_policy: 'full N: N>=max(50k, sigma*BR*3000 fb^-1) (signal / D-HH-12)'
   storage_kB_per_event: 2.85
+  storage_GB_planned: 0.14
 - idx: 11
   name: G_ggHH_loop_kl0
   cls: ggF_HH
@@ -417,17 +470,25 @@ samples:
   seed_gridpack: 3121000
   seed_test: 3121001
   seed_lhe_closure: 3121002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: false
   description: LO loop-induced ggF HH (loop_sm, full top mass), kl by 3-point quadratic morphing
+  twin_of: null
   sigma_pb: 0.03009
   sigma_err_pb: 0.0001434
   sigma_source: MG5 LO gridpack integration (gridpacks_v2/G_ggHH_loop_kl0_status.txt)
   sigma_fb: 30.09
-  sigma_x_BR_fb: 10.2062198784
-  brute_force_N_for_3000fb: 30619
-  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  K_factor: 2.3331020124913255
+  K_source: LHC HWG NNLO-FTapprox x K3 x K_EW 33.62 fb (13.6 TeV) / MG5 LO kl=1 sigma; applied to all kl (config/g2_predeclared.yaml)
+  sigma_LO_x_BR_fb: 10.2062198784
+  sigma_x_BR_fb: 23.812152138224015
+  brute_force_N_for_3000fb: 71437
+  rule: full-N
+  N_MC_required: 71437
+  N_MC_policy: 'full N: N>=max(50k, sigma*BR*3000 fb^-1) (signal / D-HH-12)'
   storage_kB_per_event: 2.85
+  storage_GB_planned: 0.2
 - idx: 12
   name: G_ggHH_loop_kl2
   cls: ggF_HH
@@ -448,17 +509,25 @@ samples:
   seed_gridpack: 3122000
   seed_test: 3122001
   seed_lhe_closure: 3122002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: false
   description: LO loop-induced ggF HH (loop_sm, full top mass), kl by 3-point quadratic morphing
+  twin_of: null
   sigma_pb: 0.006802
   sigma_err_pb: 4.804e-05
   sigma_source: MG5 LO gridpack integration (gridpacks_v2/G_ggHH_loop_kl2_status.txt)
   sigma_fb: 6.802
-  sigma_x_BR_fb: 2.30716874752
-  brute_force_N_for_3000fb: 6922
-  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  K_factor: 2.3331020124913255
+  K_source: LHC HWG NNLO-FTapprox x K3 x K_EW 33.62 fb (13.6 TeV) / MG5 LO kl=1 sigma; applied to all kl (config/g2_predeclared.yaml)
+  sigma_LO_x_BR_fb: 2.30716874752
+  sigma_x_BR_fb: 5.382860047996003
+  brute_force_N_for_3000fb: 16149
+  rule: full-N
+  N_MC_required: 50000
+  N_MC_policy: 'full N: N>=max(50k, sigma*BR*3000 fb^-1) (signal / D-HH-12)'
   storage_kB_per_event: 2.85
+  storage_GB_planned: 0.14
 - idx: 13
   name: G_ggHH_loop_kl5
   cls: ggF_HH
@@ -479,19 +548,25 @@ samples:
   seed_gridpack: 3123000
   seed_test: 3123001
   seed_lhe_closure: 3123002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: false
   description: LO loop-induced ggF HH (loop_sm, full top mass), kl by 3-point quadratic morphing
+  twin_of: null
   sigma_pb: 0.03344
   sigma_err_pb: 0.0001404
   sigma_source: MG5 LO gridpack integration (gridpacks_v2/G_ggHH_loop_kl5_status.txt)
   sigma_fb: 33.44
-  sigma_x_BR_fb: 11.342505574399999
-  brute_force_N_for_3000fb: 34028
-  N_MC_required: 50000
-  N_MC_policy: 'signal: N>=max(50k, sigma*BR*3000 fb^-1)'
+  K_factor: 2.3331020124913255
+  K_source: LHC HWG NNLO-FTapprox x K3 x K_EW 33.62 fb (13.6 TeV) / MG5 LO kl=1 sigma; applied to all kl (config/g2_predeclared.yaml)
+  sigma_LO_x_BR_fb: 11.342505574399999
+  sigma_x_BR_fb: 26.463222582326715
+  brute_force_N_for_3000fb: 79390
+  rule: full-N
+  N_MC_required: 79390
+  N_MC_policy: 'full N: N>=max(50k, sigma*BR*3000 fb^-1) (signal / D-HH-12)'
   storage_kB_per_event: 2.85
-  storage_GB_planned: 0.14
+  storage_GB_planned: 0.23
 - idx: 20
   name: Q_4j_vbs
   cls: QCD_multijet
@@ -508,21 +583,26 @@ samples:
     ihtmin: 500
   vbs_anypair_patch: true
   pythia_cmnd: py8_qcd.cmnd
-  br_ledger:
+  br_ledger: &id001
   - one
   br_total: 1.0
   seed_gridpack: 3130000
   seed_test: 3130001
   seed_lhe_closure: 3130002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: true
   description: QCD 4-parton (g,u,d,s,c,b) + PS; b/c content from g->bb/cc in PS and ME; fixed-order exclusive, NO merging with 5j (flagged)
+  twin_of: null
   sigma_pb: 37660.0
   sigma_err_pb: 73.02
   sigma_source: MG5 LO gridpack integration (gridpacks/Q_4j_vbs_status.txt)
   sigma_fb: 37660000.0
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 37660000.0
   sigma_x_BR_fb: 37660000.0
   brute_force_N_for_3000fb: 112980000000
+  rule: effective-N
   N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
   storage_kB_per_event: 5.2
 - idx: 21
@@ -541,49 +621,27 @@ samples:
     ihtmin: 500
   vbs_anypair_patch: true
   pythia_cmnd: py8_qcd.cmnd
-  br_ledger:
+  br_ledger: &id002
   - one
   br_total: 1.0
   seed_gridpack: 3131000
   seed_test: 3131001
   seed_lhe_closure: 3131002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: true
   description: QCD b bbar + 2 jets (ME-level b content) + PS
+  twin_of: null
   sigma_pb: 725.4
   sigma_err_pb: 1.581
   sigma_source: MG5 LO gridpack integration (gridpacks/Q_bbjj_vbs_status.txt)
   sigma_fb: 725400.0
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 725400.0
   sigma_x_BR_fb: 725400.0
   brute_force_N_for_3000fb: 2176200000
+  rule: effective-N
   N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
-  storage_kB_per_event: 5.2
-- idx: 22
-  name: Q_4b_ht
-  cls: QCD_multijet
-  role: bkg(planned)
-  model: sm-no_b_mass
-  process: generate p p > b b~ b b~
-  generator_cuts:
-    dynamical_scale_choice: -1
-    ptj: 20
-    etaj: 5
-    drjj: 0.4
-    ihtmin: 500
-  vbs_anypair_patch: false
-  pythia_cmnd: py8_qcd.cmnd
-  br_ledger:
-  - one
-  br_total: 1.0
-  seed_gridpack: 3132000
-  seed_test: 3132001
-  seed_lhe_closure: 3132002
-  phase03_gridpack: false
-  phase03_test_job: false
-  description: QCD bbbb, HT-filtered, no VBS filter (VBS jets would come from PS only) -> bound/shape sample; planned
-  sigma_pb: null
-  sigma_err_pb: null
-  sigma_source: not yet available (no gridpack in Phase 03)
   storage_kB_per_event: 5.2
 - idx: 30
   name: T_ttbar_boost
@@ -599,51 +657,27 @@ samples:
     ptheavy: 250
   vbs_anypair_patch: false
   pythia_cmnd: py8_tt.cmnd
-  br_ledger:
+  br_ledger: &id003
   - one
   br_total: 1.0
   seed_gridpack: 3140000
   seed_test: 3140001
   seed_lhe_closure: 3140002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: true
   description: tt-bar inclusive, PY8 inclusive decays (all-had + semilep + dilep in one sample), >=1 top pT>250 GeV filter
+  twin_of: null
   sigma_pb: 30.83
   sigma_err_pb: 0.1227
   sigma_source: MG5 LO gridpack integration (gridpacks/T_ttbar_boost_status.txt)
   sigma_fb: 30830.0
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 30830.0
   sigma_x_BR_fb: 30830.0
   brute_force_N_for_3000fb: 92490000
+  rule: effective-N
   N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
-  storage_kB_per_event: 4.0
-- idx: 31
-  name: T_ttbar_boost_vbs
-  cls: ttbar
-  role: bkg(planned)
-  model: sm-no_b_mass
-  process: generate p p > t t~ j j
-  generator_cuts:
-    dynamical_scale_choice: -1
-    ptj: 20
-    etaj: 5
-    drjj: 0.4
-    deltaeta: 3.0
-    xetamin: 400
-    ptheavy: 250
-  vbs_anypair_patch: true
-  pythia_cmnd: py8_tt.cmnd
-  br_ledger:
-  - one
-  br_total: 1.0
-  seed_gridpack: 3141000
-  seed_test: 3141001
-  seed_lhe_closure: 3141002
-  phase03_gridpack: false
-  phase03_test_job: false
-  description: tt-bar + 2 jets with VBS filter (VBS-jet topology from ME); planned
-  sigma_pb: null
-  sigma_err_pb: null
-  sigma_source: not yet available (no gridpack in Phase 03)
   storage_kB_per_event: 4.0
 - idx: 40
   name: H_VBFH_bb
@@ -660,21 +694,26 @@ samples:
     xetamin: 200
   vbs_anypair_patch: true
   pythia_cmnd: py8_hh_bb.cmnd
-  br_ledger:
+  br_ledger: &id004
   - B_bb
   br_total: 0.5824
   seed_gridpack: 3150000
   seed_test: 3150001
   seed_lhe_closure: 3150002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: true
   description: VBF H, H->bb forced in PY8
+  twin_of: null
   sigma_pb: 2.461
   sigma_err_pb: 0.0201
   sigma_source: MG5 LO gridpack integration (gridpacks/H_VBFH_bb_status.txt)
   sigma_fb: 2461.0
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 1433.2864
   sigma_x_BR_fb: 1433.2864
   brute_force_N_for_3000fb: 4299860
+  rule: effective-N
   N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
   storage_kB_per_event: 3.5
 - idx: 41
@@ -691,80 +730,31 @@ samples:
     ptheavy: 150
   vbs_anypair_patch: false
   pythia_cmnd: py8_vh.cmnd
-  br_ledger:
+  br_ledger: &id005
   - B_Zqq
   - B_bb
   br_total: 0.40715584000000005
   seed_gridpack: 3151000
   seed_test: 3151001
   seed_lhe_closure: 3151002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: true
   description: ZH (QCD DY-like), Z->qq (incl. bb), H->bb forced in PY8; >=1 heavy boson pT>150
+  twin_of: null
   sigma_pb: 0.08438
   sigma_err_pb: 0.0006262
   sigma_source: MG5 LO gridpack integration (gridpacks/H_ZH_Zqq_bb_status.txt)
   sigma_fb: 84.38
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 34.3558097792
   sigma_x_BR_fb: 34.3558097792
   brute_force_N_for_3000fb: 103068
-  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  rule: full-N
+  N_MC_required: 103068
+  N_MC_policy: 'full N: N>=max(50k, sigma*BR*3000 fb^-1) (signal / D-HH-12)'
   storage_kB_per_event: 3.5
-- idx: 42
-  name: H_WpH_Wqq_bb
-  cls: single_H
-  role: bkg(planned)
-  model: sm-no_b_mass
-  process: generate p p > w+ h
-  generator_cuts:
-    dynamical_scale_choice: 3
-    ptj: 20
-    etaj: 5
-    drjj: 0.4
-    ptheavy: 150
-  vbs_anypair_patch: false
-  pythia_cmnd: py8_vh.cmnd
-  br_ledger:
-  - B_Wqq
-  - B_bb
-  br_total: 0.39259584000000003
-  seed_gridpack: 3152000
-  seed_test: 3152001
-  seed_lhe_closure: 3152002
-  phase03_gridpack: false
-  phase03_test_job: false
-  description: W+H, W->qq', H->bb
-  sigma_pb: null
-  sigma_err_pb: null
-  sigma_source: not yet available (no gridpack in Phase 03)
-  storage_kB_per_event: 3.5
-- idx: 43
-  name: H_WmH_Wqq_bb
-  cls: single_H
-  role: bkg(planned)
-  model: sm-no_b_mass
-  process: generate p p > w- h
-  generator_cuts:
-    dynamical_scale_choice: 3
-    ptj: 20
-    etaj: 5
-    drjj: 0.4
-    ptheavy: 150
-  vbs_anypair_patch: false
-  pythia_cmnd: py8_vh.cmnd
-  br_ledger:
-  - B_Wqq
-  - B_bb
-  br_total: 0.39259584000000003
-  seed_gridpack: 3153000
-  seed_test: 3153001
-  seed_lhe_closure: 3153002
-  phase03_gridpack: false
-  phase03_test_job: false
-  description: W-H, W->qq', H->bb
-  sigma_pb: null
-  sigma_err_pb: null
-  sigma_source: not yet available (no gridpack in Phase 03)
-  storage_kB_per_event: 3.5
+  storage_GB_planned: 0.36
 - idx: 44
   name: H_ttH_bb
   cls: single_H
@@ -779,51 +769,30 @@ samples:
     ptheavy: 150
   vbs_anypair_patch: false
   pythia_cmnd: py8_hh_bb.cmnd
-  br_ledger:
+  br_ledger: &id006
   - B_bb
   br_total: 0.5824
   seed_gridpack: 3154000
   seed_test: 3154001
   seed_lhe_closure: 3154002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: true
   description: ttH, H->bb forced, tops decay inclusively in PY8; >=1 heavy pT>150
+  twin_of: null
   sigma_pb: 0.248
   sigma_err_pb: 0.001004
   sigma_source: MG5 LO gridpack integration (gridpacks/H_ttH_bb_status.txt)
   sigma_fb: 248.0
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 144.4352
   sigma_x_BR_fb: 144.4352
   brute_force_N_for_3000fb: 433306
-  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  rule: full-N
+  N_MC_required: 433306
+  N_MC_policy: 'full N: N>=max(50k, sigma*BR*3000 fb^-1) (signal / D-HH-12)'
   storage_kB_per_event: 3.5
-- idx: 45
-  name: H_ggH_jj_heft
-  cls: single_H
-  role: bkg(planned)
-  model: heft
-  process: generate p p > h j j HIG=1 QCD=2
-  generator_cuts:
-    dynamical_scale_choice: -1
-    ptj: 20
-    etaj: 5
-    drjj: 0.4
-    deltaeta: 3.0
-    xetamin: 400
-  vbs_anypair_patch: true
-  pythia_cmnd: py8_hh_bb.cmnd
-  br_ledger:
-  - B_bb
-  br_total: 0.5824
-  seed_gridpack: 3155000
-  seed_test: 3155001
-  seed_lhe_closure: 3155002
-  phase03_gridpack: false
-  phase03_test_job: false
-  description: ggH+2j (HEFT, MLM/exclusive decision pending); planned, not a Phase-03 type
-  sigma_pb: null
-  sigma_err_pb: null
-  sigma_source: not yet available (no gridpack in Phase 03)
-  storage_kB_per_event: 3.5
+  storage_GB_planned: 1.52
 - idx: 50
   name: V_Zjj_QCD_vbs
   cls: V+jets
@@ -839,50 +808,27 @@ samples:
     xetamin: 400
   vbs_anypair_patch: true
   pythia_cmnd: py8_vh.cmnd
-  br_ledger:
+  br_ledger: &id007
   - B_Zqq
   br_total: 0.6991
   seed_gridpack: 3160000
   seed_test: 3160001
   seed_lhe_closure: 3160002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: true
   description: Z+2j QCD (Z undecayed in LHE, Z->qq forced in PY8) with VBS filter; W+2j analogous (idx 51 planned)
+  twin_of: null
   sigma_pb: 270.0
   sigma_err_pb: 1.38
   sigma_source: MG5 LO gridpack integration (gridpacks/V_Zjj_QCD_vbs_status.txt)
   sigma_fb: 270000.0
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 188757.00000000003
   sigma_x_BR_fb: 188757.00000000003
   brute_force_N_for_3000fb: 566271001
+  rule: effective-N
   N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
-  storage_kB_per_event: 3.2
-- idx: 51
-  name: V_Wjj_QCD_vbs
-  cls: V+jets
-  role: bkg(planned)
-  model: sm-no_b_mass
-  process: generate p p > w+ j j QED=1
-  generator_cuts:
-    dynamical_scale_choice: -1
-    ptj: 20
-    etaj: 5
-    drjj: 0.4
-    deltaeta: 3.0
-    xetamin: 400
-  vbs_anypair_patch: true
-  pythia_cmnd: py8_vh.cmnd
-  br_ledger:
-  - B_Wqq
-  br_total: 0.6741
-  seed_gridpack: 3161000
-  seed_test: 3161001
-  seed_lhe_closure: 3161002
-  phase03_gridpack: false
-  phase03_test_job: false
-  description: W+ + 2j (and W-) planned
-  sigma_pb: null
-  sigma_err_pb: null
-  sigma_source: not yet available (no gridpack in Phase 03)
   storage_kB_per_event: 3.2
 - idx: 53
   name: V_ZZjj_EW
@@ -899,24 +845,31 @@ samples:
     xetamin: 200
   vbs_anypair_patch: true
   pythia_cmnd: py8_vh.cmnd
-  br_ledger:
+  br_ledger: &id008
   - B_Zqq@Z1
   - B_Zqq@Z2
   br_total: 0.4887408100000001
   seed_gridpack: 3163000
   seed_test: 3163001
   seed_lhe_closure: 3163002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: true
   description: EW ZZjj (VBS), both Z->qq forced in PY8 (ZH Z->bb lives in H_ZH_Zqq_bb)
+  twin_of: null
   sigma_pb: 0.0765
   sigma_err_pb: 0.000302
   sigma_source: MG5 LO gridpack integration (gridpacks/V_ZZjj_EW_status.txt)
   sigma_fb: 76.5
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 37.38867196500001
   sigma_x_BR_fb: 37.38867196500001
   brute_force_N_for_3000fb: 112167
-  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  rule: full-N
+  N_MC_required: 112167
+  N_MC_policy: 'full N: N>=max(50k, sigma*BR*3000 fb^-1) (signal / D-HH-12)'
   storage_kB_per_event: 3.2
+  storage_GB_planned: 0.36
 - idx: 70
   name: X_tW_boost
   cls: extra_bkg
@@ -939,15 +892,20 @@ samples:
   seed_gridpack: 3180000
   seed_test: 3180001
   seed_lhe_closure: 3180002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: false
   description: single-top tW (5F LO), inclusive PY8 decays, >=1 heavy pT>250
+  twin_of: null
   sigma_pb: 1.831
   sigma_err_pb: 0.007883
   sigma_source: MG5 LO gridpack integration (gridpacks/X_tW_boost_status.txt)
   sigma_fb: 1831.0
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 1831.0
   sigma_x_BR_fb: 1831.0
   brute_force_N_for_3000fb: 5493000
+  rule: effective-N
   N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
   storage_kB_per_event: 3.5
 - idx: 71
@@ -970,15 +928,20 @@ samples:
   seed_gridpack: 3181000
   seed_test: 3181001
   seed_lhe_closure: 3181002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: false
   description: ttZ, inclusive PY8 decays (Z->bb included), >=1 heavy pT>250
+  twin_of: null
   sigma_pb: 0.1624
   sigma_err_pb: 0.0006468
   sigma_source: MG5 LO gridpack integration (gridpacks/X_ttZ_boost_status.txt)
   sigma_fb: 162.39999999999998
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 162.39999999999998
   sigma_x_BR_fb: 162.39999999999998
   brute_force_N_for_3000fb: 487200
+  rule: effective-N
   N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
   storage_kB_per_event: 3.5
 - idx: 72
@@ -1003,15 +966,20 @@ samples:
   seed_gridpack: 3182000
   seed_test: 3182001
   seed_lhe_closure: 3182002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: false
   description: ttW+- , inclusive PY8 decays, >=1 heavy pT>250
+  twin_of: null
   sigma_pb: 0.1041
   sigma_err_pb: 0.000926
   sigma_source: MG5 LO gridpack integration (gridpacks/X_ttW_boost_status.txt)
   sigma_fb: 104.1
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 104.1
   sigma_x_BR_fb: 104.1
   brute_force_N_for_3000fb: 312300
+  rule: effective-N
   N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
   storage_kB_per_event: 3.5
 - idx: 73
@@ -1035,15 +1003,20 @@ samples:
   seed_gridpack: 3183000
   seed_test: 3183001
   seed_lhe_closure: 3183002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: false
   description: EW (VBF) Zjj, Z->qq forced in PY8
+  twin_of: null
   sigma_pb: 8.779
   sigma_err_pb: 0.04028
   sigma_source: MG5 LO gridpack integration (gridpacks/X_Zjj_EW_vbs_status.txt)
   sigma_fb: 8779.0
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 6137.3989
   sigma_x_BR_fb: 6137.3989
   brute_force_N_for_3000fb: 18412197
+  rule: effective-N
   N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
   storage_kB_per_event: 3.5
 - idx: 74
@@ -1067,15 +1040,20 @@ samples:
   seed_gridpack: 3184000
   seed_test: 3184001
   seed_lhe_closure: 3184002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: false
   description: QCD ZZ (0 ME jets), both Z->qq forced; WZ analogous (not generated)
+  twin_of: null
   sigma_pb: 0.08632
   sigma_err_pb: 0.0005994
   sigma_source: MG5 LO gridpack integration (gridpacks/X_ZZ_QCD_boost_status.txt)
   sigma_fb: 86.32
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 42.1881067192
   sigma_x_BR_fb: 42.1881067192
   brute_force_N_for_3000fb: 126565
+  rule: effective-N
   N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
   storage_kB_per_event: 3.5
 - idx: 60
@@ -1100,9 +1078,11 @@ samples:
   seed_gridpack: 3170000
   seed_test: 3170001
   seed_lhe_closure: 3170002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: false
   description: SM EW HHjj WITHOUT any s-channel W/Z diagram (t-channel/VBF-like topologies only); same cuts as S_HHjj SM; parton-level validation
+  twin_of: null
   coupling_kV_k2V_kl:
   - 1
   - 1
@@ -1111,8 +1091,11 @@ samples:
   sigma_err_pb: 1.548e-05
   sigma_source: MG5 LO gridpack integration (gridpacks_v2/V_HHjj_SM_noSchanV_status.txt)
   sigma_fb: 1.127
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 0.38226685952
   sigma_x_BR_fb: 0.38226685952
   brute_force_N_for_3000fb: 1147
+  rule: effective-N
   storage_kB_per_event: 3.2
 - idx: 61
   name: V_ZHH_Zjj_SM
@@ -1134,9 +1117,11 @@ samples:
   seed_gridpack: 3171000
   seed_test: 3171001
   seed_lhe_closure: 3171002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: false
   description: Higgsstrahlung-like ZHH, Z->jj inside MG5 (sigma x MG5 BR(Z->jj)); inclusive, no VBS filter; parton-level validation
+  twin_of: null
   coupling_kV_k2V_kl:
   - 1
   - 1
@@ -1145,8 +1130,11 @@ samples:
   sigma_err_pb: 1.231e-06
   sigma_source: MG5 LO gridpack integration (gridpacks_v2/V_ZHH_Zjj_SM_status.txt)
   sigma_fb: 0.204
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 0.06919471104
   sigma_x_BR_fb: 0.06919471104
   brute_force_N_for_3000fb: 208
+  rule: effective-N
   storage_kB_per_event: 3.2
 - idx: 62
   name: V_WHH_Wjj_SM
@@ -1168,9 +1156,11 @@ samples:
   seed_gridpack: 3172000
   seed_test: 3172001
   seed_lhe_closure: 3172002
+  seeds_new_formula: false
   phase03_gridpack: true
   phase03_test_job: false
   description: Higgsstrahlung-like W+HH, W->jj inside MG5; (W- by charge symmetry up to PDFs, not generated); parton-level validation
+  twin_of: null
   coupling_kV_k2V_kl:
   - 1
   - 1
@@ -1179,6 +1169,1023 @@ samples:
   sigma_err_pb: 1.407e-06
   sigma_source: MG5 LO gridpack integration (gridpacks_v2/V_WHH_Wjj_SM_status.txt)
   sigma_fb: 0.20029999999999998
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 0.067939708928
   sigma_x_BR_fb: 0.067939708928
   brute_force_N_for_3000fb: 204
+  rule: effective-N
   storage_kB_per_event: 3.2
+- idx: 42
+  name: H_WH_Wqq_bb
+  cls: single_H
+  role: bkg
+  model: sm-no_b_mass
+  process: 'generate p p > w+ h
+
+    add process p p > w- h'
+  generator_cuts:
+    dynamical_scale_choice: 3
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    ptheavy: 150
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_vh.cmnd
+  br_ledger: &id010
+  - B_Wqq
+  - B_bb
+  br_total: 0.39259584000000003
+  seed_gridpack: 3142003
+  seed_test: 3142004
+  seed_lhe_closure: 3142005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: true
+  description: W+H and W-H (QCD, DY-like), W->qq' forced and H->bb forced in PY8; >=1 heavy boson pT>150 (same filter as ZH)
+  twin_of: null
+  sigma_pb: 0.1525
+  sigma_err_pb: 0.000864
+  sigma_source: MG5 LO gridpack integration (../../../../production/hh/gridpacks/H_WH_Wqq_bb_status.txt)
+  sigma_fb: 152.5
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 59.8708656
+  sigma_x_BR_fb: 59.8708656
+  brute_force_N_for_3000fb: 179613
+  rule: full-N
+  N_MC_required: 179613
+  N_MC_policy: 'full N: N>=max(50k, sigma*BR*3000 fb^-1) (signal / D-HH-12)'
+  storage_kB_per_event: 3.5
+  storage_GB_planned: 0.63
+- idx: 45
+  name: H_ggH_jj_heft
+  cls: single_H
+  role: bkg
+  model: heft
+  process: generate p p > h j j HIG=1 QCD=2
+  generator_cuts:
+    dynamical_scale_choice: -1
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    deltaeta: 3.0
+    xetamin: 400
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_hh_bb.cmnd
+  br_ledger: &id009
+  - B_bb
+  br_total: 0.5824
+  seed_gridpack: 3145003
+  seed_test: 3145004
+  seed_lhe_closure: 3145005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: true
+  description: ggH + 2 jets in the HEFT (mt->inf), LO ME (26 diagrams gg>hgg), VBS any-pair filter 3.0/400, H->bb forced in PY8; no K-factor (flagged)
+  twin_of: null
+  sigma_pb: 2.642
+  sigma_err_pb: 0.02734
+  sigma_source: MG5 LO gridpack integration (../../../../production/hh/gridpacks/H_ggH_jj_heft_status.txt)
+  sigma_fb: 2642.0
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 1538.7008
+  sigma_x_BR_fb: 1538.7008
+  brute_force_N_for_3000fb: 4616103
+  rule: effective-N
+  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  storage_kB_per_event: 3.5
+- idx: 51
+  name: V_Wjj_QCD_vbs
+  cls: V+jets
+  role: bkg
+  model: sm-no_b_mass
+  process: 'generate p p > w+ j j QED=1
+
+    add process p p > w- j j QED=1'
+  generator_cuts:
+    dynamical_scale_choice: -1
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    deltaeta: 3.0
+    xetamin: 400
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_vh.cmnd
+  br_ledger: &id011
+  - B_Wqq
+  br_total: 0.6741
+  seed_gridpack: 3151003
+  seed_test: 3151004
+  seed_lhe_closure: 3151005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: true
+  description: W+2j and W-2j QCD (W undecayed in LHE, W->qq' forced in PY8), VBS any-pair filter
+  twin_of: null
+  sigma_pb: 839.0
+  sigma_err_pb: 3.495
+  sigma_source: MG5 LO gridpack integration (../../../../production/hh/gridpacks/V_Wjj_QCD_vbs_status.txt)
+  sigma_fb: 839000.0
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 565569.9
+  sigma_x_BR_fb: 565569.9
+  brute_force_N_for_3000fb: 1696709700
+  rule: effective-N
+  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  storage_kB_per_event: 3.2
+- idx: 22
+  name: Q_4b_ht
+  cls: QCD_multijet
+  role: bkg
+  model: sm-no_b_mass
+  process: generate p p > b b~ b b~
+  generator_cuts:
+    dynamical_scale_choice: -1
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    ihtmin: 500
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_qcd.cmnd
+  br_ledger:
+  - one
+  br_total: 1.0
+  seed_gridpack: 3122003
+  seed_test: 3122004
+  seed_lhe_closure: 3122005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: true
+  description: QCD bbbb, HT>500 filter, no VBS filter (VBS jets from PS); b-enriched bound/shape sample for the bb_nonH/Hbb-like classes
+  twin_of: null
+  sigma_pb: 4.138
+  sigma_err_pb: 0.02243
+  sigma_source: MG5 LO gridpack integration (../../../../production/hh/gridpacks/Q_4b_ht_status.txt)
+  sigma_fb: 4138.0
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 4138.0
+  sigma_x_BR_fb: 4138.0
+  brute_force_N_for_3000fb: 12414000
+  rule: effective-N
+  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  storage_kB_per_event: 5.2
+- idx: 31
+  name: T_ttbar_mlm
+  cls: ttbar
+  role: bkg
+  model: sm-no_b_mass
+  process: 'generate p p > t t~ @0
+
+    add process p p > t t~ j @1
+
+    add process p p > t t~ j j @2'
+  generator_cuts:
+    dynamical_scale_choice: -1
+    ptj: 20
+    etaj: -1
+    drjj: 0
+    use_syst: 'False'
+    ickkw: 1
+    ptheavy: 250
+    xqcut: 30
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_tt_mlm_xq30.cmnd
+  br_ledger: &id012
+  - one
+  br_total: 1.0
+  seed_gridpack: 3131003
+  seed_test: 3131004
+  seed_lhe_closure: 3131005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: true
+  description: tt+0,1,2j MLM (ickkw=1, xqcut=30, kT-MLM qCut in PY8 cmnd), >=1 top pT>250, inclusive PY8 top decays
+  twin_of: null
+  sigma_pb: 180.3
+  sigma_err_pb: 0.3649
+  sigma_source: MG5 LO gridpack integration (../../../../production/hh/gridpacks/T_ttbar_mlm_status.txt)
+  sigma_fb: 180300.0
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 180300.0
+  sigma_x_BR_fb: 180300.0
+  brute_force_N_for_3000fb: 540900000
+  rule: effective-N
+  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  storage_kB_per_event: 4.0
+- idx: 32
+  name: T_ttbar_mlm_xq20
+  cls: ttbar
+  role: validation(MLM scale variation)
+  model: sm-no_b_mass
+  process: 'generate p p > t t~ @0
+
+    add process p p > t t~ j @1
+
+    add process p p > t t~ j j @2'
+  generator_cuts:
+    dynamical_scale_choice: -1
+    ptj: 20
+    etaj: -1
+    drjj: 0
+    use_syst: 'False'
+    ickkw: 1
+    ptheavy: 250
+    xqcut: 20
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_tt_mlm_xq20.cmnd
+  br_ledger:
+  - one
+  br_total: 1.0
+  seed_gridpack: 3132003
+  seed_test: 3132004
+  seed_lhe_closure: 3132005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: tt+0,1,2j MLM (ickkw=1, xqcut=20, kT-MLM qCut in PY8 cmnd), >=1 top pT>250, inclusive PY8 top decays; matching-scale variation only
+  twin_of: null
+  sigma_pb: 265.9
+  sigma_err_pb: 0.5586
+  sigma_source: MG5 LO gridpack integration (../../../../production/hh/gridpacks/T_ttbar_mlm_xq20_status.txt)
+  sigma_fb: 265900.0
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 265900.0
+  sigma_x_BR_fb: 265900.0
+  brute_force_N_for_3000fb: 797700000
+  rule: effective-N
+  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  storage_kB_per_event: 4.0
+- idx: 33
+  name: T_ttbar_mlm_xq45
+  cls: ttbar
+  role: validation(MLM scale variation)
+  model: sm-no_b_mass
+  process: 'generate p p > t t~ @0
+
+    add process p p > t t~ j @1
+
+    add process p p > t t~ j j @2'
+  generator_cuts:
+    dynamical_scale_choice: -1
+    ptj: 20
+    etaj: -1
+    drjj: 0
+    use_syst: 'False'
+    ickkw: 1
+    ptheavy: 250
+    xqcut: 45
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_tt_mlm_xq45.cmnd
+  br_ledger:
+  - one
+  br_total: 1.0
+  seed_gridpack: 3133003
+  seed_test: 3133004
+  seed_lhe_closure: 3133005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: tt+0,1,2j MLM (ickkw=1, xqcut=45, kT-MLM qCut in PY8 cmnd), >=1 top pT>250, inclusive PY8 top decays; matching-scale variation only
+  twin_of: null
+  sigma_pb: 126.0
+  sigma_err_pb: 0.2905
+  sigma_source: MG5 LO gridpack integration (../../../../production/hh/gridpacks/T_ttbar_mlm_xq45_status.txt)
+  sigma_fb: 126000.0
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 126000.0
+  sigma_x_BR_fb: 126000.0
+  brute_force_N_for_3000fb: 378000000
+  rule: effective-N
+  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  storage_kB_per_event: 4.0
+- idx: 75
+  name: X_ggZH_loop
+  cls: extra_bkg
+  role: bkg(bound)
+  model: loop_sm
+  process: generate g g > z h [noborn=QCD]
+  generator_cuts:
+    dynamical_scale_choice: 3
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    ptheavy: 150
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_vh.cmnd
+  br_ledger:
+  - B_Zqq
+  - B_bb
+  br_total: 0.40715584000000005
+  seed_gridpack: 3175003
+  seed_test: 3175004
+  seed_lhe_closure: 3175005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: gg->ZH loop-induced (LO, loop_sm, full top+b loop), Z->qq and H->bb forced in PY8, ptheavy>150 (same filter as qq->ZH)
+  twin_of: null
+  sigma_pb: 0.02128
+  sigma_err_pb: 5.228e-05
+  sigma_source: MG5 LO gridpack integration (../../../../production/hh/gridpacks/X_ggZH_loop_status.txt)
+  sigma_fb: 21.28
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 8.6642762752
+  sigma_x_BR_fb: 8.6642762752
+  brute_force_N_for_3000fb: 25993
+  rule: effective-N
+  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  storage_kB_per_event: 3.5
+- idx: 76
+  name: X_Wjj_EW_vbs
+  cls: extra_bkg
+  role: bkg(bound)
+  model: sm-no_b_mass
+  process: 'generate p p > w+ j j QCD=0
+
+    add process p p > w- j j QCD=0'
+  generator_cuts:
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    dynamical_scale_choice: 3
+    deltaeta: 2.5
+    xetamin: 200
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_vh.cmnd
+  br_ledger:
+  - B_Wqq
+  br_total: 0.6741
+  seed_gridpack: 3176003
+  seed_test: 3176004
+  seed_lhe_closure: 3176005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: EW (VBF) W+-jj, W->qq' forced in PY8, VBS any-pair filter 2.5/200
+  twin_of: null
+  sigma_pb: 90.04
+  sigma_err_pb: 0.4069
+  sigma_source: MG5 LO gridpack integration (../../../../production/hh/gridpacks/X_Wjj_EW_vbs_status.txt)
+  sigma_fb: 90040.0
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 60695.964
+  sigma_x_BR_fb: 60695.964
+  brute_force_N_for_3000fb: 182087892
+  rule: effective-N
+  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  storage_kB_per_event: 3.5
+- idx: 77
+  name: X_WZ_QCD_boost
+  cls: extra_bkg
+  role: bkg(bound)
+  model: sm-no_b_mass
+  process: 'generate p p > w+ z
+
+    add process p p > w- z'
+  generator_cuts:
+    dynamical_scale_choice: 3
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    ptheavy: 250
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_vh.cmnd
+  br_ledger:
+  - B_Wqq
+  - B_Zqq
+  br_total: 0.47126331000000005
+  seed_gridpack: 3177003
+  seed_test: 3177004
+  seed_lhe_closure: 3177005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: QCD W+-Z, W->qq' and Z->qq forced, >=1 heavy boson pT>250
+  twin_of: null
+  sigma_pb: 0.163
+  sigma_err_pb: 0.0009479
+  sigma_source: MG5 LO gridpack integration (../../../../production/hh/gridpacks/X_WZ_QCD_boost_status.txt)
+  sigma_fb: 163.0
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 76.81591953
+  sigma_x_BR_fb: 76.81591953
+  brute_force_N_for_3000fb: 230448
+  rule: effective-N
+  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  storage_kB_per_event: 3.5
+- idx: 14
+  name: S_HHjj_kV1p25_k2V1p5_kl2
+  cls: signal
+  role: closure
+  model: sm_kVk2VkL-no_b_mass
+  process: generate p p > h h j j QCD=0 QED=4
+  generator_cuts:
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    dynamical_scale_choice: 3
+    deltaeta: 2.5
+    xetamin: 200
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_hh_bb.cmnd
+  br_ledger:
+  - B_bb@H1
+  - B_bb@H2
+  br_total: 0.33918976
+  seed_gridpack: 3114003
+  seed_test: 3114004
+  seed_lhe_closure: 3114005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: closure point with kV!=1 and kl!=1 (probes kV^3 kl, kV^2 kl^2, kV k2V kl monomials)
+  twin_of: null
+  coupling_kV_k2V_kl:
+  - 1.25
+  - 1.5
+  - 2
+  sigma_pb: 0.002201
+  sigma_err_pb: 1.068e-05
+  sigma_source: MG5 LO gridpack integration (../../../../production/hh/gridpacks/S_HHjj_kV1p25_k2V1p5_kl2_status.txt)
+  sigma_fb: 2.2009999999999996
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 0.7465566617599999
+  sigma_x_BR_fb: 0.7465566617599999
+  brute_force_N_for_3000fb: 2240
+  rule: full-N
+  N_MC_required: 50000
+  N_MC_policy: 'full N: N>=max(50k, sigma*BR*3000 fb^-1) (signal / D-HH-12)'
+  storage_kB_per_event: 2.85
+  storage_GB_planned: 0.14
+- idx: 15
+  name: S_HHjj_kV1_k2V0_kl1_twin
+  cls: signal
+  role: twin(gen-cut safety)
+  model: sm_kVk2VkL-no_b_mass
+  process: generate p p > h h j j QCD=0 QED=4
+  generator_cuts:
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    dynamical_scale_choice: 3
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_hh_bb.cmnd
+  br_ledger:
+  - B_bb@H1
+  - B_bb@H2
+  br_total: 0.33918976
+  seed_gridpack: 3115003
+  seed_test: 3115004
+  seed_lhe_closure: 3115005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: twin of the kappa_2V=0 point WITHOUT VBS generator filter (hard-tail enhanced; Delphes-level boosted-tail twin)
+  twin_of: null
+  coupling_kV_k2V_kl:
+  - 1
+  - 0
+  - 1
+  sigma_pb: 0.01747
+  sigma_err_pb: 0.0002449
+  sigma_source: MG5 LO gridpack integration (../../../../production/hh/gridpacks/S_HHjj_kV1_k2V0_kl1_twin_status.txt)
+  sigma_fb: 17.47
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 5.925645107199999
+  sigma_x_BR_fb: 5.925645107199999
+  brute_force_N_for_3000fb: 17777
+  rule: full-N
+  N_MC_required: 50000
+  N_MC_policy: 'full N: N>=max(50k, sigma*BR*3000 fb^-1) (signal / D-HH-12)'
+  storage_kB_per_event: 2.85
+  storage_GB_planned: 0.14
+- idx: 80
+  name: Q_4j_vbs_twin
+  cls: QCD_multijet
+  role: twin(gen-cut safety)
+  model: sm-no_b_mass
+  process: generate p p > j j j j
+  generator_cuts:
+    dynamical_scale_choice: -1
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    deltaeta: 2.0
+    xetamin: 200
+    ihtmin: 350
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_qcd.cmnd
+  br_ledger: *id001
+  br_total: 1.0
+  seed_gridpack: 3180003
+  seed_test: 3180004
+  seed_lhe_closure: 3180005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: 'TWIN of Q_4j_vbs with looser generator filter {''deltaeta'': 2.0, ''xetamin'': 200, ''ihtmin'': 350}; Delphes-level boosted-tail comparison only'
+  twin_of: Q_4j_vbs
+  sigma_pb: 266300.0
+  sigma_err_pb: 912.8
+  sigma_source: MG5 LO gridpack integration (../../../../production/hh/gridpacks/Q_4j_vbs_twin_status.txt)
+  sigma_fb: 266300000.0
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 266300000.0
+  sigma_x_BR_fb: 266300000.0
+  brute_force_N_for_3000fb: 798900000000
+  rule: effective-N
+  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  storage_kB_per_event: 5.2
+- idx: 81
+  name: Q_bbjj_vbs_twin
+  cls: QCD_multijet
+  role: twin(gen-cut safety)
+  model: sm-no_b_mass
+  process: generate p p > b b~ j j
+  generator_cuts:
+    dynamical_scale_choice: -1
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    deltaeta: 2.0
+    xetamin: 200
+    ihtmin: 350
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_qcd.cmnd
+  br_ledger: *id002
+  br_total: 1.0
+  seed_gridpack: 3181003
+  seed_test: 3181004
+  seed_lhe_closure: 3181005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: 'TWIN of Q_bbjj_vbs with looser generator filter {''deltaeta'': 2.0, ''xetamin'': 200, ''ihtmin'': 350}; Delphes-level boosted-tail comparison only'
+  twin_of: Q_bbjj_vbs
+  sigma_pb: 5976.0
+  sigma_err_pb: 12.08
+  sigma_source: MG5 LO gridpack integration (../../../../production/hh/gridpacks/Q_bbjj_vbs_twin_status.txt)
+  sigma_fb: 5976000.0
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 5976000.0
+  sigma_x_BR_fb: 5976000.0
+  brute_force_N_for_3000fb: 17928000000
+  rule: effective-N
+  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  storage_kB_per_event: 5.2
+- idx: 82
+  name: T_ttbar_boost_twin
+  cls: ttbar
+  role: twin(gen-cut safety)
+  model: sm-no_b_mass
+  process: generate p p > t t~
+  generator_cuts:
+    dynamical_scale_choice: 3
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    ptheavy: 150
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_tt.cmnd
+  br_ledger: *id003
+  br_total: 1.0
+  seed_gridpack: 3182003
+  seed_test: 3182004
+  seed_lhe_closure: 3182005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: 'TWIN of T_ttbar_boost with looser generator filter {''ptheavy'': 150}; Delphes-level boosted-tail comparison only'
+  twin_of: T_ttbar_boost
+  sigma_pb: 134.3
+  sigma_err_pb: 0.8268
+  sigma_source: MG5 LO gridpack integration (../../../../production/hh/gridpacks/T_ttbar_boost_twin_status.txt)
+  sigma_fb: 134300.0
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 134300.0
+  sigma_x_BR_fb: 134300.0
+  brute_force_N_for_3000fb: 402900000
+  rule: effective-N
+  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  storage_kB_per_event: 4.0
+- idx: 83
+  name: H_VBFH_bb_twin
+  cls: single_H
+  role: twin(gen-cut safety)
+  model: sm-no_b_mass
+  process: generate p p > h j j QCD=0 QED=3
+  generator_cuts:
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    dynamical_scale_choice: 3
+    deltaeta: 1.5
+    xetamin: 100
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_hh_bb.cmnd
+  br_ledger: *id004
+  br_total: 0.5824
+  seed_gridpack: 3183003
+  seed_test: 3183004
+  seed_lhe_closure: 3183005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: 'TWIN of H_VBFH_bb with looser generator filter {''deltaeta'': 1.5, ''xetamin'': 100}; Delphes-level boosted-tail comparison only'
+  twin_of: H_VBFH_bb
+  sigma_pb: 2.728
+  sigma_err_pb: 0.02454
+  sigma_source: MG5 LO gridpack integration (../../../../production/hh/gridpacks/H_VBFH_bb_twin_status.txt)
+  sigma_fb: 2728.0
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 1588.7872
+  sigma_x_BR_fb: 1588.7872
+  brute_force_N_for_3000fb: 4766362
+  rule: effective-N
+  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  storage_kB_per_event: 3.5
+- idx: 84
+  name: H_ZH_Zqq_bb_twin
+  cls: single_H
+  role: twin(gen-cut safety)
+  model: sm-no_b_mass
+  process: generate p p > z h
+  generator_cuts:
+    dynamical_scale_choice: 3
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    ptheavy: 100
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_vh.cmnd
+  br_ledger: *id005
+  br_total: 0.40715584000000005
+  seed_gridpack: 3184003
+  seed_test: 3184004
+  seed_lhe_closure: 3184005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: 'TWIN of H_ZH_Zqq_bb with looser generator filter {''ptheavy'': 100}; Delphes-level boosted-tail comparison only'
+  twin_of: H_ZH_Zqq_bb
+  sigma_pb: 0.2051
+  sigma_err_pb: 0.001965
+  sigma_source: MG5 LO gridpack integration (../../../../production/hh/gridpacks/H_ZH_Zqq_bb_twin_status.txt)
+  sigma_fb: 205.1
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 83.507662784
+  sigma_x_BR_fb: 83.507662784
+  brute_force_N_for_3000fb: 250523
+  rule: effective-N
+  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  storage_kB_per_event: 3.5
+- idx: 85
+  name: H_ttH_bb_twin
+  cls: single_H
+  role: twin(gen-cut safety)
+  model: sm-no_b_mass
+  process: generate p p > t t~ h
+  generator_cuts:
+    dynamical_scale_choice: 3
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    ptheavy: 100
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_hh_bb.cmnd
+  br_ledger: *id006
+  br_total: 0.5824
+  seed_gridpack: 3185003
+  seed_test: 3185004
+  seed_lhe_closure: 3185005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: 'TWIN of H_ttH_bb with looser generator filter {''ptheavy'': 100}; Delphes-level boosted-tail comparison only'
+  twin_of: H_ttH_bb
+  sigma_pb: 0.3319
+  sigma_err_pb: 0.001303
+  sigma_source: MG5 LO gridpack integration (../../../../production/hh/gridpacks/H_ttH_bb_twin_status.txt)
+  sigma_fb: 331.9
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 193.29856
+  sigma_x_BR_fb: 193.29856
+  brute_force_N_for_3000fb: 579896
+  rule: effective-N
+  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  storage_kB_per_event: 3.5
+- idx: 86
+  name: V_Zjj_QCD_vbs_twin
+  cls: V+jets
+  role: twin(gen-cut safety)
+  model: sm-no_b_mass
+  process: generate p p > z j j QED=1
+  generator_cuts:
+    dynamical_scale_choice: -1
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    deltaeta: 2.0
+    xetamin: 200
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_vh.cmnd
+  br_ledger: *id007
+  br_total: 0.6991
+  seed_gridpack: 3186003
+  seed_test: 3186004
+  seed_lhe_closure: 3186005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: 'TWIN of V_Zjj_QCD_vbs with looser generator filter {''deltaeta'': 2.0, ''xetamin'': 200}; Delphes-level boosted-tail comparison only'
+  twin_of: V_Zjj_QCD_vbs
+  sigma_pb: 786.3
+  sigma_err_pb: 3.32
+  sigma_source: MG5 LO gridpack integration (../../../../production/hh/gridpacks/V_Zjj_QCD_vbs_twin_status.txt)
+  sigma_fb: 786300.0
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 549702.3300000001
+  sigma_x_BR_fb: 549702.3300000001
+  brute_force_N_for_3000fb: 1649106991
+  rule: effective-N
+  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  storage_kB_per_event: 3.2
+- idx: 87
+  name: V_ZZjj_EW_twin
+  cls: VBS_VV
+  role: twin(gen-cut safety)
+  model: sm-no_b_mass
+  process: generate p p > z z j j QCD=0
+  generator_cuts:
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    dynamical_scale_choice: 3
+    deltaeta: 1.5
+    xetamin: 100
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_vh.cmnd
+  br_ledger: *id008
+  br_total: 0.4887408100000001
+  seed_gridpack: 3187003
+  seed_test: 3187004
+  seed_lhe_closure: 3187005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: 'TWIN of V_ZZjj_EW with looser generator filter {''deltaeta'': 1.5, ''xetamin'': 100}; Delphes-level boosted-tail comparison only'
+  twin_of: V_ZZjj_EW
+  sigma_pb: 0.08692
+  sigma_err_pb: 0.0003968
+  sigma_source: MG5 LO gridpack integration (../../../../production/hh/gridpacks/V_ZZjj_EW_twin_status.txt)
+  sigma_fb: 86.92
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 42.481351205200006
+  sigma_x_BR_fb: 42.481351205200006
+  brute_force_N_for_3000fb: 127445
+  rule: effective-N
+  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  storage_kB_per_event: 3.2
+- idx: 88
+  name: H_ggH_jj_heft_twin
+  cls: single_H
+  role: twin(gen-cut safety)
+  model: heft
+  process: generate p p > h j j HIG=1 QCD=2
+  generator_cuts:
+    dynamical_scale_choice: -1
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    deltaeta: 2.0
+    xetamin: 200
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_hh_bb.cmnd
+  br_ledger: *id009
+  br_total: 0.5824
+  seed_gridpack: 3188003
+  seed_test: 3188004
+  seed_lhe_closure: 3188005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: 'TWIN of H_ggH_jj_heft with looser generator filter {''deltaeta'': 2.0, ''xetamin'': 200}; Delphes-level boosted-tail comparison only'
+  twin_of: H_ggH_jj_heft
+  sigma_pb: 3.925
+  sigma_err_pb: 0.02141
+  sigma_source: MG5 LO gridpack integration (../../../../production/hh/gridpacks/H_ggH_jj_heft_twin_status.txt)
+  sigma_fb: 3925.0
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 2285.92
+  sigma_x_BR_fb: 2285.92
+  brute_force_N_for_3000fb: 6857760
+  rule: effective-N
+  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  storage_kB_per_event: 3.5
+- idx: 89
+  name: H_WH_Wqq_bb_twin
+  cls: single_H
+  role: twin(gen-cut safety)
+  model: sm-no_b_mass
+  process: 'generate p p > w+ h
+
+    add process p p > w- h'
+  generator_cuts:
+    dynamical_scale_choice: 3
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    ptheavy: 100
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_vh.cmnd
+  br_ledger: *id010
+  br_total: 0.39259584000000003
+  seed_gridpack: 3189003
+  seed_test: 3189004
+  seed_lhe_closure: 3189005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: 'TWIN of H_WH_Wqq_bb with looser generator filter {''ptheavy'': 100}; Delphes-level boosted-tail comparison only'
+  twin_of: H_WH_Wqq_bb
+  sigma_pb: 0.3684
+  sigma_err_pb: 0.002032
+  sigma_source: MG5 LO gridpack integration (../../../../production/hh/gridpacks/H_WH_Wqq_bb_twin_status.txt)
+  sigma_fb: 368.4
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 144.632307456
+  sigma_x_BR_fb: 144.632307456
+  brute_force_N_for_3000fb: 433897
+  rule: effective-N
+  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  storage_kB_per_event: 3.5
+- idx: 90
+  name: V_Wjj_QCD_vbs_twin
+  cls: V+jets
+  role: twin(gen-cut safety)
+  model: sm-no_b_mass
+  process: 'generate p p > w+ j j QED=1
+
+    add process p p > w- j j QED=1'
+  generator_cuts:
+    dynamical_scale_choice: -1
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    deltaeta: 2.0
+    xetamin: 200
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_vh.cmnd
+  br_ledger: *id011
+  br_total: 0.6741
+  seed_gridpack: 3190003
+  seed_test: 3190004
+  seed_lhe_closure: 3190005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: 'TWIN of V_Wjj_QCD_vbs with looser generator filter {''deltaeta'': 2.0, ''xetamin'': 200}; Delphes-level boosted-tail comparison only'
+  twin_of: V_Wjj_QCD_vbs
+  sigma_pb: 2414.0
+  sigma_err_pb: 9.054
+  sigma_source: MG5 LO gridpack integration (../../../../production/hh/gridpacks/V_Wjj_QCD_vbs_twin_status.txt)
+  sigma_fb: 2414000.0
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 1627277.4000000001
+  sigma_x_BR_fb: 1627277.4000000001
+  brute_force_N_for_3000fb: 4881832200
+  rule: effective-N
+  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  storage_kB_per_event: 3.2
+- idx: 91
+  name: T_ttbar_mlm_twin
+  cls: ttbar
+  role: twin(gen-cut safety)
+  model: sm-no_b_mass
+  process: 'generate p p > t t~ @0
+
+    add process p p > t t~ j @1
+
+    add process p p > t t~ j j @2'
+  generator_cuts:
+    dynamical_scale_choice: -1
+    ptj: 20
+    etaj: -1
+    drjj: 0
+    use_syst: 'False'
+    ickkw: 1
+    ptheavy: 150
+    xqcut: 30
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_tt_mlm_xq30.cmnd
+  br_ledger: *id012
+  br_total: 1.0
+  seed_gridpack: 3191003
+  seed_test: 3191004
+  seed_lhe_closure: 3191005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: 'TWIN of T_ttbar_mlm with looser generator filter {''ptheavy'': 150}; Delphes-level boosted-tail comparison only'
+  twin_of: T_ttbar_mlm
+  sigma_pb: 557.5
+  sigma_err_pb: 1.229
+  sigma_source: MG5 LO gridpack integration (../../../../production/hh/gridpacks/T_ttbar_mlm_twin_status.txt)
+  sigma_fb: 557500.0
+  K_factor: 1.0
+  sigma_LO_x_BR_fb: 557500.0
+  sigma_x_BR_fb: 557500.0
+  brute_force_N_for_3000fb: 1672500000
+  rule: effective-N
+  N_MC_policy: 'effective-N (SPEC 4.3): looser gen filter + twin; truth-tag weights; N_eff>=10 in SR or bound; brute force N shown for reference only'
+  storage_kB_per_event: 4.0
+- idx: 92
+  name: Q_4j_vbs_twin2
+  cls: QCD_multijet
+  role: twin(gen-cut safety)
+  model: sm-no_b_mass
+  process: generate p p > j j j j
+  generator_cuts:
+    dynamical_scale_choice: -1
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    deltaeta: 1.5
+    xetamin: 100
+    ihtmin: 250
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_qcd.cmnd
+  br_ledger: *id001
+  br_total: 1.0
+  seed_gridpack: 3192003
+  seed_test: 3192004
+  seed_lhe_closure: 3192005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: 'TWIN2 of the production QCD filter (Q_4j_vbs_twin): ihtmin 250, VBS 1.5/100; measures the residual generator-filter loss of the production sample (D-HH-14a option 1)'
+  twin_of: Q_4j_vbs_twin
+  sigma_pb: null
+  sigma_err_pb: null
+  sigma_source: not yet available (no gridpack in Phase 03)
+  storage_kB_per_event: 5.2
+- idx: 93
+  name: Q_bbjj_vbs_twin2
+  cls: QCD_multijet
+  role: twin(gen-cut safety)
+  model: sm-no_b_mass
+  process: generate p p > b b~ j j
+  generator_cuts:
+    dynamical_scale_choice: -1
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    deltaeta: 1.5
+    xetamin: 100
+    ihtmin: 250
+  vbs_anypair_patch: true
+  pythia_cmnd: py8_qcd.cmnd
+  br_ledger: *id002
+  br_total: 1.0
+  seed_gridpack: 3193003
+  seed_test: 3193004
+  seed_lhe_closure: 3193005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: 'TWIN2 of the production QCD filter (Q_bbjj_vbs_twin): ihtmin 250, VBS 1.5/100; measures the residual generator-filter loss of the production sample (D-HH-14a option 1)'
+  twin_of: Q_bbjj_vbs_twin
+  sigma_pb: null
+  sigma_err_pb: null
+  sigma_source: not yet available (no gridpack in Phase 03)
+  storage_kB_per_event: 5.2
+- idx: 78
+  name: X_tchan_boost
+  cls: extra_bkg
+  role: bkg(bound)
+  model: sm-no_b_mass
+  process: 'generate p p > t j $$ w+ w-
+
+    add process p p > t~ j $$ w+ w-'
+  generator_cuts:
+    dynamical_scale_choice: 3
+    ptj: 20
+    etaj: 5
+    drjj: 0.4
+    ptheavy: 250
+  vbs_anypair_patch: false
+  pythia_cmnd: py8_tt.cmnd
+  br_ledger:
+  - one
+  br_total: 1.0
+  seed_gridpack: 3178003
+  seed_test: 3178004
+  seed_lhe_closure: 3178005
+  seeds_new_formula: true
+  phase03_gridpack: true
+  phase03_test_job: false
+  description: t-channel single top (5F, forward light jet + boosted top), inclusive PY8 decays, >=1 heavy pT>250; sigma-only bound sample
+  twin_of: null
+  sigma_pb: null
+  sigma_err_pb: null
+  sigma_source: not yet available (no gridpack in Phase 03)
+  storage_kB_per_event: 3.5

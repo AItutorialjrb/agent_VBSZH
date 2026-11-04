@@ -1,5 +1,5 @@
-# Sample registry for WH (multi_r1). idx used in seeds: seed = 1e6*P + 1e4*R + J + 1000*idx, P=2 (WH), R=11 (multi_r1). J=0 gridpack, J=1 test job, J>=2 production jobs.
-# Smoke tests (interactive sigma runs) use idx 0 (seeds 2110001..2110099). Frozen ZH samples are reused and have no seeds here.
+# Sample registry for WH (multi_r1). G1-revised seed scheme (SPEC 3.4): seed = 2_000_000 + 100_000*R + 1000*idx + J, R=1 (multi_r1). J: 100 gridpack, 101 test job, 110-119 twin jobs, 200+ production jobs (J<1000). scripts/seeds.py asserts uniqueness incl. config/seeds_used_preG1.txt (old formula 2e6+1e5+... kept, R=11).
+# Smoke tests (interactive sigma runs, OLD formula) used 2110001..2110099 and are listed in seeds_used_preG1.txt. Frozen ZH samples are reused and have no seeds here.
 samples:
   S_EW_WHjj: 1
   S_EW_WHjj_taunu: 2
@@ -21,3 +21,13 @@ samples:
   F_QCD_Wajj_nomjj: 18
   F_Wjj_pilot: 19
   F_Wajj_pilot: 20
+  B_EW_Waajj_nomjj: 21
+  F_EW_Wajj_nomjj: 22
+  V_WZa_WH: 23
+  V_WWa_WH: 24
+  V_ZZa_WH: 25
+  F_Wjjjj: 26
+  T_ttjj_1l: 27
+  H_ggZH_wh: 28
+  H_ttH_dilep_wh: 29
+  H_ZH_tautau_wh: 30

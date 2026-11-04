@@ -14,3 +14,6 @@
 - 2026-11-03T17:19:33Z verifier FAIL items fixed; VERIFY_REQUEST #2
 - 2026-11-03T21:50:27Z Phase 03 NOT complete: B_EW_Waajj_vbs gridpack pending; reports/03 finalised as IN-PROGRESS; extra tests B_QCD vbs/nomjj, twin numbers done
 - 2026-11-03T21:59:27Z G1 review fixes applied (items 1-9,11-14, F-1); Phase 03 still IN-PROGRESS (no end time)
+- 2026-11-03T22:29:54Z ROLE=executor-wh PHASE=PRE-G2: seeds.py + preG1 list; cards (nomjj EW twins, V_WZa/WWa/ZZa_WH, F_Wjjjj, T_ttjj_1l); submitted gridpacks 884934 (16), tests 884935 (21, hold-release), QCD twins 884936 (10)
+- 2026-11-03T22:42:27Z ROLE=executor-wh PHASE=PRE-G2: reports 02/03 revised, 04_production_plan.md PARTIAL, STATUS/VERIFY_REQUEST #4/INDEX written; waiting on clusters 884934/884935/884936/884456
+- 2026-11-04T09:07:44Z ROLE=executor-wh PHASE=PRE-G2: VERIFY#4 fixes, QCD twins analysed, resubmitted 885043/885044/885045; waiting

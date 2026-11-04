@@ -1,315 +1,558 @@
 3111000:
   J: 0
-  sample: S_HHjj_kV1_k2V1_kl1
+  sample: S_HHjj_kV1_k2V1_kl1(pre-G1)
 3111001:
   J: 1
-  sample: S_HHjj_kV1_k2V1_kl1
+  sample: S_HHjj_kV1_k2V1_kl1(pre-G1)
 3111002:
   J: 2
-  sample: S_HHjj_kV1_k2V1_kl1
+  sample: S_HHjj_kV1_k2V1_kl1(pre-G1)
 3112000:
   J: 0
-  sample: S_HHjj_kV1p5_k2V0_kl1
+  sample: S_HHjj_kV1p5_k2V0_kl1(pre-G1)
 3112001:
   J: 1
-  sample: S_HHjj_kV1p5_k2V0_kl1
+  sample: S_HHjj_kV1p5_k2V0_kl1(pre-G1)
 3112002:
   J: 2
-  sample: S_HHjj_kV1p5_k2V0_kl1
+  sample: S_HHjj_kV1p5_k2V0_kl1(pre-G1)
 3113000:
   J: 0
-  sample: S_HHjj_kV1p5_k2V0_kl0
+  sample: S_HHjj_kV1p5_k2V0_kl0(pre-G1)
 3113001:
   J: 1
-  sample: S_HHjj_kV1p5_k2V0_kl0
+  sample: S_HHjj_kV1p5_k2V0_kl0(pre-G1)
 3113002:
   J: 2
-  sample: S_HHjj_kV1p5_k2V0_kl0
+  sample: S_HHjj_kV1p5_k2V0_kl0(pre-G1)
 3114000:
   J: 0
-  sample: S_HHjj_kV0p5_k2V2_kl0
+  sample: S_HHjj_kV0p5_k2V2_kl0(pre-G1)
 3114001:
   J: 1
-  sample: S_HHjj_kV0p5_k2V2_kl0
+  sample: S_HHjj_kV0p5_k2V2_kl0(pre-G1)
 3114002:
   J: 2
-  sample: S_HHjj_kV0p5_k2V2_kl0
+  sample: S_HHjj_kV0p5_k2V2_kl0(pre-G1)
+3114003:
+  J: 3
+  sample: S_HHjj_kV1p25_k2V1p5_kl2
+3114004:
+  J: 4
+  sample: S_HHjj_kV1p25_k2V1p5_kl2
+3114005:
+  J: 5
+  sample: S_HHjj_kV1p25_k2V1p5_kl2
 3115000:
   J: 0
-  sample: S_HHjj_kV1_k2V0_kl2
+  sample: S_HHjj_kV1_k2V0_kl2(pre-G1)
 3115001:
   J: 1
-  sample: S_HHjj_kV1_k2V0_kl2
+  sample: S_HHjj_kV1_k2V0_kl2(pre-G1)
 3115002:
   J: 2
-  sample: S_HHjj_kV1_k2V0_kl2
+  sample: S_HHjj_kV1_k2V0_kl2(pre-G1)
+3115003:
+  J: 3
+  sample: S_HHjj_kV1_k2V0_kl1_twin
+3115004:
+  J: 4
+  sample: S_HHjj_kV1_k2V0_kl1_twin
+3115005:
+  J: 5
+  sample: S_HHjj_kV1_k2V0_kl1_twin
 3116000:
   J: 0
-  sample: S_HHjj_kV1_k2V2_klm1
+  sample: S_HHjj_kV1_k2V2_klm1(pre-G1)
 3116001:
   J: 1
-  sample: S_HHjj_kV1_k2V2_klm1
+  sample: S_HHjj_kV1_k2V2_klm1(pre-G1)
 3116002:
   J: 2
-  sample: S_HHjj_kV1_k2V2_klm1
+  sample: S_HHjj_kV1_k2V2_klm1(pre-G1)
 3117000:
   J: 0
-  sample: S_HHjj_kV1_k2V0_kl1
+  sample: S_HHjj_kV1_k2V0_kl1(pre-G1)
 3117001:
   J: 1
-  sample: S_HHjj_kV1_k2V0_kl1
+  sample: S_HHjj_kV1_k2V0_kl1(pre-G1)
 3117002:
   J: 2
-  sample: S_HHjj_kV1_k2V0_kl1
+  sample: S_HHjj_kV1_k2V0_kl1(pre-G1)
 3118000:
   J: 0
-  sample: S_HHjj_kV1_k2V2_kl1
+  sample: S_HHjj_kV1_k2V2_kl1(pre-G1)
 3118001:
   J: 1
-  sample: S_HHjj_kV1_k2V2_kl1
+  sample: S_HHjj_kV1_k2V2_kl1(pre-G1)
 3118002:
   J: 2
-  sample: S_HHjj_kV1_k2V2_kl1
+  sample: S_HHjj_kV1_k2V2_kl1(pre-G1)
 3119000:
   J: 0
-  sample: S_HHjj_SM_twin_loose
+  sample: S_HHjj_SM_twin_loose(pre-G1)
 3119001:
   J: 1
-  sample: S_HHjj_SM_twin_loose
+  sample: S_HHjj_SM_twin_loose(pre-G1)
 3119002:
   J: 2
-  sample: S_HHjj_SM_twin_loose
+  sample: S_HHjj_SM_twin_loose(pre-G1)
 3120000:
   J: 0
-  sample: G_ggHH_loop_kl1
+  sample: G_ggHH_loop_kl1(pre-G1)
 3120001:
   J: 1
-  sample: G_ggHH_loop_kl1
+  sample: G_ggHH_loop_kl1(pre-G1)
 3120002:
   J: 2
-  sample: G_ggHH_loop_kl1
+  sample: G_ggHH_loop_kl1(pre-G1)
 3121000:
   J: 0
-  sample: G_ggHH_loop_kl0
+  sample: G_ggHH_loop_kl0(pre-G1)
 3121001:
   J: 1
-  sample: G_ggHH_loop_kl0
+  sample: G_ggHH_loop_kl0(pre-G1)
 3121002:
   J: 2
-  sample: G_ggHH_loop_kl0
+  sample: G_ggHH_loop_kl0(pre-G1)
 3122000:
   J: 0
-  sample: G_ggHH_loop_kl2
+  sample: G_ggHH_loop_kl2(pre-G1)
 3122001:
   J: 1
-  sample: G_ggHH_loop_kl2
+  sample: G_ggHH_loop_kl2(pre-G1)
 3122002:
   J: 2
-  sample: G_ggHH_loop_kl2
+  sample: G_ggHH_loop_kl2(pre-G1)
+3122003:
+  J: 3
+  sample: Q_4b_ht
+3122004:
+  J: 4
+  sample: Q_4b_ht
+3122005:
+  J: 5
+  sample: Q_4b_ht
 3123000:
   J: 0
-  sample: G_ggHH_loop_kl5
+  sample: G_ggHH_loop_kl5(pre-G1)
 3123001:
   J: 1
-  sample: G_ggHH_loop_kl5
+  sample: G_ggHH_loop_kl5(pre-G1)
 3123002:
   J: 2
-  sample: G_ggHH_loop_kl5
+  sample: G_ggHH_loop_kl5(pre-G1)
 3130000:
   J: 0
-  sample: Q_4j_vbs
+  sample: Q_4j_vbs(pre-G1)
 3130001:
   J: 1
-  sample: Q_4j_vbs
+  sample: Q_4j_vbs(pre-G1)
 3130002:
   J: 2
-  sample: Q_4j_vbs
+  sample: Q_4j_vbs(pre-G1)
 3131000:
   J: 0
-  sample: Q_bbjj_vbs
+  sample: Q_bbjj_vbs(pre-G1)
 3131001:
   J: 1
-  sample: Q_bbjj_vbs
+  sample: Q_bbjj_vbs(pre-G1)
 3131002:
   J: 2
-  sample: Q_bbjj_vbs
+  sample: Q_bbjj_vbs(pre-G1)
+3131003:
+  J: 3
+  sample: T_ttbar_mlm
+3131004:
+  J: 4
+  sample: T_ttbar_mlm
+3131005:
+  J: 5
+  sample: T_ttbar_mlm
 3132000:
   J: 0
-  sample: Q_4b_ht
+  sample: Q_4b_ht(pre-G1)
 3132001:
   J: 1
-  sample: Q_4b_ht
+  sample: Q_4b_ht(pre-G1)
 3132002:
   J: 2
-  sample: Q_4b_ht
+  sample: Q_4b_ht(pre-G1)
+3132003:
+  J: 3
+  sample: T_ttbar_mlm_xq20
+3132004:
+  J: 4
+  sample: T_ttbar_mlm_xq20
+3132005:
+  J: 5
+  sample: T_ttbar_mlm_xq20
+3133003:
+  J: 3
+  sample: T_ttbar_mlm_xq45
+3133004:
+  J: 4
+  sample: T_ttbar_mlm_xq45
+3133005:
+  J: 5
+  sample: T_ttbar_mlm_xq45
 3140000:
   J: 0
-  sample: T_ttbar_boost
+  sample: T_ttbar_boost(pre-G1)
 3140001:
   J: 1
-  sample: T_ttbar_boost
+  sample: T_ttbar_boost(pre-G1)
 3140002:
   J: 2
-  sample: T_ttbar_boost
+  sample: T_ttbar_boost(pre-G1)
 3141000:
   J: 0
-  sample: T_ttbar_boost_vbs
+  sample: T_ttbar_boost_vbs(pre-G1)
 3141001:
   J: 1
-  sample: T_ttbar_boost_vbs
+  sample: T_ttbar_boost_vbs(pre-G1)
 3141002:
   J: 2
-  sample: T_ttbar_boost_vbs
+  sample: T_ttbar_boost_vbs(pre-G1)
+3142003:
+  J: 3
+  sample: H_WH_Wqq_bb
+3142004:
+  J: 4
+  sample: H_WH_Wqq_bb
+3142005:
+  J: 5
+  sample: H_WH_Wqq_bb
+3145003:
+  J: 3
+  sample: H_ggH_jj_heft
+3145004:
+  J: 4
+  sample: H_ggH_jj_heft
+3145005:
+  J: 5
+  sample: H_ggH_jj_heft
 3150000:
   J: 0
-  sample: H_VBFH_bb
+  sample: H_VBFH_bb(pre-G1)
 3150001:
   J: 1
-  sample: H_VBFH_bb
+  sample: H_VBFH_bb(pre-G1)
 3150002:
   J: 2
-  sample: H_VBFH_bb
+  sample: H_VBFH_bb(pre-G1)
 3151000:
   J: 0
-  sample: H_ZH_Zqq_bb
+  sample: H_ZH_Zqq_bb(pre-G1)
 3151001:
   J: 1
-  sample: H_ZH_Zqq_bb
+  sample: H_ZH_Zqq_bb(pre-G1)
 3151002:
   J: 2
-  sample: H_ZH_Zqq_bb
+  sample: H_ZH_Zqq_bb(pre-G1)
+3151003:
+  J: 3
+  sample: V_Wjj_QCD_vbs
+3151004:
+  J: 4
+  sample: V_Wjj_QCD_vbs
+3151005:
+  J: 5
+  sample: V_Wjj_QCD_vbs
 3152000:
   J: 0
-  sample: H_WpH_Wqq_bb
+  sample: H_WpH_Wqq_bb(pre-G1)
 3152001:
   J: 1
-  sample: H_WpH_Wqq_bb
+  sample: H_WpH_Wqq_bb(pre-G1)
 3152002:
   J: 2
-  sample: H_WpH_Wqq_bb
+  sample: H_WpH_Wqq_bb(pre-G1)
 3153000:
   J: 0
-  sample: H_WmH_Wqq_bb
+  sample: H_WmH_Wqq_bb(pre-G1)
 3153001:
   J: 1
-  sample: H_WmH_Wqq_bb
+  sample: H_WmH_Wqq_bb(pre-G1)
 3153002:
   J: 2
-  sample: H_WmH_Wqq_bb
+  sample: H_WmH_Wqq_bb(pre-G1)
 3154000:
   J: 0
-  sample: H_ttH_bb
+  sample: H_ttH_bb(pre-G1)
 3154001:
   J: 1
-  sample: H_ttH_bb
+  sample: H_ttH_bb(pre-G1)
 3154002:
   J: 2
-  sample: H_ttH_bb
+  sample: H_ttH_bb(pre-G1)
 3155000:
   J: 0
-  sample: H_ggH_jj_heft
+  sample: H_ggH_jj_heft(pre-G1)
 3155001:
   J: 1
-  sample: H_ggH_jj_heft
+  sample: H_ggH_jj_heft(pre-G1)
 3155002:
   J: 2
-  sample: H_ggH_jj_heft
+  sample: H_ggH_jj_heft(pre-G1)
 3160000:
   J: 0
-  sample: V_Zjj_QCD_vbs
+  sample: V_Zjj_QCD_vbs(pre-G1)
 3160001:
   J: 1
-  sample: V_Zjj_QCD_vbs
+  sample: V_Zjj_QCD_vbs(pre-G1)
 3160002:
   J: 2
-  sample: V_Zjj_QCD_vbs
+  sample: V_Zjj_QCD_vbs(pre-G1)
 3161000:
   J: 0
-  sample: V_Wjj_QCD_vbs
+  sample: V_Wjj_QCD_vbs(pre-G1)
 3161001:
   J: 1
-  sample: V_Wjj_QCD_vbs
+  sample: V_Wjj_QCD_vbs(pre-G1)
 3161002:
   J: 2
-  sample: V_Wjj_QCD_vbs
+  sample: V_Wjj_QCD_vbs(pre-G1)
 3163000:
   J: 0
-  sample: V_ZZjj_EW
+  sample: V_ZZjj_EW(pre-G1)
 3163001:
   J: 1
-  sample: V_ZZjj_EW
+  sample: V_ZZjj_EW(pre-G1)
 3163002:
   J: 2
-  sample: V_ZZjj_EW
+  sample: V_ZZjj_EW(pre-G1)
 3170000:
   J: 0
-  sample: V_HHjj_SM_noSchanV
+  sample: V_HHjj_SM_noSchanV(pre-G1)
 3170001:
   J: 1
-  sample: V_HHjj_SM_noSchanV
+  sample: V_HHjj_SM_noSchanV(pre-G1)
 3170002:
   J: 2
-  sample: V_HHjj_SM_noSchanV
+  sample: V_HHjj_SM_noSchanV(pre-G1)
 3171000:
   J: 0
-  sample: V_ZHH_Zjj_SM
+  sample: V_ZHH_Zjj_SM(pre-G1)
 3171001:
   J: 1
-  sample: V_ZHH_Zjj_SM
+  sample: V_ZHH_Zjj_SM(pre-G1)
 3171002:
   J: 2
-  sample: V_ZHH_Zjj_SM
+  sample: V_ZHH_Zjj_SM(pre-G1)
 3172000:
   J: 0
-  sample: V_WHH_Wjj_SM
+  sample: V_WHH_Wjj_SM(pre-G1)
 3172001:
   J: 1
-  sample: V_WHH_Wjj_SM
+  sample: V_WHH_Wjj_SM(pre-G1)
 3172002:
   J: 2
-  sample: V_WHH_Wjj_SM
+  sample: V_WHH_Wjj_SM(pre-G1)
+3175003:
+  J: 3
+  sample: X_ggZH_loop
+3175004:
+  J: 4
+  sample: X_ggZH_loop
+3175005:
+  J: 5
+  sample: X_ggZH_loop
+3176003:
+  J: 3
+  sample: X_Wjj_EW_vbs
+3176004:
+  J: 4
+  sample: X_Wjj_EW_vbs
+3176005:
+  J: 5
+  sample: X_Wjj_EW_vbs
+3177003:
+  J: 3
+  sample: X_WZ_QCD_boost
+3177004:
+  J: 4
+  sample: X_WZ_QCD_boost
+3177005:
+  J: 5
+  sample: X_WZ_QCD_boost
+3178003:
+  J: 3
+  sample: X_tchan_boost
+3178004:
+  J: 4
+  sample: X_tchan_boost
+3178005:
+  J: 5
+  sample: X_tchan_boost
 3180000:
   J: 0
-  sample: X_tW_boost
+  sample: X_tW_boost(pre-G1)
 3180001:
   J: 1
-  sample: X_tW_boost
+  sample: X_tW_boost(pre-G1)
 3180002:
   J: 2
-  sample: X_tW_boost
+  sample: X_tW_boost(pre-G1)
+3180003:
+  J: 3
+  sample: Q_4j_vbs_twin
+3180004:
+  J: 4
+  sample: Q_4j_vbs_twin
+3180005:
+  J: 5
+  sample: Q_4j_vbs_twin
 3181000:
   J: 0
-  sample: X_ttZ_boost
+  sample: X_ttZ_boost(pre-G1)
 3181001:
   J: 1
-  sample: X_ttZ_boost
+  sample: X_ttZ_boost(pre-G1)
 3181002:
   J: 2
-  sample: X_ttZ_boost
+  sample: X_ttZ_boost(pre-G1)
+3181003:
+  J: 3
+  sample: Q_bbjj_vbs_twin
+3181004:
+  J: 4
+  sample: Q_bbjj_vbs_twin
+3181005:
+  J: 5
+  sample: Q_bbjj_vbs_twin
 3182000:
   J: 0
-  sample: X_ttW_boost
+  sample: X_ttW_boost(pre-G1)
 3182001:
   J: 1
-  sample: X_ttW_boost
+  sample: X_ttW_boost(pre-G1)
 3182002:
   J: 2
-  sample: X_ttW_boost
+  sample: X_ttW_boost(pre-G1)
+3182003:
+  J: 3
+  sample: T_ttbar_boost_twin
+3182004:
+  J: 4
+  sample: T_ttbar_boost_twin
+3182005:
+  J: 5
+  sample: T_ttbar_boost_twin
 3183000:
   J: 0
-  sample: X_Zjj_EW_vbs
+  sample: X_Zjj_EW_vbs(pre-G1)
 3183001:
   J: 1
-  sample: X_Zjj_EW_vbs
+  sample: X_Zjj_EW_vbs(pre-G1)
 3183002:
   J: 2
-  sample: X_Zjj_EW_vbs
+  sample: X_Zjj_EW_vbs(pre-G1)
+3183003:
+  J: 3
+  sample: H_VBFH_bb_twin
+3183004:
+  J: 4
+  sample: H_VBFH_bb_twin
+3183005:
+  J: 5
+  sample: H_VBFH_bb_twin
 3184000:
   J: 0
-  sample: X_ZZ_QCD_boost
+  sample: X_ZZ_QCD_boost(pre-G1)
 3184001:
   J: 1
-  sample: X_ZZ_QCD_boost
+  sample: X_ZZ_QCD_boost(pre-G1)
 3184002:
   J: 2
-  sample: X_ZZ_QCD_boost
+  sample: X_ZZ_QCD_boost(pre-G1)
+3184003:
+  J: 3
+  sample: H_ZH_Zqq_bb_twin
+3184004:
+  J: 4
+  sample: H_ZH_Zqq_bb_twin
+3184005:
+  J: 5
+  sample: H_ZH_Zqq_bb_twin
+3185003:
+  J: 3
+  sample: H_ttH_bb_twin
+3185004:
+  J: 4
+  sample: H_ttH_bb_twin
+3185005:
+  J: 5
+  sample: H_ttH_bb_twin
+3186003:
+  J: 3
+  sample: V_Zjj_QCD_vbs_twin
+3186004:
+  J: 4
+  sample: V_Zjj_QCD_vbs_twin
+3186005:
+  J: 5
+  sample: V_Zjj_QCD_vbs_twin
+3187003:
+  J: 3
+  sample: V_ZZjj_EW_twin
+3187004:
+  J: 4
+  sample: V_ZZjj_EW_twin
+3187005:
+  J: 5
+  sample: V_ZZjj_EW_twin
+3188003:
+  J: 3
+  sample: H_ggH_jj_heft_twin
+3188004:
+  J: 4
+  sample: H_ggH_jj_heft_twin
+3188005:
+  J: 5
+  sample: H_ggH_jj_heft_twin
+3189003:
+  J: 3
+  sample: H_WH_Wqq_bb_twin
+3189004:
+  J: 4
+  sample: H_WH_Wqq_bb_twin
+3189005:
+  J: 5
+  sample: H_WH_Wqq_bb_twin
+3190003:
+  J: 3
+  sample: V_Wjj_QCD_vbs_twin
+3190004:
+  J: 4
+  sample: V_Wjj_QCD_vbs_twin
+3190005:
+  J: 5
+  sample: V_Wjj_QCD_vbs_twin
+3191003:
+  J: 3
+  sample: T_ttbar_mlm_twin
+3191004:
+  J: 4
+  sample: T_ttbar_mlm_twin
+3191005:
+  J: 5
+  sample: T_ttbar_mlm_twin
+3192003:
+  J: 3
+  sample: Q_4j_vbs_twin2
+3192004:
+  J: 4
+  sample: Q_4j_vbs_twin2
+3192005:
+  J: 5
+  sample: Q_4j_vbs_twin2
+3193003:
+  J: 3
+  sample: Q_bbjj_vbs_twin2
+3193004:
+  J: 4
+  sample: Q_bbjj_vbs_twin2
+3193005:
+  J: 5
+  sample: Q_bbjj_vbs_twin2
