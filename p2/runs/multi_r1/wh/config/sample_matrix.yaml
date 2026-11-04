@@ -17,12 +17,15 @@ samples:
   sigma_fb: 13.77
   sigma_err_fb: 0.03726
   sigma_source: gridpack init sigma (smoke run gave 13.63 +- 0.18 fb)
+  sigma_py8_test_fb: 13.68
+  sigma_for_N_fb: 14.4585
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - WF
   - BGG
   k_external: 0.002179373637501515
   br_in_ME: W->e nu,mu nu in MG5 ME
-  h_decay: H->gg forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once
+  h_decay: H->gamma gamma forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once
   N_required: 50000
   N_planned: 200000
   infeasible_N: false
@@ -44,12 +47,15 @@ samples:
   sigma_fb: 6.884
   sigma_err_fb: 0.018770000000000002
   sigma_source: gridpack init sigma (smoke run gave 6.71 +- 0.11 fb)
+  sigma_py8_test_fb: 6.882
+  sigma_for_N_fb: 7.228200000000001
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - WFTAU
   - BGG
   k_external: 0.002324392876735449
   br_in_ME: W->tau nu in MG5 ME; tau->l in PY8
-  h_decay: H->gg forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once
+  h_decay: H->gamma gamma forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once
   N_required: 50000
   N_planned: 100000
   infeasible_N: false
@@ -71,12 +77,15 @@ samples:
   sigma_fb: 302.3
   sigma_err_fb: 5.3
   sigma_source: 'condor test job H_QCD_WH_mlm_s2113001: PY8 sigma after MLM matching (4000 LHE ev, 1386 accepted = 34.6 %); cf. 0j proxy 280.3 fb, pre-matching gridpack 879.6 fb'
+  sigma_py8_test_fb: 302.29999999999995
+  sigma_for_N_fb: 317.415
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - WF
   - BGG
   k_external: 0.002179373637501515
   br_in_ME: W->l nu in MG5 ME
-  h_decay: H->gg forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once
+  h_decay: H->gamma gamma forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once
   N_required: 50000
   N_planned: 200000
   infeasible_N: false
@@ -98,12 +107,15 @@ samples:
   sigma_fb: 58.61
   sigma_err_fb: 0.1385
   sigma_source: gridpack init sigma (smoke run gave 57.81 +- 0.5 fb)
+  sigma_py8_test_fb: 59.18
+  sigma_for_N_fb: 62.139
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - WF
   - BGG
   k_external: 0.002179373637501515
   br_in_ME: W->l nu in MG5 ME
-  h_decay: H->gg forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once
+  h_decay: H->gamma gamma forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once
   N_required: 50000
   N_planned: 100000
   infeasible_N: false
@@ -126,23 +138,27 @@ samples:
   sigma_fb: -0.2503
   sigma_err_fb: 0.004189
   sigma_source: gridpack init sigma (smoke run gave -0.2644 +- 0.013 fb)
+  sigma_py8_test_fb: -0.23610000000000003
+  sigma_for_N_fb: 0.262815
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - BR_WLL
   - BGG
   k_external: 0.00048441799999999997
   br_in_ME: 'W undecayed in ME: physical B_PDG(l nu) applied externally (sigma-ONLY use; if events are ever showered the W must be decayed in PY8 with forced e/mu, cond. BR 1, and this k is then still applied
     once)'
-  h_decay: H->gg forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once
+  h_decay: H->gamma gamma forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once
   N_required: 50000
-  N_planned: 50000
+  N_planned: null
   infeasible_N: false
   overlap_rule: signed; separate component
   condor_test: null
   status: candidate
-  note: N_planned raised 20000->50000 (>= N_required, G1 item 1)
-  in_bs: true
+  note: 'G2 item 8: production DROPPED (sigma-only). Gridpack sigma -0.2503 +- 0.0042 fb; test PY8 -0.2361 +- 0.0536 fb (signed weights: 23 % statistical error, agrees at 0.3 sigma; the +-2 % closure tolerance
+    applies to unweighted samples only). LHE-level I/S: inclusive -0.40 %, parton-VBS region -0.15 +- 0.06 % (work/I_over_S.json); carried as a signed signal-model systematic'
+  in_bs: false
   weighted: false
-  N_shortfall_flag: null
+  N_shortfall_flag: 'NOT IN s/b (cross-check/pilot/superseded): N rule n/a; test job only, no production'
 - id: H_ttH_1l
   idx: 6
   role: resonant bkg
@@ -154,13 +170,16 @@ samples:
   sigma_fb: 107.80000000000001
   sigma_err_fb: 0.3099
   sigma_source: gridpack init sigma (smoke run gave 108.3 +- 0.5 fb)
+  sigma_py8_test_fb: 107.80000000000001
+  sigma_for_N_fb: 113.19000000000001
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - WF
   - WHAD
   - BGG
   k_external: 0.002203160753373493
   br_in_ME: t->b W, W->l nu / q q' in MG5 ME
-  h_decay: H->gg forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once
+  h_decay: H->gamma gamma forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once
   N_required: 50000
   N_planned: 200000
   infeasible_N: false
@@ -182,12 +201,15 @@ samples:
   sigma_fb: 15.63
   sigma_err_fb: 0.06819
   sigma_source: gridpack init sigma (smoke run gave 14.88 +- 0.15 fb)
+  sigma_py8_test_fb: 15.75
+  sigma_for_N_fb: 16.5375
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - WF
   - BGG
   k_external: 0.002179373637501515
   br_in_ME: t->b W->l nu in MG5 ME
-  h_decay: H->gg forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once
+  h_decay: H->gamma gamma forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once
   N_required: 50000
   N_planned: 100000
   infeasible_N: false
@@ -208,13 +230,16 @@ samples:
   sigma_fb: 4.679
   sigma_err_fb: 0.01151
   sigma_source: gridpack init sigma (smoke run gave 4.668 +- 0.035 fb)
+  sigma_py8_test_fb: 4.712
+  sigma_for_N_fb: 4.9475999999999996
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - WF
   - WHAD
   - BGG
   k_external: 0.002203160753373493
   br_in_ME: t->b W; W->l nu/qq' in MG5 ME
-  h_decay: H->gg forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once
+  h_decay: H->gamma gamma forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once
   N_required: 50000
   N_planned: 100000
   infeasible_N: false
@@ -236,14 +261,17 @@ samples:
   sigma_fb: 512.0
   sigma_err_fb: 1.129
   sigma_source: gridpack init sigma (smoke run gave 511.2 +- 3.4 fb)
+  sigma_py8_test_fb: 514.5
+  sigma_for_N_fb: 540.225
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - WF
   - WHAD
   k_external: 0.9705553979618913
   br_in_ME: t->b W->l nu / q q' in MG5 ME
   h_decay: no H
-  N_required: 1490773
-  N_planned: 1491000
+  N_required: 1572955
+  N_planned: 1573000
   infeasible_N: false
   overlap_rule: 'overlap with T_ttaa_1l: events with 2 prompt photons are dropped from T_tta_1l at analysis (as ZH closeout); residual double counting bounded at reco (after b-veto) in report 04 sec. 6,
     NOT called negligible'
@@ -264,6 +292,9 @@ samples:
   sigma_fb: 0.5816
   sigma_err_fb: 0.001667
   sigma_source: gridpack init sigma (smoke run gave 0.5709 +- 0.0047 fb)
+  sigma_py8_test_fb: 0.5782
+  sigma_for_N_fb: 0.61068
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - WF
   - WHAD
@@ -291,14 +322,17 @@ samples:
   sigma_fb: 78.60000000000001
   sigma_err_fb: 0.2026
   sigma_source: gridpack init sigma (smoke run gave 77.87 +- 0.61 fb)
+  sigma_py8_test_fb: 78.89999999999999
+  sigma_for_N_fb: 82.845
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - WF
   - WHAD
   k_external: 0.9705553979618913
   br_in_ME: t->b W; W->l nu/qq' in MG5 ME
   h_decay: no H
-  N_required: 228857
-  N_planned: 229000
+  N_required: 241217
+  N_planned: 242000
   infeasible_N: false
   overlap_rule: events with >=2 prompt photons removed (as T_tta_1l); DR vs DS as systematic
   condor_test: null
@@ -318,13 +352,16 @@ samples:
   sigma_fb: 141700.0
   sigma_err_fb: 458.8
   sigma_source: gridpack init sigma (smoke run gave 1.417e+05 +- 9.9e+02 fb)
+  sigma_py8_test_fb: 141900.0
+  sigma_for_N_fb: 148995.0
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - WF
   - WHAD
   k_external: 0.9705553979618913
   br_in_ME: t->b W in MG5 ME
   h_decay: no H
-  N_required: 412583100
+  N_required: 433823705
   N_planned: null
   infeasible_N: true
   overlap_rule: 'N_prompt_gamma==0; inclusive tt (jets from PS): CHECK sample only, superseded by T_ttjj_1l in b'
@@ -345,6 +382,9 @@ samples:
   sigma_fb: null
   sigma_err_fb: null
   sigma_source: 'gridpack init sigma (pending: 884934.13)'
+  sigma_py8_test_fb: null
+  sigma_for_N_fb: null
+  n_lhe_over_requested_test: null
   br_factors_external:
   - WF
   k_external: 0.9600764922914165
@@ -371,6 +411,9 @@ samples:
   sigma_fb: 0.203
   sigma_err_fb: 0.00026530000000000005
   sigma_source: gridpack init sigma (smoke run gave 0.203 +- 0.00027 fb)
+  sigma_py8_test_fb: 0.2044
+  sigma_for_N_fb: 0.21462
+  n_lhe_over_requested_test: 0.97
   br_factors_external:
   - WF
   k_external: 0.9600764922914165
@@ -397,6 +440,9 @@ samples:
   sigma_fb: 3.5820000000000003
   sigma_err_fb: 0.006376
   sigma_source: gridpack init sigma (smoke run gave 3.582 +- 0.0064 fb)
+  sigma_py8_test_fb: 3.558
+  sigma_for_N_fb: 3.7611000000000003
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - WF
   k_external: 0.9600764922914165
@@ -423,6 +469,9 @@ samples:
   sigma_fb: 0.6327
   sigma_err_fb: 0.00113
   sigma_source: gridpack init sigma (smoke run gave 0.6327 +- 0.0011 fb)
+  sigma_py8_test_fb: 0.6317
+  sigma_for_N_fb: 0.6643350000000001
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - WF
   k_external: 0.9600764922914165
@@ -449,13 +498,16 @@ samples:
   sigma_fb: 167.7
   sigma_err_fb: 0.19469999999999998
   sigma_source: gridpack init sigma (smoke run gave 167.7 +- 0.19 fb)
+  sigma_py8_test_fb: 167.2
+  sigma_for_N_fb: 176.085
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - WF
   k_external: 0.9600764922914165
   br_in_ME: W->l nu in MG5 ME
   h_decay: no H
-  N_required: 483014
-  N_planned: 484000
+  N_required: 507165
+  N_planned: 508000
   infeasible_N: false
   overlap_rule: drop events with >=2 prompt photons (-> B_*)
   condor_test: 1 fake gamma
@@ -475,12 +527,15 @@ samples:
   sigma_fb: 89.63
   sigma_err_fb: 0.16110000000000002
   sigma_source: gridpack init sigma (smoke run gave 89.63 +- 0.16 fb)
+  sigma_py8_test_fb: 89.11
+  sigma_for_N_fb: 94.11149999999999
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - WF
   k_external: 0.9600764922914165
   br_in_ME: W->l nu in MG5 ME
   h_decay: no H
-  N_required: 258155
+  N_required: 271063
   N_planned: null
   infeasible_N: false
   overlap_rule: cross-check only
@@ -501,13 +556,16 @@ samples:
   sigma_fb: 5683.0
   sigma_err_fb: 10.149999999999999
   sigma_source: gridpack init sigma (smoke run gave 5683 +- 10 fb)
+  sigma_py8_test_fb: 5735.0
+  sigma_for_N_fb: 6021.75
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - WF
   k_external: 0.9600764922914165
   br_in_ME: W->l nu in MG5 ME
   h_decay: no H
-  N_required: 16368344
-  N_planned: 16369000
+  N_required: 17344022
+  N_planned: 17345000
   infeasible_N: false
   overlap_rule: drop events with >=2 prompt photons
   condor_test: 1 fake gamma
@@ -527,12 +585,15 @@ samples:
   sigma_fb: 712.4
   sigma_err_fb: 1.474
   sigma_source: gridpack init sigma (smoke run gave 712.4 +- 1.5 fb)
+  sigma_py8_test_fb: 706.0
+  sigma_for_N_fb: 748.02
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - WF
   k_external: 0.9600764922914165
   br_in_ME: W->l nu in MG5 ME
   h_decay: no H
-  N_required: 2051875
+  N_required: 2154469
   N_planned: null
   infeasible_N: false
   overlap_rule: cross-check only
@@ -553,12 +614,15 @@ samples:
   sigma_fb: 414700.0
   sigma_err_fb: 413.3
   sigma_source: gridpack init sigma (smoke run gave 4.147e+05 +- 4.1e+02 fb)
+  sigma_py8_test_fb: 409600.0
+  sigma_for_N_fb: 435435.0
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - WF
   k_external: 0.9600764922914165
   br_in_ME: W->l nu in MG5 ME
   h_decay: no H
-  N_required: 1194431164
+  N_required: 1254152722
   N_planned: null
   infeasible_N: true
   overlap_rule: N_prompt_gamma==0; photons from jets by Delphes-j->gamma-rate probability weights (D-WH-2)
@@ -567,7 +631,7 @@ samples:
   note: N_planned set by N_eff>=10 in the SR (from test job) in report 04, not by sigma*L
   in_bs: true
   weighted: true
-  N_shortfall_flag: D-WH-2 (N_eff rule, N set in report 04)
+  N_shortfall_flag: 'weighted row: N_eff>=10 rule (enforced in make_plan.py)'
 - id: T_ttjj_1l
   idx: 27
   role: tt 1l, 2 fake gammas (weighted)
@@ -579,13 +643,16 @@ samples:
   sigma_fb: 85790.0
   sigma_err_fb: 147.5
   sigma_source: gridpack init sigma (smoke run gave 85790 +- 1.5e+02 fb)
+  sigma_py8_test_fb: 85590.0
+  sigma_for_N_fb: 90079.5
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - WF
   - WHAD
   k_external: 0.9705553979618913
   br_in_ME: t->b W in MG5 ME
   h_decay: no H
-  N_required: 249791843
+  N_required: 262281435
   N_planned: null
   infeasible_N: true
   overlap_rule: N_prompt_gamma==0; weights as F_Wjjjj; b-veto kept in the selection
@@ -594,7 +661,7 @@ samples:
   note: 'gluon-splitting/ISR double counting with PS jets of T_tt_1l is irrelevant: T_tt_1l is not in b'
   in_bs: true
   weighted: true
-  N_shortfall_flag: D-WH-2 (N_eff rule, N set in report 04)
+  N_shortfall_flag: 'weighted row: N_eff>=10 rule (enforced in make_plan.py)'
 - id: F_Wjj_pilot
   idx: 19
   role: pilot (exploratory bound), superseded by F_Wjjjj
@@ -606,12 +673,15 @@ samples:
   sigma_fb: 3435000.0
   sigma_err_fb: 7568.0
   sigma_source: gridpack init sigma (smoke run gave 3.411e+06 +- 2.6e+04 fb)
+  sigma_py8_test_fb: 3413000.0
+  sigma_for_N_fb: 3606750.0
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - WF
   k_external: 0.9600764922914165
   br_in_ME: W->l nu in MG5 ME
   h_decay: no H
-  N_required: 9893588253
+  N_required: 10388267666
   N_planned: null
   infeasible_N: true
   overlap_rule: pilot only; never in b
@@ -632,12 +702,15 @@ samples:
   sigma_fb: 9878.0
   sigma_err_fb: 19.39
   sigma_source: gridpack init sigma (smoke run gave 9616 +- 63 fb)
+  sigma_py8_test_fb: 9838.0
+  sigma_for_N_fb: 10371.9
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - WF
   k_external: 0.9600764922914165
   br_in_ME: W->l nu in MG5 ME
   h_decay: no H
-  N_required: 28450907
+  N_required: 29873452
   N_planned: null
   infeasible_N: true
   overlap_rule: pilot only; never in b
@@ -658,6 +731,9 @@ samples:
   sigma_fb: 5.128
   sigma_err_fb: 0.005756
   sigma_source: gridpack init sigma (smoke run gave 5.128 +- 0.0058 fb)
+  sigma_py8_test_fb: 5.099
+  sigma_for_N_fb: 5.3844
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - one
   k_external: 1.0
@@ -684,13 +760,16 @@ samples:
   sigma_fb: 28.09
   sigma_err_fb: 0.03841
   sigma_source: gridpack init sigma (smoke run gave 28.09 +- 0.038 fb)
+  sigma_py8_test_fb: 28.53
+  sigma_for_N_fb: 29.956500000000002
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - one
   k_external: 1.0
   br_in_ME: leptons in ME (k=1)
   h_decay: no H
-  N_required: 84270
-  N_planned: 85000
+  N_required: 89870
+  N_planned: 90000
   infeasible_N: false
   overlap_rule: as V_WZa_WH
   condor_test: V gamma
@@ -710,6 +789,9 @@ samples:
   sigma_fb: null
   sigma_err_fb: null
   sigma_source: 'gridpack init sigma (pending: 884934.12)'
+  sigma_py8_test_fb: null
+  sigma_for_N_fb: null
+  n_lhe_over_requested_test: null
   br_factors_external:
   - one
   k_external: 1.0
@@ -728,19 +810,22 @@ samples:
 - id: H_ggZH_wh
   idx: 28
   role: ggZH loop, Z->ee/mumu (PY8), 1 lepton lost (D-WH-3 top-up)
-  process: gg > Z H [noborn=QCD] (ZH gridpack H_ggZH_py8dec_s1363200, read-only), Z->ee/mumu and H->gg forced in PY8
+  process: gg > Z H [noborn=QCD] (ZH gridpack H_ggZH_py8dec_s1363200, read-only), Z->ee/mumu and H->gamma gamma forced in PY8
   orders:
   - loop
   gen_cuts: none (PY8 decay, no cuts)
-  sigma_fb: 74.33
-  sigma_err_fb: 0.7
-  sigma_source: 'SMOKE RUN (no gridpack sigma yet): ZH FINAL_report table (same gridpack)'
+  sigma_fb: 74.94
+  sigma_err_fb: 0.13
+  sigma_source: own test job LHE init sigma (same gridpack as ZH; ZH table 74.33, -0.8 %, within closure tolerance; the larger value is used)
+  sigma_py8_test_fb: 74.95
+  sigma_for_N_fb: 78.6975
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - BR_ZLL
   - BGG
   k_external: 0.00015275737999999997
   br_in_ME: Z undecayed in LHE; forced to e/mu in PY8
-  h_decay: H->gg forced in PY8
+  h_decay: H->gamma gamma forced in PY8
   N_required: 50000
   N_planned: 50000
   infeasible_N: false
@@ -759,16 +844,19 @@ samples:
   - 2
   - 1
   gen_cuts: no jet cuts, scale 3
-  sigma_fb: 18.11
-  sigma_err_fb: 0.2
-  sigma_source: 'SMOKE RUN (no gridpack sigma yet): ZH FINAL_report table (same gridpack)'
+  sigma_fb: 18.26
+  sigma_err_fb: 0.17
+  sigma_source: own test job LHE init sigma (same gridpack as ZH; ZH table 18.11, -0.8 %)
+  sigma_py8_test_fb: 18.24
+  sigma_for_N_fb: 19.173000000000002
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - WF
   - WF
   - BGG
   k_external: 0.0020923653972848397
   br_in_ME: 't->b W->l nu in MG5 ME (ZH H_ttH gridpack: dilepton)'
-  h_decay: H->gg forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once
+  h_decay: H->gamma gamma forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once
   N_required: 50000
   N_planned: 50000
   infeasible_N: false
@@ -787,14 +875,17 @@ samples:
   - 2
   - 2
   gen_cuts: xqcut as ZH
-  sigma_fb: 24.97
+  sigma_fb: 25.35
   sigma_err_fb: 0.3
-  sigma_source: 'SMOKE RUN (no gridpack sigma yet): ZH FINAL_report table (sigma after matching)'
+  sigma_source: own test job PY8 sigma after MLM matching (ZH table 24.97; LHE init 24.92 is pre-matching; the larger value is used)
+  sigma_py8_test_fb: 25.349999999999998
+  sigma_for_N_fb: 26.617500000000003
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - BGG
   k_external: 0.00227
   br_in_ME: Z->tautau in MG5 ME
-  h_decay: H->gg forced in PY8
+  h_decay: H->gamma gamma forced in PY8
   N_required: 50000
   N_planned: 50000
   infeasible_N: false
@@ -805,6 +896,121 @@ samples:
   in_bs: true
   weighted: false
   N_shortfall_flag: null
+- id: Q_aajj
+  idx: 31
+  role: 'non-prompt lepton: prompt gamma gamma + jj, per-jet f_l weights (f_l PENDING D28)'
+  process: p p > a a j j (QCD gamma gamma + 2 jets), no lepton in the ME
+  orders:
+  - 2
+  - 2
+  gen_cuts: pta>25,draa 0.4,100<maa<170,ptj>20,drjj>0.4, no mjj cut
+  sigma_fb: 3580.0
+  sigma_err_fb: 9.530999999999999
+  sigma_source: gridpack init sigma (smoke run gave 3542 +- 29 fb)
+  sigma_py8_test_fb: 3536.0
+  sigma_for_N_fb: 3759.0
+  n_lhe_over_requested_test: 1.0
+  br_factors_external:
+  - one
+  k_external: 1.0
+  br_in_ME: no lepton
+  h_decay: no H
+  N_required: 11277000
+  N_planned: null
+  infeasible_N: false
+  overlap_rule: 'jet -> lepton by probability weights (scripts/fakelep_pilot.py); fixed-order 2 jets: PS/merging uncertainty declared (04 sec. 6b)'
+  condor_test: non-prompt lepton
+  status: candidate
+  note: N set by N_eff>=10 in the PEAK region of fakelep_pilot.py; f_l range 3e-5..1e-3 (assumption, D28)
+  in_bs: true
+  weighted: true
+  N_shortfall_flag: null
+- id: H_VBFH_jj
+  idx: 32
+  role: 'non-prompt lepton: VBF H->gamma gamma + jj (resonant), per-jet f_l weights (f_l PENDING D28)'
+  process: p p > h j j QCD=0 (includes hadronic VH at EW order 3)
+  orders:
+  - 0
+  - 3
+  gen_cuts: ptj>20,|etaj|<5,drjj>0.4
+  sigma_fb: 4124.0
+  sigma_err_fb: 30.630000000000003
+  sigma_source: gridpack init sigma (smoke run gave 4124 +- 31 fb)
+  sigma_py8_test_fb: 4152.0
+  sigma_for_N_fb: 4359.6
+  n_lhe_over_requested_test: 1.0
+  br_factors_external:
+  - BGG
+  k_external: 0.00227
+  br_in_ME: no lepton
+  h_decay: H->gamma gamma forced in PY8 (cond. BR 1); B_gg external once
+  N_required: 50000
+  N_planned: null
+  infeasible_N: false
+  overlap_rule: 'resonant: not constrained by m_gg sidebands; hadronic VH part overlaps nothing with the lepton channel'
+  condor_test: non-prompt lepton
+  status: candidate
+  note: f_l PENDING D28
+  in_bs: true
+  weighted: true
+  N_shortfall_flag: null
+- id: H_ggF_jj
+  idx: 33
+  role: 'non-prompt lepton: ggF-like H + jj (resonant, top loop, LO loop-induced), per-jet f_l weights (f_l PENDING D28)'
+  process: p p > h j j [noborn=QCD] (loop_sm-no_b_mass)
+  orders:
+  - loop
+  gen_cuts: ptj>20,|etaj|<5,drjj>0.4
+  sigma_fb: null
+  sigma_err_fb: null
+  sigma_source: gridpack init sigma (pending 885122.2)
+  sigma_py8_test_fb: null
+  sigma_for_N_fb: null
+  n_lhe_over_requested_test: null
+  br_factors_external:
+  - BGG
+  k_external: 0.00227
+  br_in_ME: no lepton
+  h_decay: H->gamma gamma forced in PY8 (cond. BR 1); B_gg external once
+  N_required: null
+  N_planned: null
+  infeasible_N: false
+  overlap_rule: resonant; LO loop-induced normalised as is (K-factor not applied, labelled)
+  condor_test: non-prompt lepton
+  status: candidate
+  note: f_l PENDING D28; loop gridpack may fail (then D-WH-14)
+  in_bs: true
+  weighted: true
+  N_shortfall_flag: 'weighted row: N_eff>=10 rule (enforced in make_plan.py)'
+- id: F_QCD_llajj_loose
+  idx: 34
+  role: 'lost-lepton coverage bound (sigma only): ZH F_QCD_llajj_nomjj card with loose lepton cuts'
+  process: p p > l+ l- a j j QCD=2 QED=3, ptl>5,|etal|<3.5,mmll>10
+  orders:
+  - 2
+  - 3
+  gen_cuts: loose lepton cuts
+  sigma_fb: 1679.0
+  sigma_err_fb: 5.039
+  sigma_source: gridpack init sigma (smoke run gave 1679 +- 5 fb)
+  sigma_py8_test_fb: null
+  sigma_for_N_fb: 1762.95
+  n_lhe_over_requested_test: null
+  br_factors_external:
+  - one
+  k_external: 1.0
+  br_in_ME: leptons in ME
+  h_decay: no H
+  N_required: 5288850
+  N_planned: null
+  infeasible_N: false
+  overlap_rule: sigma-only coverage bound (04 sec. 6c)
+  condor_test: sigma only
+  status: candidate
+  note: ''
+  in_bs: false
+  weighted: false
+  N_shortfall_flag: 'NOT IN s/b (cross-check/pilot/superseded): N rule n/a; test job only, no production'
 - id: ZH_EW_ZHjj_lostlep
   role: ZHjj EW, Z->ll, 1 lepton lost
   sigma_fb: 1.295
@@ -891,8 +1097,23 @@ samples:
     factor: null
     source: 'EW part: ZH measured 1.4 % loss at the ZH selection; W EW twin (B_EW_Waajj_nomjj vs _vbs) pending as proxy; syst = full difference'
   N_shortfall_flag: null
+- id: ZH_Zaajj_QCD_nomjj_lostlep
+  role: Zgg jj QCD (on-shell Z->ll), 1 lepton lost, NO generator mjj cut (NOMINAL, D8; G2 item 2)
+  sigma_fb: 0.2728
+  sigma_source: FINAL_report.md table (ZH, LO MG5 init)
+  br_factors_external:
+  - ZF
+  k_external: 0.9783
+  N_available: 100000
+  N_required: 50000
+  N_ok: true
+  path: frozen ZH (zh-final-v1.1), /eos/home-r/rjiang/vbs_zh_codex_starter/production/final/B_QCD_zaajj_nomjj (frozen twin, 100k events, 280 selected at the SR proxy)
+  coverage: 'Z->ll in ME with cut_decays=False => NO generator cut on the decay leptons: a lost lepton (acceptance/ID) is fully covered; no mjj cut; pta>25, 100<maa<170 only'
+  gen_cuts: pta>25,etaa<2.5,100<maa<170 (mmjj 0)
+  status: frozen reuse
+  N_shortfall_flag: null
 - id: ZH_Zaajj_QCD_lostlep
-  role: Zgg jj QCD (on-shell Z->ll), 1 lepton lost
+  role: 'Zgg jj QCD (on-shell Z->ll), 1 lepton lost (mmjj>400 CROSS-CHECK of the nomjj nominal; twin C) -- NOT in b: the nomjj sample is nominal'
   sigma_fb: 0.0356
   sigma_source: FINAL_report.md table (ZH, LO MG5 init)
   br_factors_external:
@@ -910,7 +1131,8 @@ samples:
     rel_err_stat: 0.067
     syst_full_difference: 0.955
     source: frozen ZH twin pair B_QCD_zaajj_nomjj/_vbs (100k+100k ev) at the WH SR proxy, ng=2
-  N_shortfall_flag: null
+  in_bs: false
+  N_shortfall_flag: 'SUPERSEDED frozen ZH sample (D-WH-3 top-up used instead): not in b'
 - id: ZH_Zajj_eFake
   role: Z(ll)gamma jj with e->gamma (QCD+EW), lepton+photon pairs
   sigma_fb: 80.51

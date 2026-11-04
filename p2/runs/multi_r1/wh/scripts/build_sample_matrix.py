@@ -15,6 +15,14 @@ def gp(name):
     if not os.path.exists(f): return None
     m = re.search(r"Cross-section :\s+(\S+) \+- (\S+) pb", open(f).read())
     return (float(m.group(1))*1e3, float(m.group(2))*1e3) if m else None
+import glob, json
+MARGIN = 1.05    # N sizing margin (verifier #6 item 10): N_required uses max(gridpack/primary sigma, PY8 test sigma) x 1.05
+def testsig(name):
+    """(LHE init sigma of the FIRST process line [fb], PY8 sigma [fb]) from the condor test-job json, or None."""
+    fs = sorted(glob.glob(f"{WH}/work/test/{name}/*[0-9].json"))
+    if not fs: return None
+    j = json.load(open(fs[0])); m = re.search(r"\|\s+sum\s+\|\s+(\d+)\s+(\d+)\s+(\d+)\s+\|\s+(\S+)\s+(\S+)\s+\|", j["pythia_sum_line"])
+    return (float(j["lhe_init_xsec_pb_err_pb_max_lprup"].split()[0])*1e3, float(m.group(4))*1e12 if m else None, j["n_requested"], j["n_lhe"], j["n_delphes"])
 reg = yaml.safe_load(open(f"{WH}/config/sample_registry.yaml"))["samples"]
 ROWS = []
 def row(id, role, process, orders, cuts, sig, src, fac, wdec, hdec, overlap, N_plan=None, test=None, status="candidate", note="", in_bs=True, weighted=False):
@@ -22,17 +30,19 @@ def row(id, role, process, orders, cuts, sig, src, fac, wdec, hdec, overlap, N_p
     g = gp(id)
     if g is not None and id != "H_QCD_WH_mlm":      # gridpack init sigma (higher precision) preferred; MLM keeps the matched PY8 sigma
         src = "gridpack init sigma" + (f" (smoke run gave {sig[0]:.5g} +- {sig[1]:.2g} fb)" if sig else "") ; sig = g
-    elif sig is not None and not src.startswith("condor"): src = "SMOKE RUN (no gridpack sigma yet): " + src
+    elif sig is not None and not src.startswith(("condor", "own test")): src = "SMOKE RUN (no gridpack sigma yet): " + src
     if sig is None: sigv, err = None, None
     else: sigv, err = sig
-    need = None if sigv is None else max(50000.0, abs(sigv)*k*L)
+    ts = testsig(id); sig_py8 = ts[1] if ts else None
+    sig_for_N = None if sigv is None else max(abs(sigv), sig_py8 or 0.0)*MARGIN          # max(primary, PY8) x 5 %
+    need = None if sigv is None else max(50000.0, sig_for_N*k*L)
     inf = need is not None and need > NMAX
     if N_plan == "req": N_plan = None if need is None else int(-(-need // 1000)*1000)      # plan exactly the required N (rounded up to 1000)
-    ROWS.append(dict(id=id, idx=reg.get(id), role=role, process=process, orders=orders, gen_cuts=cuts, sigma_fb=sigv, sigma_err_fb=err, sigma_source=src,
+    ROWS.append(dict(id=id, idx=reg.get(id), role=role, process=process, orders=orders, gen_cuts=cuts, sigma_fb=sigv, sigma_err_fb=err, sigma_source=src, sigma_py8_test_fb=sig_py8, sigma_for_N_fb=sig_for_N, n_lhe_over_requested_test=(ts[3]/ts[2] if ts else None),
         br_factors_external=fac, k_external=k, br_in_ME=wdec, h_decay=hdec, N_required=None if need is None else round(need), N_planned=N_plan,
         infeasible_N=bool(inf), overlap_rule=overlap, condor_test=test, status=status, note=note, in_bs=in_bs, weighted=weighted))
 J20 = "ptj>20,|etaj|<5,drjj>0.4,drjl>0.4, cut_decays=False (no cuts on decay leptons), scale choice 3"
-HD = "H->gg forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once"
+HD = "H->gamma gamma forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once"
 row("S_EW_WHjj","signal (def a: EW only)","p p > w+ h j j QCD=0 QED=4, w+>l+ vl  (+ w- c.c.); p,j = g u c d s (no b)",[0,4],J20,
     smoke("S_EW_WHjj_smoke"),"smoke S_EW_WHjj_smoke (both charges, W->e/mu in ME)",["WF","BGG"],"W->e nu,mu nu in MG5 ME",HD,
     "order-exclusive vs QCD W H j j; top-resonant b-class excluded by external-flavour definition (tHq/tHW own samples)",200000,"EW fixed-order",
@@ -45,7 +55,7 @@ row("H_QCD_WH_mlm","resonant bkg (def a) / signal component of def b","p p > w+ 
 row("H_QCD_WHjj_fixed","cross-check only (VBS-region efficiency)","p p > w+ h j j QCD=2 QED=2, w+>l+ vl (+c.c.)",[2,2],J20,
     smoke("H_QCD_WHjj_fixed_smoke"),"smoke H_QCD_WHjj_fixed_smoke",["WF","BGG"],"W->l nu in MG5 ME",HD,"ALTERNATIVE to H_QCD_WH_mlm 2-jet bin; never added",100000)
 row("I_WHjj","signed EW x QCD interference (def b); sigma is NEGATIVE (computed sign, not structural) (-0.264 +- 0.013 fb undecayed = -0.43 % of EW); enters s/b only as a signed signal-model systematic, never as events","p p > w+ h j j QCD^2==2 QED^2==6 (+ w-), W,H undecayed",[ "sq 2","sq 6"],J20,
-    smoke("I_WHjj_smoke"),"smoke I_WHjj_smoke (W,H undecayed, both charges)",["BR_WLL","BGG"],"W undecayed in ME: physical B_PDG(l nu) applied externally (sigma-ONLY use; if events are ever showered the W must be decayed in PY8 with forced e/mu, cond. BR 1, and this k is then still applied once)",HD,"signed; separate component",50000,note="N_planned raised 20000->50000 (>= N_required, G1 item 1)")
+    smoke("I_WHjj_smoke"),"smoke I_WHjj_smoke (W,H undecayed, both charges)",["BR_WLL","BGG"],"W undecayed in ME: physical B_PDG(l nu) applied externally (sigma-ONLY use; if events are ever showered the W must be decayed in PY8 with forced e/mu, cond. BR 1, and this k is then still applied once)",HD,"signed; separate component",None,in_bs=False,note="G2 item 8: production DROPPED (sigma-only). Gridpack sigma -0.2503 +- 0.0042 fb; test PY8 -0.2361 +- 0.0536 fb (signed weights: 23 % statistical error, agrees at 0.3 sigma; the +-2 % closure tolerance applies to unweighted samples only). LHE-level I/S: inclusive -0.40 %, parton-VBS region -0.15 +- 0.06 % (work/I_over_S.json); carried as a signed signal-model systematic")
 row("H_ttH_1l","resonant bkg","p p > t t~ h, one t->b l nu, other t->b q q' (both assignments); p,j incl. b",[2,1],"no jet cuts, scale 3",
     smoke("H_ttH_1l_smoke"),"smoke H_ttH_1l_smoke",["WF","WHAD","BGG"],"t->b W, W->l nu / q q' in MG5 ME",HD,"external tops; distinct from WH",200000,"top")
 row("H_tHq_lep","resonant bkg","p p > t h j $$ t~, t>b l+ vl (+ t~ c.c.), j light",[ "tHq", "t-channel"],"no jet cuts",
@@ -96,12 +106,23 @@ row("V_WZa_WH","WZ gamma -> l l l nu gamma, lost lepton / e->gamma","p p > l+ l-
 row("V_WWa_WH","WW gamma / ZZ(llnunu) gamma -> l nu l nu gamma","p p > l+ vl l- vl~ a, group_subprocesses False",[0,5],VL,gp("V_WWa_WH") or None,"gridpack init sigma (pending: 884934.11)",["one"],"leptons in ME (k=1)","no H","as V_WZa_WH","req","V gamma",note="D-WH-5")
 row("V_ZZa_WH","ZZ gamma -> 4l gamma, 3 leptons lost","p p > l+ l- l+ l- a, group_subprocesses False",[0,5],VL,gp("V_ZZa_WH") or None,"gridpack init sigma (pending: 884934.12)",["one"],"leptons in ME (k=1)","no H","as V_WZa_WH","req","V gamma",note="D-WH-5")
 # ---- D-WH-3 top-ups (NEW samples, reuse ZH gridpacks read-only with new seeds); the frozen ZH samples of the same process are SUPERSEDED (not mixed)
-row("H_ggZH_wh","ggZH loop, Z->ee/mumu (PY8), 1 lepton lost (D-WH-3 top-up)","gg > Z H [noborn=QCD] (ZH gridpack H_ggZH_py8dec_s1363200, read-only), Z->ee/mumu and H->gg forced in PY8",["loop"],"none (PY8 decay, no cuts)",
-    (74.33,0.7),"ZH FINAL_report table (same gridpack)",["BR_ZLL","BGG"],"Z undecayed in LHE; forced to e/mu in PY8","H->gg forced in PY8","Z lepton lost covered; independent seeds from the frozen sample","req","resonant bkg")
+row("H_ggZH_wh","ggZH loop, Z->ee/mumu (PY8), 1 lepton lost (D-WH-3 top-up)","gg > Z H [noborn=QCD] (ZH gridpack H_ggZH_py8dec_s1363200, read-only), Z->ee/mumu and H->gamma gamma forced in PY8",["loop"],"none (PY8 decay, no cuts)",
+    (74.94,0.13),"own test job LHE init sigma (same gridpack as ZH; ZH table 74.33, -0.8 %, within closure tolerance; the larger value is used)",["BR_ZLL","BGG"],"Z undecayed in LHE; forced to e/mu in PY8","H->gamma gamma forced in PY8","Z lepton lost covered; independent seeds from the frozen sample","req","resonant bkg")
 row("H_ttH_dilep_wh","ttH dilepton, 1 lepton lost (D-WH-3 top-up)","p p > t t~ h, both t->b l nu ... (ZH gridpack H_ttH_s1360500, read-only)",[2,1],"no jet cuts, scale 3",
-    (18.11,0.2),"ZH FINAL_report table (same gridpack)",["WF","WF","BGG"],"t->b W->l nu in MG5 ME (ZH H_ttH gridpack: dilepton)",HD,"ttH 1l is H_ttH_1l; this is the dilepton topology","req","resonant bkg")
+    (18.26,0.17),"own test job LHE init sigma (same gridpack as ZH; ZH table 18.11, -0.8 %)",["WF","WF","BGG"],"t->b W->l nu in MG5 ME (ZH H_ttH gridpack: dilepton)",HD,"ttH 1l is H_ttH_1l; this is the dilepton topology","req","resonant bkg")
 row("H_ZH_tautau_wh","ZH, Z->tautau (MLM 0-2j), tau->l feed-down (D-WH-3 top-up)","p p > z h (+j,+jj), z>ta+ ta- (ZH gridpack H_ZH_tautau_s1360700, read-only), MLM",[2,2],"xqcut as ZH",
-    (24.97,0.3),"ZH FINAL_report table (sigma after matching)",["BGG"],"Z->tautau in MG5 ME","H->gg forced in PY8","tau->e/mu nu nu feed-down; MLM accepted events counted","req","resonant bkg")
+    (25.35,0.3),"own test job PY8 sigma after MLM matching (ZH table 24.97; LHE init 24.92 is pre-matching; the larger value is used)",["BGG"],"Z->tautau in MG5 ME","H->gamma gamma forced in PY8","tau->e/mu nu nu feed-down; MLM accepted events counted","req","resonant bkg")
+# ---- G2 item 1: non-prompt-lepton class (no real lepton; per-jet f_l weights, f_l PENDING D28)
+HDL = "H->gamma gamma forced in PY8 (cond. BR 1); B_gg external once"
+row("Q_aajj","non-prompt lepton: prompt gamma gamma + jj, per-jet f_l weights (f_l PENDING D28)","p p > a a j j (QCD gamma gamma + 2 jets), no lepton in the ME",[2,2],"pta>25,draa 0.4,100<maa<170,ptj>20,drjj>0.4, no mjj cut",
+    smoke("Q_aajj_smoke"),"smoke Q_aajj_smoke",["one"],"no lepton","no H","jet -> lepton by probability weights (scripts/fakelep_pilot.py); fixed-order 2 jets: PS/merging uncertainty declared (04 sec. 6b)",None,"non-prompt lepton",weighted=True,
+    note="N set by N_eff>=10 in the PEAK region of fakelep_pilot.py; f_l range 3e-5..1e-3 (assumption, D28)")
+row("H_VBFH_jj","non-prompt lepton: VBF H->gamma gamma + jj (resonant), per-jet f_l weights (f_l PENDING D28)","p p > h j j QCD=0 (includes hadronic VH at EW order 3)",[0,3],"ptj>20,|etaj|<5,drjj>0.4",
+    gp("H_VBFH_jj") or None,"gridpack init sigma (pending 885122.1)",["BGG"],"no lepton",HDL,"resonant: not constrained by m_gg sidebands; hadronic VH part overlaps nothing with the lepton channel",None,"non-prompt lepton",weighted=True,note="f_l PENDING D28")
+row("H_ggF_jj","non-prompt lepton: ggF-like H + jj (resonant, top loop, LO loop-induced), per-jet f_l weights (f_l PENDING D28)","p p > h j j [noborn=QCD] (loop_sm-no_b_mass)",["loop"],"ptj>20,|etaj|<5,drjj>0.4",
+    gp("H_ggF_jj") or None,"gridpack init sigma (pending 885122.2)",["BGG"],"no lepton",HDL,"resonant; LO loop-induced normalised as is (K-factor not applied, labelled)",None,"non-prompt lepton",weighted=True,note="f_l PENDING D28; loop gridpack may fail (then D-WH-14)")
+row("F_QCD_llajj_loose","lost-lepton coverage bound (sigma only): ZH F_QCD_llajj_nomjj card with loose lepton cuts","p p > l+ l- a j j QCD=2 QED=3, ptl>5,|etal|<3.5,mmll>10",[2,3],"loose lepton cuts",
+    gp("F_QCD_llajj_loose") or None,"gridpack init sigma (pending 885124.0); tight (ZH cuts) sigma 817.8 fb",["one"],"leptons in ME","no H","sigma-only coverage bound (04 sec. 6c)",None,"sigma only",in_bs=False)
 # ---- frozen ZH samples (read-only reuse; sigma from reports/FINAL_report.md)
 FZ = "frozen ZH (zh-final-v1.1), /eos/home-r/rjiang/vbs_zh_codex_starter/production/"
 def frozen(id, role, sig, N, fac, path, cover, cuts):
@@ -117,7 +138,9 @@ frozen("ZH_ttH_dilep_lostlep","ttH dilepton, 1 lepton lost",18.11,40000+2000,["W
     "t->b l nu both in ME, cut_decays False: covered. NOTE: ZH ledger used k=B_gg (MG tree W BR); here WF^2 applied (physical W BR) - differs by 7.8% from ZH convention","none")
 frozen("ZH_Zaajj_EW_lostlep","Zgg jj EW (on-shell Z->ll), 1 lepton lost",0.0393,60000,["ZF"],"final/B_EW_zaajj_vbs_is{1h,2,3}",
     LL+"; BUT gen cuts pta>25, 100<maa<170, mjj>400 bound the WH baseline (see report 02 sec. 3)","pta>25,etaa<2.5,100<maa<170,mjj>400")
-frozen("ZH_Zaajj_QCD_lostlep","Zgg jj QCD (on-shell Z->ll), 1 lepton lost",0.0356,100000,["ZF"],"final/B_QCD_zaajj_vbs (+ twin B_QCD_zaajj_nomjj, ratio C)",
+frozen("ZH_Zaajj_QCD_nomjj_lostlep","Zgg jj QCD (on-shell Z->ll), 1 lepton lost, NO generator mjj cut (NOMINAL, D8; G2 item 2)",0.2728,100000,["ZF"],"final/B_QCD_zaajj_nomjj (frozen twin, 100k events, 280 selected at the SR proxy)",
+    LL+"; no mjj cut; pta>25, 100<maa<170 only","pta>25,etaa<2.5,100<maa<170 (mmjj 0)")
+frozen("ZH_Zaajj_QCD_lostlep","Zgg jj QCD (on-shell Z->ll), 1 lepton lost (mmjj>400 CROSS-CHECK of the nomjj nominal; twin C)",0.0356,100000,["ZF"],"final/B_QCD_zaajj_vbs (+ twin B_QCD_zaajj_nomjj, ratio C)",
     LL+"; same generator-cut bounds","pta>25,etaa<2.5,100<maa<170,mjj>400")
 frozen("ZH_Zajj_eFake","Z(ll)gamma jj with e->gamma (QCD+EW), lepton+photon pairs",80.51,5989548+500000,["one"],"final/F_QCD_llajj_vbs, F_EW_llajj_vbs",
     "l+l- in ME: ptl>10,|etal|<2.5,mmll>50 apply: lost-lepton (outside acceptance) NOT covered -> PARTIAL; e->gamma param. as ZH","ptl>10,mmll>50,mjj>400,pta>25")
@@ -139,9 +162,10 @@ for r in ROWS:
     if c: r["c_gen_cut"] = c
     elif r["id"] in ("ZH_Zaajj_EW_lostlep",): r["c_gen_cut"] = dict(factor=None, source="EW part: ZH measured 1.4 % loss at the ZH selection; W EW twin (B_EW_Waajj_nomjj vs _vbs) pending as proxy; syst = full difference")
 # ---- N rule: flag EVERY shortfall; unflagged shortfall fails loudly (G1 item 1)
-ACK = {"F_Wjjjj": "D-WH-2 (N_eff rule, N set in report 04)", "T_ttjj_1l": "D-WH-2 (N_eff rule, N set in report 04)"}
+ACK = {k: "weighted row: N_eff>=10 rule (enforced in make_plan.py)" for k in ("F_Wjjjj", "T_ttjj_1l", "Q_aajj", "H_VBFH_jj", "H_ggF_jj")}
 bad = []
 for r in ROWS:
+    if r["id"] == "ZH_Zaajj_QCD_lostlep": r["in_bs"] = False; r["role"] += " -- NOT in b: the nomjj sample is nominal"
     if r["id"].startswith("ZH_ggZH") or r["id"].startswith("ZH_ttH"): r["in_bs"] = False; r["role"] += " -- SUPERSEDED by the D-WH-3 top-up sample (not mixed)"
     if r.get("in_bs") is False:
         r["N_shortfall_flag"] = "NOT IN s/b (cross-check/pilot/superseded): N rule n/a; test job only, no production"

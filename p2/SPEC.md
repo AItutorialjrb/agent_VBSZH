@@ -133,7 +133,8 @@ To be filled after multi_r1 Phase 01 from measured usage (`p2/metrics/parse_usag
 | D27 | 2026-11-04 | executor-wh (D-WH-10) | W+jets double fake and tt̄ two-fake: ME W+4j (F_Wjjjj) and tt̄jj (T_ttjj_1l) with fake-factor weights, N from N_eff ≥ 10 in SR, no generator bias cut (none shown safe) | confirm / other | open | |
 | D28 | 2026-11-04 | executor-wh (D-WH-11, blocks D-WH-4) | no citable numeric table of CMS tight-ID lepton fake rates found (2103.04956 gives figures only); f_lepton range still the ZH assumption, non-prompt numbers labelled ESTIMATES | human supplies reference / accept digitised figure values / keep assumption range as stated | open | |
 | D29 | 2026-11-04 | executor-wh (D-WH-12) | WZγ/WWγ/ZZγ (D-WH-5) generated without ME jets (7–8-body jj samples not generated); VBS jets from PS | accept + PS-modelling unc. (analogue of D-HH-7 rule) / generate Vγ+jj | open | |
-| D30 | 2026-11-04 | executor-wh (D-WH-13) | F_QCD_Wajj_nomjj full N = 1.64e7 events (~520 core-h, ~40 GB) vs mmjj>400 + twin C (deviation) | full N / twin-correction | open | |
+| D30 | 2026-11-04 | executor-wh (D-WH-13) | F_QCD_Wajj_nomjj full N = 1.64e7 events (corrected by reviewer wh_G2 6: 894 core-h, 42.7 GB; executor first quoted ~520 core-h) vs mmjj>400 + twin C (deviation) | full N (executor + reviewer recommend) / twin-correction | open | |
+| D31 | 2026-11-04 | reviewer wh_G2 1 (sev-1) | non-prompt-lepton class (QCD γγ+jj 0.07/0.25/2.5 ev, VBF/ggF H 0.13/0.05 vs ~0.9 signal) has no MC; assumed-ε estimates proved 36× low for tt̄ | add Q_aajj + VBF/ggF H→γγjj with per-jet f_ℓ weights, N_eff ≥ 10 (executor preparing gridpacks/tests now) / enter ESTIMATE in b as conservative variant | open | |
 
 ## 7. Protocol deviations log
 (any deviation from the handoff, logged here and on the ledger)

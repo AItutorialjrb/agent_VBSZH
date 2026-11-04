@@ -15,3 +15,21 @@
 - Answers recorded in SPEC §6. D9 (τ) and D10 (untested types) were not answered, so orchestrator defaults are in the briefs, for confirmation at G2. Protocol decisions are D17–D22. SPEC_G0.md is frozen, and the repeat-isolation script is prepared for the human. Commit b77d5cd.
 - No severity-1 WH review item is uncovered: item 1 is fixed, and item 2 is covered by the twin decision.
 - Native executor-wh and executor-hh were spawned with brief_{wh,hh}.md (PRE-G2). Next steps: the verifier on each VERIFY_REQUEST, then the reviewer on 04_production_plan.md at G2.
+
+## 2026-11-04T13:40:56Z — PAUSE (human order: credit limit, resume next week)
+No condor job was submitted, released or removed by the pause. All subagents are stopped. Executor-wh wrote STATUS.md at 13:40Z. Executor-hh had already finished; its STATUS.md (10:58Z) is current. The VERIFY #9 audit was stopped unfinished (read-only, no state).
+**Done**
+- G1 decisions are recorded (SPEC §6 D1–D22), SPEC_G0.md is frozen, and the briefs are written.
+- HH: Phase 03 is complete (every type tested). 04_production_plan is at G2 and the reviewer verdict is APPROVE-with-conditions (reviews/hh_G2.md). All non-decision conditions are fixed and verified. The QCD block is HELD in hh/scripts/condor/HELD_do_not_submit/.
+- WH: 28 of 30 types are tested. 04_production_plan (581 jobs, ~1019 core-h, ~53 GB) is at G2, with the reviewer verdict APPROVE-with-conditions (reviews/wh_G2.md). G2-FIX items 1–8 and 13 are done. VERIFY #4–#8 fixes are applied; #9 is not yet audited.
+- Open decisions for the human: D9, D23–D31 (SPEC §6).
+**Running clusters** (schedd bigbird103.cern.ch; the default schedd shows none):
+- 884934.13: B_EW_Waajj_nomjj gridpack.
+- 885044.0: V_ZZa_WH gridpack.
+- 885122.2: H_ggF_jj gridpack.
+- 885124.0: F_QCD_llajj_loose gridpack. It was no longer in the queue at 13:40Z, so check its outcome.
+**Held jobs to release on resume:** none in condor. The HH QCD block-3 and D14a twin2 submit files are deliberately unsubmitted and await D24.
+**Next action per stream**
+- WH: on resume, check the 4 gridpacks (exit_codes.py). Then run scripts/followup_after_gridpacks.sh test, followup_g3.sh and twinB, fakelep_pilot.py on H_ggF_jj, and twin_safety2.py on the B_EW twin. Rebuild the builder, plan, prod-subs and assemble. Then the verifier audits VERIFY_REQUEST #9 (and #10 for the gridpack follow-ups), and the WH G2 rows for the pending gridpacks get a verifier sign-off.
+- HH: idle at G2. Next is the human answers to D23–D26. After that, submit block 1 (62 jobs) and block 2 (66) per 04 §14; the QCD block waits for D24.
+- Orchestrator: G2 report to the human (both reviews, D9 and D23–D31, token/time table). Bulk production only after human approval.

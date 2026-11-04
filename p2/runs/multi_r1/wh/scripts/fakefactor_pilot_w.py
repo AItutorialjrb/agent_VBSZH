@@ -10,6 +10,7 @@ Usage: python3 -P fakefactor_pilot.py <slim.root> <gen.root> <events.lhe.gz> <si
 Reports sum of weights (fb, F0=1e-3 nominal), effective N, mean physical event weight, and the fraction of
 fake-weighted VBS/PRE yield lost by parton-level HT filters (from the LHE)."""
 import sys, os, gzip, json, numpy as np, awkward as ak, uproot
+PTG = float(os.environ.get("PHOTON_PT", "25"))   # G2-FIX item 4: photon pT threshold of the SR (25 GeV); the G1/G2-prep numbers used 20
 BVETO = os.environ.get("BVETO", "0") == "1"   # G2: drop combinations with a b-tagged jet (pT>30,|eta|<2.5) that is not one of the fake-photon jets
 
 slim, genf, lhe, sigma, nfake, outj = sys.argv[1:7]; sigma = float(sigma); nfake = int(nfake)
@@ -42,7 +43,7 @@ def lv(pt, eta, phi):
     return np.array([pt*np.cos(phi), pt*np.sin(phi), pt*np.sinh(eta), pt*np.cosh(eta)])
 def m(a, b):
     s = a + b; return np.sqrt(max(s[3]**2 - s[0]**2 - s[1]**2 - s[2]**2, 0.0))
-def photon_ok(pt, eta): return pt > 20 and abs(eta) < 2.5 and not (1.4442 < abs(eta) < 1.566)
+def photon_ok(pt, eta): return pt > PTG and abs(eta) < 2.5 and not (1.4442 < abs(eta) < 1.566)
 def frate(pt, eta): return F0 * (pt/50.0)**-0.5 * (2.0 if abs(eta) > 1.566 else 1.0)
 
 jpt, jeta, jphi, jbt = A("Jet/Jet.PT"), A("Jet/Jet.Eta"), A("Jet/Jet.Phi"), A("Jet/Jet.BTag")
@@ -94,7 +95,7 @@ for i in range(N):
     for r in reg:
         if acc[r] > 0: reg[r].append((i, acc[r]))
 
-res = {"selection": {"bveto": BVETO, "bveto_def": "no b-tagged jet (BTag>0, pT>30, |eta|<2.5) outside the two fake-photon jets", "nfake": nfake, "lepton": "exactly 1 e/mu pT>25, no 2nd pT>15, MET>30", "regions": "PRE=1l+MET+2 fake photons(pT>20)+>=2 tag jets pT>30; VBS=PRE+mjj>500,|deta|>2.5; PEAK=VBS+120<m_gg<130 (= the final-SR-like region)"}, "slim": slim, "N_gen": N, "sigma_fb": sigma, "lumi_fb": lumi, "F0": F0, "w_evt_unweighted": w_evt,
+res = {"selection": {"bveto": BVETO, "bveto_def": "no b-tagged jet (BTag>0, pT>30, |eta|<2.5) outside the two fake-photon jets", "nfake": nfake, "lepton": "exactly 1 e/mu pT>25, no 2nd pT>15, MET>30", "photon_pt_min": PTG, "regions": "PRE=1l+MET+2 fake photons(pT>20)+>=2 tag jets pT>30; VBS=PRE+mjj>500,|deta|>2.5; PEAK=VBS+120<m_gg<130 (= the final-SR-like region)"}, "slim": slim, "N_gen": N, "sigma_fb": sigma, "lumi_fb": lumi, "F0": F0, "w_evt_unweighted": w_evt,
        "frac_events_HT_gt": {str(c): float((ht > c).mean()) for c in (50, 100, 150, 200, 300)}, "regions": {}}
 for r, lst in reg.items():
     if not lst: res["regions"][r] = {"n_events": 0}; continue

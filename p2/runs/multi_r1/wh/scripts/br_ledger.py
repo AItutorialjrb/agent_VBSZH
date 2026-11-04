@@ -29,16 +29,20 @@ def register(sid, wdec, hdec, factors):
 def nmc_check(rows, L=3000.0, floor=50000):
     """rows: {sid: dict(N=generated events, sig=sigma[fb] before external BR)}; N >= max(floor, sig*k*L), else SystemExit (SPEC 4.2)."""
     bad = []
+    if not rows: raise SystemExit("nmc_check called with ZERO rows: refusing to report PASS")          # VERIFY #8: no silent no-op
+    missing = [sid for sid in rows if sid not in LEDGER]
+    if missing: raise SystemExit(f"nmc_check: rows without BR-ledger entry (ledger empty at import? register() first): {missing}")
     for sid, r in rows.items():
         need = max(floor, r["sig"]*LEDGER[sid]["k"]*L)
         if r["N"] < need: bad.append(f"{sid}: N={r['N']} < max({floor}, sigma*BR*L)={need:.0f}")
     if bad: raise SystemExit("N_MC policy VIOLATED:\n  "+"\n  ".join(bad))
+    return len(rows)
 if __name__ == "__main__":
     print(f"Gamma(W->l nu) tree = {G_L*1e3:.3f} MeV ; WW(MG5) = {WW} GeV ; 9*G_L = {9*G_L:.4f} GeV")
     print(f"B_MG5(W->l nu) = {B_MG_L:.5f}/flavour, e+mu = {B_MG_LL:.5f} ; B_PDG(e+mu) = {B_PDG_LL:.4f} ; WF = {WF:.4f}")
     # uncertainty on WF from PDG (e, mu errors uncorrelated: 0.16, 0.15 %) 
     print(f"B_MG(had) = {B_MG_HAD:.5f}; WHAD = {WHAD:.4f}; WFTAU = {WFTAU:.4f}")
     print(f"WF err (PDG) = {math.hypot(0.0016,0.0015)/B_MG_LL:.4f}")
-    k = register("S_EW_WHjj", "W->l nu in MG5 ME (e,mu)", "H->gg forced in PY8 (cond. BR 1)", ["WF","BGG"]); print("k(S_EW_WHjj) =", k)
+    k = register("S_EW_WHjj", "W->l nu in MG5 ME (e,mu)", "H->gamma gamma forced in PY8 (cond. BR 1)", ["WF","BGG"]); print("k(S_EW_WHjj) =", k)
     try: register("bad","","",["WF","BGG","BGG"]); print("FAIL: no assertion")
     except AssertionError as e: print("assertion OK:", e)

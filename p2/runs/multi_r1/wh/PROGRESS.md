@@ -17,3 +17,7 @@
 - 2026-11-03T22:29:54Z ROLE=executor-wh PHASE=PRE-G2: seeds.py + preG1 list; cards (nomjj EW twins, V_WZa/WWa/ZZa_WH, F_Wjjjj, T_ttjj_1l); submitted gridpacks 884934 (16), tests 884935 (21, hold-release), QCD twins 884936 (10)
 - 2026-11-03T22:42:27Z ROLE=executor-wh PHASE=PRE-G2: reports 02/03 revised, 04_production_plan.md PARTIAL, STATUS/VERIFY_REQUEST #4/INDEX written; waiting on clusters 884934/884935/884936/884456
 - 2026-11-04T09:07:44Z ROLE=executor-wh PHASE=PRE-G2: VERIFY#4 fixes, QCD twins analysed, resubmitted 885043/885044/885045; waiting
+- 2026-11-04T10:16:03Z ROLE=executor-wh PHASE=PRE-G2: tests/analyses done except 2 gridpack-dependent; VERIFY #6; waiting on 884934.13, 885044
+- 2026-11-04T10:23:45Z VERIFY#6 fixes done, VERIFY #7 written
+- 2026-11-04T10:46:16Z G2-FIX items done except gridpack-dependent; VERIFY #8
+- 2026-11-04T10:52:30Z VERIFY#8 fixes; VERIFY #9

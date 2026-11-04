@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Phase-03 Delphes object validation of a *full* Delphes+Pythia8 file (with Particle branch) from a W(->l nu) H(->gg) sample.
 Usage: python3 -I validate_delphes.py <full.root> <sigma_fb_before_Hdecay_BR> <outdir> [label]
-Checks (validation only, NOT an analysis selection): H->gg / W->l nu closure at generator level, reco lepton efficiency,
+Checks (validation only, NOT an analysis selection): H->gamma gamma / W->l nu closure at generator level, reco lepton efficiency,
 MET resolution vs GenMissingET, photon pair + m_gg peak, VBS-jet reco/gen matching and m_jj resolution."""
 import sys, json, os
 import numpy as np, uproot, awkward as ak

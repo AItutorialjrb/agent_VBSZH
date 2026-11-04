@@ -12,7 +12,7 @@ GP = {"S_EW_WHjj_taunu": (4, 8000, "workday"), "H_QCD_WHjj_fixed": (4, 8000, "wo
       "F_EW_Wajj_nomjj": (4, 8000, "workday"), "V_WZa_WH": (4, 8000, "workday"), "V_WWa_WH": (4, 8000, "workday"), "V_ZZa_WH": (4, 8000, "workday"),
       "B_EW_Waajj_nomjj": (8, 16000, "testmatch"), "F_Wjjjj": (8, 16000, "testmatch"), "T_ttjj_1l": (8, 16000, "testmatch")}
 def gpfile(s):  # gridpack location
-    if s in GP: return f"{E}/work/gridpacks/{s}_gridpack_s{S.seed(s,100)}.tar.gz"
+    if s in GP or s in ("Q_aajj", "H_VBFH_jj", "H_ggF_jj", "F_QCD_llajj_loose"): return f"{E}/work/gridpacks/{s}_gridpack_s{S.seed(s,100)}.tar.gz"
     return {"H_ggZH_wh": f"{ZHGP}/H_ggZH_py8dec_gridpack_s1363200.tar.gz", "H_ttH_dilep_wh": f"{ZHGP}/H_ttH_gridpack_s1360500.tar.gz", "H_ZH_tautau_wh": f"{ZHGP}/H_ZH_tautau_gridpack_s1360700.tar.gz"}.get(s) \
         or f"{E}/work/gridpacks/{s}_gridpack_s{ {'F_EW_Wajj_vbs':2126000,'F_QCD_Wajj_vbs':2127000}[s] }.tar.gz"
 # ONE test job per type: sample: (cmnd, nev, flavour)

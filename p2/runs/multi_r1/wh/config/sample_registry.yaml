@@ -31,3 +31,7 @@ samples:
   H_ggZH_wh: 28
   H_ttH_dilep_wh: 29
   H_ZH_tautau_wh: 30
+  Q_aajj: 31
+  H_VBFH_jj: 32
+  H_ggF_jj: 33
+  F_QCD_llajj_loose: 34

@@ -24,7 +24,7 @@ MG, SEL = [], []
 for sl, lh in files:
     mg = lhe_mjj(lh); sel = select(sl, ng); assert len(sel) == len(mg), (len(sel), len(mg)); N = len(mg)
     MG.append(mg); SEL.append(sel)
-mg = np.concatenate(MG); sel = np.concatenate(SEL); n = int(sel.sum()); res = {"N_events": int(len(mg)), "n_selected_reco_SR_baseline": n, "ng_required": ng, "cuts": {}}
+mg = np.concatenate(MG); sel = np.concatenate(SEL); n = int(sel.sum()); res = {"selection": "scripts/srsel.py: exactly 1 e/mu pT>25 (no 2nd pT>10), MET>30, b-veto (BTag>0, pT>30, |eta|<2.5), photons pT>25 |eta|<2.5 (ng=2: two leading, 100<m_gg<170; ng=1: >=1 photon), >=2 jets pT>30 |eta|<4.7 dR>0.4 to photons/lepton, leading-two m_jj>500, |deta|>2.5; parton m_jj = first two outgoing light partons of the LHE; safe := (loss-1 sigma)<=5 %", "N_events": int(len(mg)), "n_selected_reco_SR_baseline": n, "ng_required": ng, "cuts": {}}
 for X in (100, 150, 200, 250, 300, 400):
     k = int((sel & (mg < X)).sum()); f = k/n if n else None; e = math.sqrt(k*(n-k)/n)/n if n else None
     res["cuts"][str(X)] = {"n_lost": k, "loss": f, "err": e, "safe_le_5pct_within_stat": (f is not None and (f - 1.0*e) <= 0.05)}

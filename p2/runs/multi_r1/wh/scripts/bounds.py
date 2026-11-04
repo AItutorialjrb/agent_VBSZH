@@ -8,9 +8,9 @@ PL = {"low": 3e-5, "nominal": 1e-4, "high": 1e-3}
 rows = [
  # name, sigma*B_gg [fb] or fiducial sigma [fb], is_continuum, eps_extra_jet, eps_VBS, eps_MET, eps_window, source
  ("QCD gamma gamma + jj (LO MG5, pTg>25, 100<mgg<170, ptj>20)", 3542.0, 0.5, 0.10, 0.2, 0.14, "smoke Q_aajj_smoke: 3.542 pb (LO, no K-factor, fixed 2 jets)"),
- ("ggF H->gg (+jets)   [YR4 13 TeV 48.58 pb x1.1 = 53.4 pb]", 53.4e3*BGG, 0.5, 0.01, 0.2, 0.9, "YR4 x 1.1 scaling (as ZH); eps_VBS from ggF+2j fraction (assumed 1e-2)"),
- ("ZH, Z->nunu, H->gg [LO ZH 704 fb (ZH zh_0j 48.45 fb / 0.06878) x B(inv)=0.200 x B_gg]", 704.0*0.2*BGG, 0.5, 0.01, 0.8, 0.9, "LO sigma from the ZH smoke run; eps_VBS assumed 1e-2; genuine MET (eps_MET 0.8)"),
- ("VBF H->gg           [YR4 13 TeV 3.78 pb x1.1 = 4.16 pb]", 4.16e3*BGG, 0.3, 0.5, 0.2, 0.9, "YR4 x 1.1 scaling; extra (non-tag) jet fraction 0.3 assumed"),
+ ("ggF H->gamma gamma (+jets)   [YR4 13 TeV 48.58 pb x1.1 = 53.4 pb]", 53.4e3*BGG, 0.5, 0.01, 0.2, 0.9, "YR4 x 1.1 scaling (as ZH); eps_VBS from ggF+2j fraction (assumed 1e-2)"),
+ ("ZH, Z->nunu, H->gamma gamma [LO ZH 704 fb (ZH zh_0j 48.45 fb / 0.06878) x B(inv)=0.200 x B_gg]", 704.0*0.2*BGG, 0.5, 0.01, 0.8, 0.9, "LO sigma from the ZH smoke run; eps_VBS assumed 1e-2; genuine MET (eps_MET 0.8)"),
+ ("VBF H->gamma gamma           [YR4 13 TeV 3.78 pb x1.1 = 4.16 pb]", 4.16e3*BGG, 0.3, 0.5, 0.2, 0.9, "YR4 x 1.1 scaling; extra (non-tag) jet fraction 0.3 assumed"),
 ]
 print(f"{'component':64s}{'sigma_fid[fb]':>14s}" + "".join(f"{k:>10s}" for k in PL))
 for n, s, ej, ev, em, ew, src in rows:

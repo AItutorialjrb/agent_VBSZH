@@ -41,24 +41,47 @@ def flavour(w):
     return "tomorrow"
 def fffile(s): return f"{WH}/work/ff_{s}.json"
 TWIN = {"B_QCD_Waajj_nomjj": "none (nominal = no mjj cut). Twin 2000 ev: mmjj>400 loses 47.6 +- 5.5 % (loose sel.); 40k twin: no cut >=100 GeV safe (loss 15-45 +- 2 %, 518 sel. events)", "F_QCD_Wajj_nomjj": "none (nominal). Twin 2000 ev: mmjj>400 loses 37 +- 9 %; 40k twin: loss 14-42 +- 2 % for 100-400 GeV (531 sel. events)",
-        "B_EW_Waajj_nomjj": "none (nominal); EW twin = this sample vs B_EW_Waajj_vbs (pending)", "F_EW_Wajj_nomjj": "none (nominal); EW twin vs F_EW_Wajj_vbs (pending)"}
+        "B_EW_Waajj_nomjj": "none (nominal); EW twin PENDING (waits for this gridpack 884934.13, then g2_twins_ewB)", "F_EW_Wajj_nomjj": "none (nominal). EW twin (40k ev, 3824 selected): mmjj>400 loses 2.4 +- 0.3 %, 100 GeV 0.6 +- 0.1 % => safe (<=5 %); the vbs sample would be an allowed alternative"}
+def neff_gate(per_event_neff, n_planned, rule=10.0):
+    """projected N_eff = (measured N_eff per generated event in the test pilot PEAK region) x N_planned. Returns the projection; raises SystemExit if < rule."""
+    proj = per_event_neff*n_planned
+    if proj < rule: raise SystemExit(f"N_eff gate: projected {proj:.2f} < {rule}")
+    return proj
+def selftests():
+    """writes nothing: a bad row must make each gate fail loudly (VERIFY #8 items 4, 9)."""
+    ok = 0
+    for fn, args in ((neff_gate, (1e-4, 50000)), (B.nmc_check, ({}, )), (B.nmc_check, ({"S_EW_WHjj": dict(N=10, sig=13.77)}, ))):
+        try: fn(*args)
+        except SystemExit: ok += 1
+    assert ok == 3, "gate self-test FAILED: a bad row did not fail"
+    return ok
+SELFTEST = selftests()
+for r_ in M:     # populate the BR ledger from the matrix (register() otherwise only runs under br_ledger.__main__ -> empty ledger -> silent no-op)
+    if "br_factors_external" in r_ and "path" not in r_: B.register(r_["id"], "", "", r_["br_factors_external"])
+assert len(B.LEDGER) > 20, "BR ledger empty"
+FAIL = []; PENDW = []; NMAXP = 2.0e7
 rows = []; tot = dict(cpu=0.0, gb=0.0, jobs=0); notes = []
 for r in M:
     s = r["id"]; frozen = "path" in r
     if frozen or r.get("in_bs") is False: continue
     ti = tinfo(s); sig, k, need = r.get("sigma_fb"), r["k_external"], r.get("N_required")
     cost = ti["cost"] if ti else DEF_COST; kb = ti["kb"] if ti else DEF_KB; acc = ti["acc"] if ti else 1.0
+    lhef = min(1.0, r.get("n_lhe_over_requested_test") or 1.0)
     Nacc = r.get("N_planned")           # accepted (Delphes) events required
-    weighted_note = ""
-    if r.get("weighted"):
-        ff = fffile(s)
+    weighted_note = ""; FFROWS = ("F_Wjjjj", "T_ttjj_1l", "F_QCD_Wajj_nomjj", "F_EW_Wajj_nomjj", "T_tta_1l", "T_tWa_1l", "Q_aajj", "H_VBFH_jj", "H_ggF_jj")
+    if s in FFROWS:      # ONE fake model for every fake-photon / non-prompt-lepton row (G2 items 1,3,4): per-jet probability weights, final-SR-like PEAK region, photons pT>25
+        ff = fffile(s); kind = "non-prompt-lepton f_l weights (f_l PENDING D28)" if s in ("Q_aajj", "H_VBFH_jj", "H_ggF_jj") else "jet->photon fake-factor weights (f0=1e-3, pT>25 photons)"
         if os.path.exists(ff):
-            f = json.load(open(ff)); reg = f["regions"].get("PEAK", {}); ne = reg.get("N_eff"); nev = reg.get("n_events", 0)
-            per = (ne or 0)/f["N_gen"]; Nacc = int(math.ceil(max(50000, 3*10/per)/1000)*1000) if per > 0 else None
-            weighted_note = f"fake-factor weighting; test job ({f['N_gen']} ev): PEAK(final-SR-like)-region n_events={nev}, N_eff={ne if ne is None else round(ne,2)} -> N_eff/event = {per:.2e}; planned N gives projected N_eff = {'-' if not Nacc else round(per*Nacc,1)} (target >= 10, x3 safety)"
-        else: weighted_note = "fake-factor weighting; N_planned from N_eff>=10 projection: PENDING (test job + scripts/fakefactor_pilot_w.py)"
+            f = json.load(open(ff)); reg = f["regions"].get("PEAK", {}); ne = reg.get("N_eff"); nev = reg.get("n_events", 0); per = (ne or 0)/f["N_gen"]
+            if per <= 0: FAIL.append(f"{s}: zero PEAK events in the test job -> N_eff projection impossible (need a larger test or looser projection region)")
+            else:
+                Nneed = int(math.ceil(max(50000, 30/per)/1000)*1000)            # N_eff >= 10 with x3 safety
+                Nacc = max(Nneed, int(math.ceil(need/1000)*1000)) if (need and not r.get("weighted")) else Nneed     # planning (design target N_eff = 30)
+                if Nacc > NMAXP: FAIL.append(f"{s}: N_planned {Nacc} > feasible {NMAXP:.0e}")
+            weighted_note = f"{kind}; test ({f['N_gen']} ev): PEAK n_events={nev}, N_eff={ne if ne is None else round(ne,2)} -> N_eff/event {per:.2e}; projected N_eff at N_planned = {'-' if not per else round(per*Nacc,1)} (rule >= 10; top-up rule sec. 6d)"
+        else: weighted_note = f"{kind}: N_eff projection PENDING (test job + weighting pilot)"; PENDW.append(s)
     if sig is None or (Nacc is None and need is None): nl = None
-    else: nl = int(math.ceil((Nacc or 0)/acc/1000)*1000) if Nacc else None
+    else: nl = int(math.ceil((Nacc or 0)/acc/lhef/1000)*1000) if Nacc else None   # LHE events REQUESTED: accepted fraction (MLM) and gridpack shortfall (n_lhe/n_requested in the test) both divided out
     ev_pj = None; njobs = None; cpu = gb = None; fl = None; sd = "PENDING"
     if nl:
         ev_pj = min(50000, max(math.ceil(nl/800/1000)*1000, int(14400/cost/1000)*1000, 1000)); ev_pj = min(ev_pj, max(1000, math.ceil(nl/10/1000)*1000))
@@ -66,38 +89,49 @@ for r in M:
         cpu = nl*cost/3600; gb = (Nacc)*kb/1e6; fl = flavour(ev_pj*cost*1.3+300); tot["cpu"] += cpu; tot["gb"] += gb; tot["jobs"] += njobs
         sd = f"{S.seed(s,200)}-{S.seed(s,200+njobs-1)}"
     prj = "PENDING (no test job yet)"
-    if ti and not r.get("weighted"):
+    if ti and s not in FFROWS:
         sp = srproxy(s, ti)
         if sp.get("n_sel") is None: prj = "n/a (" + sp.get("err", "") + ")"
         elif sp["n_sel"] > 0 and Nacc: prj = f"{sp['n_sel']}/{sp['N']} in SR proxy (ng={sp['ng']}) -> {sp['n_sel']/sp['N']*Nacc:.0f} sel. events (unweighted => N_eff = N_sel)"
         else: prj = f"0/{sp['N']} in SR proxy (ng={sp['ng']}); 95% UL on SR fraction {3/sp['N']:.1e} -> N_sel < {3/sp['N']*(Nacc or 0):.0f}"
-    elif r.get("weighted"): prj = weighted_note
-    tstat = "PENDING" if not ti else f"cluster {CL.get(s,'?')}, exit 0, LHE={ti['nlhe']}, Delphes={ti['n']} (executor-checked; verifier pending)"
+    elif s in FFROWS: prj = weighted_note
+    tstat = "PENDING" if not ti else f"cluster {CL.get(s,'?')}, exit 0, LHE={ti['nlhe']}, Delphes={ti['n']} (executor audit; independent verifier check: VERIFY #4-#7, see VERIFY_REQUEST.md)"
     if s == "B_EW_Waajj_vbs": pass
     rows.append(dict(id=s, role=r["role"], sig=sig, sigsrc=r["sigma_source"], k=k, kf="x".join(r["br_factors_external"]), cuts=r["gen_cuts"], twin=TWIN.get(s, "mmjj>400 cross-check sample (not in b)" if "vbs" in s else "no generator mjj cut / not applicable"),
-        need=need, plan=Nacc, nlhe=nl, weight=("fake-factor (probability) weights" if r.get("weighted") else "none (unit weights)") + ("; MLM matched, N = accepted" if acc < 0.9 else ""), prj=prj, seeds=sd, jobs=f"{njobs} x {ev_pj}" if njobs else "PENDING", cpu=cpu, gb=gb, test=tstat, flag=r.get("N_shortfall_flag"), flav=fl))
+        need=need, sigN=r.get('sigma_for_N_fb'), plan=Nacc, nlhe=nl, weight=("per-jet probability weights (fake model above)" if s in FFROWS else "none (unit weights)") + ("; MLM matched, N = accepted" if acc < 0.9 else ""), prj=prj, seeds=sd, jobs=f"{njobs} x {ev_pj}" if njobs else "PENDING", cpu=cpu, gb=gb, test=tstat, flag=r.get("N_shortfall_flag"), flav=fl))
 def fmt(x, f="%.4g"): return "PENDING" if x is None else f % x
 L = ["| sample | role (s/b class) | σ (fb), source | BR / k (applied once) | generator cuts; twin evidence | N_required | N_planned (accepted) [LHE gen.] | weighting | projected N_eff in SR | seeds | jobs x ev/job (flavour) | CPU-h | storage GB | test job |", "|---|" + "---|"*13]
 for x in rows:
     L.append(f"| {x['id']} | {x['role']} | {fmt(x['sig'])} ({x['sigsrc'][:60]}) | {x['kf']} = {x['k']:.5g} | {x['cuts'][:90]}; {x['twin']} | {fmt(x['need'], '%d')} | {fmt(x['plan'], '%d')} [{fmt(x['nlhe'], '%d')}] {('**flag ' + x['flag'] + '**') if x['flag'] else ''} | {x['weight']} | {x['prj']} | {x['seeds']} | {x['jobs']} ({x['flav'] or '-'}) | {fmt(x['cpu'], '%.1f')} | {fmt(x['gb'], '%.2f')} | {x['test']} |")
 open(f"{WH}/work/plan_table.md", "w").write("\n".join(L) + "\n")
+GATED = {}
+for x in rows:      # gate on the FINAL emitted N_planned (independent of the planning formula)
+    if x["id"] in FFROWS and x["plan"] and os.path.exists(fffile(x["id"])):
+        f_ = json.load(open(fffile(x["id"]))); ne_ = f_["regions"].get("PEAK", {}).get("N_eff")
+        if not ne_: FAIL.append(f"{x['id']}: no PEAK N_eff in the pilot"); continue
+        try: GATED[x["id"]] = neff_gate(ne_/f_["N_gen"], x["plan"])
+        except SystemExit as e: FAIL.append(f"{x['id']}: {e}")
 # ---- N check on the planned table (br_ledger.nmc_check = SPEC 4.2); pending / weighted rows listed explicitly
 chk = {}; pend = []
 for x in rows:
     if x["sig"] is None or x["plan"] is None: pend.append(x["id"]); continue
-    if "weighted" in x["weight"] or "fake-factor" in x["weight"]: continue
-    chk[x["id"]] = dict(N=x["plan"], sig=abs(x["sig"]))
+    if x['id'] in FFROWS and x['id'] in ('F_Wjjjj','T_ttjj_1l','Q_aajj','H_VBFH_jj','H_ggF_jj'): continue
+    chk[x["id"]] = dict(N=x["plan"], sig=abs(x["sigN"] if x["sigN"] is not None else x["sig"]))
 msg = "PASS"
-try: B.nmc_check({k: v for k, v in chk.items() if k in B.LEDGER})
+try: nchk = B.nmc_check(chk); msg = f"PASS ({nchk} rows checked, ledger has {len(B.LEDGER)} entries, self-tests {SELFTEST}/3 failed-as-expected)"
 except SystemExit as e: msg = "FAIL: " + str(e)
-open(f"{WH}/work/plan_nmc.txt", "w").write(f"nmc_check on {len(chk)} planned rows (br_ledger.nmc_check, N >= max(50k, sigma*k*3000)): {msg}\nPENDING (sigma or N not yet known): {', '.join(pend)}\nweighted rows (N_eff>=10 rule in the PEAK region, NOT sigma*L): {'; '.join(x['id'] + ': ' + ('PENDING (no pilot json)' if 'PENDING' in x['prj'] else x['prj'][-80:]) for x in rows if 'fake-factor' in x['weight'])}\n")
+open(f"{WH}/work/plan_nmc.txt", "w").write(f"nmc_check on {len(chk)} planned rows (br_ledger.nmc_check, N >= max(50k, sigma_N*k*3000), sigma_N = max(primary, PY8 test sigma) x 1.05): {msg}\nPENDING (sigma or N not yet known): {', '.join(pend)}\nweighted/fake-model rows (N_eff>=10 rule in the PEAK region, ENFORCED: any violation exits non-zero): {'; '.join(x['id'] + ': ' + ('PENDING' if 'PENDING' in x['prj'] else x['prj'].split('projected N_eff at N_planned = ')[-1][:40]) for x in rows if x['id'] in FFROWS)}\nN_eff projection pending for: {', '.join(PENDW) or 'none'}\nENFORCEMENT FAILURES: {'; '.join(FAIL) or 'none'}\n")
 open(f"{WH}/work/plan_totals.txt", "w").write(f"planned new production (rows with known N): jobs={tot['jobs']}, CPU-h={tot['cpu']:.0f}, storage={tot['gb']:.1f} GB (budget WH <= 200 GB)\n")
+if FAIL: print("N_eff / N rule FAILED:", FAIL, file=sys.stderr)
 print(open(f"{WH}/work/plan_nmc.txt").read(), open(f"{WH}/work/plan_totals.txt").read())
 # ---- machine-readable plan (consumed by make_prod_sub.py after G2) and the frozen-reuse table
 json.dump({x["id"]: {k: v for k, v in x.items() if k in ("plan", "nlhe", "jobs", "seeds", "flav", "cpu", "gb")} | {"gp": None} for x in rows}, open(f"{WH}/work/plan.json", "w"), indent=1)
-F = ["| frozen ZH sample (read-only reuse) | role | σ (fb), source | k | N available | N_required | generator cuts; correction | status |", "|---|---|---|---|---|---|---|---|"]
+SRN = {"ZH_Zaajj_QCD_nomjj_lostlep": "280 selected of 100000 (ratio_C json, SR proxy ng=2)", "ZH_Zaajj_QCD_lostlep": "1099 selected of 100000 (ratio_C json)", "ZH_Zajj_eFake": "2857 (QCD vbs part, first 200k ev, ng=1; ratio_C json)"}
+F = ["| frozen ZH sample (read-only reuse) | role | σ (fb), source | k | N available | N_required | selected events at the SR proxy (N_eff, unit weights) | generator cuts; correction | status |", "|---|---|---|---|---|---|---|---|---|"]
 for r in M:
     if "path" not in r or r.get("in_bs") is False: continue
     c = r.get("c_gen_cut"); ct = "none" if not c else (f"C = {c['factor']} (stat {100*c['rel_err_stat']:.0f} %, syst = full difference {c['syst_full_difference']}); {c['source'][:90]}" if c.get("factor") else "C PENDING: " + c["source"][:110])
-    F.append(f"| {r['id']} | {r['role']} | {r['sigma_fb']:.4g}, {r['sigma_source'][:40]} | {r['k_external']:.5g} | {r['N_available']} | {r['N_required']} | {r['gen_cuts'][:60]}; {ct} | {'N OK' if r.get('N_ok') else 'N SHORT'} |")
+    F.append(f"| {r['id']} | {r['role']} | {r['sigma_fb']:.4g}, {r['sigma_source'][:40]} | {r['k_external']:.5g} | {r['N_available']} | {r['N_required']} | {SRN.get(r['id'], 'not computed here (Phase 05 selection)')} | {r['gen_cuts'][:60]}; {ct} | {'N OK' if r.get('N_ok') else 'N SHORT'} |")
 open(f"{WH}/work/plan_frozen.md", "w").write("\n".join(F) + "\n")
+
+if FAIL: raise SystemExit("N_eff rule violated for weighted rows: " + "; ".join(FAIL))
