@@ -12,7 +12,7 @@ CL = {"S_EW_WHjj": "884457.0", "H_QCD_WH_mlm": "884457.1", "H_ttH_1l": "884457.2
 TEST_ORDER = ["S_EW_WHjj_taunu","H_QCD_WHjj_fixed","I_WHjj","H_tHq_lep","H_tHW_1l","T_tta_1l","T_ttaa_1l","T_tWa_1l","T_tt_1l","T_ttjj_1l","F_Wjjjj","F_EW_Wajj_vbs","F_QCD_Wajj_vbs",
               "F_EW_Wajj_nomjj","B_EW_Waajj_nomjj","V_WZa_WH","V_WWa_WH","V_ZZa_WH","H_ggZH_wh","H_ttH_dilep_wh","H_ZH_tautau_wh"]
 CL.update({s: f"884935.{i}" for i, s in enumerate(TEST_ORDER)})
-CL.update({"Q_aajj": "885126.0", "H_VBFH_jj": "885125.0"})   # as recorded at submission (g3 tests)
+CL.update({"Q_aajj": "885126.0", "H_VBFH_jj": "885125.0", "F_QCD_Wajjj_nomjj": "893599.0", "Q_aajjj": "893599.1"})   # as recorded at submission (g3 tests)
 _auto = json.load(open(f"{WH}/work/test_clusters.json")) if os.path.exists(f"{WH}/work/test_clusters.json") else {}   # scripts/test_clusters.py (submit-file queue order x condor event log)
 for _s, _c in _auto.items():
     if _s in ("V_WZa_WH", "V_WWa_WH", "V_ZZa_WH", "B_EW_Waajj_nomjj") or _s.startswith("K_EW_WHjj_"): CL[_s] = _c   # re-run / late tests (the 884935.x entries for these were removed)
@@ -44,7 +44,7 @@ def flavour(w):
         if w < lim: return f
     return "tomorrow"
 def fffile(s): return f"{WH}/work/ff_{s}.json"
-TWIN = {"B_QCD_Waajj_nomjj": "none (nominal = no mjj cut). Twin 2000 ev: mmjj>400 loses 47.6 +- 5.5 % (loose sel.); 40k twin: no cut >=100 GeV safe (loss 15-45 +- 2 %, 518 sel. events)", "F_QCD_Wajj_nomjj": "none (nominal). Twin 2000 ev: mmjj>400 loses 37 +- 9 %; 40k twin: loss 14-42 +- 2 % for 100-400 GeV (531 sel. events)",
+TWIN = {"B_QCD_Waajj_nomjj": "none (nominal = no mjj cut). Twin 2000 ev: mmjj>400 loses 47.6 +- 5.5 % (loose sel.); 40k twin: no cut >=100 GeV safe (loss 15-45 +- 2 %, 518 sel. events)", "F_QCD_Wajj_nomjj": "none (nominal). Twin 2000 ev: mmjj>400 loses 37 +- 9 %; 40k twin: loss 14-42 +- 2 % for 100-400 GeV (531 sel. events)", "F_QCD_Wajjj_nomjj": "none (nominal). ME+1-jet model: the 2-jet twin evidence (F_QCD_Wajj_nomjj, 40k events, SR proxy) is the cross-check; generator cut ptj>20 on the converted jet: 04 sec. 19",
         "B_EW_Waajj_nomjj": "none (nominal). EW twin (40k ev, 3724 selected at the reco SR, ng=2, cluster 893415): mmjj>400 loses 1.56 +- 0.20 %, 100 GeV 0.54 +- 0.12 % => safe (<=5 % within stat); the vbs sample is an allowed alternative", "F_EW_Wajj_nomjj": "none (nominal). EW twin (40k ev, 3824 selected): mmjj>400 loses 2.4 +- 0.3 %, 100 GeV 0.6 +- 0.1 % => safe (<=5 %); the vbs sample would be an allowed alternative"}
 from scipy.stats import chi2
 def lowfac(n):
@@ -72,6 +72,16 @@ for r_ in M:     # populate the BR ledger from the matrix (register() otherwise 
     if "br_factors_external" in r_ and "path" not in r_: B.register(r_["id"], "", "", r_["br_factors_external"])
 assert len(B.LEDGER) > 20, "BR ledger empty"
 FAIL = []; PENDW = []; NMAXP = 2.0e7
+def submitted_jobs(s):
+    """actual submitted composition 'n x ev (+ n x ev ...)' from the submitted submit files (first cluster, top-ups, resubmissions), else None"""
+    import collections as _c
+    parts = []
+    for f in sorted(glob.glob(f"{WH}/work/condor/prod/prod_{s}*.sub")):
+        b = os.path.basename(f)[5:-4]
+        if b != s and not re.fullmatch(re.escape(s) + r"_(topup|resub\d+)", b): continue
+        if not os.path.exists(f"{WH}/work/condor/prod/.submitted_{b}"): continue
+        c = _c.Counter(int(l.split()[3]) for l in open(f) if l.startswith("  ") and "tar.gz" in l); parts += [f"{n} x {e}" for e, n in sorted(c.items())]
+    return " + ".join(parts) if parts else None
 rows = []; tot = dict(cpu=0.0, gb=0.0, jobs=0); notes = []
 for r in M:
     s = r["id"]; frozen = "path" in r
@@ -80,7 +90,7 @@ for r in M:
     cost = ti["cost"] if ti else DEF_COST; kb = ti["kb"] if ti else DEF_KB; acc = ti["acc"] if ti else 1.0
     lhef = min(1.0, r.get("n_lhe_over_requested_test") or 1.0)
     Nacc = r.get("N_planned")           # accepted (Delphes) events required
-    weighted_note = ""; FFROWS = ("F_Wjjjj", "T_ttjj_1l", "F_QCD_Wajj_nomjj", "F_EW_Wajj_nomjj", "T_tta_1l", "T_tWa_1l", "Q_aajj", "H_VBFH_jj", "H_ggF_jj")
+    weighted_note = ""; FFROWS = ("F_Wjjjj", "T_ttjj_1l", "F_QCD_Wajjj_nomjj", "F_EW_Wajj_nomjj", "T_tta_1l", "T_tWa_1l", "Q_aajj", "H_VBFH_jj", "H_ggF_jj")
     if s in FFROWS:      # ONE fake model for every fake-photon / non-prompt-lepton row (G2 items 1,3,4): per-jet probability weights, final-SR-like PEAK region, photons pT>25
         ff = fffile(s); kind = "non-prompt-lepton f_l weights (f_l 2e-5/2e-4/2e-3 per D28 (ATLAS 1110.3174))" if s in ("Q_aajj", "H_VBFH_jj", "H_ggF_jj") else "jet->photon fake-factor weights = MEASURED Delphes j->gamma rate (nominal; assumed form kept as variant), photons pT>25"
         if os.path.exists(ff):
@@ -101,7 +111,7 @@ for r in M:
     if nl:
         ev_pj = min(50000, max(math.ceil(nl/800/1000)*1000, int(14400/cost/1000)*1000, 1000)); ev_pj = min(ev_pj, max(1000, math.ceil(nl/10/1000)*1000))
         njobs = math.ceil(nl/ev_pj); assert njobs <= 800, (s, njobs)
-        cpu = nl*cost/3600; gb = (Nacc)*kb/1e6; fl = flavour(ev_pj*cost*1.3+300); tot["cpu"] += cpu; tot["gb"] += gb; tot["jobs"] += njobs
+        cpu = nl*cost/3600; gb = (Nacc)*kb/1e6; fl = flavour(ev_pj*cost*2.6+300); tot["cpu"] += cpu; tot["gb"] += gb; tot["jobs"] += njobs   # wall-time margin x2.6 (was x1.3): 4 Q_aajj jobs of 50 000 ev were removed at the 2 h limit on 2026-11-06
         sd = f"{S.seed(s,200)}-{S.seed(s,200+njobs-1)}"
     prj = "PENDING (no test job yet)"
     if ti and s not in FFROWS:
@@ -117,7 +127,7 @@ for r in M:
 def fmt(x, f="%.4g"): return "PENDING" if x is None else f % x
 L = ["| sample | role (s/b class) | σ (fb), source | BR / k (applied once) | generator cuts; twin evidence | N_required | N_planned (accepted) [LHE gen.] | weighting | projected N_eff in SR | seeds | jobs x ev/job (flavour) | CPU-h | storage GB | test job |", "|---|" + "---|"*13]
 for x in rows:
-    L.append(f"| {x['id']} | {x['role']} | {fmt(x['sig'])} ({x['sigsrc'][:60]}) | {x['kf']} = {x['k']:.5g} | {x['cuts'][:90]}; {x['twin']} | {fmt(x['need'], '%d')} | {fmt(x['plan'], '%d')} [{fmt(x['nlhe'], '%d')}] {('**flag ' + x['flag'] + '**') if x['flag'] else ''} | {x['weight']} | {x['prj']} | {x['seeds']} | {x['jobs']} ({x['flav'] or '-'}) | {fmt(x['cpu'], '%.1f')} | {fmt(x['gb'], '%.2f')} | {x['test']} |")
+    L.append(f"| {x['id']} | {x['role']} | {fmt(x['sig'])} ({x['sigsrc'][:60]}) | {x['kf']} = {x['k']:.5g} | {x['cuts'][:90]}; {x['twin']} | {fmt(x['need'], '%d')} | {fmt(x['plan'], '%d')} [{fmt(x['nlhe'], '%d')}] {('**flag ' + x['flag'] + '**') if x['flag'] else ''} | {x['weight']} | {x['prj']} | {x['seeds']} | {(submitted_jobs(x['id']) + ' (SUBMITTED; plan ' + x['jobs'] + ')') if submitted_jobs(x['id']) else x['jobs']} ({x['flav'] or '-'}) | {fmt(x['cpu'], '%.1f')} | {fmt(x['gb'], '%.2f')} | {x['test']} |")
 open(f"{WH}/work/plan_table.md", "w").write("\n".join(L) + "\n")
 GATED = {}
 for x in rows:      # gate on the FINAL emitted N_planned (independent of the planning formula)

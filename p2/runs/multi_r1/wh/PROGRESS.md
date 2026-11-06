@@ -35,3 +35,8 @@
 - 2026-11-06: bulk submitted 893600-893630 (31 samples), fixes 4/7a-c, VERIFY #16.
 
 - 2026-11-06 recheck2: F_EW/Q_aajj bulk, top-ups 893633/4, rate v3 (parentage, class, closure), 04 sec 16, VERIFY #17.
+
+- 2026-11-06 late: D29 comparison (sec 18), memory/wall-time incidents fixed, Q_aajj resub 893876, validate_prod.py, VERIFY #19.
+
+- 2026-11-06 22:58Z: condor fixes A1-3, report fixes B4-6, F_QCD_Wajjj replaces 2j row (sec 19), cluster 893883, VERIFY #20.
+- 2026-11-07: VERIFY #20 defects (893883/893876 1cpu/8000, 893633 procs, job reconciliation, fix_memory_holds.sh)

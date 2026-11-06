@@ -547,7 +547,7 @@ samples:
   N_shortfall_flag: 'NOT IN s/b (cross-check/pilot/superseded): N rule n/a; test job only, no production'
 - id: F_QCD_Wajj_nomjj
   idx: 18
-  role: 1 fake gamma (QCD), NOMINAL (no generator mjj cut)
+  role: '2-jet LO Wgamma+jj + PS: WITHDRAWN as production row (D29 supersedes D30): test + twins are a cross-check outside s and b'
   process: p p > w+ a j j QCD=2 QED=2, w+>l+ vl (+c.c.)
   orders:
   - 2
@@ -565,12 +565,41 @@ samples:
   br_in_ME: W->l nu in MG5 ME
   h_decay: no H
   N_required: 17344022
-  N_planned: 17345000
+  N_planned: null
   infeasible_N: false
   overlap_rule: drop events with >=2 prompt photons
   condor_test: 1 fake gamma
   status: candidate
-  note: 1024 diagrams; N_required 1.64e7 events (~520 core-h, ~40 GB)
+  note: 'WITHDRAWN: replaced by F_QCD_Wajjj_nomjj (ME+1-jet, D29); test job + 40k twins kept as cross-check'
+  in_bs: false
+  weighted: false
+  N_shortfall_flag: 'NOT IN s/b (cross-check/pilot/superseded): N rule n/a; test job only, no production'
+- id: F_QCD_Wajjj_nomjj
+  idx: 45
+  role: 1 fake gamma (QCD), NOMINAL ME+1-jet model (D29 replaces the 2-jet row; only where >=3 reco jets incl. the converted jet are required)
+  process: p p > w+ a j j j QCD=3 QED=2, w+>l+ vl (+c.c.)
+  orders:
+  - 3
+  - 2
+  gen_cuts: 'pta>25,ptj>20,..., mmjj 0 (ptj>20 also cuts the converted jet: safe, 04 sec. 19)'
+  sigma_fb: 2885.0
+  sigma_err_fb: 2.3019999999999996
+  sigma_source: gridpack init sigma (smoke run gave 2885 +- 2.3 fb)
+  sigma_py8_test_fb: 2872.0
+  sigma_for_N_fb: 3029.25
+  n_lhe_over_requested_test: 1.0
+  br_factors_external:
+  - WF
+  k_external: 0.9600764922914165
+  br_in_ME: W->l nu in MG5 ME
+  h_decay: no H
+  N_required: 8724935
+  N_planned: 8725000
+  infeasible_N: false
+  overlap_rule: 'drop events with >=2 prompt photons; unmerged inclusive LO W gamma + 3j: valid ONLY with >=3 reco jets incl. the converted one (no MLM merging, never added to the 2-jet row)'
+  condor_test: 1 fake gamma
+  status: candidate
+  note: N_required 8.72e6 (sigma 2.885 pb x 0.96008 x 3000 fb-1 x 1.05); sigma_MC criterion not met (MC-stat nuisance)
   in_bs: true
   weighted: false
   N_shortfall_flag: null

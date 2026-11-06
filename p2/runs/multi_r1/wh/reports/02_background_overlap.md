@@ -27,7 +27,8 @@ Reco target: one isolated e/μ (W→ℓν), MET, ≥2 isolated photons with m_γ
 | B_QCD_Waajj_vbs | QCD twin cross-check (mmjj>400) | 0.6327 (gridpack init sigma) | WF=0.96008 | 0.6074 | 50000 |  | NOT IN s/b (cross-check/pilot/superseded): N rule n/a; test job only, no production |
 | F_EW_Wajj_nomjj | 1 fake gamma (EW), NOMINAL (no generator mjj | 167.7 (gridpack init sigma) | WF=0.96008 | 161 | 507165 | 508000 |  |
 | F_EW_Wajj_vbs | EW twin cross-check (mmjj>400) | 89.63 (gridpack init sigma) | WF=0.96008 | 86.05 | 271063 |  | NOT IN s/b (cross-check/pilot/superseded): N rule n/a; test job only, no production |
-| F_QCD_Wajj_nomjj | 1 fake gamma (QCD), NOMINAL (no generator mj | 5683 (gridpack init sigma) | WF=0.96008 | 5456 | 17344022 | 17345000 |  |
+| F_QCD_Wajj_nomjj | 2-jet LO Wgamma+jj + PS: WITHDRAWN as produc | 5683 (gridpack init sigma) | WF=0.96008 | 5456 | 17344022 |  | NOT IN s/b (cross-check/pilot/superseded): N rule n/a; test job only, no production |
+| F_QCD_Wajjj_nomjj | 1 fake gamma (QCD), NOMINAL ME+1-jet model ( | 2885 (gridpack init sigma) | WF=0.96008 | 2770 | 8724935 | 8725000 |  |
 | F_QCD_Wajj_vbs | QCD twin cross-check (mmjj>400) | 712.4 (gridpack init sigma) | WF=0.96008 | 684 | 2154469 |  | NOT IN s/b (cross-check/pilot/superseded): N rule n/a; test job only, no production |
 | F_Wjjjj | 2 fake gammas (weighted; replaces the W+2j p | 4.147e+05 (gridpack init sigma) | WF=0.96008 | 3.981e+05 | 1254152722 |  | human-sanctioned weighted row (D4/D27): N_eff>=10 rule (enforced in make_plan.py) (N>feasible) |
 | T_ttjj_1l | tt 1l, 2 fake gammas (weighted) | 8.579e+04 (gridpack init sigma) | WF×WHAD=0.97056 | 8.326e+04 | 262281435 |  | human-sanctioned weighted row (D4/D27): N_eff>=10 rule (enforced in make_plan.py) (N>feasible) |
