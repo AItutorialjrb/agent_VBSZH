@@ -112,15 +112,15 @@ row("H_ttH_dilep_wh","ttH dilepton, 1 lepton lost (D-WH-3 top-up)","p p > t t~ h
     (18.26,0.17),"own test job LHE init sigma (same gridpack as ZH; ZH table 18.11, -0.8 %)",["WF","WF","BGG"],"t->b W->l nu in MG5 ME (ZH H_ttH gridpack: dilepton)",HD,"ttH 1l is H_ttH_1l; this is the dilepton topology","req","resonant bkg")
 row("H_ZH_tautau_wh","ZH, Z->tautau (MLM 0-2j), tau->l feed-down (D-WH-3 top-up)","p p > z h (+j,+jj), z>ta+ ta- (ZH gridpack H_ZH_tautau_s1360700, read-only), MLM",[2,2],"xqcut as ZH",
     (25.35,0.3),"own test job PY8 sigma after MLM matching (ZH table 24.97; LHE init 24.92 is pre-matching; the larger value is used)",["BGG"],"Z->tautau in MG5 ME","H->gamma gamma forced in PY8","tau->e/mu nu nu feed-down; MLM accepted events counted","req","resonant bkg")
-# ---- G2 item 1: non-prompt-lepton class (no real lepton; per-jet f_l weights, f_l PENDING D28)
+# ---- G2 item 1: non-prompt-lepton class (no real lepton; per-jet f_l weights, f_l 2e-5/2e-4/2e-3 per D28 (ATLAS 1110.3174))
 HDL = "H->gamma gamma forced in PY8 (cond. BR 1); B_gg external once"
-row("Q_aajj","non-prompt lepton: prompt gamma gamma + jj, per-jet f_l weights (f_l PENDING D28)","p p > a a j j (QCD gamma gamma + 2 jets), no lepton in the ME",[2,2],"pta>25,draa 0.4,100<maa<170,ptj>20,drjj>0.4, no mjj cut",
+row("Q_aajj","non-prompt lepton: prompt gamma gamma + jj, per-jet f_l weights (f_l 2e-5/2e-4/2e-3 per D28 (ATLAS 1110.3174))","p p > a a j j (QCD gamma gamma + 2 jets), no lepton in the ME",[2,2],"pta>25,draa 0.4,100<maa<170,ptj>20,drjj>0.4, no mjj cut",
     smoke("Q_aajj_smoke"),"smoke Q_aajj_smoke",["one"],"no lepton","no H","jet -> lepton by probability weights (scripts/fakelep_pilot.py); fixed-order 2 jets: PS/merging uncertainty declared (04 sec. 6b)",None,"non-prompt lepton",weighted=True,
-    note="N set by N_eff>=10 in the PEAK region of fakelep_pilot.py; f_l range 3e-5..1e-3 (assumption, D28)")
-row("H_VBFH_jj","non-prompt lepton: VBF H->gamma gamma + jj (resonant), per-jet f_l weights (f_l PENDING D28)","p p > h j j QCD=0 (includes hadronic VH at EW order 3)",[0,3],"ptj>20,|etaj|<5,drjj>0.4",
-    gp("H_VBFH_jj") or None,"gridpack init sigma (pending 885122.1)",["BGG"],"no lepton",HDL,"resonant: not constrained by m_gg sidebands; hadronic VH part overlaps nothing with the lepton channel",None,"non-prompt lepton",weighted=True,note="f_l PENDING D28")
-row("H_ggF_jj","non-prompt lepton: ggF-like H + jj (resonant, top loop, LO loop-induced), per-jet f_l weights (f_l PENDING D28)","p p > h j j [noborn=QCD] (loop_sm-no_b_mass)",["loop"],"ptj>20,|etaj|<5,drjj>0.4",
-    gp("H_ggF_jj") or None,"gridpack init sigma (pending 885122.2)",["BGG"],"no lepton",HDL,"resonant; LO loop-induced normalised as is (K-factor not applied, labelled)",None,"non-prompt lepton",weighted=True,note="f_l PENDING D28; loop gridpack may fail (then D-WH-14)")
+    note="N set by N_eff>=10 in the PEAK region of fakelep_pilot.py; f_l range 2e-5..2e-3 (cited, ATLAS 1110.3174 p.4)")
+row("H_VBFH_jj","non-prompt lepton: VBF H->gamma gamma + jj (resonant), per-jet f_l weights (f_l 2e-5/2e-4/2e-3 per D28 (ATLAS 1110.3174))","p p > h j j QCD=0 (includes hadronic VH at EW order 3)",[0,3],"ptj>20,|etaj|<5,drjj>0.4",
+    gp("H_VBFH_jj") or None,"gridpack init sigma (pending 885122.1)",["BGG"],"no lepton",HDL,"resonant: not constrained by m_gg sidebands; hadronic VH part overlaps nothing with the lepton channel",None,"non-prompt lepton",weighted=True,note="f_l 2e-5/2e-4/2e-3 per D28 (ATLAS 1110.3174)")
+row("H_ggF_jj","non-prompt lepton: ggF-like H + jj (resonant, top loop, LO loop-induced), per-jet f_l weights (f_l 2e-5/2e-4/2e-3 per D28 (ATLAS 1110.3174))","p p > h j j [noborn=QCD] (loop_sm-no_b_mass)",["loop"],"ptj>20,|etaj|<5,drjj>0.4",
+    gp("H_ggF_jj") or None,"gridpack init sigma (pending 885122.2)",["BGG"],"no lepton",HDL,"resonant; LO loop-induced normalised as is (K-factor not applied, labelled)",None,"non-prompt lepton",weighted=True,note="f_l 2e-5/2e-4/2e-3 per D28 (ATLAS 1110.3174); loop gridpack may fail (then D-WH-14)")
 row("F_QCD_llajj_loose","lost-lepton coverage bound (sigma only): ZH F_QCD_llajj_nomjj card with loose lepton cuts","p p > l+ l- a j j QCD=2 QED=3, ptl>5,|etal|<3.5,mmll>10",[2,3],"loose lepton cuts",
     gp("F_QCD_llajj_loose") or None,"gridpack init sigma (pending 885124.0); tight (ZH cuts) sigma 817.8 fb",["one"],"leptons in ME","no H","sigma-only coverage bound (04 sec. 6c)",None,"sigma only",in_bs=False)
 # ---- frozen ZH samples (read-only reuse; sigma from reports/FINAL_report.md)
@@ -147,6 +147,12 @@ frozen("ZH_Zajj_eFake","Z(ll)gamma jj with e->gamma (QCD+EW), lepton+photon pair
 
 # ---- generator-cut (mmjj>400) correction from the twins: lost fraction f of reco-selected (m_jj>500) events -> yield multiplier C = 1/(1-f)
 import json
+# ---- coupling-study samples (brief v2 step 2): HC_NLO_X0_kVV (patched, ZH lib), generator cuts = S_EW_WHjj; not added to the SM signal
+for _n, _npl in (("lam_m100",200000),("lam_m050",200000),("lam_p000",200000),("lam_p050",200000),("lam_p100",200000),("lam_p150",200000),
+                 ("kap_W15_Z075",200000),("kap_W05_Z15",200000),("cpo_p2",100000),("cpo_m2",100000)):
+    row("K_EW_WHjj_"+_n,"coupling-study variant of the signal (not added to SM s)","p p > w+ x0 j j QCD=0, w+>l+ vl (+ w- c.c.); HC_NLO_X0_kVV; p,j = g u c d s (no b)",[0,None],J20,
+        None,"gridpack init sigma pending",["WF","BGG"],"W->e nu,mu nu in MG5 ME",HD+" (BR(H->gamma gamma) kappa-dependence applied at analysis level)",
+        "coupling variant of S_EW_WHjj: never added to it",_npl,"EW fixed-order, coupling point "+_n)
 def _ratio(fn):
     f = f"{WH}/work/{fn}"
     if not os.path.exists(f): return None
@@ -160,9 +166,11 @@ for sid, fn, what in (("ZH_Zaajj_QCD_lostlep", "ratioC_ZH_Zaajj_QCD.json", "froz
 for r in ROWS:
     c = CGEN.get(r["id"])
     if c: r["c_gen_cut"] = c
-    elif r["id"] in ("ZH_Zaajj_EW_lostlep",): r["c_gen_cut"] = dict(factor=None, source="EW part: ZH measured 1.4 % loss at the ZH selection; W EW twin (B_EW_Waajj_nomjj vs _vbs) pending as proxy; syst = full difference")
+    elif r["id"] in ("ZH_Zaajj_EW_lostlep",):
+        _j = _ratio("ratioC_B_EW_Waajj.json")
+        r["c_gen_cut"] = (dict(factor=round(_j["C"], 3), rel_err_stat=round(_j["C_rel_err"], 3), syst_full_difference=round(_j["C"]-1, 3), source="W EW twin proxy: B_EW_Waajj_nomjj (5x8000 ev, 3724 sel.) vs B_EW_Waajj_vbs test (2000 ev, 265 sel.) at the WH SR proxy, ng=2; ZH measured 1.4 % loss at the ZH selection") if _j else dict(factor=None, source="EW part: W EW twin ratio missing"))
 # ---- N rule: flag EVERY shortfall; unflagged shortfall fails loudly (G1 item 1)
-ACK = {k: "weighted row: N_eff>=10 rule (enforced in make_plan.py)" for k in ("F_Wjjjj", "T_ttjj_1l", "Q_aajj", "H_VBFH_jj", "H_ggF_jj")}
+ACK = {k: "human-sanctioned weighted row (D4/D27): N_eff>=10 rule (enforced in make_plan.py)" for k in ("F_Wjjjj", "T_ttjj_1l")}
 bad = []
 for r in ROWS:
     if r["id"] == "ZH_Zaajj_QCD_lostlep": r["in_bs"] = False; r["role"] += " -- NOT in b: the nomjj sample is nominal"

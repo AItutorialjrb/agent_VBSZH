@@ -8,7 +8,12 @@ from editing other runs' .claude/ files, by design).
 2. (D21) multi_r2/r3: moves .claude/agents/ -> .claude/role_prompts/ so the custom agent types are NOT loaded
    natively; the orchestrator then spawns general-purpose subagents with model override + the role prompt text,
    as in multi_r1 Phase 01-03. Skip with --keep-agents.
-Idempotent. Usage: python3 p2/metrics/g1_repeat_isolation.py [--keep-agents] [--dry-run]
+3. (A2, 2026-11-06) --single-r1-prod: SECOND STAGE, run only after tag wh-prod-v1 and after single_r1 has
+   finished its WH Phase 01-03 (G1). Lets single_r1 read the frozen WH production data
+   (p2/production/wh/**: ntuples, SAMPLES.csv, FORMAT.md, SHA256SUMS) and nothing else from multi_r1:
+   removes the Read/Edit deny on p2/production/** for single_r1 only, adds Read+Edit deny on
+   p2/production/hh/** and Edit deny on p2/production/wh/** (read-only). runs/multi_r1/** stays denied.
+Idempotent. Usage: python3 p2/metrics/g1_repeat_isolation.py [--keep-agents] [--dry-run] [--single-r1-prod]
 """
 import json, os, sys, shutil
 P2 = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -29,4 +34,11 @@ for run in ["multi_r2", "multi_r3", "single_r1", "single_r2", "single_r3"]:
     if run.startswith("multi") and "--keep-agents" not in sys.argv and os.path.isdir(a):
         print(f"{run}: move .claude/agents -> .claude/role_prompts")
         if not dry: shutil.move(a, r)
+if "--single-r1-prod" in sys.argv:
+    f = f"{P2}/runs/single_r1/.claude/settings.json"; s = json.load(open(f)); deny = s["permissions"]["deny"]
+    drop = [f"Read({A}/production/**)", f"Edit({A}/production/**)"]
+    add = [f"Read({A}/production/hh/**)", f"Edit({A}/production/hh/**)", f"Edit({A}/production/wh/**)"]
+    new = [r for r in deny if r not in drop] + [r for r in add if r not in deny]
+    print(f"single_r1 (A2 stage 2): -{len(deny) + len([r for r in add if r not in deny]) - len(new)} +{len([r for r in add if r not in deny])} rules")
+    if not dry: s["permissions"]["deny"] = new; json.dump(s, open(f, "w"), indent=1); open(f, "a").write("\n")
 print("done (dry run)" if dry else "done; commit with: git add p2/runs/*/.claude && git commit")

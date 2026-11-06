@@ -21,7 +21,7 @@ Reco target: one isolated e/μ (W→ℓν), MET, ≥2 isolated photons with m_γ
 | T_ttaa_1l | irreducible prompt | 0.5816 (gridpack init sigma) | WF×WHAD=0.97056 | 0.5645 | 50000 | 50000 |  |
 | T_tWa_1l | 1 fake gamma | 78.6 (gridpack init sigma) | WF×WHAD=0.97056 | 76.29 | 241217 | 242000 |  |
 | T_tt_1l | 2 fake gammas (bound) | 1.417e+05 (gridpack init sigma) | WF×WHAD=0.97056 | 1.375e+05 | 433823705 |  | NOT IN s/b (cross-check/pilot/superseded): N rule n/a; test job only, no production (N>feasible) |
-| B_EW_Waajj_nomjj | irreducible continuum (EW), NOMINAL (no gene | pending (gridpack init sigma) | WF=0.96008 | pending | pending |  |  |
+| B_EW_Waajj_nomjj | irreducible continuum (EW), NOMINAL (no gene | 0.2882 (gridpack init sigma) | WF=0.96008 | 0.2767 | 50000 | 50000 |  |
 | B_EW_Waajj_vbs | EW twin cross-check (mmjj>400) | 0.203 (gridpack init sigma) | WF=0.96008 | 0.1949 | 50000 |  | NOT IN s/b (cross-check/pilot/superseded): N rule n/a; test job only, no production |
 | B_QCD_Waajj_nomjj | irreducible continuum (QCD), NOMINAL (no gen | 3.582 (gridpack init sigma) | WF=0.96008 | 3.439 | 50000 | 50000 |  |
 | B_QCD_Waajj_vbs | QCD twin cross-check (mmjj>400) | 0.6327 (gridpack init sigma) | WF=0.96008 | 0.6074 | 50000 |  | NOT IN s/b (cross-check/pilot/superseded): N rule n/a; test job only, no production |
@@ -29,28 +29,38 @@ Reco target: one isolated e/μ (W→ℓν), MET, ≥2 isolated photons with m_γ
 | F_EW_Wajj_vbs | EW twin cross-check (mmjj>400) | 89.63 (gridpack init sigma) | WF=0.96008 | 86.05 | 271063 |  | NOT IN s/b (cross-check/pilot/superseded): N rule n/a; test job only, no production |
 | F_QCD_Wajj_nomjj | 1 fake gamma (QCD), NOMINAL (no generator mj | 5683 (gridpack init sigma) | WF=0.96008 | 5456 | 17344022 | 17345000 |  |
 | F_QCD_Wajj_vbs | QCD twin cross-check (mmjj>400) | 712.4 (gridpack init sigma) | WF=0.96008 | 684 | 2154469 |  | NOT IN s/b (cross-check/pilot/superseded): N rule n/a; test job only, no production |
-| F_Wjjjj | 2 fake gammas (weighted; replaces the W+2j p | 4.147e+05 (gridpack init sigma) | WF=0.96008 | 3.981e+05 | 1254152722 |  | weighted row: N_eff>=10 rule (enforced in make_plan.py) (N>feasible) |
-| T_ttjj_1l | tt 1l, 2 fake gammas (weighted) | 8.579e+04 (gridpack init sigma) | WF×WHAD=0.97056 | 8.326e+04 | 262281435 |  | weighted row: N_eff>=10 rule (enforced in make_plan.py) (N>feasible) |
+| F_Wjjjj | 2 fake gammas (weighted; replaces the W+2j p | 4.147e+05 (gridpack init sigma) | WF=0.96008 | 3.981e+05 | 1254152722 |  | human-sanctioned weighted row (D4/D27): N_eff>=10 rule (enforced in make_plan.py) (N>feasible) |
+| T_ttjj_1l | tt 1l, 2 fake gammas (weighted) | 8.579e+04 (gridpack init sigma) | WF×WHAD=0.97056 | 8.326e+04 | 262281435 |  | human-sanctioned weighted row (D4/D27): N_eff>=10 rule (enforced in make_plan.py) (N>feasible) |
 | F_Wjj_pilot | pilot (exploratory bound), superseded by F_W | 3.435e+06 (gridpack init sigma) | WF=0.96008 | 3.298e+06 | 10388267666 |  | NOT IN s/b (cross-check/pilot/superseded): N rule n/a; test job only, no production (N>feasible) |
 | F_Wajj_pilot | pilot (exploratory), covered by F_*_Wajj_nom | 9878 (gridpack init sigma) | WF=0.96008 | 9484 | 29873452 |  | NOT IN s/b (cross-check/pilot/superseded): N rule n/a; test job only, no production (N>feasible) |
 | V_WZa_WH | WZ gamma -> l l l nu gamma, lost lepton / e- | 5.128 (gridpack init sigma) | one=1 | 5.128 | 50000 | 50000 |  |
 | V_WWa_WH | WW gamma / ZZ(llnunu) gamma -> l nu l nu gam | 28.09 (gridpack init sigma) | one=1 | 28.09 | 89870 | 90000 |  |
-| V_ZZa_WH | ZZ gamma -> 4l gamma, 3 leptons lost | pending (gridpack init sigma) | one=1 | pending | pending |  |  |
+| V_ZZa_WH | ZZ gamma -> 4l gamma, 3 leptons lost | 1.054 (gridpack init sigma) | one=1 | 1.054 | 50000 | 50000 |  |
 | H_ggZH_wh | ggZH loop, Z->ee/mumu (PY8), 1 lepton lost ( | 74.94 (own test job LHE init sigma) | BR_ZLL×BGG=0.00015276 | 0.01145 | 50000 | 50000 |  |
 | H_ttH_dilep_wh | ttH dilepton, 1 lepton lost (D-WH-3 top-up) | 18.26 (own test job LHE init sigma) | WF×WF×BGG=0.0020924 | 0.03821 | 50000 | 50000 |  |
 | H_ZH_tautau_wh | ZH, Z->tautau (MLM 0-2j), tau->l feed-down ( | 25.35 (own test job PY8 sigma after MLM m) | BGG=0.00227 | 0.05754 | 50000 | 50000 |  |
 | Q_aajj | non-prompt lepton: prompt gamma gamma + jj,  | 3580 (gridpack init sigma) | one=1 | 3580 | 11277000 |  |  |
 | H_VBFH_jj | non-prompt lepton: VBF H->gamma gamma + jj ( | 4124 (gridpack init sigma) | BGG=0.00227 | 9.361 | 50000 |  |  |
-| H_ggF_jj | non-prompt lepton: ggF-like H + jj (resonant | pending (gridpack init sigma) | BGG=0.00227 | pending | pending |  | weighted row: N_eff>=10 rule (enforced in make_plan.py) |
+| H_ggF_jj | non-prompt lepton: ggF-like H + jj (resonant | pending (gridpack init sigma) | BGG=0.00227 | pending | pending |  |  |
 | F_QCD_llajj_loose | lost-lepton coverage bound (sigma only): ZH  | 1679 (gridpack init sigma) | one=1 | 1679 | 5288850 |  | NOT IN s/b (cross-check/pilot/superseded): N rule n/a; test job only, no production |
 | ZH_EW_ZHjj_lostlep | ZHjj EW, Z->ll, 1 lepton lost | 1.295 (FINAL_report.md table) | ZF×BGG=0.0022207 | 0.002876 | 50000 | 200000 |  |
 | ZH_QCD_ZHjj_lostlep | ZHjj QCD (2,2), Z->ll, 1 lepton lost | 10.21 (FINAL_report.md table) | ZF×BGG=0.0022207 | 0.02267 | 50000 | 100000 |  |
 | ZH_ggZH_lostlep | ggZH loop, Z->ee/mumu (PY8), 1 lepton lost - | 74.33 (FINAL_report.md table) | BR_ZLL×BGG=0.00015276 | 0.01135 | 50000 | 20000 | SUPERSEDED frozen ZH sample (D-WH-3 top-up used instead): not in b |
 | ZH_ttH_dilep_lostlep | ttH dilepton, 1 lepton lost -- SUPERSEDED by | 18.11 (FINAL_report.md table) | WF×WF×BGG=0.0020924 | 0.03789 | 50000 | 42000 | SUPERSEDED frozen ZH sample (D-WH-3 top-up used instead): not in b |
-| ZH_Zaajj_EW_lostlep | Zgg jj EW (on-shell Z->ll), 1 lepton lost | 0.0393 (FINAL_report.md table) | ZF=0.9783 | 0.03845 | 50000 | 60000 | C pending |
+| ZH_Zaajj_EW_lostlep | Zgg jj EW (on-shell Z->ll), 1 lepton lost | 0.0393 (FINAL_report.md table) | ZF=0.9783 | 0.03845 | 50000 | 60000 | C=0.96 |
 | ZH_Zaajj_QCD_nomjj_lostlep | Zgg jj QCD (on-shell Z->ll), 1 lepton lost,  | 0.2728 (FINAL_report.md table) | ZF=0.9783 | 0.2669 | 50000 | 100000 |  |
 | ZH_Zaajj_QCD_lostlep | Zgg jj QCD (on-shell Z->ll), 1 lepton lost ( | 0.0356 (FINAL_report.md table) | ZF=0.9783 | 0.03483 | 50000 | 100000 | SUPERSEDED frozen ZH sample (D-WH-3 top-up used instead): not in b C=1.96 |
 | ZH_Zajj_eFake | Z(ll)gamma jj with e->gamma (QCD+EW), lepton | 80.51 (FINAL_report.md table) | one=1 | 80.51 | 241530 | 6489548 | C=1.87 |
+| K_EW_WHjj_lam_m100 | coupling-study variant of the signal (not ad | 71.44 (gridpack init sigma) | WF×BGG=0.0021794 | 0.1557 | 50000 | 200000 |  |
+| K_EW_WHjj_lam_m050 | coupling-study variant of the signal (not ad | 38.35 (gridpack init sigma) | WF×BGG=0.0021794 | 0.08358 | 50000 | 200000 |  |
+| K_EW_WHjj_lam_p000 | coupling-study variant of the signal (not ad | 18.03 (gridpack init sigma) | WF×BGG=0.0021794 | 0.03929 | 50000 | 200000 |  |
+| K_EW_WHjj_lam_p050 | coupling-study variant of the signal (not ad | 9.841 (gridpack init sigma) | WF×BGG=0.0021794 | 0.02145 | 50000 | 200000 |  |
+| K_EW_WHjj_lam_p100 | coupling-study variant of the signal (not ad | 13.87 (gridpack init sigma) | WF×BGG=0.0021794 | 0.03023 | 50000 | 200000 |  |
+| K_EW_WHjj_lam_p150 | coupling-study variant of the signal (not ad | 29.84 (gridpack init sigma) | WF×BGG=0.0021794 | 0.06503 | 50000 | 200000 |  |
+| K_EW_WHjj_kap_W15_Z075 | coupling-study variant of the signal (not ad | 32.79 (gridpack init sigma) | WF×BGG=0.0021794 | 0.07146 | 50000 | 200000 |  |
+| K_EW_WHjj_kap_W05_Z15 | coupling-study variant of the signal (not ad | 25.44 (gridpack init sigma) | WF×BGG=0.0021794 | 0.05544 | 50000 | 200000 |  |
+| K_EW_WHjj_cpo_p2 | coupling-study variant of the signal (not ad | 596.6 (gridpack init sigma) | WF×BGG=0.0021794 | 1.3 | 50000 | 100000 |  |
+| K_EW_WHjj_cpo_m2 | coupling-study variant of the signal (not ad | 593.2 (gridpack init sigma) | WF×BGG=0.0021794 | 1.293 | 50000 | 100000 |  |
 
 σ_MG = generator σ after the decay in the ME (fb, LO, before external BR); k = factors applied once externally (WF = 0.96008, WFτ = 1.0240, WHAD = 1.0109, B_γγ = 0.002270, ZF = 0.9783; `scripts/br_ledger.py`, asserts single application). Rows prefixed `ZH_` are frozen zh-final-v1.1 samples (read-only reuse, Delphes-level, paths in the YAML). Planned N values are the Phase-04 proposal (≥ N_req); estimates are labelled ESTIMATE and never used as yields.
 
@@ -90,15 +100,15 @@ Same partition-of-phase-space rule as ZH (02 §3), with the GenTruth `n_prompt_p
 5. Generator-level cut safety by **twin samples** (SUPERSEDED by D8 and the revised paragraph in §3; this item kept for history) (as ZH A1): `B_QCD_Waajj_nomjj`/`F_QCD_Wajj_nomjj` (mmjj=0) vs the `*_vbs` samples (mmjj=400); safety = fraction of reco-selected (m_jj>500, Δη>2.5 + γγ + lepton) twin events whose generator m_jj < 400. Twin result: QCD-type mmjj>400 is unsafe at the reco SR proxy (03 §7): the nominal QCD-type samples therefore have no mmjj cut; production-size EW twins are in flight (clusters in 04 §7).
 
 ## 5. Quantitative ESTIMATES for components without MC support (never "zero"; assumed efficiencies, not rigorous bounds)
-Parameterised, **not data-driven**: jet→γ f = 10⁻³(pT/50)^−0.5 (×2 endcap) × {0.3, 1, 3}; e→γ 1–5 %; non-prompt lepton per jet {3×10⁻⁵, 10⁻⁴, 10⁻³} (ZH `fake_scenarios`, ranges unchanged; the data-driven range is a Phase 06 systematic).
+Parameterised, **not data-driven**: jet→γ: NOMINAL = the measured direct Delphes j→γ rate per jet pT and barrel/endcap (04 §15(3); D4), variants up/down (stat ⊕ process) and the old assumed form f = 10⁻³(pT/50)^−0.5 (×2 endcap) × {0.3, 1, 3} (assumption, not Delphes-calibrated); e→γ 1–5 %; non-prompt lepton per jet {2×10⁻⁵, 2×10⁻⁴, 2×10⁻³} (D28, ATLAS arXiv:1110.3174 p. 4 jet rejection 5×10⁴/5×10³/5×10²; ZH `fake_scenarios` {3×10⁻⁵, 10⁻⁴, 10⁻³} kept as comparison; see 04 §13).
 - **W+jets, 2 jet→γ fakes and Wγ+jets, 1 fake**: the W+2j / Wγ+2j pilots (`F_Wjj_pilot`, `F_Wajj_pilot`, `scripts/fakefactor_pilot_w.py`, patch 001, 03 §6) are exploratory only: the VBS jets of the pilot come from the parton shower, so they are not a bound in either direction. They are superseded in b by `F_Wjjjj` (W+4j ME, two jets faking photons, two VBS jets in the ME, fake-factor probability weights, N_eff≥10 in the SR; D-WH-2) and, for one fake, by `F_QCD_Wajj_nomjj` + `F_EW_Wajj_nomjj`. The wording of the pilot result is "comparable within large uncertainty; cannot be shown negligible" (N_eff ≈ 2).
 - **Non-prompt lepton backgrounds** (`scripts/bounds.py`, `work/bounds.txt`; arithmetic with stated assumptions, not MC):
 ```
 component                                                        sigma_fid[fb]       low   nominal      high
 QCD gamma gamma + jj (LO MG5, pTg>25, 100<mgg<170, ptj>20)                3542    0.0744     0.248      2.48   | smoke Q_aajj_smoke: 3.542 pb (LO, no K-factor, fixed 2 jets)
-ggF H->gg (+jets)   [YR4 13 TeV 48.58 pb x1.1 = 53.4 pb]                 121.2   0.00164   0.00545    0.0545   | YR4 x 1.1 scaling (as ZH); eps_VBS from ggF+2j fraction (assumed 1e-2)
-ZH, Z->nunu, H->gg [LO ZH 704 fb (ZH zh_0j 48.45 fb / 0.06878) x B(inv)=0.200 x B_gg]        0.3196  1.73e-05  5.75e-05  0.000575   | LO sigma from the ZH smoke run; eps_VBS assumed 1e-2; genuine MET (eps_MET 0.8)
-VBF H->gg           [YR4 13 TeV 3.78 pb x1.1 = 4.16 pb]                  9.443   0.00382    0.0127     0.127   | YR4 x 1.1 scaling; extra (non-tag) jet fraction 0.3 assumed
+ggF H->gamma gamma (+jets)   [YR4 13 TeV 48.58 pb x1.1 = 53.4 pb]                 121.2   0.00164   0.00545    0.0545   | YR4 x 1.1 scaling (as ZH); eps_VBS from ggF+2j fraction (assumed 1e-2)
+ZH, Z->nunu, H->gamma gamma [LO ZH 704 fb (ZH zh_0j 48.45 fb / 0.06878) x B(inv)=0.200 x B_gg]        0.3196  1.73e-05  5.75e-05  0.000575   | LO sigma from the ZH smoke run; eps_VBS assumed 1e-2; genuine MET (eps_MET 0.8)
+VBF H->gamma gamma           [YR4 13 TeV 3.78 pb x1.1 = 4.16 pb]                  9.443   0.00382    0.0127     0.127   | YR4 x 1.1 scaling; extra (non-tag) jet fraction 0.3 assumed
 ttbar 1l, 2 jet->gamma fakes (15 jet pairs, f0=1e-3, eps_pT .5, window .02, VBS .01, b-veto .1)     1.375e+05  0.000928    0.0103    0.0928   | f scenarios x{0.3,1,3} per photon -> x{0.09,1,9}; sigma = smoke T_tt_1l_smoke 141.7 pb x k; eps ASSUMED
 ```
  The QCD γγ+jj estimate (0.07 / 0.25 / 2.5 events at 500 fb⁻¹ in the m_γγ peak window after the illustrative VBS+MET cuts; **the efficiency factors ε_VBS (0.10/0.01…), ε_MET = 0.2, ε_window = 0.14 and the extra-jet fractions are assumptions, not validated by MC**; "high" = f ×10 over nominal and is not an envelope) is of the same order as the expected signal (σ_phys 0.0297 fb = 14.9 events before acceptance; ZH-like acceptance ≈ 6 % gives ≈ 0.9 events) in the nominal and exceeds it in the high scenario; ggF/VBF H are smaller but not <10⁻² in the high scenario. **Therefore these components cannot be declared negligible (unlike ZH, where the Z-mass window removes them).** D-WH-4 asked for a parametrised f_lepton range from published CMS tight-ID lepton fake rates: the CMS H→ZZ→4ℓ paper (arXiv:2103.04956, Sec. 7.2) defines f_e, f_μ as the fraction of non-signal leptons passing the selection but gives them only as functions of pT and η in figures and no numeric table, so **no citable numeric range could be extracted: the 3×10⁻⁵/10⁻⁴/10⁻³ per-jet range remains the unvalidated ZH assumption and is NOT a published range (blocker D-WH-11: the human or orchestrator must supply the table/HEPData record)**. Both ends of the assumed range are reported above. These numbers are ESTIMATES (assumed ε), not bounds. Proposed remedy (needs human approval of compute and the f_ℓ range): dedicated γγ+jets (VBS-biased) and VBF/ggF H+jets samples with parametrised non-prompt-lepton weights on reco jets, N_eff ≥ 10 in the SR, or report the Phase-05 sensitivity with the bound as an explicit extra background (conservative variant).

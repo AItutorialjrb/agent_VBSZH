@@ -73,6 +73,7 @@ Same Delphes electron deficit as ZH (35 % vs 64 % there for pairs; per-lepton 59
 Submission (cluster 884860: one extra test job for B_QCD_Waajj_vbs, `work/condor/test_wh_bqcd.sub`, submitted after confirming no existing job/output; the continuum type was otherwise only represented by the still-building EW gridpack). Hold/release audit: `work/condor/test_wh.log` shows exactly one termination (005) per test proc (6/6) and 9 start/exit-19 hold cycles for the not-yet-startable procs; outputs are never overwritten (wrapper skips if `<tag>.root` exists, no `xrdcp -f`), so no duplicate test runs. Submission: EosSubmit schedd (`module load lxbatch/eossubmit; condor_submit`), gridpacks cluster **884456** (11 jobs), test jobs cluster **884457** (6 jobs, hold-and-release until the gridpack exists, `exit 19` protocol), twin test jobs cluster **884460** (2 jobs). Outputs: `work/gridpacks/`, `work/test/<sample>/` (`<sample>_s<seed>.{root,_gen.root,json,lhe.gz,_logs.tgz,_full.root}`), logs `work/condor/`.
 | sample | seed | n_req / LHE / Delphes entries (MLM: accepted) | σ_LHE init [fb] | σ_gridpack [fb] | σ_PY8 [fb] | LHE vs PY8 | wall gridpack/PY8+Delphes/slim [s] | slim ROOT+gen [kB/ev] | worker |
 |---|---|---|---|---|---|---|---|---|---|
+| B_EW_Waajj_nomjj | 2121102 | 2000 / 2000 / 2000 | 0.1132 ± 0.0008 (1st proc.) | 0.2882 ± 0.0002 | 0.2885 | +0.1 % | 891/156/11 | 2.34 | b9p13p6479 |
 | B_EW_Waajj_vbs | 2113101 | 2000 / 1940 / 1940 | 0.07439 ± 0.00063 (1st proc.) | 0.203 ± 0.00027 | 0.2044 | +0.7 % | 756/195/12 | 2.37 | b9p19p4239 |
 | B_QCD_Waajj_nomjj | 2125001 | 2000 / 2000 / 2000 | 1.631 ± 0.011 (1st proc.) | 3.582 ± 0.0064 | 3.558 | -0.7 % | 318/188/8 | 2.68 | b9p17p0675 |
 | B_QCD_Waajj_vbs | 2124001 | 2000 / 2000 / 2000 | 0.2657 ± 0.0021 (1st proc.) | 0.6327 ± 0.0011 | 0.6317 | -0.2 % | 394/155/10 | 2.85 | b9p20p9077 |
@@ -93,6 +94,16 @@ Submission (cluster 884860: one extra test job for B_QCD_Waajj_vbs, `work/condor
 | H_ttH_1l | 2116001 | 2000 / 2000 / 2000 | 54.24 ± 0.56 (1st proc.) | 107.8 ± 0.31 | 107.8 | +0.0 % | 30/169/12 | 3.11 | b9p26p6528 |
 | H_ttH_dilep_wh | 2129101 | 2000 / 2000 / 2000 | 18.26 ± 0.17 (1st proc.) | n/a | 18.24 |  | 27/214/13 | 2.88 | b9g23p3344 |
 | I_WHjj | 2105101 | 2000 / 2000 / 2000 | -0.1201 ± 0.0093 (1st proc.) | -0.2503 ± 0.0042 | -0.2361 | -5.7 % | 55/122/9 | 1.74 | b9p10p7122 |
+| K_EW_WHjj_cpo_m2 | 2144101 | 5000 / 5000 / 5000 | 180.3 ± 1.5 (1st proc.) | 593.2 ± 4.5 | 596.1 | +0.5 % | 104/257/12 | 2.28 | b9p28p0795 |
+| K_EW_WHjj_cpo_p2 | 2143101 | 5000 / 5000 / 5000 | 182.1 ± 1.4 (1st proc.) | 596.6 ± 1.9 | 599.7 | +0.5 % | 81/212/9 | 2.26 | b9p28p9038 |
+| K_EW_WHjj_kap_W05_Z15 | 2142101 | 5000 / 5000 / 5000 | 8.994 ± 0.075 (1st proc.) | 25.44 ± 0.076 | 25.32 | -0.5 % | 70/251/11 | 2.26 | b9p29p1911 |
+| K_EW_WHjj_kap_W15_Z075 | 2141101 | 5000 / 5000 / 5000 | 12.2 ± 0.086 (1st proc.) | 32.79 ± 0.15 | 32.84 | +0.2 % | 91/311/11 | 2.28 | b9p23p5193 |
+| K_EW_WHjj_lam_m050 | 2136101 | 5000 / 5000 / 5000 | 13.67 ± 0.13 (1st proc.) | 38.35 ± 0.095 | 38.6 | +0.7 % | 65/207/9 | 2.24 | b9p06p1318 |
+| K_EW_WHjj_lam_m100 | 2135101 | 5000 / 5000 / 5000 | 25.27 ± 0.2 (1st proc.) | 71.44 ± 0.15 | 71.15 | -0.4 % | 108/410/16 | 2.24 | b9p17p0675 |
+| K_EW_WHjj_lam_p000 | 2137101 | 5000 / 5000 / 5000 | 6.304 ± 0.046 (1st proc.) | 18.03 ± 0.063 | 18.04 | +0.1 % | 48/200/10 | 2.24 | b9p04p5681 |
+| K_EW_WHjj_lam_p050 | 2138101 | 5000 / 5000 / 5000 | 3.536 ± 0.024 (1st proc.) | 9.841 ± 0.029 | 9.813 | -0.3 % | 73/226/9 | 2.27 | b9p04p9214 |
+| K_EW_WHjj_lam_p100 | 2139101 | 5000 / 5000 / 5000 | 5.237 ± 0.04 (1st proc.) | 13.87 ± 0.051 | 13.71 | -1.2 % | 85/248/10 | 2.27 | b9p07p8840 |
+| K_EW_WHjj_lam_p150 | 2140101 | 5000 / 5000 / 5000 | 11.25 ± 0.079 (1st proc.) | 29.84 ± 0.066 | 29.89 | +0.2 % | 84/315/12 | 2.28 | b9p24p7870 |
 | Q_aajj | 2131101 | 5000 / 5000 / 5000 | 3537 ± 18 (1st proc.) | 3580 ± 9.5 | 3536 | -1.2 % | 72/343/17 | 2.38 | b9p29p6057 |
 | S_EW_WHjj | 2111001 | 2000 / 2000 / 2000 | 5.137 ± 0.055 (1st proc.) | 13.77 ± 0.037 | 13.68 | -0.7 % | 68/157/12 | 2.29 | b9g03p3647 |
 | S_EW_WHjj_taunu | 2102101 | 2000 / 2000 / 2000 | 2.606 ± 0.024 (1st proc.) | 6.884 ± 0.019 | 6.882 | -0.0 % | 48/109/7 | 2.24 | b9p22p1386 |
@@ -103,6 +114,7 @@ Submission (cluster 884860: one extra test job for B_QCD_Waajj_vbs, `work/condor
 | T_ttjj_1l | 2127101 | 5000 / 5000 / 5000 | 4.263e+04 ± 2.3e+02 (1st proc.) | 8.579e+04 ± 1.5e+02 | 8.559e+04 | -0.2 % | 180/434/16 | 3.28 | b9p28p9859 |
 | V_WWa_WH | 2124101 | 2000 / 2000 / 2000 | 28.52 ± 0.16 (1st proc.) | 28.09 ± 0.038 | 28.53 | +1.6 % | 195/229/13 | 1.91 | b9p13p0561 |
 | V_WZa_WH | 2123101 | 2000 / 2000 / 2000 | 2.036 ± 0.016 (1st proc.) | 5.128 ± 0.0058 | 5.099 | -0.6 % | 177/212/84 | 2.05 | b9p19p4239 |
+| V_ZZa_WH | 2125102 | 2000 / 2000 / 2000 | 1.052 ± 0.0051 (1st proc.) | 1.054 ± 0.0013 | 1.052 | -0.2 % | 334/202/11 | 2.12 | b9p13p9663 |
 
 Slim output 2.0-3.1 kB/event (ZH: 1.5-2.8); LHE+PY8+Delphes+slim ≈ 3-4 min per 2000 events. The MLM test shows the expected 34.6 % matching efficiency: the Delphes entry count is the accepted-event count, which must be used in N_MC.
 Status of the remaining jobs and the verifier request: `VERIFY_REQUEST.md`, `STATUS.md`.

@@ -379,19 +379,19 @@ samples:
   - 0
   - 5
   gen_cuts: pta>25,|etaa|<2.5,100<maa<170,ptj>20,|etaj|<5,dR>0.4,cut_decays=False, mmjj 0
-  sigma_fb: null
-  sigma_err_fb: null
-  sigma_source: 'gridpack init sigma (pending: 884934.13)'
-  sigma_py8_test_fb: null
-  sigma_for_N_fb: null
-  n_lhe_over_requested_test: null
+  sigma_fb: 0.2882
+  sigma_err_fb: 0.0001977
+  sigma_source: gridpack init sigma (smoke run gave 0.2882 +- 0.0002 fb)
+  sigma_py8_test_fb: 0.2885
+  sigma_for_N_fb: 0.302925
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - WF
   k_external: 0.9600764922914165
   br_in_ME: W->l nu in MG5 ME
   h_decay: no H
-  N_required: null
-  N_planned: null
+  N_required: 50000
+  N_planned: 50000
   infeasible_N: false
   overlap_rule: 'order-exclusive vs QCD; EW-QCD interference I_Waajj: bound/aux, see 04 caveats'
   condor_test: continuum
@@ -631,7 +631,7 @@ samples:
   note: N_planned set by N_eff>=10 in the SR (from test job) in report 04, not by sigma*L
   in_bs: true
   weighted: true
-  N_shortfall_flag: 'weighted row: N_eff>=10 rule (enforced in make_plan.py)'
+  N_shortfall_flag: 'human-sanctioned weighted row (D4/D27): N_eff>=10 rule (enforced in make_plan.py)'
 - id: T_ttjj_1l
   idx: 27
   role: tt 1l, 2 fake gammas (weighted)
@@ -661,7 +661,7 @@ samples:
   note: 'gluon-splitting/ISR double counting with PS jets of T_tt_1l is irrelevant: T_tt_1l is not in b'
   in_bs: true
   weighted: true
-  N_shortfall_flag: 'weighted row: N_eff>=10 rule (enforced in make_plan.py)'
+  N_shortfall_flag: 'human-sanctioned weighted row (D4/D27): N_eff>=10 rule (enforced in make_plan.py)'
 - id: F_Wjj_pilot
   idx: 19
   role: pilot (exploratory bound), superseded by F_Wjjjj
@@ -786,19 +786,19 @@ samples:
   - 0
   - 5
   gen_cuts: ptl>5,|etal|<3.5,mmll>10,dRll>0.1,pta>15,|etaa|<2.5; NO ME jets (jets from PS only)
-  sigma_fb: null
-  sigma_err_fb: null
-  sigma_source: 'gridpack init sigma (pending: 884934.12)'
-  sigma_py8_test_fb: null
-  sigma_for_N_fb: null
-  n_lhe_over_requested_test: null
+  sigma_fb: 1.054
+  sigma_err_fb: 0.0013349999999999998
+  sigma_source: gridpack init sigma (smoke run gave 1.054 +- 0.0013 fb)
+  sigma_py8_test_fb: 1.052
+  sigma_for_N_fb: 1.1067
+  n_lhe_over_requested_test: 1.0
   br_factors_external:
   - one
   k_external: 1.0
   br_in_ME: leptons in ME (k=1)
   h_decay: no H
-  N_required: null
-  N_planned: null
+  N_required: 50000
+  N_planned: 50000
   infeasible_N: false
   overlap_rule: as V_WZa_WH
   condor_test: V gamma
@@ -898,7 +898,7 @@ samples:
   N_shortfall_flag: null
 - id: Q_aajj
   idx: 31
-  role: 'non-prompt lepton: prompt gamma gamma + jj, per-jet f_l weights (f_l PENDING D28)'
+  role: 'non-prompt lepton: prompt gamma gamma + jj, per-jet f_l weights (f_l 2e-5/2e-4/2e-3 per D28 (ATLAS 1110.3174))'
   process: p p > a a j j (QCD gamma gamma + 2 jets), no lepton in the ME
   orders:
   - 2
@@ -921,13 +921,13 @@ samples:
   overlap_rule: 'jet -> lepton by probability weights (scripts/fakelep_pilot.py); fixed-order 2 jets: PS/merging uncertainty declared (04 sec. 6b)'
   condor_test: non-prompt lepton
   status: candidate
-  note: N set by N_eff>=10 in the PEAK region of fakelep_pilot.py; f_l range 3e-5..1e-3 (assumption, D28)
+  note: N set by N_eff>=10 in the PEAK region of fakelep_pilot.py; f_l range 2e-5..2e-3 (cited, ATLAS 1110.3174 p.4)
   in_bs: true
   weighted: true
   N_shortfall_flag: null
 - id: H_VBFH_jj
   idx: 32
-  role: 'non-prompt lepton: VBF H->gamma gamma + jj (resonant), per-jet f_l weights (f_l PENDING D28)'
+  role: 'non-prompt lepton: VBF H->gamma gamma + jj (resonant), per-jet f_l weights (f_l 2e-5/2e-4/2e-3 per D28 (ATLAS 1110.3174))'
   process: p p > h j j QCD=0 (includes hadronic VH at EW order 3)
   orders:
   - 0
@@ -950,13 +950,13 @@ samples:
   overlap_rule: 'resonant: not constrained by m_gg sidebands; hadronic VH part overlaps nothing with the lepton channel'
   condor_test: non-prompt lepton
   status: candidate
-  note: f_l PENDING D28
+  note: f_l 2e-5/2e-4/2e-3 per D28 (ATLAS 1110.3174)
   in_bs: true
   weighted: true
   N_shortfall_flag: null
 - id: H_ggF_jj
   idx: 33
-  role: 'non-prompt lepton: ggF-like H + jj (resonant, top loop, LO loop-induced), per-jet f_l weights (f_l PENDING D28)'
+  role: 'non-prompt lepton: ggF-like H + jj (resonant, top loop, LO loop-induced), per-jet f_l weights (f_l 2e-5/2e-4/2e-3 per D28 (ATLAS 1110.3174))'
   process: p p > h j j [noborn=QCD] (loop_sm-no_b_mass)
   orders:
   - loop
@@ -978,10 +978,10 @@ samples:
   overlap_rule: resonant; LO loop-induced normalised as is (K-factor not applied, labelled)
   condor_test: non-prompt lepton
   status: candidate
-  note: f_l PENDING D28; loop gridpack may fail (then D-WH-14)
+  note: f_l 2e-5/2e-4/2e-3 per D28 (ATLAS 1110.3174); loop gridpack may fail (then D-WH-14)
   in_bs: true
   weighted: true
-  N_shortfall_flag: 'weighted row: N_eff>=10 rule (enforced in make_plan.py)'
+  N_shortfall_flag: null
 - id: F_QCD_llajj_loose
   idx: 34
   role: 'lost-lepton coverage bound (sigma only): ZH F_QCD_llajj_nomjj card with loose lepton cuts'
@@ -1094,8 +1094,10 @@ samples:
   gen_cuts: pta>25,etaa<2.5,100<maa<170,mjj>400
   status: frozen reuse
   c_gen_cut:
-    factor: null
-    source: 'EW part: ZH measured 1.4 % loss at the ZH selection; W EW twin (B_EW_Waajj_nomjj vs _vbs) pending as proxy; syst = full difference'
+    factor: 0.958
+    rel_err_stat: 0.064
+    syst_full_difference: -0.042
+    source: 'W EW twin proxy: B_EW_Waajj_nomjj (5x8000 ev, 3724 sel.) vs B_EW_Waajj_vbs test (2000 ev, 265 sel.) at the WH SR proxy, ng=2; ZH measured 1.4 % loss at the ZH selection'
   N_shortfall_flag: null
 - id: ZH_Zaajj_QCD_nomjj_lostlep
   role: Zgg jj QCD (on-shell Z->ll), 1 lepton lost, NO generator mjj cut (NOMINAL, D8; G2 item 2)
@@ -1152,4 +1154,304 @@ samples:
     rel_err_stat: 0.051
     syst_full_difference: 0.866
     source: frozen ZH twin pair F_QCD_llajj_nomjj/_vbs (first 200k ev each), ng=1; QCD part only, EW part uses the W EW twin proxy
+  N_shortfall_flag: null
+- id: K_EW_WHjj_lam_m100
+  idx: 35
+  role: coupling-study variant of the signal (not added to SM s)
+  process: p p > w+ x0 j j QCD=0, w+>l+ vl (+ w- c.c.); HC_NLO_X0_kVV; p,j = g u c d s (no b)
+  orders:
+  - 0
+  - null
+  gen_cuts: ptj>20,|etaj|<5,drjj>0.4,drjl>0.4, cut_decays=False (no cuts on decay leptons), scale choice 3
+  sigma_fb: 71.44
+  sigma_err_fb: 0.1516
+  sigma_source: gridpack init sigma
+  sigma_py8_test_fb: 71.14999999999999
+  sigma_for_N_fb: 75.012
+  n_lhe_over_requested_test: 1.0
+  br_factors_external:
+  - WF
+  - BGG
+  k_external: 0.002179373637501515
+  br_in_ME: W->e nu,mu nu in MG5 ME
+  h_decay: H->gamma gamma forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once (BR(H->gamma gamma) kappa-dependence applied at analysis level)
+  N_required: 50000
+  N_planned: 200000
+  infeasible_N: false
+  overlap_rule: 'coupling variant of S_EW_WHjj: never added to it'
+  condor_test: EW fixed-order, coupling point lam_m100
+  status: candidate
+  note: ''
+  in_bs: true
+  weighted: false
+  N_shortfall_flag: null
+- id: K_EW_WHjj_lam_m050
+  idx: 36
+  role: coupling-study variant of the signal (not added to SM s)
+  process: p p > w+ x0 j j QCD=0, w+>l+ vl (+ w- c.c.); HC_NLO_X0_kVV; p,j = g u c d s (no b)
+  orders:
+  - 0
+  - null
+  gen_cuts: ptj>20,|etaj|<5,drjj>0.4,drjl>0.4, cut_decays=False (no cuts on decay leptons), scale choice 3
+  sigma_fb: 38.35
+  sigma_err_fb: 0.09486
+  sigma_source: gridpack init sigma
+  sigma_py8_test_fb: 38.6
+  sigma_for_N_fb: 40.53
+  n_lhe_over_requested_test: 1.0
+  br_factors_external:
+  - WF
+  - BGG
+  k_external: 0.002179373637501515
+  br_in_ME: W->e nu,mu nu in MG5 ME
+  h_decay: H->gamma gamma forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once (BR(H->gamma gamma) kappa-dependence applied at analysis level)
+  N_required: 50000
+  N_planned: 200000
+  infeasible_N: false
+  overlap_rule: 'coupling variant of S_EW_WHjj: never added to it'
+  condor_test: EW fixed-order, coupling point lam_m050
+  status: candidate
+  note: ''
+  in_bs: true
+  weighted: false
+  N_shortfall_flag: null
+- id: K_EW_WHjj_lam_p000
+  idx: 37
+  role: coupling-study variant of the signal (not added to SM s)
+  process: p p > w+ x0 j j QCD=0, w+>l+ vl (+ w- c.c.); HC_NLO_X0_kVV; p,j = g u c d s (no b)
+  orders:
+  - 0
+  - null
+  gen_cuts: ptj>20,|etaj|<5,drjj>0.4,drjl>0.4, cut_decays=False (no cuts on decay leptons), scale choice 3
+  sigma_fb: 18.03
+  sigma_err_fb: 0.06263
+  sigma_source: gridpack init sigma
+  sigma_py8_test_fb: 18.04
+  sigma_for_N_fb: 18.942
+  n_lhe_over_requested_test: 1.0
+  br_factors_external:
+  - WF
+  - BGG
+  k_external: 0.002179373637501515
+  br_in_ME: W->e nu,mu nu in MG5 ME
+  h_decay: H->gamma gamma forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once (BR(H->gamma gamma) kappa-dependence applied at analysis level)
+  N_required: 50000
+  N_planned: 200000
+  infeasible_N: false
+  overlap_rule: 'coupling variant of S_EW_WHjj: never added to it'
+  condor_test: EW fixed-order, coupling point lam_p000
+  status: candidate
+  note: ''
+  in_bs: true
+  weighted: false
+  N_shortfall_flag: null
+- id: K_EW_WHjj_lam_p050
+  idx: 38
+  role: coupling-study variant of the signal (not added to SM s)
+  process: p p > w+ x0 j j QCD=0, w+>l+ vl (+ w- c.c.); HC_NLO_X0_kVV; p,j = g u c d s (no b)
+  orders:
+  - 0
+  - null
+  gen_cuts: ptj>20,|etaj|<5,drjj>0.4,drjl>0.4, cut_decays=False (no cuts on decay leptons), scale choice 3
+  sigma_fb: 9.841000000000001
+  sigma_err_fb: 0.02944
+  sigma_source: gridpack init sigma
+  sigma_py8_test_fb: 9.812999999999999
+  sigma_for_N_fb: 10.333050000000002
+  n_lhe_over_requested_test: 1.0
+  br_factors_external:
+  - WF
+  - BGG
+  k_external: 0.002179373637501515
+  br_in_ME: W->e nu,mu nu in MG5 ME
+  h_decay: H->gamma gamma forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once (BR(H->gamma gamma) kappa-dependence applied at analysis level)
+  N_required: 50000
+  N_planned: 200000
+  infeasible_N: false
+  overlap_rule: 'coupling variant of S_EW_WHjj: never added to it'
+  condor_test: EW fixed-order, coupling point lam_p050
+  status: candidate
+  note: ''
+  in_bs: true
+  weighted: false
+  N_shortfall_flag: null
+- id: K_EW_WHjj_lam_p100
+  idx: 39
+  role: coupling-study variant of the signal (not added to SM s)
+  process: p p > w+ x0 j j QCD=0, w+>l+ vl (+ w- c.c.); HC_NLO_X0_kVV; p,j = g u c d s (no b)
+  orders:
+  - 0
+  - null
+  gen_cuts: ptj>20,|etaj|<5,drjj>0.4,drjl>0.4, cut_decays=False (no cuts on decay leptons), scale choice 3
+  sigma_fb: 13.870000000000001
+  sigma_err_fb: 0.0505
+  sigma_source: gridpack init sigma
+  sigma_py8_test_fb: 13.71
+  sigma_for_N_fb: 14.563500000000001
+  n_lhe_over_requested_test: 1.0
+  br_factors_external:
+  - WF
+  - BGG
+  k_external: 0.002179373637501515
+  br_in_ME: W->e nu,mu nu in MG5 ME
+  h_decay: H->gamma gamma forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once (BR(H->gamma gamma) kappa-dependence applied at analysis level)
+  N_required: 50000
+  N_planned: 200000
+  infeasible_N: false
+  overlap_rule: 'coupling variant of S_EW_WHjj: never added to it'
+  condor_test: EW fixed-order, coupling point lam_p100
+  status: candidate
+  note: ''
+  in_bs: true
+  weighted: false
+  N_shortfall_flag: null
+- id: K_EW_WHjj_lam_p150
+  idx: 40
+  role: coupling-study variant of the signal (not added to SM s)
+  process: p p > w+ x0 j j QCD=0, w+>l+ vl (+ w- c.c.); HC_NLO_X0_kVV; p,j = g u c d s (no b)
+  orders:
+  - 0
+  - null
+  gen_cuts: ptj>20,|etaj|<5,drjj>0.4,drjl>0.4, cut_decays=False (no cuts on decay leptons), scale choice 3
+  sigma_fb: 29.84
+  sigma_err_fb: 0.06577000000000001
+  sigma_source: gridpack init sigma
+  sigma_py8_test_fb: 29.89
+  sigma_for_N_fb: 31.384500000000003
+  n_lhe_over_requested_test: 1.0
+  br_factors_external:
+  - WF
+  - BGG
+  k_external: 0.002179373637501515
+  br_in_ME: W->e nu,mu nu in MG5 ME
+  h_decay: H->gamma gamma forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once (BR(H->gamma gamma) kappa-dependence applied at analysis level)
+  N_required: 50000
+  N_planned: 200000
+  infeasible_N: false
+  overlap_rule: 'coupling variant of S_EW_WHjj: never added to it'
+  condor_test: EW fixed-order, coupling point lam_p150
+  status: candidate
+  note: ''
+  in_bs: true
+  weighted: false
+  N_shortfall_flag: null
+- id: K_EW_WHjj_kap_W15_Z075
+  idx: 41
+  role: coupling-study variant of the signal (not added to SM s)
+  process: p p > w+ x0 j j QCD=0, w+>l+ vl (+ w- c.c.); HC_NLO_X0_kVV; p,j = g u c d s (no b)
+  orders:
+  - 0
+  - null
+  gen_cuts: ptj>20,|etaj|<5,drjj>0.4,drjl>0.4, cut_decays=False (no cuts on decay leptons), scale choice 3
+  sigma_fb: 32.79
+  sigma_err_fb: 0.1466
+  sigma_source: gridpack init sigma
+  sigma_py8_test_fb: 32.839999999999996
+  sigma_for_N_fb: 34.482
+  n_lhe_over_requested_test: 1.0
+  br_factors_external:
+  - WF
+  - BGG
+  k_external: 0.002179373637501515
+  br_in_ME: W->e nu,mu nu in MG5 ME
+  h_decay: H->gamma gamma forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once (BR(H->gamma gamma) kappa-dependence applied at analysis level)
+  N_required: 50000
+  N_planned: 200000
+  infeasible_N: false
+  overlap_rule: 'coupling variant of S_EW_WHjj: never added to it'
+  condor_test: EW fixed-order, coupling point kap_W15_Z075
+  status: candidate
+  note: ''
+  in_bs: true
+  weighted: false
+  N_shortfall_flag: null
+- id: K_EW_WHjj_kap_W05_Z15
+  idx: 42
+  role: coupling-study variant of the signal (not added to SM s)
+  process: p p > w+ x0 j j QCD=0, w+>l+ vl (+ w- c.c.); HC_NLO_X0_kVV; p,j = g u c d s (no b)
+  orders:
+  - 0
+  - null
+  gen_cuts: ptj>20,|etaj|<5,drjj>0.4,drjl>0.4, cut_decays=False (no cuts on decay leptons), scale choice 3
+  sigma_fb: 25.44
+  sigma_err_fb: 0.07569000000000001
+  sigma_source: gridpack init sigma
+  sigma_py8_test_fb: 25.32
+  sigma_for_N_fb: 26.712000000000003
+  n_lhe_over_requested_test: 1.0
+  br_factors_external:
+  - WF
+  - BGG
+  k_external: 0.002179373637501515
+  br_in_ME: W->e nu,mu nu in MG5 ME
+  h_decay: H->gamma gamma forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once (BR(H->gamma gamma) kappa-dependence applied at analysis level)
+  N_required: 50000
+  N_planned: 200000
+  infeasible_N: false
+  overlap_rule: 'coupling variant of S_EW_WHjj: never added to it'
+  condor_test: EW fixed-order, coupling point kap_W05_Z15
+  status: candidate
+  note: ''
+  in_bs: true
+  weighted: false
+  N_shortfall_flag: null
+- id: K_EW_WHjj_cpo_p2
+  idx: 43
+  role: coupling-study variant of the signal (not added to SM s)
+  process: p p > w+ x0 j j QCD=0, w+>l+ vl (+ w- c.c.); HC_NLO_X0_kVV; p,j = g u c d s (no b)
+  orders:
+  - 0
+  - null
+  gen_cuts: ptj>20,|etaj|<5,drjj>0.4,drjl>0.4, cut_decays=False (no cuts on decay leptons), scale choice 3
+  sigma_fb: 596.6
+  sigma_err_fb: 1.906
+  sigma_source: gridpack init sigma
+  sigma_py8_test_fb: 599.7
+  sigma_for_N_fb: 629.6850000000001
+  n_lhe_over_requested_test: 1.0
+  br_factors_external:
+  - WF
+  - BGG
+  k_external: 0.002179373637501515
+  br_in_ME: W->e nu,mu nu in MG5 ME
+  h_decay: H->gamma gamma forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once (BR(H->gamma gamma) kappa-dependence applied at analysis level)
+  N_required: 50000
+  N_planned: 100000
+  infeasible_N: false
+  overlap_rule: 'coupling variant of S_EW_WHjj: never added to it'
+  condor_test: EW fixed-order, coupling point cpo_p2
+  status: candidate
+  note: ''
+  in_bs: true
+  weighted: false
+  N_shortfall_flag: null
+- id: K_EW_WHjj_cpo_m2
+  idx: 44
+  role: coupling-study variant of the signal (not added to SM s)
+  process: p p > w+ x0 j j QCD=0, w+>l+ vl (+ w- c.c.); HC_NLO_X0_kVV; p,j = g u c d s (no b)
+  orders:
+  - 0
+  - null
+  gen_cuts: ptj>20,|etaj|<5,drjj>0.4,drjl>0.4, cut_decays=False (no cuts on decay leptons), scale choice 3
+  sigma_fb: 593.1999999999999
+  sigma_err_fb: 4.453
+  sigma_source: gridpack init sigma
+  sigma_py8_test_fb: 596.1
+  sigma_for_N_fb: 625.9050000000001
+  n_lhe_over_requested_test: 1.0
+  br_factors_external:
+  - WF
+  - BGG
+  k_external: 0.002179373637501515
+  br_in_ME: W->e nu,mu nu in MG5 ME
+  h_decay: H->gamma gamma forced in PY8 (25:onMode=off, onIfMatch 22 22; cond. BR=1); B_gg=0.002270 external once (BR(H->gamma gamma) kappa-dependence applied at analysis level)
+  N_required: 50000
+  N_planned: 100000
+  infeasible_N: false
+  overlap_rule: 'coupling variant of S_EW_WHjj: never added to it'
+  condor_test: EW fixed-order, coupling point cpo_m2
+  status: candidate
+  note: ''
+  in_bs: true
+  weighted: false
   N_shortfall_flag: null

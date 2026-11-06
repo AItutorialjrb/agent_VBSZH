@@ -21,3 +21,21 @@ for jx in sorted(jl):
     sz = (xsize(f"{dd}/{tag}.root") + xsize(f"{dd}/{tag}_gen.root"))/d["n_delphes"]/1e3
     out.append(f"| {s} | {d['mg_seed']} | {d['n_requested']} / {d['n_lhe']} / {d['n_delphes']} | {xs:.4g} ± {xe:.2g} (1st proc.) | {gv} | {('%.4g'%py) if py else 'n/a'} | {('%+.1f %%'%(100*(py/ (float(g.group(1))*1e3)-1))) if (py and g) else ''} | {d['t_gridpack_s']}/{d['t_py8_delphes_s']}/{d['t_slim_s']} | {sz:.2f} | {d['host'].split('.')[0]} |")
 open(f"{WH}/work/test_summary.md", "w").write("\n".join(out)+"\n"); print("\n".join(out))
+
+# ---- coupling samples: the ten effective couplings must be 0 in the LHE-header param_card (04 sec. 10); fails loudly
+import gzip
+EFF = ["kHaa","kAaa","kHza","kAza","kHzz","kHww","kHda","kHdz","kHdwR","kHdwI"]
+EFFL = {k.lower(): k for k in EFF}   # the LHE header writes parameter names in lower case
+bad = []; seen = 0
+for f in sorted(glob.glob(f"{os.path.dirname(os.path.abspath(__file__))}/../work/test/K_EW_WHjj_*/*.lhe.gz")):
+    seen += 1; vals = {}
+    with gzip.open(f, "rt", errors="replace") as fh:
+        for l in fh:
+            if "</header>" in l or "<init>" in l: break
+            m = re.match(r"\s*\d+\s+(\S+)\s+#\s*(\w+)", l)
+            if m and m.group(2).lower() in EFFL: vals[EFFL[m.group(2).lower()]] = float(m.group(1))
+    miss = [k for k in EFF if k not in vals]; nz = {k: v for k, v in vals.items() if v != 0.0}
+    print(("PARAM CHECK FAIL " if (miss or nz) else "param check ok ") + os.path.basename(f), "missing:", miss, "nonzero:", nz)
+    if miss or nz: bad.append(f)
+print(f"coupling effective-coupling check: {seen} LHE files, {len(bad)} failures")
+if bad: sys.exit("effective couplings not zero / not found in: " + ", ".join(bad))

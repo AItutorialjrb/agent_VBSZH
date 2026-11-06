@@ -1,0 +1,50 @@
+#!/usr/bin/env python3
+"""Direct Delphes jet -> photon rate = the NOMINAL fake-photon model (D4/D-WH-2: "the Delphes j->gamma rate"; recheck item 4, orchestrator order 2026-11-06).
+Per GenJet (pT>25, |eta|<2.5) in bins of jet pT and |eta| (barrel <1.5, endcap 1.5-2.5): P(jet yields a reco Photon with pT>10 within dR<0.2). Events must have NO prompt photon
+(GenTruth n_prompt_photons == 0, from the *_gen.root of each test), so the photons are jet-induced (pi0/collinear, incl. FSR in jets). The photon/jet pT ratio x is recorded (histogram per jet-pT bin)
+because the SR photon pT>25 is applied afterwards to x*pT_jet. Statistical error: Clopper-Pearson 68 %. Process dependence: W+jets samples vs ttbar samples measured separately; systematic = |r_W - r_tt|/2 per bin.
+Smooth parametrisation r = a (pT/50)^b per eta region (Poisson ML on the pooled counts) is stored as well.
+Usage: jet_to_photon_rate.py <out.json> <sample_dir:class> [<sample_dir:class> ...]   class in {W, TT}; each dir holds <tag>.root and <tag>_gen.root (test jobs, read-only)."""
+import sys, json, glob, numpy as np, uproot
+from scipy.stats import beta
+from scipy.optimize import minimize
+out, specs = sys.argv[1], sys.argv[2:]
+PT = [25, 35, 50, 75, 100, 150, 1000]; ETA = [(0, 1.5), (1.5, 2.5)]; XB = np.linspace(0, 1.5, 16)
+nb, ne = len(PT)-1, len(ETA)
+cnt = {c: dict(num=np.zeros((ne, nb)), den=np.zeros((ne, nb))) for c in ("W", "TT")}; xh = np.zeros((nb, len(XB)-1)); nev = {"W": 0, "TT": 0}; used = []
+for sp in specs:
+    d, cls = sp.split(":")
+    for f in sorted(glob.glob(d + "/*.root")):
+        if f.endswith(("_gen.root", "_full.root")): continue
+        g = f[:-5] + "_gen.root"; t = uproot.open(f)["Delphes"]; npr = np.asarray(uproot.open(g)["GenTruth"]["n_prompt_photons"].array(library="ak").to_numpy() if hasattr(uproot.open(g)["GenTruth"]["n_prompt_photons"].array(library="ak"), "to_numpy") else __import__("awkward").to_numpy(uproot.open(g)["GenTruth"]["n_prompt_photons"].array()))
+        a = t.arrays(["GenJet.PT", "GenJet.Eta", "GenJet.Phi", "Photon.PT", "Photon.Eta", "Photon.Phi"], library="np"); used.append(f)
+        for i, (jp, je, jf, gp, ge, gf) in enumerate(zip(a["GenJet.PT"], a["GenJet.Eta"], a["GenJet.Phi"], a["Photon.PT"], a["Photon.Eta"], a["Photon.Phi"])):
+            if npr[i] != 0: continue
+            nev[cls] += 1
+            ph = [(q, e, p) for q, e, p in zip(gp, ge, gf) if q > 10 and abs(e) < 2.5]
+            for q, e, p in zip(jp, je, jf):
+                if q <= 25 or abs(e) >= 2.5: continue
+                ie = 0 if abs(e) < 1.5 else 1; ip = int(np.digitize(q, PT)-1)
+                if not 0 <= ip < nb: continue
+                cnt[cls]["den"][ie, ip] += 1
+                m = [x for x in ph if np.hypot(e-x[1], (p-x[2]+np.pi) % (2*np.pi)-np.pi) < 0.2]
+                if m:
+                    cnt[cls]["num"][ie, ip] += 1; xh[ip] += np.histogram([max(m, key=lambda z: z[0])[0]/q], bins=XB)[0]
+num = cnt["W"]["num"]+cnt["TT"]["num"]; den = cnt["W"]["den"]+cnt["TT"]["den"]
+def cp(k, n):
+    return (float(beta.ppf(0.16, k, n-k+1)) if k > 0 else 0.0, float(beta.ppf(0.84, k+1, n-k)) if n else 1.0)
+rate = np.where(den > 0, num/np.maximum(den, 1), 0.0)
+err_stat = np.array([[0.5*(cp(num[i, j], den[i, j])[1]-cp(num[i, j], den[i, j])[0]) for j in range(nb)] for i in range(ne)])
+rW = np.where(cnt["W"]["den"] > 0, cnt["W"]["num"]/np.maximum(cnt["W"]["den"], 1), np.nan); rT = np.where(cnt["TT"]["den"] > 0, cnt["TT"]["num"]/np.maximum(cnt["TT"]["den"], 1), np.nan)
+err_proc = np.where(np.isfinite(rW) & np.isfinite(rT), 0.5*np.abs(rW-rT), 0.0)
+pc = np.array([30, 42, 62, 87, 125, 220.0])
+fit = {}
+for ie in range(ne):
+    def nll(par):
+        a_, b_ = par; mu = den[ie]*a_*(pc/50)**b_; return float(np.sum(mu - num[ie]*np.log(np.maximum(mu, 1e-300))))
+    r = minimize(nll, [3e-3, 0.3], method="Nelder-Mead"); fit[("barrel", "endcap")[ie]] = dict(a=float(r.x[0]), b=float(r.x[1]))
+res = dict(note=__doc__.split("Usage")[0].strip(), files=used, n_events=nev, pt_edges=PT, eta_bins=ETA, num=num.tolist(), den=den.tolist(), rate=rate.tolist(), err_stat=err_stat.tolist(),
+           rate_W=np.nan_to_num(rW, nan=-1).tolist(), rate_TT=np.nan_to_num(rT, nan=-1).tolist(), err_process=err_proc.tolist(), err_total=np.sqrt(err_stat**2+err_proc**2).tolist(),
+           x_edges=XB.tolist(), x_hist_per_ptbin=xh.tolist(), powerlaw_fit_r_eq_a_pT_over_50_to_b=fit,
+           assumed_form=[[1e-3*(c/50)**-0.5*(2 if ie else 1) for c in pc] for ie in range(ne)])
+json.dump(res, open(out, "w"), indent=1); print(json.dumps({k: res[k] for k in ("n_events", "num", "den", "rate", "err_total", "powerlaw_fit_r_eq_a_pT_over_50_to_b")}))

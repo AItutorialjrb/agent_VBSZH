@@ -5,3 +5,4 @@ utc,run_id,phase,class,assisted,verbatim_or_ref,note
 2026-11-04T08:59:12Z,multi_r1,PRE-G2,continue,unknown,"continue",S-continue after API usage-limit stop of executor-hh
 2026-11-04T10:13:31Z,multi_r1,PRE-G2,continue,unknown,"continue",after session relaunch; WH gridpacks 884934.13/885044 still running
 2026-11-04T13:40:56Z,multi_r1,G2,pause,unknown,"Pause now (credit limit; resume next week)... Reply paused when done.",human pause order; all subagents stopped after STATUS write; no condor action
+2026-11-06T12:57:29Z,multi_r1,RESUME,decision,unknown,"Resume from the recorded state ... amendments A1/A2, pending decisions, WH final-result scope 1-6, economy",logged as type=decision per human instruction; contains protocol amendments A1/A2

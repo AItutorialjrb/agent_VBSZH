@@ -16,6 +16,20 @@ BVETO = os.environ.get("BVETO", "0") == "1"   # G2: drop combinations with a b-t
 slim, genf, lhe, sigma, nfake, outj = sys.argv[1:7]; sigma = float(sigma); nfake = int(nfake)
 lumi = float(sys.argv[7]) if len(sys.argv) > 7 else 500.0
 F0 = 1.0e-3
+# NOMINAL fake model (orchestrator order 2026-11-06, D4): the MEASURED direct Delphes j->gamma rate table (scripts/jet_to_photon_rate.py -> work/jgamma_rate.json), per jet pT bin and barrel/endcap,
+# with x = photon pT / jet pT drawn from the measured histogram. Variants reported next to it: up/down = nominal +/- total (stat (+) process) error, and the OLD assumed form F0 (pT/50)^-0.5 (x2 endcap, x~N(0.85,0.1)).
+RJ = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "work", "jgamma_rate.json")))
+CLS = os.environ.get("RATE_CLASS", "W")      # W: W+jets-dominated rows (F_*), TT: ttbar rows (T_*), pooled: both (variant)
+sfx = {"W": "_W", "TT": "_TT", "pooled": ""}[CLS]
+PTE = np.array(RJ["pt_edges"]); RT = np.array(RJ["rate" + sfx]); RE = np.array(RJ["err_total" + sfx]); RP = np.array(RJ["rate"])
+XH = np.array(RJ["x_hist_per_ptbin" + sfx if ("x_hist_per_ptbin" + sfx) in RJ else "x_hist_per_ptbin"], float); XE = np.array(RJ["x_edges"])
+VARS = ("nom", "up", "dn", "pooled", "assumed")
+def ptbin(pt): return min(max(int(np.digitize(pt, PTE)-1), 0), len(PTE)-2)
+def frates(pt, eta):
+    ie = 0 if abs(eta) < 1.5 else 1; ib = ptbin(pt); r, e = RT[ie, ib], RE[ie, ib]
+    return np.array([r, r+e, max(r-e, 0.0), RP[ie, ib], F0 * (pt/50.0)**-0.5 * (2.0 if abs(eta) > 1.566 else 1.0)])
+def draw_x(pt, size_rng):
+    h = XH[ptbin(pt)]; c = np.cumsum(h)/h.sum(); u = size_rng.random(); k = int(np.searchsorted(c, u)); return 0.5*(XE[k]+XE[k+1])
 rng = np.random.default_rng(13600999)
 t = uproot.open(slim)["Delphes"]; g = uproot.open(genf)["GenTruth"]
 N = t.num_entries
@@ -44,7 +58,6 @@ def lv(pt, eta, phi):
 def m(a, b):
     s = a + b; return np.sqrt(max(s[3]**2 - s[0]**2 - s[1]**2 - s[2]**2, 0.0))
 def photon_ok(pt, eta): return pt > PTG and abs(eta) < 2.5 and not (1.4442 < abs(eta) < 1.566)
-def frate(pt, eta): return F0 * (pt/50.0)**-0.5 * (2.0 if abs(eta) > 1.566 else 1.0)
 
 jpt, jeta, jphi, jbt = A("Jet/Jet.PT"), A("Jet/Jet.Eta"), A("Jet/Jet.Phi"), A("Jet/Jet.BTag")
 ept, eeta, ephi, eq = A("Electron/Electron.PT"), A("Electron/Electron.Eta"), A("Electron/Electron.Phi"), A("Electron/Electron.Charge")
@@ -64,7 +77,7 @@ for i in range(N):
     if npr[i] != (0 if nfake == 2 else 1) or not zcand(i): continue
     KJ = [k for k in range(len(jpt[i])) if jpt[i][k] > 20 and abs(jeta[i][k]) < 4.7]
     J = [(jpt[i][k], jeta[i][k], jphi[i][k]) for k in KJ]; JB = [bool(jbt[i][k] > 0 and jpt[i][k] > 30 and abs(jeta[i][k]) < 2.5) for k in KJ]
-    xs = np.clip(rng.normal(0.85, 0.10, len(J)), 0.5, 1.0)
+    xs = [draw_x(j[0], rng) for j in J]   # measured photon/jet pT ratio (nominal model); the assumed-form variant keeps only its weights
     real = [(gpt[i][k], geta[i][k], gphi[i][k]) for k in range(len(gpt[i])) if photon_ok(gpt[i][k], geta[i][k])]
     if nfake == 1:
         if len(real) < 1: continue
@@ -75,14 +88,14 @@ for i in range(N):
     else:
         J = list(zip(J, xs))
         combos = [((a, b), []) for a in range(len(J)) for b in range(a+1, len(J))]
-    acc = {r: 0.0 for r in reg}
+    acc = {r: np.zeros(len(VARS)) for r in reg}
     for fk, reals in combos:
-        phs, wf = list(reals), 1.0
+        phs, wf = list(reals), np.ones(len(VARS))
         ok = True
         for k in fk:
             (pt, eta, phi), x = J[k]
             if not photon_ok(x*pt, eta): ok = False; break
-            phs.append((x*pt, eta, phi)); wf *= frate(pt, eta)
+            phs.append((x*pt, eta, phi)); wf = wf * frates(pt, eta)
         if not ok: continue
         if BVETO and any(JB[k] for k in range(len(J)) if k not in fk): continue
         tags = sorted([J[k][0] for k in range(len(J)) if k not in fk and J[k][0][0] > 30], reverse=True)
@@ -93,16 +106,19 @@ for i in range(N):
             acc["VBS"] += wf
             if 120 < m(lv(*phs[0]), lv(*phs[1])) < 130: acc["PEAK"] += wf
     for r in reg:
-        if acc[r] > 0: reg[r].append((i, acc[r]))
+        if acc[r][0] > 0 or acc[r].sum() > 0: reg[r].append((i, acc[r].copy()))
 
-res = {"selection": {"bveto": BVETO, "bveto_def": "no b-tagged jet (BTag>0, pT>30, |eta|<2.5) outside the two fake-photon jets", "nfake": nfake, "lepton": "exactly 1 e/mu pT>25, no 2nd pT>15, MET>30", "photon_pt_min": PTG, "regions": "PRE=1l+MET+2 fake photons(pT>20)+>=2 tag jets pT>30; VBS=PRE+mjj>500,|deta|>2.5; PEAK=VBS+120<m_gg<130 (= the final-SR-like region)"}, "slim": slim, "N_gen": N, "sigma_fb": sigma, "lumi_fb": lumi, "F0": F0, "w_evt_unweighted": w_evt,
+res = {"selection": {"bveto": BVETO, "bveto_def": "no b-tagged jet (BTag>0, pT>30, |eta|<2.5) outside the two fake-photon jets", "nfake": nfake, "lepton": "exactly 1 e/mu pT>25, no 2nd pT>15, MET>30", "photon_pt_min": PTG, "regions": "PRE=1l+MET+2 fake photons(pT>20)+>=2 tag jets pT>30; VBS=PRE+mjj>500,|deta|>2.5; PEAK=VBS+120<m_gg<130 (= the final-SR-like region)"}, "rate_class": CLS, "rate_file": "work/jgamma_rate.json", "rate_variants": list(VARS), "slim": slim, "N_gen": N, "sigma_fb": sigma, "lumi_fb": lumi, "F0": F0, "w_evt_unweighted": w_evt,
        "frac_events_HT_gt": {str(c): float((ht > c).mean()) for c in (50, 100, 150, 200, 300)}, "regions": {}}
 for r, lst in reg.items():
     if not lst: res["regions"][r] = {"n_events": 0}; continue
-    idx = np.array([e for e, _ in lst]); wf = np.array([x for _, x in lst]); W = w_evt * wf
-    res["regions"][r] = {"n_events": len(lst), "yield_events_at_lumi": float(W.sum()),
-                         "N_eff": float(W.sum()**2 / (W**2).sum()), "mean_event_weight": float(W.mean()),
-                         "max_event_weight": float(W.max()),
-                         "lost_frac_by_HT_filter": {str(c): float(W[ht[idx] <= c].sum() / W.sum()) for c in (50, 100, 150, 200, 300)}}
+    idx = np.array([e for e, _ in lst]); WF = np.array([x for _, x in lst])   # (n, variants)
+    nz = WF[:, 0] > 0; W = w_evt * WF[:, 0][nz]
+    d = {"n_events": int(nz.sum()), "yield_events_at_lumi": float(W.sum()), "N_eff": float(W.sum()**2 / (W**2).sum()) if nz.any() else 0.0, "mean_event_weight": float(W.mean()) if nz.any() else 0.0,
+         "max_event_weight": float(W.max()) if nz.any() else 0.0, "yield_variants_at_lumi": {v: float(w_evt*WF[:, k].sum()) for k, v in enumerate(VARS)},
+         "N_eff_variants": {v: (float((w_evt*WF[:, k]).sum()**2/((w_evt*WF[:, k])**2).sum()) if WF[:, k].sum() > 0 else 0.0) for k, v in enumerate(VARS)},
+         "n_events_variants": {v: int((WF[:, k] > 0).sum()) for k, v in enumerate(VARS)}}
+    if nz.any(): d["lost_frac_by_HT_filter"] = {str(c): float(W[ht[idx[nz]] <= c].sum() / W.sum()) for c in (50, 100, 150, 200, 300)}
+    res["regions"][r] = d
 json.dump(res, open(outj, "w"), indent=1)
 print(json.dumps(res, indent=1))

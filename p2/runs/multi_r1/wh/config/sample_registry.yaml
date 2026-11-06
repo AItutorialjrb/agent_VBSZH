@@ -35,3 +35,15 @@ samples:
   H_VBFH_jj: 32
   H_ggF_jj: 33
   F_QCD_llajj_loose: 34
+  K_EW_WHjj_lam_m100: 35
+  K_EW_WHjj_lam_m050: 36
+  K_EW_WHjj_lam_p000: 37
+  K_EW_WHjj_lam_p050: 38
+  K_EW_WHjj_lam_p100: 39
+  K_EW_WHjj_lam_p150: 40
+  K_EW_WHjj_kap_W15_Z075: 41
+  K_EW_WHjj_kap_W05_Z15: 42
+  K_EW_WHjj_cpo_p2: 43
+  K_EW_WHjj_cpo_m2: 44
+  F_QCD_Wajjj_nomjj: 45
+  Q_aajjj: 46

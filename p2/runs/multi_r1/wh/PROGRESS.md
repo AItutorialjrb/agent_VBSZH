@@ -21,3 +21,17 @@
 - 2026-11-04T10:23:45Z VERIFY#6 fixes done, VERIFY #7 written
 - 2026-11-04T10:46:16Z G2-FIX items done except gridpack-dependent; VERIFY #8
 - 2026-11-04T10:52:30Z VERIFY#8 fixes; VERIFY #9
+
+- 2026-11-06 PROD resume: B_EW/ZZa tarballs verified, tests 893009/893010 and H_ggF_jj gridpack 893011 (testmatch) submitted; loose sigma ratio +1.053 recorded in STATUS. Steps 2-4 pending.
+
+- 2026-11-06 (coordinator order): coupling cards+gridpacks 893013, tests 893022; KFOLD=5 in make_plan; 04 sec 6c/10-13; 02 H->gg fix; D28 HEPData negative (D-WH-16); 893011 replaced by 893012 (seed clash).
+
+- 2026-11-06 follow-up chain: tests audited (coupling closures, param_card zeros), twinB 893415 submitted, V_ZZa UL, 04 sec 14, make_prod_sub K fix, VERIFY #11.
+
+- 2026-11-06: twinB done (loss 1.56 %, C 1.026), plan regenerated, STATUS READY FOR G2-RECHECK (H_ggF_jj pending).
+
+- 2026-11-06 recheck fixes: Q_aajj full N, D29 table+cards, ratio_C fix, jet->photon rate, text fixes (04 sec. 15), VERIFY #14.
+
+- 2026-11-06: bulk submitted 893600-893630 (31 samples), fixes 4/7a-c, VERIFY #16.
+
+- 2026-11-06 recheck2: F_EW/Q_aajj bulk, top-ups 893633/4, rate v3 (parentage, class, closure), 04 sec 16, VERIFY #17.
