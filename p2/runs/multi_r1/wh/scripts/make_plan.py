@@ -90,7 +90,7 @@ for r in M:
     cost = ti["cost"] if ti else DEF_COST; kb = ti["kb"] if ti else DEF_KB; acc = ti["acc"] if ti else 1.0
     lhef = min(1.0, r.get("n_lhe_over_requested_test") or 1.0)
     Nacc = r.get("N_planned")           # accepted (Delphes) events required
-    weighted_note = ""; FFROWS = ("F_Wjjjj", "T_ttjj_1l", "F_QCD_Wajjj_nomjj", "F_EW_Wajj_nomjj", "T_tta_1l", "T_tWa_1l", "Q_aajj", "H_VBFH_jj", "H_ggF_jj")
+    weighted_note = ""; FFROWS = ("F_Wjjjj", "T_ttjj_1l", "F_QCD_Wajjj_nomjj", "Q_aajjj", "F_EW_Wajj_nomjj", "T_tta_1l", "T_tWa_1l", "Q_aajj", "H_VBFH_jj", "H_ggF_jj")
     if s in FFROWS:      # ONE fake model for every fake-photon / non-prompt-lepton row (G2 items 1,3,4): per-jet probability weights, final-SR-like PEAK region, photons pT>25
         ff = fffile(s); kind = "non-prompt-lepton f_l weights (f_l 2e-5/2e-4/2e-3 per D28 (ATLAS 1110.3174))" if s in ("Q_aajj", "H_VBFH_jj", "H_ggF_jj") else "jet->photon fake-factor weights = MEASURED Delphes j->gamma rate (nominal; assumed form kept as variant), photons pT>25"
         if os.path.exists(ff):

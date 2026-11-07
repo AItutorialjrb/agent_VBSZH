@@ -1,0 +1,72 @@
+#!/usr/bin/env python3
+"""CORRECTED 2026-11-07 (v2): GenJets within dR<0.4 of a prompt gen lepton (pT>10) are excluded from the denominator: the v1 numerator (98.8 % of its photons lay within dR<0.2 of the W lepton) was dominated by electron-induced photon objects, not by jet fakes (v1 kept as postprod_rate.py.v1_lepton_contaminated).
+Production re-measurement of the Delphes j->gamma fake rate with a DISJOINT split (04 sec. 20; pre-declared in sec. 12(a)): files are split by job-seed parity (even = table A, odd = table B).
+Same definition as jet_to_photon_rate.py v3 (GenJet pT bins x barrel/endcap, numerator = reco photon pT>10 within dR<0.2 of the GenJet, events with n_prompt_photons == 0, hadronic-origin or unmatched photons = fake, photons matched (dR<0.1) to a PROMPT gen photon of GenTruth (gph_prompt: no hadron ancestor)
+= real, excluded; the production files have no Particle record, GenTruth gph_* (pT>10, |eta|<3) replaces the ancestry walk). Classes: W (F_Wjjjj) and TT (T_ttjj_1l).
+Stages: 'tables' (pool over files -> work/postprod/rate_<half>.json and rate_all.json in the format read by fakefactor_pilot_w.py), 'closure' (A->B and B->A predicted vs observed matched fake count per bin).
+Usage: bash scripts/envrun.sh python3 -P scripts/postprod_rate.py tables|closure"""
+import sys, os, json, glob, re, numpy as np, uproot, awkward as ak
+from multiprocessing import Pool
+from scipy.stats import beta
+WH = "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/multi_r1/wh"; PR = "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/production/wh"; OUT = f"{WH}/work/postprod"
+PT = [25, 35, 50, 75, 100, 150, 1000]; XB = np.linspace(0, 1.5, 16); nb = len(PT)-1
+SPEC = [("F_Wjjjj", "W", 6), ("T_ttjj_1l", "TT", 1)]
+def dphi(a, b): return (a-b+np.pi) % (2*np.pi)-np.pi
+def work(a):
+    f, cls = a; g = f[:-5] + "_gen.root"; seed = int(re.search(r"_s(\d+)\.root", f).group(1))
+    den = np.zeros((2, nb)); num = np.zeros((2, nb)); nonh = np.zeros((2, nb)); xh = np.zeros((nb, len(XB)-1))
+    T = uproot.open(f)["Delphes"]; G = uproot.open(g)["GenTruth"]
+    a_ = T.arrays(["GenJet.PT", "GenJet.Eta", "GenJet.Phi", "Photon.PT", "Photon.Eta", "Photon.Phi"], library="np"); gg = G.arrays(["n_prompt_photons", "gph_eta", "gph_phi", "gph_prompt", "glep_pt", "glep_eta", "glep_phi", "glep_prompt"], library="ak"); lE = ak.to_list(gg["glep_eta"]); lP = ak.to_list(gg["glep_phi"]); lT = ak.to_list(gg["glep_pt"]); lR = ak.to_list(gg["glep_prompt"]); npr = ak.to_numpy(gg["n_prompt_photons"]); gE = ak.to_list(gg["gph_eta"]); gP = ak.to_list(gg["gph_phi"]); gR = ak.to_list(gg["gph_prompt"])
+    for i in range(len(a_["GenJet.PT"])):
+        if npr[i] != 0: continue
+        ph = [(q, e, p) for q, e, p in zip(a_["Photon.PT"][i], a_["Photon.Eta"][i], a_["Photon.Phi"][i]) if q > 10 and abs(e) < 2.5]
+        gph = list(zip(gE[i], gP[i], gR[i])); pl = [(le, lp) for le, lp, lq, lr in zip(lE[i], lP[i], lT[i], lR[i]) if lr and lq > 10]   # prompt gen leptons (W leptons): GenJets containing/near them are lepton-jets (an electron and its Delphes photon object are NOT a jet fake) and are excluded
+        for q, e, p in zip(a_["GenJet.PT"][i], a_["GenJet.Eta"][i], a_["GenJet.Phi"][i]):
+            if q <= 25 or abs(e) >= 2.5: continue
+            if any(np.hypot(e-le, dphi(p, lp)) < 0.4 for le, lp in pl): continue
+            ie = 0 if abs(e) < 1.5 else 1; ip = int(np.digitize(q, PT)-1)
+            if not 0 <= ip < nb: continue
+            den[ie, ip] += 1
+            m = [x for x in ph if np.hypot(e-x[1], dphi(p, x[2])) < 0.2]
+            if not m: continue
+            lead = max(m, key=lambda z: z[0])
+            real = any(np.hypot(lead[1]-ge, dphi(lead[2], gp)) < 0.1 and bool(pr) for ge, gp, pr in gph)
+            if real: nonh[ie, ip] += 1
+            else:
+                num[ie, ip] += 1; xh[ip] += np.histogram([lead[0]/q], bins=XB)[0]
+    return dict(file=f, cls=cls, seed=seed, den=den.tolist(), num=num.tolist(), nonhad=nonh.tolist(), xh=xh.tolist())
+def cp(k, n): return (float(beta.ppf(0.16, k, n-k+1)) if k > 0 else 0.0, float(beta.ppf(0.84, k+1, n-k)) if n else 1.0)
+def table(res, half=None):
+    sel = [r for r in res if half is None or (r["seed"] % 2 == (0 if half == "even" else 1))]
+    out = {"n_files": {c: sum(1 for r in sel if r["cls"] == c) for c in ("W", "TT")}, "pt_edges": PT, "eta_bins": [[0, 1.5], [1.5, 2.5]], "x_edges": XB.tolist()}
+    S = {c: dict(den=sum((np.array(r["den"]) for r in sel if r["cls"] == c), np.zeros((2, nb))), num=sum((np.array(r["num"]) for r in sel if r["cls"] == c), np.zeros((2, nb))), nonhad=sum((np.array(r["nonhad"]) for r in sel if r["cls"] == c), np.zeros((2, nb))), xh=sum((np.array(r["xh"]) for r in sel if r["cls"] == c), np.zeros((nb, len(XB)-1)))) for c in ("W", "TT")}
+    rate = lambda c: np.where(S[c]["den"] > 0, S[c]["num"]/np.maximum(S[c]["den"], 1), 0.0)
+    err = lambda c: np.array([[0.5*(cp(S[c]["num"][i, j], S[c]["den"][i, j])[1]-cp(S[c]["num"][i, j], S[c]["den"][i, j])[0]) for j in range(nb)] for i in range(2)])
+    pnum = S["W"]["num"]+S["TT"]["num"]; pden = S["W"]["den"]+S["TT"]["den"]; pooled = np.where(pden > 0, pnum/np.maximum(pden, 1), 0.0)
+    out.update(rate_W=rate("W").tolist(), rate_TT=rate("TT").tolist(), rate=pooled.tolist(), err_stat_W=err("W").tolist(), err_stat_TT=err("TT").tolist(), err_total_W=err("W").tolist(), err_total_TT=err("TT").tolist(),
+               err_stat=np.array([[0.5*(cp(pnum[i, j], pden[i, j])[1]-cp(pnum[i, j], pden[i, j])[0]) for j in range(nb)] for i in range(2)]).tolist())
+    out["err_total"] = out["err_stat"]; out["err_process"] = (0.5*np.abs(rate("W")-rate("TT"))).tolist()
+    for c in ("W", "TT"):
+        out["den_"+c] = S[c]["den"].tolist(); out["num_fake_"+c] = S[c]["num"].tolist(); out["num_nonhad_"+c] = S[c]["nonhad"].tolist()
+    out["x_hist_per_ptbin_W"] = S["W"]["xh"].tolist(); out["x_hist_per_ptbin_TT"] = S["TT"]["xh"].tolist(); out["x_hist_per_ptbin"] = (S["W"]["xh"]+S["TT"]["xh"]).tolist()
+    return out, S
+if __name__ == "__main__":
+    st = sys.argv[1]; os.makedirs(OUT, exist_ok=True)
+    if st == "tables":
+        tasks = [(f, c) for s, c, k in SPEC for f in sorted(x for x in glob.glob(f"{PR}/{s}/*.root") if not x.endswith("_gen.root"))[::k]]
+        print(len(tasks), "files", flush=True)
+        with Pool(8) as p: res = p.map(work, tasks, chunksize=1)
+        json.dump(res, open(f"{OUT}/rate_perfile.json", "w"))
+        for h in ("even", "odd", None):
+            t, _ = table(res, h); json.dump(t, open(f"{OUT}/rate_{h or 'all'}.json", "w"), indent=1)
+        print("done")
+    if st == "closure":
+        res = json.load(open(f"{OUT}/rate_perfile.json")); clo = {}
+        for a, b in (("even", "odd"), ("odd", "even")):
+            ta, Sa = table(res, a); tb, Sb = table(res, b); tot = 0.0; nd = 0; rows = []
+            for c in ("W", "TT"):
+                ra = np.array(ta["rate_" + c]); pred = ra*Sb[c]["den"]; obs = Sb[c]["num"]; ea = np.array(ta["err_stat_" + c])
+                sig = np.sqrt(np.maximum(pred, 1e-9) + (Sb[c]["den"]*ea)**2); z = np.where(pred > 0, (obs-pred)/sig, 0.0); tot += float((z**2).sum()); nd += int((Sb[c]["den"] > 0).sum())
+                rows.append(dict(cls=c, pred=pred.tolist(), obs=obs.tolist(), pull=z.tolist()))
+            clo[f"measure_{a}_test_{b}"] = dict(chi2=tot, ndof=nd, rows=rows)
+        json.dump(clo, open(f"{OUT}/rate_closure.json", "w"), indent=1); print({k: (round(v["chi2"], 1), v["ndof"]) for k, v in clo.items()})

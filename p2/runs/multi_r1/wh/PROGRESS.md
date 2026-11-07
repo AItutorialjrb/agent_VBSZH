@@ -40,3 +40,5 @@
 
 - 2026-11-06 22:58Z: condor fixes A1-3, report fixes B4-6, F_QCD_Wajjj replaces 2j row (sec 19), cluster 893883, VERIFY #20.
 - 2026-11-07: VERIFY #20 defects (893883/893876 1cpu/8000, 893633 procs, job reconciliation, fix_memory_holds.sh)
+
+- 2026-11-07: post-production checks (sec 20), rate correction (lepton contamination), direct closure fail x5, Q_aajj D29 trigger raised, package built, VERIFY #22.

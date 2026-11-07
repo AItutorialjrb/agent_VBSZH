@@ -18,7 +18,7 @@ lumi = float(sys.argv[7]) if len(sys.argv) > 7 else 500.0
 F0 = 1.0e-3
 # NOMINAL fake model (orchestrator order 2026-11-06, D4): the MEASURED direct Delphes j->gamma rate table (scripts/jet_to_photon_rate.py -> work/jgamma_rate.json), per jet pT bin and barrel/endcap,
 # with x = photon pT / jet pT drawn from the measured histogram. Variants reported next to it: up/down = nominal +/- total (stat (+) process) error, and the OLD assumed form F0 (pT/50)^-0.5 (x2 endcap, x~N(0.85,0.1)).
-RJ = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "work", "jgamma_rate.json")))
+RJ = json.load(open(os.environ.get("RATE_FILE", os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "work", "jgamma_rate.json"))))   # RATE_FILE: alternative table (production split closure)
 CLS = os.environ.get("RATE_CLASS", "W")      # W: W+jets-dominated rows (F_*), TT: ttbar rows (T_*), pooled: both (variant)
 sfx = {"W": "_W", "TT": "_TT", "pooled": ""}[CLS]
 PTE = np.array(RJ["pt_edges"]); RT = np.array(RJ["rate" + sfx]); RE = np.array(RJ["err_total" + sfx]); RP = np.array(RJ["rate"])
@@ -38,18 +38,21 @@ w_evt = sigma * lumi / N  # physical weight per generated (unweighted) event, be
 
 # parton HT per event from LHE (outgoing status-1 quarks/gluons)
 ht = []
-with gzip.open(lhe, "rt") as f:
-    inev = False; lines = []
-    for line in f:
-        if line.startswith("<event"): inev, lines = True, []; continue
-        if line.startswith("</event"):
-            inev = False; h = 0.0
-            for l in lines[1:]:
-                p = l.split()
-                if len(p) >= 13 and p[1] == "1" and (abs(int(p[0])) <= 5 or p[0] == "21"):
-                    h += np.hypot(float(p[6]), float(p[7]))
-            ht.append(h); continue
-        if inev and not line.startswith("<") and not line.startswith("#"): lines.append(line)
+if lhe == "-":   # production files carry no LHE: HT-filter statistics are skipped (zeros)
+    ht = [0.0]*N
+else:
+  with gzip.open(lhe, "rt") as f:
+      inev = False; lines = []
+      for line in f:
+          if line.startswith("<event"): inev, lines = True, []; continue
+          if line.startswith("</event"):
+              inev = False; h = 0.0
+              for l in lines[1:]:
+                  p = l.split()
+                  if len(p) >= 13 and p[1] == "1" and (abs(int(p[0])) <= 5 or p[0] == "21"):
+                      h += np.hypot(float(p[6]), float(p[7]))
+              ht.append(h); continue
+          if inev and not line.startswith("<") and not line.startswith("#"): lines.append(line)
 ht = np.array(ht)
 assert len(ht) == N, f"LHE ({len(ht)}) / Delphes ({N}) event mismatch"
 

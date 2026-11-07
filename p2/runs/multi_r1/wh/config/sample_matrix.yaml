@@ -927,7 +927,7 @@ samples:
   N_shortfall_flag: null
 - id: Q_aajj
   idx: 31
-  role: 'non-prompt lepton: prompt gamma gamma + jj, per-jet f_l weights (f_l 2e-5/2e-4/2e-3 per D28 (ATLAS 1110.3174))'
+  role: 'CROSS-CHECK after the D29 trigger (delivered at full N; nominal is Q_aajjj): non-prompt lepton: prompt gamma gamma + jj, per-jet f_l weights (f_l 2e-5/2e-4/2e-3 per D28 (ATLAS 1110.3174))'
   process: p p > a a j j (QCD gamma gamma + 2 jets), no lepton in the ME
   orders:
   - 2
@@ -951,6 +951,36 @@ samples:
   condor_test: non-prompt lepton
   status: candidate
   note: N set by N_eff>=10 in the PEAK region of fakelep_pilot.py; f_l range 2e-5..2e-3 (cited, ATLAS 1110.3174 p.4)
+  in_bs: true
+  weighted: true
+  N_shortfall_flag: null
+- id: Q_aajjj
+  idx: 46
+  role: 'non-prompt lepton: prompt gamma gamma + 3 jets, ME+1-jet model (D29 trigger: Q_aajj 28 % of the SR background at f_l = 2e-3 -> replaces Q_aajj as nominal; valid ONLY where >=3 reco jets incl. the
+    converted jet are required)'
+  process: p p > a a j j j (QCD gamma gamma + 3 jets), no lepton in the ME
+  orders:
+  - 3
+  - 2
+  gen_cuts: pta>25,draa 0.4,100<maa<170,ptj>20,drjj>0.4, no mjj cut
+  sigma_fb: 1662.0
+  sigma_err_fb: 3.3800000000000003
+  sigma_source: gridpack init sigma (smoke run gave 1662 +- 3.4 fb)
+  sigma_py8_test_fb: 1658.0
+  sigma_for_N_fb: 1745.1000000000001
+  n_lhe_over_requested_test: 1.0
+  br_factors_external:
+  - one
+  k_external: 1.0
+  br_in_ME: no lepton
+  h_decay: no H
+  N_required: 5235300
+  N_planned: 5236000
+  infeasible_N: false
+  overlap_rule: 'unmerged inclusive LO gamma gamma + 3j: never added to the 2-jet Q_aajj; jet -> lepton by probability weights (scripts/fakelep_pilot.py)'
+  condor_test: non-prompt lepton
+  status: candidate
+  note: N_required 5.24e6 (sigma 1.662 pb x 3000 fb-1 x 1.05); f_l 2e-5/2e-4/2e-3 per D28 (ATLAS 1110.3174)
   in_bs: true
   weighted: true
   N_shortfall_flag: null

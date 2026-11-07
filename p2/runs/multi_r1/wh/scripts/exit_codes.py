@@ -28,6 +28,7 @@ LABEL = {   # every non-(terminated, rv 0) proc must carry an explicit reason (V
  "893011.0": "removed by the executor before any output: seed 2133101 collided with the H_ggF_jj test seed (J=101); replaced by 893012",
  "893012.0": "RUNNING at the time of writing (H_ggF_jj gridpack, testmatch); not an error",
  "893632.204": "REMOVED by SYSTEM_PERIODIC_REMOVE (wall time exceeded, longlunch 2 h limit, Q_aajj 50 000 ev/job); resubmitted with fresh seeds as cluster 893876 (J 500-503, workday, 8000 MB)", "893632.205": "same as 893632.204", "893632.211": "same as 893632.204", "893632.212": "same as 893632.204",
+ "893633.14": "REMOVED by SYSTEM_PERIODIC_REMOVE (wall time) 36 s after its single D33 release at 12000 MB (cumulative wall time of the earlier held run); DROPPED under D33 (N rule holds), see work/dropped_chunks.csv", "893633.19": "same as 893633.14", "893633.120": "same as 893633.14",
  "884457.3": "removed/aborted (009); superseded by a later successful job per the verifier resume audit; no output from this proc is used"}
 import subprocess
 _q = subprocess.run(["bash", "-lc", "module load lxbatch/eossubmit >/dev/null 2>&1; condor_q -name bigbird103.cern.ch -af ClusterId ProcId JobStatus"], capture_output=True, text=True).stdout.split("\n")

@@ -12,7 +12,7 @@ for f in glob.glob(f"{WH}/work/condor/prod/prod_*.sub"):
         if l.startswith("  ") and "tar.gz" in l: t = l.split(); sub[s]["seeds"].append(int(t[7])); sub[s]["ev"] += int(t[3])
 rows = []; bad = []
 for s in sorted(sub):
-    js = [f for f in glob.glob(f"{PR}/{s}/*.json")]; nl = nd = 0; sg = []; seeds = []; mism = 0
+    js = [f for f in glob.glob(f"{WH}/work/prod_meta/{s}/*.json")]; nl = nd = 0; sg = []; seeds = []; mism = 0
     for f in js:
         j = json.load(open(f)); nl += j["n_lhe"]; nd += j["n_delphes"]; seeds.append(j["mg_seed"]); mism += j["n_lhe"] != j["n_delphes"]
         mm = re.search(r"\|\s+sum\s+\|\s+\d+\s+\d+\s+\d+\s+\|\s+(\S+)\s+(\S+)\s+\|", j["pythia_sum_line"]); 
