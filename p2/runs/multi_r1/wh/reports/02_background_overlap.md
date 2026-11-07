@@ -40,7 +40,8 @@ Reco target: one isolated e/μ (W→ℓν), MET, ≥2 isolated photons with m_γ
 | H_ggZH_wh | ggZH loop, Z->ee/mumu (PY8), 1 lepton lost ( | 74.94 (own test job LHE init sigma) | BR_ZLL×BGG=0.00015276 | 0.01145 | 50000 | 50000 |  |
 | H_ttH_dilep_wh | ttH dilepton, 1 lepton lost (D-WH-3 top-up) | 18.26 (own test job LHE init sigma) | WF×WF×BGG=0.0020924 | 0.03821 | 50000 | 50000 |  |
 | H_ZH_tautau_wh | ZH, Z->tautau (MLM 0-2j), tau->l feed-down ( | 25.35 (own test job PY8 sigma after MLM m) | BGG=0.00227 | 0.05754 | 50000 | 50000 |  |
-| Q_aajj | non-prompt lepton: prompt gamma gamma + jj,  | 3580 (gridpack init sigma) | one=1 | 3580 | 11277000 |  |  |
+| Q_aajj | CROSS-CHECK after the D29 trigger (delivered | 3580 (gridpack init sigma) | one=1 | 3580 | 11277000 |  |  |
+| Q_aajjj | non-prompt lepton: prompt gamma gamma + 3 je | 1662 (gridpack init sigma) | one=1 | 1662 | 5235300 | 5236000 |  |
 | H_VBFH_jj | non-prompt lepton: VBF H->gamma gamma + jj ( | 4124 (gridpack init sigma) | BGG=0.00227 | 9.361 | 50000 |  |  |
 | H_ggF_jj | non-prompt lepton: ggF-like H + jj (resonant | pending (gridpack init sigma) | BGG=0.00227 | pending | pending |  |  |
 | F_QCD_llajj_loose | lost-lepton coverage bound (sigma only): ZH  | 1679 (gridpack init sigma) | one=1 | 1679 | 5288850 |  | NOT IN s/b (cross-check/pilot/superseded): N rule n/a; test job only, no production |

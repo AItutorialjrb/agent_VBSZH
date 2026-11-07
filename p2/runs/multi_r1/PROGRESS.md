@@ -33,3 +33,23 @@ No condor job was submitted, released or removed by the pause. All subagents are
 - WH: on resume, check the 4 gridpacks (exit_codes.py). Then run scripts/followup_after_gridpacks.sh test, followup_g3.sh and twinB, fakelep_pilot.py on H_ggF_jj, and twin_safety2.py on the B_EW twin. Rebuild the builder, plan, prod-subs and assemble. Then the verifier audits VERIFY_REQUEST #9 (and #10 for the gridpack follow-ups), and the WH G2 rows for the pending gridpacks get a verifier sign-off.
 - HH: idle at G2. Next is the human answers to D23–D26. After that, submit block 1 (62 jobs) and block 2 (66) per 04 §14; the QCD block waits for D24.
 - Orchestrator: G2 report to the human (both reviews, D9 and D23–D31, token/time table). Bulk production only after human approval.
+
+## 2026-11-07T19:49:15Z — WH production tagged wh-prod-v1; STOP for human (A2)
+- **Done:**
+  - WH production delivered: 128 GB, 2688 ROOT files, 43-row SAMPLES.csv (incl. read-only frozen ZH rows).
+  - Measured-N check: 39 PASS + 2 human-exempt (F_Wjjjj, T_ttjj_1l).
+  - Q_aajjj replaces Q_aajj (pre-declared D29 rule).
+  - F_QCD_Wajjj_nomjj (ME+1j) replaces the withdrawn 2j row (D29 supersedes D30).
+  - D33: 3 F_Wjjjj chunks dropped, N rule holds.
+- **Reviews:** wh_G2_recheck.md Recheck 3; wh_prod_validation.md (HOLD → recheck APPROVE-with-conditions, conditions met). Verifier #19–#25.
+- **Key findings:**
+  - The pre-production j→γ tables were lepton-contaminated; the corrected rate is 3.6e-5–1.5e-4 per jet.
+  - The fake-factor direct closure fails ×5: 12/16 traced non-prompt photons are a probable Delphes ECal-tail artefact (untested).
+- **Tag:** package metadata snapshot in metrics/wh-prod-v1/ (MANIFEST.sha256); access instructions in metrics/single_r1_access_wh-prod-v1.md.
+- **Open human decision H1** (one-fake nominal method; reviews/wh_prod_validation.md Recheck): options (a)/(b)/(b'), reviewer recommends (b').
+- **Pending v1.1:** H_ggF_jj (gridpack 893012 still running; D-WH-14 if it fails); the 2j row only if H1 = (b).
+- **Next (on human go):**
+  - H1 answer;
+  - repeat runs launched by the human;
+  - multi_r1 final analysis D32 after relaunch;
+  - H_ggF_jj v1.1.

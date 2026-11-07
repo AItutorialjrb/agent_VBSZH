@@ -10,6 +10,7 @@ res = {}
 for sp in specs:
     f, npw = (sp.split(":") + ["0"])[:2]; npw = int(npw); base = f[:-10]
     T = uproot.open(f)["Delphes"]; G = uproot.open(base + "_gen.root")["GenTruth"]
+    refs_all = T["Photon/Photon.Particles"].array(library="ak").to_list(); uid_all = T["Particle/Particle.fUniqueID"].array(library="np"); pE_all = T["Particle/Particle.E"].array(library="np"); phE_all = T["Photon/Photon.E"].array(library="np")
     a = T.arrays(["Photon.PT", "Photon.Eta", "Photon.Phi", "GenJet.PT", "GenJet.Eta", "GenJet.Phi", "Particle.PID", "Particle.Status", "Particle.M1", "Particle.PT", "Particle.Eta", "Particle.Phi"], library="np")
     g = G.arrays(["n_prompt_photons", "gph_eta", "gph_phi", "gph_prompt", "glep_pt", "glep_eta", "glep_phi", "glep_prompt"], library="ak"); npr = ak.to_numpy(g["n_prompt_photons"]); L = [ak.to_list(g[k]) for k in ("gph_eta", "gph_phi", "gph_prompt", "glep_eta", "glep_phi", "glep_pt", "glep_prompt")]
     rows = []
@@ -18,7 +19,7 @@ for sp in specs:
         gp = [(e, p) for e, p, r in zip(L[0][i], L[1][i], L[2][i]) if r]; pl = [(e, p) for e, p, q, r in zip(L[3][i], L[4][i], L[5][i], L[6][i]) if r and q > 10]
         pid = a["Particle.PID"][i]; st = a["Particle.Status"][i]; m1 = a["Particle.M1"][i]; ppt = a["Particle.PT"][i]; pe = a["Particle.Eta"][i]; pp = a["Particle.Phi"][i]
         stable = [k for k in range(len(pid)) if st[k] == 1 and abs(pe[k]) < 5.5]
-        for q, e, p in zip(a["Photon.PT"][i], a["Photon.Eta"][i], a["Photon.Phi"][i]):
+        for kph, (q, e, p) in enumerate(zip(a["Photon.PT"][i], a["Photon.Eta"][i], a["Photon.Phi"][i])):
             if q <= 25 or abs(e) >= 2.5 or 1.4442 < abs(e) < 1.566: continue
             if any(np.hypot(e-ge, dphi(p, gf)) < 0.1 for ge, gf in gp) or any(np.hypot(e-le, dphi(p, lp)) < 0.2 for le, lp in pl): continue
             wide = [(np.hypot(e-pe[k], dphi(p, pp[k])), k) for k in stable if np.hypot(e-pe[k], dphi(p, pp[k])) < 0.2]
@@ -40,7 +41,9 @@ for sp in specs:
                 else: pass
                 if not cls.startswith(("decay", "lepton")): cls = "no hadron/lepton ancestor (parton/boson parent: FSR/ISR)" if abs(pid[lead]) == 22 else cls
             dj = [(np.hypot(e-e2, dphi(p, p2)), q2) for q2, e2, p2 in zip(a["GenJet.PT"][i], a["GenJet.Eta"][i], a["GenJet.Phi"][i]) if q2 > 15]; dmin = min(dj) if dj else (99.0, 0.0)
-            rows.append(dict(pt=float(q), eta=float(e), cls=cls, carrier=carrier, em_sum_0p2=float(em2), neutral_had_0p2=float(neut), charged_had_0p2=float(chg), top3=topd, dr_genjet=float(dmin[0]), genjet_pt=float(dmin[1]), em_sum=float(em), n_near=len(near)))
+            uid = {int(u): k for k, u in enumerate(uid_all[i])}; rl = refs_all[i][kph]; refs = [uid.get(int(x)) for tr in (rl if isinstance(rl, list) else [rl]) for x in (tr.get("refs", []) if isinstance(tr, dict) else [])]
+            refinfo = [dict(pid=int(pid[k]), status=int(st[k]), pt=float(ppt[k]), E=float(pE_all[i][k])) for k in refs if k is not None]
+            rows.append(dict(event=i, sample_file=f.split("/")[-1], photon_E=float(phE_all[i][kph]), referenced_particles=refinfo, ref_pt_sum=float(sum(x["pt"] for x in refinfo)), pt=float(q), eta=float(e), cls=cls, carrier=carrier, em_sum_0p2=float(em2), neutral_had_0p2=float(neut), charged_had_0p2=float(chg), top3=topd, dr_genjet=float(dmin[0]), genjet_pt=float(dmin[1]), em_sum=float(em), n_near=len(near)))
     res[sp] = rows
 json.dump(res, open(out, "w"), indent=1)
 import collections

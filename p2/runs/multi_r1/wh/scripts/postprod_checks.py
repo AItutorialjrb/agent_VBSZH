@@ -12,7 +12,7 @@ def files(s, k):
     fs = sorted(f for f in glob.glob(f"{PR}/{s}/*.root") if not f.endswith(("_gen.root", "_full.root"))); return fs[::k] if k > 1 else fs
 # row, kind, class, nfake, every-k-th file
 PILOT = [("F_Wjjjj", "ph", "W", 2, int(os.environ.get("FW_K", "8"))), ("F_QCD_Wajjj_nomjj", "ph", "W", 1, 4), ("F_EW_Wajj_nomjj", "ph", "W", 1, 1), ("T_ttjj_1l", "ph", "TT", 2, 1), ("T_tta_1l", "ph", "TT", 1, 3), ("T_tWa_1l", "ph", "TT", 1, 4),
-         ("Q_aajj", "lep", None, None, 8), ("H_VBFH_jj", "lep", None, None, 1)]
+         ("Q_aajj", "lep", None, None, 8), ("Q_aajjj", "lep", None, None, 8), ("H_VBFH_jj", "lep", None, None, 1)]
 PROMPT = [("B_QCD_Waajj_nomjj", 2, 5), ("B_EW_Waajj_nomjj", 2, 5), ("S_EW_WHjj", 2, 4), ("S_EW_WHjj_taunu", 2, 5), ("V_WWa_WH", 2, 5), ("V_WZa_WH", 2, 5), ("V_ZZa_WH", 2, 5), ("H_QCD_WH_mlm", 2, 3), ("H_ggZH_wh", 2, 5),
           ("H_ttH_1l", 2, 4), ("H_tHq_lep", 2, 3), ("H_tHW_1l", 2, 3), ("H_ttH_dilep_wh", 2, 5), ("H_ZH_tautau_wh", 2, 3), ("T_ttaa_1l", 2, 5)]
 sk = {}
