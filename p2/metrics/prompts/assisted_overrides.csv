@@ -1,0 +1,6 @@
+utc_logged,run_id,prompt_ref,assisted,source,note
+2026-11-08T20:11:36Z,multi_r2,start prompt sent 2026-11-08,yes,human (multi_r1 H1 prompt),recorded by multi_r1 orchestrator without touching the run's own files; applies to that run's start-prompt row
+2026-11-08T20:11:36Z,multi_r3,start prompt sent 2026-11-08,yes,human (multi_r1 H1 prompt),recorded by multi_r1 orchestrator without touching the run's own files; applies to that run's start-prompt row
+2026-11-08T20:11:36Z,single_r1,start prompt sent 2026-11-08,yes,human (multi_r1 H1 prompt),recorded by multi_r1 orchestrator without touching the run's own files; applies to that run's start-prompt row
+2026-11-08T20:11:36Z,single_r2,start prompt sent 2026-11-08,yes,human (multi_r1 H1 prompt),recorded by multi_r1 orchestrator without touching the run's own files; applies to that run's start-prompt row
+2026-11-08T20:11:36Z,single_r3,start prompt sent 2026-11-08,yes,human (multi_r1 H1 prompt),recorded by multi_r1 orchestrator without touching the run's own files; applies to that run's start-prompt row
