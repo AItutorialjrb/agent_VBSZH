@@ -37,7 +37,16 @@
    "Bash(git reset --hard *)",
    "Bash(git tag -d *)",
    "Bash(git push --delete *)",
-   "Bash(codex *)"
+   "Bash(codex *)",
+   "Read(//eos/home-r/rjiang/vbs_zh_codex_starter/p2/SPEC.md)",
+   "Edit(//eos/home-r/rjiang/vbs_zh_codex_starter/p2/SPEC.md)",
+   "Edit(//eos/home-r/rjiang/vbs_zh_codex_starter/p2/SPEC_G0.md)",
+   "Read(//eos/home-r/rjiang/vbs_zh_codex_starter/p2/production/**)",
+   "Edit(//eos/home-r/rjiang/vbs_zh_codex_starter/p2/production/**)",
+   "Read(//eos/home-r/rjiang/vbs_zh_codex_starter/p2/metrics/review_log.csv)",
+   "Read(//eos/home-r/rjiang/vbs_zh_codex_starter/p2/metrics/usage_p2.csv)",
+   "Read(//eos/home-r/rjiang/vbs_zh_codex_starter/p2/metrics/usage_p2.md)",
+   "Read(//eos/home-r/rjiang/vbs_zh_codex_starter/p2/metrics/heptools_*)"
   ]
  }
 }
