@@ -1,0 +1,2 @@
+loc: modes=['rate', 'dir', 'ffm'] files=100 events=200000 ffm_rows=72561
+done OK F_QCD_llajj_vbs__c001

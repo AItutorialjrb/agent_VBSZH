@@ -1,0 +1,25 @@
+{
+ "CMS_record": "arXiv:2105.12780, JHEP 10 (2021) 174, doi:10.1007/JHEP10(2021)174, Table 2 (Zgg, eegg + mumugg)",
+ "CMS_misid_jets": [
+  42,
+  98
+ ],
+ "CMS_expected_signal": [
+  68,
+  157
+ ],
+ "R_CMS": 0.6222222222222222,
+ "R_CMS_rel_unc": 0.2596150997149434,
+ "prompt_Zaajj_nomjj_fb": 0.027553953527099998,
+ "prompt_raw": 10283,
+ "FF_Zajj_nomjj_fb": 0.017938991230677763,
+ "FF_err_fb": 0.00016191631086346744,
+ "R_MC": 0.6510496293402803,
+ "kappa": 0.955721644220473,
+ "kappa_err": 0.012776519696440286
+}
+written
+
+real	2m12.142s
+user	0m21.210s
+sys	1m41.774s

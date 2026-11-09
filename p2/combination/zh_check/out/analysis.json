@@ -1,0 +1,938 @@
+{
+ "Q2": {
+  "F_QCD_llajj_vbs": {
+   "N_events": 5989548,
+   "w_evt_fb": 1.1596868411439393e-05,
+   "levels": {
+    "2 photons (pT>20) + OSSF": {
+     "prompt": 19866,
+     "lepton": 82,
+     "genuine": 212,
+     "artefact": 1022,
+     "raw_events": 10591,
+     "events_with_nonprompt_photon": 1296,
+     "events_with_artefact": 1021,
+     "events_nonprompt_without_artefact": 275,
+     "artefact_event_fraction": 0.7878086419753086,
+     "weighted_yield_fb": 0.12282243334555461,
+     "artefact_photon_fraction": 0.776595744680851,
+     "artefact_pt_q": [
+      20.576551628112792,
+      28.384504318237305,
+      117.15779457092268
+     ]
+    },
+    "+ Z window, pT>25, mllgg>100": {
+     "prompt": 11089,
+     "lepton": 19,
+     "genuine": 142,
+     "artefact": 458,
+     "raw_events": 5854,
+     "events_with_nonprompt_photon": 618,
+     "events_with_artefact": 458,
+     "events_nonprompt_without_artefact": 160,
+     "artefact_event_fraction": 0.7411003236245954,
+     "weighted_yield_fb": 0.06788806768056621,
+     "artefact_photon_fraction": 0.7399030694668821,
+     "artefact_pt_q": [
+      25.696847438812256,
+      36.763816833496094,
+      183.24901809692375
+     ]
+    },
+    "+ VBS (mjj>500, deta>3.5)": {
+     "prompt": 1814,
+     "lepton": 1,
+     "genuine": 21,
+     "artefact": 86,
+     "raw_events": 961,
+     "events_with_nonprompt_photon": 108,
+     "events_with_artefact": 86,
+     "events_nonprompt_without_artefact": 22,
+     "artefact_event_fraction": 0.7962962962962963,
+     "weighted_yield_fb": 0.011144590543393257,
+     "artefact_photon_fraction": 0.7962962962962963,
+     "artefact_pt_q": [
+      26.20582342147827,
+      35.525413513183594,
+      112.97216415405273
+     ]
+    },
+    "+ VBS, 105<mgg<165": {
+     "prompt": 466,
+     "lepton": 0,
+     "genuine": 5,
+     "artefact": 25,
+     "raw_events": 248,
+     "events_with_nonprompt_photon": 30,
+     "events_with_artefact": 25,
+     "events_nonprompt_without_artefact": 5,
+     "artefact_event_fraction": 0.8333333333333334,
+     "weighted_yield_fb": 0.0028760233660369695,
+     "artefact_photon_fraction": 0.8333333333333334,
+     "artefact_pt_q": [
+      26.219131088256837,
+      36.22390365600586,
+      91.1204147338866
+     ]
+    },
+    "+ VBS + mgg window (frozen SR)": {
+     "prompt": 89,
+     "lepton": 0,
+     "genuine": 0,
+     "artefact": 5,
+     "raw_events": 47,
+     "events_with_nonprompt_photon": 5,
+     "events_with_artefact": 5,
+     "events_nonprompt_without_artefact": 0,
+     "artefact_event_fraction": 1.0,
+     "weighted_yield_fb": 0.0005450528153376514,
+     "artefact_photon_fraction": 1.0,
+     "artefact_pt_q": [
+      33.73953094482422,
+      36.22390365600586,
+      38.02819137573242
+     ]
+    }
+   }
+  },
+  "F_EW_llajj_vbs": {
+   "N_events": 500000,
+   "w_evt_fb": 2.2100000000000002e-05,
+   "levels": {
+    "2 photons (pT>20) + OSSF": {
+     "prompt": 4796,
+     "lepton": 22,
+     "genuine": 35,
+     "artefact": 129,
+     "raw_events": 2491,
+     "events_with_nonprompt_photon": 184,
+     "events_with_artefact": 129,
+     "events_nonprompt_without_artefact": 55,
+     "artefact_event_fraction": 0.7010869565217391,
+     "weighted_yield_fb": 0.055051100000000006,
+     "artefact_photon_fraction": 0.6935483870967742,
+     "artefact_pt_q": [
+      20.397025299072265,
+      30.086095809936523,
+      101.6539184570312
+     ]
+    },
+    "+ Z window, pT>25, mllgg>100": {
+     "prompt": 3482,
+     "lepton": 8,
+     "genuine": 29,
+     "artefact": 81,
+     "raw_events": 1800,
+     "events_with_nonprompt_photon": 118,
+     "events_with_artefact": 81,
+     "events_nonprompt_without_artefact": 37,
+     "artefact_event_fraction": 0.6864406779661016,
+     "weighted_yield_fb": 0.03978,
+     "artefact_photon_fraction": 0.6864406779661016,
+     "artefact_pt_q": [
+      26.273475646972656,
+      37.44637680053711,
+      143.9354705810547
+     ]
+    },
+    "+ VBS (mjj>500, deta>3.5)": {
+     "prompt": 2154,
+     "lepton": 6,
+     "genuine": 9,
+     "artefact": 53,
+     "raw_events": 1111,
+     "events_with_nonprompt_photon": 68,
+     "events_with_artefact": 53,
+     "events_nonprompt_without_artefact": 15,
+     "artefact_event_fraction": 0.7794117647058824,
+     "weighted_yield_fb": 0.0245531,
+     "artefact_photon_fraction": 0.7794117647058824,
+     "artefact_pt_q": [
+      26.165546417236328,
+      33.15802001953125,
+      95.37858276367187
+     ]
+    },
+    "+ VBS, 105<mgg<165": {
+     "prompt": 562,
+     "lepton": 1,
+     "genuine": 0,
+     "artefact": 17,
+     "raw_events": 290,
+     "events_with_nonprompt_photon": 18,
+     "events_with_artefact": 17,
+     "events_nonprompt_without_artefact": 1,
+     "artefact_event_fraction": 0.9444444444444444,
+     "weighted_yield_fb": 0.006409000000000001,
+     "artefact_photon_fraction": 0.9444444444444444,
+     "artefact_pt_q": [
+      26.383459091186523,
+      42.61176300048828,
+      75.38008270263668
+     ]
+    },
+    "+ VBS + mgg window (frozen SR)": {
+     "prompt": 99,
+     "lepton": 0,
+     "genuine": 0,
+     "artefact": 3,
+     "raw_events": 51,
+     "events_with_nonprompt_photon": 3,
+     "events_with_artefact": 3,
+     "events_nonprompt_without_artefact": 0,
+     "artefact_event_fraction": 1.0,
+     "weighted_yield_fb": 0.0011271,
+     "artefact_photon_fraction": 1.0,
+     "artefact_pt_q": [
+      29.04203510284424,
+      30.23639488220215,
+      40.05553035736084
+     ]
+    }
+   }
+  },
+  "F_QCD_llajj_nomjj": {
+   "N_events": 200000,
+   "w_evt_fb": 0.004089,
+   "levels": {
+    "2 photons (pT>20) + OSSF": {
+     "prompt": 313,
+     "lepton": 1,
+     "genuine": 4,
+     "artefact": 20,
+     "raw_events": 169,
+     "events_with_nonprompt_photon": 25,
+     "events_with_artefact": 20,
+     "events_nonprompt_without_artefact": 5,
+     "artefact_event_fraction": 0.8,
+     "weighted_yield_fb": 0.6910409999999999,
+     "artefact_photon_fraction": 0.8,
+     "artefact_pt_q": [
+      21.08689432144165,
+      25.493983268737793,
+      49.71938056945801
+     ]
+    },
+    "+ Z window, pT>25, mllgg>100": {
+     "prompt": 134,
+     "lepton": 0,
+     "genuine": 2,
+     "artefact": 8,
+     "raw_events": 72,
+     "events_with_nonprompt_photon": 10,
+     "events_with_artefact": 8,
+     "events_nonprompt_without_artefact": 2,
+     "artefact_event_fraction": 0.8,
+     "weighted_yield_fb": 0.294408,
+     "artefact_photon_fraction": 0.8,
+     "artefact_pt_q": [
+      26.05294189453125,
+      32.55887794494629,
+      53.36722145080566
+     ]
+    },
+    "+ VBS (mjj>500, deta>3.5)": {
+     "prompt": 2,
+     "lepton": 0,
+     "genuine": 0,
+     "artefact": 0,
+     "raw_events": 1,
+     "events_with_nonprompt_photon": 0,
+     "events_with_artefact": 0,
+     "events_nonprompt_without_artefact": 0,
+     "artefact_event_fraction": null,
+     "weighted_yield_fb": 0.004089,
+     "artefact_photon_fraction": null
+    },
+    "+ VBS, 105<mgg<165": {
+     "prompt": 0,
+     "lepton": 0,
+     "genuine": 0,
+     "artefact": 0,
+     "raw_events": 0,
+     "events_with_nonprompt_photon": 0,
+     "events_with_artefact": 0,
+     "events_nonprompt_without_artefact": 0,
+     "artefact_event_fraction": null,
+     "weighted_yield_fb": 0.0,
+     "artefact_photon_fraction": null
+    },
+    "+ VBS + mgg window (frozen SR)": {
+     "prompt": 0,
+     "lepton": 0,
+     "genuine": 0,
+     "artefact": 0,
+     "raw_events": 0,
+     "events_with_nonprompt_photon": 0,
+     "events_with_artefact": 0,
+     "events_nonprompt_without_artefact": 0,
+     "artefact_event_fraction": null,
+     "weighted_yield_fb": 0.0,
+     "artefact_photon_fraction": null
+    }
+   }
+  },
+  "T_tta": {
+   "N_events": 1040000,
+   "w_evt_fb": 8.228846153846154e-05,
+   "levels": {
+    "2 photons (pT>20) + OSSF": {
+     "prompt": 902,
+     "lepton": 3,
+     "genuine": 5,
+     "artefact": 48,
+     "raw_events": 479,
+     "events_with_nonprompt_photon": 56,
+     "events_with_artefact": 48,
+     "events_nonprompt_without_artefact": 8,
+     "artefact_event_fraction": 0.8571428571428571,
+     "weighted_yield_fb": 0.03941617307692308,
+     "artefact_photon_fraction": 0.8571428571428571,
+     "artefact_pt_q": [
+      22.12745294570923,
+      34.21051025390625,
+      73.51928062438964
+     ]
+    },
+    "+ Z window, pT>25, mllgg>100": {
+     "prompt": 173,
+     "lepton": 0,
+     "genuine": 1,
+     "artefact": 4,
+     "raw_events": 89,
+     "events_with_nonprompt_photon": 5,
+     "events_with_artefact": 4,
+     "events_nonprompt_without_artefact": 1,
+     "artefact_event_fraction": 0.8,
+     "weighted_yield_fb": 0.007323673076923077,
+     "artefact_photon_fraction": 0.8,
+     "artefact_pt_q": [
+      27.38368501663208,
+      39.07927894592285,
+      64.7336627960205
+     ]
+    },
+    "+ VBS (mjj>500, deta>3.5)": {
+     "prompt": 6,
+     "lepton": 0,
+     "genuine": 0,
+     "artefact": 0,
+     "raw_events": 3,
+     "events_with_nonprompt_photon": 0,
+     "events_with_artefact": 0,
+     "events_nonprompt_without_artefact": 0,
+     "artefact_event_fraction": null,
+     "weighted_yield_fb": 0.0002468653846153846,
+     "artefact_photon_fraction": null
+    },
+    "+ VBS, 105<mgg<165": {
+     "prompt": 2,
+     "lepton": 0,
+     "genuine": 0,
+     "artefact": 0,
+     "raw_events": 1,
+     "events_with_nonprompt_photon": 0,
+     "events_with_artefact": 0,
+     "events_nonprompt_without_artefact": 0,
+     "artefact_event_fraction": null,
+     "weighted_yield_fb": 8.228846153846154e-05,
+     "artefact_photon_fraction": null
+    },
+    "+ VBS + mgg window (frozen SR)": {
+     "prompt": 0,
+     "lepton": 0,
+     "genuine": 0,
+     "artefact": 0,
+     "raw_events": 0,
+     "events_with_nonprompt_photon": 0,
+     "events_with_artefact": 0,
+     "events_nonprompt_without_artefact": 0,
+     "artefact_event_fraction": null,
+     "weighted_yield_fb": 0.0,
+     "artefact_photon_fraction": null
+    }
+   }
+  },
+  "T_tWa": {
+   "N_events": 160000,
+   "w_evt_fb": 8.149999999999999e-05,
+   "levels": {
+    "2 photons (pT>20) + OSSF": {
+     "prompt": 125,
+     "lepton": 0,
+     "genuine": 0,
+     "artefact": 9,
+     "raw_events": 67,
+     "events_with_nonprompt_photon": 9,
+     "events_with_artefact": 9,
+     "events_nonprompt_without_artefact": 0,
+     "artefact_event_fraction": 1.0,
+     "weighted_yield_fb": 0.005460499999999999,
+     "artefact_photon_fraction": 1.0,
+     "artefact_pt_q": [
+      20.46545829772949,
+      23.681396484375,
+      40.66120681762695
+     ]
+    },
+    "+ Z window, pT>25, mllgg>100": {
+     "prompt": 18,
+     "lepton": 0,
+     "genuine": 0,
+     "artefact": 0,
+     "raw_events": 9,
+     "events_with_nonprompt_photon": 0,
+     "events_with_artefact": 0,
+     "events_nonprompt_without_artefact": 0,
+     "artefact_event_fraction": null,
+     "weighted_yield_fb": 0.0007334999999999999,
+     "artefact_photon_fraction": null
+    },
+    "+ VBS (mjj>500, deta>3.5)": {
+     "prompt": 4,
+     "lepton": 0,
+     "genuine": 0,
+     "artefact": 0,
+     "raw_events": 2,
+     "events_with_nonprompt_photon": 0,
+     "events_with_artefact": 0,
+     "events_nonprompt_without_artefact": 0,
+     "artefact_event_fraction": null,
+     "weighted_yield_fb": 0.00016299999999999998,
+     "artefact_photon_fraction": null
+    },
+    "+ VBS, 105<mgg<165": {
+     "prompt": 2,
+     "lepton": 0,
+     "genuine": 0,
+     "artefact": 0,
+     "raw_events": 1,
+     "events_with_nonprompt_photon": 0,
+     "events_with_artefact": 0,
+     "events_nonprompt_without_artefact": 0,
+     "artefact_event_fraction": null,
+     "weighted_yield_fb": 8.149999999999999e-05,
+     "artefact_photon_fraction": null
+    },
+    "+ VBS + mgg window (frozen SR)": {
+     "prompt": 2,
+     "lepton": 0,
+     "genuine": 0,
+     "artefact": 0,
+     "raw_events": 1,
+     "events_with_nonprompt_photon": 0,
+     "events_with_artefact": 0,
+     "events_nonprompt_without_artefact": 0,
+     "artefact_event_fraction": null,
+     "weighted_yield_fb": 8.149999999999999e-05,
+     "artefact_photon_fraction": null
+    }
+   }
+  },
+  "B_QCD_zaajj_nomjj": {
+   "N_events": 100000,
+   "w_evt_fb": 2.6795636999999993e-06,
+   "levels": {
+    "2 photons (pT>20) + OSSF": {
+     "prompt": 20736,
+     "lepton": 41,
+     "genuine": 4,
+     "artefact": 11,
+     "raw_events": 10396,
+     "events_with_nonprompt_photon": 55,
+     "events_with_artefact": 11,
+     "events_nonprompt_without_artefact": 44,
+     "artefact_event_fraction": 0.2,
+     "weighted_yield_fb": 0.027856744225199993,
+     "artefact_photon_fraction": 0.19642857142857142,
+     "artefact_pt_q": [
+      20.876362800598145,
+      29.88693618774414,
+      111.06892776489258
+     ]
+    },
+    "+ Z window, pT>25, mllgg>100": {
+     "prompt": 19816,
+     "lepton": 16,
+     "genuine": 4,
+     "artefact": 8,
+     "raw_events": 9922,
+     "events_with_nonprompt_photon": 28,
+     "events_with_artefact": 8,
+     "events_nonprompt_without_artefact": 20,
+     "artefact_event_fraction": 0.2857142857142857,
+     "weighted_yield_fb": 0.026586631031399993,
+     "artefact_photon_fraction": 0.2857142857142857,
+     "artefact_pt_q": [
+      25.63975429534912,
+      45.36437702178955,
+      115.54607505798339
+     ]
+    },
+    "+ VBS (mjj>500, deta>3.5)": {
+     "prompt": 929,
+     "lepton": 1,
+     "genuine": 0,
+     "artefact": 0,
+     "raw_events": 465,
+     "events_with_nonprompt_photon": 1,
+     "events_with_artefact": 0,
+     "events_nonprompt_without_artefact": 1,
+     "artefact_event_fraction": 0.0,
+     "weighted_yield_fb": 0.0012459971204999997,
+     "artefact_photon_fraction": 0.0
+    },
+    "+ VBS, 105<mgg<165": {
+     "prompt": 824,
+     "lepton": 0,
+     "genuine": 0,
+     "artefact": 0,
+     "raw_events": 412,
+     "events_with_nonprompt_photon": 0,
+     "events_with_artefact": 0,
+     "events_nonprompt_without_artefact": 0,
+     "artefact_event_fraction": null,
+     "weighted_yield_fb": 0.0011039802443999997,
+     "artefact_photon_fraction": null
+    },
+    "+ VBS + mgg window (frozen SR)": {
+     "prompt": 134,
+     "lepton": 0,
+     "genuine": 0,
+     "artefact": 0,
+     "raw_events": 67,
+     "events_with_nonprompt_photon": 0,
+     "events_with_artefact": 0,
+     "events_nonprompt_without_artefact": 0,
+     "artefact_event_fraction": null,
+     "weighted_yield_fb": 0.00017953076789999995,
+     "artefact_photon_fraction": null
+    }
+   }
+  }
+ },
+ "rate": {
+  "pt_bins": [
+   25,
+   35,
+   50,
+   75,
+   100,
+   150,
+   1000
+  ],
+  "eta_bins": [
+   "barrel |eta|<1.5",
+   "endcap 1.5-2.5"
+  ],
+  "den": [
+   [
+    1388545.0,
+    894312.0
+   ],
+   [
+    1273071.0,
+    868890.0
+   ],
+   [
+    1440073.0,
+    988708.0
+   ],
+   [
+    1060885.0,
+    682489.0
+   ],
+   [
+    1537916.0,
+    852108.0
+   ],
+   [
+    3054898.0,
+    1071233.0
+   ]
+  ],
+  "num_gen": [
+   [
+    111.0,
+    40.0
+   ],
+   [
+    150.0,
+    76.0
+   ],
+   [
+    181.0,
+    121.0
+   ],
+   [
+    153.0,
+    76.0
+   ],
+   [
+    223.0,
+    112.0
+   ],
+   [
+    533.0,
+    189.0
+   ]
+  ],
+  "num_art": [
+   [
+    0.0,
+    2.0
+   ],
+   [
+    2.0,
+    1.0
+   ],
+   [
+    5.0,
+    4.0
+   ],
+   [
+    7.0,
+    3.0
+   ],
+   [
+    11.0,
+    9.0
+   ],
+   [
+    115.0,
+    42.0
+   ]
+  ],
+  "num_lep": [
+   [
+    5.0,
+    4.0
+   ],
+   [
+    3.0,
+    3.0
+   ],
+   [
+    3.0,
+    3.0
+   ],
+   [
+    4.0,
+    4.0
+   ],
+   [
+    1.0,
+    2.0
+   ],
+   [
+    18.0,
+    2.0
+   ]
+  ],
+  "num_old": [
+   [
+    116.0,
+    46.0
+   ],
+   [
+    155.0,
+    80.0
+   ],
+   [
+    189.0,
+    128.0
+   ],
+   [
+    164.0,
+    83.0
+   ],
+   [
+    235.0,
+    123.0
+   ],
+   [
+    666.0,
+    233.0
+   ]
+  ],
+  "rate_gen": [
+   [
+    7.993979309276977e-05,
+    4.4727119841844904e-05
+   ],
+   [
+    0.00011782532160421532,
+    8.746791883897846e-05
+   ],
+   [
+    0.00012568807275742272,
+    0.00012238193683069217
+   ],
+   [
+    0.00014421921320407018,
+    0.0001113571061218569
+   ],
+   [
+    0.00014500141750264643,
+    0.00013143873781257774
+   ],
+   [
+    0.00017447391042188642,
+    0.0001764322047584419
+   ]
+  ],
+  "rate_gen_err": [
+   [
+    7.587549379280282e-06,
+    7.071978593977e-06
+   ],
+   [
+    9.620397223655154e-06,
+    1.003325839528749e-05
+   ],
+   [
+    9.342320873368023e-06,
+    1.1125630620972016e-05
+   ],
+   [
+    1.1659432338899108e-05,
+    1.2773536111323916e-05
+   ],
+   [
+    9.710013110643285e-06,
+    1.2419793317582235e-05
+   ],
+   [
+    7.5573039627609145e-06,
+    1.283355449735727e-05
+   ]
+  ],
+  "rate_art": [
+   [
+    0.0,
+    2.236355992092245e-06
+   ],
+   [
+    1.5710042880562042e-06,
+    1.1508936689339273e-06
+   ],
+   [
+    3.472046208768583e-06,
+    4.045683862171642e-06
+   ],
+   [
+    6.598264656395368e-06,
+    4.395675241652246e-06
+   ],
+   [
+    7.15253628936821e-06,
+    1.0562041431367854e-05
+   ],
+   [
+    3.7644464725172496e-05,
+    3.920715661298709e-05
+   ]
+  ],
+  "rate_old": [
+   [
+    8.354068467352517e-05,
+    5.143618781812164e-05
+   ],
+   [
+    0.00012175283232435584,
+    9.207149351471418e-05
+   ],
+   [
+    0.00013124334669145245,
+    0.00012946188358949255
+   ],
+   [
+    0.0001545879148069772,
+    0.00012161368168571215
+   ],
+   [
+    0.0001528041843637754,
+    0.00014434789956202734
+   ],
+   [
+    0.00021801055223447723,
+    0.0002175063688291903
+   ]
+  ],
+  "rate_lep": [
+   [
+    3.600891580755395e-06,
+    4.47271198418449e-06
+   ],
+   [
+    2.3565064320843063e-06,
+    3.4526810068017814e-06
+   ],
+   [
+    2.08322772526115e-06,
+    3.0342628966287318e-06
+   ],
+   [
+    3.7704369465116387e-06,
+    5.860900322202995e-06
+   ],
+   [
+    6.502305717607463e-07,
+    2.3471203180817456e-06
+   ],
+   [
+    5.8921770874183035e-06,
+    1.86700745776129e-06
+   ]
+  ],
+  "px": [
+   0.0010178117048346056,
+   0.002544529262086514,
+   0.0035623409669211198,
+   0.0055979643765903305,
+   0.010178117048346057,
+   0.014249363867684479,
+   0.01628498727735369,
+   0.03256997455470738,
+   0.35368956743002544,
+   0.5312977099236641,
+   0.02900763358778626,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "x_mean": 0.8865394402035623,
+  "x_mean_art": 0.8967661691542289,
+  "per_sample": {
+   "F_QCD_llajj_vbs": {
+    "den": 14393125.0,
+    "gen": 1726.0,
+    "art": 177.0,
+    "lep": 49.0,
+    "old": 1952.0
+   },
+   "F_EW_llajj_vbs": {
+    "den": 720003.0,
+    "gen": 239.0,
+    "art": 24.0,
+    "lep": 3.0,
+    "old": 266.0
+   },
+   "F_QCD_llajj_nomjj": {
+    "den": 395240.0,
+    "gen": 38.0,
+    "art": 2.0,
+    "lep": 0.0,
+    "old": 40.0
+   }
+  }
+ },
+ "closure": {
+  "F_QCD_llajj_vbs": [
+   {
+    "rate_from": "even chunks",
+    "applied_to": "odd chunks",
+    "selection": "Z + 2 photons (pT>25), no VBS",
+    "observed_genuine_events": 68,
+    "predicted_events": 102.1091305949265,
+    "predicted_err": 0.20967168129061256,
+    "ratio": 0.6659541571239146,
+    "ratio_err": 0.08077038065942771
+   },
+   {
+    "rate_from": "even chunks",
+    "applied_to": "odd chunks",
+    "selection": "+ mjj>500, deta>3.5",
+    "observed_genuine_events": 7,
+    "predicted_events": 12.316363087890693,
+    "predicted_err": 0.049437034217698586,
+    "ratio": 0.5683495972023039,
+    "ratio_err": 0.21482806928360676
+   },
+   {
+    "rate_from": "odd chunks",
+    "applied_to": "even chunks",
+    "selection": "Z + 2 photons (pT>25), no VBS",
+    "observed_genuine_events": 69,
+    "predicted_events": 101.3577278505393,
+    "predicted_err": 0.2085924908663278,
+    "ratio": 0.6807571703042361,
+    "ratio_err": 0.08196550667485253
+   },
+   {
+    "rate_from": "odd chunks",
+    "applied_to": "even chunks",
+    "selection": "+ mjj>500, deta>3.5",
+    "observed_genuine_events": 13,
+    "predicted_events": 12.123631637722756,
+    "predicted_err": 0.04896033059727118,
+    "ratio": 1.0722859608791162,
+    "ratio_err": 0.2974301412663321
+   }
+  ],
+  "F_EW_llajj_vbs": [
+   {
+    "rate_from": "even chunks",
+    "applied_to": "odd chunks",
+    "selection": "Z + 2 photons (pT>25), no VBS",
+    "observed_genuine_events": 7,
+    "predicted_events": 5.673707599862657,
+    "predicted_err": 0.043897340662768104,
+    "ratio": 1.2337611476787151,
+    "ratio_err": 0.4664155713354421
+   },
+   {
+    "rate_from": "even chunks",
+    "applied_to": "odd chunks",
+    "selection": "+ mjj>500, deta>3.5",
+    "observed_genuine_events": 3,
+    "predicted_events": 1.7601292914479676,
+    "predicted_err": 0.018538464720122945,
+    "ratio": 1.7044202460445703,
+    "ratio_err": 0.9842112183616889
+   },
+   {
+    "rate_from": "odd chunks",
+    "applied_to": "even chunks",
+    "selection": "Z + 2 photons (pT>25), no VBS",
+    "observed_genuine_events": 21,
+    "predicted_events": 8.293490023150325,
+    "predicted_err": 0.05242337919714261,
+    "ratio": 2.5321065005662167,
+    "ratio_err": 0.5527827023752521
+   },
+   {
+    "rate_from": "odd chunks",
+    "applied_to": "even chunks",
+    "selection": "+ mjj>500, deta>3.5",
+    "observed_genuine_events": 6,
+    "predicted_events": 2.6252557574517015,
+    "predicted_err": 0.02253821602598103,
+    "ratio": 2.285491607044075,
+    "ratio_err": 0.9332543290290665
+   }
+  ]
+ },
+ "calibration": {
+  "CMS_record": "arXiv:2105.12780, JHEP 10 (2021) 174, doi:10.1007/JHEP10(2021)174, Table 2 (Zgg, eegg + mumugg)",
+  "CMS_misid_jets": [
+   42,
+   98
+  ],
+  "CMS_expected_signal": [
+   68,
+   157
+  ],
+  "R_CMS": 0.6222222222222222,
+  "R_CMS_rel_unc": 0.2596150997149434,
+  "prompt_Zaajj_nomjj_fb": 0.027553953527099998,
+  "prompt_raw": 10283,
+  "FF_Zajj_nomjj_fb": 0.017938991230677763,
+  "FF_err_fb": 0.00016191631086346744,
+  "R_MC": 0.6510496293402803,
+  "kappa": 0.955721644220473,
+  "kappa_err": 0.012776519696440286
+ }
+}

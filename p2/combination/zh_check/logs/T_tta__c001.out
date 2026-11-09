@@ -1,0 +1,2 @@
+loc: modes=['dir'] files=100 events=200000 ffm_rows=0
+done OK T_tta__c001

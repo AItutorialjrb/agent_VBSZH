@@ -1,0 +1,20 @@
+# ZH erratum corrected-analysis scenarios (read-only on frozen tree; outputs in zh_check/out)
+universe = vanilla
+executable = /eos/home-r/rjiang/vbs_zh_codex_starter/scripts/condor/pyjob.sh
+arguments = p2/combination/zh_check/final_analysis_ff.py /eos/home-r/rjiang/vbs_zh_codex_starter/p2/combination/zh_check/out/$(tag).json
+environment = "FFKAPPA=$(kappa) FFD=$(ffd) FIXOPT=$(fix) FFMODE=ff"
+should_transfer_files = YES
+transfer_output_files = ""
+output = /eos/home-r/rjiang/vbs_zh_codex_starter/p2/combination/zh_check/logs/$(tag).out
+error  = /eos/home-r/rjiang/vbs_zh_codex_starter/p2/combination/zh_check/logs/$(tag).err
+log    = /eos/home-r/rjiang/vbs_zh_codex_starter/p2/combination/zh_check/logs/scen.log
+request_cpus = 1
+request_memory = 12000
++JobFlavour = "longlunch"
+queue tag, kappa, ffd, fix from (
+  ff_uncal_fix 1.0 0.0 1
+  ff_cal_fix 0.955721644 0.0464 1
+  ff_cal_reopt 0.955721644 0.0464 X
+  ff_closcorr_fix 1.4296 0.30 1
+  ff_kappa0p5_fix 0.5 1.0 1
+)

@@ -1,0 +1,2201 @@
+{
+ "changed": true,
+ "description": "ZH inputs for the VH combination. 'corrected' = fake-photon rows F_QCD_Zajj/F_EW_Zajj replaced by the lepton-decontaminated, artefact-excluded fake-factor estimate (D34/D37), CMS-calibrated kappa; all other rows, cuts, nuisances and statistics identical to frozen zh-final-v1.1. Yields are expected events at the given luminosity (fb^-1).",
+ "fake_rows_changed": [
+  "F_QCD_Zajj",
+  "F_EW_Zajj"
+ ],
+ "unchanged": [
+  "T_tta",
+  "T_tWa (direct count, artefact present, <1% of b)"
+ ],
+ "results": {
+  "frozen": {
+   "500_a": {
+    "L": 500.0,
+    "sigdef": "a",
+    "s": 0.08787546071386101,
+    "b": 0.5195994599179528,
+    "s_mc": 0.0007947406353935021,
+    "b_mc": 0.017717892536848922,
+    "sigma_b": 0.07008559353709012,
+    "sigma_s": 0.007879745760067405,
+    "Z_eq1": 0.11869374927947778,
+    "Z_syst_counting": 0.11810631660469521,
+    "mu95_cls": 34.501231394328684,
+    "mu95_cls_stat": 34.090657951810435,
+    "fit_Z_syst": 0.12506857628320864,
+    "fit_mu95_syst": 32.487867442443275,
+    "fit_Z_stat": 0.12564803799183538,
+    "fit_mu95_stat": 32.15783573931787,
+    "components": {
+     "S_EW_ZHjj": {
+      "y": 0.08787546071386101,
+      "mcstat": 0.0007947406353935021,
+      "method": "L0 direct",
+      "raw_win": 12226,
+      "raw_wide": 12985
+     },
+     "H_QCD_ZHjj": {
+      "y": 0.047395917001216974,
+      "mcstat": 0.002318210077332623,
+      "method": "L0 direct",
+      "raw_win": 418,
+      "raw_wide": 439
+     },
+     "H_ggZH": {
+      "y": 0.053933666263149986,
+      "mcstat": 0.00391275939552749,
+      "method": "L0 direct",
+      "raw_win": 190,
+      "raw_wide": 197
+     },
+     "H_ttH": {
+      "y": 0.007830419047619048,
+      "mcstat": 0.001957604761904762,
+      "method": "L0 direct",
+      "raw_win": 16,
+      "raw_wide": 16
+     },
+     "H_ZH_tautau": {
+      "y": 0.004921845811119573,
+      "mcstat": 0.004921845811119573,
+      "method": "UL (zero support): 1.14 w_evt",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "H_tHW": {
+      "y": 0.0003277130275229358,
+      "mcstat": 0.0003277130275229358,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "B_QCD_Zaajj_vbs": {
+      "y": 0.07390518760042133,
+      "mcstat": 0.005861062621931107,
+      "method": "L0 direct",
+      "raw_win": 159,
+      "raw_wide": 1025
+     },
+     "B_EW_Zaajj_vbs_is1": {
+      "y": 0.10896491813753782,
+      "mcstat": 0.007078032034984822,
+      "method": "L0 direct",
+      "raw_win": 237,
+      "raw_wide": 1721
+     },
+     "B_EW_Zaajj_vbs_is2": {
+      "y": 0.11214079172222935,
+      "mcstat": 0.006981580741046657,
+      "method": "L0 direct",
+      "raw_win": 258,
+      "raw_wide": 1668
+     },
+     "B_EW_Zaajj_vbs_is3": {
+      "y": 0.04672739966631691,
+      "mcstat": 0.002961228633249442,
+      "method": "L0 direct",
+      "raw_win": 249,
+      "raw_wide": 1556
+     },
+     "T_ttaa": {
+      "y": 0.0010532973428641673,
+      "mcstat": 0.0010532973428641673,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 1,
+      "raw_wide": 3
+     },
+     "F_QCD_Zajj": {
+      "y": 0.03717563059031198,
+      "mcstat": 0.00852867457397733,
+      "method": "L1 m_gg-shape (exp. fit, Delphes)",
+      "raw_win": 5,
+      "raw_wide": 19
+     },
+     "F_EW_Zajj": {
+      "y": 0.021792952544531084,
+      "mcstat": 0.00629108350901088,
+      "method": "L1 m_gg-shape (exp. fit, Delphes)",
+      "raw_win": 1,
+      "raw_wide": 12
+     },
+     "T_tta": {
+      "y": 0.0030945101097201357,
+      "mcstat": 0.0030945101097201357,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 1
+     },
+     "T_tWa": {
+      "y": 0.00033521105339135685,
+      "mcstat": 0.00033521105339135685,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     }
+    }
+   },
+   "500_b": {
+    "L": 500.0,
+    "sigdef": "b",
+    "s": 0.135271377715078,
+    "b": 0.47220354291673566,
+    "s_mc": 0.0024506551450973663,
+    "b_mc": 0.01756558049096813,
+    "sigma_b": 0.06790339526223046,
+    "sigma_s": 0.01783189613334177,
+    "Z_eq1": 0.18842515118034844,
+    "Z_syst_counting": 0.1874290668583208,
+    "mu95_cls": 22.722490766314163,
+    "mu95_cls_stat": 22.146091243809906,
+    "fit_Z_syst": 0.19975167793957657,
+    "fit_mu95_syst": 20.79236388899554,
+    "fit_Z_stat": 0.20075509835128133,
+    "fit_mu95_stat": 20.4423067765563,
+    "components": {
+     "S_EW_ZHjj": {
+      "y": 0.08787546071386101,
+      "mcstat": 0.0007947406353935021,
+      "method": "L0 direct",
+      "raw_win": 12226,
+      "raw_wide": 12985
+     },
+     "H_QCD_ZHjj": {
+      "y": 0.047395917001216974,
+      "mcstat": 0.002318210077332623,
+      "method": "L0 direct",
+      "raw_win": 418,
+      "raw_wide": 439
+     },
+     "H_ggZH": {
+      "y": 0.053933666263149986,
+      "mcstat": 0.00391275939552749,
+      "method": "L0 direct",
+      "raw_win": 190,
+      "raw_wide": 197
+     },
+     "H_ttH": {
+      "y": 0.007830419047619048,
+      "mcstat": 0.001957604761904762,
+      "method": "L0 direct",
+      "raw_win": 16,
+      "raw_wide": 16
+     },
+     "H_ZH_tautau": {
+      "y": 0.004921845811119573,
+      "mcstat": 0.004921845811119573,
+      "method": "UL (zero support): 1.14 w_evt",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "H_tHW": {
+      "y": 0.0003277130275229358,
+      "mcstat": 0.0003277130275229358,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "B_QCD_Zaajj_vbs": {
+      "y": 0.07390518760042133,
+      "mcstat": 0.005861062621931107,
+      "method": "L0 direct",
+      "raw_win": 159,
+      "raw_wide": 1025
+     },
+     "B_EW_Zaajj_vbs_is1": {
+      "y": 0.10896491813753782,
+      "mcstat": 0.007078032034984822,
+      "method": "L0 direct",
+      "raw_win": 237,
+      "raw_wide": 1721
+     },
+     "B_EW_Zaajj_vbs_is2": {
+      "y": 0.11214079172222935,
+      "mcstat": 0.006981580741046657,
+      "method": "L0 direct",
+      "raw_win": 258,
+      "raw_wide": 1668
+     },
+     "B_EW_Zaajj_vbs_is3": {
+      "y": 0.04672739966631691,
+      "mcstat": 0.002961228633249442,
+      "method": "L0 direct",
+      "raw_win": 249,
+      "raw_wide": 1556
+     },
+     "T_ttaa": {
+      "y": 0.0010532973428641673,
+      "mcstat": 0.0010532973428641673,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 1,
+      "raw_wide": 3
+     },
+     "F_QCD_Zajj": {
+      "y": 0.03717563059031198,
+      "mcstat": 0.00852867457397733,
+      "method": "L1 m_gg-shape (exp. fit, Delphes)",
+      "raw_win": 5,
+      "raw_wide": 19
+     },
+     "F_EW_Zajj": {
+      "y": 0.021792952544531084,
+      "mcstat": 0.00629108350901088,
+      "method": "L1 m_gg-shape (exp. fit, Delphes)",
+      "raw_win": 1,
+      "raw_wide": 12
+     },
+     "T_tta": {
+      "y": 0.0030945101097201357,
+      "mcstat": 0.0030945101097201357,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 1
+     },
+     "T_tWa": {
+      "y": 0.00033521105339135685,
+      "mcstat": 0.00033521105339135685,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     }
+    }
+   },
+   "1000_a": {
+    "L": 1000.0,
+    "sigdef": "a",
+    "s": 0.17575092142772203,
+    "b": 1.0391989198359055,
+    "s_mc": 0.0015894812707870042,
+    "b_mc": 0.035435785073697844,
+    "sigma_b": 0.14017118707418025,
+    "sigma_s": 0.01575949152013481,
+    "Z_eq1": 0.16785830999994925,
+    "Z_syst_counting": 0.1662090352115885,
+    "mu95_cls": 23.666937708355697,
+    "mu95_cls_stat": 23.313987760489916,
+    "fit_Z_syst": 0.1760890836358225,
+    "fit_mu95_syst": 19.275989224075932,
+    "fit_Z_stat": 0.1776931594136235,
+    "fit_mu95_stat": 19.035727949329832
+   },
+   "1000_b": {
+    "L": 1000.0,
+    "sigdef": "b",
+    "s": 0.270542755430156,
+    "b": 0.9444070858334713,
+    "s_mc": 0.004901310290194733,
+    "b_mc": 0.03513116098193626,
+    "sigma_b": 0.13580679052446093,
+    "sigma_s": 0.03566379226668354,
+    "Z_eq1": 0.26647340429144956,
+    "Z_syst_counting": 0.26367826403329137,
+    "mu95_cls": 15.757215438113551,
+    "mu95_cls_stat": 15.2871093364236,
+    "fit_Z_syst": 0.2811315477753892,
+    "fit_mu95_syst": 12.268456666019329,
+    "fit_Z_stat": 0.2839105828039329,
+    "fit_mu95_stat": 12.029155796362035
+   },
+   "3000_a": {
+    "L": 3000.0,
+    "sigdef": "a",
+    "s": 0.5272527642831661,
+    "b": 3.117596759507716,
+    "s_mc": 0.0047684438123610125,
+    "b_mc": 0.10630735522109354,
+    "sigma_b": 0.42051356122254074,
+    "sigma_s": 0.047278474560404446,
+    "Z_eq1": 0.29073912139255864,
+    "Z_syst_counting": 0.2824134882704302,
+    "mu95_cls": 10.367199914433264,
+    "mu95_cls_stat": 10.124349608510055,
+    "fit_Z_syst": 0.30005277011948994,
+    "fit_mu95_syst": 9.076218754089126,
+    "fit_Z_stat": 0.3077735802618261,
+    "fit_mu95_stat": 8.881865768787272,
+    "components": {
+     "S_EW_ZHjj": {
+      "y": 0.5272527642831661,
+      "mcstat": 0.0047684438123610125,
+      "method": "L0 direct",
+      "raw_win": 12226,
+      "raw_wide": 12985
+     },
+     "H_QCD_ZHjj": {
+      "y": 0.28437550200730183,
+      "mcstat": 0.013909260463995739,
+      "method": "L0 direct",
+      "raw_win": 418,
+      "raw_wide": 439
+     },
+     "H_ggZH": {
+      "y": 0.3236019975788999,
+      "mcstat": 0.02347655637316494,
+      "method": "L0 direct",
+      "raw_win": 190,
+      "raw_wide": 197
+     },
+     "H_ttH": {
+      "y": 0.04698251428571429,
+      "mcstat": 0.011745628571428572,
+      "method": "L0 direct",
+      "raw_win": 16,
+      "raw_wide": 16
+     },
+     "H_ZH_tautau": {
+      "y": 0.029531074866717435,
+      "mcstat": 0.029531074866717435,
+      "method": "UL (zero support): 1.14 w_evt",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "H_tHW": {
+      "y": 0.0019662781651376146,
+      "mcstat": 0.0019662781651376146,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "B_QCD_Zaajj_vbs": {
+      "y": 0.44343112560252795,
+      "mcstat": 0.03516637573158664,
+      "method": "L0 direct",
+      "raw_win": 159,
+      "raw_wide": 1025
+     },
+     "B_EW_Zaajj_vbs_is1": {
+      "y": 0.6537895088252269,
+      "mcstat": 0.04246819220990893,
+      "method": "L0 direct",
+      "raw_win": 237,
+      "raw_wide": 1721
+     },
+     "B_EW_Zaajj_vbs_is2": {
+      "y": 0.6728447503333761,
+      "mcstat": 0.04188948444627994,
+      "method": "L0 direct",
+      "raw_win": 258,
+      "raw_wide": 1668
+     },
+     "B_EW_Zaajj_vbs_is3": {
+      "y": 0.28036439799790147,
+      "mcstat": 0.017767371799496653,
+      "method": "L0 direct",
+      "raw_win": 249,
+      "raw_wide": 1556
+     },
+     "T_ttaa": {
+      "y": 0.006319784057185004,
+      "mcstat": 0.006319784057185004,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 1,
+      "raw_wide": 3
+     },
+     "F_QCD_Zajj": {
+      "y": 0.2230537835418719,
+      "mcstat": 0.05117204744386398,
+      "method": "L1 m_gg-shape (exp. fit, Delphes)",
+      "raw_win": 5,
+      "raw_wide": 19
+     },
+     "F_EW_Zajj": {
+      "y": 0.1307577152671865,
+      "mcstat": 0.037746501054065275,
+      "method": "L1 m_gg-shape (exp. fit, Delphes)",
+      "raw_win": 1,
+      "raw_wide": 12
+     },
+     "T_tta": {
+      "y": 0.018567060658320814,
+      "mcstat": 0.018567060658320814,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 1
+     },
+     "T_tWa": {
+      "y": 0.002011266320348141,
+      "mcstat": 0.002011266320348141,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     }
+    }
+   },
+   "3000_b": {
+    "L": 3000.0,
+    "sigdef": "b",
+    "s": 0.8116282662904679,
+    "b": 2.833221257500414,
+    "s_mc": 0.014703930870584199,
+    "b_mc": 0.10539348294580879,
+    "sigma_b": 0.40742037157338273,
+    "sigma_s": 0.10699137680005064,
+    "Z_eq1": 0.46154547509863303,
+    "Z_syst_counting": 0.4474635933665641,
+    "mu95_cls": 7.0263231450781385,
+    "mu95_cls_stat": 6.752687683060397,
+    "fit_Z_syst": 0.47833416378054994,
+    "fit_mu95_syst": 5.728313633475925,
+    "fit_Z_stat": 0.49174755422290617,
+    "fit_mu95_stat": 5.5620649886188716,
+    "components": {
+     "S_EW_ZHjj": {
+      "y": 0.5272527642831661,
+      "mcstat": 0.0047684438123610125,
+      "method": "L0 direct",
+      "raw_win": 12226,
+      "raw_wide": 12985
+     },
+     "H_QCD_ZHjj": {
+      "y": 0.28437550200730183,
+      "mcstat": 0.013909260463995739,
+      "method": "L0 direct",
+      "raw_win": 418,
+      "raw_wide": 439
+     },
+     "H_ggZH": {
+      "y": 0.3236019975788999,
+      "mcstat": 0.02347655637316494,
+      "method": "L0 direct",
+      "raw_win": 190,
+      "raw_wide": 197
+     },
+     "H_ttH": {
+      "y": 0.04698251428571429,
+      "mcstat": 0.011745628571428572,
+      "method": "L0 direct",
+      "raw_win": 16,
+      "raw_wide": 16
+     },
+     "H_ZH_tautau": {
+      "y": 0.029531074866717435,
+      "mcstat": 0.029531074866717435,
+      "method": "UL (zero support): 1.14 w_evt",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "H_tHW": {
+      "y": 0.0019662781651376146,
+      "mcstat": 0.0019662781651376146,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "B_QCD_Zaajj_vbs": {
+      "y": 0.44343112560252795,
+      "mcstat": 0.03516637573158664,
+      "method": "L0 direct",
+      "raw_win": 159,
+      "raw_wide": 1025
+     },
+     "B_EW_Zaajj_vbs_is1": {
+      "y": 0.6537895088252269,
+      "mcstat": 0.04246819220990893,
+      "method": "L0 direct",
+      "raw_win": 237,
+      "raw_wide": 1721
+     },
+     "B_EW_Zaajj_vbs_is2": {
+      "y": 0.6728447503333761,
+      "mcstat": 0.04188948444627994,
+      "method": "L0 direct",
+      "raw_win": 258,
+      "raw_wide": 1668
+     },
+     "B_EW_Zaajj_vbs_is3": {
+      "y": 0.28036439799790147,
+      "mcstat": 0.017767371799496653,
+      "method": "L0 direct",
+      "raw_win": 249,
+      "raw_wide": 1556
+     },
+     "T_ttaa": {
+      "y": 0.006319784057185004,
+      "mcstat": 0.006319784057185004,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 1,
+      "raw_wide": 3
+     },
+     "F_QCD_Zajj": {
+      "y": 0.2230537835418719,
+      "mcstat": 0.05117204744386398,
+      "method": "L1 m_gg-shape (exp. fit, Delphes)",
+      "raw_win": 5,
+      "raw_wide": 19
+     },
+     "F_EW_Zajj": {
+      "y": 0.1307577152671865,
+      "mcstat": 0.037746501054065275,
+      "method": "L1 m_gg-shape (exp. fit, Delphes)",
+      "raw_win": 1,
+      "raw_wide": 12
+     },
+     "T_tta": {
+      "y": 0.018567060658320814,
+      "mcstat": 0.018567060658320814,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 1
+     },
+     "T_tWa": {
+      "y": 0.002011266320348141,
+      "mcstat": 0.002011266320348141,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     }
+    }
+   }
+  },
+  "corrected_uncalibrated_kappa1": {
+   "500_a": {
+    "L": 500.0,
+    "sigdef": "a",
+    "s": 0.08787546071386101,
+    "b": 0.4690886761899315,
+    "s_mc": 0.0007947406353935021,
+    "b_mc": 0.014199101002083415,
+    "sigma_b": 0.06466801981105866,
+    "sigma_s": 0.007879745760067405,
+    "Z_eq1": 0.12458177069817859,
+    "Z_syst_counting": 0.12399691805094212,
+    "mu95_cls": 34.501231394328684,
+    "mu95_cls_stat": 34.09065795181043,
+    "fit_Z_syst": 0.1308433580124619,
+    "fit_mu95_syst": 31.787823211973908,
+    "fit_Z_stat": 0.13143316021607165,
+    "fit_mu95_stat": 31.471339192390932,
+    "components": {
+     "S_EW_ZHjj": {
+      "y": 0.08787546071386101,
+      "mcstat": 0.0007947406353935021,
+      "method": "L0 direct",
+      "raw_win": 12226,
+      "raw_wide": 12985
+     },
+     "H_QCD_ZHjj": {
+      "y": 0.047395917001216974,
+      "mcstat": 0.002318210077332623,
+      "method": "L0 direct",
+      "raw_win": 418,
+      "raw_wide": 439
+     },
+     "H_ggZH": {
+      "y": 0.053933666263149986,
+      "mcstat": 0.00391275939552749,
+      "method": "L0 direct",
+      "raw_win": 190,
+      "raw_wide": 197
+     },
+     "H_ttH": {
+      "y": 0.007830419047619048,
+      "mcstat": 0.001957604761904762,
+      "method": "L0 direct",
+      "raw_win": 16,
+      "raw_wide": 16
+     },
+     "H_ZH_tautau": {
+      "y": 0.004921845811119573,
+      "mcstat": 0.004921845811119573,
+      "method": "UL (zero support): 1.14 w_evt",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "H_tHW": {
+      "y": 0.0003277130275229358,
+      "mcstat": 0.0003277130275229358,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "B_QCD_Zaajj_vbs": {
+      "y": 0.07390518760042133,
+      "mcstat": 0.005861062621931107,
+      "method": "L0 direct",
+      "raw_win": 159,
+      "raw_wide": 1025
+     },
+     "B_EW_Zaajj_vbs_is1": {
+      "y": 0.10896491813753782,
+      "mcstat": 0.007078032034984822,
+      "method": "L0 direct",
+      "raw_win": 237,
+      "raw_wide": 1721
+     },
+     "B_EW_Zaajj_vbs_is2": {
+      "y": 0.11214079172222935,
+      "mcstat": 0.006981580741046657,
+      "method": "L0 direct",
+      "raw_win": 258,
+      "raw_wide": 1668
+     },
+     "B_EW_Zaajj_vbs_is3": {
+      "y": 0.04672739966631691,
+      "mcstat": 0.002961228633249442,
+      "method": "L0 direct",
+      "raw_win": 249,
+      "raw_wide": 1556
+     },
+     "T_ttaa": {
+      "y": 0.0010532973426872101,
+      "mcstat": 0.0010532973426872101,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 1,
+      "raw_wide": 3
+     },
+     "F_QCD_Zajj": {
+      "y": 0.007486779837857057,
+      "mcstat": 7.7759231182156e-05,
+      "method": "FF L0 direct (window)",
+      "raw_win": 42429,
+      "raw_wide": 75775
+     },
+     "F_EW_Zajj": {
+      "y": 0.0009710195697205846,
+      "mcstat": 2.6991328341227714e-05,
+      "method": "FF L0 direct (window)",
+      "raw_win": 6449,
+      "raw_wide": 11966
+     },
+     "T_tta": {
+      "y": 0.0030945101091976557,
+      "mcstat": 0.0030945101091976557,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 1
+     },
+     "T_tWa": {
+      "y": 0.0003352110533350749,
+      "mcstat": 0.0003352110533350749,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     }
+    }
+   },
+   "500_b": {
+    "L": 500.0,
+    "sigdef": "b",
+    "s": 0.135271377715078,
+    "b": 0.4216927591887145,
+    "s_mc": 0.0024506551450973663,
+    "b_mc": 0.014008582059035088,
+    "sigma_b": 0.06232034947846103,
+    "sigma_s": 0.01783189613334177,
+    "Z_eq1": 0.198440596809558,
+    "Z_syst_counting": 0.19744126725928526,
+    "mu95_cls": 22.72249076631416,
+    "mu95_cls_stat": 22.146091243809902,
+    "fit_Z_syst": 0.2097365835478013,
+    "fit_mu95_syst": 20.31453432829718,
+    "fit_Z_stat": 0.2107717345596887,
+    "fit_mu95_stat": 19.978060332985397,
+    "components": {
+     "S_EW_ZHjj": {
+      "y": 0.08787546071386101,
+      "mcstat": 0.0007947406353935021,
+      "method": "L0 direct",
+      "raw_win": 12226,
+      "raw_wide": 12985
+     },
+     "H_QCD_ZHjj": {
+      "y": 0.047395917001216974,
+      "mcstat": 0.002318210077332623,
+      "method": "L0 direct",
+      "raw_win": 418,
+      "raw_wide": 439
+     },
+     "H_ggZH": {
+      "y": 0.053933666263149986,
+      "mcstat": 0.00391275939552749,
+      "method": "L0 direct",
+      "raw_win": 190,
+      "raw_wide": 197
+     },
+     "H_ttH": {
+      "y": 0.007830419047619048,
+      "mcstat": 0.001957604761904762,
+      "method": "L0 direct",
+      "raw_win": 16,
+      "raw_wide": 16
+     },
+     "H_ZH_tautau": {
+      "y": 0.004921845811119573,
+      "mcstat": 0.004921845811119573,
+      "method": "UL (zero support): 1.14 w_evt",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "H_tHW": {
+      "y": 0.0003277130275229358,
+      "mcstat": 0.0003277130275229358,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "B_QCD_Zaajj_vbs": {
+      "y": 0.07390518760042133,
+      "mcstat": 0.005861062621931107,
+      "method": "L0 direct",
+      "raw_win": 159,
+      "raw_wide": 1025
+     },
+     "B_EW_Zaajj_vbs_is1": {
+      "y": 0.10896491813753782,
+      "mcstat": 0.007078032034984822,
+      "method": "L0 direct",
+      "raw_win": 237,
+      "raw_wide": 1721
+     },
+     "B_EW_Zaajj_vbs_is2": {
+      "y": 0.11214079172222935,
+      "mcstat": 0.006981580741046657,
+      "method": "L0 direct",
+      "raw_win": 258,
+      "raw_wide": 1668
+     },
+     "B_EW_Zaajj_vbs_is3": {
+      "y": 0.04672739966631691,
+      "mcstat": 0.002961228633249442,
+      "method": "L0 direct",
+      "raw_win": 249,
+      "raw_wide": 1556
+     },
+     "T_ttaa": {
+      "y": 0.0010532973426872101,
+      "mcstat": 0.0010532973426872101,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 1,
+      "raw_wide": 3
+     },
+     "F_QCD_Zajj": {
+      "y": 0.007486779837857057,
+      "mcstat": 7.7759231182156e-05,
+      "method": "FF L0 direct (window)",
+      "raw_win": 42429,
+      "raw_wide": 75775
+     },
+     "F_EW_Zajj": {
+      "y": 0.0009710195697205846,
+      "mcstat": 2.6991328341227714e-05,
+      "method": "FF L0 direct (window)",
+      "raw_win": 6449,
+      "raw_wide": 11966
+     },
+     "T_tta": {
+      "y": 0.0030945101091976557,
+      "mcstat": 0.0030945101091976557,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 1
+     },
+     "T_tWa": {
+      "y": 0.0003352110533350749,
+      "mcstat": 0.0003352110533350749,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     }
+    }
+   },
+   "1000_a": {
+    "L": 1000.0,
+    "sigdef": "a",
+    "s": 0.17575092142772203,
+    "b": 0.938177352379863,
+    "s_mc": 0.0015894812707870042,
+    "b_mc": 0.02839820200416683,
+    "sigma_b": 0.12933603962211732,
+    "sigma_s": 0.01575949152013481,
+    "Z_eq1": 0.1761852297458192,
+    "Z_syst_counting": 0.17454258216798427,
+    "mu95_cls": 23.901735394898072,
+    "mu95_cls_stat": 23.54713655091728,
+    "fit_Z_syst": 0.1842349053377428,
+    "fit_mu95_syst": 18.766614209796696,
+    "fit_Z_stat": 0.18587455772312445,
+    "fit_mu95_stat": 18.539329570193335
+   },
+   "1000_b": {
+    "L": 1000.0,
+    "sigdef": "b",
+    "s": 0.270542755430156,
+    "b": 0.843385518377429,
+    "s_mc": 0.004901310290194733,
+    "b_mc": 0.028017164118070176,
+    "sigma_b": 0.12464069895692206,
+    "sigma_s": 0.03566379226668354,
+    "Z_eq1": 0.28063738333348803,
+    "Z_syst_counting": 0.27783211417196485,
+    "mu95_cls": 15.925022848969563,
+    "mu95_cls_stat": 15.44943866243369,
+    "fit_Z_syst": 0.29519572735254745,
+    "fit_mu95_syst": 11.919480117827748,
+    "fit_Z_stat": 0.29807624557921375,
+    "fit_mu95_stat": 11.692175892830754
+   },
+   "3000_a": {
+    "L": 3000.0,
+    "sigdef": "a",
+    "s": 0.5272527642831661,
+    "b": 2.814532057139589,
+    "s_mc": 0.0047684438123610125,
+    "b_mc": 0.08519460601250049,
+    "sigma_b": 0.38800811886635195,
+    "sigma_s": 0.047278474560404446,
+    "Z_eq1": 0.305161769462954,
+    "Z_syst_counting": 0.2968576559219127,
+    "mu95_cls": 10.654129290825185,
+    "mu95_cls_stat": 10.413441045373958,
+    "fit_Z_syst": 0.3139356459134905,
+    "fit_mu95_syst": 8.771938669048781,
+    "fit_Z_stat": 0.3219441778108456,
+    "fit_mu95_stat": 8.591105956961757,
+    "components": {
+     "S_EW_ZHjj": {
+      "y": 0.5272527642831661,
+      "mcstat": 0.0047684438123610125,
+      "method": "L0 direct",
+      "raw_win": 12226,
+      "raw_wide": 12985
+     },
+     "H_QCD_ZHjj": {
+      "y": 0.28437550200730183,
+      "mcstat": 0.013909260463995739,
+      "method": "L0 direct",
+      "raw_win": 418,
+      "raw_wide": 439
+     },
+     "H_ggZH": {
+      "y": 0.3236019975788999,
+      "mcstat": 0.02347655637316494,
+      "method": "L0 direct",
+      "raw_win": 190,
+      "raw_wide": 197
+     },
+     "H_ttH": {
+      "y": 0.04698251428571429,
+      "mcstat": 0.011745628571428572,
+      "method": "L0 direct",
+      "raw_win": 16,
+      "raw_wide": 16
+     },
+     "H_ZH_tautau": {
+      "y": 0.029531074866717435,
+      "mcstat": 0.029531074866717435,
+      "method": "UL (zero support): 1.14 w_evt",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "H_tHW": {
+      "y": 0.0019662781651376146,
+      "mcstat": 0.0019662781651376146,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "B_QCD_Zaajj_vbs": {
+      "y": 0.44343112560252795,
+      "mcstat": 0.03516637573158664,
+      "method": "L0 direct",
+      "raw_win": 159,
+      "raw_wide": 1025
+     },
+     "B_EW_Zaajj_vbs_is1": {
+      "y": 0.6537895088252269,
+      "mcstat": 0.04246819220990893,
+      "method": "L0 direct",
+      "raw_win": 237,
+      "raw_wide": 1721
+     },
+     "B_EW_Zaajj_vbs_is2": {
+      "y": 0.6728447503333761,
+      "mcstat": 0.04188948444627994,
+      "method": "L0 direct",
+      "raw_win": 258,
+      "raw_wide": 1668
+     },
+     "B_EW_Zaajj_vbs_is3": {
+      "y": 0.28036439799790147,
+      "mcstat": 0.017767371799496653,
+      "method": "L0 direct",
+      "raw_win": 249,
+      "raw_wide": 1556
+     },
+     "T_ttaa": {
+      "y": 0.006319784056123261,
+      "mcstat": 0.006319784056123261,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 1,
+      "raw_wide": 3
+     },
+     "F_QCD_Zajj": {
+      "y": 0.04492067902714234,
+      "mcstat": 0.000466555387092936,
+      "method": "FF L0 direct (window)",
+      "raw_win": 42429,
+      "raw_wide": 75775
+     },
+     "F_EW_Zajj": {
+      "y": 0.005826117418323507,
+      "mcstat": 0.00016194797004736629,
+      "method": "FF L0 direct (window)",
+      "raw_win": 6449,
+      "raw_wide": 11966
+     },
+     "T_tta": {
+      "y": 0.018567060655185933,
+      "mcstat": 0.018567060655185933,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 1
+     },
+     "T_tWa": {
+      "y": 0.0020112663200104494,
+      "mcstat": 0.0020112663200104494,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     }
+    }
+   },
+   "3000_b": {
+    "L": 3000.0,
+    "sigdef": "b",
+    "s": 0.8116282662904679,
+    "b": 2.5301565551322867,
+    "s_mc": 0.014703930870584199,
+    "b_mc": 0.08405149235421053,
+    "sigma_b": 0.37392209687076616,
+    "sigma_s": 0.10699137680005064,
+    "Z_eq1": 0.48607820643678423,
+    "Z_syst_counting": 0.4719255950281419,
+    "mu95_cls": 5.884527979889168,
+    "mu95_cls_stat": 5.67093119762909,
+    "fit_Z_syst": 0.5021469999106821,
+    "fit_mu95_syst": 5.518962606300749,
+    "fit_Z_stat": 0.516283201872583,
+    "fit_mu95_stat": 5.363732043565247,
+    "components": {
+     "S_EW_ZHjj": {
+      "y": 0.5272527642831661,
+      "mcstat": 0.0047684438123610125,
+      "method": "L0 direct",
+      "raw_win": 12226,
+      "raw_wide": 12985
+     },
+     "H_QCD_ZHjj": {
+      "y": 0.28437550200730183,
+      "mcstat": 0.013909260463995739,
+      "method": "L0 direct",
+      "raw_win": 418,
+      "raw_wide": 439
+     },
+     "H_ggZH": {
+      "y": 0.3236019975788999,
+      "mcstat": 0.02347655637316494,
+      "method": "L0 direct",
+      "raw_win": 190,
+      "raw_wide": 197
+     },
+     "H_ttH": {
+      "y": 0.04698251428571429,
+      "mcstat": 0.011745628571428572,
+      "method": "L0 direct",
+      "raw_win": 16,
+      "raw_wide": 16
+     },
+     "H_ZH_tautau": {
+      "y": 0.029531074866717435,
+      "mcstat": 0.029531074866717435,
+      "method": "UL (zero support): 1.14 w_evt",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "H_tHW": {
+      "y": 0.0019662781651376146,
+      "mcstat": 0.0019662781651376146,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "B_QCD_Zaajj_vbs": {
+      "y": 0.44343112560252795,
+      "mcstat": 0.03516637573158664,
+      "method": "L0 direct",
+      "raw_win": 159,
+      "raw_wide": 1025
+     },
+     "B_EW_Zaajj_vbs_is1": {
+      "y": 0.6537895088252269,
+      "mcstat": 0.04246819220990893,
+      "method": "L0 direct",
+      "raw_win": 237,
+      "raw_wide": 1721
+     },
+     "B_EW_Zaajj_vbs_is2": {
+      "y": 0.6728447503333761,
+      "mcstat": 0.04188948444627994,
+      "method": "L0 direct",
+      "raw_win": 258,
+      "raw_wide": 1668
+     },
+     "B_EW_Zaajj_vbs_is3": {
+      "y": 0.28036439799790147,
+      "mcstat": 0.017767371799496653,
+      "method": "L0 direct",
+      "raw_win": 249,
+      "raw_wide": 1556
+     },
+     "T_ttaa": {
+      "y": 0.006319784056123261,
+      "mcstat": 0.006319784056123261,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 1,
+      "raw_wide": 3
+     },
+     "F_QCD_Zajj": {
+      "y": 0.04492067902714234,
+      "mcstat": 0.000466555387092936,
+      "method": "FF L0 direct (window)",
+      "raw_win": 42429,
+      "raw_wide": 75775
+     },
+     "F_EW_Zajj": {
+      "y": 0.005826117418323507,
+      "mcstat": 0.00016194797004736629,
+      "method": "FF L0 direct (window)",
+      "raw_win": 6449,
+      "raw_wide": 11966
+     },
+     "T_tta": {
+      "y": 0.018567060655185933,
+      "mcstat": 0.018567060655185933,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 1
+     },
+     "T_tWa": {
+      "y": 0.0020112663200104494,
+      "mcstat": 0.0020112663200104494,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     }
+    }
+   }
+  },
+  "corrected_nominal": {
+   "500_a": {
+    "L": 500.0,
+    "sigdef": "a",
+    "s": 0.08787546071386101,
+    "b": 0.4687141787367862,
+    "s_mc": 0.0007947406353935021,
+    "b_mc": 0.014199080342611603,
+    "sigma_b": 0.06465384734623632,
+    "sigma_s": 0.007879745760067405,
+    "Z_eq1": 0.12462876147400109,
+    "Z_syst_counting": 0.12404345305828078,
+    "mu95_cls": 34.501231394328684,
+    "mu95_cls_stat": 34.09065795181043,
+    "fit_Z_syst": 0.13088887246168518,
+    "fit_mu95_syst": 31.78252444000615,
+    "fit_Z_stat": 0.13147914833419796,
+    "fit_mu95_stat": 31.466120317820472,
+    "components": {
+     "S_EW_ZHjj": {
+      "y": 0.08787546071386101,
+      "mcstat": 0.0007947406353935021,
+      "method": "L0 direct",
+      "raw_win": 12226,
+      "raw_wide": 12985
+     },
+     "H_QCD_ZHjj": {
+      "y": 0.047395917001216974,
+      "mcstat": 0.002318210077332623,
+      "method": "L0 direct",
+      "raw_win": 418,
+      "raw_wide": 439
+     },
+     "H_ggZH": {
+      "y": 0.053933666263149986,
+      "mcstat": 0.00391275939552749,
+      "method": "L0 direct",
+      "raw_win": 190,
+      "raw_wide": 197
+     },
+     "H_ttH": {
+      "y": 0.007830419047619048,
+      "mcstat": 0.001957604761904762,
+      "method": "L0 direct",
+      "raw_win": 16,
+      "raw_wide": 16
+     },
+     "H_ZH_tautau": {
+      "y": 0.004921845811119573,
+      "mcstat": 0.004921845811119573,
+      "method": "UL (zero support): 1.14 w_evt",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "H_tHW": {
+      "y": 0.0003277130275229358,
+      "mcstat": 0.0003277130275229358,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "B_QCD_Zaajj_vbs": {
+      "y": 0.07390518760042133,
+      "mcstat": 0.005861062621931107,
+      "method": "L0 direct",
+      "raw_win": 159,
+      "raw_wide": 1025
+     },
+     "B_EW_Zaajj_vbs_is1": {
+      "y": 0.10896491813753782,
+      "mcstat": 0.007078032034984822,
+      "method": "L0 direct",
+      "raw_win": 237,
+      "raw_wide": 1721
+     },
+     "B_EW_Zaajj_vbs_is2": {
+      "y": 0.11214079172222935,
+      "mcstat": 0.006981580741046657,
+      "method": "L0 direct",
+      "raw_win": 258,
+      "raw_wide": 1668
+     },
+     "B_EW_Zaajj_vbs_is3": {
+      "y": 0.04672739966631691,
+      "mcstat": 0.002961228633249442,
+      "method": "L0 direct",
+      "raw_win": 249,
+      "raw_wide": 1556
+     },
+     "T_ttaa": {
+      "y": 0.0010532973426872101,
+      "mcstat": 0.0010532973426872101,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 1,
+      "raw_wide": 3
+     },
+     "F_QCD_Zajj": {
+      "y": 0.0071552775349028,
+      "mcstat": 7.431618026158621e-05,
+      "method": "FF L0 direct (window)",
+      "raw_win": 42429,
+      "raw_wide": 75775
+     },
+     "F_EW_Zajj": {
+      "y": 0.0009280244195295297,
+      "mcstat": 2.5796196696021943e-05,
+      "method": "FF L0 direct (window)",
+      "raw_win": 6449,
+      "raw_wide": 11966
+     },
+     "T_tta": {
+      "y": 0.0030945101091976557,
+      "mcstat": 0.0030945101091976557,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 1
+     },
+     "T_tWa": {
+      "y": 0.0003352110533350749,
+      "mcstat": 0.0003352110533350749,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     }
+    }
+   },
+   "500_b": {
+    "L": 500.0,
+    "sigdef": "b",
+    "s": 0.135271377715078,
+    "b": 0.42131826173556924,
+    "s_mc": 0.0024506551450973663,
+    "b_mc": 0.014008561118590756,
+    "sigma_b": 0.06230582104881718,
+    "sigma_s": 0.01783189613334177,
+    "Z_eq1": 0.19852096136437958,
+    "Z_syst_counting": 0.1975207301354804,
+    "mu95_cls": 22.72249076631416,
+    "mu95_cls_stat": 22.146091243809906,
+    "fit_Z_syst": 0.20981567760083186,
+    "fit_mu95_syst": 20.310910707739595,
+    "fit_Z_stat": 0.2108518086135332,
+    "fit_mu95_stat": 19.97452490762475,
+    "components": {
+     "S_EW_ZHjj": {
+      "y": 0.08787546071386101,
+      "mcstat": 0.0007947406353935021,
+      "method": "L0 direct",
+      "raw_win": 12226,
+      "raw_wide": 12985
+     },
+     "H_QCD_ZHjj": {
+      "y": 0.047395917001216974,
+      "mcstat": 0.002318210077332623,
+      "method": "L0 direct",
+      "raw_win": 418,
+      "raw_wide": 439
+     },
+     "H_ggZH": {
+      "y": 0.053933666263149986,
+      "mcstat": 0.00391275939552749,
+      "method": "L0 direct",
+      "raw_win": 190,
+      "raw_wide": 197
+     },
+     "H_ttH": {
+      "y": 0.007830419047619048,
+      "mcstat": 0.001957604761904762,
+      "method": "L0 direct",
+      "raw_win": 16,
+      "raw_wide": 16
+     },
+     "H_ZH_tautau": {
+      "y": 0.004921845811119573,
+      "mcstat": 0.004921845811119573,
+      "method": "UL (zero support): 1.14 w_evt",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "H_tHW": {
+      "y": 0.0003277130275229358,
+      "mcstat": 0.0003277130275229358,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "B_QCD_Zaajj_vbs": {
+      "y": 0.07390518760042133,
+      "mcstat": 0.005861062621931107,
+      "method": "L0 direct",
+      "raw_win": 159,
+      "raw_wide": 1025
+     },
+     "B_EW_Zaajj_vbs_is1": {
+      "y": 0.10896491813753782,
+      "mcstat": 0.007078032034984822,
+      "method": "L0 direct",
+      "raw_win": 237,
+      "raw_wide": 1721
+     },
+     "B_EW_Zaajj_vbs_is2": {
+      "y": 0.11214079172222935,
+      "mcstat": 0.006981580741046657,
+      "method": "L0 direct",
+      "raw_win": 258,
+      "raw_wide": 1668
+     },
+     "B_EW_Zaajj_vbs_is3": {
+      "y": 0.04672739966631691,
+      "mcstat": 0.002961228633249442,
+      "method": "L0 direct",
+      "raw_win": 249,
+      "raw_wide": 1556
+     },
+     "T_ttaa": {
+      "y": 0.0010532973426872101,
+      "mcstat": 0.0010532973426872101,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 1,
+      "raw_wide": 3
+     },
+     "F_QCD_Zajj": {
+      "y": 0.0071552775349028,
+      "mcstat": 7.431618026158621e-05,
+      "method": "FF L0 direct (window)",
+      "raw_win": 42429,
+      "raw_wide": 75775
+     },
+     "F_EW_Zajj": {
+      "y": 0.0009280244195295297,
+      "mcstat": 2.5796196696021943e-05,
+      "method": "FF L0 direct (window)",
+      "raw_win": 6449,
+      "raw_wide": 11966
+     },
+     "T_tta": {
+      "y": 0.0030945101091976557,
+      "mcstat": 0.0030945101091976557,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 1
+     },
+     "T_tWa": {
+      "y": 0.0003352110533350749,
+      "mcstat": 0.0003352110533350749,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     }
+    }
+   },
+   "1000_a": {
+    "L": 1000.0,
+    "sigdef": "a",
+    "s": 0.17575092142772203,
+    "b": 0.9374283574735724,
+    "s_mc": 0.0015894812707870042,
+    "b_mc": 0.028398160685223207,
+    "sigma_b": 0.12930769469247264,
+    "sigma_s": 0.01575949152013481,
+    "Z_eq1": 0.17625168473829383,
+    "Z_syst_counting": 0.1746077617118181,
+    "mu95_cls": 23.903573688630086,
+    "mu95_cls_stat": 23.548929503569102,
+    "fit_Z_syst": 0.18429862401178862,
+    "fit_mu95_syst": 18.76277257926467,
+    "fit_Z_stat": 0.18593959474348667,
+    "fit_mu95_stat": 18.535553127173227
+   },
+   "1000_b": {
+    "L": 1000.0,
+    "sigdef": "b",
+    "s": 0.270542755430156,
+    "b": 0.8426365234711385,
+    "s_mc": 0.004901310290194733,
+    "b_mc": 0.028017122237181512,
+    "sigma_b": 0.12461164209763435,
+    "sigma_s": 0.03566379226668354,
+    "Z_eq1": 0.2807510359768508,
+    "Z_syst_counting": 0.2779432463343038,
+    "mu95_cls": 15.926338754579195,
+    "mu95_cls_stat": 15.4506887069734,
+    "fit_Z_syst": 0.29530623539868295,
+    "fit_mu95_syst": 11.916842180637431,
+    "fit_Z_stat": 0.2981894873921608,
+    "fit_mu95_stat": 11.689607233419038
+   },
+   "3000_a": {
+    "L": 3000.0,
+    "sigdef": "a",
+    "s": 0.5272527642831661,
+    "b": 2.812285072420717,
+    "s_mc": 0.0047684438123610125,
+    "b_mc": 0.08519448205566962,
+    "sigma_b": 0.3879230840774179,
+    "sigma_s": 0.047278474560404446,
+    "Z_eq1": 0.30527687288633654,
+    "Z_syst_counting": 0.2969664015858674,
+    "mu95_cls": 10.656438746869348,
+    "mu95_cls_stat": 10.415693336673057,
+    "fit_Z_syst": 0.31404180939038334,
+    "fit_mu95_syst": 8.769675208858116,
+    "fit_Z_stat": 0.3220568252344749,
+    "fit_mu95_stat": 8.588892815675898,
+    "components": {
+     "S_EW_ZHjj": {
+      "y": 0.5272527642831661,
+      "mcstat": 0.0047684438123610125,
+      "method": "L0 direct",
+      "raw_win": 12226,
+      "raw_wide": 12985
+     },
+     "H_QCD_ZHjj": {
+      "y": 0.28437550200730183,
+      "mcstat": 0.013909260463995739,
+      "method": "L0 direct",
+      "raw_win": 418,
+      "raw_wide": 439
+     },
+     "H_ggZH": {
+      "y": 0.3236019975788999,
+      "mcstat": 0.02347655637316494,
+      "method": "L0 direct",
+      "raw_win": 190,
+      "raw_wide": 197
+     },
+     "H_ttH": {
+      "y": 0.04698251428571429,
+      "mcstat": 0.011745628571428572,
+      "method": "L0 direct",
+      "raw_win": 16,
+      "raw_wide": 16
+     },
+     "H_ZH_tautau": {
+      "y": 0.029531074866717435,
+      "mcstat": 0.029531074866717435,
+      "method": "UL (zero support): 1.14 w_evt",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "H_tHW": {
+      "y": 0.0019662781651376146,
+      "mcstat": 0.0019662781651376146,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "B_QCD_Zaajj_vbs": {
+      "y": 0.44343112560252795,
+      "mcstat": 0.03516637573158664,
+      "method": "L0 direct",
+      "raw_win": 159,
+      "raw_wide": 1025
+     },
+     "B_EW_Zaajj_vbs_is1": {
+      "y": 0.6537895088252269,
+      "mcstat": 0.04246819220990893,
+      "method": "L0 direct",
+      "raw_win": 237,
+      "raw_wide": 1721
+     },
+     "B_EW_Zaajj_vbs_is2": {
+      "y": 0.6728447503333761,
+      "mcstat": 0.04188948444627994,
+      "method": "L0 direct",
+      "raw_win": 258,
+      "raw_wide": 1668
+     },
+     "B_EW_Zaajj_vbs_is3": {
+      "y": 0.28036439799790147,
+      "mcstat": 0.017767371799496653,
+      "method": "L0 direct",
+      "raw_win": 249,
+      "raw_wide": 1556
+     },
+     "T_ttaa": {
+      "y": 0.006319784056123261,
+      "mcstat": 0.006319784056123261,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 1,
+      "raw_wide": 3
+     },
+     "F_QCD_Zajj": {
+      "y": 0.0429316652094168,
+      "mcstat": 0.00044589708156951726,
+      "method": "FF L0 direct (window)",
+      "raw_win": 42429,
+      "raw_wide": 75775
+     },
+     "F_EW_Zajj": {
+      "y": 0.005568146517177178,
+      "mcstat": 0.00015477718017613165,
+      "method": "FF L0 direct (window)",
+      "raw_win": 6449,
+      "raw_wide": 11966
+     },
+     "T_tta": {
+      "y": 0.018567060655185933,
+      "mcstat": 0.018567060655185933,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 1
+     },
+     "T_tWa": {
+      "y": 0.0020112663200104494,
+      "mcstat": 0.0020112663200104494,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     }
+    }
+   },
+   "3000_b": {
+    "L": 3000.0,
+    "sigdef": "b",
+    "s": 0.8116282662904679,
+    "b": 2.527909570413415,
+    "s_mc": 0.014703930870584199,
+    "b_mc": 0.08405136671154455,
+    "sigma_b": 0.37383492629290305,
+    "sigma_s": 0.10699137680005064,
+    "Z_eq1": 0.4862750585895034,
+    "Z_syst_counting": 0.47210993682935043,
+    "mu95_cls": 5.885621116628782,
+    "mu95_cls_stat": 5.6719627425825685,
+    "fit_Z_syst": 0.5023295539110745,
+    "fit_mu95_syst": 5.517400489554279,
+    "fit_Z_stat": 0.5164793424461417,
+    "fit_mu95_stat": 5.362219057435095,
+    "components": {
+     "S_EW_ZHjj": {
+      "y": 0.5272527642831661,
+      "mcstat": 0.0047684438123610125,
+      "method": "L0 direct",
+      "raw_win": 12226,
+      "raw_wide": 12985
+     },
+     "H_QCD_ZHjj": {
+      "y": 0.28437550200730183,
+      "mcstat": 0.013909260463995739,
+      "method": "L0 direct",
+      "raw_win": 418,
+      "raw_wide": 439
+     },
+     "H_ggZH": {
+      "y": 0.3236019975788999,
+      "mcstat": 0.02347655637316494,
+      "method": "L0 direct",
+      "raw_win": 190,
+      "raw_wide": 197
+     },
+     "H_ttH": {
+      "y": 0.04698251428571429,
+      "mcstat": 0.011745628571428572,
+      "method": "L0 direct",
+      "raw_win": 16,
+      "raw_wide": 16
+     },
+     "H_ZH_tautau": {
+      "y": 0.029531074866717435,
+      "mcstat": 0.029531074866717435,
+      "method": "UL (zero support): 1.14 w_evt",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "H_tHW": {
+      "y": 0.0019662781651376146,
+      "mcstat": 0.0019662781651376146,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "B_QCD_Zaajj_vbs": {
+      "y": 0.44343112560252795,
+      "mcstat": 0.03516637573158664,
+      "method": "L0 direct",
+      "raw_win": 159,
+      "raw_wide": 1025
+     },
+     "B_EW_Zaajj_vbs_is1": {
+      "y": 0.6537895088252269,
+      "mcstat": 0.04246819220990893,
+      "method": "L0 direct",
+      "raw_win": 237,
+      "raw_wide": 1721
+     },
+     "B_EW_Zaajj_vbs_is2": {
+      "y": 0.6728447503333761,
+      "mcstat": 0.04188948444627994,
+      "method": "L0 direct",
+      "raw_win": 258,
+      "raw_wide": 1668
+     },
+     "B_EW_Zaajj_vbs_is3": {
+      "y": 0.28036439799790147,
+      "mcstat": 0.017767371799496653,
+      "method": "L0 direct",
+      "raw_win": 249,
+      "raw_wide": 1556
+     },
+     "T_ttaa": {
+      "y": 0.006319784056123261,
+      "mcstat": 0.006319784056123261,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 1,
+      "raw_wide": 3
+     },
+     "F_QCD_Zajj": {
+      "y": 0.0429316652094168,
+      "mcstat": 0.00044589708156951726,
+      "method": "FF L0 direct (window)",
+      "raw_win": 42429,
+      "raw_wide": 75775
+     },
+     "F_EW_Zajj": {
+      "y": 0.005568146517177178,
+      "mcstat": 0.00015477718017613165,
+      "method": "FF L0 direct (window)",
+      "raw_win": 6449,
+      "raw_wide": 11966
+     },
+     "T_tta": {
+      "y": 0.018567060655185933,
+      "mcstat": 0.018567060655185933,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 1
+     },
+     "T_tWa": {
+      "y": 0.0020112663200104494,
+      "mcstat": 0.0020112663200104494,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     }
+    }
+   }
+  },
+  "corrected_closure_scaled_kappa1.43": {
+   "500_a": {
+    "L": 500.0,
+    "sigdef": "a",
+    "s": 0.08787546071386101,
+    "b": 0.47272214681542685,
+    "s_mc": 0.0007947406353935021,
+    "b_mc": 0.014199350011408818,
+    "sigma_b": 0.06492589179469593,
+    "sigma_s": 0.007879745760067405,
+    "Z_eq1": 0.12412860249842983,
+    "Z_syst_counting": 0.12354598372217045,
+    "mu95_cls": 34.501231394328684,
+    "mu95_cls_stat": 34.09065795181042,
+    "fit_Z_syst": 0.1304026139296047,
+    "fit_mu95_syst": 31.83922485985403,
+    "fit_Z_stat": 0.13098951496003136,
+    "fit_mu95_stat": 31.521870518727027,
+    "components": {
+     "S_EW_ZHjj": {
+      "y": 0.08787546071386101,
+      "mcstat": 0.0007947406353935021,
+      "method": "L0 direct",
+      "raw_win": 12226,
+      "raw_wide": 12985
+     },
+     "H_QCD_ZHjj": {
+      "y": 0.047395917001216974,
+      "mcstat": 0.002318210077332623,
+      "method": "L0 direct",
+      "raw_win": 418,
+      "raw_wide": 439
+     },
+     "H_ggZH": {
+      "y": 0.053933666263149986,
+      "mcstat": 0.00391275939552749,
+      "method": "L0 direct",
+      "raw_win": 190,
+      "raw_wide": 197
+     },
+     "H_ttH": {
+      "y": 0.007830419047619048,
+      "mcstat": 0.001957604761904762,
+      "method": "L0 direct",
+      "raw_win": 16,
+      "raw_wide": 16
+     },
+     "H_ZH_tautau": {
+      "y": 0.004921845811119573,
+      "mcstat": 0.004921845811119573,
+      "method": "UL (zero support): 1.14 w_evt",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "H_tHW": {
+      "y": 0.0003277130275229358,
+      "mcstat": 0.0003277130275229358,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "B_QCD_Zaajj_vbs": {
+      "y": 0.07390518760042133,
+      "mcstat": 0.005861062621931107,
+      "method": "L0 direct",
+      "raw_win": 159,
+      "raw_wide": 1025
+     },
+     "B_EW_Zaajj_vbs_is1": {
+      "y": 0.10896491813753782,
+      "mcstat": 0.007078032034984822,
+      "method": "L0 direct",
+      "raw_win": 237,
+      "raw_wide": 1721
+     },
+     "B_EW_Zaajj_vbs_is2": {
+      "y": 0.11214079172222935,
+      "mcstat": 0.006981580741046657,
+      "method": "L0 direct",
+      "raw_win": 258,
+      "raw_wide": 1668
+     },
+     "B_EW_Zaajj_vbs_is3": {
+      "y": 0.04672739966631691,
+      "mcstat": 0.002961228633249442,
+      "method": "L0 direct",
+      "raw_win": 249,
+      "raw_wide": 1556
+     },
+     "T_ttaa": {
+      "y": 0.0010532973426872101,
+      "mcstat": 0.0010532973426872101,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 1,
+      "raw_wide": 3
+     },
+     "F_QCD_Zajj": {
+      "y": 0.010703100456200449,
+      "mcstat": 0.00011116459689801022,
+      "method": "FF L0 direct (window)",
+      "raw_win": 42429,
+      "raw_wide": 75775
+     },
+     "F_EW_Zajj": {
+      "y": 0.0013881695768725476,
+      "mcstat": 3.858680299661914e-05,
+      "method": "FF L0 direct (window)",
+      "raw_win": 6449,
+      "raw_wide": 11966
+     },
+     "T_tta": {
+      "y": 0.0030945101091976557,
+      "mcstat": 0.0030945101091976557,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 1
+     },
+     "T_tWa": {
+      "y": 0.0003352110533350749,
+      "mcstat": 0.0003352110533350749,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     }
+    }
+   },
+   "500_b": {
+    "L": 500.0,
+    "sigdef": "b",
+    "s": 0.135271377715078,
+    "b": 0.42532622981420987,
+    "s_mc": 0.0024506551450973663,
+    "b_mc": 0.014008834454866295,
+    "sigma_b": 0.0625861752592405,
+    "sigma_s": 0.01783189613334177,
+    "Z_eq1": 0.19766594074369942,
+    "Z_syst_counting": 0.19667132474735877,
+    "mu95_cls": 22.72249076631416,
+    "mu95_cls_stat": 22.146091243809906,
+    "fit_Z_syst": 0.2089708598923336,
+    "fit_mu95_syst": 20.349678113500907,
+    "fit_Z_stat": 0.2099996336729069,
+    "fit_mu95_stat": 20.012286809109746,
+    "components": {
+     "S_EW_ZHjj": {
+      "y": 0.08787546071386101,
+      "mcstat": 0.0007947406353935021,
+      "method": "L0 direct",
+      "raw_win": 12226,
+      "raw_wide": 12985
+     },
+     "H_QCD_ZHjj": {
+      "y": 0.047395917001216974,
+      "mcstat": 0.002318210077332623,
+      "method": "L0 direct",
+      "raw_win": 418,
+      "raw_wide": 439
+     },
+     "H_ggZH": {
+      "y": 0.053933666263149986,
+      "mcstat": 0.00391275939552749,
+      "method": "L0 direct",
+      "raw_win": 190,
+      "raw_wide": 197
+     },
+     "H_ttH": {
+      "y": 0.007830419047619048,
+      "mcstat": 0.001957604761904762,
+      "method": "L0 direct",
+      "raw_win": 16,
+      "raw_wide": 16
+     },
+     "H_ZH_tautau": {
+      "y": 0.004921845811119573,
+      "mcstat": 0.004921845811119573,
+      "method": "UL (zero support): 1.14 w_evt",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "H_tHW": {
+      "y": 0.0003277130275229358,
+      "mcstat": 0.0003277130275229358,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "B_QCD_Zaajj_vbs": {
+      "y": 0.07390518760042133,
+      "mcstat": 0.005861062621931107,
+      "method": "L0 direct",
+      "raw_win": 159,
+      "raw_wide": 1025
+     },
+     "B_EW_Zaajj_vbs_is1": {
+      "y": 0.10896491813753782,
+      "mcstat": 0.007078032034984822,
+      "method": "L0 direct",
+      "raw_win": 237,
+      "raw_wide": 1721
+     },
+     "B_EW_Zaajj_vbs_is2": {
+      "y": 0.11214079172222935,
+      "mcstat": 0.006981580741046657,
+      "method": "L0 direct",
+      "raw_win": 258,
+      "raw_wide": 1668
+     },
+     "B_EW_Zaajj_vbs_is3": {
+      "y": 0.04672739966631691,
+      "mcstat": 0.002961228633249442,
+      "method": "L0 direct",
+      "raw_win": 249,
+      "raw_wide": 1556
+     },
+     "T_ttaa": {
+      "y": 0.0010532973426872101,
+      "mcstat": 0.0010532973426872101,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 1,
+      "raw_wide": 3
+     },
+     "F_QCD_Zajj": {
+      "y": 0.010703100456200449,
+      "mcstat": 0.00011116459689801022,
+      "method": "FF L0 direct (window)",
+      "raw_win": 42429,
+      "raw_wide": 75775
+     },
+     "F_EW_Zajj": {
+      "y": 0.0013881695768725476,
+      "mcstat": 3.858680299661914e-05,
+      "method": "FF L0 direct (window)",
+      "raw_win": 6449,
+      "raw_wide": 11966
+     },
+     "T_tta": {
+      "y": 0.0030945101091976557,
+      "mcstat": 0.0030945101091976557,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 1
+     },
+     "T_tWa": {
+      "y": 0.0003352110533350749,
+      "mcstat": 0.0003352110533350749,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     }
+    }
+   },
+   "1000_a": {
+    "L": 1000.0,
+    "sigdef": "a",
+    "s": 0.17575092142772203,
+    "b": 0.9454442936308537,
+    "s_mc": 0.0015894812707870042,
+    "b_mc": 0.028398700022817636,
+    "sigma_b": 0.12985178358939187,
+    "sigma_s": 0.01575949152013481,
+    "Z_eq1": 0.1755443531316983,
+    "Z_syst_counting": 0.17390797727615023,
+    "mu95_cls": 23.88409834163221,
+    "mu95_cls_stat": 23.52979174156391,
+    "fit_Z_syst": 0.18361580236485955,
+    "fit_mu95_syst": 18.803950243450156,
+    "fit_Z_stat": 0.18524714858515934,
+    "fit_mu95_stat": 18.575892496646812
+   },
+   "1000_b": {
+    "L": 1000.0,
+    "sigdef": "b",
+    "s": 0.270542755430156,
+    "b": 0.8506524596284197,
+    "s_mc": 0.004901310290194733,
+    "b_mc": 0.02801766890973259,
+    "sigma_b": 0.125172350518481,
+    "sigma_s": 0.03566379226668354,
+    "Z_eq1": 0.27954185421897626,
+    "Z_syst_counting": 0.27674979775353536,
+    "mu95_cls": 15.912399220709272,
+    "mu95_cls_stat": 15.437347233414037,
+    "fit_Z_syst": 0.2941220613914208,
+    "fit_mu95_syst": 11.945109448085246,
+    "fit_Z_stat": 0.2969843300336066,
+    "fit_mu95_stat": 11.717041158727682
+   },
+   "3000_a": {
+    "L": 3000.0,
+    "sigdef": "a",
+    "s": 0.5272527642831661,
+    "b": 2.836332880892561,
+    "s_mc": 0.0047684438123610125,
+    "b_mc": 0.0851961000684529,
+    "sigma_b": 0.38955535076817555,
+    "sigma_s": 0.047278474560404446,
+    "Z_eq1": 0.30405173860591433,
+    "Z_syst_counting": 0.2957792835331055,
+    "mu95_cls": 10.632145334949596,
+    "mu95_cls_stat": 10.391674660246654,
+    "fit_Z_syst": 0.3128936685247967,
+    "fit_mu95_syst": 8.794081214143015,
+    "fit_Z_stat": 0.3208574733067626,
+    "fit_mu95_stat": 8.612532331272543,
+    "components": {
+     "S_EW_ZHjj": {
+      "y": 0.5272527642831661,
+      "mcstat": 0.0047684438123610125,
+      "method": "L0 direct",
+      "raw_win": 12226,
+      "raw_wide": 12985
+     },
+     "H_QCD_ZHjj": {
+      "y": 0.28437550200730183,
+      "mcstat": 0.013909260463995739,
+      "method": "L0 direct",
+      "raw_win": 418,
+      "raw_wide": 439
+     },
+     "H_ggZH": {
+      "y": 0.3236019975788999,
+      "mcstat": 0.02347655637316494,
+      "method": "L0 direct",
+      "raw_win": 190,
+      "raw_wide": 197
+     },
+     "H_ttH": {
+      "y": 0.04698251428571429,
+      "mcstat": 0.011745628571428572,
+      "method": "L0 direct",
+      "raw_win": 16,
+      "raw_wide": 16
+     },
+     "H_ZH_tautau": {
+      "y": 0.029531074866717435,
+      "mcstat": 0.029531074866717435,
+      "method": "UL (zero support): 1.14 w_evt",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "H_tHW": {
+      "y": 0.0019662781651376146,
+      "mcstat": 0.0019662781651376146,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "B_QCD_Zaajj_vbs": {
+      "y": 0.44343112560252795,
+      "mcstat": 0.03516637573158664,
+      "method": "L0 direct",
+      "raw_win": 159,
+      "raw_wide": 1025
+     },
+     "B_EW_Zaajj_vbs_is1": {
+      "y": 0.6537895088252269,
+      "mcstat": 0.04246819220990893,
+      "method": "L0 direct",
+      "raw_win": 237,
+      "raw_wide": 1721
+     },
+     "B_EW_Zaajj_vbs_is2": {
+      "y": 0.6728447503333761,
+      "mcstat": 0.04188948444627994,
+      "method": "L0 direct",
+      "raw_win": 258,
+      "raw_wide": 1668
+     },
+     "B_EW_Zaajj_vbs_is3": {
+      "y": 0.28036439799790147,
+      "mcstat": 0.017767371799496653,
+      "method": "L0 direct",
+      "raw_win": 249,
+      "raw_wide": 1556
+     },
+     "T_ttaa": {
+      "y": 0.006319784056123261,
+      "mcstat": 0.006319784056123261,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 1,
+      "raw_wide": 3
+     },
+     "F_QCD_Zajj": {
+      "y": 0.06421860273720269,
+      "mcstat": 0.0006669875813880614,
+      "method": "FF L0 direct (window)",
+      "raw_win": 42429,
+      "raw_wide": 75775
+     },
+     "F_EW_Zajj": {
+      "y": 0.008329017461235285,
+      "mcstat": 0.00023152081797971484,
+      "method": "FF L0 direct (window)",
+      "raw_win": 6449,
+      "raw_wide": 11966
+     },
+     "T_tta": {
+      "y": 0.018567060655185933,
+      "mcstat": 0.018567060655185933,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 1
+     },
+     "T_tWa": {
+      "y": 0.0020112663200104494,
+      "mcstat": 0.0020112663200104494,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     }
+    }
+   },
+   "3000_b": {
+    "L": 3000.0,
+    "sigdef": "b",
+    "s": 0.8116282662904679,
+    "b": 2.551957378885259,
+    "s_mc": 0.014703930870584199,
+    "b_mc": 0.08405300672919777,
+    "sigma_b": 0.37551705155544296,
+    "sigma_s": 0.10699137680005064,
+    "Z_eq1": 0.484180694349279,
+    "Z_syst_counting": 0.4700943770371622,
+    "mu95_cls": 5.874166815202951,
+    "mu95_cls_stat": 5.660971776841631,
+    "fit_Z_syst": 0.5003542415023637,
+    "fit_mu95_syst": 5.534234890447633,
+    "fit_Z_stat": 0.5143919486700068,
+    "fit_mu95_stat": 5.378377176116796,
+    "components": {
+     "S_EW_ZHjj": {
+      "y": 0.5272527642831661,
+      "mcstat": 0.0047684438123610125,
+      "method": "L0 direct",
+      "raw_win": 12226,
+      "raw_wide": 12985
+     },
+     "H_QCD_ZHjj": {
+      "y": 0.28437550200730183,
+      "mcstat": 0.013909260463995739,
+      "method": "L0 direct",
+      "raw_win": 418,
+      "raw_wide": 439
+     },
+     "H_ggZH": {
+      "y": 0.3236019975788999,
+      "mcstat": 0.02347655637316494,
+      "method": "L0 direct",
+      "raw_win": 190,
+      "raw_wide": 197
+     },
+     "H_ttH": {
+      "y": 0.04698251428571429,
+      "mcstat": 0.011745628571428572,
+      "method": "L0 direct",
+      "raw_win": 16,
+      "raw_wide": 16
+     },
+     "H_ZH_tautau": {
+      "y": 0.029531074866717435,
+      "mcstat": 0.029531074866717435,
+      "method": "UL (zero support): 1.14 w_evt",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "H_tHW": {
+      "y": 0.0019662781651376146,
+      "mcstat": 0.0019662781651376146,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     },
+     "B_QCD_Zaajj_vbs": {
+      "y": 0.44343112560252795,
+      "mcstat": 0.03516637573158664,
+      "method": "L0 direct",
+      "raw_win": 159,
+      "raw_wide": 1025
+     },
+     "B_EW_Zaajj_vbs_is1": {
+      "y": 0.6537895088252269,
+      "mcstat": 0.04246819220990893,
+      "method": "L0 direct",
+      "raw_win": 237,
+      "raw_wide": 1721
+     },
+     "B_EW_Zaajj_vbs_is2": {
+      "y": 0.6728447503333761,
+      "mcstat": 0.04188948444627994,
+      "method": "L0 direct",
+      "raw_win": 258,
+      "raw_wide": 1668
+     },
+     "B_EW_Zaajj_vbs_is3": {
+      "y": 0.28036439799790147,
+      "mcstat": 0.017767371799496653,
+      "method": "L0 direct",
+      "raw_win": 249,
+      "raw_wide": 1556
+     },
+     "T_ttaa": {
+      "y": 0.006319784056123261,
+      "mcstat": 0.006319784056123261,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 1,
+      "raw_wide": 3
+     },
+     "F_QCD_Zajj": {
+      "y": 0.06421860273720269,
+      "mcstat": 0.0006669875813880614,
+      "method": "FF L0 direct (window)",
+      "raw_win": 42429,
+      "raw_wide": 75775
+     },
+     "F_EW_Zajj": {
+      "y": 0.008329017461235285,
+      "mcstat": 0.00023152081797971484,
+      "method": "FF L0 direct (window)",
+      "raw_win": 6449,
+      "raw_wide": 11966
+     },
+     "T_tta": {
+      "y": 0.018567060655185933,
+      "mcstat": 0.018567060655185933,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 1
+     },
+     "T_tWa": {
+      "y": 0.0020112663200104494,
+      "mcstat": 0.0020112663200104494,
+      "method": "L2 VBS-factorised (100% unc.)",
+      "raw_win": 0,
+      "raw_wide": 0
+     }
+    }
+   }
+  }
+ },
+ "optimum": {
+  "zwin": 25.0,
+  "mllgg": 100.0,
+  "gpt": 25.0,
+  "ratio": [
+   0.3333333333333333,
+   0.25
+  ],
+  "bveto": false,
+  "zep": 99.0,
+  "mjj": 500.0,
+  "deta": 3.5,
+  "wk": 2.0
+ },
+ "optimum_reoptimised_same": true,
+ "kappa": {
+  "CMS_record": "arXiv:2105.12780, JHEP 10 (2021) 174, doi:10.1007/JHEP10(2021)174, Table 2 (Zgg, eegg + mumugg)",
+  "CMS_misid_jets": [
+   42,
+   98
+  ],
+  "CMS_expected_signal": [
+   68,
+   157
+  ],
+  "R_CMS": 0.6222222222222222,
+  "R_CMS_rel_unc": 0.2596150997149434,
+  "prompt_Zaajj_nomjj_fb": 0.027553953527099998,
+  "prompt_raw": 10283,
+  "FF_Zajj_nomjj_fb": 0.017938991230677763,
+  "FF_err_fb": 0.00016191631086346744,
+  "R_MC": 0.6510496293402803,
+  "kappa": 0.955721644220473,
+  "kappa_err": 0.012776519696440286
+ }
+}

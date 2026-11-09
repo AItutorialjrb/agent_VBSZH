@@ -1,0 +1,13 @@
+# reproduce the frozen ZH final analysis read-only (output only into zh_check/out)
+universe = vanilla
+executable = /eos/home-r/rjiang/vbs_zh_codex_starter/scripts/condor/pyjob.sh
+arguments = scripts/analysis/final_analysis.py /eos/home-r/rjiang/vbs_zh_codex_starter/p2/combination/zh_check/out/repro_final.json
+should_transfer_files = YES
+transfer_output_files = ""
+output = /eos/home-r/rjiang/vbs_zh_codex_starter/p2/combination/zh_check/logs/repro.out
+error  = /eos/home-r/rjiang/vbs_zh_codex_starter/p2/combination/zh_check/logs/repro.err
+log    = /eos/home-r/rjiang/vbs_zh_codex_starter/p2/combination/zh_check/logs/repro.log
+request_cpus = 1
+request_memory = 8000
++JobFlavour = "longlunch"
+queue

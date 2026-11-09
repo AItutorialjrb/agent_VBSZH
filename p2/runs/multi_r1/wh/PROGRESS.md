@@ -44,3 +44,6 @@
 - 2026-11-07: post-production checks (sec 20), rate correction (lepton contamination), direct closure fail x5, Q_aajj D29 trigger raised, package built, VERIFY #22.
 
 - 2026-11-07: Q_aajjj delivered, origin diagnosis (sec 21), package fixes, background_total.json, VERIFY #23.
+- 2026-11-09 submitted 899824 (fake skims); rate table built (W 465 files, TT 19)
+- 2026-11-09 background-model block done: reports/05a_background_model.md, VERIFY_REQUEST.md written; 1502 skim + 484 rate jobs OK. Selection not started (waiting for verify/review).
+- 2026-11-09 05a v2 reissued after HOLD; VERIFY_REQUEST rewritten
