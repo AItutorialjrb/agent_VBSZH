@@ -1,0 +1,10 @@
+! single_r1 WH: ttH / tHq / tHW with undecayed t (and W) in LHE: PY8 decays t, W inclusively (PY8 tables, BR=1 by
+! construction, no external top/W BR factor) and forces H->gamma gamma (conditional BR=1; B_gg applied once externally).
+Main:numberOfEvents = NEVENTS
+Beams:LHEF = LHEFILE
+Random:setSeed = on
+Random:seed = PYSEED
+25:mayDecay = on
+25:onMode = off
+25:onIfMatch = 22 22
+HiggsSM:NLOWidths = on

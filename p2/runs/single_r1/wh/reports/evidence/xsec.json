@@ -1,0 +1,836 @@
+{
+ "xsec": {
+  "S_EW_WHjj": {
+   "rc": 0,
+   "wall_s": 559,
+   "ncore": 4,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/gridpacks/S_EW_WHjj_status.txt",
+   "sigma_fb": 13.83,
+   "err_fb": 0.03691,
+   "seed": 2401000,
+   "br": [
+    "WF",
+    "BGG"
+   ],
+   "role": "signal",
+   "test": {
+    "json": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/test/S_EW_WHjj/S_EW_WHjj_s2401001.json",
+    "n_lhe": 2000,
+    "n_delphes": 2000,
+    "lhe_sigma_fb": 13.861887,
+    "lhe_err_fb": 0.08318911283368034,
+    "py8_sigma_fb": 13.879999999999999,
+    "py8_err_fb": 0.02784
+   }
+  },
+  "S_EW_WHjj_nodec": {
+   "rc": 0,
+   "wall_s": 126,
+   "ncore": 4,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/xsec/S_EW_WHjj_nodec_s2402000.status.txt",
+   "sigma_fb": 61.37,
+   "err_fb": 0.5945,
+   "seed": 2402000,
+   "br": [],
+   "role": "validation"
+  },
+  "S_EW_WHjj_offshell": {
+   "rc": 0,
+   "wall_s": 1122,
+   "ncore": 8,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/gridpacks/S_EW_WHjj_offshell_status.txt",
+   "sigma_fb": 11.520000000000001,
+   "err_fb": 0.02782,
+   "seed": 2403000,
+   "br": [
+    "BGG"
+   ],
+   "role": "systematic",
+   "test": {
+    "json": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/test/S_EW_WHjj_offshell/S_EW_WHjj_offshell_s2403001.json",
+    "n_lhe": 2000,
+    "n_delphes": 2000,
+    "lhe_sigma_fb": 11.537500999999999,
+    "lhe_err_fb": 0.07796415005477389,
+    "py8_sigma_fb": 11.55,
+    "py8_err_fb": 0.020050000000000002
+   }
+  },
+  "S_EW_WHjj_taunu": {
+   "rc": 0,
+   "wall_s": 621,
+   "ncore": 4,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/gridpacks/S_EW_WHjj_taunu_status.txt",
+   "sigma_fb": 6.919,
+   "err_fb": 0.01395,
+   "seed": 2404000,
+   "br": [
+    "WF_tau",
+    "BGG"
+   ],
+   "role": "resonant_bkg",
+   "test": {
+    "json": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/test/S_EW_WHjj_taunu/S_EW_WHjj_taunu_s2404001.json",
+    "n_lhe": 2000,
+    "n_delphes": 2000,
+    "lhe_sigma_fb": 6.966807,
+    "lhe_err_fb": 0.04744917388108037,
+    "py8_sigma_fb": 6.936,
+    "py8_err_fb": 0.023200000000000002
+   }
+  },
+  "S_EW_WHjj_5Fj_nodec": {
+   "rc": 0,
+   "wall_s": 127,
+   "ncore": 4,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/xsec/S_EW_WHjj_5Fj_nodec_s2405000.status.txt",
+   "sigma_fb": 127.7,
+   "err_fb": 2.115,
+   "seed": 2405000,
+   "br": [],
+   "role": "validation"
+  },
+  "S_EW_WHjj_5Fj_notop_nodec": {
+   "rc": 0,
+   "wall_s": 159,
+   "ncore": 4,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/xsec/S_EW_WHjj_5Fj_notop_nodec_s2406000.status.txt",
+   "sigma_fb": 64.07000000000001,
+   "err_fb": 0.6068,
+   "seed": 2406000,
+   "br": [],
+   "role": "validation"
+  },
+  "H_QCD_WHjj": {
+   "rc": 0,
+   "wall_s": 284,
+   "ncore": 4,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/gridpacks/H_QCD_WHjj_status.txt",
+   "sigma_fb": 58.75,
+   "err_fb": 0.1438,
+   "seed": 2407000,
+   "br": [
+    "WF",
+    "BGG"
+   ],
+   "role": "resonant_bkg",
+   "test": {
+    "json": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/test/H_QCD_WHjj/H_QCD_WHjj_s2407001.json",
+    "n_lhe": 2000,
+    "n_delphes": 2000,
+    "lhe_sigma_fb": 59.269929999999995,
+    "lhe_err_fb": 0.39236357560937024,
+    "py8_sigma_fb": 59.25,
+    "py8_err_fb": 0.10289999999999999
+   }
+  },
+  "H_QCD_WHjj_nodec": {
+   "rc": 0,
+   "wall_s": 133,
+   "ncore": 4,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/xsec/H_QCD_WHjj_nodec_s2408000.status.txt",
+   "sigma_fb": 265.79999999999995,
+   "err_fb": 1.519,
+   "seed": 2408000,
+   "br": [],
+   "role": "validation"
+  },
+  "I_WHjj_nodec": {
+   "rc": 0,
+   "wall_s": 105,
+   "ncore": 4,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/xsec/I_WHjj_nodec_s2409000.status.txt",
+   "sigma_fb": -0.25579999999999997,
+   "err_fb": 0.01381,
+   "seed": 2409000,
+   "br": [],
+   "role": "interference"
+  },
+  "C_WHjj_nodec": {
+   "rc": 0,
+   "wall_s": 242,
+   "ncore": 4,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/xsec/C_WHjj_nodec_s2410000.status.txt",
+   "sigma_fb": 317.0,
+   "err_fb": 2.271,
+   "seed": 2410000,
+   "br": [],
+   "role": "validation"
+  },
+  "F_QCD_lvajj": {
+   "rc": 0,
+   "wall_s": 1093,
+   "ncore": 8,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/gridpacks/F_QCD_lvajj_status.txt",
+   "sigma_fb": 881.6,
+   "err_fb": 2.094,
+   "seed": 2424000,
+   "br": [
+    "WF"
+   ],
+   "role": "fake1_bkg",
+   "test": {
+    "json": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/test/F_QCD_lvajj/F_QCD_lvajj_s2424001.json",
+    "n_lhe": 2000,
+    "n_delphes": 2000,
+    "lhe_sigma_fb": 880.3288,
+    "lhe_err_fb": 4.8410007262425605,
+    "py8_sigma_fb": 882.1,
+    "py8_err_fb": 0.0
+   }
+  },
+  "F_EW_lvajj": {
+   "rc": 0,
+   "wall_s": 1434,
+   "ncore": 8,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/gridpacks/F_EW_lvajj_status.txt",
+   "sigma_fb": 107.2,
+   "err_fb": 0.1967,
+   "seed": 2425000,
+   "br": [
+    "WF"
+   ],
+   "role": "fake1_bkg",
+   "test": {
+    "json": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/test/F_EW_lvajj/F_EW_lvajj_s2425001.json",
+    "n_lhe": 2000,
+    "n_delphes": 2000,
+    "lhe_sigma_fb": 105.65563,
+    "lhe_err_fb": 0.5904648627811819,
+    "py8_sigma_fb": 105.60000000000001,
+    "py8_err_fb": 0.237
+   }
+  },
+  "F_Wjj": {
+   "rc": 0,
+   "wall_s": 163,
+   "ncore": 8,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/gridpacks/F_Wjj_status.txt",
+   "sigma_fb": 262000.0,
+   "err_fb": 2119.0,
+   "seed": 2426000,
+   "br": [
+    "WF"
+   ],
+   "role": "fake2_bound",
+   "test": {
+    "json": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/test/F_Wjj/F_Wjj_s2426001.json",
+    "n_lhe": 2000,
+    "n_delphes": 2000,
+    "lhe_sigma_fb": 264417.89999999997,
+    "lhe_err_fb": 1772.3649487645032,
+    "py8_sigma_fb": 265000.0,
+    "py8_err_fb": 460.0
+   }
+  },
+  "T_tta_1l": {
+   "rc": 0,
+   "wall_s": 667,
+   "ncore": 4,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/gridpacks/T_tta_1l_status.txt",
+   "sigma_fb": 779.2,
+   "err_fb": 1.345,
+   "seed": 2427000,
+   "br": [],
+   "role": "top_bkg",
+   "test": {
+    "json": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/test/T_tta_1l/T_tta_1l_s2427001.json",
+    "n_lhe": 2000,
+    "n_delphes": 2000,
+    "lhe_sigma_fb": 776.2130999999999,
+    "lhe_err_fb": 5.304269173174472,
+    "py8_sigma_fb": 776.9,
+    "py8_err_fb": 3.7039999999999996e-06
+   }
+  },
+  "T_tWa_1l": {
+   "rc": 0,
+   "wall_s": 524,
+   "ncore": 4,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/gridpacks/T_tWa_1l_status.txt",
+   "sigma_fb": 115.6,
+   "err_fb": 0.19469999999999998,
+   "seed": 2429000,
+   "br": [],
+   "role": "top_bkg",
+   "test": {
+    "json": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/test/T_tWa_1l/T_tWa_1l_s2429001.json",
+    "n_lhe": 2000,
+    "n_delphes": 2000,
+    "lhe_sigma_fb": 115.67163,
+    "lhe_err_fb": 0.7271815746002989,
+    "py8_sigma_fb": 115.7,
+    "py8_err_fb": 0.0
+   }
+  },
+  "H_ttH": {
+   "rc": 0,
+   "wall_s": 37,
+   "ncore": 4,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/gridpacks/H_ttH_status.txt",
+   "sigma_fb": 384.79999999999995,
+   "err_fb": 1.5859999999999999,
+   "seed": 2430000,
+   "br": [
+    "BGG"
+   ],
+   "role": "resonant_bkg",
+   "test": {
+    "json": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/test/H_ttH/H_ttH_s2430001.json",
+    "n_lhe": 2000,
+    "n_delphes": 2000,
+    "lhe_sigma_fb": 386.193,
+    "lhe_err_fb": 1.7968229999999998,
+    "py8_sigma_fb": 386.3,
+    "py8_err_fb": 0.3866
+   }
+  },
+  "H_tHq": {
+   "rc": 0,
+   "wall_s": 44,
+   "ncore": 4,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/gridpacks/H_tHq_status.txt",
+   "sigma_fb": 76.78999999999999,
+   "err_fb": 0.32380000000000003,
+   "seed": 2431000,
+   "br": [
+    "BGG"
+   ],
+   "role": "resonant_bkg",
+   "test": {
+    "json": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/test/H_tHq/H_tHq_s2431001.json",
+    "n_lhe": 2000,
+    "n_delphes": 2000,
+    "lhe_sigma_fb": 76.6611,
+    "lhe_err_fb": 0.5108139028094282,
+    "py8_sigma_fb": 76.3,
+    "py8_err_fb": 0.24309999999999998
+   }
+  },
+  "H_tHW": {
+   "rc": 0,
+   "wall_s": 37,
+   "ncore": 4,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/gridpacks/H_tHW_status.txt",
+   "sigma_fb": 16.76,
+   "err_fb": 0.04651,
+   "seed": 2432000,
+   "br": [
+    "BGG"
+   ],
+   "role": "resonant_bkg",
+   "test": {
+    "json": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/test/H_tHW/H_tHW_s2432001.json",
+    "n_lhe": 2000,
+    "n_delphes": 2000,
+    "lhe_sigma_fb": 16.790300000000002,
+    "lhe_err_fb": 0.0770830544918486,
+    "py8_sigma_fb": 16.8,
+    "py8_err_fb": 0.0
+   }
+  },
+  "H_VBF_Hjj": {
+   "rc": 0,
+   "wall_s": 72,
+   "ncore": 4,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/gridpacks/H_VBF_Hjj_status.txt",
+   "sigma_fb": 2050.0,
+   "err_fb": 8.261,
+   "seed": 2433000,
+   "br": [
+    "BGG"
+   ],
+   "role": "fakelep_bkg",
+   "test": {
+    "json": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/test/H_VBF_Hjj/H_VBF_Hjj_s2433001.json",
+    "n_lhe": 2000,
+    "n_delphes": 2000,
+    "lhe_sigma_fb": 2061.23,
+    "lhe_err_fb": 25.81859,
+    "py8_sigma_fb": 2057.0,
+    "py8_err_fb": 4.617
+   }
+  },
+  "H_ggF_Hjj": {
+   "rc": 0,
+   "wall_s": 139,
+   "ncore": 8,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/gridpacks/H_ggF_Hjj_status.txt",
+   "sigma_fb": 892.7,
+   "err_fb": 2.912,
+   "seed": 2434000,
+   "br": [
+    "BGG"
+   ],
+   "role": "fakelep_bkg",
+   "test": {
+    "json": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/test/H_ggF_Hjj/H_ggF_Hjj_s2434001.json",
+    "n_lhe": 2000,
+    "n_delphes": 2000,
+    "lhe_sigma_fb": 887.1388999999999,
+    "lhe_err_fb": 7.235886000000001,
+    "py8_sigma_fb": 887.3000000000001,
+    "py8_err_fb": 1.257
+   }
+  },
+  "B_QCD_aajj": {
+   "rc": 0,
+   "wall_s": 131,
+   "ncore": 16,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/gridpacks/B_QCD_aajj_status.txt",
+   "sigma_fb": 504.4,
+   "err_fb": 1.312,
+   "seed": 2435000,
+   "br": [],
+   "role": "fakelep_bkg",
+   "test": {
+    "json": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/test/B_QCD_aajj/B_QCD_aajj_s2435001.json",
+    "n_lhe": 2000,
+    "n_delphes": 2000,
+    "lhe_sigma_fb": 503.6313999999999,
+    "lhe_err_fb": 3.6154569999999997,
+    "py8_sigma_fb": 504.40000000000003,
+    "py8_err_fb": 0.0
+   }
+  },
+  "F_ajjj_xs": {
+   "rc": 0,
+   "wall_s": 195,
+   "ncore": 4,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/xsec/F_ajjj_xs_s2436000.status.txt",
+   "sigma_fb": 25240.0,
+   "err_fb": 111.19999999999999,
+   "seed": 2436000,
+   "br": [],
+   "role": "bound"
+  },
+  "S_EW_WHjj_nodec_hp": {
+   "rc": 0,
+   "wall_s": 240,
+   "ncore": 4,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/xsec/S_EW_WHjj_nodec_hp_s2437000.status.txt",
+   "sigma_fb": 62.370000000000005,
+   "err_fb": 0.2404,
+   "seed": 2437000,
+   "br": [],
+   "role": "validation"
+  },
+  "H_QCD_WHjj_nodec_hp": {
+   "rc": 0,
+   "wall_s": 174,
+   "ncore": 4,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/xsec/H_QCD_WHjj_nodec_hp_s2438000.status.txt",
+   "sigma_fb": 264.7,
+   "err_fb": 1.0510000000000002,
+   "seed": 2438000,
+   "br": [],
+   "role": "validation"
+  },
+  "I_WHjj_nodec_hp": {
+   "rc": 0,
+   "wall_s": 179,
+   "ncore": 4,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/xsec/I_WHjj_nodec_hp_s2439000.status.txt",
+   "sigma_fb": -0.275,
+   "err_fb": 0.00991,
+   "seed": 2439000,
+   "br": [],
+   "role": "validation"
+  },
+  "C_WHjj_nodec_hp": {
+   "rc": 0,
+   "wall_s": 744,
+   "ncore": 4,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/xsec/C_WHjj_nodec_hp_s2440000.status.txt",
+   "sigma_fb": 325.6,
+   "err_fb": 1.064,
+   "seed": 2440000,
+   "br": [],
+   "role": "validation"
+  },
+  "T_tt_1l": {
+   "rc": 0,
+   "wall_s": 117,
+   "ncore": 4,
+   "src": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/gridpacks/T_tt_1l_status.txt",
+   "sigma_fb": 265400.0,
+   "err_fb": 580.3000000000001,
+   "seed": 2441000,
+   "br": [],
+   "role": "fake2_bound",
+   "test": {
+    "json": "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r1/wh/work/test/T_tt_1l/T_tt_1l_s2441001.json",
+    "n_lhe": 2000,
+    "n_delphes": 2000,
+    "lhe_sigma_fb": 265719.27,
+    "lhe_err_fb": 1158.9027186316027,
+    "py8_sigma_fb": 265900.0,
+    "py8_err_fb": 0.0015470000000000002
+   }
+  }
+ },
+ "closures": {
+  "BR closure EW: sigma(W->e/mu nu)/sigma(undecayed) vs 2*G_lnu/G_W": {
+   "num": "S_EW_WHjj",
+   "den": "S_EW_WHjj_nodec",
+   "ratio": 0.22535440769105428,
+   "err": 0.0022643737728589427,
+   "expected": 0.22227395968939245,
+   "pull": 1.360397315401037
+  },
+  "BR closure QCD: same": {
+   "num": "H_QCD_WHjj",
+   "den": "H_QCD_WHjj_nodec",
+   "ratio": 0.22103085026335595,
+   "err": 0.0013741337273261258,
+   "expected": 0.22227395968939245,
+   "pull": -0.904649526691571
+  },
+  "BR closure tau: sigma(W->tau nu)/sigma(undecayed) vs G_taunu/G_W": {
+   "num": "S_EW_WHjj_taunu",
+   "den": "S_EW_WHjj_nodec",
+   "ratio": 0.11274238227146814,
+   "err": 0.0011155558865436333,
+   "expected": 0.11105558304829129,
+   "pull": 1.5120705681569437
+  },
+  "interference / EW (undecayed)": {
+   "num": "I_WHjj_nodec",
+   "den": "S_EW_WHjj_nodec",
+   "ratio": -0.004168160338927814,
+   "err": -0.0002286223540650565,
+   "expected": null,
+   "pull": null
+  },
+  "QCD / EW (undecayed)": {
+   "num": "H_QCD_WHjj_nodec",
+   "den": "S_EW_WHjj_nodec",
+   "ratio": 4.331106403780348,
+   "err": 0.048712905885382914,
+   "expected": null,
+   "pull": null
+  },
+  "off-shell l nu h jj (0,5) / on-shell decay chain": {
+   "num": "S_EW_WHjj_offshell",
+   "den": "S_EW_WHjj",
+   "ratio": 0.8329718004338396,
+   "err": 0.0029980707319757385,
+   "expected": null,
+   "pull": null
+  },
+  "5F-jet EW (incl. resonant tHq) / 4F-jet EW": {
+   "num": "S_EW_WHjj_5Fj_nodec",
+   "den": "S_EW_WHjj_nodec",
+   "ratio": 2.080821248166857,
+   "err": 0.03992515549915724,
+   "expected": null,
+   "pull": null
+  },
+  "5F-jet EW, on-shell top removed / 4F-jet EW": {
+   "num": "S_EW_WHjj_5Fj_notop_nodec",
+   "den": "S_EW_WHjj_nodec",
+   "ratio": 1.0439954375101843,
+   "err": 0.01414367361920137,
+   "expected": null,
+   "pull": null
+  },
+  "order closure: EW+QCD+I vs coherent C": {
+   "sum": 326.91419999999994,
+   "err": 1.6312516562750212,
+   "C": 317.0,
+   "C_err": 2.271,
+   "pull": 3.545668221602098
+  },
+  "order closure (10x events, independent seeds): EW+QCD+I vs C": {
+   "sum": 326.795,
+   "err": 1.0781889296871863,
+   "C": 325.6,
+   "C_err": 1.064,
+   "pull": 0.7888884652684612
+  },
+  "repeat consistency EW: first pass vs hp": {
+   "first": 61.37,
+   "first_err": 0.5945,
+   "hp": 62.370000000000005,
+   "hp_err": 0.2404,
+   "pull": -1.5594146611674227
+  },
+  "repeat consistency C: first pass vs hp": {
+   "first": 317.0,
+   "first_err": 2.271,
+   "hp": 325.6,
+   "hp_err": 1.064,
+   "pull": -3.4291707692361837
+  },
+  "repeat consistency QCD: first pass vs hp": {
+   "first": 265.79999999999995,
+   "first_err": 1.519,
+   "hp": 264.7,
+   "hp_err": 1.0510000000000002,
+   "pull": 0.5955121029392463
+  },
+  "repeat consistency I: first pass vs hp": {
+   "first": -0.25579999999999997,
+   "first_err": 0.01381,
+   "hp": -0.275,
+   "hp_err": 0.00991,
+   "pull": 1.1295599070171547
+  },
+  "BR closure EW (hp denominator)": {
+   "num": "S_EW_WHjj",
+   "den": "S_EW_WHjj_nodec_hp",
+   "ratio": 0.22174122174122174,
+   "err": 0.0010395671363266905,
+   "expected": 0.22227395968939245,
+   "pull": -0.5124613212121566
+  },
+  "BR closure tau (hp denominator)": {
+   "num": "S_EW_WHjj_taunu",
+   "den": "S_EW_WHjj_nodec_hp",
+   "ratio": 0.11093474426807759,
+   "err": 0.0004825539362152919,
+   "expected": 0.11105558304829129,
+   "pull": -0.2504150751757312
+  },
+  "interference / EW (hp)": {
+   "num": "I_WHjj_nodec_hp",
+   "den": "S_EW_WHjj_nodec_hp",
+   "ratio": -0.004409171075837742,
+   "err": -0.00015979678103389666,
+   "expected": null,
+   "pull": null
+  },
+  "QCD / EW (hp)": {
+   "num": "H_QCD_WHjj_nodec_hp",
+   "den": "S_EW_WHjj_nodec_hp",
+   "ratio": 4.24402757736091,
+   "err": 0.02348510864945157,
+   "expected": null,
+   "pull": null
+  },
+  "PY8 sigma closure S_EW_WHjj": {
+   "lhe": 13.861887,
+   "py8": 13.879999999999999,
+   "ratio": 1.001306676356545,
+   "gridpack": 13.83,
+   "gp_vs_lhe_pull": 0.3503690115854933
+  },
+  "PY8 sigma closure S_EW_WHjj_offshell": {
+   "lhe": 11.537500999999999,
+   "py8": 11.55,
+   "ratio": 1.0010833368508485,
+   "gridpack": 11.520000000000001,
+   "gp_vs_lhe_pull": 0.21141838185080233
+  },
+  "PY8 sigma closure S_EW_WHjj_taunu": {
+   "lhe": 6.966807,
+   "py8": 6.936,
+   "ratio": 0.9955780316578312,
+   "gridpack": 6.919,
+   "gp_vs_lhe_pull": 0.9666314110572716
+  },
+  "PY8 sigma closure H_QCD_WHjj": {
+   "lhe": 59.269929999999995,
+   "py8": 59.25,
+   "ratio": 0.9996637417995939,
+   "gridpack": 58.75,
+   "gp_vs_lhe_pull": 1.2441948950610537
+  },
+  "PY8 sigma closure F_QCD_lvajj": {
+   "lhe": 880.3288,
+   "py8": 882.1,
+   "ratio": 1.0020119755255081,
+   "gridpack": 881.6,
+   "gp_vs_lhe_pull": -0.24100960628537127
+  },
+  "PY8 sigma closure F_EW_lvajj": {
+   "lhe": 105.65563,
+   "py8": 105.60000000000001,
+   "ratio": 0.9994734781288986,
+   "gridpack": 107.2,
+   "gp_vs_lhe_pull": -2.4814491615569105
+  },
+  "PY8 sigma closure F_Wjj": {
+   "lhe": 264417.89999999997,
+   "py8": 265000.0,
+   "ratio": 1.0022014394638186,
+   "gridpack": 262000.0,
+   "gp_vs_lhe_pull": 0.8752560684906923
+  },
+  "PY8 sigma closure T_tta_1l": {
+   "lhe": 776.2130999999999,
+   "py8": 776.9,
+   "ratio": 1.0008849373967021,
+   "gridpack": 779.2,
+   "gp_vs_lhe_pull": -0.5458378227578943
+  },
+  "PY8 sigma closure T_tWa_1l": {
+   "lhe": 115.67163,
+   "py8": 115.7,
+   "ratio": 1.0002452632508076,
+   "gridpack": 115.6,
+   "gp_vs_lhe_pull": 0.09515199775584118
+  },
+  "PY8 sigma closure H_ttH": {
+   "lhe": 386.193,
+   "py8": 386.3,
+   "ratio": 1.0002770635407685,
+   "gridpack": 384.79999999999995,
+   "gp_vs_lhe_pull": 0.5812260580883544
+  },
+  "PY8 sigma closure H_tHq": {
+   "lhe": 76.6611,
+   "py8": 76.3,
+   "ratio": 0.9952896579882103,
+   "gridpack": 76.78999999999999,
+   "gp_vs_lhe_pull": -0.21312998400563676
+  },
+  "PY8 sigma closure H_tHW": {
+   "lhe": 16.790300000000002,
+   "py8": 16.8,
+   "ratio": 1.0005777145137371,
+   "gridpack": 16.76,
+   "gp_vs_lhe_pull": 0.3365632747322895
+  },
+  "PY8 sigma closure H_VBF_Hjj": {
+   "lhe": 2061.23,
+   "py8": 2057.0,
+   "ratio": 0.9979478272681845,
+   "gridpack": 2050.0,
+   "gp_vs_lhe_pull": 0.41426883739178794
+  },
+  "PY8 sigma closure H_ggF_Hjj": {
+   "lhe": 887.1388999999999,
+   "py8": 887.3000000000001,
+   "ratio": 1.0001815950129118,
+   "gridpack": 892.7,
+   "gp_vs_lhe_pull": -0.7129744867009141
+  },
+  "PY8 sigma closure B_QCD_aajj": {
+   "lhe": 503.6313999999999,
+   "py8": 504.40000000000003,
+   "ratio": 1.0015261161238163,
+   "gridpack": 504.4,
+   "gp_vs_lhe_pull": -0.19983617622020763
+  },
+  "PY8 sigma closure T_tt_1l": {
+   "lhe": 265719.27,
+   "py8": 265900.0,
+   "ratio": 1.0006801539082957,
+   "gridpack": 265400.0,
+   "gp_vs_lhe_pull": 0.2463365519990565
+  }
+ },
+ "nmc": {
+  "S_EW_WHjj": {
+   "sigma_fb": 13.83,
+   "k": 0.002179427,
+   "sigmaBR_fb": 0.030141475409999997,
+   "N_req": 50000,
+   "role": "signal"
+  },
+  "S_EW_WHjj_taunu": {
+   "sigma_fb": 6.919,
+   "k": 0.00232448,
+   "sigmaBR_fb": 0.016083077119999997,
+   "N_req": 50000,
+   "role": "resonant_bkg"
+  },
+  "H_QCD_WHjj": {
+   "sigma_fb": 58.75,
+   "k": 0.002179427,
+   "sigmaBR_fb": 0.12804133625,
+   "N_req": 50000,
+   "role": "resonant_bkg"
+  },
+  "F_QCD_lvajj": {
+   "sigma_fb": 881.6,
+   "k": 0.9601,
+   "sigmaBR_fb": 846.42416,
+   "N_req": 2539273,
+   "role": "fake1_bkg"
+  },
+  "F_EW_lvajj": {
+   "sigma_fb": 107.2,
+   "k": 0.9601,
+   "sigmaBR_fb": 102.92272,
+   "N_req": 308769,
+   "role": "fake1_bkg"
+  },
+  "F_Wjj": {
+   "sigma_fb": 262000.0,
+   "k": 0.9601,
+   "sigmaBR_fb": 251546.19999999998,
+   "N_req": 754638600,
+   "role": "fake2_bound"
+  },
+  "T_tta_1l": {
+   "sigma_fb": 779.2,
+   "k": 1.0,
+   "sigmaBR_fb": 779.2,
+   "N_req": 2337600,
+   "role": "top_bkg"
+  },
+  "T_tWa_1l": {
+   "sigma_fb": 115.6,
+   "k": 1.0,
+   "sigmaBR_fb": 115.6,
+   "N_req": 346800,
+   "role": "top_bkg"
+  },
+  "H_ttH": {
+   "sigma_fb": 384.79999999999995,
+   "k": 0.00227,
+   "sigmaBR_fb": 0.8734959999999998,
+   "N_req": 50000,
+   "role": "resonant_bkg"
+  },
+  "H_tHq": {
+   "sigma_fb": 76.78999999999999,
+   "k": 0.00227,
+   "sigmaBR_fb": 0.17431329999999998,
+   "N_req": 50000,
+   "role": "resonant_bkg"
+  },
+  "H_tHW": {
+   "sigma_fb": 16.76,
+   "k": 0.00227,
+   "sigmaBR_fb": 0.0380452,
+   "N_req": 50000,
+   "role": "resonant_bkg"
+  },
+  "H_VBF_Hjj": {
+   "sigma_fb": 2050.0,
+   "k": 0.00227,
+   "sigmaBR_fb": 4.6535,
+   "N_req": 50000,
+   "role": "fakelep_bkg"
+  },
+  "H_ggF_Hjj": {
+   "sigma_fb": 892.7,
+   "k": 0.00227,
+   "sigmaBR_fb": 2.026429,
+   "N_req": 50000,
+   "role": "fakelep_bkg"
+  },
+  "B_QCD_aajj": {
+   "sigma_fb": 504.4,
+   "k": 1.0,
+   "sigmaBR_fb": 504.4,
+   "N_req": 1513200,
+   "role": "fakelep_bkg"
+  },
+  "T_tt_1l": {
+   "sigma_fb": 265400.0,
+   "k": 1.0,
+   "sigmaBR_fb": 265400.0,
+   "N_req": 796200000,
+   "role": "fake2_bound"
+  }
+ },
+ "brf": {
+  "BGG": 0.00227,
+  "WF": 0.9601,
+  "WF_tau": 1.024
+ }
+}

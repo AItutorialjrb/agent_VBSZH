@@ -1,0 +1,406 @@
+{
+ "rows": [
+  {
+   "sample": "S_EW_WHjj",
+   "seed": 2401001,
+   "expected_seed": 2401001,
+   "n_req": 2000,
+   "n_lhe": 2000,
+   "n_delphes": 2000,
+   "sig_gp": 13.83,
+   "sig_lhe": 13.861887,
+   "sig_py8": 13.879999999999999,
+   "kb_per_ev": 2.2325390625,
+   "t_gp": 83,
+   "t_py": 215,
+   "host": "b9p13p9186.cern.ch",
+   "files": {
+    ".root": true,
+    "_gen.root": true,
+    "_logs.tgz": true,
+    ".lhe.gz": true,
+    "_full.root": true
+   }
+  },
+  {
+   "sample": "S_EW_WHjj_offshell",
+   "seed": 2403001,
+   "expected_seed": 2403001,
+   "n_req": 2000,
+   "n_lhe": 2000,
+   "n_delphes": 2000,
+   "sig_gp": 11.520000000000001,
+   "sig_lhe": 11.537500999999999,
+   "sig_py8": 11.55,
+   "kb_per_ev": 2.23488134765625,
+   "t_gp": 47,
+   "t_py": 94,
+   "host": "b9p06p2373.cern.ch",
+   "files": {
+    ".root": true,
+    "_gen.root": true,
+    "_logs.tgz": true,
+    ".lhe.gz": true,
+    "_full.root": false
+   }
+  },
+  {
+   "sample": "S_EW_WHjj_taunu",
+   "seed": 2404001,
+   "expected_seed": 2404001,
+   "n_req": 2000,
+   "n_lhe": 2000,
+   "n_delphes": 2000,
+   "sig_gp": 6.919,
+   "sig_lhe": 6.966807,
+   "sig_py8": 6.936,
+   "kb_per_ev": 2.18921875,
+   "t_gp": 67,
+   "t_py": 199,
+   "host": "b9p16p5590.cern.ch",
+   "files": {
+    ".root": true,
+    "_gen.root": true,
+    "_logs.tgz": true,
+    ".lhe.gz": true,
+    "_full.root": true
+   }
+  },
+  {
+   "sample": "H_QCD_WHjj",
+   "seed": 2407001,
+   "expected_seed": 2407001,
+   "n_req": 2000,
+   "n_lhe": 2000,
+   "n_delphes": 2000,
+   "sig_gp": 58.75,
+   "sig_lhe": 59.269929999999995,
+   "sig_py8": 59.25,
+   "kb_per_ev": 2.57742041015625,
+   "t_gp": 47,
+   "t_py": 198,
+   "host": "b9p20p7148.cern.ch",
+   "files": {
+    ".root": true,
+    "_gen.root": true,
+    "_logs.tgz": true,
+    ".lhe.gz": true,
+    "_full.root": true
+   }
+  },
+  {
+   "sample": "F_QCD_lvajj",
+   "seed": 2424001,
+   "expected_seed": 2424001,
+   "n_req": 2000,
+   "n_lhe": 2000,
+   "n_delphes": 2000,
+   "sig_gp": 881.6,
+   "sig_lhe": 880.3288,
+   "sig_py8": 882.1,
+   "kb_per_ev": 2.6186953125,
+   "t_gp": 68,
+   "t_py": 113,
+   "host": "b9p11p6954.cern.ch",
+   "files": {
+    ".root": true,
+    "_gen.root": true,
+    "_logs.tgz": true,
+    ".lhe.gz": true,
+    "_full.root": false
+   }
+  },
+  {
+   "sample": "F_EW_lvajj",
+   "seed": 2425001,
+   "expected_seed": 2425001,
+   "n_req": 2000,
+   "n_lhe": 2000,
+   "n_delphes": 2000,
+   "sig_gp": 107.2,
+   "sig_lhe": 105.65563,
+   "sig_py8": 105.60000000000001,
+   "kb_per_ev": 2.1711611328125,
+   "t_gp": 77,
+   "t_py": 115,
+   "host": "b9p28p7617.cern.ch",
+   "files": {
+    ".root": true,
+    "_gen.root": true,
+    "_logs.tgz": true,
+    ".lhe.gz": true,
+    "_full.root": false
+   }
+  },
+  {
+   "sample": "F_Wjj",
+   "seed": 2426001,
+   "expected_seed": 2426001,
+   "n_req": 2000,
+   "n_lhe": 2000,
+   "n_delphes": 2000,
+   "sig_gp": 262000.0,
+   "sig_lhe": 264417.89999999997,
+   "sig_py8": 265000.0,
+   "kb_per_ev": 2.35854638671875,
+   "t_gp": 33,
+   "t_py": 148,
+   "host": "b9p24p2350.cern.ch",
+   "files": {
+    ".root": true,
+    "_gen.root": true,
+    "_logs.tgz": true,
+    ".lhe.gz": true,
+    "_full.root": false
+   }
+  },
+  {
+   "sample": "T_tta_1l",
+   "seed": 2427001,
+   "expected_seed": 2427001,
+   "n_req": 2000,
+   "n_lhe": 2000,
+   "n_delphes": 2000,
+   "sig_gp": 779.2,
+   "sig_lhe": 776.2130999999999,
+   "sig_py8": 776.9,
+   "kb_per_ev": 2.80651806640625,
+   "t_gp": 55,
+   "t_py": 172,
+   "host": "b9p12p0201.cern.ch",
+   "files": {
+    ".root": true,
+    "_gen.root": true,
+    "_logs.tgz": true,
+    ".lhe.gz": true,
+    "_full.root": false
+   }
+  },
+  {
+   "sample": "T_tWa_1l",
+   "seed": 2429001,
+   "expected_seed": 2429001,
+   "n_req": 2000,
+   "n_lhe": 2000,
+   "n_delphes": 2000,
+   "sig_gp": 115.6,
+   "sig_lhe": 115.67163,
+   "sig_py8": 115.7,
+   "kb_per_ev": 2.58095556640625,
+   "t_gp": 63,
+   "t_py": 137,
+   "host": "b9p05p1763.cern.ch",
+   "files": {
+    ".root": true,
+    "_gen.root": true,
+    "_logs.tgz": true,
+    ".lhe.gz": true,
+    "_full.root": false
+   }
+  },
+  {
+   "sample": "H_ttH",
+   "seed": 2430001,
+   "expected_seed": 2430001,
+   "n_req": 2000,
+   "n_lhe": 2000,
+   "n_delphes": 2000,
+   "sig_gp": 384.79999999999995,
+   "sig_lhe": 386.193,
+   "sig_py8": 386.3,
+   "kb_per_ev": 3.10447900390625,
+   "t_gp": 15,
+   "t_py": 151,
+   "host": "b9p30p1409.cern.ch",
+   "files": {
+    ".root": true,
+    "_gen.root": true,
+    "_logs.tgz": true,
+    ".lhe.gz": true,
+    "_full.root": true
+   }
+  },
+  {
+   "sample": "H_tHq",
+   "seed": 2431001,
+   "expected_seed": 2431001,
+   "n_req": 2000,
+   "n_lhe": 2000,
+   "n_delphes": 2000,
+   "sig_gp": 76.78999999999999,
+   "sig_lhe": 76.6611,
+   "sig_py8": 76.3,
+   "kb_per_ev": 2.5353359375,
+   "t_gp": 20,
+   "t_py": 123,
+   "host": "b9p28p1684.cern.ch",
+   "files": {
+    ".root": true,
+    "_gen.root": true,
+    "_logs.tgz": true,
+    ".lhe.gz": true,
+    "_full.root": true
+   }
+  },
+  {
+   "sample": "H_tHW",
+   "seed": 2432001,
+   "expected_seed": 2432001,
+   "n_req": 2000,
+   "n_lhe": 2000,
+   "n_delphes": 2000,
+   "sig_gp": 16.76,
+   "sig_lhe": 16.790300000000002,
+   "sig_py8": 16.8,
+   "kb_per_ev": 2.913640625,
+   "t_gp": 21,
+   "t_py": 118,
+   "host": "b9p28p4370.cern.ch",
+   "files": {
+    ".root": true,
+    "_gen.root": true,
+    "_logs.tgz": true,
+    ".lhe.gz": true,
+    "_full.root": true
+   }
+  },
+  {
+   "sample": "H_VBF_Hjj",
+   "seed": 2433001,
+   "expected_seed": 2433001,
+   "n_req": 2000,
+   "n_lhe": 2000,
+   "n_delphes": 2000,
+   "sig_gp": 2050.0,
+   "sig_lhe": 2061.23,
+   "sig_py8": 2057.0,
+   "kb_per_ev": 2.05772314453125,
+   "t_gp": 18,
+   "t_py": 93,
+   "host": "b9p11p2682.cern.ch",
+   "files": {
+    ".root": true,
+    "_gen.root": true,
+    "_logs.tgz": true,
+    ".lhe.gz": true,
+    "_full.root": false
+   }
+  },
+  {
+   "sample": "H_ggF_Hjj",
+   "seed": 2434001,
+   "expected_seed": 2434001,
+   "n_req": 2000,
+   "n_lhe": 2000,
+   "n_delphes": 2000,
+   "sig_gp": 892.7,
+   "sig_lhe": 887.1388999999999,
+   "sig_py8": 887.3000000000001,
+   "kb_per_ev": 2.64097412109375,
+   "t_gp": 23,
+   "t_py": 131,
+   "host": "b9p30p0608.cern.ch",
+   "files": {
+    ".root": true,
+    "_gen.root": true,
+    "_logs.tgz": true,
+    ".lhe.gz": true,
+    "_full.root": false
+   }
+  },
+  {
+   "sample": "B_QCD_aajj",
+   "seed": 2435001,
+   "expected_seed": 2435001,
+   "n_req": 2000,
+   "n_lhe": 2000,
+   "n_delphes": 2000,
+   "sig_gp": 504.4,
+   "sig_lhe": 503.6313999999999,
+   "sig_py8": 504.40000000000003,
+   "kb_per_ev": 2.5541767578125,
+   "t_gp": 36,
+   "t_py": 127,
+   "host": "b9p29p5865.cern.ch",
+   "files": {
+    ".root": true,
+    "_gen.root": true,
+    "_logs.tgz": true,
+    ".lhe.gz": true,
+    "_full.root": false
+   }
+  },
+  {
+   "sample": "T_tt_1l",
+   "seed": 2441001,
+   "expected_seed": 2441001,
+   "n_req": 2000,
+   "n_lhe": 2000,
+   "n_delphes": 2000,
+   "sig_gp": 265400.0,
+   "sig_lhe": 265719.27,
+   "sig_py8": 265900.0,
+   "kb_per_ev": 2.683173828125,
+   "t_gp": 42,
+   "t_py": 207,
+   "host": "b9g03p3589.cern.ch",
+   "files": {
+    ".root": true,
+    "_gen.root": true,
+    "_logs.tgz": true,
+    ".lhe.gz": true,
+    "_full.root": false
+   }
+  }
+ ],
+ "condor_return_values": {
+  "900144.000": [
+   0
+  ],
+  "900136.016": [
+   0
+  ],
+  "900136.015": [
+   0
+  ],
+  "900136.014": [
+   0
+  ],
+  "900136.010": [
+   0
+  ],
+  "900136.003": [
+   0
+  ],
+  "900144.001": [
+   0
+  ],
+  "900144.002": [
+   0
+  ],
+  "900136.013": [
+   0
+  ],
+  "900136.011": [
+   0
+  ],
+  "900136.000": [
+   0
+  ],
+  "900150.000": [
+   0
+  ],
+  "900136.002": [
+   0
+  ],
+  "900136.001": [
+   0
+  ],
+  "900136.008": [
+   0
+  ],
+  "900136.009": [
+   0
+  ]
+ }
+}

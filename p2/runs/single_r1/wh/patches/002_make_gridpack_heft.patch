@@ -1,0 +1,10 @@
+--- ../../../lib/scripts/condor/make_gridpack.sh	2026-11-03 15:25:27.000000000 +0100
++++ scripts/condor/make_gridpack.sh	2026-11-09 11:46:24.018527987 +0100
+@@ -16,6 +16,7 @@
+ export MG5_HOME=$WD/MG5_aMC_v3.6.3
+ # optional extra UFO (2026-11-03, coupling study): a transferred HC_NLO_X0_kVV.tgz is unpacked into MG5 models/
+ [ -f HC_NLO_X0_kVV.tgz ] && { tar xzf HC_NLO_X0_kVV.tgz -C $MG5_HOME/models || exit 11; }
++[ -f heft.tgz ] && { tar xzf heft.tgz -C $MG5_HOME/models || exit 11; }   # single_r1 patch 002: HEFT UFO for ggF H+2j
+ source $PROJECT/scripts/setup_stack.sh || exit 12
+ NC=${4:-8}   # 4th argument = request_cpus from the submit file
+ sed -e "s#OUTDIR#$WD/proc#g" -e "s#SEED#$SEED#g" -e "s#set nb_core 4#set nb_core $NC#" "$CARD.mg5" > run.mg5

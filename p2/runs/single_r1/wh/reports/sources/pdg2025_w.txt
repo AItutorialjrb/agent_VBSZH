@@ -1,0 +1,2952 @@
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+WJ= 1
+See the related review(s):
+Mass and Width of the WBoson
+WMASSWMASSWMASSWMASS
+TheW-mass listed here corresponds to the mass parameter in a Brei t-
+Wigner distribution with mass-dependent width. To obtain t he world
+average of various measurements, common systematic uncert ainties be-
+tween experiments are evaluated and accounted for in combin ations
+[SCHAEL 13 A, AMOROSO 24]. Until 2022, the measurements of the
+W-boson mass at lepton and hadron colliders, LEP-2 (ALEPH, DE LPHI,
+L3, and OPAL), Tevatron (CDF and D0), and LHC (ALEPH and LHCb) ,
+were in good agreement with each other [PDG 22]. However, wit h the new
+CDF result [AALTONEN 22] based on their complete Run-II data set, this
+is no longer the case. The LHC-TeV MW Working Group, includin gW-
+mass experts from CDF, D0, ATLAS, CMS and LHCb [AMOROSO 24],
+has examinedthis issue in depth. They report thata combinat ion of all W-
+mass measurements corrected to a common theory description and PDF
+set, has a probability of compatibility of 0.5% only, and is t herefore dis-
+favoured. A 91% probability of compatibility is obtained wh en the CDF-II
+measurement is removed. The corresponding value of the Wboson mass
+is 80369 .2±13.3 MeV, which we quote as the World Average. More
+information is given in [M. Grunewald and A. Gurtu, ”Mass and Width
+of theWBoson” review, PDG 24] and in [AMOROSO 24]. Since then,
+an improved mass determination was published by the ATLAS co llabora-
+tion [AAD 24 CJ], superseding their previous result [AABOUD 18 J]. A new
+combination is in preparation by the LHC-TeV MW Working Grou p.
+VALUE(GeV) EVTS DOCUMENT ID TECN COMMENT
+80.3692±0.0133 OUR EVALUATION 80.3692±0.0133 OUR EVALUATION 80.3692±0.0133 OUR EVALUATION 80.3692±0.0133 OUR EVALUATION (AMOROSO 24)
+80.4335±0.0094 80.4335±0.0094 80.4335±0.0094 80.4335±0.0094(AALTONEN 22 CDF)
+80.354±0.023±0.022 2.4M1AAIJ 22 CLHCBEpp
+cm= 13 TeV
+80.4335±0.0064±0.0069 4.2M2AALTONEN 22 CDF Epp
+cm= 1.96 TeV
+80.370±0.007±0.017 13.7M3AABOUD 18 JATLSEpp
+cm= 7 TeV
+80.375±0.011±0.020 2177k4ABAZOV 12 FD0Epp
+cm= 1.96 TeV
+80.336±0.055±0.039 10.3k5ABDALLAH 08 ADLPHEeecm= 161–209
+GeV
+80.415±0.042±0.031 118306ABBIENDI 06 OPAL Eeecm= 170–209
+GeV
+80.270±0.046±0.031 99097ACHARD 06 L3 Eeecm= 161–209
+GeV
+80.440±0.043±0.027 86928SCHAEL 06 ALEP Eeecm= 161–209
+GeV
+80.483±0.084 492479ABAZOV 02 DD0Epp
+cm= 1.8 TeV
+• • •We do not use the following data for averages, ﬁts, limits, et c.• • •
+80.3665±0.0098±0.0125 13.7M10AAD 24 CJATLSEpp
+cm= 7 TeV
+80.520±0.070±0.09211ANDREEV 18 AH1e±p
+https://pdg.lbl.gov Page 1 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+80.387±0.012±0.015 1095k12AALTONEN 12 ECDFEppcm= 1.96 TeV
+80.367±0.013±0.022 1677k13ABAZOV 12 FD0Epp
+cm= 1.96 TeV
+80.401±0.021±0.038 500k14ABAZOV 09 ABD0Eppcm= 1.96 TeV
+80.413±0.034±0.034 115k15AALTONEN 07 FCDFEpp
+cm= 1.96 TeV
+82.87±1.82+0.30
+−0.16150016AKTAS 06 H1 e±p→νe(νe)X,√s≈300 GeV
+80.3±2.1±1.2±1.0 64517CHEKANOV 02 CZEUSe−p→νeX,√s=
+318 GeV
+80.433±0.079 5384118AFFOLDER 01 ECDFEppcm= 1.8 TeV
+81.4+2.7
+−2.6±2.0+3.3
+−3.0108619BREITWEG 00 DZEUSe+p→νeX,√s≈300 GeV
+80.84±0.22±0.83 206520ALITTI 92 BUA2 See W/Zratio
+below
+80.79±0.31±0.8421ALITTI 90 BUA2Eppcm= 546,630 GeV
+80.0±3.3±2.4 2222ABE 89 ICDFEpp
+cm= 1.8 TeV
+82.7±1.0±2.7 14923ALBAJAR 89 UA1 Eppcm= 546,630 GeV
+81.8+ 6.0
+−5.3±2.6 4624ALBAJAR 89 UA1 Epp
+cm= 546,630 GeV
+89±3±6 3225ALBAJAR 89 UA1 Epp
+cm= 546,630 GeV
+81.±5. 6 ARNISON 83 UA1 Eeecm= 546 GeV
+80.+10.
+−6.4 BANNER 83 BUA2 Repl. by
+ALITTI 90 B
+1AAIJ 22 Canalyse Wproduction in the muon decay channel, with the trans-
+verse momentum of the muon required to be between 28 and 52 GeV . Analysing
+the distribution of the muon charge divided by the muon trans verse momentum
+of approximately 2.4 million selected Wcandidates, a value of MW= 80354 ±
+23(stat.) ±10(exp.) ±17(theo.) ±9(PDF) MeV is obtained; we combine the three sys-
+tematic uncertainties in quadrature.
+2AALTONEN 22 select a data sample of about 4 million Wboson candidates in 8.8 fb−1
+of Run-II data. The mass is determined using the transverse m ass, transverse lepton
+momentum and transverse missing momentum distributions of Wdecays into electrons
+or muons, accounting for correlations. This measurement su persedes AALTONEN 12 E,
+but is not used in OUR EVALUATION.3AABOUD 18 Jselect 4.61M W+→µ+νµ, 3.40M W+→e+νe, 3.23M W−→
+µ−νµand 2.49M W−→e−νeevents in 4.6 fb−1ppdata at 7 TeV. The Wmass
+is determined using the transverse mass and transverse lept on momentum distributions,
+accounting for correlations. The systematic error include s 0.011 GeV experimental and
+0.014 GeV modelling uncertainties.
+4Combination of results from ABAZOV 12 Fand ABAZOV 09 ABas quoted in
+ABAZOV 12 F.5ABDALLAH 08 Ause direct reconstruction of the kinematics of W+W−→qqℓν
+andW+W−→qqqqevents for energies 172 GeV and above. The Wmass was
+also extracted from the dependence of the W Wcross section close to the production
+threshold and combined appropriately to obtain the ﬁnal res ult. The systematic error
+includes ±0.025 GeV due to ﬁnal state interactions and ±0.009 GeV due to LEP energy
+uncertainty.
+6ABBIENDI 06 use direct reconstruction of the kinematics of W+W−→qqℓνℓand
+W+W−→qqqqevents. The result quoted here is obtained combining this ma ss
+value with the results using W+W−→ℓνℓℓ′νℓ′events in the energy range 183–207
+GeV (ABBIENDI 03 C) and the dependence of the WWproduction cross-section on mW
+https://pdg.lbl.gov Page 2 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+at threshold. The systematic error includes ±0.009 GeV due to the uncertainty on the
+LEP beam energy.
+7ACHARD 06 use direct reconstruction of the kinematics of W+W−→qqℓνℓand
+W+W−→qqqqevents in the C.M. energy range 189–209 GeV. The result quote d
+here is obtained combining this mass value with the results o btained from a direct W
+mass reconstruction at 172 and 183 GeV and with those from the dependence of the
+W Wproduction cross-section on mWat 161 and 172 GeV (ACCIARRI 99).
+8SCHAEL 06 use direct reconstruction of the kinematics of W+W−→qqℓνℓand
+W+W−→qqqqevents in the C.M. energy range 183–209 GeV. The result quote d
+here is obtained combining this mass value with those obtain ed from the dependence
+of theWpair production cross-section on mWat 161 and 172 GeV (BARATE 97 and
+BARATE 97 Srespectively). The systematic error includes ±0.009 GeV due to possible
+eﬀects of ﬁnal state interactions in the qqqqchannel and ±0.009 GeV due to the
+uncertainty on the LEP beam energy.
+9ABAZOV 02 Dimprove the measurement of the W-boson mass including W→eνeeventsinwhichtheelectronisclose toaboundaryofacentra lelectromagneticcalorimeter
+module. Properly combining the results obtained by ﬁtting mT(W),pT(e), andpT(ν),
+this sample provides a mass value of 80 .574±0.405 GeV. The value reported here is a
+combination of this measurement with all previous DØ W-boson mass measurements.
+10AAD 24 CJprovides an improved determination of the Wboson mass using the same
+data as analysed for AABOUD 18 J, thus superseding that Wboson mass measurement.
+The distributions of the transverse lepton momentum and of t he transverse mass are
+analysed to determine the Wboson mass.
+11ANDREEV 18 Aobtain this result in a combined electroweak and QCD analysi s using
+all deep-inelastic e+pande−pneutral current and charged current scattering cross
+sections published by the H1 Collaboration, including data with longitudinally polarized
+lepton beams.
+12AALTONEN 12 Eselect 470k W→eνdecays and 625k W→µνdecays in 2.2 fb−1
+of Run-II data. The mass is determined using the transverse m ass, transverse lepton
+momentum and transverse missing energy distributions, acc ounting for correlations. This
+result supersedesAALTONEN 07 F. AALTONEN 14 Dgives more detailson theprocedures
+followed by the authors. This measurement is superseded by A ALTONEN 22.
+13ABAZOV 12 Fselect 1677k W→eνdecays in 4.3 fb−1of Run-II data. The mass
+is determined using the transverse mass and transverse lept on momentum distributions,
+accounting for correlations.
+14ABAZOV 09 ABstudy thetransversemass, transverse electronmomentum, a ndtransverse
+missing energy in a sample of 0.5 million W→eνdecays selected in Run-II data. The
+quoted result combines all three methods, accounting for co rrelations.
+15AALTONEN 07 Fobtain high purity W→eνeandW→µνµcandidate samples
+totaling 63,964 and 51,128 events respectively. The Wmass value quoted above is
+derived by simultaneously ﬁtting the transverse mass and th e lepton, and neutrino pTdistributions.16AKTAS 06 ﬁt the Q2dependence (300 <Q2<30,000 GeV2) of the charged-current
+diﬀerential cross section with a propagator mass. The ﬁrst e rror is experimental and the
+second corresponds to uncertainties due to input parameter s and model assumptions.
+17CHEKANOV02 Cﬁt theQ2dependence(200 <Q2<60000 GeV2) of the charged-current
+diﬀerential cross sections with a propagator mass ﬁt. The la st error is due to the uncer-
+tainty on the probability density functions.
+18AFFOLDER 01 Eﬁt the transverse mass spectrum of 30115 W→eνeevents (MW=
+80.473±0.065±0.092 GeV) and of 14740 W→µνµevents (MW= 80.465±0.100±
+0.103 GeV) obtained in the run IB (1994-95). Combining the elec tron and muon results,
+accounting for correlated uncertainties, yields MW= 80.470±0.089 GeV. They combine
+this value with their measurement of ABE 95 Preported in run IA (1992-93) to obtain
+the quoted value.
+https://pdg.lbl.gov Page 3 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+19BREITWEG 00 Dﬁt theQ2dependence (200 <Q2<22500 GeV2) of the charged-
+current diﬀerential cross sections with a propagator mass ﬁ t. The last error is due to the
+uncertainty on the probability density functions.
+20ALITTI 92 Bresult has two contributions to the systematic error ( ±0.83); one ( ±0.81)
+cancels in mW/slashbig
+mZand one ( ±0.17) is noncancelling. These were added in quadrature.
+We choose the ALITTI 92 Bvalue without using the LEP mZvalue, because we perform
+our own combined ﬁt.21There are two contributions to the systematic error ( ±0.84): one ( ±0.81) which cancels
+inmW/mZand one ( ±0.21) which is non-cancelling. These were added in quadrature .
+22ABE 89 Isystematic error dominated by the uncertainty in the absolu te energy scale.
+23ALBAJAR 89 result is from a total sample of 299 W→eνevents.
+24ALBAJAR 89 result is from a total sample of 67 W→µνevents.
+25ALBAJAR 89 result is from W→τνevents.
+W/slashbig
+ZMASS RATIOW/slashbig
+ZMASS RATIOW/slashbig
+ZMASS RATIOW/slashbig
+ZMASS RATIO
+VALUE EVTS DOCUMENT ID TECN COMMENT
+0.88136±0.00015 0.88136±0.00015 0.88136±0.00015 0.88136±0.00015 1PDG 24
+• • •We do not use the following data for averages, ﬁts, limits, et c.• • •
+0.8821±0.0011±0.0008 283232ABBOTT 98 ND0Eppcm= 1.8 TeV
+0.88114±0.00154±0.00252 59823ABBOTT 98 PD0Epp
+cm= 1.8 TeV
+0.8813±0.0036±0.0019 1564ALITTI 92 BUA2Eppcm= 630 GeV
+1This value was obtained using the world average values of mZandmWas presented in
+these listings.
+2ABBOTT 98 Nobtain this from a study of 28323 W→eνeand 3294 Z→e+e−
+decays. Of this latter sample, 2179 events are used to calibr ate the electron energy scale.
+3ABBOTT 98 Pobtain this from a study of 5982 W→eνeevents. The systematic error
+includes an uncertainty of ±0.00175 due to the electron energy scale.
+4Scale error cancels in this ratio.
+mZ−mWmZ−mWmZ−mWmZ−mW
+VALUE(GeV) DOCUMENT ID TECN COMMENT
+10.818±0.013 10.818±0.013 10.818±0.013 10.818±0.013 1PDG 24
+• • •We do not use the following data for averages, ﬁts, limits, et c.• • •
+10.4±1.4±0.8 ALBAJAR 89 UA1 Epp
+cm= 546,630 GeV
+11.3±1.3±0.9 ANSARI 87 UA2 Epp
+cm= 546,630 GeV
+1This value was obtained using the world average values of mZandmWas presented in
+these listings.
+mW+−mW− mW+−mW− mW+−mW− mW+−mW−
+Test ofCPTinvariance.
+VALUE(GeV) EVTS DOCUMENT ID TECN COMMENT
+−0.029±0.028 OUR AVERAGE −0.029±0.028 OUR AVERAGE −0.029±0.028 OUR AVERAGE −0.029±0.028 OUR AVERAGE
+−0.029±0.013±0.025 13.7M1AABOUD 18 JATLSEppcm= 7 TeV
+−0.19±0.58 1722 ABE 90 GCDFEpp
+cm= 1.8 TeV
+1AABOUD 18 Jselect 4.61M W+→µ+νµ, 3.40M W+→e+νe, 3.23M W−→
+µ−νµand 2.49M W−→e−νeevents in 4.6 fb−1ppdata at 7 TeV. The Wmass
+https://pdg.lbl.gov Page 4 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+is determined using the transverse mass and transverse lept on momentum distributions,
+accounting for correlations. The systematic error include s 0.007 GeV experimental and
+0.024 GeV modelling uncertainties.
+WWIDTHWWIDTHWWIDTHWWIDTH
+TheWwidth listed here corresponds to the width parameter in a Bre it-
+Wigner distribution with mass-dependent width. To obtain t he world av-
+erage, common systematic uncertainties between experimen ts are properly
+taken into account. The LEP-2 average Wwidth based on published re-
+sults is 2 .195±0.083 GeV [SCHAEL 13 A]. The combined Tevatron data
+yields an average Wwidth of 2 .046±0.049 GeV [TEVEWWG 10]. OUR
+AVERAGE uses these average LEP and Tevatron width values and com-
+bines them together with the ATLAS result, assuming no corre lations.
+VALUE(GeV) EVTS DOCUMENT ID TECN COMMENT
+2.14±0.05 OUR AVERAGE 2.14±0.05 OUR AVERAGE 2.14±0.05 OUR AVERAGE 2.14±0.05 OUR AVERAGE Error includes scale factor of 1.7. See the ideogram below.
+2.202±0.032±0.034 13.7M1AAD 24 CJATLSEpp
+cm= 7 TeV
+2.195±0.0832SCHAEL 13 ALEPEeecm= 170–209 GeV
+2.046±0.0493TEVEWWG 10 TEVA Eppcm= 1.8–1.96 TeV
+• • •We do not use the following data for averages, ﬁts, limits, et c.• • •
+2.028±0.072 52724ABAZOV 09 AKD0Eppcm= 1.96 GeV
+2.032±0.045±0.057 60555AALTONEN 08 BCDFEpp
+cm= 1.96 TeV
+2.404±0.140±0.101 10.3k6ABDALLAH 08 ADLPHEeecm= 183–209 GeV
+1.996±0.096±0.102 107297ABBIENDI 06 OPAL Eeecm= 170–209 GeV
+2.18±0.11±0.09 97958ACHARD 06 L3 Eeecm= 172–209 GeV
+2.14±0.09±0.06 87179SCHAEL 06 ALEP Eeecm= 183–209 GeV
+2.23+0.15
+−0.14±0.10 29410ABAZOV 02 ED0Epp
+cm= 1.8 TeV
+2.152±0.066 7917611ABBOTT 00 BD0 Extracted value
+2.05±0.10±0.08 66212AFFOLDER 00 MCDFEpp
+cm= 1.8 TeV
+2.064±0.060±0.05913ABE 95 WCDF Extracted value
+2.10+0.14
+−0.13±0.09 355914ALITTI 92 UA2 Extracted value
+2.18+0.26
+−0.24±0.0415ALBAJAR 91 UA1 Extracted value
+1AAD 24 CJprovides an improved determination of the Wboson mass using the same
+data as analysed for AABOUD 18 J. In addition, the distributions of the transverse lepton
+momentum and of the transverse mass are analysed to determin e theWboson width.
+2SCHAEL 13 Aresult combines the measurements from the LEP experiments A LEPH
+(SCHAEL 06), DELPHI(ABDALLAH 08 A), L3(ACHARD 06) andOPAL(ABBIENDI 06).
+The average of these four results takes correlations into ac count and has a χ2probability
+of 27%.
+3TEVEWWG 10 result combines the measurements from the Tevtat ron experiments CDF
+(ABE 95 C, AFFOLDER 00 M, AALTONEN 08 B) and D0 (ABAZOV 02 E, ABAZOV 09 AK).
+The average of these ﬁve results takes correlations into acc ount and has a χ2probability
+of 84%.
+4ABAZOV 09 AKobtain this result ﬁtting the high-end tail(100-200 GeV) of the transverse
+mass spectrum in W→eνdecays.
+5AALTONEN 08 Bobtain this result ﬁtting the high-end tail (90–200 GeV) of t he trans-
+verse mass spectrum in semileptonic W→eνeandW→µνµdecays.
+https://pdg.lbl.gov Page 5 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+WEIGHTED AVERAGE
+2.14±0.05 (Error scaled by 1.7)
+TEVEWWG 10 TEVA 3.5SCHAEL 13A LEP 0.5AAD 24CJ ATLS 1.9c2
+       5.9
+(Confidence Level = 0.053)
+1.9 2 2.1 2.2 2.3 2.4 2.5 2.6
+WWIDTH (GeV)
+6ABDALLAH 08A use direct reconstruction of the kinematics of W+W−→qqℓν
+andW+W−→qqqqevents. The systematic error includes ±0.065 GeV due
+to ﬁnal state interactions.
+7ABBIENDI 06 use direct reconstruction of the kinematics of W+W−→qqℓνℓ
+andW+W−→qqqqevents. The systematic error includes ±0.003 GeV due
+to the uncertainty on the LEP beam energy.
+8ACHARD 06 use direct reconstruction of the kinematics of W+W−→qqℓνℓ
+andW+W−→qqqqeventsin theC.M.energy range 189–209 GeV. Theresult
+quoted here is obtained combining this value of the width with the result obtained
+from a direct Wmass reconstruction at 172 and 183 GeV (ACCIARRI 99).
+9SCHAEL 06 use direct reconstruction of the kinematics of W+W−→qqℓνℓ
+andW+W−→qqqqevents. The systematic error includes ±0.05 GeV due
+to possible eﬀects of ﬁnal state interactions in the qqqqchannel and ±0.01 GeV
+due to the uncertainty on the LEP beam energy.
+10ABAZOV 02 Eobtain this result ﬁtting the high-end tail (90–200 GeV) of the
+transverse-mass spectrum in semileptonic W→eνedecays.
+11ABBOTT 00 Bmeasure R= 10.43±0.27 for the W→eνedecay channel.
+They use the SM theoretical predictions for σ(W)/σ(Z) and Γ(W→eνe) and
+the world average for B( Z→ee). The value quoted here is obtained combining
+this result (2 .169±0.070 GeV) with that of ABBOTT 99 H.
+12AFFOLDER 00 Mﬁt the high transverse mass (100–200GeV) W→eνeand
+W→µνµevents to obtain Γ( W)= 2.04±0.11(stat)±0.09(syst) GeV. This
+is combined with the earlier CDF measurement (ABE 95 C) to obtain the quoted
+result.
+https://pdg.lbl.gov Page 6 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+13ABE 95 Wmeasured R= 10.90±0.32±0.29. They use mW=80.23±0.18
+GeV,σ(W)/σ(Z) = 3.35±0.03, Γ(W→eν) = 225.9±0.9 MeV, Γ( Z→
+e+e−) = 83.98±0.18 MeV, and Γ( Z) = 2.4969±0.0038 GeV.
+14ALITTI 92 measured R= 10.4+0.7
+−0.6±0.3. The values of σ(Z) andσ(W)
+come from O(α2
+s) calculations using mW= 80.14±0.27 GeV, and mZ=
+91.175±0.021 GeV along with the corresponding value of sin2θW= 0.2274.
+They use σ(W)/slashBig
+σ(Z) = 3.26±0.07±0.05 and Γ( Z) = 2.487±0.010 GeV.
+15ALBAJAR 91 measured R= 9.5+1.1
+−1.0(stat. + syst.). σ(W)/slashBig
+σ(Z) is calculated
+in QCD at the parton level using mW= 80.18±0.28 GeV and mZ= 91.172±
+0.031 GeV along with sin2θW= 0.2322±0.0014. They use σ(W)/slashBig
+σ(Z) =
+3.23±0.05 and Γ( Z) = 2.498±0.020 GeV. This measurement is obtained
+combining both the electron and muon channels.
+W+DECAY MODESW+DECAY MODESW+DECAY MODESW+DECAY MODES
+W−modes are charge conjugates of the modes below.
+Mode Fraction (Γi/Γ) Conﬁdence level
+Γ1ℓ+ν [a] (10.86±0.09) %
+Γ2e+ν (10.71±0.16) %
+Γ3µ+ν (10.63±0.15) %
+Γ4τ+ν (11.38±0.21) %
+Γ5hadrons (67.41±0.27) %
+Γ6π+γ <1.9 ×10−695%
+Γ7ρ+γ <5.2 ×10−695%
+Γ8K+γ <1.7 ×10−695%
+Γ9D+
+sγ <6 ×10−495%
+Γ10cX (33.3±2.6 ) %
+Γ11cs (31+13
+−11) %
+Γ12invisible [b] ( 1.4±2.8 ) %
+Γ13π+π+π−<1.01 ×10−695%
+[a]ℓindicates each type of lepton ( e,µ, andτ), not sum over them.
+[b] This represents the width for the decay of the Wboson into a charged
+particle with momentum below detectability, p <200 MeV.
+WPARTIAL WIDTHSWPARTIAL WIDTHSWPARTIAL WIDTHSWPARTIAL WIDTHS
+Γ/parenleftbig
+invisible/parenrightbig
+Γ12 Γ/parenleftbig
+invisible/parenrightbig
+Γ12 Γ/parenleftbig
+invisible/parenrightbig
+Γ12 Γ/parenleftbig
+invisible/parenrightbig
+Γ12
+This represents the width for the decay of the Wboson into a charged particle with
+momentum below detectability, p <200 MeV.
+VALUE(MeV) DOCUMENT ID TECN COMMENT
+30+52
+−48±33 30+52
+−48±33 30+52
+−48±33 30+52
+−48±33 1BARATE 99 IALEPEeecm= 161+172+183 GeV
+https://pdg.lbl.gov Page 7 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+• • •We do not use the following data for averages, ﬁts, limits, et c.• • •
+2BARATE 99 LALEPEeecm= 161+172+183 GeV
+1BARATE 99 Imeasure this quantity using the dependence of the total cros s section
+σW Wupon a change in the total width. The ﬁt is performed to the W Wmeasured
+cross sections at 161, 172, and 183 GeV. This partial width is <139 MeV at 95%CL.
+2BARATE 99 LuseW-pair production to search for eﬀectively invisible Wdecays, tagging
+with the decay of the other Wboson to Standard Model particles. The partial width for
+eﬀectively invisible decay is <27MeV at 95%CL.
+WBRANCHING RATIOSWBRANCHING RATIOSWBRANCHING RATIOSWBRANCHING RATIOS
+Overall ﬁts are performed to determine the branching ratios of theW
+boson. Averages on W→eν,W→µν, andW→τν, and their
+correlations are obtained by combining results from the fou r LEP experi-
+ments properly taking into account the common systematic un certainties
+and their correlations [SCHAEL 13 A]. A ﬁrst ﬁt determines the three indi-
+vidual leptonic braching ratios B( W→eν), B(W→µν), and B( W→
+τν). This ﬁt has a χ2= 6.3 for 9 degrees of freedom. The correlation co-
+eﬃcients between the branching fractions are 0.14 ( e−µ),−0.20 (e−τ),
+−0.12 (µ−τ). A second ﬁt assumes lepton universality and determines
+the leptonic branchingratio B( W→ℓν) and the hadronic branchingratio
+is derived as B( W→hadrons) = 1 −3 B(W→ℓν). This ﬁt has a χ2
+= 15.4 for 11 degrees of freedom.
+Γ/parenleftbig
+ℓ+ν/parenrightbig
+/Γtotal Γ1/Γ Γ/parenleftbig
+ℓ+ν/parenrightbig
+/Γtotal Γ1/Γ Γ/parenleftbig
+ℓ+ν/parenrightbig
+/Γtotal Γ1/Γ Γ/parenleftbig
+ℓ+ν/parenrightbig
+/Γtotal Γ1/Γ
+ℓindicates average over e,µ, andτmodes, not sum over modes.
+VALUE(units 10−2) EVTS DOCUMENT ID TECN COMMENT
+10.86±0.09 OUR FIT 10.86±0.09 OUR FIT 10.86±0.09 OUR FIT 10.86±0.09 OUR FIT
+10.89±0.01±0.08 TUMASYAN 22 FCMSEpp
+cm= 13 TeV
+10.86±0.12±0.08 16438 ABBIENDI 07 AOPALEeecm= 161–209 GeV
+10.85±0.14±0.08 13600 ABDALLAH 04 GDLPHEeecm= 161–209 GeV
+10.83±0.14±0.10 11246 ACHARD 04 JL3Eeecm= 161–209 GeV
+10.96±0.12±0.05 16116 SCHAEL 04 AALEPEeecm= 183–209 GeV
+• • •We do not use the following data for averages, ﬁts, limits, et c.• • •
+11.02±0.52 118581ABBOTT 99 HD0Epp
+cm= 1.8 TeV
+10.4±0.8 36422ABE 92 ICDFEppcm= 1.8 TeV
+1ABBOTT 99 Hmeasure R≡[σWB(W→ℓνℓ)]/[σZB(Z→ℓℓ)] = 10.90±0.52
+combining electron and muon channels. They use MW= 80.39±0.06 GeV and the
+SM theoretical predictions for σ(W)/σ(Z) and B( Z→ℓℓ).
+21216±38+27
+−31W→µνevents from ABE 92 Iand 2426 W→eνevents of ABE 91 C.
+ABE 92 Igive the inverse quantity as 9 .6±0.7 and we have inverted.
+Γ/parenleftbig
+e+ν/parenrightbig
+/Γtotal Γ2/Γ Γ/parenleftbig
+e+ν/parenrightbig
+/Γtotal Γ2/Γ Γ/parenleftbig
+e+ν/parenrightbig
+/Γtotal Γ2/Γ Γ/parenleftbig
+e+ν/parenrightbig
+/Γtotal Γ2/Γ
+VALUE(units 10−2) EVTS DOCUMENT ID TECN COMMENT
+10.71±0.16 OUR FIT 10.71±0.16 OUR FIT 10.71±0.16 OUR FIT 10.71±0.16 OUR FIT
+10.83±0.01±0.10 TUMASYAN 22 FCMSEpp
+cm= 13 TeV
+10.71±0.25±0.11 2374 ABBIENDI 07 AOPALEeecm= 161–209 GeV
+10.55±0.31±0.14 1804 ABDALLAH 04 GDLPHEeecm= 161–209 GeV
+https://pdg.lbl.gov Page 8 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+10.78±0.29±0.13 1576 ACHARD 04 JL3Eeecm= 161–209 GeV
+10.78±0.27±0.10 2142 SCHAEL 04 AALEPEeecm= 183–209 GeV
+• • •We do not use the following data for averages, ﬁts, limits, et c.• • •
+10.61±0.281ABAZOV 04 DTEVAEpp
+cm= 1.8 TeV
+1ABAZOV 04 Dtake into account all correlations to properly combine the C DF (ABE 95 W)
+and DØ (ABBOTT 00 B) measurements of the ratio R in the electron channel. The
+ratio R is deﬁned as [ σW·B(W→eνe)] / [σZ·B(Z→ee)]. The combination
+gives RTevatron= 10.59±0.23.σW/σZis calculated at next–to–next–to–leading
+order (3.360±0.051). The branching fraction B( Z→ee) is taken from this Review
+as (3.363±0.004)%.
+Γ/parenleftbig
+µ+ν/parenrightbig
+/Γtotal Γ3/Γ Γ/parenleftbig
+µ+ν/parenrightbig
+/Γtotal Γ3/Γ Γ/parenleftbig
+µ+ν/parenrightbig
+/Γtotal Γ3/Γ Γ/parenleftbig
+µ+ν/parenrightbig
+/Γtotal Γ3/Γ
+VALUE(units 10−2) EVTS DOCUMENT ID TECN COMMENT
+10.63±0.15 OUR FIT 10.63±0.15 OUR FIT 10.63±0.15 OUR FIT 10.63±0.15 OUR FIT
+10.94±0.01±0.08 TUMASYAN 22 FCMSEpp
+cm= 13 TeV
+10.78±0.24±0.10 2397 ABBIENDI 07 AOPALEeecm= 161–209 GeV
+10.65±0.26±0.08 1998 ABDALLAH 04 GDLPHEeecm= 161–209 GeV
+10.03±0.29±0.12 1423 ACHARD 04 JL3Eeecm= 161–209 GeV
+10.87±0.25±0.08 2216 SCHAEL 04 AALEPEeecm= 183–209 GeV
+Γ/parenleftbig
+µ+ν/parenrightbig
+/Γ/parenleftbig
+e+ν/parenrightbig
+Γ3/Γ2 Γ/parenleftbig
+µ+ν/parenrightbig
+/Γ/parenleftbig
+e+ν/parenrightbig
+Γ3/Γ2 Γ/parenleftbig
+µ+ν/parenrightbig
+/Γ/parenleftbig
+e+ν/parenrightbig
+Γ3/Γ2 Γ/parenleftbig
+µ+ν/parenrightbig
+/Γ/parenleftbig
+e+ν/parenrightbig
+Γ3/Γ2
+VALUE EVTS DOCUMENT ID TECN COMMENT
+1.000±0.004 OUR AVERAGE 1.000±0.004 OUR AVERAGE 1.000±0.004 OUR AVERAGE 1.000±0.004 OUR AVERAGE
+0.9995±0.00451AAD 24 CGATLSEpp
+cm= 13 TeV
+1.009±0.009 TUMASYAN 22 FCMSEpp
+cm= 13 TeV
+1.003±0.0102AABOUD 17 QATLSEpp
+cm= 7 TeV
+0.980±0.0183AAIJ 16 AJLHCBEpp
+cm= 8 TeV
+0.993±0.019 SCHAEL 13 ALEPEeecm= 130–209 GeV
+0.89±0.10 13k4ABACHI 95 DD0Epp
+cm= 1.8 TeV
+1.02±0.08 12165ABE 92 ICDFEpp
+cm= 1.8 TeV
+1.00±0.14±0.08 67 ALBAJAR 89 UA1 Epp
+cm= 546,630 GeV
+• • •We do not use the following data for averages, ﬁts, limits, et c.• • •
+1.24+0.6
+−0.414 ARNISON 84 DUA1 Repl. by ALBAJAR 89
+1AAD 24 CGanalysettproduction rates in the ee,eµandµµdilepton ﬁnal states. Using
+the ratio of B( Z→µµ)/B(Z→ee) measured precisely at e+e−colliders, the ratio
+B(W→µν)/B(W→eν) is determined.
+2AABOUD 17 Qmake a precise determination of W→eνandW→µνproduction
+in the follwoing ﬁducial phase space: lepton pseudo-rapidi ty range/vextendsingle/vextendsingleη/vextendsingle/vextendsingle<2.5, lepton
+and neutrino transverse momenta larger than 25 GeV each, and Wtransverse mass
+larger than 25 GeV. They determine the ratio of the Wbranching fractions B( W→
+eν)/B(W→µν) = 0.9967±0.0004±0.0101 = 0 .997±0.010.
+3AAIJ 16 AJmake precise measurements of forward W→eνandW→µνproduction in
+proton-proton collisions at 8 TeV and determine the ratio of theWbranching fractions
+B(W→eν)/B(W→µν) = 1.020±0.002±0.019.
+4ABACHI 95 Dobtain this result from the measured σWB(W→µν)= 2.09±0.23±
+0.11nb and σWB(W→eν)= 2.36±0.07±0.13nb in which the ﬁrst error is the
+https://pdg.lbl.gov Page 9 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+combined statistical and systematic uncertainty, the seco nd reﬂects the uncertainty in
+the luminosity.5ABE 92 IobtainσWB(W→µν)= 2.21±0.07±0.21 and combine with ABE 91 CσWB((W→eν)) to give a ratio of the couplings from which we derive this me asurement.
+Γ/parenleftbig
+τ+ν/parenrightbig
+/Γtotal Γ4/Γ Γ/parenleftbig
+τ+ν/parenrightbig
+/Γtotal Γ4/Γ Γ/parenleftbig
+τ+ν/parenrightbig
+/Γtotal Γ4/Γ Γ/parenleftbig
+τ+ν/parenrightbig
+/Γtotal Γ4/Γ
+VALUE(units 10−2) EVTS DOCUMENT ID TECN COMMENT
+11.38±0.21 OUR FIT 11.38±0.21 OUR FIT 11.38±0.21 OUR FIT 11.38±0.21 OUR FIT
+10.77±0.05±0.21 TUMASYAN 22 FCMSEpp
+cm= 13 TeV
+11.14±0.31±0.17 2177 ABBIENDI 07 AOPALEeecm= 161–209 GeV
+11.46±0.39±0.19 2034 ABDALLAH 04 GDLPHEeecm= 161–209 GeV
+11.89±0.40±0.20 1375 ACHARD 04 JL3Eeecm= 161–209 GeV
+11.25±0.32±0.20 2070 SCHAEL 04 AALEPEeecm= 183–209 GeV
+Γ/parenleftbig
+τ+ν/parenrightbig
+/Γ/parenleftbig
+e+ν/parenrightbig
+Γ4/Γ2 Γ/parenleftbig
+τ+ν/parenrightbig
+/Γ/parenleftbig
+e+ν/parenrightbig
+Γ4/Γ2 Γ/parenleftbig
+τ+ν/parenrightbig
+/Γ/parenleftbig
+e+ν/parenrightbig
+Γ4/Γ2 Γ/parenleftbig
+τ+ν/parenrightbig
+/Γ/parenleftbig
+e+ν/parenrightbig
+Γ4/Γ2
+VALUE EVTS DOCUMENT ID TECN COMMENT
+1.015±0.020 OUR AVERAGE 1.015±0.020 OUR AVERAGE 1.015±0.020 OUR AVERAGE 1.015±0.020 OUR AVERAGE Error includes scale factor of 1.3. See the ideogram below.
+0.994±0.021 TUMASYAN 22 FCMSEpp
+cm= 13 TeV
+1.063±0.027 SCHAEL 13 ALEPEeecm= 130–209 GeV
+0.961±0.061 9801ABBOTT 00 DD0Eppcm= 1.8 TeV
+0.94±0.14 1792ABE 92 ECDFEpp
+cm= 1.8 TeV
+1.04±0.08±0.08 7543ALITTI 92 FUA2Eppcm= 630 GeV
+1.02±0.20±0.12 32 ALBAJAR 89 UA1 Epp
+cm= 546,630 GeV
+• • •We do not use the following data for averages, ﬁts, limits, et c.• • •
+0.995±0.112±0.083 198 ALITTI 91 CUA2 Repl. by ALITTI 92 F
+1.02±0.20±0.10 32 ALBAJAR 87 UA1 Repl. by ALBAJAR 89
+WEIGHTED AVERAGE
+1.015±0.020 (Error scaled by 1.3)
+Values above of weighted average, error,
+and scale factor are based upon the data in
+this ideogram only.  They are not neces-
+sarily the same as our ‘best’ values,
+obtained from a least-squares constrained fit
+utilizing measurements of other (related)
+quantities as additional information.
+ALBAJAR 89 UA1ALITTI 92F UA2 0.1ABE 92E CDFABBOTT 00D D0 0.8SCHAEL 13A LEP 3.1TUMASYAN 22F CMS 1.0c2
+       5.0
+(Confidence Level = 0.173)
+0.7 0.8 0.9 1 1.1 1.2 1.3 1.4
+Γ/parenleftBig
+τ+ν/parenrightBig
+/Γ/parenleftBig
+e+ν/parenrightBig
+https://pdg.lbl.gov Page 10 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+1ABBOTT 00 Dmeasure σW×B(W→τντ) = 2.22±0.09±0.10±0.10nb. Using the
+ABBOTT 00 BresultσW×B(W→eνe) = 2.31±0.01±0.05±0.10nb, they quote
+the ratio of the couplings from which we derive this measurem ent.
+2ABE 92 Euse two procedures for selecting W→τντevents. The missing ETtrigger
+leads to 132 ±14±8 eventsand the τtrigger to 47 ±9±4 events. Proper statistical and
+systematic correlations are taken into account to arrive at σB(W→τν) = 2.05±0.27
+nb. Combined with ABE 91 Cresult on σB(W→eν), ABE 92 Equote a ratio of the
+couplings from which we derive this measurement.
+3This measurement is derived by us from the ratio of the coupli ngs of ALITTI 92 F.
+Γ/parenleftbig
+τ+ν/parenrightbig
+/Γ/parenleftbig
+µ+ν/parenrightbig
+Γ4/Γ3 Γ/parenleftbig
+τ+ν/parenrightbig
+/Γ/parenleftbig
+µ+ν/parenrightbig
+Γ4/Γ3 Γ/parenleftbig
+τ+ν/parenrightbig
+/Γ/parenleftbig
+µ+ν/parenrightbig
+Γ4/Γ3 Γ/parenleftbig
+τ+ν/parenrightbig
+/Γ/parenleftbig
+µ+ν/parenrightbig
+Γ4/Γ3
+VALUE DOCUMENT ID TECN COMMENT
+1.002±0.020 OUR AVERAGE 1.002±0.020 OUR AVERAGE 1.002±0.020 OUR AVERAGE 1.002±0.020 OUR AVERAGE Error includes scale factor of 2.0. See the ideogram below.
+0.985±0.020 TUMASYAN 22 FCMSEppcm= 13 TeV
+0.992±0.007±0.0111AAD 21 ANATLSEpp
+cm= 13 TeV
+1.070±0.026 SCHAEL 13 ALEPEeecm= 130–209 GeV
+1AAD 21 ANstudyttproduction, with the Wbosons in top-quark decay decaying to
+electrons or taus, with the tau decaying further into a muon. Analyzing the muon impact
+parameter and its transverse momentum, the contributions f rom prompt muons (arising
+fromWdecay) and non-prompt muons (arising from tau decay) are sep arated, allowing
+a measurement of the ratio of the Wbranching fractions into taus and muons, R( τ/µ)
+= 0.992±0.007±0.011 where the ﬁrst error is statistical and the second system atic.
+WEIGHTED AVERAGE
+1.002±0.020 (Error scaled by 2.0)
+SCHAEL 13A LEP 6.9AAD 21AN ATLS 0.6TUMASYAN 22F CMS 0.7c2
+       8.2
+(Confidence Level = 0.017)
+0.9 0.95 1 1.05 1.1 1.15 1.2
+Γ/parenleftBig
+τ+ν/parenrightBig
+/Γ/parenleftBig
+µ+ν/parenrightBig
+https://pdg.lbl.gov Page 11 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+Γ/parenleftbig
+hadrons/parenrightbig
+/Γtotal Γ5/Γ Γ/parenleftbig
+hadrons/parenrightbig
+/Γtotal Γ5/Γ Γ/parenleftbig
+hadrons/parenrightbig
+/Γtotal Γ5/Γ Γ/parenleftbig
+hadrons/parenrightbig
+/Γtotal Γ5/Γ
+OUR FIT value is obtained by a ﬁt to the lepton branching ratio data assuming lepton
+universality.
+VALUE(units 10−2) EVTS DOCUMENT ID TECN COMMENT
+67.41±0.27 OUR FIT 67.41±0.27 OUR FIT 67.41±0.27 OUR FIT 67.41±0.27 OUR FIT
+67.32±0.02±0.23 TUMASYAN 22 FCMSEpp
+cm= 13 TeV
+67.41±0.37±0.23 16438 ABBIENDI 07 AOPALEeecm= 161–209 GeV
+67.45±0.41±0.24 13600 ABDALLAH 04 GDLPHEeecm= 161–209 GeV
+67.50±0.42±0.30 11246 ACHARD 04 JL3Eeecm= 161–209 GeV
+67.13±0.37±0.15 16116 SCHAEL 04 AALEPEeecm= 183–209 GeV
+Γ/parenleftbig
+π+γ/parenrightbig
+/Γtotal Γ6/Γ Γ/parenleftbig
+π+γ/parenrightbig
+/Γtotal Γ6/Γ Γ/parenleftbig
+π+γ/parenrightbig
+/Γtotal Γ6/Γ Γ/parenleftbig
+π+γ/parenrightbig
+/Γtotal Γ6/Γ
+A stronger limit of <1.9×10−6is obtained from Γ/parenleftbig
+W+→π+γ/parenrightbig
+/Γ/parenleftbig
+W+→e+ν/parenrightbig
+measurements.
+VALUE CL% DOCUMENT ID TECN COMMENT
+<1.9×10−6 <1.9×10−6<1.9×10−6 <1.9×10−6951AAD 24 BOATLSEppcm= 13 TeV
+• • •We do not use the following data for averages, ﬁts, limits, et c.• • •
+<1.5×10−5952SIRUNYAN 21 ICMSEpp
+cm= 13 TeV
+1AAD 24 BOsearch for exclusive hadronic decays of the Wboson into a charged meson
+plus a photon, where the meson is a π±,K±orρ±. The meson-photon invariant mass
+distribution is used to set the limit on the branching fracti on.
+2SIRUNYAN 21 Isearch for the rare decay of a Wboson into a charged pion accompanied
+by a photon. A signal is not observed, and an upper limit on the branching fraction
+B(W→πγ)<1.50×10−5is obtained at 95% C.L.
+Γ/parenleftbig
+ρ+γ/parenrightbig
+/Γtotal Γ7/Γ Γ/parenleftbig
+ρ+γ/parenrightbig
+/Γtotal Γ7/Γ Γ/parenleftbig
+ρ+γ/parenrightbig
+/Γtotal Γ7/Γ Γ/parenleftbig
+ρ+γ/parenrightbig
+/Γtotal Γ7/Γ
+VALUE CL% DOCUMENT ID TECN COMMENT
+<5.2×10−6 <5.2×10−6<5.2×10−6 <5.2×10−6951AAD 24 BOATLSEpp
+cm= 13 TeV
+1AAD 24 BOsearch for exclusive hadronic decays of the Wboson into a charged meson
+plus a photon, where the meson is a π±,K±orρ±. The meson-photon invariant mass
+distribution is used to set the limit on the branching fracti on.
+Γ/parenleftbig
+K+γ/parenrightbig
+/Γtotal Γ8/Γ Γ/parenleftbig
+K+γ/parenrightbig
+/Γtotal Γ8/Γ Γ/parenleftbig
+K+γ/parenrightbig
+/Γtotal Γ8/Γ Γ/parenleftbig
+K+γ/parenrightbig
+/Γtotal Γ8/Γ
+VALUE CL% DOCUMENT ID TECN COMMENT
+<1.7×10−6 <1.7×10−6<1.7×10−6 <1.7×10−6951AAD 24 BOATLSEpp
+cm= 13 TeV
+1AAD 24 BOsearch for exclusive hadronic decays of the W boson into a cha rged meson
+plus a photon, where the meson is a π±,K±orρ±. The meson-photon invariant mass
+distribution is used to set the limit on the branching fracti on.
+Γ/parenleftbig
+π+γ/parenrightbig
+/Γ/parenleftbig
+e+ν/parenrightbig
+Γ6/Γ2 Γ/parenleftbig
+π+γ/parenrightbig
+/Γ/parenleftbig
+e+ν/parenrightbig
+Γ6/Γ2 Γ/parenleftbig
+π+γ/parenrightbig
+/Γ/parenleftbig
+e+ν/parenrightbig
+Γ6/Γ2 Γ/parenleftbig
+π+γ/parenrightbig
+/Γ/parenleftbig
+e+ν/parenrightbig
+Γ6/Γ2
+VALUE CL% DOCUMENT ID TECN COMMENT
+<6.4×10−5 <6.4×10−5<6.4×10−5 <6.4×10−595 AALTONEN 12 WCDFEpp
+cm= 1.96 Tev
+• • •We do not use the following data for averages, ﬁts, limits, et c.• • •
+<7×10−495 ABE 98 HCDFEpp
+cm= 1.8 TeV
+<4.9×10−3951ALITTI 92 DUA2Eppcm= 630 GeV
+<58×10−3952ALBAJAR 90 UA1 Epp
+cm= 546, 630 GeV
+https://pdg.lbl.gov Page 12 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+1ALITTI 92 Dlimit is 3 .8×10−3at 90%CL.2ALBAJAR 90 obtain <0.048 at 90%CL.
+Γ/parenleftbig
+D+
+sγ/parenrightbig
+/Γ/parenleftbig
+e+ν/parenrightbig
+Γ9/Γ2 Γ/parenleftbig
+D+
+sγ/parenrightbig
+/Γ/parenleftbig
+e+ν/parenrightbig
+Γ9/Γ2 Γ/parenleftbig
+D+
+sγ/parenrightbig
+/Γ/parenleftbig
+e+ν/parenrightbig
+Γ9/Γ2 Γ/parenleftbig
+D+
+sγ/parenrightbig
+/Γ/parenleftbig
+e+ν/parenrightbig
+Γ9/Γ2
+VALUE CL% DOCUMENT ID TECN COMMENT
+• • •We do not use the following data for averages, ﬁts, limits, et c.• • •
+<1.2×10−295 ABE 98 PCDFEpp
+cm= 1.8 TeV
+Γ/parenleftbig
+D+
+sγ/parenrightbig
+/Γ/parenleftbig
+µ+ν/parenrightbig
+Γ9/Γ3 Γ/parenleftbig
+D+
+sγ/parenrightbig
+/Γ/parenleftbig
+µ+ν/parenrightbig
+Γ9/Γ3 Γ/parenleftbig
+D+
+sγ/parenrightbig
+/Γ/parenleftbig
+µ+ν/parenrightbig
+Γ9/Γ3 Γ/parenleftbig
+D+
+sγ/parenrightbig
+/Γ/parenleftbig
+µ+ν/parenrightbig
+Γ9/Γ3
+VALUE CL% DOCUMENT ID TECN COMMENT
+<6.1×10−3 <6.1×10−3<6.1×10−3 <6.1×10−3951AAIJ 23 AMLHCBEpp
+cm= 13 TeV
+1AAIJ 23 AMalso quotes the branching fraction limit B( W+→D+
+sγ)<6.5×10−4,
+using the known W→µνbranching fraction.
+Γ/parenleftbig
+cX/parenrightbig
+/Γ/parenleftbig
+hadrons/parenrightbig
+Γ10/Γ5 Γ/parenleftbig
+cX/parenrightbig
+/Γ/parenleftbig
+hadrons/parenrightbig
+Γ10/Γ5 Γ/parenleftbig
+cX/parenrightbig
+/Γ/parenleftbig
+hadrons/parenrightbig
+Γ10/Γ5 Γ/parenleftbig
+cX/parenrightbig
+/Γ/parenleftbig
+hadrons/parenrightbig
+Γ10/Γ5
+VALUE EVTS DOCUMENT ID TECN COMMENT
+0.49±0.04 OUR AVERAGE 0.49±0.04 OUR AVERAGE 0.49±0.04 OUR AVERAGE 0.49±0.04 OUR AVERAGE
+0.481±0.042±0.032 30051ABBIENDI 00 VOPALEeecm= 183+189 GeV
+0.51±0.05±0.03 7462BARATE 99 MALEPEeecm= 172+183 GeV
+1ABBIENDI 00 VtagW→cX decays using measured jet properties, lifetime infor-
+mation, and leptons produced in charm decays. From this resu lt, and using the ad-
+ditional measurements of Γ( W) and B( W→hadrons),/vextendsingle/vextendsingleVcs/vextendsingle/vextendsingleis determined to be
+0.969±0.045±0.036.2BARATE 99 Mtagcjets using a neural networkalgorithm. From this measuremen t/vextendsingle/vextendsingleVcs/vextendsingle/vextendsingle
+is determined to be 1 .00±0.11±0.07.
+Rcs= Γ/parenleftbig
+cs/parenrightbig
+/Γ/parenleftbig
+hadrons/parenrightbig
+Γ11/Γ5 Rcs= Γ/parenleftbig
+cs/parenrightbig
+/Γ/parenleftbig
+hadrons/parenrightbig
+Γ11/Γ5 Rcs= Γ/parenleftbig
+cs/parenrightbig
+/Γ/parenleftbig
+hadrons/parenrightbig
+Γ11/Γ5 Rcs= Γ/parenleftbig
+cs/parenrightbig
+/Γ/parenleftbig
+hadrons/parenrightbig
+Γ11/Γ5
+VALUE DOCUMENT ID TECN COMMENT
+0.46+0.18
+−0.14±0.07 0.46+0.18
+−0.14±0.07 0.46+0.18
+−0.14±0.07 0.46+0.18
+−0.14±0.07 1ABREU 98 NDLPHEeecm= 161+172 GeV
+1ABREU 98 Ntagcandsjets by identifying a charged kaon as the highest momentum
+particle in a hadronic jet. They also use a lifetime tag to ind ependently identify a cjet,
+based on the impact parameter distribution of charged parti cles in a jet. From this
+measurement/vextendsingle/vextendsingleVcs/vextendsingle/vextendsingleis determined to be 0 .94+0.32
+−0.26±0.13.
+Γ/parenleftbig
+π+π+π−/parenrightbig
+/Γtotal Γ13/Γ Γ/parenleftbig
+π+π+π−/parenrightbig
+/Γtotal Γ13/Γ Γ/parenleftbig
+π+π+π−/parenrightbig
+/Γtotal Γ13/Γ Γ/parenleftbig
+π+π+π−/parenrightbig
+/Γtotal Γ13/Γ
+VALUE(units 10−6) CL% DOCUMENT ID TECN COMMENT
+<1.01<1.01<1.01<1.01 951SIRUNYAN 19 BGCMSEpp
+cm= 13 TeV
+1SIRUNYAN 19 BGsearch for the rare decay of a W boson into three charged pions . Three
+pion candidates are required in each event, with transverse momentum larger than 35
+GeV, 35 GeV, 18 GeV, respectively, while the transverse mome ntum of the three-pion
+system is required to be larger than 40 GeV. Analyzing the thr ee-pion invariant mass,
+no excess is observed in the Wmass region, leading to the 95% C.L. upper limit on the
+branching fraction.
+https://pdg.lbl.gov Page 13 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+AVERAGE PARTICLE MULTIPLICITIES IN HADRONIC WDECAY AVERAGE PARTICLE MULTIPLICITIES IN HADRONIC WDECAY AVERAGE PARTICLE MULTIPLICITIES IN HADRONIC WDECAY AVERAGE PARTICLE MULTIPLICITIES IN HADRONIC WDECAY
+Summed over particle and antiparticle, when appropriate.
+/angbracketleftbig
+Nπ±/angbracketrightbig/angbracketleftbig
+Nπ±/angbracketrightbig/angbracketleftbig
+Nπ±/angbracketrightbig/angbracketleftbig
+Nπ±/angbracketrightbig
+VALUE DOCUMENT ID TECN COMMENT
+15.70±0.35 15.70±0.35 15.70±0.35 15.70±0.35 1ABREU,P 00 FDLPHEeecm= 189 GeV
+1ABREU,P 00 Fmeasure/angbracketleftbig
+Nπ±/angbracketrightbig
+= 31.65±0.48±0.76 and 15 .51±0.38±0.40 in the
+fully hadronic and semileptonic ﬁnal states respectively. The value quoted is a weighted
+average without assuming any correlations.
+/angbracketleftbig
+NK±/angbracketrightbig/angbracketleftbig
+NK±/angbracketrightbig/angbracketleftbig
+NK±/angbracketrightbig/angbracketleftbig
+NK±/angbracketrightbig
+VALUE DOCUMENT ID TECN COMMENT
+2.20±0.192.20±0.192.20±0.192.20±0.19 1ABREU,P 00 FDLPHEeecm= 189 GeV
+1ABREU,P 00 Fmeasure/angbracketleftbig
+NK±/angbracketrightbig
+= 4.38±0.42±0.12 and 2 .23±0.32±0.17 in the
+fully hadronic and semileptonic ﬁnal states respectively. The value quoted is a weighted
+average without assuming any correlations.
+/angbracketleftbig
+Np/angbracketrightbig/angbracketleftbig
+Np/angbracketrightbig/angbracketleftbig
+Np/angbracketrightbig/angbracketleftbig
+Np/angbracketrightbig
+VALUE DOCUMENT ID TECN COMMENT
+0.92±0.140.92±0.140.92±0.140.92±0.14 1ABREU,P 00 FDLPHEeecm= 189 GeV
+1ABREU,P 00 Fmeasure/angbracketleftbig
+Np/angbracketrightbig
+= 1.82±0.29±0.16 and 0 .94±0.23±0.06 in the
+fully hadronic and semileptonic ﬁnal states respectively. The value quoted is a weighted
+average without assuming any correlations.
+/angbracketleftbig
+Ncharged/angbracketrightbig /angbracketleftbig
+Ncharged/angbracketrightbig /angbracketleftbig
+Ncharged/angbracketrightbig /angbracketleftbig
+Ncharged/angbracketrightbig
+VALUE DOCUMENT ID TECN COMMENT
+19.39±0.08 OUR AVERAGE 19.39±0.08 OUR AVERAGE 19.39±0.08 OUR AVERAGE 19.39±0.08 OUR AVERAGE
+19.38±0.05±0.081ABBIENDI 06 AOPALEeecm= 189–209 GeV
+19.44±0.172ABREU,P 00 FDLPHEeecm= 183+189 GeV
+19.3±0.3±0.33ABBIENDI 99 NOPALEeecm= 183 GeV
+19.23±0.744ABREU 98 CDLPHEeecm= 172 GeV
+1ABBIENDI 06 Ameasure/angbracketleftbig
+Ncharged/angbracketrightbig
+= 38.74±0.12±0.26 when both Wbosons
+decay hadronically and/angbracketleftbig
+Ncharged/angbracketrightbig
+= 19.39±0.11±0.09 when one Wboson decays
+semileptonically. The value quoted here is obtained under t he assumption that there is
+no color reconnection between Wbosons; the value is a weighted average taking into
+account correlations in the systematic uncertainties.
+2ABREU,P 00 Fmeasure/angbracketleftbig
+Ncharged/angbracketrightbig
+= 39.12±0.33±0.36 and 38 .11±0.57±0.44
+in the fully hadronic ﬁnal states at 189 and 183 GeV respectiv ely, and/angbracketleftbig
+Ncharged/angbracketrightbig
+=
+19.49±0.31±0.27 and 19 .78±0.49±0.43 in the semileptonic ﬁnal states. The value
+quoted is a weighted average without assuming any correlati ons.
+3ABBIENDI 99 Nuse the ﬁnal states W+W−→qqℓνℓto derive this value.
+4ABREU 98 Ccombine results from both the fully hadronic as well semilep tonicW Wﬁnal
+states after demonstrating that the Wdecay charged multiplicity is independent of the
+topology within errors.
+https://pdg.lbl.gov Page 14 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+TRIPLE GAUGE COUPLINGS (TGC’S)TRIPLE GAUGE COUPLINGS (TGC’S)TRIPLE GAUGE COUPLINGS (TGC’S)TRIPLE GAUGE COUPLINGS (TGC’S)
+Revised April 2017 by M.W. Gr¨ unewald (U. College Dublin)
+and A. Gurtu (Formerly Tata Inst.).
+Fourteen independent couplings, seven each for ZWWand
+γWW, completely describe the VWWvertices within the most
+general framework of the electroweak Standard Model (SM)
+consistent with Lorentz invariance and U(1) gauge invarian ce.
+OfeachofthesevenTGCs, threeconserve CandPindividually,
+three violate CP, and one violates CandPindividually
+while conserving CP. Assumption of CandPconservation
+and electromagnetic gauge invariance reduces the number of
+independent VWWcouplings to ﬁve: one common set [1,2]
+is (κγ,κZ,λγ,λZ,gZ
+1), where κγ=κZ=gZ
+1= 1 and λγ=
+λZ= 0 in the Standard Model at tree level. The parameters
+κZandλZare related to the other three due to constraints
+of gauge invariance as follows: κZ=gZ
+1−(κγ−1)tan2θW
+andλZ=λγ, where θWis the weak mixing angle. The W
+magnetic dipole moment, µW, and the Welectric quadrupole
+moment, qW, are expressed as µW=e(1+κγ+λγ)/2MWand
+qW=−e(κγ−λγ)/M2
+W.
+Precision measurementsof suitable observablesat LEP1 has
+already led to an exploration of much of the TGC parameter
+space. At LEP2, the VWWcoupling arises in W-pair produc-
+tion vias-channel exchange, or in single Wproduction via the
+radiation of a virtual photon oﬀ the incident e+ore−. At the
+Tevatron and the LHC, hard-photon bremsstrahlung oﬀ a pro-
+ducedWorZsignals the presence of a triple-gauge vertex. In
+order to extract the value of one TGC, the others are generall y
+kept ﬁxed to their SM values. While most analyses use the
+above gauge constraints in the extraction of TGCs, one anal-
+ysis ofW-pair events also determines the real and imaginary
+parts of all 14 couplings using unconstrained single-param eter
+https://pdg.lbl.gov Page 15 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+ﬁts [3]. The results are consistent. Some experiments have
+determined limits on the couplings under various non-LEP
+scenarios and assuming diﬀerent values of the form factor Λ,
+where the coupling parameters are scaled by 1 /(1+s/Λ2)2. For
+practical reasons it is not possible to quote all such determ i-
+nations in the listings. For that the individual papers may b e
+consulted. Recently, EFT-inspired sets of couplings [4,5] , such
+ascWWW/Λ2,cW/Λ2,cB/Λ2which are linearly related to the
+couplings discussed above, are also determined by the LHC
+experiments.
+References
+1. K. Hagiwara et al., Nucl. Phys. B282, 253 (1987).
+2. G. Gounaris et al., CERN 96-01 p. 525.
+3. S. Schael et al.(ALEPH Collab.), Phys. Lett. B614, 7
+(2005).
+4. K. Hagiwara et al., Phys. Rev. D48, 2182 (1993).
+5. C. Degrande et al., Annals Phys. 335 (2013) 21-32.
+gZ
+1gZ
+1gZ
+1gZ
+1
+OUR FIT below is taken from [SCHAEL 13 A].
+VALUE EVTS DOCUMENT ID TECN COMMENT
+0.984+0.018
+−0.020OUR FIT 0.984+0.018
+−0.020OUR FIT 0.984+0.018
+−0.020OUR FIT 0.984+0.018
+−0.020OUR FIT
+0.975+0.033
+−0.03078721ABDALLAH 10 DLPH Eeecm= 189–209 GeV
+1.001±0.027±0.013 93102SCHAEL 05 AALEPEeecm= 183–209 GeV
+0.987+0.034
+−0.03398003ABBIENDI 04 DOPALEeecm= 183–209 GeV
+0.966+0.034
+−0.032±0.015 83254ACHARD 04 DL3Eeecm= 161–209 GeV
+• • •We do not use the following data for averages, ﬁts, limits, et c.• • •
+5SIRUNYAN 20 BACMSEpp
+cm= 13 TeV
+6SIRUNYAN 19 CLCMSEpp
+cm= 13 TeV
+7SIRUNYAN 18 BZCMSEpp
+cm= 13 TeV
+8AABOUD 17 SATLSEpp
+cm= 7+8 TeV
+9AABOUD 17 UATLSEpp
+cm= 8 TeV
+10KHACHATRY...17 OCMSEpp
+cm= 8 TeV
+11SIRUNYAN 17 XCMSEppcm= 8 TeV
+12AAD 16 ARATLSEpp
+cm= 8 TeV
+https://pdg.lbl.gov Page 16 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+13AAD 16 PATLSEppcm= 8 TeV
+14AAD 14 YATLSEpp
+cm= 8 TeV
+15AAD 13 ALATLSEppcm= 7 TeV
+16CHATRCHYAN13 BFCMSEpp
+cm= 7 TeV
+17AAD 12 CDATLSEppcm= 7 TeV
+18AALTONEN 12 ACCDFEpp
+cm= 1.96 TeV
+19ABAZOV 12 AGD0Eppcm= 1.96 TeV
+3420ABAZOV 11 D0 Epp
+cm= 1.96 TeV
+33421AALTONEN 10 KCDFEppcm= 1.96 TeV
+1.04±0.0922ABAZOV 09 ADD0Epp
+cm= 1.96 TeV
+23ABAZOV 09 AJD0Epp
+cm= 1.96 TeV
+1.07+0.08
+−0.12188024ABDALLAH 08 CDLPH Superseded by ABDAL-
+LAH 10
+1325ABAZOV 07 ZD0Eppcm= 1.96 TeV
+2.326ABAZOV 05 SD0Epp
+cm= 1.96 TeV
+0.98±0.07±0.01 211427ABREU 01 IDLPHEeecm= 183+189 GeV
+33128ABBOTT 99 ID0Eppcm= 1.8 TeV
+1ABDALLAH 10 use data on the ﬁnal states e+e−→jjℓν,jjjj,jjX,ℓX, at center-
+of-mass energies between 189–209 GeV at LEP2, where j= jet,ℓ= lepton, and X
+represents missing momentum. The ﬁt is carried out keeping a ll other parameters ﬁxed
+at their SM values.2SCHAEL 05 Astudy single–photon, single– W, andWW–pair production from 183 to
+209 GeV. The result quoted here is derived from the WW–pair production sample.
+Each parameter is determined from a single–parameter ﬁt in w hich the other parameters
+assume their Standard Model values.3ABBIENDI04 Dcombineresultsfrom W+W−inalldecaychannels. Only CP-conserving
+couplings are considered and each parameter is determined f rom a single-parameter ﬁt in
+which the other parameters assume their Standard Model valu es. The 95% conﬁdence
+interval is 0 .923<gZ
+1<1.054.
+4ACHARD 04 DstudyWW–pair production, single– Wproduction and single–photon pro-
+duction with missing energy from 189 to 209 GeV. The result qu oted here is obtained
+from the WW–pair production sample including data from 161 to 183 GeV, A CCIA-
+RRI 99Q. Each parameter is determined from a single–parameter ﬁt in which the other
+parameters assume their Standard Model values.
+5SIRUNYAN 20 BAstudy electroweak production of a Wboson in association with two
+jets, using Wdecays in the electron or muon channel. The isolated muons (e lectrons) are
+required to have a transverse momentum larger than 25 (30) Ge V, while the transverse
+momentum of the two jets has to be larger than 50 and 30 GeV. A to tal of 2.382
+(1.051) million events are selected in the muon (electron) c hannel, with a Standard
+Modelexpectationof 2 .39±0.17 (1.054±0.058) million events. Analyzingthetransverse
+momentum distribution of the charged leptons from Wdecay, the following 95% C.L.
+limit is obtained: 0.971 <gZ
+1<1.044. Combining this result with that from the
+closely-related electroweak Z-jet-jet production SIRUNYAN 18 BZ, the limit becomes:
+0.979<gZ
+1<1.034.
+6SIRUNYAN 19 CLstudyW WandW Zproduction in lepton + jet events, with one W
+boson decaying leptonically (electron or muon), and anothe rWorZboson decaying
+hadronically, reconstructed as a single massive large-rad ius jet. In the electron channel
+2,456 (2,235) events are selected in the W W(W Z) category, while in the muon channel
+3,996 (3572) events are selected in the W W(W Z) category. Analysing the di-boson
+https://pdg.lbl.gov Page 17 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+invariant mass distribution, the following 95% C.L. limit i s obtained: 0.9939 <gZ
+1<
+1.0074.7SIRUNYAN 18 BZstudypp→Z jet jet events at 13 TeV where Z→e+e−/µ+µ−.
+Isolated electrons and muons are selected with pTof the leading/sub-leading lepton >
+30/20 GeV and/vextendsingle/vextendsingleη/vextendsingle/vextendsingle<2.4, with the di-lepton invariant mass within 15 GeV of the Z
+mass. The two highest pTjets are selected with pTof the leading/sub-leading jet >
+50/30 GeV respectively and dijet invariant mass >200 GeV. Templates in the transverse
+momentum of the Zare utilized to set limits on the triple gauge couplings in th e EFT
+and the LEP parametrizations. The following 95% C.L. limit i s obtained: 0 .965<
+gZ
+1<1.042.
+8AABOUD 17 Sanalyze electroweak production of a Wboson in association with two
+jets at high dijet invariant mass, with the Wboson decaying to electron or muon plus
+neutrino. In the signal region of dijet mass larger than 1 TeV and leading-jet transverse
+momentum larger than 600 GeV, 30 events are observed in the da ta with 39 ±4 events
+expected in the Standard Model, yielding the following limi t at 95% CL for the form
+factor cut-oﬀ scale ΛFF→ ∞: 0.87<gZ
+1<1.12.
+9AABOUD 17 Uanalyze production of W WorW Zboson pairs with one Wboson
+decaying to electron or muon plus neutrino, and the other WorZboson decaying
+hadronically. The hadronic decay system is reconstructed a s either a resolved two-jet
+system or as a single large jet. Analysing the transverse mom entum distribution of the
+hadronic system above 100 GeV yields the following limit at 9 5% CL for the form factor
+cut-oﬀ scale ΛFF→ ∞: 0.979<gZ
+1<1.024.
+10KHACHATRYAN 17 OanalyseW Zproduction where each boson decays into electrons
+or muons. Events are required to have a tri-lepton invariant mass larger than 100 GeV,
+with one of the lepton pairs having an invariant mass within 2 0 GeV of the Zboson
+mass. The Ztransverse momentum spectrum is analyzed to set a 95% C.L. li mit of:
+0.982<gZ
+1<1.035.
+11SIRUNYAN 17 Xstudypp→W W/W Z→ℓνqqproduction at 8 TeV where ℓis an
+electron or muon with pT>30 or 25 GeV respectively. Suitable cuts are put on the
+pTof the dijet system and the missing ETof the event yielding a total of 285 and 204
+W Vevents observed in the electron and muon channels. The follo wing 95% C.L. limit
+is obtained: 0.9913 <gZ
+1<1.024.
+12AAD 16 ARstudyW Wproduction in ppcollisions and select 6636 W Wcandidates
+in decay modes with electrons or muons with an expected backg round of 1546 ±157
+events. Assuming the LEP formulation and setting the form-f actor Λ to inﬁnity, a ﬁt
+to the transverse momentum distribution of the leading char ged lepton, leads to a 95%
+C.L. range of 0.984 <gZ
+1<1.027.
+13AAD 16 PstudyW Zproduction in ppcollisions and select 2091 W Zcandidates in 4
+decay modes with electrons and muons, with an expectedbackg round of 1825 ±7 events.
+Analyzing the W Ztransverse momentum distribution, the resulting 95% C.L. l imit is:
+0.981<gZ
+1<1.029.
+14AAD 14 Ydetermine the electroweak Z-dijet cross section in 8 TeV ppcollisions. Z→
+eeandZ→µµdecays are selected with the di-lepton pT>20 GeV and mass in the
+81–101 GeV range. Minimum two jets are required with pT>55 and 45 GeV and no
+additional jets with pT>25 GeV in the rapidity interval between them. The normalized
+pTbalance between the Zand the two jets is required to be <0.15. This leads to a
+selection of 900 events with dijet mass >1 TeV. The number of signal and background
+events expected is 261 and 592 respectively. A Poisson likel ihood method is used on an
+event by event basis to obtain the 95% CL limit 0.5 <gZ
+1<1.26 for a form factor value
+Λ =∞.15AAD 13 ALstudyW Wproduction in ppcollisions and select 1325 W Wcandidates in
+decay modes with electrons or muons with an expected backgro und of 369 ±61 events.
+Assuming the LEP formulation and setting the form-factor Λ= inﬁnity, a ﬁt to the
+https://pdg.lbl.gov Page 18 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+transverse momentum distribution of the leading charged le pton, leads to a 95% C.L.
+range of 0.961 <gZ
+1<1.052. Supersedes AAD 12 AC.
+16CHATRCHYAN 13 BFdetermine the W+W−production cross section using unlike sign
+di-lepton ( eorµ) events with high /negationslashpT. The leptons have pT>20 GeV/c and are
+isolated. 1134 candidate events are observed with an expect ed SM background of 247 ±
+34. The pTdistribution of the leading lepton is ﬁtted to obtain 95% C.L . limits of 0.905
+≤gZ
+1≤1.095.
+17AAD 12 CDstudyW Zproduction in ppcollisions and select 317 W Zcandidates in three
+ℓνdecay modes with an expected background of 68 .0±10.0 events. The resulting 95%
+C.L. range is: 0.943 <gZ
+1<1.093. Supersedes AAD 12 V.
+18AALTONEN 12 ACstudyW Zproduction in ppcollisions and select 63 W Zcandidates
+in three ℓνdecay modes with an expected background of 7 .9±1.0 events. Based on
+the cross section and shape of the Ztransverse momentum spectrum, the following 95%
+C.L. range is reported: 0.92 <gZ
+1<1.20 for a form factor of Λ = 2 TeV.
+19ABAZOV 12 AGcombine new results with already published results on Wγ,W Wand
+W Zproduction in order to determine the couplings with increas ed precision, superseding
+ABAZOV 08 R, ABAZOV 11 AC, ABAZOV 09 AJ, ABAZOV 09 AD. The 68% C.L. result for
+a formfactor cutoﬀ of Λ = 2 TeV is gZ
+1= 1.022+0.032
+−0.030.
+20ABAZOV 11 study the pp→3ℓνprocess arising in W Zproduction. They observe
+34W Zcandidates with an estimated background of 6 events. An anal ysis of the pT
+spectrum of the Zboson leads to a 95% C.L. limit of 0.944 <gZ
+1<1.154, for a form
+factor Λ = 2 TeV.21AALTONEN 10K study pp→W+W−withW→e/µν. ThepTof the leading
+(second) lepton is required to be >20 (10) GeV. The ﬁnal number of events selected is
+654 of which 320 ±47 are estimated to be background. The 95% C.L. interval is 0. 76
+<gZ
+1<1.34 for Λ = 1.5 TeV and 0.78 <gZ
+1<1.30 for Λ = 2 TeV.
+22ABAZOV 09 ADstudy the pp→ℓν2jet process arising in W WandW Zproduction.
+They select 12,473 (14,392) events in the electron (muon) ch annel with an expected
+di-boson signal of 436 (527) events. The results on the anoma lous couplings are derived
+from an analysis of the pTspectrum of the 2-jet system and quoted at 68% C.L. and
+for a form factor of 2 TeV. This measurement is not used for obt aining the mean as it is
+for a speciﬁc form factor. The 95% conﬁdence interval is 0.88 <gZ
+1<1.20.
+23ABAZOV 09 AJstudy the pp→2ℓ2νprocess arising in W Wproduction. They select
+100 events with an expected W Wsignal of 65 events. An analysis of the pTspectrum
+of the two charged leptons leads to 95% C.L. limits of 0.86 <gZ
+1<1.3, for a form
+factor Λ = 2 TeV.24ABDALLAH 08 Cdetermine this triple gauge coupling from the measurement o f the spin
+density matrix elements in e+e−→W+W−→(qq)(ℓν), where ℓ=eorµ. Values
+of all other couplings are ﬁxed to their standard model value s.
+25ABAZOV 07 Zset limits on anomalous TGCs using the measuredcross sectio n andpT(Z)
+distribution in W Zproduction with both the Wand the Zdecaying leptonically into
+electrons and muons. Setting the other couplings to their st andard model values, the
+95% C.L. limit for a form factor scale Λ = 2 TeV is 0.86 <gZ
+1<1.35.
+26ABAZOV 05 Sstudypp→W Zproduction with a subsequent trilepton decay to ℓνℓ′ℓ′
+(ℓandℓ′=eorµ). Three events (estimated background 0 .71±0.08 events) with WZ
+decay characteristicsare observed from which they derive l imits on the anomalous WWZ
+couplings. The 95% CL limit for a form factor scale Λ = 1.5 TeV i s 0.51<gZ
+1<
+1.66, ﬁxing λZandκZto their Standard Model values.
+27ABREU 01 Icombine results from e+e−interactions at 189 GeV leading to W+W−
+andW eνeﬁnal states with results from ABREU 99 Lat 183 GeV. The 95% conﬁdence
+interval is 0 .84<gZ
+1<1.13.
+https://pdg.lbl.gov Page 19 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+28ABBOTT 99 Iperform a simultaneous ﬁt to the Wγ,W W→dilepton, W W/W Z→
+eνjj,W W/W Z→µνjj, andW Z→trilepton data samples. For Λ = 2 .0 TeV, the
+95%CL limits are 0 .63<gZ
+1<1.57, ﬁxing λZandκZto their Standard Model values,
+and assuming Standard Model values for the W Wγcouplings.
+κγκγκγκγ
+OUR FIT below is taken from [SCHAEL 13 A].
+VALUE EVTS DOCUMENT ID TECN COMMENT
+0.982±0.042 OUR FIT 0.982±0.042 OUR FIT 0.982±0.042 OUR FIT 0.982±0.042 OUR FIT
+1.024+0.077
+−0.08178721ABDALLAH 10 DLPH Eeecm= 189–209 GeV
+0.971±0.055±0.030 106892SCHAEL 05 AALEPEeecm= 183–209 GeV
+0.88+0.09
+−0.0898003ABBIENDI 04 DOPALEeecm= 183–209 GeV
+1.013+0.067
+−0.064±0.026 105754ACHARD 04 DL3Eeecm= 161–209 GeV
+• • •We do not use the following data for averages, ﬁts, limits, et c.• • •
+5AABOUD 17 UATLSEppcm= 8 TeV
+6SIRUNYAN 17 XCMSEpp
+cm= 8 TeV
+7CHATRCHYAN14 ABCMSEppcm= 7 TeV
+8AAD 13 ANATLSEpp
+cm= 7 TeV
+9CHATRCHYAN13 BFCMSEppcm= 7 TeV
+10ABAZOV 12 AGD0Epp
+cm= 1.96 TeV
+11ABAZOV 11 ACD0Eppcm= 1.96 TeV
+12CHATRCHYAN11 MCMSEpp
+cm= 7 TeV
+33413AALTONEN 10 KCDFEppcm= 1.96 TeV
+5314AARON 09 BH1Eep
+cm= 0.3 TeV
+1.07+0.26
+−0.2915ABAZOV 09 ADD0Epp
+cm= 1.96 TeV
+16ABAZOV 09 AJD0Epp
+cm= 1.96 TeV
+17ABAZOV 08 RD0Eppcm= 1.96 TeV
+0.68+0.17
+−0.15188018ABDALLAH 08 CDLPH Superseded by ABDAL-
+LAH 10
+161719AALTONEN 07 LCDFEpp
+cm= 1.96 GeV
+1720ABAZOV 06 HD0Eppcm= 1.96 TeV
+14121ABAZOV 05 JD0Epp
+cm= 1.96 TeV
+1.25+0.21
+−0.20±0.06 229822ABREU 01 IDLPHEeecm= 183+189 GeV
+23BREITWEG 00 ZEUS e+p→e+W±X,√s≈300 GeV
+0.92±0.34 33124ABBOTT 99 ID0Eppcm= 1.8 TeV
+1ABDALLAH 10 use data on the ﬁnal states e+e−→jjℓν,jjjj,jjX,ℓX, at center-
+of-mass energies between 189–209 GeV at LEP2, where j= jet,ℓ= lepton, and X
+represents missing momentum. The ﬁt is carried out keeping a ll other parameters ﬁxed
+at their SM values.2SCHAEL 05 Astudy single–photon, single– W, andWW–pair production from 183 to
+209 GeV. Each parameter is determined from a single–paramet er ﬁt in which the other
+parameters assume their Standard Model values.
+https://pdg.lbl.gov Page 20 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+3ABBIENDI04 Dcombineresultsfrom W+W−inalldecaychannels. Only CP-conserving
+couplings are considered and each parameter is determined f rom a single-parameter ﬁt in
+which the other parameters assume their Standard Model valu es. The 95% conﬁdence
+interval is 0 .73< κγ<1.07.
+4ACHARD 04 DstudyWW–pair production, single– Wproduction and single–photon pro-
+duction with missing energy from 189 to 209 GeV. The result qu oted here is obtained
+including data from 161 to 183 GeV, ACCIARRI 99 Q. Each parameter is determined
+from a single–parameter ﬁt in which the other parameters ass ume their Standard Model
+values.5AABOUD 17 Uanalyze production of W WorW Zboson pairs with one Wboson
+decaying to electron or muon plus neutrino, and the other WorZboson decaying
+hadronically. The hadronic decay system is reconstructed a s either a resolved two-jet
+system or as a single large jet. Analysing the transverse mom entum distribution of the
+hadronic system above 100 GeV yields the following limit at 9 5% CL for the form factor
+cut-oﬀ scale ΛFF→ ∞: 0.939< κγ<1.064.
+6SIRUNYAN 17 Xstudypp→W W/W Z→ℓνqqproduction at 8 TeV where ℓis an
+electron or muon with pT>30 or 25 GeV respectively. Suitable cuts are put on the
+pTof the dijet system and the missing ETof the event yielding a total of 285 and 204
+W Vevents observed in the electron and muon channels. The follo wing 95% C.L. limit
+is obtained: 0.956 < κγ<1.063.
+7CHATRCHYAN 14 ABmeasure Wγproduction cross section for pγ
+T>15 GeV and R( ℓγ)
+>0.7, which is the separation between the γand the ﬁnal state charged lepton ( eor
+µ) in the azimuthal angle-pseudorapidity ( φ−η) plane. After background subtraction
+the number of eνγandµνγevents is determined to be 3200 ±325 and 4970 ±543
+respectively, compatible with expectations from the SM. Th is leads to a 95% CL limit of
+0.62< κγ<1.29, assuming other parameters have SM values.
+8AAD 13 ANstudyWγproduction in ppcollisions. In events with no additional jet,
+4449 (6578) W decays to electron (muon) are selected, with an expected background of
+1662±262 (2538 ±362) events. Analysing the photon pTspectrum above 100 GeV
+yields a 95% C.L. limit of 0.59 < κγ<1.46. Supersedes AAD 12 BX.
+9CHATRCHYAN 13 BFdetermine the W+W−production cross section using unlike sign
+di-lepton ( eorµ) events with high /negationslashpT. The leptons have pT>20 GeV/c and are
+isolated. 1134 candidate events are observed with an expect ed SM background of 247 ±
+34. The pTdistribution of the leading lepton is ﬁtted to obtain 95% C.L . limits of 0.79
+≤kγ≤1.22.
+10ABAZOV 12 AGcombine new results with already published results on Wγ,W Wand
+W Zproduction in order to determine the couplings with increas ed precision, superseding
+ABAZOV 08 R, ABAZOV 11 AC, ABAZOV 09 AJ, ABAZOV 09 AD. The 68% C.L. result for
+a formfactor cutoﬀ of Λ = 2 TeV is κγ= 1.048+0.106
+−0.105.
+11ABAZOV 11 ACstudyWγproduction in ppcollisions at 1.96 TeV, with the Wdecay
+products containing an electron or a muon. They select 196 (3 63) events in the electron
+(muon) mode, with a SM expectation of 190 (372) events. A like lihood ﬁt to the photon
+ETspectrum above 15 GeV yields at 95% C.L. the result: 0.6 < κγ<1.4 for a
+formfactor Λ= 2 TeV.12CHATRCHYAN 11 MstudyWγproductionin ppcollisions at√s= 7 TeV using 36pb−1
+ppdata with the Wdecaying to electron and muon. The total cross section is mea sured
+for photon transverse energy Eγ
+T>10 GeV and spatial separation from charged leptons
+in the plane of pseudo rapidity and azimuthal angle ∆ R(ℓ,γ)>0.7. The number of
+candidate (background) events is 452 (228 ±21) for the electron channel and 520
+(277±25) for the muon channel. Setting other couplings to their st andard model value,
+they derive a 95% CL limit of −0.11< κγ<2.04.
+13AALTONEN 10K study pp→W+W−withW→e/µν. ThepTof the leading
+(second) lepton is required to be >20 (10) GeV. The ﬁnal number of events selected is
+https://pdg.lbl.gov Page 21 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+654 of which 320 ±47 are estimated to be background. The 95% C.L. interval is 0. 37
+< κγ<1.72 for Λ = 1.5 TeV and 0.43 < κγ<1.65 for Λ = 2 TeV.
+14AARON 09 Bstudy single- Wproduction in epcollisions at 0.3 TeV C.M. energy. They
+select 53 W→e/µevents with a standard model expectation of 54 .1±7.4 events.
+Fitting the transverse momentum spectrum of the hadronic re coil system they obtain a
+95% C.L. limit of −3.7< κγ<−1.5 or 0.3< κγ<1.5, where the ambiguity is due to
+the quadratic dependence of the cross section to the couplin g parameter.
+15ABAZOV 09 ADstudy the pp→ℓν2jet process arising in W WandW Zproduction.
+They select 12,473 (14,392) events in the electron (muon) ch annel with an expected
+di-boson signal of 436 (527) events. The results on the anoma lous couplings are derived
+from an analysis of the pTspectrum of the 2-jet system and quoted at 68% C.L. and
+for a form factor of 2 TeV. This measurement is not used for obt aining the mean as it is
+for a speciﬁc form factor. The 95% conﬁdence interval is 0.56 < κγ<1.55.
+16ABAZOV 09 AJstudy the pp→2ℓ2νprocess arising in W Wproduction. They select
+100 events with an expected W Wsignal of 65 events. An analysis of the pTspectrum
+of the two charged leptons leads to 95% C.L. limits of 0.46 < κγ<1.83, for a form
+factor Λ = 2 TeV.17ABAZOV 08 Ruse 0.7 fb−1ppdata at√s= 1.96 TeV to select 263 Wγ+Xevents,
+of which 187 constitute signal, with the Wdecaying into an electron or a muon, which
+is required to be well separated from a photon with ET>9 GeV. A likelihood ﬁt to the
+photonETspectrum yields a 95% CL limit 0.49 < κγ<1.51 with other couplings ﬁxed
+to their Standard Model values.18ABDALLAH 08 Cdetermine this triple gauge coupling from the measurement o f the spin
+density matrix elements in e+e−→W+W−→(qq)(ℓν), where ℓ=eorµ. Values
+of all other couplings are ﬁxed to their standard model value s.
+19AALTONEN 07 Lset limits on anomalous TGCs using the pT(W) distribution in W W
+andW Zproduction with the Wdecaying to an electron or muon and the Zto 2 jets.
+Setting other couplings to their standard model value, the 9 5% C.L. limits are 0.54
+< κγ<1.39 for a form factor scale Λ = 1.5 TeV.
+20ABAZOV 06 Hstudypp→W Wproduction with a subsequent decay W W→
+e+νee−νe,W W→e±νeµ∓νµorW W→µ+νµµ−νµ. The 95% C.L. limit for
+a form factor scale Λ = 1 TeV is −0.05< κγ<2.29, ﬁxing λγ=0. With the assumption
+that the W WγandW W Zcouplings are equal the 95% C.L. one-dimensional limit (Λ
+= 2 TeV) is 0.68 < κ <1.45.
+21ABAZOV 05 Jperform a likelihood ﬁt to the photon ETspectrum of Wγ+ X events,
+where the Wdecays to an electron or muon which is required to be well sepa rated from
+the photon. For Λ = 2.0 TeV the 95% CL limits are 0 .12< κγ<1.96. In the ﬁt λγ
+is kept ﬁxed to its Standard Model value.
+22ABREU 01 Icombine results from e+e−interactions at 189 GeV leading to W+W−,
+W eνe, andννγﬁnal states with results from ABREU 99 Lat 183 GeV. The 95%
+conﬁdence interval is 0 .87< κγ<1.68.
+23BREITWEG 00 search for Wproduction in events with large hadronic pT. ForpT>20
+GeV, the upper limit on the cross section gives the 95%CL limi t−3.7< κγ<2.5 (for
+λγ=0).
+24ABBOTT 99 Iperform a simultaneous ﬁt to the Wγ,W W→dilepton, W W/W Z→
+eνjj,W W/W Z→µνjj, andW Z→trilepton data samples. For Λ = 2 .0 TeV, the
+95%CL limits are 0 .75< κγ<1.39.
+https://pdg.lbl.gov Page 22 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+λγλγλγλγ
+OUR FIT below is taken from [SCHAEL 13 A].
+VALUE EVTS DOCUMENT ID TECN COMMENT
+−0.022±0.019 OUR FIT −0.022±0.019 OUR FIT −0.022±0.019 OUR FIT −0.022±0.019 OUR FIT
+0.002±0.035 78721ABDALLAH 10 DLPH Eeecm= 189–209 GeV
+−0.012±0.027±0.011 106892SCHAEL 05 AALEPEeecm= 183–209 GeV
+−0.060+0.034
+−0.03398003ABBIENDI 04 DOPALEeecm= 183–209 GeV
+−0.021+0.035
+−0.034±0.017 105754ACHARD 04 DL3Eeecm= 161–209 GeV
+• • •We do not use the following data for averages, ﬁts, limits, et c.• • •
+5CHATRCHYAN14 ABCMSEpp
+cm= 7 TeV
+6AAD 13 ANATLSEpp
+cm= 7 TeV
+7ABAZOV 12 AGD0Eppcm= 1.96 TeV
+8ABAZOV 11 ACD0Epp
+cm= 1.96 TeV
+9CHATRCHYAN11 MCMSEppcm= 7 TeV
+5310AARON 09 BH1Eep
+cm= 0.3 TeV
+0.00±0.0611ABAZOV 09 ADD0Eppcm= 1.96 TeV
+12ABAZOV 09 AJD0Epp
+cm= 1.96 TeV
+13ABAZOV 08 RD0Eppcm= 1.96 TeV
+0.16+0.12
+−0.13188014ABDALLAH 08 CDLPH Superseded by ABDAL-
+LAH 10
+161715AALTONEN 07 LCDFEpp
+cm= 1.96 GeV
+1716ABAZOV 06 HD0Eppcm= 1.96 TeV
+14117ABAZOV 05 JD0Epp
+cm= 1.96 TeV
+0.05±0.09±0.01 229818ABREU 01 IDLPHEeecm= 183+189 GeV
+19BREITWEG 00 ZEUS e+p→e+W±X,√s≈300 GeV
+0.00+0.10
+−0.0933120ABBOTT 99 ID0Eppcm= 1.8 TeV
+1ABDALLAH 10 use data on the ﬁnal states e+e−→jjℓν,jjjj,jjX,ℓX, at center-
+of-mass energies between 189–209 GeV at LEP2, where j= jet,ℓ= lepton, and X
+represents missing momentum. The ﬁt is carried out keeping a ll other parameters ﬁxed
+at their SM values.2SCHAEL 05 Astudy single–photon, single– W, andWW–pair production from 183 to
+209 GeV. Each parameter is determined from a single–paramet er ﬁt in which the other
+parameters assume their Standard Model values.
+3ABBIENDI04 Dcombineresultsfrom W+W−inalldecaychannels. Only CP-conserving
+couplings are considered and each parameter is determined f rom a single-parameter ﬁt in
+which the other parameters assume their Standard Model valu es. The 95% conﬁdence
+interval is −0.13< λγ<0.01.
+4ACHARD 04 DstudyWW–pair production, single– Wproduction and single–photon pro-
+duction with missing energy from 189 to 209 GeV. The result qu oted here is obtained
+including data from 161 to 183 GeV, ACCIARRI 99 Q. Each parameter is determined
+from a single–parameter ﬁt in which the other parameters ass ume their Standard Model
+values.
+5CHATRCHYAN 14 ABmeasure Wγproduction cross section for pγ
+T>15 GeV and R( ℓγ)
+>0.7, which is the separation between the γand the ﬁnal state charged lepton ( eor
+µ) in the azimuthal angle-pseudorapidity ( φ−η) plane. After background subtraction
+https://pdg.lbl.gov Page 23 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+the number of eνγandµνγevents is determined to be 3200 ±325 and 4970 ±543
+respectively, compatible with expectations from the SM. Th is leads to a 95% CL limit of
+−0.050< λγ<0.037, assuming all other parameters have SM values.
+6AAD 13 ANstudyWγproduction in ppcollisions. In events with no additional jet,
+4449 (6578) W decays to electron (muon) are selected, with an expected background of
+1662±262 (2538 ±362) events. Analysing the photon pTspectrum above 100 GeV
+yields a 95% C.L. limit of −0.065< λγ<0.061. Supersedes AAD 12 BX.
+7ABAZOV 12 AGcombine new results with already published results on Wγ,W Wand
+W Zproduction in order to determine the couplings with increas ed precision, superseding
+ABAZOV 08 R, ABAZOV 11 AC, ABAZOV 09 AJ, ABAZOV 09 AD. The 68% C.L. result for
+a formfactor cutoﬀ of Λ = 2 TeV is λγ= 0.007+0.021
+−0.022.
+8ABAZOV 11 ACstudyWγproduction in ppcollisions at 1.96 TeV, with the Wdecay
+products containing an electron or a muon. They select 196 (3 63) events in the electron
+(muon) mode, with a SM expectation of 190 (372) events. A like lihood ﬁt to the photon
+ETspectrum above 15 GeV yields at 95% C.L. the result: −0.08< λγ<0.07 for a
+formfactor Λ= 2 TeV.9CHATRCHYAN 11 MstudyWγproductionin ppcollisions at√s= 7 TeV using 36pb−1
+ppdata with the Wdecaying to electron and muon. The total cross section is mea sured
+for photon transverse energy Eγ
+T>10 GeV and spatial separation from charged leptons
+in the plane of pseudo rapidity and azimuthal angle ∆ R(ℓ,γ)>0.7. The number of
+candidate (background) events is 452 (228 ±21) for the electron channel and 520
+(277±25) for the muon channel. Setting other couplings to their st andard model value,
+they derive a 95% CL limit of −0.18< λγ<0.17.
+10AARON 09 Bstudy single- Wproduction in epcollisions at 0.3 TeV C.M. energy. They
+select 53 W→e/µevents with a standard model expectation of 54 .1±7.4 events.
+Fitting the transverse momentum spectrum of the hadronic re coil system they obtain a
+95% C.L. limit of −2.5< λγ<2.5.
+11ABAZOV 09 ADstudy the pp→ℓν2jet process arising in W WandW Zproduction.
+They select 12,473 (14,392) events in the electron (muon) ch annel with an expected
+di-boson signal of 436 (527) events. The results on the anoma lous couplings are derived
+from an analysis of the pTspectrum of the 2-jet system and quoted at 68% C.L. and
+for a form factor of 2 TeV. This measurement is not used for obt aining the mean as it is
+for a speciﬁc form factor. The 95% conﬁdence interval is −0.10< λγ<0.11.
+12ABAZOV 09 AJstudy the pp→2ℓ2νprocess arising in W Wproduction. They select
+100 events with an expected W Wsignal of 65 events. An analysis of the pTspectrum
+of the two charged leptons leads to 95% C.L. limits of −0.14< λγ<0.18, for a form
+factor Λ = 2 TeV.13ABAZOV 08 Ruse 0.7 fb−1ppdata at√s= 1.96 TeV to select 263 Wγ+Xevents,
+of which 187 constitute signal, with the Wdecaying into an electron or a muon, which
+is required to be well separated from a photon with ET>9 GeV. A likelihood ﬁt to the
+photonETspectrum yields a 95% CL limit −0.12< λγ<0.13 with other couplings
+ﬁxed to their Standard Model values.14ABDALLAH 08 Cdetermine this triple gauge coupling from the measurement o f the spin
+density matrix elements in e+e−→W+W−→(qq)(ℓν), where ℓ=eorµ. Values
+of all other couplings are ﬁxed to their standard model value s.
+15AALTONEN 07 Lset limits on anomalous TGCs using the pT(W) distribution in W W
+andW Zproduction with the Wdecaying to an electron or muon and the Zto 2
+jets. Setting other couplings to their standard model value , the 95% C.L. limits are
+−0.18< λγ<0.17 for a form factor scale Λ = 1.5 TeV.
+16ABAZOV 06 Hstudypp→W Wproduction with a subsequent decay W W→
+e+νee−νe,W W→e±νeµ∓νµorW W→µ+νµµ−νµ. The 95% C.L. limit for
+a form factor scale Λ = 1 TeV is −0.97< λγ<1.04, ﬁxing κγ=1. With the assumption
+that the W WγandW W Zcouplings are equal the 95% C.L. one-dimensional limit (Λ
+= 2 TeV) is −0.29< λ <0.30.
+https://pdg.lbl.gov Page 24 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+17ABAZOV 05 Jperform a likelihood ﬁt to the photon ETspectrum of Wγ+ X events,
+where the Wdecays to an electron or muon which is required to be well sepa rated from
+the photon. For Λ = 2.0 TeV the 95% CL limits are −0.20< λγ<0.20. In the ﬁt
+κγis kept ﬁxed to its Standard Model value.
+18ABREU 01 Icombine results from e+e−interactions at 189 GeV leading to W+W−,
+W eνe, andννγﬁnal states with results from ABREU 99 Lat 183 GeV. The 95%
+conﬁdence interval is −0.11< λγ<0.23.
+19BREITWEG 00 search for Wproduction in events with large hadronic pT. ForpT>20
+GeV, the upper limit on the cross section gives the 95%CL limi t−3.2< λγ<3.2 for
+κγﬁxed to its Standard Model value.
+20ABBOTT 99 Iperform a simultaneous ﬁt to the Wγ,W W→dilepton, W W/W Z→
+eνjj,W W/W Z→µνjj, andW Z→trilepton data samples. For Λ = 2 .0 TeV, the
+95%CL limits are −0.18< λγ<0.19.
+κZκZκZκZ
+This coupling is CP-conserving ( C- andP- separately conserving).
+VALUE EVTS DOCUMENT ID TECN COMMENT
+0.924+0.059
+−0.056±0.024 0.924+0.059
+−0.056±0.024 0.924+0.059
+−0.056±0.024 0.924+0.059
+−0.056±0.02471711ACHARD 04 DL3Eeecm= 189–209 GeV
+• • •We do not use the following data for averages, ﬁts, limits, et c.• • •
+2SIRUNYAN 20 BACMSEpp
+cm= 13 TeV
+3SIRUNYAN 19 CLCMSEppcm= 13 TeV
+4AABOUD 17 SATLSEpp
+cm= 7+8 TeV
+5KHACHATRY...17 OCMSEppcm= 8 TeV
+6AAD 16 ARATLSEpp
+cm= 8 TeV
+7AAD 16 PATLSEppcm= 8 TeV
+8AAD 13 ALATLSEpp
+cm= 7 TeV
+9AAD 12 CDATLSEppcm= 7 TeV
+10AALTONEN 12 ACCDFEpp
+cm= 1.96 TeV
+3411ABAZOV 11 D0 Eppcm= 1.96 TeV
+1712ABAZOV 06 HD0Epp
+cm= 1.96 TeV
+2.313ABAZOV 05 SD0Eppcm= 1.96 TeV
+1ACHARD 04 DstudyWW–pair production, single– Wproduction and single–photon pro-
+duction with missing energy from 189 to 209 GeV. The result qu oted here is obtained
+using the WW–pair production sample. Each parameter is determined from a single–
+parameter ﬁt in which the other parameters assume their Stan dard Model values.
+2SIRUNYAN 20 BAstudy electroweak production of a Wboson in association with two
+jets, using Wdecays in the electron or muon channel. The isolated muons (e lectrons) are
+required to have a transverse momentum larger than 25 (30) Ge V, while the transverse
+momentum of the two jets has to be larger than 50 and 30 GeV. A to tal of 2.382
+(1.051) million events are selected in the muon (electron) c hannel, with a Standard
+Modelexpectationof 2 .39±0.17 (1.054±0.058) million events. Analysing thetransverse
+momentum distribution of the charged leptons from Wdecay, the following 95% C.L.
+limit is obtained: 0.956 < κZ<1.044. Combining this result with that from the
+closely-related electroweak Z-jet-jet production SIRUNYAN 18 BZ, the limit becomes:
+0.957< κZ<1.042.
+3SIRUNYAN 19 CLstudyW WandW Zproduction in lepton + jet events, with one W
+boson decaying leptonically (electron or muon), and anothe rWorZboson decaying
+hadronically, reconstructed as a single massive large-rad ius jet. In the electron channel
+https://pdg.lbl.gov Page 25 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+2,456 (2,235) events are selected in the W W(W Z) category, while in the muon channel
+3,996 (3572) events are selected in the W W(W Z) category. Analysing the di-boson
+invariant mass distribution, the following 95% C.L. limit i s obtained: 0.9921 < κZ<
+1.0082.4AABOUD 17 Sanalyze electroweak production of a Wboson in association with two
+jets at high dijet invariant mass, with the Wboson decaying to electron or muon plus
+neutrino. In the signal region of dijet mass larger than 1 TeV and leading-jet transverse
+momentum larger than 600 GeV, 30 events are observed in the da ta with 39 ±4 events
+expected in the Standard Model, yielding the following limi t at 95% CL for the form
+factor cut-oﬀ scale ΛFF→ ∞: 0.85< κZ<1.16.
+5KHACHATRYAN 17 OanalyseW Zproduction where each boson decays into electrons
+or muons. Events are required to have a tri-lepton invariant mass larger than 100 GeV,
+with one of the lepton pairs having an invariant mass within 2 0 GeV of the Zboson
+mass. The Ztransverse momentum spectrum is analyzed to set a 95% C.L. li mit of:
+0.79< κZ<1.25.
+6AAD 16 ARstudyW Wproduction in pp collisions and select 6636 WW candidates in
+decay modes with electrons or muons with an expected backgro und of 1546 ±157
+events. Assuming the LEP formulation and setting the form-f actor Λ to inﬁnity, a ﬁt
+to the transverse momentum distribution of the leading char ged lepton, leads to a 95%
+C.L. range of 0.975 < κZ<1.020.
+7AAD 16 PstudyW Zproduction in ppcollisions and select 2091 W Zcandidates in 4
+decay modes with electrons and muons, with an expectedbackg round of 1825 ±7 events.
+Analyzing the W Ztransverse momentum distribution, the resulting 95% C.L. l imit is:
+0.81< κZ<1.30.
+8AAD 13 ALstudyW Wproduction in ppcollisions and select 1325 W Wcandidates in
+decay modes with electrons or muons with an expected backgro und of 369 ±61 events.
+Assuming the LEP formulation and setting the form-factor Λ= inﬁnity, a ﬁt to the
+transverse momentum distribution of the leading charged le pton, leads to a 95% C.L.
+range of 0.957 < κZ<1.043. Supersedes AAD 12 AC.
+9AAD 12 CDstudyW Zproduction in ppcollisions and select 317 W Zcandidates in three
+ℓνdecay modes with an expected background of 68 .0±10.0 events. The resulting 95%
+C.L. range is: 0.63 < κZ<1.57. Supersedes AAD 12 V.
+10AALTONEN 12 ACstudyW Zproduction in ppcollisions and select 63 W Zcandidates
+in three ℓνdecay modes with an expected background of 7 .9±1.0 events. Based on
+the cross section and shape of the Ztransverse momentum spectrum, the following 95%
+C.L. range is reported: 0.61 < κZ<1.90 for a form factor of Λ = 2 TeV.
+11ABAZOV 11 study the pp→3ℓνprocess arising in W Zproduction. They observe
+34W Zcandidates with an estimated background of 6 events. An anal ysis of the pTspectrum of the Zboson leads to a 95% C.L. limit of 0.600 < κZ<1.675, for a form
+factor Λ = 2 TeV.12ABAZOV 06 Hstudypp→W Wproduction with a subsequent decay W W→
+e+νee−νe,W W→e±νeµ∓νµorW W→µ+νµµ−νµ. The 95% C.L. limit for
+a form factor scale Λ = 2 TeV is 0 .55< κZ<1.55, ﬁxing λZ=0. With the assumption
+that the W WγandW W Zcouplings are equal the 95% C.L. one-dimensional limit (Λ
+= 2 TeV) is 0 .68< κ <1.45.
+13ABAZOV 05 Sstudypp→W Zproduction with a subsequent trilepton decay to ℓνℓ′ℓ′
+(ℓandℓ′=eorµ). Three events (estimated background 0 .71±0.08 events) with WZ
+decay characteristicsare observed from which they derive l imits on the anomalous WWZ
+couplings. The 95% CL limit for a form factor scale Λ = 1 TeV is −1.0< κZ<3.4,
+ﬁxingλZandgZ
+1to their Standard Model values.
+https://pdg.lbl.gov Page 26 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+λZλZλZλZ
+This coupling is CP-conserving ( C- andP- separately conserving).
+VALUE EVTS DOCUMENT ID TECN COMMENT
+−0.088+0.060
+−0.057±0.023 −0.088+0.060
+−0.057±0.023 −0.088+0.060
+−0.057±0.023 −0.088+0.060
+−0.057±0.02371711ACHARD 04 DL3Eeecm= 189–209 GeV
+• • •We do not use the following data for averages, ﬁts, limits, et c.• • •
+2SIRUNYAN 20 BACMSEpp
+cm= 13 TeV
+3SIRUNYAN 19 CLCMSEppcm= 13 TeV
+4SIRUNYAN 18 BZCMSEpp
+cm= 13 TeV
+5AABOUD 17 SATLSEppcm= 7+8 TeV
+6AABOUD 17 UATLSEpp
+cm= 8 TeV
+7KHACHATRY...17 OCMSEppcm= 8 TeV
+8SIRUNYAN 17 XCMSEpp
+cm= 8 TeV
+9AAD 16 ARATLSEppcm= 8 TeV
+10AAD 16 PATLSEpp
+cm= 8 TeV
+11AAD 14 YATLSEppcm= 8 TeV
+12AAD 13 ALATLSEpp
+cm= 7 TeV
+13CHATRCHYAN13 BFCMSEppcm= 7 TeV
+14AAD 12 CDATLSEpp
+cm= 7 TeV
+15AALTONEN 12 ACCDFEppcm= 1.96 TeV
+3416ABAZOV 11 D0 Epp
+cm= 1.96 TeV
+33417AALTONEN 10 KCDFEpp
+cm= 1.96 TeV
+1318ABAZOV 07 ZD0Epp
+cm= 1.96 TeV
+1719ABAZOV 06 HD0Epp
+cm= 1.96 TeV
+2.320ABAZOV 05 SD0Epp
+cm= 1.96 TeV
+1ACHARD 04 DstudyWW–pair production, single– Wproduction and single–photon pro-
+duction with missing energy from 189 to 209 GeV. The result qu oted here is obtained
+using the WW–pair production sample. Each parameter is determined from a single–
+parameter ﬁt in which the other parameters assume their Stan dard Model values.
+2SIRUNYAN 20 BAstudy electroweak production of a Wboson in association with two
+jets, using Wdecays in the electron or muon channel. The isolated muons (e lectrons) are
+required to have a transverse momentum larger than 25 (30) Ge V, while the transverse
+momentum of the two jets has to be larger than 50 and 30 GeV. A to tal of 2.382
+(1.051) million events are selected in the muon (electron) c hannel, with a Standard
+Modelexpectationof 2 .39±0.17 (1.054±0.058) million events. Analysing thetransverse
+momentum distribution of the charged leptons from Wdecay, the following 95% C.L.
+limit is obtained: -0.0088 < λZ<0.0095. Combining this result with that from
+the closely-related electroweak Z-jet-jet production SIR UNYAN 18 BZ, the limit becomes:
+−0.0071< λZ<0.0076.
+3SIRUNYAN 19 CLstudyW WandW Zproduction in lepton + jet events, with one W
+boson decaying leptonically (electron or muon), and anothe rWorZboson decaying
+hadronically, reconstructed as a single massive large-rad ius jet. In the electron channel
+2,456 (2,235) events are selected in the W W(W Z) category, while in the muon channel
+3,996 (3572) events are selected in the W W(W Z) category. Analysing the di-boson
+invariant mass distribution, the following 95% C.L. limit i s obtained: −0.0065< λZ<0.0066.4SIRUNYAN 18 BZstudypp→Z jet jet events at 13 TeV where Z→e+e−/µ+µ−.
+Isolated electrons and muons are selected with pTof the leading/sub-leading lepton >
+https://pdg.lbl.gov Page 27 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+30/20 GeV and/vextendsingle/vextendsingleη/vextendsingle/vextendsingle<2.4, withthe di-leptoninvariantmass within 15 GeV of the Zmass.
+Thetwohighest pTjetsareselectedwith pTof theleading/sub-leadingjet >50/30 GeV
+respectively and dijet invariant mass >200 GeV. Templates in the transverse momentum
+of theZare utilized to set limits on the triple gauge couplings in th e EFT and the LEP
+parametrizations. The following 95% C.L. limit is obtained −0.010< λZ<0.010.
+5AABOUD 17 Sanalyze electroweak production of a Wboson in association with two
+jets at high dijet invariant mass, with the Wboson decaying to electron or muon plus
+neutrino. In the signal region of dijet mass larger than 1 TeV and leading-jet transverse
+momentum larger than 600 GeV, 30 events are observed in the da ta with 39 ±4 events
+expected in the Standard Model, yielding the following limi t at 95% CL for the form
+factor cut-oﬀ scale ΛFF→ ∞:−0.053< λZ<0.042.
+6AABOUD 17 Uanalyze production of W WorW Zboson pairs with one Wboson
+decaying to electron or muon plus neutrino, and the other WorZboson decaying
+hadronically. The hadronic decay system is reconstructed a s either a resolved two-jet
+system or as a single large jet. Analysing the transverse mom entum distribution of the
+hadronic system above 100 GeV yields the following limit at 9 5% CL for the form factor
+cut-oﬀ scale ΛFF→ ∞:−0.013< λZ<0.013.
+7KHACHATRYAN 17 OanalyseW Zproduction where each boson decays into electrons
+or muons. Events are required to have a tri-lepton invariant mass larger than 100 GeV,
+with one of the lepton pairs having an invariant mass within 2 0 GeV of the Zboson
+mass. The Ztransverse momentum spectrum is analyzed to set a 95% C.L. li mit of:
+−0.018< λZ<0.016.
+8SIRUNYAN 17 Xstudypp→W W/W Z→ℓνqqproduction at 8 TeV where ℓis an
+electron or muon with pT>30 or 25 GeV respectively. Suitable cuts are put on the
+pTof the dijet system and the missing ETof the event yielding a total of 285 and 204
+W Vevents observed in the electron and muon channels. The follo wing 95% C.L. limit
+is obtained: −0.011< λZ<0.011.
+9AAD 16 ARstudy WW production in ppcollisions and select 6636 W Wcandidates
+in decay modes with electrons or muons with an expected backg round of 1546 ±157
+events. Assuming the LEP formulation and setting the form-f actor Λ to inﬁnity, a ﬁt
+to the transverse momentum distribution of the leading char ged lepton, leads to a 95%
+C.L. range of −0.019< λZ<0.019.
+10AAD 16 PstudyW Zproduction in ppcollisions and select 2091 W Zcandidates in 4
+decay modes with electrons and muons, with an expectedbackg round of 1825 ±7 events.
+Analyzing the W Ztransverse momentum distribution, the resulting 95% C.L. l imit is:
+−0.016< λZ<0.016.
+11AAD 14 Ydetermine the electroweak Z-dijet cross section in 8 TeV ppcollisions. Z→
+eeandZ→µµdecays are selected with the di-lepton pT>20 GeV and mass in the
+81–101 GeV range. Minimum two jets are required with pT>55 and 45 GeV and no
+additional jets with pT>25 GeV in the rapidity interval between them. The normalized
+pTbalance between the Zand the two jets is required to be <0.15. This leads to a
+selection of 900 events with dijet mass >1 TeV. The number of signal and background
+events expected is 261 and 592 respectively. A Poisson likel ihood method is used on an
+event by event basis to obtain the 95% CL limit −0.15< λZ<0.13 for a form factor
+value Λ = ∞.12AAD 13 ALstudyW Wproduction in ppcollisions and select 1325 W Wcandidates in
+decay modes with electrons or muons with an expected backgro und of 369 ±61 events.
+Assuming the LEP formulation and setting the form-factor Λ= inﬁnity, a ﬁt to the
+transverse momentum distribution of the leading charged le pton, leads to a 95% C.L.
+range of −0.062< λZ<0.059. Supersedes AAD 12 AC.
+13CHATRCHYAN 13 BFdetermine the W+W−production cross section using unlike sign
+di-lepton ( eorµ) events with high /negationslashpT. The leptons have pT>20 GeV/c and are
+isolated. 1134 candidate events are observed with an expect ed SM background of 247 ±
+34. The pTdistribution of the leading lepton is ﬁtted to obtain 95% C.L . limits of
+−0.048≤λZ≤0.048.
+https://pdg.lbl.gov Page 28 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+14AAD 12 CDstudyW Zproduction in ppcollisions and select 317 W Zcandidates in three
+ℓνdecay modes with an expected background of 68 .0±10.0 events. The resulting 95%
+C.L. range is: −0.046< λZ<0.047. Supersedes AAD 12 V.
+15AALTONEN 12 ACstudyW Zproduction in ppcollisions and select 63 W Zcandidates
+in three ℓνdecay modes with an expected background of 7 .9±1.0 events. Based on
+the cross section and shape of the Ztransverse momentum spectrum, the following 95%
+C.L. range is reported: −0.08< λZ<0.10 for a form factor of Λ = 2 TeV.
+16ABAZOV 11 study the pp→3ℓνprocess arising in W Zproduction. They observe
+34W Zcandidates with an estimated background of 6 events. An anal ysis of the pTspectrum of the Zboson leads to a 95% C.L. limit of −0.077< λZ<0.093, for a
+form factor Λ = 2 TeV.17AALTONEN 10K study pp→W+W−withW→e/µν. ThepTof the leading
+(second) lepton is required to be >20 (10) GeV. The ﬁnal number of events selected
+is 654 of which 320 ±47 are estimated to be background. The 95% C.L. interval is
+−0.16< λZ<0.16 for Λ = 1.5 TeV and −0.14< λZ<0.15 for Λ = 2 TeV.
+18ABAZOV 07 Zset limits on anomalous TGCs using the measuredcross sectio n andpT(Z)
+distribution in W Zproduction with both the Wand the Zdecaying leptonically into
+electrons and muons. Setting the other couplings to their st andard model values, the
+95% C.L. limit for a form factor scale Λ = 2TeV is −0.17< λZ<0.21.
+19ABAZOV 06 Hstudypp→W Wproduction with a subsequent decay W W→
+e+νee−νe,W W→e±νeµ∓νµorW W→µ+νµµ−νµ. The 95% C.L. limit for a
+form factor scale Λ = 2 TeV is −0.39< λZ<0.39, ﬁxing κZ=1. With the assumption
+that the W WγandW W Zcouplings are equal the 95% C.L. one-dimensional limit (Λ
+= 2 TeV) is −0.29< λ <0.30.
+20ABAZOV 05 Sstudypp→W Zproduction with a subsequent trilepton decay to ℓνℓ′ℓ′
+(ℓandℓ′=eorµ). Three events (estimated background 0 .71±0.08 events) with WZ
+decay characteristicsare observed from which they derive l imits on the anomalous WWZ
+couplings. The 95% CL limit for a form factor scale Λ = 1.5 TeV i s−0.48< λZ<
+0.48, ﬁxing gZ
+1andκZto their Standard Model values.
+gZ
+5gZ
+5gZ
+5gZ
+5
+This coupling is CP-conserving but C- andP-violating.
+VALUE EVTS DOCUMENT ID TECN COMMENT
+−0.07±0.09 OUR AVERAGE −0.07±0.09 OUR AVERAGE −0.07±0.09 OUR AVERAGE −0.07±0.09 OUR AVERAGE Error includes scale factor of 1.1.
+−0.04+0.13
+−0.1298001ABBIENDI 04 DOPALEeecm= 183–209 GeV
+0.00±0.13±0.05 71712ACHARD 04 DL3Eeecm= 189–209 GeV
+−0.44+0.23
+−0.22±0.12 11543ACCIARRI 99 QL3Eeecm= 161+172+ 183 GeV
+• • •We do not use the following data for averages, ﬁts, limits, et c.• • •
+−0.31±0.234EBOLI 00 THEO LEP1, SLC+ Tevatron
+1ABBIENDI04 Dcombineresultsfrom W+W−inalldecaychannels. Only CP-conserving
+couplings are considered and each parameter is determined f rom a single-parameter ﬁt in
+which the other parameters assume their Standard Model valu es. The 95% conﬁdence
+interval is −0.28<gZ
+5<+0.21.
+2ACHARD 04 DstudyWW–pair production, single– Wproduction and single–photon pro-
+duction with missing energy from 189 to 209 GeV. The result qu oted here is obtained
+using the WW–pair production sample. Each parameter is determined from a single–
+parameter ﬁt in which the other parameters assume their Stan dard Model values.
+3ACCIARRI 99 QstudyW-pair, single- W, and single photon events.
+4EBOLI 00 extract this indirect value of the coupling studyin g the non-universal one-loop
+contributions to the experimental value of the Z→bbwidth (Λ=1 TeV is assumed).
+https://pdg.lbl.gov Page 29 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+gZ
+4gZ
+4gZ
+4gZ
+4This coupling is CP-violating ( C-violating and P-conserving).
+VALUE EVTS DOCUMENT ID TECN COMMENT
+−0.30±0.17 OUR AVERAGE −0.30±0.17 OUR AVERAGE −0.30±0.17 OUR AVERAGE −0.30±0.17 OUR AVERAGE
+−0.39+0.19
+−0.2018801ABDALLAH 08 CDLPHEeecm= 189–209 GeV
+−0.02+0.32
+−0.3310652ABBIENDI 01 HOPALEeecm= 189 GeV
+1ABDALLAH 08 Cdetermine this triple gauge coupling from the measurement o f the spin
+density matrix elements in e+e−→W+W−→(qq)(ℓν), where ℓ=eorµ. Values
+of all other couplings are ﬁxed to their standard model value s.
+2ABBIENDI 01 HstudyW-pair events, with one leptonically and one hadronically de caying
+W. The coupling is extracted using information from the Wproduction angle together
+with decay angles from the leptonically decaying W.
+/tildewideκZ/tildewideκZ/tildewideκZ/tildewideκZ
+This coupling is CP-violating ( C-conserving and P-violating).
+VALUE EVTS DOCUMENT ID TECN COMMENT
+−0.12+0.06
+−0.04OUR AVERAGE −0.12+0.06
+−0.04OUR AVERAGE −0.12+0.06
+−0.04OUR AVERAGE −0.12+0.06
+−0.04OUR AVERAGE
+−0.09+0.08
+−0.0518801ABDALLAH 08 CDLPHEeecm= 189–209 GeV
+−0.20+0.10
+−0.0710652ABBIENDI 01 HOPALEeecm= 189 GeV
+• • •We do not use the following data for averages, ﬁts, limits, et c.• • •
+3AABOUD 17 SATLSEpp
+cm= 7+8 TeV
+4BLINOV 11 LEP Eeecm= 183–207 GeV
+1ABDALLAH 08 Cdetermine this triple gauge coupling from the measurement o f the spin
+density matrix elements in e+e−→W+W−→(qq)(ℓν), where ℓ=eorµ. Values
+of all other couplings are ﬁxed to their standard model value s.
+2ABBIENDI 01 HstudyW-pair events, with one leptonically and one hadronically de caying
+W. The coupling is extracted using information from the Wproduction angle together
+with decay angles from the leptonically decaying W.
+3AABOUD 17 Sanalyze electroweak production of a Wboson in association with two
+jets at high dijet invariant mass, with the Wboson decaying to electron or muon plus
+neutrino. In the signal region of dijet mass larger than 1 TeV and leading-jet transverse
+momentum larger than 600 GeV, 30 events are observed in the da ta with 39 ±4 events
+expected in the Standard Model, yielding the following limi t at 95% CL for the form
+factor cut-oﬀ scale ΛFF→ ∞:−0.56</tildewideκZ<0.56.
+4BLINOV 11 use the LEP-average e+e−→W+W−cross section data for√s=
+183–207 GeV to determine an upper limit on the TGC /tildewideκZ. The average values of the
+cross sections as well as their correlation matrix, and stan dard model expectations of the
+cross sections are taken from the LEPEWWG note hep-ex/06120 34. At 95% conﬁdence
+level/vextendsingle/vextendsingle/tildewideκZ/vextendsingle/vextendsingle<0.13.
+/tildewideλZ/tildewideλZ/tildewideλZ/tildewideλZ
+This coupling is CP-violating ( C-conserving and P-violating).
+VALUE EVTS DOCUMENT ID TECN COMMENT
+−0.09±0.07 OUR AVERAGE −0.09±0.07 OUR AVERAGE −0.09±0.07 OUR AVERAGE −0.09±0.07 OUR AVERAGE
+−0.08±0.07 18801ABDALLAH 08 CDLPHEeecm= 189–209 GeV
+−0.18+0.24
+−0.1610652ABBIENDI 01 HOPALEeecm= 189 GeV
+• • •We do not use the following data for averages, ﬁts, limits, et c.• • •
+3AABOUD 17 SATLSEpp
+cm= 7+8 TeV
+4BLINOV 11 LEP Eeecm= 183–207 GeV
+https://pdg.lbl.gov Page 30 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+1ABDALLAH 08 Cdetermine this triple gauge coupling from the measurement o f the spin
+density matrix elements in e+e−→W+W−→(qq)(ℓν), where ℓ=eorµ. Values
+of all other couplings are ﬁxed to their standard model value s.
+2ABBIENDI 01 HstudyW-pair events, with one leptonically and one hadronically de caying
+W. The coupling is extracted using information from the Wproduction angle together
+with decay angles from the leptonically decaying W.
+3AABOUD 17 Sanalyze electroweak production of a Wboson in association with two
+jets at high dijet invariant mass, with the Wboson decaying to electron or muon plus
+neutrino. In the signal region of dijet mass larger than 1 TeV and leading-jet transverse
+momentum larger than 600 GeV, 30 events are observed in the da ta with 39 ±4 events
+expected in the Standard Model, yielding the following limi t at 95% CL for the form
+factor cut-oﬀ scale ΛFF→ ∞:−0.047</tildewideλZ<0.046.
+4BLINOV 11 use the LEP-average e+e−→W+W−cross section data for√s=
+183–207 GeV to determine an upper limit on the TGC /tildewideλZ. The average values of the
+cross sections as well as their correlation matrix, and stan dard model expectations of the
+cross sections are taken from the LEPEWWG note hep-ex/06120 34. At 95% conﬁdence
+level/vextendsingle/vextendsingle/tildewideλZ/vextendsingle/vextendsingle<0.31.
+WANOMALOUS MAGNETIC MOMENTWANOMALOUS MAGNETIC MOMENTWANOMALOUS MAGNETIC MOMENTWANOMALOUS MAGNETIC MOMENT
+The full magnetic moment is given by µW=e(1+κ+λ)/2mW. In the
+Standard Model, at tree level, κ=1 and λ=0. Some papers have deﬁned
+∆κ=1−κand assume that λ=0. Note that the electric quadrupole
+moment is given by −e(κ−λ)/m2
+W. A description of the parameterization
+ofthesemomentsandadditionalreferencescanbefoundinHA GIWARA87
+and BAUR 88. The parameterΛ appearing in the theoretical lim its below
+is a regularization cutoﬀ which roughly corresponds to the e nergy scale
+where the structure of the Wboson becomes manifest.
+VALUE(e/2mW) EVTS DOCUMENT ID TECN COMMENT
+2.22+0.20
+−0.192.22+0.20
+−0.192.22+0.20
+−0.192.22+0.20
+−0.1922981ABREU 01 IDLPHEeecm= 183+189 GeV
+• • •We do not use the following data for averages, ﬁts, limits, et c.• • •
+2ABE 95 GCDF
+3ALITTI 92 CUA2
+4SAMUEL 92 THEO
+5SAMUEL 91 THEO
+6GRIFOLS 88 THEO
+7GROTCH 87 THEO
+8VANDERBIJ 87 THEO
+9GRAU 85 THEO
+10SUZUKI 85 THEO
+11HERZOG 84 THEO
+1ABREU 01 Icombine results from e+e−interactions at 189 GeV leading to W+W−,
+W eνe, andννγﬁnal states with results from ABREU 99 Lat 183 GeV to determine
+∆gZ
+1, ∆κγ, andλγ. ∆κγandλγare simultaneously ﬂoated in the ﬁt to determine
+µW.
+2ABE 95 Greport−1.3< κ <3.2 forλ=0 and−0.7< λ <0.7 forκ=1 inpp→eνeγX
+andµνµγX at√s= 1.8 TeV.
+3ALITTI 92 Cmeasure κ= 1+2.6
+−2.2andλ= 0+1.7
+−1.8inpp→eνγ+ X at√s= 630 GeV.
+At 95%CL they report −3.5< κ <5.9 and−3.6< λ <3.5.
+https://pdg.lbl.gov Page 31 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+4SAMUEL 92 use preliminary CDF and UA2 data and ﬁnd −2.4< κ <3.7 at 96%CL
+and−3.1< κ <4.2 at 95%CL respectively. They use data for Wγproduction and
+radiative Wdecay.
+5SAMUEL 91 use preliminary CDF data for pp→WγX to obtain −11.3≤∆κ≤
+10.9. Note that their κ= 1−∆κ.
+6GRIFOLS 88 uses deviation from ρparameter to set limit ∆ κ/lessorsimilar65 (M2
+W/Λ2).
+7GROTCH 87 ﬁnds the limit −37<∆κ <73.5 (90% CL) from the experimental limits
+one+e−→ννγassuming three neutrino generations and −19.5<∆κ <56 for
+four generations. Note their ∆ κhas the opposite sign as our deﬁnition.
+8VANDERBIJ 87 uses existing limits to the photon structure to obtain/vextendsingle/vextendsingle∆κ/vextendsingle/vextendsingle<33
+(mW/Λ). In addition VANDERBIJ 87 discusses problems with using theρparameter of
+the Standard Model to determine ∆ κ.9GRAU 85 uses the muon anomaly to derive a coupled limit on the a nomalous magnetic
+dipole and electric quadrupole ( λ) moments 1.05 >∆κln(Λ/mW) +λ/2>−2.77. In
+the Standard Model λ= 0.10SUZUKI 85 uses partial-wave unitarity at high energies to ob tain/vextendsingle/vextendsingle∆κ/vextendsingle/vextendsingle/lessorsimilar190
+(mW/Λ)2. From the anomalous magnetic moment of the muon, SUZUKI 85 ob tains/vextendsingle/vextendsingle∆κ/vextendsingle/vextendsingle/lessorsimilar2.2/ln(Λ/ mW). Finally SUZUKI 85 uses deviations from the ρparameter and
+obtains a very qualitative, order-of-magnitude limit/vextendsingle/vextendsingle∆κ/vextendsingle/vextendsingle/lessorsimilar150 (mW/Λ)4if/vextendsingle/vextendsingle∆κ/vextendsingle/vextendsingle≪
+1.11HERZOG 84 consider the contribution of W-boson to muon magnetic moment including
+anomalous coupling of W Wγ. Obtain a limit −1<∆κ <3 for Λ/greaterorsimilar1 TeV.
+cWWW/Λ2,cW/Λ2,cB/Λ2cWWW/Λ2,cW/Λ2,cB/Λ2cWWW/Λ2,cW/Λ2,cB/Λ2cWWW/Λ2,cW/Λ2,cB/Λ2
+These couplings are used in EFT-based approaches to anomalo us couplings. They are
+linearly related to the couplings discussed above.
+VALUE DOCUMENT ID TECN COMMENT
+• • •We do not use the following data for averages, ﬁts, limits, et c.• • •
+1TUMASYAN 22 ABCMSEppcm= 13 TeV
+2TUMASYAN 22 ECMSEpp
+cm= 13 TeV
+3AAD 21 ACATLSEppcm= 13 TeV
+4AAD 21 WATLSEpp
+cm= 13 TeV
+5SIRUNYAN 21 GCMSEppcm= 13 TeV
+6SIRUNYAN 20 BACMSEpp
+cm= 13 TeV
+7SIRUNYAN 20 BFCMSEpp
+cm= 13 TeV
+8AABOUD 19 BAATLSEpp
+cm= 13 TeV
+9SIRUNYAN 19 ADCMSEpp
+cm= 13 TeV
+10SIRUNYAN 19 CLCMSEpp
+cm= 13 TeV
+11AABOUD 18 QATLSEpp
+cm= 13 TeV
+12SIRUNYAN 18 BZCMSEpp
+cm= 13 TeV
+13AABOUD 17 SATLSEpp
+cm= 7+8 TeV
+14AABOUD 17 UATLSEpp
+cm= 8 TeV
+15KHACHATRY...17 OCMSEpp
+cm= 8 TeV
+16SIRUNYAN 17 XCMSEpp
+cm= 8 TeV
+17AAD 16 ARATLSEpp
+cm= 8 TeV
+18AAD 16 PATLSEppcm= 8 TeV
+19KHACHATRY...16 BICMSEpp
+cm= 8 TeV
+https://pdg.lbl.gov Page 32 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+1TUMASYAN 22 ABstudyW Zproduction, measuring cross sections and various distri-
+butions. Analysing the W Zinvariant mass distribution, the following 95% C.L. limits
+are derived in units of TeV−2:−2.5<cW/Λ2<0.3,−1.0<cWWW/Λ2<1.2,
+−43<cb/Λ2<113,−0.62</tildewidecWWW/Λ2<0.53,−32</tildewidecW/Λ2<32.
+2TUMASYAN 22 Emeasure Wγproduction where the Wboson decays to electrons or
+muons. Analysing the photon transverse momentum distribut ion in bins of lepton az-
+imuth, the following 95% C.L. limit is derived in units of TeV−2:−0.062<c3W/Λ2<
+0.052. This limit is derived including the non-SM, SM and the ir interference eﬀects.
+3AAD 21 ACstudy the diﬀerential cross-section for the electroweak pr oduction of dijets
+in association with a Zboson, where the Zboson decays to electrons or muons. The
+number of events selected in the data is 10,870 (12,125) in th e electron (muon) channel.
+Analyzing the distribution of the azimuthal separation of t he two jets, the following
+95% C.L. limits are derived in units of TeV−2:−2.7<cW W W/Λ2<5.8,−1.6
+</tildewidecW W W/Λ2<2.0,−0.19<cW/Λ2<0.41,−0.11</tildewidecW/Λ2<0.14,
+−6.31<cHW B/Λ2<1.01, 0.23 </tildewidecHW B/Λ2<2.35.
+4AAD 21 WanalyzeW+W−production in association with at least one jet. Events
+with exactly one oppositely-charged electron-muon pair an d at least one hadronic jet of
+transverse momentum larger than 30 GeV (120 GeV) are selecte d. In the data, 89,239
+(5,825) events are found, with a total Standard-Model expec tation of 91600 ±2500
+(5980±150). Analyzing the electron-muon invariant mass distribu tion, the following
+limit at 95% C.L. is obtained: −0.33<cW/Λ2<0.33 (−0.60<cW/Λ2<0.58),
+for a ﬁxed choice of Λ = 1 TeV.5SIRUNYAN 21 Gmeasure Wγproduction where the Wdecays into electrons or muons.
+In the data, 385,224 (395,818) events are selected in the ele ctron (muon) channel, with a
+totalStandard-Modelexpectationof396913 ±54686 (396257 ±22837) events. Analysing
+the photon transverse momentum distribution, the followin g 95% C.L. limits are derived
+in units of TeV−2:−0.90<cW W W/Λ2<0.91,−40<cB/Λ2<41,−0.45<
+cW W W/Λ2<0.45,−20<cW/Λ2<20.
+6SIRUNYAN 20 BAstudy electroweak production of a Wboson in association with two
+jets, using Wdecays in the electron or muon channel. The isolated muons (e lectrons) are
+required to have a transverse momentum larger than 25 (30) Ge V, while the transverse
+momentum of the two jets has to be larger than 50 and 30 GeV. A to tal of 2.382
+(1.051) million events are selected in the muon (electron) c hannel, with a Standard
+Modelexpectationof 2 .39±0.17 (1.054±0.058) million events. Analysing thetransverse
+momentum distribution of the charged leptons from Wdecay, the following 95% C.L.
+limits are obtained in units of TeV−2:−2.3<cWWW/Λ2<2.5,−8.8<
+cW/Λ2<16,−45<cB/Λ2<46. Combining these results with those from the
+closely-related electroweak Z-jet-jet production SIRUNYAN 18 BZ, the limits become:
+−1.8<cWWW/Λ2<2.0,−5.8<cW/Λ2<10,−43<cB/Λ2<45.
+7SIRUNYAN 20 BFstudyW+W−production with the Wbosons decaying to electrons or
+muons. Theleading(subleading)leptonisrequiredtohavea transversemomentumlarger
+than 25 (20) GeV. Events with a same-ﬂavor di-lepton invaria nt mass within 15 GeV of
+theZmass are rejected, as are event with a third lepton of transve rse momentum larger
+than 10 GeV. In the same- (diﬀerent-) ﬂavor category a total o f 9,604 (20,270) events are
+selected while the number of expected events is 9640 ±490 (20280 ±430). Analyzing
+the diﬀerent-ﬂavor di-lepton invariant mass distribution , the following 95% C.L. limits
+are obtained in units of TeV−2:−1.8<cWWW/Λ2<1.8,−3.6<cW/Λ2<
+2.8,−9.4<cB/Λ2<8.5.
+8AABOUD 19 BAstudyW Wproduction in decay modes with an electron and a muon.
+Thechargedleptonsareeachrequiredtohaveatransversemo mentumlargerthan27GeV
+and rapidity less than 2.5. The electron-muon system is requ ired to have a mass larger
+than 55 GeV and a transverse momentum larger than 30 GeV. The m issing transverse
+energy must be larger than 20 GeV. Events containing a jet wit h transverse momentum
+exceeding 35 GeV and rapidity smaller than 4.5 are rejected. A total of 12,659 events are
+https://pdg.lbl.gov Page 33 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+selected in the data, with an expected background of 4240 ±477 events. Analysing the
+transverse momentum spectrum of the leading charged lepton , the following 95% C.L.
+limits are derived in units of TeV−2:−3.4<cWWW/Λ2<3.3,−7.4<cW/Λ2<
+4.1,−21<cB/Λ2<18,−1.6<cW W W/Λ2<1.6,−76<cW/Λ2<76.
+9SIRUNYAN 19 ADstudy inclusive W Zproduction, with WandZdecaying to electrons
+or muons. The leading (subleading) charged lepton candidat e from the Zboson decay
+is required to have a transverse momentum larger than 25 GeV ( 10 GeV). The charged
+lepton candidate from the Wboson decay is required to have a transverse momentum
+larger than 25 GeV. The invariant mass of the two leptons from Zdecay is required
+to be within 15 GeV of the Zmass, while the invariant mass of the tri-lepton system
+is required to exceed 100 GeV. A total of 3,831 tri-lepton eve nts are observed, with a
+ﬁtted SM W Zsignal of 3166 ±62 events and a ﬁtted background of 666 ±45 events.
+The approximated W Zinvariant mass distribution is analyzed to set 95% C.L. limi ts as
+follows: −4.1<cW/Λ2<1.1,−2.0<cWWW/Λ2<2.1,−100<cB/Λ2<
+160, in units of TeV−2.
+10SIRUNYAN 19 CLstudyW WandW Zproduction in lepton + jet events, with one W
+boson decaying leptonically (electron or muon), and anothe rWorZboson decaying
+hadronically, reconstructed as a single massive large-rad ius jet. In the electron channel
+2,456 (2,235) events are selected in the W W(W Z) category, while in the muon channel
+3,996 (3572) events are selected in the W W(W Z) category. Analysing the di-boson
+invariant mass distribution, the following 95% C.L. limits are obtained in units of TeV−2:
+−1.58<cWWW/Λ2<1.59,−2.00<cW/Λ2<2.65,−8.78<cB/Λ2<
+8.54.11AABOUD 18 Qstudypp→ZZevents at√s= 13 TeV with Z→e+e−orZ→
+µ+µ−. The number of events observed in the 4 e, 2e2µ, and 4µchannels is 249, 465,
+and 303 respectively. Analysing the pTspectrum of the leading Zboson, the following
+the following 95% C.L. limits are derived in units of TeV−4:−5.9<c/tildewideBW/Λ4<5.9,
+−3.0<cWW/Λ4<3.0,−3.3<cBW/Λ4<3.3,−2.7<cBB/Λ4<2.8.
+12SIRUNYAN 18 BZstudypp→Z jet jet events at 13 TeV where Z→e+e−/µ+µ−.
+Isolated electrons and muons are selected with pTof the leading/sub-leading lepton >
+30/20 GeV and/vextendsingle/vextendsingleη/vextendsingle/vextendsingle<2.4, with the di-lepton invariant mass within 15 GeV of the Z
+mass. The two highest pTjets are selected with pTof the leading/sub-leading jet >
+50/30 GeV respectively and dijet invariant mass >200 GeV. Templates in the transverse
+momentum of the Zare utilized to set limits on the triple gauge couplings in th e EFT
+and the LEP parametrizations. The following 95% C.L. limits are obtained in units of
+TeV−2:−2.6<cWWW/Λ2<2.6 and−8.4<cW/Λ2<10.1.
+13AABOUD 17 Sanalyze electroweak production of a Wboson in association with two
+jets at high dijet invariant mass, with the Wboson decaying to electron or muon plus
+neutrino. In the signal region of dijet mass larger than 1 TeV and leading-jet transverse
+momentum larger than 600 GeV, 30 events are observed in the da ta with 39 ±4 events
+expected in the Standard Model, yielding the following limi ts at 95% CL for the form
+factor cut-oﬀ scale ΛFF→ ∞:−33<cW/Λ2<30,−170<cB/Λ2<160,
+−13<cWWW/Λ2<9,−580<c/tildewiderW/Λ2<580,−11<c/tildewiderWWW/Λ2<11,
+in units of TeV−2.14AABOUD 17 Uanalyze production of W WorW Zboson pairs with one Wboson
+decaying to electron or muon plus neutrino, and the other WorZboson decaying
+hadronically. The hadronic decay system is reconstructed a s either a resolved two-jet
+system or as a single large jet. Analysing the transverse mom entum distribution of the
+hadronic system above 100 GeV yields the following limits at 95% CL for the form factor
+cut-oﬀ scale ΛFF→ ∞:−3.1<cWWW/Λ2<3.1,−19<cB/Λ2<20,
+−5.1<cW/Λ2<5.8, in units of TeV−2.
+15KHACHATRYAN 17 OanalyseW Zproduction where each boson decays into electrons
+or muons. Events are required to have a tri-lepton invariant mass larger than 100 GeV,
+https://pdg.lbl.gov Page 34 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+with one of the lepton pairs having an invariant mass within 2 0 GeV of the Zboson
+mass. The Ztransverse momentum spectrum is analyzed to set 95% C.L. lim its of:
+−260<cB/Λ2<210,−4.2<cW/Λ2<8.0,−4.6<cWWW/Λ2<4.2, in
+units of TeV−2.16SIRUNYAN 17 Xstudypp→W W/W Z→ℓνqqproduction at 8 TeV where ℓis an
+electron or muon with pT>30 or 25 GeV respectively. Suitable cuts are put on the
+pTof the dijet system and the missing ETof the event yielding a total of 285 and 204
+W Vevents observed in the electron and muon channels. The follo wing 95% C.L. limits
+in units of TeV−2are obtained: −2.7<cWWW/Λ2<2.7,−14<cB/Λ2<17,
+−2.0<cW/Λ2<5.7.
+17AAD 16 ARstudyW Wproduction in ppcollisions and select 6636 W Wcandidates
+in decay modes with electrons or muons with an expected backg round of 1546 ±157
+events. Assuming an EFT formulation, a ﬁt to the transverse m omentum distribution of
+the leading charged lepton, leads to 95% C.L. ranges of: −4.61<cWWW/Λ2<4.60,
+−5.87<cW/Λ2<10.54 and −20.9<cB/Λ2<26.3,in units of TeV−2.
+18AAD 16 PstudyW Zproduction in ppcollisions and select 2091 W Zcandidates in 4
+decay modes with electrons and muons, with an expectedbackg round of 1825 ±7 events.
+Analyzing the W Ztransverse momentum distribution, the resulting 95% C.L. l imits are:
+−3.9<cWWW/Λ2<4.0,−4.3<cW/Λ2<6.8, and −320<cB/Λ2<210, in
+units of TeV−2.19KHACHATRYAN 16 BIdetermine the W+W−production cross section using unlike
+sign di-lepton ( eorµ) events with high pT. The leptons have pT>20 GeV/c
+and are isolated. Events are required to have no jets above pTof 30 GeV/c. 4847
+(2233) events are selected with diﬀerent (same) ﬂavor lepto ns, with an expected total
+background of 1179 ±123 (643 ±73) events. Analysing the di-lepton invariant mass
+spectrum, the following values are obtained: cWWW/Λ2= 0.1±3.2,cW/Λ2=
+−3.6+5.0
+−4.5andcB/Λ2=−3.2+15.0
+−14.5, in units of TeV−2. The limits at 95% C.L. are:
+−5.7<cWWW/Λ2<5.9,−11.4<cW/Λ2<5.4 and −29.2<cB/Λ2<23.9, in
+units of TeV−2.
+ANOMALOUS W/ZQUARTIC COUPLINGS ANOMALOUS W/ZQUARTIC COUPLINGS ANOMALOUS W/ZQUARTIC COUPLINGS ANOMALOUS W/ZQUARTIC COUPLINGS
+Revised March 2024 by M.W. Gr¨ unewald (U. College Dublin)
+and A. Gurtu (CERN; TIFR Mumbay).
+Quartic couplings, WWZZ,WWZγ,WWγγ, andZZγγ,
+were studied at LEP and Tevatron at energies at which the
+Standard Model predicts negligible contributions to multi boson
+production. Thus, to parametrize limits on these couplings , an
+eﬀective theory approach is adopted which supplements the
+Standard Model Lagrangian with higher dimensional operato rs
+which include quartic couplings. The LEP collaborations ch ose
+the lowest dimensional representation of operators (dimen sion
+6) which presumes the SU(2) ×U(1) gauge symmetry is broken
+bymeansotherthantheconventionalHiggsscalardoublet[1 –3].
+https://pdg.lbl.gov Page 35 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+In this representation possible quartic couplings, a0,ac,an, are
+expressed in terms of the following dimension-6 operators [ 1,2];
+L0
+6=−e2
+16Λ2a0FµνFµν/vectorWα·/vectorWα
+Lc
+6=−e2
+16Λ2acFµαFµβ/vectorWβ·/vectorWα
+Ln
+6=−ie2
+16Λ2anǫijkW(i)
+µαW(j)
+νW(k)αFµν
+/tildewideL0
+6=−e2
+16Λ2/tildewidea0Fµν/tildewideFµν/vectorWα·/vectorWα
+/tildewideLn
+6=−ie2
+16Λ2/tildewideanǫijkW(i)
+µαW(j)
+νW(k)α/tildewideFµν
+whereF,Ware photon and Wﬁelds,L0
+6andLc
+6conserve C,
+Pseparately ( /tildewideL0
+6conserves only C) and generate anomalous
+W+W−γγandZZγγcouplings, Ln
+6violatesCP(/tildewideLn
+6violates
+bothCandP) and generates an anomalous W+W−Zγcou-
+pling, and Λ is an energy scale for new physics. For the ZZγγ
+couplingthe CP-violatingtermrepresented by Ln
+6does not con-
+tribute. These couplings are assumed to be real and to vanish
+at tree level in the Standard Model.
+Within the same framework as above, a more recent de-
+scription of the quartic couplings [3] treats the anomalous parts
+of theWWγγandZZγγcouplings separately, leading to two
+sets parametrized as aV
+0/Λ2andaV
+c/Λ2, whereV=WorZ.
+With the discovery of a Higgs at the LHC in 2012, it is
+then useful to go to the next higher dimensional representa-
+tion (dimension 8 operators) in which the gauge symmetry is
+broken by the conventional Higgs scalar doublet [3,4]. Ther e
+are 14 operators which can contribute to the anomalous quart ic
+coupling signal. Some of the operators have analogues in the
+dimension 6 scheme. The CMS collaboration, [5], have used
+this parametrization, in which the connections between the two
+schemes are also summarized:
+https://pdg.lbl.gov Page 36 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+LAQGC=−e2
+8aW
+0
+Λ2FµνFµνW+aW−
+a
+−e2
+16aW
+c
+Λ2FµνFµa(W+νW−
+a+W−νW+
+a)
+−e2g2κW
+0
+Λ2FµνZµνW+aW−
+a
+−e2g2
+2κW
+c
+Λ2FµνZµa(W+νW−
+a+W−νW+
+a)
++fT,0
+Λ4Tr[/hatwiderWµν/hatwiderWµν]×Tr[/hatwiderWαβ/hatwiderWαβ]
+The energy scale of possible new physics is Λ, and g=
+e/sin(θW),ebeing the unit electric charge and θWthe Wein-
+berg angle. The ﬁeld tensors are described in [3,4].
+The two dimension 6 operators aW
+0/Λ2andaW
+c/Λ2are asso-
+ciated with the WWγγvertex. Among dimension 8 operators,
+κW
+0/Λ2andκW
+c/Λ2are associated with the WWZγ vertex,
+whereas the parameter fT,0/Λ4contributes to both vertices.
+There is a relationship between these two dimension 6 parame -
+ters and the dimension 8 parameters fM,i/Λ4as follows [3]:
+aW
+0
+Λ2=−4M2
+W
+g2fM,0
+Λ4−8M2
+W
+g′2fM,2
+Λ4
+aW
+c
+Λ2=−4M2
+W
+g2fM,1
+Λ4−8M2
+W
+g′2fM,3
+Λ4
+whereg′=e/cos(θW) andMWis the invariant mass of
+theWboson. This relation provides a translation between lim-
+its on dimension 6 operators aW
+0,candfM,j/Λ4. It is further
+required [4] that fM,0= 2fM,2andfM,1= 2fM,3which sup-
+pressescontributionstothe WWZγvertex. Thecompleteset of
+Lagrangian contributions as presented in [4] corresponds t o 19
+https://pdg.lbl.gov Page 37 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+anomalous couplings in total – fS,i, i= 1,2,fM,i, i= 0,...,8
+andfT,i,i= 0,...,9 – each scaled by 1 /Λ4.
+Another approach to couplings is the so called K-matrix
+framework [7], in which the anomalous couplings can be
+expressed in terms of two parameters α4andα5, which account
+for all BSM eﬀects.
+The LHC collaborations have published couplings results
+based on various theoretical frameworks. It is hoped that th e
+collaborations will agree to use at least one common set of
+parameters to express these limits to enable the reader to ma ke
+a comparison, and to allow for a possible LHC combination.
+References
+1. G. Belanger and F. Boudjema, Phys. Lett. B288, 201
+(1992).
+2. J.W. Stirling and A. Werthenbach, Eur. Phys. J. C14, 103
+(2000);
+J.W. Stirling and A. Werthenbach, Phys. Lett. B466, 369
+(1999);
+A. Denner et al., Eur. Phys. J. C20, 201 (2001);
+G. Montagna et al., Phys. Lett. B515, 197 (2001).
+3. G. Belanger et al., Eur. Phys. J. C13, 283 (2000).
+4. O.J.P. ´Eboli, M.C. Gonzalez-Garcia, and S.M. Lietti, Phys.
+Rev.D69, 095005 (2004);
+O.J.P.´Eboli, M.C. Gonzalez-Garcia, and J.K. Mizukoshi,
+Phys. Rev. D77, 073005 (2006).
+5. S. Chatrchyan et al., Phys. Rev. D90, 032008 (2014);
+S. Chatrchyan et al., Phys. Rev. Lett. 114, 051801 (2015).
+6. G. Aad et al., Phys. Rev. Lett. 113, 141803 (2014).
+7. A. Albateanu, W. Killian, and J. Reuter, JHEP 0811, 010
+(2008).
+a0/Λ2,ac/Λ2,an/Λ2,κW
+0/Λ2,κW
+c/Λ2,fT,0/Λ4,fM,i/Λ4,α4,α5, a0/Λ2,ac/Λ2,an/Λ2,κW
+0/Λ2,κW
+c/Λ2,fT,0/Λ4,fM,i/Λ4,α4,α5, a0/Λ2,ac/Λ2,an/Λ2,κW
+0/Λ2,κW
+c/Λ2,fT,0/Λ4,fM,i/Λ4,α4,α5, a0/Λ2,ac/Λ2,an/Λ2,κW
+0/Λ2,κW
+c/Λ2,fT,0/Λ4,fM,i/Λ4,α4,α5,
+FS,i/Λ4, FM,i/Λ4, FT,i/Λ4FS,i/Λ4, FM,i/Λ4, FT,i/Λ4FS,i/Λ4, FM,i/Λ4, FT,i/Λ4FS,i/Λ4, FM,i/Λ4, FT,i/Λ4
+Anomalous WquarticcouplingsaremeasuredbytheexperimentsatLEP,th eTevatron,
+and the LHC. Some of the recent results from the Tevatron and L HC experiments
+https://pdg.lbl.gov Page 38 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+individually surpass the combined LEP-2 results in precisi on (see below). As discussed
+in the review on the “Anomalous W/Zquartic couplings (QGCS),” the measurements
+are typically done using diﬀerent operator expansions whic h then do not allow the
+results to be compared and averaged. At least one common fram ework should be
+agreed upon for the use in the future publications by the expe riments.
+Some publications from LHC experiments derive limits for va rious assumed values of
+the form-factor cutoﬀ ΛFF. The values quoted below are for ΛFF→ ∞.
+VALUE DOCUMENT ID TECN COMMENT
+• • •We do not use the following data for averages, ﬁts, limits, et c.• • •
+1AAD 24 ADATLSEpp
+cm= 13 TeV
+2AAD 24 AMATLSEppcm= 13 TeV
+3AAD 24 CATLSEpp
+cm= 13 TeV
+4AAD 24 CHATLSEppcm= 13 TeV
+5AAD 23 BHATLSEpp
+cm= 13 TeV
+6AAD 23 KATLSEppcm= 13 TeV
+7TUMASYAN 23 AKCMSEpp
+cm= 13 TeV
+8TUMASYAN 23 AMCMSEppcm= 13 TeV
+9SIRUNYAN 21 CMS Epp
+cm= 13 TeV
+10TUMASYAN 21 ACMSEppcm= 13 TeV
+11TUMASYAN 21 BCMSEpp
+cm= 13 TeV
+12SIRUNAYN 20 CMS Eppcm= 13 TeV
+13SIRUNYAN 20 ALCMSEpp
+cm= 13 TeV
+14SIRUNYAN 20 BDCMSEpp
+cm= 13 TeV
+15SIRUNYAN 19 BMCMSEpp
+cm= 13 TeV
+16SIRUNYAN 19 BPCMSEpp
+cm= 13 TeV
+17SIRUNYAN 19 CQCMSEpp
+cm= 13 TeV
+18SIRUNYAN 18 CCCMSEpp
+cm= 13 TeV
+19AABOUD 17 AAATLSEpp
+cm= 8 TeV
+20AABOUD 17 AGATLSEpp
+cm= 8 TeV
+21AABOUD 17 DATLSEpp
+cm= 8 TeV
+22AABOUD 17 JATLSEpp
+cm= 8 TeV
+23AABOUD 17 MATLSEppcm= 8 TeV
+24KHACHATRY...17 AACMSEpp
+cm= 8 TeV
+25KHACHATRY...17 MCMSEppcm= 8 TeV
+26SIRUNYAN 17 ADCMSEpp
+cm= 13 TeV
+27SIRUNYAN 17 ARCMSEppcm= 8 TeV
+28AABOUD 16 EATLSEpp
+cm= 8 TeV
+29AAD 16 QATLSEppcm= 8 TeV
+30KHACHATRY...16 AXCMSEpp
+cm= 8 TeV
+31AAD 15 NATLSEppcm= 8 TeV
+https://pdg.lbl.gov Page 39 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+32KHACHATRY...15 DCMSEppcm= 8 TeV
+33AAD 14 AMATLS
+34CHATRCHYAN14 QCMS
+35ABAZOV 13 DD0
+36CHATRCHYAN13 AACMS
+37ABBIENDI 04 BOPAL
+38ABBIENDI 04 LOPAL
+39HEISTER 04 AALEP
+40ABDALLAH 03 IDLPH
+41ACHARD 02 FL3
+1AAD 24 ADtag same-sign W Wproduction, with the Wbosons decaying into electrons
+or muons, in association with at least two jets with large inv ariant mass and rapidity
+diﬀerence. The di-lepton invariant mass distribution is us ed to extract the following 95%
+C.L. limits: −4.1<fM,0/Λ4<4.1,−6.8<fM,1/Λ4<7.0,−9.8<fM,7/Λ4<
+9.5,−5.9<fS02/Λ4<5.9,−23.5<fS,1/Λ4<23.6,−0.36<fT,0/Λ4<0.36,
+−0.174<fT,1/Λ4<0.186,−0.63<fT,2/Λ4<0.74, in units of TeV−4.
+2AAD 24 AMtagW Zproduction, with the bosons decaying into electrons or muon s, in
+association with two jets. The transverse mass of the W Zsystem is used to extract
+the following 95% C.L. limits: −0.57<fT,0/Λ4<0.56,−0.39<fT,1/Λ4<0.35,
+−1.2<fT,2/Λ4<1.0,−5.8<fM,0/Λ4<5.6,−8.6<fM,1/Λ4<8.5,
+−11.3<fM,7/Λ4<11.3,−10.4<fS02/Λ4<10.4,−30<fS,1/Λ4<30, in
+units of TeV−4.3AAD 24 Cstudy theproduction of four chargedleptons(electronsor m uons) in association
+with two jets. Analysing the 4-lepton invariant mass distri bution and the di-jet invarinat
+mass distribution leads to the following 95% C.L. limits: −0.98<fT,0/Λ4<0.93,
+−1.2<fT,1/Λ4<1.2,−2.5<fT,2/Λ4<2.4,−2.5<fT,5/Λ4<2.4,−3.9<
+fT,6/Λ4<3.9,−8.5<fT,7/Λ4<8.1,−2.1<fT,8/Λ4<2.1,−4.5<fT,9/Λ4<
+4.5, in units of TeV−4. The article also reports limits on these couplings by cutti ng the
+EFT expansion at various values of the cut-oﬀ scale.
+4AAD 24 CHstudy electroweak Wγproduction in association with two jets. The distribu-
+tion of the transverse momentum of the two-jet system or of th e lepton is analysed to
+set the following 95% C.L. limits: −1.8<fT,0/Λ4<1.8,−1.1<fT,1/Λ4<1.2,
+−3.1<fT,2/Λ4<3.5,−2.4<fT,3/Λ4<2.6,−2.2<fT,4/Λ4<2.2,
+−1.2<fT,5/Λ4<1.3,−1.0<fT,6/Λ4<1.1,−2.7<fT,7/Λ4<2.8,
+−24<fM,0/Λ4<24,−37<fM,1/Λ4<38,−8.6<fM,2/Λ4<8.5,
+−13<fM,3/Λ4<14,−15<fM,4/Λ4<15,−14<fM,5/Λ4<12,−66<
+fM,7/Λ4<65, in units of TeV−4.
+5AAD 23 BHstudypp→Zγγevents with the Zboson decaying to electron or
+muon pairs. The number of observed data events is 148 for the e lectron mode and
+171 for the muon mode. The respective number of (data-backgr ound) events is
+105.5±12.2(stat)±8.1(syst) and 120 .4±13.1(stat)±9.4(syst). The corresponding
+number of predicted signal events is 91 .5±0.9 and 119 .5±1.0 using SHERPA (NLO),
+and 91.0±1.0 and 118 .1±1.2 using MADGRAPH 5 AMC (NLO), where the error
+is statistical only. Analysing the transverse momentum dis tribution of the dilepton sys-
+tem, the following 95% C.L. limits are derived: −9.87<fT,0/Λ4<9.33,−9.88<
+fT,1/Λ4<9.34,−20.31<fT,2/Λ4<18.68,−4.64<fT,5/Λ4<4.54,−7.04<
+https://pdg.lbl.gov Page 40 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+fT,6/Λ4<6.94,−15.55<fT,7/Λ4<15.04,−1.64<fT,8/Λ4<1.61,−3.26<
+fT,9/Λ4<3.26, in units of TeV−4.
+6AAD 23 Kmeasure Zproduction in association with a photon and two jets in proto n-
+protoncollisions at13TeVCM energy, wherethe Zboson decaysintoneutrinos. Withina
+sensitive ﬁducial phase-space region, 356 signal events ar e selected, with an expectation
+of 357±30. Analysing the photon transverse energy distribution, t he following 95%
+C.L. limits are derived in units of TeV−4:−0.094<fT,0/Λ4<0.084,−0.088<
+fT,5/Λ4<0.099,−0.059<fT,8/Λ4<0.059,−0.13<fT,9/Λ4<0.13,−4.6<
+fM,0/Λ4<4.6,−7.7<fM,1/Λ4<7.7,−1.9<fM,2/Λ4<1.9.
+7TUMASYAN 23 AKstudy electroweak Wγproduction in association with 2 jets. The
+events selected for the couplings analysis are required to h ave a dijet invariant mass in
+excess of 800 GeV, jet-jet separation of at least 2.5 in rapid ity, invariant mass of the
+Wγsystem larger than 150 GeV and transverse photon momentum la rger than 100
+GeV. Analysing the Wγinvariant mass distribution, varying one coupling at a time while
+ﬁxing the others to their Standard Model value, leads to the f ollowing 95% C.L. limits:
+−5.6<fM,0/Λ4<5.5,−7.8<fM,1/Λ4<8.1,−1.9<fM,2/Λ4<1.9,
+−2.7<fM,3/Λ4<2.7,−3.7<fM,4/Λ4<3.6,−3.9<fM,5/Λ4<3.9,
+−14<fM,7/Λ4<14,−0.47<fT,0/Λ4<0.51,−0.31<fT,1/Λ4<0.34,
+−0.85<fT,2/Λ4<1.0,−0.31<fT,5/Λ4<0.33,−0.25<fT,6/Λ4<0.27,
+−0.67<fT,7/Λ4<0.73, in units of TeV−4.
+8TUMASYAN 23 AMuse the combined CMS-TOTEM detector system to study exclusi ve
+γγ→W Wandγγ→ZZproduction in ppcollisions at 13 TeV. The WandZare
+identiﬁedthroughtheirhadronicdecayswiththeaddedrequ irementsoftheinvariantmass
+of the di-boson pair to be larger than 1 TeV, and the relative b eam proton momentum
+loss between 0.04 and 0.20. The following limits are obtaine d at 95% C.L.: (i) on
+the dimension-6 (LEP like) couplings, in units of GeV−2:/vextendsingle/vextendsingleaW
+0/Λ2/vextendsingle/vextendsingle<4.3×10−6,
+/vextendsingle/vextendsingleaW
+C/Λ2/vextendsingle/vextendsingle<1.6×10−5,/vextendsingle/vextendsingleaZ
+0/Λ2/vextendsingle/vextendsingle<0.9×10−5,/vextendsingle/vextendsingleaZ
+C/Λ2/vextendsingle/vextendsingle<4.0×10−5. (ii)
+on the dimension-8 operators, in units of TeV−4:/vextendsingle/vextendsinglefM,0/Λ4/vextendsingle/vextendsingle<66.0,/vextendsingle/vextendsinglefM,1/Λ4/vextendsingle/vextendsingle<
+245.5,/vextendsingle/vextendsinglefM,2/Λ4/vextendsingle/vextendsingle<9.8,/vextendsingle/vextendsinglefM,3/Λ4/vextendsingle/vextendsingle<73.0,/vextendsingle/vextendsinglefM,4/Λ4/vextendsingle/vextendsingle<36.0,/vextendsingle/vextendsinglefM,5/Λ4/vextendsingle/vextendsingle<67.0,
+/vextendsingle/vextendsinglefM,7/Λ4/vextendsingle/vextendsingle<490.9.
+9SIRUNYAN 21 study electroweak Z-pair production in association with two jets, with
+theZbosons decaying to oppositely-charged electron or muon pai rs. Leptons with high
+transverse momentum are selected, with the di-lepton invar iant mass of the two Zboson
+candidates between 60 GeV and 120 GeV, and the four-lepton in variant mass larger than
+180 GeV. A total of 365 events are selected in the data, while t he number of expected
+events is 370 ±48. Analyzing the four-lepton invariant mass distribution , the following
+95% C.L. limits are derived: −0.24<fT,0/Λ4<0.22,−0.31<fT,1/Λ4<0.31,
+−0.63<fT,2/Λ4<0.59,−0.43<fT,8/Λ4<0.43,−0.92<fT,9/Λ4<0.92, in
+units of TeV−4.10TUMASYAN 21 Astudy electroweak Zγproduction in association with two jets, where
+theZboson decays to electron or muon pairs and the pair of two jets has high invariant
+mass, superseedingSIRUNYAN 20 AL. Thenumber of observed (expected)electronevents
+in the barrel and endcap regions are 375 (349 ±9) and 174 (166 ±6) events, respectively,
+while for muon events the respective numbers are 584 (612 ±13) and 320 (303 ±8).
+Analysing the Zγinvariant mass distribution, the following 95% C.L. limits are derived:
+−15.8<fM,0/Λ4<16.0,−35.0<fM,1/Λ4<34.7,−6.55<fM,2/Λ4<6.49,
+−13.0<fM,3/Λ4<13.0,−13.0<fM,4/Λ4<12.7,−22.2<fM,5/Λ4<21.3,
+−56.6<fM,7/Λ4<55.9,−0.64<fT,0/Λ4<0.57,−0.81<fT,1/Λ4<0.90,
+https://pdg.lbl.gov Page 41 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+−1.68<fT,2/Λ4<1.54,−0.58<fT,5/Λ4<0.64,−1.30<fT,6/Λ4<1.33,
+−2.15<fT,7/Λ4<2.43,−0.47<fT,8/Λ4<0.47,−0.91<fT,9/Λ4<0.91, in
+units of TeV−4.11TUMASYAN 21 Bmeasure WorZboson production in association with two photons,
+using the leptonic decays modes of WandZwith electrons or muons. The number of
+selected W→e(µ)νevents is 1987 (2384) and the number of selected Z→ee(µµ)
+events is 110 (272) respectively. Analyzing the transverse momentum of the di-photon
+system, thefollowing95% C.L.limitsarederivedin unitsof TeV−4: IntheWproduction
+channel, the observed limits are: −39.9<fM,2/Λ4<39.5,−63.8<fM,3/Λ4<
+65.0,−1.30<fT,0/Λ4<1.30,−1.70<fT,1/Λ4<1.66,−3.64<fT,2/Λ4<
+3.64,−0.52<fT,5/Λ4<0.60,−0.60<fT,6/Λ4<0.68,−1.16<fT,7/Λ4<
+1.16. In the Zproduction channel, the observed limits are: −5.70<fT,0/Λ4<5.46,
+−5.70<fT,1/Λ4<5.46,−11.4<fT,2/Λ4<10.9,−2.92<fT,5/Λ4<2.92,
+−3.80<fT,6/Λ4<3.88,−7.88<fT,7/Λ4<7.72,−1.06<fT,8/Λ4<1.10,
+−1.82<fT,9/Λ4<1.82, in units of TeV−4.
+12SIRUNAYN 20 study W Zand same-sign W Wproduction in association with two jets,
+usingtheleptonicdecaysmodes of the WandZbosons withelectronsor muons. Overall,
+524W Wevents and 229 W Zevents are selected, with a Standard Model expectation
+of 535±52 and 216 ±21 events, respectively. Analyzing the transverse mass spe ctrum
+of the di-boson system and the di-jet invariant mass, the fol lowing 95% C.L. limits are
+derived, not using any unitarization procedure: −0.25<fT,0/Λ4<0.28,−0.12<
+fT,1/Λ4<0.14,−0.35<fT,2/Λ4<0.48,−2.7<fM,0/Λ4<2.9,−4.1<
+fM,1/Λ4<4.2,−5.4<fM,6/Λ4<5.8,−5.7<fM,7/Λ4<6.0,−5.7<
+fS,0/Λ4<6.1,−16<fS,1/Λ4<17, in units of TeV−4. The article also reports
+limits on these couplings by cutting the EFT expansion at the unitarity limit.
+13SIRUNYAN 20 ALstudy electroweak production of a Zboson and a photon in association
+with twojets in the electron and muon decay modes of the Z. A signal with a signiﬁcance
+of 3.9 standard deviations is observed, compared to a Standa rd Model expectation of
+5.2 standard deviations. Combining with KHACHATRYAN 17 AAdata at 8 TeV the ﬁnal
+observed and expected signal signiﬁcance is 4.7 and 5.5 stan dard deviations. Analyzing
+theZ-photon invariant mass distribution, the following 95% C.L . limits are derived:
+−19.5<fM,0/Λ4<20.3,−40.5<fM,1/Λ4<39.5,−8.22<fM,2/Λ4<8.10,
+−17.7<fM,3/Λ4<17.9,−15.3<fM,4/Λ4<15.8,−25.1<fM,5/Λ4<24.5,
+−38.9<fM,6/Λ4<40.6,−60.3<fM,7/Λ4<62.5,−0.74<fT,0/Λ4<0.69,
+−0.98<fT,1/Λ4<0.96,−1.97<fT,2/Λ4<1.86,−0.70<fT,5/Λ4<0.75,
+−1.64<fT,6/Λ4<1.68,−2.59<fT,7/Λ4<2.82,−0.47<fT,8/Λ4<0.47,
+−1.27<fT,9/Λ4<1.27, in units of TeV−4.
+14SIRUNYAN 20 BDstudy electroweak Wγproduction in association with two jets, where
+theWboson decays to electron or muon and the two jets have high inv ariant mass.
+The number of observed (expected) electron events with the p hoton in the barrel and
+endcap regions are 393 (397 .1±18.5) and 159 (145 .2±10.0) respectively, while for
+muon events the respective numbers are 565 (537 .9±21.4) and 201 (188 .2±10.5).
+Analyzing the Wγinvariant mass distribution, the following 95% C.L. limits are derived:
+−8.1<fM,0/Λ4<8.0,−12<fM,1/Λ4<12,−2.8<fM,2/Λ4<2.8,−4.4<
+fM,3/Λ4<4.4,−5.0<fM,4/Λ4<5.0,−8.3<fM,5/Λ4<8.3,−16<
+fM,6/Λ4<16,−21<fM,7/Λ4<20,−0.6<fT,0/Λ4<0.6,−0.4<fT,1/Λ4<
+https://pdg.lbl.gov Page 42 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+0.4,−1.0<fT,2/Λ4<1.2,−0.5<fT,5/Λ4<0.5,−0.4<fT,6/Λ4<0.4,
+−0.9<fT,7/Λ4<0.9, in units of TeV−4.
+15SIRUNYAN 19 BMsearch for the ﬁnal state W+W−W±usingWdecays to electrons
+or muons. Two event samples are considered, events with thre e leptons, or events with
+two oppositely charged leptons accompanied by two jets. In a kinematic region selected
+to enhance the eﬀect of anomalous couplings, no events are se lected in the data, and
+95% C.L. upper limits are obtained as follows: −1.2<fT,0/Λ4<1.2,−3.3<
+fT,1/Λ4<3.3,−2.7<fT,2/Λ4<2.6, in units of TeV−4and without application
+of a form factor.16SIRUNYAN 19 BPstudyW Zplus 2 jets production, using WandZdecay channels
+with electrons or muons. In the data, 75 events are selected, with a ﬁtted SM signal of
+15.1±1.6 events and a ﬁtted background of 62 .4±2.8 events. The transverse mass
+distribution of the W Zsystem is analyzed to set the following limits at 95% C.L., in
+units of TeV−4:−9.15<fM,0/Λ4<9.15,−9.15<fM,1/Λ4<9.45,−26.5<
+fS,0/Λ4<27.5,−41.2<fS,1/Λ4<42.8,−0.75<fT,0/Λ4<0.81,−0.49<
+fT,1/Λ4<0.55,−1.49<fT,2/Λ4<1.85.
+17SIRUNYAN 19 CQsearch for anomalous electroweak production of vector boso n pairs in
+association with two jets. Events are selected by requiring two jets with a large invariant
+mass and rapidity separation, one or two leptons (electrons or muons), and a WorZ
+boson decaying hadronically. In the W V(ZV) channel, 347 (47) events are selected in
+the data, with a total expected background of 352 ±19 (50.3±5.8) events. Analysing
+the mass distribution of the W VorZVsystem, the following 95% C.L. limits are
+obtained: −2.7<fS,0/Λ4<2.7,−3.4<fS,1/Λ4<3.4,−0.69<fM,0/Λ4<
+0.70,−2.0<fM,1/Λ4<2.1,−1.3<fM,6/Λ4<1.3,−3.4<fM,7/Λ4<3.4,
+−0.12<fT,0/Λ4<0.11,−0.12<fT,1/Λ4<0.13,−0.28<fT,2/Λ4<0.28, in
+units of TeV−4.18SIRUNYAN 18 CCstudyppcollisions at√s= 13 TeV leading to a pair of same-sign
+Wpairs decaying leptonically ( eorµ) associated with a pair of jets. Isolated leptons
+withpT>25 (20) GeV for the leading (trailing) lepton, with/vextendsingle/vextendsingleη/vextendsingle/vextendsingle<2.5 (2.4) for e
+(µ) and jets with pT>30 GeV,/vextendsingle/vextendsingleη/vextendsingle/vextendsingle<5.0,/vextendsingle/vextendsingle∆ηjj/vextendsingle/vextendsingle>2.5 and mjj>500 GeV is
+required. Further cuts are applied to minimize Z→eeevents, non-prompt leptons and
+hadronically decaying taus. The number of selected events i s 201, with an expected SM
+signal of 66 .9±2.4 and background of 138 ±13 events. Analysing the dilepton invariant
+mass spectrum the following 95% C.L. limits are derived: −7.7<fS,0/Λ4<7.7,
+−21.6<fS,1/Λ4<21.8,−6.0<fM,0/Λ4<5.9,−8.7<fM,1/Λ4<9.1,
+−11.9<fM,6/Λ4<11.8,−13.3<fM,7/Λ4<12.9,−0.62<fT,0/Λ4<0.65,
+−0.28<fT,1/Λ4<0.31,−0.89<fT,2/Λ4<1.02.
+19AABOUD 17 AAanalyzeW±W±production in association with two jets and Wdecay
+modes with electrons or muons. In the kinematic region of VBS the eﬀect of anomalous
+QGCs is enhanced by requiring the transverse mass of the W Wsystem to be larger
+than 400 GeV. In the data, 8 events are selected with a total ba ckground expected from
+SM processes of 3 .8±0.6 events. Assuming the other QGC coupling to have the SM
+value of zero, the observed event yield is used to determine 9 5% CL limits on the QGCs:
+−0.14< α4<0.15 and −0.22< α5<0.22. Supersedes AAD 14 AM.
+20AABOUD 17 AGdetermine the W WγandW Zγcross sections in 8 TeV ppinteractions
+by studying the ﬁnal states eνµνγandeνjjγorµνjjγ. Upper limits on the production
+cross sections are derived in a ﬁducial region optimized for BSM physics. These are used
+to derive the following 95% C.L. upper limits for quartic cou plings assuming the form
+scale factor, ΛFF=∞(all in units of 103TeV−4):−0.3<fM,0/Λ4<0.3,
+−0.5<fM,1/Λ4<0.5,−1.8<fM,2/Λ4<1.8,−1.1<fM,4/Λ4<1.1,
+https://pdg.lbl.gov Page 43 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+−1.7<fM,5/Λ4<1.7,−0.6<fM,6/Λ4<0.6,−1.1<fM,7/Λ4<1.1,−0.1<
+fT,0/Λ4<0.1,−0.2<fT,1/Λ4<0.2,−0.4<fT,4/Λ4<0.4,−1.5<fT,5/Λ4<
+1.6,−1.9<fT,6/Λ4<1.9,−4.3<fT,7/Λ4<4.3.
+21AABOUD 17 Danalyze electroweak diboson ( W V,V=W,Z) production in association
+with a high-mass dijet system. In the data, 32 events are sele cted with an expected
+total background of 32 ±12 events. Analysing the transverse mass distribution of th e
+W Vsystem, the following limits are set at 95% C.L.: −0.024< α4<0.030 and
+−0.028< α5<0.033.
+22AABOUD 17 Janalyze the Zγproduction in association with a high-mass dijet system,
+with the Zboson decaying into a pair of electrons, muons, or neutrinos . In the charged
+lepton (neutrino) channel, events are selected with a dijet mass larger than 500 (600)
+GeV and a transverse photon energy larger than 250 (150) GeV, with 2 (4) events
+selected in the data and 0 .30±0.08 (1.6±0.5) expected background events. The
+observed event yield is used to determine 95% CL limits as fol lows:−4.1×103<
+fT,9/Λ4<4.2×103,−1.9×103<fT,8/Λ4<2.1×103,−1.9×101<
+fT,0/Λ4<1.6×101,−1.6×102<fM,0/Λ4<1.8×102,−3.5×102<
+fM,1/Λ4<3.4×102,−8.9×102<fM,2/Λ4<8.9×102,−1.7×103<
+fM,3/Λ4<1.7×103, in units of TeV−4and without application of a form factor.
+23AABOUD 17 Manalyze tri-boson W±W±W∓production in decay channels with three
+charged leptons or two like-sign charged leptons with two je ts, where the lepton can be an
+electron or muon. In the data, 24 tri-lepton events and 21 di- lepton plus jets events are
+selected, compared to a total event yield expectedin the SM o f 30.8±3.0 and 21.9±2.0,
+respectively. Analysing the tri-lepton transverse mass or the transverse momentum sum
+of the two leptons, two jets and the missing transverse energ y, the following limits at 95%
+CL are derived for the form factor cut-oﬀ scale ΛFF→ ∞:−0.13<fS,0/Λ4<0.18,
+−0.21<fS,1/Λ4<0.27, in units of 104TeV−4, which are converted into the
+following limits: −0.49< α4<0.75 and−0.48< α5<0.62.
+24KHACHATRYAN 17 AAanalyse electroweak production of Zγin association with two
+hadronic jets, with the Zboson decaying to electron or muon pairs. Events with photon
+transverse momentum larger than 60 GeV and di-jet invariant mass larger than 400 GeV
+are selected. The Zγinavariant mass spectrum is analysed to set 95% C.L. limits a s
+follows:−71<fM,0/Λ4<75,−190<fM,1/Λ4<182,−32<fM,2/Λ4<31,
+−58<fM,3/Λ4<59,−3.8<fT,0/Λ4<3.4,−4.4<fT,1/Λ4<4.4,−9.9<
+fT,2/Λ4<9.0,−1.8<fT,8/Λ4<1.8,−4.0<fT,9/Λ4<4.0, in units of TeV−4
+and without application of a form factor.
+25KHACHATRYAN 17 Manalyse electroweak production of Wγin association with two
+hadronic jets, with the Wboson decaying to electrons or muons. Events with photon
+transverse momentum larger than 200 GeV and di-jet invarian t mass larger than 200 GeV
+are selected. The Wtransverse momentum spectrum is analysed to set 95% C.L. lim its
+as follows: −77<fM,0/Λ4<74,−125<fM,1/Λ4<129,−26<fM,2/Λ4<26,
+−43<fM,3/Λ4<44,−40<fM,4/Λ4<40,−65<fM,5/Λ4<65,−129<
+fM,6/Λ4<129,−164<fM,7/Λ4<162,−5.4<fT,0/Λ4<5.6,−3.7<
+fT,1/Λ4<4.0,−11<fT,2/Λ4<12,−3.8<fT,5/Λ4<3.8,−2.8<
+fT,6/Λ4<3.0,−7.3<fT,7/Λ4<7.7, in units of TeV−4and without application
+of a form factor.26SIRUNYAN 17 ADstudyppcollisions at√s= 13 TeV to determine the cross section of
+ZZjjwith the Zdecaying to eeorµµ. TheZZmass distribution is used to set upper
+limits on the anomalous quartic couplings. The 95% upper lim its for the relevant quartic
+https://pdg.lbl.gov Page 44 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+couplings in units of TeV−4are:−0.46<fT,0/Λ4<0.44,−0.61<fT,1/Λ4<
+0.61,−1.2<fT,2/Λ4<1.2,−0.84<fT,8/Λ4<0.84,−1.8<fT,9/Λ4<1.8.
+27SIRUNYAN 17 ARstudyppcollisions at√s= 8 TeV to determine the cross section of
+pp→Wγγandpp→ZγγwhereW→ℓνandZ→ℓ+ℓ−,ℓbeing an electron or a
+muon. The number of Wevents in the eandµchannels is 63 and 108 respectively, and
+the number of Zevents in the eandµchannels is 117 and 141. To increase sensitivity,
+the transverse momentum of the leading photon is required to be larger than 70 GeV.
+The 95% C.L. upper limits in units of TeV−4are−701<fM,2/Λ4<683,−1170<
+fM,3/Λ4<1220,−33.5<fT,0/Λ4<34.0,−44.3<fT,1/Λ4<44.8,−93.8<
+fT,2/Λ4<93.2.
+28AABOUD 16 EstudyW Wproduction in two-photon mediated ppcollisions at 8 TeV
+where the Wboson decays into an electron or muon, probing the γγW Wvertex for
+anomalous quartic gauge couplings. The lepton pTis required to be larger than 30
+GeV. Limits on anomalous couplings are determined from even ts withpTlarger than
+120 GeV where the aQGC eﬀect is enhanced and the SM background reduced; in the
+data corresponding to an integrated luminosity of 20.2fb−1, 1 event is selected with an
+expected SM background of 0 .37±0.13 events. The 95% C.L. limits without a form-
+factor cutoﬀ (Λcutoﬀ→ ∞) are as follows: −1.7<aW
+0/Λ2<1.7 and −6.4<
+aW
+C/Λ2<6.3 in units of 10−6GeV−2. In terms of another set of variables: −6.6<
+fM,0/Λ4<6.6 and−24<fM,1/Λ4<25 in units of 10−11GeV−4.
+29AAD 16 QstudyZγγproduction in ppcollisions. In events with no additional jets, 29
+(22)Zdecays to electron (muon) pairs are selected, with an expect ed background of
+3.3±1.1 (6.5±2.0) events, as well as 19 Zdecays to netrino pairs with an expected
+background of 8 .3±4.4 events. Analysing the photon transverse momentum distrib ution
+formγγabove 200 GeV (300 GeV) for lepton (neutrino) events, yields the 95% C.L.
+limits:−1.6×104<fM,2/Λ4<1.6×104,−2.9×104<fM,3/Λ4<2.7×104,
+−0.86×102<fT,0/Λ4<1.03×102,−0.69×103<fT,5/Λ4<0.68×103,
+−0.74×104<fT,9/Λ4<0.74×104in units of TeV−4and without application of
+a form factor ΛFF.
+30KHACHATRYAN 16 AXsearches for anomalous W Wγγquartic gauge couplings in the
+two-photon-mediated process pp→ppW W , assuming the W Wγtriple gauge boson
+couplings to be at their Standard Model values. 13 events con taining an e±µ∓pair with
+pT(e,µ)>30 GeV are selected in a total luminosity of 19.7 fb−1, with an expected
+γγ→W Wsignal of 5 .3±0.1 events and an expected background of 3 .9±0.5 events.
+When combining with the data collected at 7 TeV (CHATRCHYAN 1 3AA), and not
+assuming a form factor, the following 1-parameter limits at 95% C.L. are obtained from
+thepT(e,µ) spectrum:/vextendsingle/vextendsingleaW
+0/Λ2/vextendsingle/vextendsingle<1.1×10−6GeV−2(aW
+C= 0), and/vextendsingle/vextendsingleaW
+C/Λ2/vextendsingle/vextendsingle<
+4.1×10−6GeV−2(aW
+0= 0). In terms of another set of variables:/vextendsingle/vextendsinglefM,0/Λ4/vextendsingle/vextendsingle<
+4.2×10−12GeV−4,/vextendsingle/vextendsinglefM,1/Λ4/vextendsingle/vextendsingle<16×10−12GeV−4,/vextendsingle/vextendsinglefM,2/Λ4/vextendsingle/vextendsingle<2.1×10−12
+GeV−4,/vextendsingle/vextendsinglefM,3/Λ4/vextendsingle/vextendsingle<7.8×10−12GeV−4.
+31AAD 15 NstudyWγγevents in 8 TeV ppinteractions, where the Wdecays into an
+electron or a muon. The events are characterized by an isolat ed lepton, a missing
+transverseenergy due to thedecayneutrino, andtwoisolate d photons, with the pTof the
+lepton and the photons being >20 GeV. The number of candidate events observed in the
+electron channel for N(jet) ≥0 and N(jet) = 0 is 47 and 15, the corresponding numbers
+for the muon channel being 110 and 53. The backgrounds expect ed are 30 .2±7.4,
+8.7±3.0, 52.1±12.2, and 24 .4±8.3 respectively. The 95% C.L. limits on the values of
+the parameters fT,0/Λ4,fM,2/Λ4andfM,3/Λ4are−0.9–0.9×102,−0.8–0.8×104,
+and−1.5–1.4×104respectively, without application of a form factor ΛFF.
+https://pdg.lbl.gov Page 45 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+32KHACHATRYAN 15 Dstudy vector-boson-scattering tagged by two jets, requiri ng two
+same-sign charged leptons arising from W±W±production and decay. The two jets
+must have a transverse momentum larger than 30 GeV, while the leptons, electrons or
+muons, must have a transverse momentum >20 GeV. The dijet mass is required to be >
+500 GeV, the dilepton mass >50 GeV, with additional requirement of diﬀering from the
+Zmass by>15 GeV. Inthe twocategories W+W+andW−W−, 10 and 2 dataevents
+are observed in a data sample corresponding to an integrated luminosity of 19.4 fb−1,
+with an expectedbackground of 3 .1±0.6 and2.6±0.5 events. Analysing the distribution
+of the dilepton invariant mass, the following limits at 95% C .L. are obtained, in units of
+TeV−4:−38<FS,0/Λ4<40,−118<FS,1/Λ4<120,−33<FM,0/Λ4<32,
+−44<FM,1/Λ4<47,−65<FM,6/Λ4<63,−70<FM,7/Λ4<66,−4.2<
+FT,0/Λ4<4.6,−1.9<FT,1/Λ4<2.2,−5.2<FT,2/Λ4<6.4.
+33AAD 14 AManalyze electroweak production of W Wjet jet same-charge diboson plus two
+jets production, with the Wbosons decaying to electron or muon, to study the quartic
+W W W W coupling. In a kinematic region enhancing the electroweak p roduction over
+the strong production, 34 events are observed in the data whi le 29.8±2.4 events are
+expected with a backgound of 15 .9±1.9 events. Assuming the other QGC coupling to
+have the SM value of zero, the observed event yield is used to d etermine 95% CL limits
+on the quartic gauge couplings: −0.14< α4<0.16 and −0.23< α5<0.24.
+34CHATRCHYAN 14 QstudyW Vγproduction in 8 TeV ppcollisions, in the single lepton
+ﬁnal state, with W→ℓν,Z→dijet orW→ℓν,W→dijet, the dijet mass resolution
+precluding diﬀerentiation between the WandZ.pTand pseudo-rapidity cuts are put
+on the lepton, the photon and the two jets to minimize backgro unds. The dijet mass is
+required to be between 70–100 GeV and/vextendsingle/vextendsingle∆ηjj/vextendsingle/vextendsingle<1.4. The selected number of muon
+(electron) events are 183 (139), with SM expectation being 1 94.2±11.5 (147.9±10.7)
+including signal and background. The photon ETdistribution is used to set limits on the
+anomalous quartic couplings. The following 95% CL limits ar e deduced (all in units of
+TeV−2or TeV−4):−21<aW
+0/Λ2<20,−34<aW
+c/Λ2<32,−12< κW
+0/Λ2<
+10 and−18< κW
+c/Λ2<17; and−25<fT,0/Λ4<24 TeV−4.
+35ABAZOV 13 Dsearches for anomalous W Wγγquartic gauge couplings in the two-
+photon-mediated process pp→ppW W , assuming the W Wγtriple gauge boson
+couplings to be at their Standard Model values. 946 events co ntaining an e+e−pair
+with missing energy are selected in a total luminosity of 9.7 fb−1, with an expectation
+of 983±108 events from Standard-Model processes. The following 1- parameter limits
+at 95% CL are otained:/vextendsingle/vextendsingleaW
+0/Λ2/vextendsingle/vextendsingle<4.3×10−4GeV−2(aW
+c= 0),/vextendsingle/vextendsingleaW
+c/Λ2/vextendsingle/vextendsingle<
+1.5×10−3GeV−2(aW
+0= 0).
+36CHATRCHYAN 13 AAsearches for anomalous W Wγγquartic gauge couplings in the
+two-photon-mediated process pp→ppW W , assuming the W Wγtriple gauge boson
+couplings to be at their Standard Model values. 2 events cont aining an e±µ∓pair with
+pT(e,µ)>30 GeV are selected in a total luminosity of 5.05 fb−1, with an expected
+ppW W signal of 2 .2±0.4 events and an expected background of 0 .84±0.15 events.
+The following 1-parameter limits at 95% CL are otained from t hepT(e,µ) spectrum:/vextendsingle/vextendsingleaW
+0/Λ2/vextendsingle/vextendsingle<4.0×10−6GeV−2(aW
+c= 0),/vextendsingle/vextendsingleaW
+c/Λ2/vextendsingle/vextendsingle<1.5×10−5GeV−2(aW
+0
+= 0).
+37ABBIENDI 04 Bselect 187 e+e−→W+W−γevents in the C.M. energy range
+180–209 GeV, where Eγ>2.5 GeV, the photon has a polar angle/vextendsingle/vextendsinglecosθγ/vextendsingle/vextendsingle<0.975
+and is well isolated from the nearest jet and charged lepton, and the eﬀective masses
+of both fermion-antifermion systems agree with the Wmass within 3 ΓW. The mea-
+sured diﬀerential cross section as a function of the photon e nergy and photon polar
+angle is used to extract the 95% CL limits: −0.020 GeV−2<a0/Λ2<0.020 GeV−2,
+−0.053 GeV−2<ac/Λ2<0.037 GeV−2and−0.16 GeV−2<an/Λ2<0.15 GeV−2.
+https://pdg.lbl.gov Page 46 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+38ABBIENDI 04 Lselect 20 e+e−→ννγγacoplanar events in the energy range 180–209
+GeV and 176 e+e−→qqγγevents in the energy range 130–209 GeV. These samples
+are used to constrain possible anomalous W+W−γγandZZγγquartic couplings.
+Further combining with the W+W−γsample of ABBIENDI 04 Bthe following one–
+parameter 95% CL limits are obtained: −0.007<aZ
+0/Λ2<0.023 GeV−2,−0.029<
+aZ
+c/Λ2<0.029 GeV−2,−0.020<aW
+0/Λ2<0.020 GeV−2,−0.052<aW
+c/Λ2<
+0.037 GeV−2.39In the CM energy range 183 to 209 GeV HEISTER 04 Aselect 30 e+e−→ννγγevents
+with two acoplanar, high energy and high transverse momentu m photons. The photon–
+photon acoplanarity is required to be >5◦,Eγ/√s >0.025 (the more energetic photon
+having energy >0.2√s), pTγ/Ebeam>0.05 and/vextendsingle/vextendsinglecosθγ/vextendsingle/vextendsingle<0.94. A likelihood ﬁt
+to the photon energy and recoil missing mass yields the follo wing one–parameter 95%
+CL limits: −0.012<aZ
+0/Λ2<0.019 GeV−2,−0.041<aZ
+c/Λ2<0.044 GeV−2,
+−0.060<aW
+0/Λ2<0.055 GeV−2,−0.099<aW
+c/Λ2<0.093 GeV−2.
+40ABDALLAH 03 Iselect 122 e+e−→W+W−γevents in the C.M. energy range
+189–209 GeV, where Eγ>5 GeV, the photon has a polar angle/vextendsingle/vextendsinglecosθγ/vextendsingle/vextendsingle<0.95 and
+is well isolated from the nearest charged fermion. A ﬁt to the photon energy spec-
+tra yields ac/Λ2= 0.000+0.019
+−0.040GeV−2,a0/Λ2=−0.004+0.018
+−0.010GeV−2,/tildewidea0/Λ2=
+−0.007+0.019
+−0.008GeV−2,an/Λ2=−0.09+0.16
+−0.05GeV−2, and/tildewidean/Λ2= +0.05+0.07
+−0.15
+GeV−2, keeping the other parameters ﬁxed to their Standard Model v alues(0).
+The 95% CL limits are: −0.063 GeV−2<ac/Λ2<+0.032 GeV−2,−0.020
+GeV−2<a0/Λ2<+0.020 GeV−2,−0.020 GeV−2</tildewidea0/Λ2<+0.020 GeV−2,
+−0.18 GeV−2<an/Λ2<+0.14 GeV−2,−0.16 GeV−2</tildewidean/Λ2<+0.17 GeV−2.
+41ACHARD 02 Fselect 86 e+e−→W+W−γevents at 192–207 GeV, where Eγ>5
+GeV and the photon is well isolated. They also select 43 acopl anare+e−→ννγγ
+events in this energy range, where the photon energies are >5GeV and >1GeV and the
+photon polar angles are between 14◦and 166◦. All these 43 events are in the recoil mass
+region corresponding to the Z(75–110 GeV). Using the shape and normalization of the
+photon spectra in the W+W−γevents, and combining with the 42 event sample from
+189 GeV data (ACCIARRI 00 T), they obtain: a0/Λ2= 0.000±0.010 GeV−2,ac/Λ2=
+−0.013±0.023 GeV−2, andan/Λ2=−0.002±0.076 GeV−2. Further combining the
+analyses of W+W−γevents with the low recoil mass region of ννγγevents (including
+samples collected at 183 +189 GeV), they obtain the followin g one-parameter 95% CL
+limits:−0.015 GeV−2<a0/Λ2<0.015 GeV−2,−0.048 GeV−2<ac/Λ2<0.026
+GeV−2, and−0.14 GeV−2<an/Λ2<0.13 GeV−2.
+WREFERENCESWREFERENCESWREFERENCESWREFERENCES
+AAD 24AD JHEP 2404 026 G. Aad et al. (ATLAS Collab.)
+AAD 24AM JHEP 2406 192 G. Aad et al. (ATLAS Collab.)
+AAD 24BO PRL 133 161804 G. Aad et al. (ATLAS Collab.)
+AAD 24C JHEP 2401 004 G. Aad et al. (ATLAS Collab.)
+AAD 24CG EPJ C84 993 G. Aad et al. (ATLAS Collab.)
+AAD 24CH EPJ C84 1064 G. Aad et al. (ATLAS Collab.)
+AAD 24CJ EPJ C84 1309 G. Aad et al. (ATLAS Collab.)
+AMOROSO 24 EPJ C84 451 S. Amoroso et al. (DESY, SACL, EDIN+)
+PDG 24 PR D110 030001 S. Navas et al. (PDG Collab.)
+AAD 23BH EPJ C83 539 G. Aad et al. (ATLAS Collab.)
+AAD 23K JHEP 2306 082 G. Aad et al. (ATLAS Collab.)
+AAIJ 23AM CP C47 093002 R. Aaij et al. (LHCb Collab.)
+TUMASYAN 23AK PR D108 032017 A. Tumasyan et al. (CMS Collab.)
+TUMASYAN 23AM JHEP 2307 229 A. Tumasyan et al. (CMS Collab.)
+https://pdg.lbl.gov Page 47 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+AAIJ 22C JHEP 2201 036 R. Aaij et al. (LHCb Collab.)
+AALTONEN 22 SCI 376 170 T. Aaltonen et al. (CDF Collab.)
+PDG 22 PTEP 2022 083C01 R.L. Workman et al. (PDG Collab.)
+TUMASYAN 22AB JHEP 2207 032 A. Tumasyan et al. (CMS Collab.)
+TUMASYAN 22E PR D105 052003 A. Tumasyan et al. (CMS Collab.)
+TUMASYAN 22F PR D105 072008 A. Tumasyan et al. (CMS Collab.)
+AAD 21AC EPJ C81 163 G. Aad et al. (ATLAS Collab.)
+AAD 21AN NATP 17 813 G. Aad et al. (ATLAS Collab.)
+AAD 21W JHEP 2106 003 G. Aad et al. (ATLAS Collab.)
+SIRUNYAN 21 PL B812 135992 A.M. Sirunyan et al. (CMS Collab.)
+SIRUNYAN 21G PRL 126 252002 A.M. Sirunyan et al. (CMS Collab.)
+SIRUNYAN 21I PL B819 136409 A.M. Sirunyan et al. (CMS Collab.)
+TUMASYAN 21A PR D104 072001 A. Tumasyan et al. (CMS Collab.)
+TUMASYAN 21B JHEP 2110 174 A. Tumasyan et al. (CMS Collab.)
+SIRUNAYN 20 PL B809 135710 A.M. Sirunyan et al. (CMS Collab.)
+SIRUNYAN 20AL JHEP 2006 076 A.M. Sirunyan et al. (CMS Collab.)
+SIRUNYAN 20BA EPJ C80 43 A.M. Sirunyan et al. (CMS Collab.)
+SIRUNYAN 20BD PL B811 135988 A.M. Sirunyan et al. (CMS Collab.)
+SIRUNYAN 20BF PR D102 092001 A.M. Sirunyan et al. (CMS Collab.)
+AABOUD 19BA EPJ C79 884 M. Aaboud et al. (ATLAS Collab.)
+SIRUNYAN 19AD JHEP 1904 122 A.M. Sirunyan et al. (CMS Collab.)
+SIRUNYAN 19BG PRL 122 151802 A.M. Sirunyan et al. (CMS Collab.)
+SIRUNYAN 19BM PR D100 012004 A.M. Sirunyan et al. (CMS Collab.)
+SIRUNYAN 19BP PL B795 281 A.M. Sirunyan et al. (CMS Collab.)
+SIRUNYAN 19CL JHEP 1912 062 A.M. Sirunyan et al. (CMS Collab.)
+SIRUNYAN 19CQ PL B798 134985 A.M. Sirunyan et al. (CMS Collab.)
+AABOUD 18J EPJ C78 110 M. Aaboud et al. (ATLAS Collab.)
+Also EPJ C78 898 (errat.) M. Aaboud et al. (ATLAS Collab.)
+AABOUD 18Q PR D97 032005 M. Aaboud et al. (ATLAS Collab.)
+ANDREEV 18A EPJ C78 777 V. Andreev et al. (H1 Collab.)
+SIRUNYAN 18BZ EPJ C78 589 A.M. Sirunyan et al. (CMS Collab.)
+SIRUNYAN 18CC PRL 120 081801 A.M. Sirunyan et al. (CMS Collab.)
+AABOUD 17AA PR D96 012007 M. Aaboud et al. (ATLAS Collab.)
+AABOUD 17AG EPJ C77 646 M. Aaboud et al. (ATLAS Collab.)
+AABOUD 17D PR D95 032001 M. Aaboud et al. (ATLAS Collab.)
+AABOUD 17J JHEP 1707 107 M. Aaboud et al. (ATLAS Collab.)
+AABOUD 17M EPJ C77 141 M. Aaboud et al. (ATLAS Collab.)
+AABOUD 17Q EPJ C77 367 M. Aaboud et al. (ATLAS Collab.)
+AABOUD 17S EPJ C77 474 M. Aaboud et al. (ATLAS Collab.)
+AABOUD 17U EPJ C77 563 M. Aaboud et al. (ATLAS Collab.)
+KHACHATRY... 17AA PL B770 380 V. Khachatryan et al. (CMS Collab.)
+KHACHATRY... 17M JHEP 1706 106 V. Khachatryan et al. (CMS Collab.)
+KHACHATRY... 17O EPJ C77 236 V. Khachatryan et al. (CMS Collab.)
+SIRUNYAN 17AD PL B774 682 A.M. Sirunyan et al. (CMS Collab.)
+SIRUNYAN 17AR JHEP 1710 072 A.M. Sirunyan et al. (CMS Collab.)
+SIRUNYAN 17X PL B772 21 A.M. Sirunyan et al. (CMS Collab.)
+AABOUD 16E PR D94 032011 M. Aaboud et al. (ATLAS Collab.)
+AAD 16AR JHEP 1609 029 G. Aad et al. (ATLAS Collab.)
+AAD 16P PR D93 092004 G. Aad et al. (ATLAS Collab.)
+AAD 16Q PR D93 112002 G. Aad et al. (ATLAS Collab.)
+AAIJ 16AJ JHEP 1610 030 R. Aaij et al. (LHCb Collab.)
+KHACHATRY... 16AX JHEP 1608 119 V. Khachatryan et al. (CMS Collab.)
+KHACHATRY... 16BI EPJ C76 401 V. Khachatryan et al. (CMS Collab.)
+AAD 15N PRL 115 031802 G. Aad et al. (ATLAS Collab.)
+KHACHATRY... 15D PRL 114 051801 V. Khachatryan et al. (CMS Collab.)
+AAD 14AM PRL 113 141803 G. Aad et al. (ATLAS Collab.)
+AAD 14Y JHEP 1404 031 G. Aad et al. (ATLAS Collab.)
+AALTONEN 14D PR D89 072003 T. Aaltonen et al. (CDF Collab.)
+CHATRCHYAN 14AB PR D89 092005 S. Chatrchyan et al. (CMS Collab.)
+CHATRCHYAN 14Q PR D90 032008 S. Chatrchyan et al. (CMS Collab.)
+AAD 13AL PR D87 112001 G. Aad et al. (ATLAS Collab.)
+Also PR D88 079906 (errat.) G. Aad et al. (ATLAS Collab.)
+AAD 13AN PR D87 112003 G. Aad et al. (ATLAS Collab.)
+Also PR D91 119901 (errat.) G. Aad et al. (ATLAS Collab.)
+ABAZOV 13D PR D88 012005 V.M. Abazov et al. (D0 Collab.)
+CHATRCHYAN 13AA JHEP 1307 116 S. Chatrchyan et al. (CMS Collab.)
+CHATRCHYAN 13BF EPJ C73 2610 S. Chatrchyan et al. (CMS Collab.)
+SCHAEL 13A PRPL 532 119 S. Schael et al. (ALEPH, DELPHI, L3, OPAL+)
+AAD 12AC PL B712 289 G. Aad et al. (ATLAS Collab.)
+AAD 12BX PL B717 49 G. Aad et al. (ATLAS Collab.)
+AAD 12CD EPJ C72 2173 G. Aad et al. (ATLAS Collab.)
+https://pdg.lbl.gov Page 48 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+AAD 12V PL B709 341 G. Aad et al. (ATLAS Collab.)
+AALTONEN 12AC PR D86 031104 T. Aaltonen et al. (CDF Collab.)
+AALTONEN 12E PRL 108 151803 T. Aaltonen et al. (CDF Collab.)
+AALTONEN 12W PR D85 032001 T. Aaltonen et al. (CDF Collab.)
+ABAZOV 12AG PL B718 451 V.M. Abazov et al. (D0 Collab.)
+ABAZOV 12F PRL 108 151804 V.M. Abazov et al. (D0 Collab.)
+Also PR D89 012005 V.M. Abazov et al. (D0 Collab.)
+ABAZOV 11 PL B695 67 V.M. Abazov et al. (D0 Collab.)
+ABAZOV 11AC PRL 107 241803 V.M. Abazov et al. (D0 Collab.)
+BLINOV 11 PL B699 287 A.E. Blinov, A.S. Rudenko (NOVO)
+CHATRCHYAN 11M PL B701 535 S. Chatrchyan et al. (CMS Collab.)
+AALTONEN 10K PRL 104 201801 T. Aaltonen et al. (CDF Collab.)
+Also PRL 105 019905(errat.) T. Aaltonen et al. (CDF Collab.)
+ABDALLAH 10 EPJ C66 35 J. Abdallah et al. (DELPHI Collab.)
+TEVEWWG 10 arXiv: 1003.2826 TEVEWWG (CDF, D0 Collab)
+AARON 09B EPJ C64 251 F.D. Aaron et al. (H1 Collab.)
+ABAZOV 09AB PRL 103 141801 V.M. Abazov et al. (D0 Collab.)
+ABAZOV 09AD PR D80 053012 V.M. Abazov et al. (D0 Collab.)
+ABAZOV 09AJ PRL 103 191801 V.M. Abazov et al. (D0 Collab.)
+ABAZOV 09AK PRL 103 231802 V.M. Abazov et al. (D0 Collab.)
+AALTONEN 08B PRL 100 071801 T. Aaltonen et al. (CDF Collab.)
+ABAZOV 08R PRL 100 241805 V.M. Abazov et al. (D0 Collab.)
+ABDALLAH 08A EPJ C55 1 J. Abdallah et al. (DELPHI Collab.)
+ABDALLAH 08C EPJ C54 345 J. Abdallah et al. (DELPHI Collab.)
+AALTONEN 07F PRL 99 151801 T. Aaltonen et al. (CDF Collab.)
+Also PR D77 112001 T. Aaltonen et al. (CDF Collab.)
+AALTONEN 07L PR D76 111103 T. Aaltonen et al. (CDF Collab.)
+ABAZOV 07Z PR D76 111104 V.M. Abazov et al. (D0 Collab.)
+ABBIENDI 07A EPJ C52 767 G. Abbiendi et al. (OPAL Collab.)
+ABAZOV 06H PR D74 057101 V.M. Abazov et al. (D0 Collab.)
+Also PR D74 059904(errat.) V.M. Abazov et al. (D0 Collab.)
+ABBIENDI 06 EPJ C45 307 G. Abbiendi et al. (OPAL Collab.)
+ABBIENDI 06A EPJ C45 291 G. Abbiendi et al. (OPAL Collab.)
+ACHARD 06 EPJ C45 569 P. Achard et al. (L3 Collab.)
+AKTAS 06 PL B632 35 A. Aktas et al. (H1 Collab.)
+SCHAEL 06 EPJ C47 309 S. Schael et al. (ALEPH Collab.)
+ABAZOV 05J PR D71 091108 V.M. Abazov et al. (D0 Collab.)
+ABAZOV 05S PRL 95 141802 V.M. Abazov et al. (D0 Collab.)
+SCHAEL 05A PL B614 7 S. Schael et al. (ALEPH Collab.)
+ABAZOV 04D PR D70 092008 V.M. Abazov et al. (D0 Collab.)
+ABBIENDI 04B PL B580 17 G. Abbiendi et al. (OPAL Collab.)
+ABBIENDI 04D EPJ C33 463 G. Abbiendi et al. (OPAL Collab.)
+ABBIENDI 04L PR D70 032005 G. Abbiendi et al. (OPAL Collab.)
+ABDALLAH 04G EPJ C34 127 J. Abdallah et al. (DELPHI Collab.)
+ACHARD 04D PL B586 151 P. Achard et al. (L3 Collab.)
+ACHARD 04J PL B600 22 P. Achard et al. (L3 Collab.)
+HEISTER 04A PL B602 31 A. Heister et al. (ALEPH Collab.)
+SCHAEL 04A EPJ C38 147 S. Schael et al. (ALEPH Collab.)
+ABBIENDI 03C EPJ C26 321 G. Abbiendi et al. (OPAL Collab.)
+ABDALLAH 03I EPJ C31 139 J. Abdallah et al. (DELPHI Collab.)
+ABAZOV 02D PR D66 012001 V.M. Abazov et al. (D0 Collab.)
+ABAZOV 02E PR D66 032008 V.M. Abazov et al. (D0 Collab.)
+ACHARD 02F PL B527 29 P. Achard et al. (L3 Collab.)
+CHEKANOV 02C PL B539 197 S. Chekanov et al. (ZEUS Collab.)
+ABBIENDI 01H EPJ C19 229 G. Abbiendi et al. (OPAL Collab.)
+ABREU 01I PL B502 9 P. Abreu et al. (DELPHI Collab.)
+AFFOLDER 01E PR D64 052001 T. Aﬀolder et al. (CDF Collab.)
+ABBIENDI 00V PL B490 71 G. Abbiendi et al. (OPAL Collab.)
+ABBOTT 00B PR D61 072001 B. Abbott et al. (D0 Collab.)
+ABBOTT 00D PRL 84 5710 B. Abbott et al. (D0 Collab.)
+ABREU,P 00F EPJ C18 203 P. Abreu et al. (DELPHI Collab.)
+Also EPJ C25 493 (errat.) P. Abreu et al. (DELPHI Collab.)
+ACCIARRI 00T PL B490 187 M. Acciarri et al. (L3 Collab.)
+AFFOLDER 00M PRL 85 3347 T. Aﬀolder et al. (CDF Collab.)
+BREITWEG 00 PL B471 411 J. Breitweg et al. (ZEUS Collab.)
+BREITWEG 00D EPJ C12 411 J. Breitweg et al. (ZEUS Collab.)
+EBOLI 00 MPL A15 1 O. Eboli, M. Gonzalez-Garcia, S. Novaes
+ABBIENDI 99N PL B453 153 G. Abbiendi et al. (OPAL Collab.)
+ABBOTT 99H PR D60 052003 B. Abbott et al. (D0 Collab.)
+ABBOTT 99I PR D60 072002 B. Abbott et al. (D0 Collab.)
+ABREU 99L PL B459 382 P. Abreu et al. (DELPHI Collab.)
+https://pdg.lbl.gov Page 49 Created: 12/2/2025 14:25
+Citation: S. Navas et al.(Particle Data Group), Phys. Rev. D 110, 030001 (2024) and 2025 update
+ACCIARRI 99 PL B454 386 M. Acciarri et al. (L3 Collab.)
+ACCIARRI 99Q PL B467 171 M. Acciarri et al. (L3 Collab.)
+BARATE 99I PL B453 107 R. Barate et al. (ALEPH Collab.)
+BARATE 99L PL B462 389 R. Barate et al. (ALEPH Collab.)
+BARATE 99M PL B465 349 R. Barate et al. (ALEPH Collab.)
+ABBOTT 98N PR D58 092003 B. Abbott et al. (D0 Collab.)
+ABBOTT 98P PR D58 012002 B. Abbott et al. (D0 Collab.)
+ABE 98H PR D58 031101 F. Abe et al. (CDF Collab.)
+ABE 98P PR D58 091101 F. Abe et al. (CDF Collab.)
+ABREU 98C PL B416 233 P. Abreu et al. (DELPHI Collab.)
+ABREU 98N PL B439 209 P. Abreu et al. (DELPHI Collab.)
+BARATE 97 PL B401 347 R. Barate et al. (ALEPH Collab.)
+BARATE 97S PL B415 435 R. Barate et al. (ALEPH Collab.)
+ABACHI 95D PRL 75 1456 S. Abachi et al. (D0 Collab.)
+ABE 95C PRL 74 341 F. Abe et al. (CDF Collab.)
+ABE 95G PRL 74 1936 F. Abe et al. (CDF Collab.)
+ABE 95P PRL 75 11 F. Abe et al. (CDF Collab.)
+Also PR D52 4784 F. Abe et al. (CDF Collab.)
+ABE 95W PR D52 2624 F. Abe et al. (CDF Collab.)
+Also PRL 73 220 F. Abe et al. (CDF Collab.)
+ABE 92E PRL 68 3398 F. Abe et al. (CDF Collab.)
+ABE 92I PRL 69 28 F. Abe et al. (CDF Collab.)
+ALITTI 92 PL B276 365 J. Alitti et al. (UA2 Collab.)
+ALITTI 92B PL B276 354 J. Alitti et al. (UA2 Collab.)
+ALITTI 92C PL B277 194 J. Alitti et al. (UA2 Collab.)
+ALITTI 92D PL B277 203 J. Alitti et al. (UA2 Collab.)
+ALITTI 92F PL B280 137 J. Alitti et al. (UA2 Collab.)
+SAMUEL 92 PL B280 124 M.A. Samuel et al. (OKSU, CARL)
+ABE 91C PR D44 29 F. Abe et al. (CDF Collab.)
+ALBAJAR 91 PL B253 503 C. Albajar et al. (UA1 Collab.)
+ALITTI 91C ZPHY C52 209 J. Alitti et al. (UA2 Collab.)
+SAMUEL 91 PRL 67 9 M.A. Samuel et al. (OKSU, CARL)
+Also PRL 67 2920 (errat.) M.A. Samuel et al.
+ABE 90G PRL 65 2243 F. Abe et al. (CDF Collab.)
+Also PR D43 2070 F. Abe et al. (CDF Collab.)
+ALBAJAR 90 PL B241 283 C. Albajar et al. (UA1 Collab.)
+ALITTI 90B PL B241 150 J. Alitti et al. (UA2 Collab.)
+ABE 89I PRL 62 1005 F. Abe et al. (CDF Collab.)
+ALBAJAR 89 ZPHY C44 15 C. Albajar et al. (UA1 Collab.)
+BAUR 88 NP B308 127 U. Baur, D. Zeppenfeld (FSU, WISC)
+GRIFOLS 88 IJMP A3 225 J.A. Grifols, S. Peris, J. Sola (BARC, D ESY)
+Also PL B197 437 J.A. Grifols, S. Peris, J. Sola (BARC, DESY)
+ALBAJAR 87 PL B185 233 C. Albajar et al. (UA1 Collab.)
+ANSARI 87 PL B186 440 R. Ansari et al. (UA2 Collab.)
+GROTCH 87 PR D36 2153 H. Grotch, R.W. Robinett (PSU)
+HAGIWARA 87 NP B282 253 K. Hagiwara et al. (KEK, UCLA, FSU)
+VANDERBIJ 87 PR D35 1088 J.J. van der Bij (FNAL)
+GRAU 85 PL 154B 283 A. Grau, J.A. Grifols (BARC)
+SUZUKI 85 PL 153B 289 M. Suzuki (LBL)
+ARNISON 84D PL 134B 469 G.T.J. Arnison et al. (UA1 Collab.)
+HERZOG 84 PL 148B 355 F. Herzog (WISC)
+Also PL 155B 468 (errat.) F. Herzog (WISC)
+ARNISON 83 PL 122B 103 G.T.J. Arnison et al. (UA1 Collab.)
+BANNER 83B PL 122B 476 M. Banner et al. (UA2 Collab.)
+https://pdg.lbl.gov Page 50 Created: 12/2/2025 14:25

@@ -1,0 +1,26 @@
+existing single_r1 jobs: 0
+Submitting job(s).................
+17 job(s) submitted to cluster 900134.
+Submitting job(s)......
+6 job(s) submitted to cluster 900135.
+Submitting job(s).................
+17 job(s) submitted to cluster 900136.
+already queued for new names: 0
+Submitting job(s)...
+3 job(s) submitted to cluster 900142.
+Submitting job(s).
+1 job(s) submitted to cluster 900143.
+Submitting job(s)...
+3 job(s) submitted to cluster 900144.
+     13 900134 2
+      1 900135 2
+     17 900136 5
+      3 900142 1
+      1 900143 1
+      3 900144 1
+Submitting job(s)....
+4 job(s) submitted to cluster 900148.
+Submitting job(s).
+1 job(s) submitted to cluster 900149.
+Submitting job(s).
+1 job(s) submitted to cluster 900150.

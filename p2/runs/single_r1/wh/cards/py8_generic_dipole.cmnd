@@ -1,0 +1,6 @@
+! Generic EW/VBS-topology sample without Higgs (EW llaajj, EW llajj): dipole recoil as for the signal (D8).
+Main:numberOfEvents = NEVENTS
+Beams:LHEF = LHEFILE
+Random:setSeed = on
+Random:seed = PYSEED
+SpaceShower:dipoleRecoil = on
