@@ -1,0 +1,19 @@
+# WH single_r2: Phase 02/01 MG5 integrations on HTCondor (EosSubmit). Submit: bash -lc 'module load lxbatch/eossubmit; condor_submit <this>'
+W            = /eos/user/r/rjiang/vbs_zh_codex_starter/p2/runs/single_r2/wh
+universe     = vanilla
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+executable   = $(W)/scripts/condor/mg5_job_wh.sh
+arguments    = $(sample) $(sample).mg5 $(seed) $(W)/work/gp_condor $(ncore)
+transfer_input_files = /eos/user/r/rjiang/vbs_zh_codex_starter/p2/lib/scripts/setup_stack.sh, $(W)/$(card)
+output       = $(W)/work/condor/mg5_$(sample).out
+error        = $(W)/work/condor/mg5_$(sample).err
+log          = $(W)/work/condor/mg5_test.log
+request_cpus   = $(ncore)
+request_memory = $(mem)
+request_disk   = 20000000
++JobFlavour  = "$(flav)"
+max_retries  = 1
+queue sample, card, seed, ncore, mem, flav from (
+  Q_W_aa_0j_onshell cards/phase02/Q_W_aa_0j_onshell.mg5 2532000 4 8000 espresso
+)

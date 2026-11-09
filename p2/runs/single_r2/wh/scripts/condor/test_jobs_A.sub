@@ -1,0 +1,21 @@
+# WH single_r2 Phase-03 HTCondor TEST jobs (one per sample type). Executable = p2/lib/scripts/condor/run_job.sh UNCHANGED (v2 wrapper:
+# gridpack -> PY8 CP5 -> Delphes slim_v1 (seed pinned) -> slim_gentruth -> xrdcp to EOS, no overwrite). keep_lhe=1 keep_full=1 for audit.
+L            = /eos/user/r/rjiang/vbs_zh_codex_starter/p2/lib
+W            = /eos/user/r/rjiang/vbs_zh_codex_starter/p2/runs/single_r2/wh
+universe     = vanilla
+executable   = $(L)/scripts/condor/run_job.sh
+arguments    = $(sample) $(W)/work/gridpacks/$(gp) $(nevents) $(seed) $(cmnd) $(W)/work/condor_test/$(sample) 1 1
+transfer_input_files = $(L)/scripts/setup_stack.sh, $(L)/scripts/run_py8_delphes.sh, $(L)/scripts/slim_gentruth.py, $(L)/cards/phase03_smoke/py8_common_CP5.cmnd, $(W)/cards/py8/$(cmnd), $(L)/cards/phase04_candidates/delphes_card_CMS_slim_v1.tcl
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+output       = $(W)/work/condor/test_$(sample)_s$(seed).out
+error        = $(W)/work/condor/test_$(sample)_s$(seed).err
+log          = $(W)/work/condor/test_jobs.log
+request_cpus   = 1
+request_memory = 2500
++JobFlavour  = "microcentury"
+max_retries  = 1
+queue sample, gp, nevents, seed, cmnd from (
+  S_EW_WHjj  S_EW_WHjj_s2501000.tar.gz  2000 2501001  py8_wh_haa.cmnd
+  H_QCD_WHjj H_QCD_WHjj_s2504000.tar.gz 2000 2504001 py8_wh_haa.cmnd
+)

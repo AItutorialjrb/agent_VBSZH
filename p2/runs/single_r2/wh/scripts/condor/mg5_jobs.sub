@@ -1,0 +1,38 @@
+# WH single_r2: Phase 02/01 MG5 integrations on HTCondor (EosSubmit). Submit: bash -lc 'module load lxbatch/eossubmit; condor_submit <this>'
+W            = /eos/user/r/rjiang/vbs_zh_codex_starter/p2/runs/single_r2/wh
+universe     = vanilla
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+executable   = $(W)/scripts/condor/mg5_job_wh.sh
+arguments    = $(sample) $(sample).mg5 $(seed) $(W)/work/gp_condor $(ncore)
+transfer_input_files = /eos/user/r/rjiang/vbs_zh_codex_starter/p2/lib/scripts/setup_stack.sh, $(W)/$(card)
+output       = $(W)/work/condor/mg5_$(sample).out
+error        = $(W)/work/condor/mg5_$(sample).err
+log          = $(W)/work/condor/mg5_jobs.log
+request_cpus   = $(ncore)
+request_memory = $(mem)
+request_disk   = 20000000
++JobFlavour  = "$(flav)"
+max_retries  = 1
+queue sample, card, seed, ncore, mem, flav from (
+  B_EW_Waajj cards/phase02/B_EW_Waajj.mg5 2510000 8 16000 tomorrow
+  B_QCD_Waajj cards/phase02/B_QCD_Waajj.mg5 2511000 8 16000 tomorrow
+  B_QCD_Waajj_vbs cards/phase02/B_QCD_Waajj_vbs.mg5 2530000 8 16000 tomorrow
+  F_aajj cards/phase02/F_aajj.mg5 2525000 8 16000 workday
+  F_EW_Wajj cards/phase02/F_EW_Wajj.mg5 2513000 8 16000 workday
+  F_QCD_Wajj cards/phase02/F_QCD_Wajj.mg5 2512000 8 16000 workday
+  F_QCD_Wajj_nomjj cards/phase02/F_QCD_Wajj_nomjj.mg5 2529000 8 16000 workday
+  F_Wjj cards/phase02/F_Wjj.mg5 2514000 8 16000 workday
+  H_EW_WHjj_tau cards/phase02/H_EW_WHjj_tau.mg5 2521000 8 16000 workday
+  H_tHq cards/phase02/H_tHq.mg5 2519000 8 16000 workday
+  H_tHW cards/phase02/H_tHW.mg5 2520000 8 16000 workday
+  H_ttH_1l cards/phase02/H_ttH_1l.mg5 2518000 8 16000 workday
+  H_ttH_2l cards/phase02/H_ttH_2l.mg5 2528000 8 16000 workday
+  Q_W_aa_0j_offshell cards/phase02/Q_W_aa_0j_offshell.mg5 2531000 8 16000 workday
+  T_tta_1l cards/phase02/T_tta_1l.mg5 2515000 8 16000 workday
+  T_tta_2l cards/phase02/T_tta_2l.mg5 2527000 8 16000 workday
+  T_ttaa_1l cards/phase02/T_ttaa_1l.mg5 2516000 8 16000 workday
+  T_tWa_1l cards/phase02/T_tWa_1l.mg5 2517000 8 16000 workday
+  S_EW_WHjj_offshell cards/phase01/S_EW_WHjj_offshell.mg5 2506000 8 16000 tomorrow
+  S_EW_WHjj_5Fnotop_nodecay cards/phase01/S_EW_WHjj_5Fnotop_nodecay.mg5 2508000 8 16000 workday
+)

@@ -1,0 +1,492 @@
+{
+ "inputs": {
+  "B_PDG": {
+   "e": 0.1071,
+   "mu": 0.1063,
+   "tau": 0.1138,
+   "l_univ": 0.1086,
+   "had": 0.6741
+  },
+  "MW_MG5": 80.41900244575616,
+  "sw2_MG5": 0.22224648578577766,
+  "Gamma_lnu_MG5": 0.22756407993241248,
+  "B_MG5_lnu": 0.11113697984587442,
+  "B_MG5_had": 0.6668218790752466,
+  "Gamma_tbW_MG5": 1.495407749973891,
+  "WT": 1.4915,
+  "WW": 2.0476
+ },
+ "factors": {
+  "BGG": 0.00227,
+  "WF": 0.977172496054934,
+  "HF": 1.0109146402557259,
+  "TF": 0.9973868331403531,
+  "ZF": 0.9783,
+  "BR_ZLL": 0.067294,
+  "one": 1.0
+ },
+ "alternatives": {
+  "WF_nonuniv": 0.9600764763265327
+ },
+ "samples": {
+  "S_EW_WHjj": {
+   "decay": "W->l nu (e,mu) MG5 decay chain",
+   "hdecay": "H->gg forced PY8 (cond. BR 1)",
+   "factors": [
+    "WF",
+    "BGG"
+   ],
+   "k": 0.0022181815660447,
+   "seed": 2501000,
+   "rc": 0,
+   "sigma_fb": 13.76,
+   "err_fb": 0.03191,
+   "diagrams_total": 1460,
+   "source": "work/smoke/S_EW_WHjj_s2501000/status.txt",
+   "sigmaBR_fb": 0.03052217834877507,
+   "sigmaBR_3000": 91.5665350463252,
+   "nmc_required": 50000
+  },
+  "S_EW_WHjj_nodecay": {
+   "decay": "undecayed",
+   "hdecay": "undecayed",
+   "factors": [],
+   "k": 1,
+   "seed": 2502000,
+   "rc": 0,
+   "sigma_fb": 62.43,
+   "err_fb": 0.45389999999999997,
+   "diagrams_total": 1456,
+   "source": "work/smoke/S_EW_WHjj_nodecay_s2502000/status.txt",
+   "sigmaBR_fb": 62.43,
+   "sigmaBR_3000": 187290.0,
+   "nmc_required": 187290.0
+  },
+  "S_EW_WHjj_5F_nodecay": {
+   "decay": "undecayed",
+   "hdecay": "undecayed",
+   "factors": [],
+   "k": 1,
+   "seed": 2503000,
+   "rc": 0,
+   "sigma_fb": 126.9,
+   "err_fb": 1.408,
+   "diagrams_total": 1792,
+   "source": "work/smoke/S_EW_WHjj_5F_nodecay_s2503000/status.txt",
+   "sigmaBR_fb": 126.9,
+   "sigmaBR_3000": 380700.0,
+   "nmc_required": 380700.0
+  },
+  "S_EW_WHjj_5Fnotop_nodecay": {
+   "decay": "undecayed",
+   "hdecay": "undecayed",
+   "factors": [],
+   "k": 1,
+   "seed": 2508000,
+   "rc": 0,
+   "sigma_fb": 144.6,
+   "err_fb": 0.9766,
+   "diagrams_total": 1756,
+   "source": "work/gp_condor/S_EW_WHjj_5Fnotop_nodecay_s2508000_status.txt",
+   "sigmaBR_fb": 144.6,
+   "sigmaBR_3000": 433800.0,
+   "nmc_required": 433800.0
+  },
+  "S_EW_WHjj_offshell": {
+   "decay": "l nu in ME (no chain)",
+   "hdecay": "H->gg forced PY8",
+   "factors": [
+    "WF",
+    "BGG"
+   ],
+   "k": 0.0022181815660447,
+   "seed": 2506000,
+   "rc": 0,
+   "sigma_fb": 11.49,
+   "err_fb": 0.09303,
+   "diagrams_total": 4032,
+   "source": "work/gp_condor/S_EW_WHjj_offshell_s2506000_status.txt",
+   "sigmaBR_fb": 0.025486906193853603,
+   "sigmaBR_3000": 76.46071858156081,
+   "nmc_required": 50000
+  },
+  "H_QCD_WHjj": {
+   "decay": "W->l nu (e,mu) MG5 decay chain",
+   "hdecay": "H->gg forced PY8 (cond. BR 1)",
+   "factors": [
+    "WF",
+    "BGG"
+   ],
+   "k": 0.0022181815660447,
+   "seed": 2504000,
+   "rc": 0,
+   "sigma_fb": 58.83,
+   "err_fb": 0.14980000000000002,
+   "diagrams_total": 356,
+   "source": "work/smoke/H_QCD_WHjj_s2504000/status.txt",
+   "sigmaBR_fb": 0.1304956215304097,
+   "sigmaBR_3000": 391.4868645912291,
+   "nmc_required": 50000
+  },
+  "H_QCD_WHjj_nodecay": {
+   "decay": "undecayed",
+   "hdecay": "undecayed",
+   "factors": [],
+   "k": 1,
+   "seed": 2507000,
+   "rc": 0,
+   "sigma_fb": 261.1,
+   "err_fb": 1.5510000000000002,
+   "diagrams_total": 352,
+   "source": "work/smoke/H_QCD_WHjj_nodecay_s2507000/status.txt",
+   "sigmaBR_fb": 261.1,
+   "sigmaBR_3000": 783300.0000000001,
+   "nmc_required": 783300.0000000001
+  },
+  "I_WHjj": {
+   "decay": "undecayed (signed)",
+   "hdecay": "undecayed",
+   "factors": [],
+   "k": 1,
+   "seed": 2505000,
+   "rc": 0,
+   "sigma_fb": -0.2562,
+   "err_fb": 0.01253,
+   "diagrams_total": 1680,
+   "source": "work/smoke/I_WHjj_s2505000/status.txt",
+   "sigmaBR_fb": -0.2562,
+   "sigmaBR_3000": -768.5999999999999,
+   "nmc_required": 50000
+  },
+  "H_EW_WHjj_tau": {
+   "decay": "W->tau nu MG5 chain, tau in PY8",
+   "hdecay": "H->gg forced PY8",
+   "factors": [
+    "WF",
+    "BGG"
+   ],
+   "k": 0.0022181815660447,
+   "seed": 2521000,
+   "rc": 0,
+   "sigma_fb": 6.814,
+   "err_fb": 0.0488,
+   "diagrams_total": 1458,
+   "source": "work/gp_condor/H_EW_WHjj_tau_s2521000_status.txt",
+   "sigmaBR_fb": 0.015114689191028586,
+   "sigmaBR_3000": 45.34406757308576,
+   "nmc_required": 50000
+  },
+  "B_EW_Waajj": {
+   "decay": "W->l nu MG5 decay chain",
+   "hdecay": "no H",
+   "factors": [
+    "WF"
+   ],
+   "k": 0.977172496054934,
+   "sigmaBR_fb": null,
+   "sigmaBR_3000": null,
+   "nmc_required": null
+  },
+  "B_QCD_Waajj": {
+   "decay": "W->l nu MG5 decay chain",
+   "hdecay": "no H",
+   "factors": [
+    "WF"
+   ],
+   "k": 0.977172496054934,
+   "sigmaBR_fb": null,
+   "sigmaBR_3000": null,
+   "nmc_required": null
+  },
+  "B_QCD_Waajj_vbs": {
+   "decay": "W->l nu MG5 decay chain",
+   "hdecay": "no H",
+   "factors": [
+    "WF"
+   ],
+   "k": 0.977172496054934,
+   "sigmaBR_fb": null,
+   "sigmaBR_3000": null,
+   "nmc_required": null
+  },
+  "F_QCD_Wajj": {
+   "decay": "l nu in ME (no chain)",
+   "hdecay": "no H",
+   "factors": [
+    "WF"
+   ],
+   "k": 0.977172496054934,
+   "seed": 2512000,
+   "rc": 0,
+   "sigma_fb": 687.5,
+   "err_fb": 1.238,
+   "diagrams_total": 4608,
+   "source": "work/gp_condor/F_QCD_Wajj_s2512000_status.txt",
+   "sigmaBR_fb": 671.806091037767,
+   "sigmaBR_3000": 2015418.273113301,
+   "nmc_required": 2015418.273113301
+  },
+  "F_QCD_Wajj_nomjj": {
+   "decay": "l nu in ME (no chain)",
+   "hdecay": "no H",
+   "factors": [
+    "WF"
+   ],
+   "k": 0.977172496054934,
+   "seed": 2529000,
+   "rc": 0,
+   "sigma_fb": 6308.0,
+   "err_fb": 8.245000000000001,
+   "diagrams_total": 4608,
+   "source": "work/gp_condor/F_QCD_Wajj_nomjj_s2529000_status.txt",
+   "sigmaBR_fb": 6164.004105114524,
+   "sigmaBR_3000": 18492012.31534357,
+   "nmc_required": 18492012.31534357
+  },
+  "F_EW_Wajj": {
+   "decay": "l nu in ME (no chain)",
+   "hdecay": "no H",
+   "factors": [
+    "WF"
+   ],
+   "k": 0.977172496054934,
+   "seed": 2513000,
+   "rc": 0,
+   "sigma_fb": 82.11,
+   "err_fb": 0.1507,
+   "diagrams_total": 16128,
+   "source": "work/gp_condor/F_EW_Wajj_s2513000_status.txt",
+   "sigmaBR_fb": 80.23563365107063,
+   "sigmaBR_3000": 240706.90095321188,
+   "nmc_required": 240706.90095321188
+  },
+  "F_Wjj": {
+   "decay": "l nu in ME (no chain)",
+   "hdecay": "no H",
+   "factors": [
+    "WF"
+   ],
+   "k": 0.977172496054934,
+   "seed": 2514000,
+   "rc": 0,
+   "sigma_fb": 171000.0,
+   "err_fb": 1006.0,
+   "diagrams_total": 704,
+   "source": "work/gp_condor/F_Wjj_s2514000_status.txt",
+   "sigmaBR_fb": 167096.4968253937,
+   "sigmaBR_3000": 501289490.4761811,
+   "nmc_required": 501289490.4761811
+  },
+  "F_aajj": {
+   "decay": "none (fake lepton x f_l)",
+   "hdecay": "no H",
+   "factors": [
+    "one"
+   ],
+   "k": 1.0,
+   "seed": 2525000,
+   "rc": 0,
+   "sigma_fb": 279.5,
+   "err_fb": 1.348,
+   "diagrams_total": 1680,
+   "source": "work/gp_condor/F_aajj_s2525000_status.txt",
+   "sigmaBR_fb": 279.5,
+   "sigmaBR_3000": 838500.0,
+   "nmc_required": 838500.0
+  },
+  "T_tta_1l": {
+   "decay": "t->bW, W->l nu + W->jj MG5 chains",
+   "hdecay": "no H",
+   "factors": [
+    "TF",
+    "TF",
+    "WF",
+    "HF"
+   ],
+   "k": 0.9826819569519634,
+   "seed": 2515000,
+   "rc": 0,
+   "sigma_fb": 514.5999999999999,
+   "err_fb": 3.2399999999999998,
+   "diagrams_total": 68,
+   "source": "work/gp_condor/T_tta_1l_s2515000_status.txt",
+   "sigmaBR_fb": 505.6881350474803,
+   "sigmaBR_3000": 1517064.405142441,
+   "nmc_required": 1517064.405142441
+  },
+  "T_tta_2l": {
+   "decay": "t->bW, both W->l nu MG5 chains",
+   "hdecay": "no H",
+   "factors": [
+    "TF",
+    "TF",
+    "WF",
+    "WF"
+   ],
+   "k": 0.9498821586558364,
+   "seed": 2527000,
+   "rc": 0,
+   "sigma_fb": 84.53,
+   "err_fb": 0.8762000000000001,
+   "diagrams_total": 34,
+   "source": "work/gp_condor/T_tta_2l_s2527000_status.txt",
+   "sigmaBR_fb": 80.29353887117784,
+   "sigmaBR_3000": 240880.61661353352,
+   "nmc_required": 240880.61661353352
+  },
+  "T_ttaa_1l": {
+   "decay": "t->bW, W->l nu + W->jj MG5 chains",
+   "hdecay": "no H",
+   "factors": [
+    "TF",
+    "TF",
+    "WF",
+    "HF"
+   ],
+   "k": 0.9826819569519634,
+   "seed": 2516000,
+   "rc": 0,
+   "sigma_fb": 0.4685,
+   "err_fb": 0.003179,
+   "diagrams_total": 272,
+   "source": "work/gp_condor/T_ttaa_1l_s2516000_status.txt",
+   "sigmaBR_fb": 0.46038649683199484,
+   "sigmaBR_3000": 1381.1594904959845,
+   "nmc_required": 50000
+  },
+  "T_tWa_1l": {
+   "decay": "t->bW + W, one l nu one jj, MG5 chains",
+   "hdecay": "no H",
+   "factors": [
+    "TF",
+    "WF",
+    "HF"
+   ],
+   "k": 0.9852565968390716,
+   "seed": 2517000,
+   "rc": 0,
+   "sigma_fb": 78.31,
+   "err_fb": 0.5218,
+   "diagrams_total": 52,
+   "source": "work/gp_condor/T_tWa_1l_s2517000_status.txt",
+   "sigmaBR_fb": 77.1554440984677,
+   "sigmaBR_3000": 231466.3322954031,
+   "nmc_required": 231466.3322954031
+  },
+  "H_ttH_1l": {
+   "decay": "t->bW, W->l nu + W->jj MG5 chains",
+   "hdecay": "H->gg forced PY8",
+   "factors": [
+    "TF",
+    "TF",
+    "WF",
+    "HF",
+    "BGG"
+   ],
+   "k": 0.0022306880422809567,
+   "seed": 2518000,
+   "rc": 0,
+   "sigma_fb": 108.2,
+   "err_fb": 0.2796,
+   "diagrams_total": 48,
+   "source": "work/gp_condor/H_ttH_1l_s2518000_status.txt",
+   "sigmaBR_fb": 0.24136044617479951,
+   "sigmaBR_3000": 724.0813385243986,
+   "nmc_required": 50000
+  },
+  "H_ttH_2l": {
+   "decay": "t->bW, both W->l nu MG5 chains",
+   "hdecay": "H->gg forced PY8",
+   "factors": [
+    "TF",
+    "TF",
+    "WF",
+    "WF",
+    "BGG"
+   ],
+   "k": 0.0021562325001487485,
+   "seed": 2528000,
+   "rc": 0,
+   "sigma_fb": 18.02,
+   "err_fb": 0.1702,
+   "diagrams_total": 24,
+   "source": "work/gp_condor/H_ttH_2l_s2528000_status.txt",
+   "sigmaBR_fb": 0.03885530965268045,
+   "sigmaBR_3000": 116.56592895804134,
+   "nmc_required": 50000
+  },
+  "H_tHq": {
+   "decay": "t->b l nu MG5 chain",
+   "hdecay": "H->gg forced PY8",
+   "factors": [
+    "TF",
+    "WF",
+    "BGG"
+   ],
+   "k": 0.0022123850874876325,
+   "seed": 2519000,
+   "rc": 0,
+   "sigma_fb": 15.4,
+   "err_fb": 0.1407,
+   "diagrams_total": 30,
+   "source": "work/gp_condor/H_tHq_s2519000_status.txt",
+   "sigmaBR_fb": 0.03407073034730954,
+   "sigmaBR_3000": 102.21219104192863,
+   "nmc_required": 50000
+  },
+  "H_tHW": {
+   "decay": "t->bW + W, one l nu one jj, MG5 chains",
+   "hdecay": "H->gg forced PY8",
+   "factors": [
+    "TF",
+    "WF",
+    "HF",
+    "BGG"
+   ],
+   "k": 0.0022365324748246924,
+   "seed": 2520000,
+   "rc": 0,
+   "sigma_fb": 2.335,
+   "err_fb": 0.0152,
+   "diagrams_total": 40,
+   "source": "work/gp_condor/H_tHW_s2520000_status.txt",
+   "sigmaBR_fb": 0.0052223033287156564,
+   "sigmaBR_3000": 15.666909986146969,
+   "nmc_required": 50000
+  },
+  "Q_W_aa_0j_offshell": {
+   "decay": "l nu in ME",
+   "hdecay": "no H",
+   "factors": [
+    "WF"
+   ],
+   "k": 0.977172496054934,
+   "seed": 2531000,
+   "rc": 0,
+   "sigma_fb": 2.49,
+   "err_fb": 0.02198,
+   "diagrams_total": 168,
+   "source": "work/gp_condor/Q_W_aa_0j_offshell_s2531000_status.txt",
+   "sigmaBR_fb": 2.4331595151767855,
+   "sigmaBR_3000": 7299.478545530356,
+   "nmc_required": 50000
+  },
+  "Q_W_aa_0j_onshell": {
+   "decay": "W->l nu MG5 chain",
+   "hdecay": "no H",
+   "factors": [
+    "WF"
+   ],
+   "k": 0.977172496054934,
+   "seed": 2532000,
+   "rc": 0,
+   "sigma_fb": 1.751,
+   "err_fb": 0.015379999999999998,
+   "diagrams_total": 56,
+   "source": "work/gp_condor/Q_W_aa_0j_onshell_s2532000_status.txt",
+   "sigmaBR_fb": 1.7110290405921893,
+   "sigmaBR_3000": 5133.087121776568,
+   "nmc_required": 50000
+  }
+ }
+}

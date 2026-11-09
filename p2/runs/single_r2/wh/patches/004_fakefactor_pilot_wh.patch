@@ -1,0 +1,18 @@
+2c2,3
+< """Fake-factor (parametrised j->gamma) estimate on a pilot sample + generator-filter safety test.
+---
+> """[WH patch 004: W selection (==1 lepton pT>15, lead pT>25, MET>30) replaces the Z window; nfake=2 -> W+jets, nfake=1 -> Wgamma+jets]
+> Fake-factor (parametrised j->gamma) estimate on a pilot sample + generator-filter safety test.
+53,59c54,57
+< def zcand(i):
+<     for pt, eta, phi, q, mass, etamax in ((ept[i], eeta[i], ephi[i], eq[i], 0.000511, 2.5), (mpt[i], meta[i], mphi[i], mq[i], 0.1057, 2.4)):
+<         sel = [k for k in range(len(pt)) if pt[k] > 15 and abs(eta[k]) < etamax]
+<         if len(sel) >= 2 and q[sel[0]] * q[sel[1]] < 0:
+<             mm = m(lv(pt[sel[0]], eta[sel[0]], phi[sel[0]]), lv(pt[sel[1]], eta[sel[1]], phi[sel[1]]))
+<             if 70 < mm < 110: return True
+<     return False
+---
+> met = A("MissingET/MissingET.MET")
+> def zcand(i):  # WH: W candidate (name kept so the loop below is unchanged)
+>     l = [pt for pt, eta in zip(ept[i], eeta[i]) if pt > 15 and abs(eta) < 2.5] + [pt for pt, eta in zip(mpt[i], meta[i]) if pt > 15 and abs(eta) < 2.4]
+>     return len(l) == 1 and l[0] > 25 and met[i][0] > 30

@@ -1,0 +1,38 @@
+# WH sample registry, run single_r2 (SPEC_G0 §3.4).  seed = 1e6*P + 1e5*R + 1000*index + J,  P=2 (WH), R=5 (single_r2)
+# J convention: 0 = MG5 smoke/gridpack integration; 1..9 = condor test jobs; 10..19 = local PY8/Delphes validation; >=100 production (Phase 04, not this run)
+process_code: 2
+run_index: 5
+samples:
+  # --- Phase 01: signal and resonant same-final-state components
+  S_EW_WHjj:            {index: 1,  card: cards/phase01/S_EW_WHjj.mg5,           role: signal}
+  S_EW_WHjj_nodecay:    {index: 2,  card: cards/phase01/S_EW_WHjj_nodecay.mg5,   role: validation (W BR closure)}
+  S_EW_WHjj_5F_nodecay: {index: 3,  card: cards/phase01/S_EW_WHjj_5F_nodecay.mg5, role: validation (flavour scheme / tHq overlap)}
+  H_QCD_WHjj:           {index: 4,  card: cards/phase01/H_QCD_WHjj.mg5,          role: resonant bkg (def a) / signal part (def b)}
+  I_WHjj:               {index: 5,  card: cards/phase01/I_WHjj.mg5,              role: signed interference}
+  S_EW_WHjj_offshell:   {index: 6,  card: cards/phase01/S_EW_WHjj_offshell.mg5,  role: systematic (pole approximation)}
+  H_QCD_WHjj_nodecay:   {index: 7,  card: cards/phase01/H_QCD_WHjj_nodecay.mg5,  role: validation (interference denominator)}
+  S_EW_WHjj_5Fnotop_nodecay: {index: 8, card: cards/phase01/S_EW_WHjj_5Fnotop_nodecay.mg5, role: DIAGNOSTIC ONLY ($$ t t~ not gauge invariant) top-resonance size}
+  # --- Phase 02: backgrounds
+  B_EW_Waajj:           {index: 10, card: cards/phase02/B_EW_Waajj.mg5,          role: prompt continuum}
+  B_QCD_Waajj:          {index: 11, card: cards/phase02/B_QCD_Waajj.mg5,         role: prompt continuum}
+  F_QCD_Wajj:           {index: 12, card: cards/phase02/F_QCD_Wajj.mg5,          role: 1 fake photon (direct Delphes)}
+  F_EW_Wajj:            {index: 13, card: cards/phase02/F_EW_Wajj.mg5,           role: 1 fake photon (direct Delphes)}
+  F_Wjj:                {index: 14, card: cards/phase02/F_Wjj.mg5,               role: 2 fake photons (bound)}
+  T_tta_1l:             {index: 15, card: cards/phase02/T_tta_1l.mg5,            role: top + 1 prompt photon}
+  T_ttaa_1l:            {index: 16, card: cards/phase02/T_ttaa_1l.mg5,           role: top + 2 prompt photons}
+  T_tWa_1l:             {index: 17, card: cards/phase02/T_tWa_1l.mg5,            role: top + 1 prompt photon}
+  H_ttH_1l:             {index: 18, card: cards/phase02/H_ttH_1l.mg5,            role: resonant bkg}
+  H_tHq:                {index: 19, card: cards/phase02/H_tHq.mg5,               role: resonant bkg}
+  H_tHW:                {index: 20, card: cards/phase02/H_tHW.mg5,               role: resonant bkg}
+  H_EW_WHjj_tau:        {index: 21, card: cards/phase02/H_EW_WHjj_tau.mg5,       role: resonant bkg (W->tau nu feed-down)}
+  H_WZH_bb:             {index: 22, card: null,                                   role: covered by 5F/4F accounting (see 01 report)}
+  R_ZHjj_lostlep:       {index: 23, card: null, reuse: frozen ZH S_EW_ZHjj + H_QCD_ZHjj (production/v1),  role: resonant bkg (lost lepton)}
+  R_Zaajj_lostlep:      {index: 24, card: null, reuse: frozen ZH B_*_zaajj_vbs (production/final), role: prompt continuum (lost lepton), partial coverage}
+  F_aajj:               {index: 25, card: cards/phase02/F_aajj.mg5,              role: non-prompt lepton (bound)}
+  H_ggZH_lostlep:       {index: 26, card: null, reuse: frozen ZH H_ggZH_py8dec,  role: resonant bkg (lost lepton)}
+  T_tta_2l:             {index: 27, card: cards/phase02/T_tta_2l.mg5,            role: top + 1 prompt photon, dilepton (lost lepton)}
+  H_ttH_2l:             {index: 28, card: cards/phase02/H_ttH_2l.mg5,            role: resonant bkg, dilepton (lost lepton)}
+  F_QCD_Wajj_nomjj:     {index: 29, card: cards/phase02/F_QCD_Wajj_nomjj.mg5,    role: twin (generator mjj cut safety)}
+  B_QCD_Waajj_vbs:      {index: 30, card: cards/phase02/B_QCD_Waajj_vbs.mg5,     role: twin (generator mjj cut safety)}
+  Q_W_aa_0j_offshell:   {index: 31, card: cards/phase02/Q_W_aa_0j_offshell.mg5,  role: off-shell/FSR correction numerator}
+  Q_W_aa_0j_onshell:    {index: 32, card: cards/phase02/Q_W_aa_0j_onshell.mg5,   role: off-shell/FSR correction denominator}

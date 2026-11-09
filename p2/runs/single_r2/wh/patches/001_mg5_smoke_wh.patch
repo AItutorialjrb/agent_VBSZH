@@ -1,0 +1,49 @@
+2,3c2,4
+< # Interactive smoke test (tiny runs only).  Usage: scripts/mg5_smoke.sh <card-name> <seed> [timeout_s]
+< # Runs MG5 in node-local scratch, stages small outputs (cards, logs, xsec, gridpack/LHE) to EOS work/m5/<card>/.
+---
+> # WH interactive smoke runner (patch 001 of p2/lib/scripts/mg5_smoke.sh): same logic, but cards/outputs live in this
+> # process directory (never the frozen ZH work/), seed taken from the registry, diagram/process summary extracted.
+> # Usage: scripts/mg5_smoke_wh.sh <card-path-relative-to-wh> <sample-name> [J=0] [timeout_s=900]
+5,9c6,11
+< PROJECT=/eos/home-r/rjiang/vbs_zh_codex_starter
+< CARD=$1; SEED=$2; TMO=${3:-900}
+< [ -n "$CARD" ] && [ -n "$SEED" ] || { echo "usage: $0 card seed [timeout]"; exit 2; }
+< SCR=${SMOKE_SCRATCH:-/tmp/$USER/vbszh_smoke}; mkdir -p "$SCR"
+< OUT=$SCR/$CARD; DEST=$PROJECT/work/m5/$CARD
+---
+> WH=/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/single_r2/wh
+> CARDP=$1; SAMPLE=$2; J=${3:-0}; TMO=${4:-900}
+> [ -n "$CARDP" ] && [ -n "$SAMPLE" ] || { echo "usage: $0 card sample [J] [timeout]"; exit 2; }
+> SEED=$(python3 $WH/scripts/seeds.py "$SAMPLE" "$J") || exit 4
+> SCR=${SMOKE_SCRATCH:-/tmp/$USER/wh_single_r2_smoke}; mkdir -p "$SCR"
+> OUT=$SCR/${SAMPLE}_s$SEED; DEST=$WH/work/smoke/${SAMPLE}_s$SEED
+10a13
+> [ -e "$DEST/status.txt" ] && { echo "$DEST/status.txt exists; refusing to overwrite"; exit 3; }
+12,13c15,16
+< source $PROJECT/scripts/setup_stack.sh >/dev/null
+< sed -e "s#OUTDIR#$OUT#g" -e "s#SEED#$SEED#g" $PROJECT/cards/phase03_smoke/$CARD.mg5 > "$DEST/$CARD.run.mg5"
+---
+> source /eos/home-r/rjiang/vbs_zh_codex_starter/p2/lib/scripts/setup_stack.sh >/dev/null
+> sed -e "s#OUTDIR#$OUT#g" -e "s#SEED#$SEED#g" "$WH/$CARDP" > "$DEST/run.mg5"
+15c18
+< ( cd "$SCR" && timeout "$TMO" mg5_aMC "$DEST/$CARD.run.mg5" ) > "$DEST/mg5.log" 2>&1
+---
+> ( cd "$SCR" && timeout "$TMO" mg5_aMC "$DEST/run.mg5" ) > "$DEST/mg5.log" 2>&1
+17,18c20
+< echo "card=$CARD seed=$SEED rc=$RC wall_s=$((T1-T0)) host=$(hostname) stack=$VBSZH_STACK_TAG utc=$(date -u +%FT%TZ)" > "$DEST/status.txt"
+< # stage small outputs
+---
+> echo "sample=$SAMPLE card=$CARDP seed=$SEED rc=$RC wall_s=$((T1-T0)) host=$(hostname) stack=$VBSZH_STACK_TAG utc=$(date -u +%FT%TZ) card_sha256=$(sha256sum $WH/$CARDP|cut -c1-16)" > "$DEST/status.txt"
+21,22c23,26
+< ls "$OUT"/SubProcesses/P*/ -d 2>/dev/null | wc -l > "$DEST/n_subproc_dirs.txt"
+< for f in "$OUT"/Events/run_01*/*banner.txt "$OUT"/Events/run_01*/*.lhe.gz "$OUT"/crossx.html "$OUT"/HTML/run_01*/results.html; do [ -f "$f" ] && cp "$f" "$DEST/"; done
+---
+> ls -d "$OUT"/SubProcesses/P*/ 2>/dev/null | wc -l > "$DEST/n_subproc_dirs.txt"
+> # list of all partonic subprocesses (one line per process in each P* dir) for order/flavour audits
+> for d in "$OUT"/SubProcesses/P*/; do [ -f "$d/auto_dsig.f" ] && grep -h "^C *Process:" "$d"/matrix*.f 2>/dev/null; done | sort -u > "$DEST/processes.txt"
+> for f in "$OUT"/Events/run_01*/*banner.txt "$OUT"/Events/run_01*/*.lhe.gz "$OUT"/HTML/run_01*/results.html; do [ -f "$f" ] && cp "$f" "$DEST/"; done
+23a28
+> grep -E "Total: .* processes with .* diagrams|^INFO: Generated helas calls" "$DEST/mg5.log" | head -5 >> "$DEST/status.txt"
+24a30
+> [ "${KEEP_SCRATCH:-0}" = 1 ] || rm -rf "$OUT"

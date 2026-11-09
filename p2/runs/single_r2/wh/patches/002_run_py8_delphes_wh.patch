@@ -1,0 +1,27 @@
+2,3c2,3
+< # Usage: run_py8_delphes.sh <lhe.gz> <sample-cmnd> <nevents> <pyseed> <out.root>
+< # Concatenates py8_common_CP5.cmnd + sample cmnd, runs DelphesPythia8 with the stock LCG_110 CMS card.
+---
+> # Patch 002 of p2/lib/scripts/run_py8_delphes.sh: identical physics; stack/common CP5 card read from p2/lib (read-only),
+> # sample cmnd and Delphes card passed explicitly.  Usage: run_py8_delphes_wh.sh <lhe(.gz)> <sample-cmnd> <nevents> <pyseed> <out.root> [delphes_card]
+5,7c5,7
+< PROJECT=${PROJECT:-/eos/home-r/rjiang/vbs_zh_codex_starter}
+< LHE=$1; SC=$2; N=$3; SEED=$4; OUT=$5
+< source $PROJECT/scripts/setup_stack.sh >/dev/null
+---
+> LIB=${LIB:-/eos/home-r/rjiang/vbs_zh_codex_starter/p2/lib}
+> LHE=$1; SC=$2; N=$3; SEED=$4; OUT=$5; DC=${6:-$LIB/cards/phase04_candidates/delphes_card_CMS_slim_v1.tcl}
+> source $LIB/scripts/setup_stack.sh >/dev/null
+11c11
+< cat $PROJECT/cards/phase03_smoke/py8_common_CP5.cmnd > "$CM"
+---
+> cat $LIB/cards/phase03_smoke/py8_common_CP5.cmnd > "$CM"
+13,16c13,15
+< cp "${DELPHES_CARD:-$DELPHES_CMS_CARD}" "$W/delphes_card_CMS.tcl"   # override with DELPHES_CARD=<path>
+< # Delphes smearing seed: the stock card leaves RandomSeed=0 (clock-seeded, NOT reproducible) -> pin it to the job seed
+< sed -i "1i set RandomSeed $(( SEED % 900000000 + 1 ))" "$W/delphes_card_CMS.tcl"
+< ( cd "$W" && DelphesPythia8 delphes_card_CMS.tcl py8.cmnd "$OUT" )
+---
+> cp "$DC" "$W/delphes_card.tcl"
+> sed -i "1i set RandomSeed $(( SEED % 900000000 + 1 ))" "$W/delphes_card.tcl"
+> ( cd "$W" && DelphesPythia8 delphes_card.tcl py8.cmnd "$OUT" )

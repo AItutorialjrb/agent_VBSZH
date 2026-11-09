@@ -1,0 +1,6 @@
+! WH background samples without a Higgs (prompt-photon / fake samples).  No forced decays.
+Main:numberOfEvents = NEVENTS
+Beams:LHEF = LHEFILE
+Random:setSeed = on
+Random:seed = PYSEED
+SpaceShower:dipoleRecoil = on
