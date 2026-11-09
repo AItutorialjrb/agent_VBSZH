@@ -12,7 +12,8 @@ def dkey(path):
     return re.sub(r"_s\d+\.root$", "", os.path.basename(path))
 # pre-declared generator-cut factors C (04 sec. 15(7), SAMPLES.csv notes): (central, low, high) multiplicative on rows of the directory; applied in VBS/PEAK only (measured at the mjj>500,|deta|>2.5 proxy)
 CFAC = {"F_QCD_llajj_vbs": (1.866, 1.0, 2.732),      # Z gamma jj QCD, nomjj/vbs ratio 1.866, syst = full difference 0.866 (87 %): range [1, 2.732]
-        "B_EW_zaajj_vbs_is1h": (0.958, 0.897, 1.019), "B_EW_zaajj_vbs_is2": (0.958, 0.897, 1.019), "B_EW_zaajj_vbs_is3": (0.958, 0.897, 1.019)}   # +-0.061 (stat)
+        "F_EW_llajj_vbs": (1.025, 1.0, 1.05),      # EW part: C >= 1 from the twin loss fraction (W EW proxy 1.025); range [1, 1+2*0.025] (v2.1, review N2; v2 had C=1)
+        "B_EW_zaajj_vbs_is1h": (1.016, 1.0, 1.032), "B_EW_zaajj_vbs_is2": (1.016, 1.0, 1.032), "B_EW_zaajj_vbs_is3": (1.016, 1.0, 1.032)}   # twin loss 1.56 % -> 1.016 (v2.1; v2 used 0.958 < 1, unphysical for nomjj containing vbs)
 def load(sample):
     """-> dict of concatenated arrays + per-row norm array 'norm' (= 1e3*k/N_gen_of_its_directory, fb per pb), and cutflow sums."""
     fs = sorted(glob.glob(f"{SK}/skim_{sample}__*.npz")); k = float(SAMP[sample]["k"]); D = {}; nd = {}; metas = []
@@ -23,11 +24,12 @@ def load(sample):
     for key in parts[0].files: D[key] = np.concatenate([p[key] for p in parts])
     wsrc = SAMP[sample]["files_glob"].startswith("/")   # frozen ZH rows: per-directory N
     Ngen = float(SAMP[sample]["N_generated_LHE"])
-    norm = []; cf = []
+    norm = []; cf = []; dn = []
     for p, m in zip(parts, metas):
         n = len(p["w"]); norm.append(np.full(n, 1e3*k/(nd[dkey(m["file"])] if wsrc else Ngen)))
+        dn.append(np.full(n, dkey(m["file"])))
         cf.append(np.tile(np.array(CFAC.get(dkey(m["file"]), (1.0, 1.0, 1.0)))[None, :], (n, 1)))
-    D["norm"] = np.concatenate(norm); D["cfac"] = np.concatenate(cf); D["n_files"] = len(fs); D["n_events_skimmed"] = sum(m["cutflow"]["n_events"] for m in metas)
+    D["norm"] = np.concatenate(norm); D["cfac"] = np.concatenate(cf); D["dirname"] = np.concatenate(dn); D["n_files"] = len(fs); D["n_events_skimmed"] = sum(m["cutflow"]["n_events"] for m in metas)
     sw = {}
     for m in metas: sw[dkey(m["file"])] = sw.get(dkey(m["file"]), 0.0) + m["cutflow"]["sum_w"]
     D["sumw_over_N_pb"] = float(sum(sw[kk]/(nd[kk] if wsrc else Ngen) for kk in sw)); D["N_by_dir"] = nd

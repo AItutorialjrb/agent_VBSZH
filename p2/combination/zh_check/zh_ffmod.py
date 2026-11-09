@@ -26,7 +26,7 @@ def _load_ffm(sample):
     return {k: np.concatenate(v) for k, v in A.items()}
 FFD_ = {}
 for _sid, _smp in FFSIDS.items():
-    if FFMODE == "ff": FFD_[_sid] = ff_expand(_load_ffm(_smp), rate=RATE, px=PX, kappa=FFKAPPA)
+    if FFMODE == "ff": FFD_[_sid] = ff_expand(_load_ffm(_smp), rate=RATE, px=PX, kappa=FFKAPPA*(float(os.environ.get("FFKAPPA_EW", "1.0")) if _sid == "F_EW_Zajj" else 1.0))
 def fwin_w(mgg, w, c):
     x = mgg - WIDE[0]; L = WIDE[1] - WIDE[0]; lo, hi = MU - c["wk"]*SIG - WIDE[0], MU + c["wk"]*SIG - WIDE[0]
     if len(x) < 5 or w.sum() <= 0: return (hi - lo)/L, 0.0
@@ -51,6 +51,6 @@ if FFMODE == "ff":
     _est0 = estimate
     def estimate(sid, c):
         return ff_estimate(sid, c) if sid in FFSIDS else _est0(sid, c)
-FFD = float(os.environ.get("FFD", "0.0"))     # relative calibration difference added in quadrature to the 50 % fake normalisation
-FFINFO = dict(mode=FFMODE, kappa=FFKAPPA, ffd=FFD, rate=RATE.tolist(), rate_err=RATE_ERR.tolist(), px=PX.tolist(), den=_RT["den"].tolist(), num_gen=_RT["num_gen"].tolist(),
+FFD = float(os.environ.get("FFD", "0.0")); FFDD = {"F_QCD_Zajj": FFD, "F_EW_Zajj": float(os.environ.get("FFD_EW", str(FFD)))}     # relative calibration difference added in quadrature to the 50 % fake normalisation
+FFINFO = dict(mode=FFMODE, kappa=FFKAPPA, kappa_ew_extra=float(os.environ.get("FFKAPPA_EW", "1.0")), ffd=FFDD, rate=RATE.tolist(), rate_err=RATE_ERR.tolist(), px=PX.tolist(), den=_RT["den"].tolist(), num_gen=_RT["num_gen"].tolist(),
               rows={k: int(len(v["evt"])) for k, v in FFD_.items()})

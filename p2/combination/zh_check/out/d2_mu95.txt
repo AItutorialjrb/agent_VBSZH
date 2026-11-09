@@ -1,0 +1,15 @@
+frozen       500   s=0.0879 b=0.5196 sigma_b=0.0701 n_med=0 P(n<=nmed|b)=0.596 mu95_CLs=34.50 (json 34.50) mu95_Asimov_smooth=33.02
+frozen       1000  s=0.1758 b=1.0392 sigma_b=0.1402 n_med=1 P(n<=nmed|b)=0.722 mu95_CLs=23.67 (json 23.67) mu95_Asimov_smooth=19.61
+frozen       3000  s=0.5273 b=3.1176 sigma_b=0.4205 n_med=3 P(n<=nmed|b)=0.622 mu95_CLs=10.37 (json 10.37) mu95_Asimov_smooth=9.29
+ff2_nominal  500   s=0.0879 b=0.4687 sigma_b=0.0647 n_med=0 P(n<=nmed|b)=0.627 mu95_CLs=34.50 (json 34.50) mu95_Asimov_smooth=32.29
+ff2_nominal  1000  s=0.1758 b=0.9374 sigma_b=0.1293 n_med=1 P(n<=nmed|b)=0.759 mu95_CLs=23.90 (json 23.90) mu95_Asimov_smooth=19.07
+ff2_nominal  3000  s=0.5273 b=2.8123 sigma_b=0.3880 n_med=3 P(n<=nmed|b)=0.688 mu95_CLs=10.66 (json 10.66) mu95_Asimov_smooth=8.95
+ff2_closdown 500   s=0.0879 b=0.4660 sigma_b=0.0646 n_med=0 P(n<=nmed|b)=0.629 mu95_CLs=34.50 (json 34.50) mu95_Asimov_smooth=32.25
+ff2_closdown 1000  s=0.1758 b=0.9321 sigma_b=0.1292 n_med=1 P(n<=nmed|b)=0.761 mu95_CLs=23.92 (json 23.92) mu95_Asimov_smooth=19.04
+ff2_closdown 3000  s=0.5273 b=2.7963 sigma_b=0.3875 n_med=3 P(n<=nmed|b)=0.692 mu95_CLs=10.67 (json 10.67) mu95_Asimov_smooth=8.94
+ff2_ew2p5    500   s=0.0879 b=0.4701 sigma_b=0.0648 n_med=0 P(n<=nmed|b)=0.626 mu95_CLs=34.50 (json 34.50) mu95_Asimov_smooth=32.31
+ff2_ew2p5    1000  s=0.1758 b=0.9402 sigma_b=0.1295 n_med=1 P(n<=nmed|b)=0.758 mu95_CLs=23.90 (json 23.90) mu95_Asimov_smooth=19.08
+ff2_ew2p5    3000  s=0.5273 b=2.8206 sigma_b=0.3886 n_med=3 P(n<=nmed|b)=0.686 mu95_CLs=10.65 (json 10.65) mu95_Asimov_smooth=8.96
+ff_uncal_fix 500   s=0.0879 b=0.4691 sigma_b=0.0647 n_med=0 P(n<=nmed|b)=0.627 mu95_CLs=34.50 (json 34.50) mu95_Asimov_smooth=32.30
+ff_uncal_fix 1000  s=0.1758 b=0.9382 sigma_b=0.1293 n_med=1 P(n<=nmed|b)=0.758 mu95_CLs=23.90 (json 23.90) mu95_Asimov_smooth=19.07
+ff_uncal_fix 3000  s=0.5273 b=2.8145 sigma_b=0.3880 n_med=3 P(n<=nmed|b)=0.688 mu95_CLs=10.65 (json 10.65) mu95_Asimov_smooth=8.96

@@ -334,7 +334,7 @@ def totals(c, L, sigdef="a", fake_syst=0.5, details=False, theory=True):
         if details and sid in AUX: comp[sid].update(genmjj_C=float(gc[0]), genmjj_rel=float(gc[1]), genmjj_raw_twin=gc[2], genmjj_raw_vbs=gc[3])
         if sig: s += y; vs += e**2; continue
         b += y; vb += e**2
-        rs = (float(np.hypot(fake_syst, FFD)) if sid in FFSIDS else fake_syst) if r["syst"] == "fake" else SYST["other"]
+        rs = (float(np.hypot(fake_syst, FFDD[sid])) if sid in FFSIDS else fake_syst) if r["syst"] == "fake" else SYST["other"]
         var_proc += (rs*y)**2
     sb = np.sqrt(var_proc + vb + sum(v**2 for v in Gb.values())); ss = np.sqrt(vs + sum(v**2 for v in Gs.values()))
     return dict(s=s, b=b, s_mc=np.sqrt(vs), b_mc=np.sqrt(vb), sigma_b=sb, sigma_s=ss, comp=comp,
@@ -461,7 +461,7 @@ def templates(c, L, sigdef):
         gc = genmjj_corr(sid, c); f = SCALE.get(sid, 1.0)*effcorr(sid, c)*gc[0]
         gr = {g: v for g, v in NUIS[sid].items() if THEORY_ON[0] or not THEORY_GROUPS(g)}
         if sid in AUX: gr[f"genmjj_{sid}"] = gc[1]
-        T.append(dict(id=sid, role=role, nu=nu*f, syst=((float(np.hypot(0.5, FFD)) if sid in FFSIDS else 0.5) if r["syst"] == "fake" else 0.10), mc=min(rel_mc, 1.0), groups=gr))
+        T.append(dict(id=sid, role=role, nu=nu*f, syst=((float(np.hypot(0.5, FFDD[sid])) if sid in FFSIDS else 0.5) if r["syst"] == "fake" else 0.10), mc=min(rel_mc, 1.0), groups=gr))
     return T
 THEORY_ON = [True]
 def fit_groups(T): return sorted({g for t in T for g in t["groups"]})

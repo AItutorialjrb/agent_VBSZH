@@ -47,3 +47,4 @@
 - 2026-11-09 submitted 899824 (fake skims); rate table built (W 465 files, TT 19)
 - 2026-11-09 background-model block done: reports/05a_background_model.md, VERIFY_REQUEST.md written; 1502 skim + 484 rate jobs OK. Selection not started (waiting for verify/review).
 - 2026-11-09 05a v2 reissued after HOLD; VERIFY_REQUEST rewritten
+- 2026-11-09 selection fixed (05_selection.md), 05a v2.1, loose sample 899916 submitted

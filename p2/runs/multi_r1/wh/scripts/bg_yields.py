@@ -78,6 +78,10 @@ def sample_yields(s, reg):
         out["scale"] = scale_env(mf)
     else:
         out["nom"] = Y(m); out["scale"] = scale_env(m)
+        if s == "ZH_Zajj_eFake":
+            ncls1 = (D["ph"][:, :, 3] == 1).sum(1); out["egamma_part"] = Y(m & (ncls1 >= 1)); out["lostlep_part"] = Y(m & (ncls1 == 0)); out["qcd_part"] = Y(m & np.char.startswith(D["dirname"].astype(str), "F_QCD"))
+            out["qcd_lostlep_part"] = Y(m & (ncls1 == 0) & np.char.startswith(D["dirname"].astype(str), "F_QCD"))
+        if s in ("ZH_Zaajj_QCD_nomjj_lostlep", "B_QCD_Waajj_nomjj"): out["qcd_part"] = out["nom"]
         if np.any(cl != cn) or np.any(ch != cn): out["C_low"] = Y(m, cvar="low"); out["C_high"] = Y(m, cvar="high")
     return out
 def run():
@@ -97,11 +101,12 @@ def run():
                 sc = r.get("scale"); smin = (sc["min"]/sc["nominal"] if sc and sc["nominal"] > 0 else 1.0); smax = (sc["max"]/sc["nominal"] if sc and sc["nominal"] > 0 else 1.0); ul = 0.0; uld = 0.0
                 if c in ("fake_photon_1", "fake_photon_2"):
                     n_ = r["nom"]["Y"]; ncl = NONCLO if c == "fake_photon_1" else 1.0
-                    l_ = min(r["dn"]["Y"], r["r07"]["Y"], n_)*smin*ncl*(1-FLOOR); k4 = r["direct_all_kind4"]
-                    h_ = max(r["up"]["Y"], r["r03"]["Y"], n_, k4["Y"])*smax*(1+FLOOR); st = r["nom"]["stat"]; ul = r["nom"].get("UL95", 0.0); uld = k4.get("UL95", 0.0)
+                    fl_ = (1-FLOOR)**(1 if c == "fake_photon_1" else 2); fh_ = (1+FLOOR)**(1 if c == "fake_photon_1" else 2)   # floor on the per-photon rate: two-fake follows c^2 (-36 %/+44 %)
+                    l_ = min(r["dn"]["Y"], r["r07"]["Y"], n_)*smin*ncl*fl_; k4 = r["direct_all_kind4"]
+                    h_ = max(r["up"]["Y"], r["r03"]["Y"], n_, k4["Y"])*smax*fh_; st = r["nom"]["stat"]; ul = r["nom"].get("UL95", 0.0); uld = k4.get("UL95", 0.0)
                 elif c in ("nonprompt_lepton", "xcheck"):
-                    d = r["heavy_flavour_direct"]["Y"]; n_ = r["fakelep_nom"]["Y"]+d; hf = r["heavy_flavour_factorised"]["Y"]
-                    l_ = r["fakelep_low"]["Y"]+d; h_ = r["fakelep_high"]["Y"]+d+2*hf; st = float(np.hypot(r["fakelep_nom"]["stat"], r["heavy_flavour_direct"]["stat"]))
+                    d = r["heavy_flavour_direct"]["Y"]; hf = r["heavy_flavour_factorised"]["Y"]; n_ = r["fakelep_nom"]["Y"]+hf   # nominal HF = factorised (equals the direct value in PRE by construction; no nominal 0 from zero MC support)
+                    l_ = r["fakelep_low"]["Y"]+0.0; h_ = r["fakelep_high"]["Y"]+2*hf+d; st = float(np.hypot(r["fakelep_nom"]["stat"], r["heavy_flavour_direct"]["stat"]))
                     ul = r["fakelep_nom"].get("UL95", 0.0) + r["heavy_flavour_direct"].get("UL95", 0.0)
                 else:
                     n_ = r["nom"]["Y"]; cl_ = r["C_low"]["Y"] if "C_low" in r else n_; ch_ = r["C_high"]["Y"] if "C_high" in r else n_
@@ -109,6 +114,14 @@ def run():
                 nom += n_*tf["nom"]; lo += l_*tf["low"]; hi += h_*tf["high"]; st2 += (st*tf["nom"])**2; ulsum += ul; uldir += uld
                 comps[s] = dict(nom=n_*tf["nom"], low=l_*tf["low"], high=h_*tf["high"], stat=st*tf["nom"], UL95_zero_support_nominal=ul, UL95_zero_support_direct_variation=uld)
             C[c] = dict(nom=nom, low=lo, high=hi, stat=float(np.sqrt(st2)), UL95_sum_zero_support_rows=ulsum, UL95_sum_direct_variation=uldir, components=comps, missing_samples=missing)
+        tfn = 1+rtau; g = lambda x, k="nom": S[x][k]["Y"] if x in S else 0.0
+        qcd = {x: g(x)*tfn for x in ("B_QCD_Waajj_nomjj", "F_QCD_Wajjj_nomjj", "ZH_Zaajj_QCD_nomjj_lostlep", "T_tta_1l", "T_tWa_1l")}; qcd["ZH_Zajj_eFake(QCD part)"] = S["ZH_Zajj_eFake"]["qcd_part"]["Y"]*tfn
+        eC = S["ZH_Zajj_eFake"]
+        res.setdefault("nuisance_impacts_events", {})[rn] = dict(
+            PS_jet_fraction_100pct_nominal_pm45pct={"total_pm": 0.45*sum(qcd.values()), "per_row_yield": qcd, "note": "04:136; correlated across QCD-type rows; for the eFake QCD part it overlaps with the C systematic (take the larger, not the sum); Q_aajj is a cross-check; the ME-jet rows F_Wjjjj/T_ttjj carry LO scale envelope + D27 instead"},
+            lepton_coverage_plus105pct_eFake_lostlepton_part={"plus": 1.053*eC["lostlep_part"]["Y"]*tfn, "lostlep_part_yield": eC["lostlep_part"]["Y"]*tfn, "note": "04:139,:181 one-sided; overlaps with C (both act on the eFake QCD part; both removed for that part if the loose-cut sample replaces it)"},
+            C_syst_eFake_QCD={"low": eC["C_low"]["Y"]*tfn, "nom": eC["nom"]["Y"]*tfn, "high": eC["C_high"]["Y"]*tfn},
+            eFake_egamma_part=eC["egamma_part"]["Y"]*tfn, eFake_lostlep_part=eC["lostlep_part"]["Y"]*tfn)
         res["regions"][rn] = dict(r_tau=rtau, classes=C, samples=S)
     json.dump(res, open(f"{WH}/work/bgmodel/yields{'' if ISO else '_noiso'}{OUTTAG}.json", "w"), indent=1, default=float)
     for rn in ("PRE", "VBS", "PEAK"):

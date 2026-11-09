@@ -7,3 +7,4 @@
 | 04 (pre-G2) | 04_production_plan.md | PARTIAL (G2 deliverable, rows with PENDING σ/N) | plan tables, nmc_check, deviations, submission plan; no bulk production submitted |
 Templates: reports/0[234]_*.md.in; regenerate with scripts/assemble_reports.py (+ scripts/make_plan.py). Git commit: recorded by orchestrator.
 | 05a | background model | VERIFY pending | reports/05a_background_model.md |
+| 05 | selection | VERIFY pending | reports/05_selection.md |

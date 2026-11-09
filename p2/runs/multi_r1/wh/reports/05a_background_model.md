@@ -1,6 +1,9 @@
 # 05a Background model (executor-wh FINAL, block 1)
 
-Date UTC: 2026-11-09 00:39. Status: **PASS for verification request** (selection NOT started; waiting for verifier/review). Git commit: see orchestrator commit. **Version v2 (reissue after review reviews/wh_05a_background.md, HOLD).**
+Date UTC: 2026-11-09 05:23. Status: **PASS for verification request** (selection NOT started; waiting for verifier/review). Git commit: see orchestrator commit. **Version v2.1 (v2 = reissue after review HOLD; v2.1 = recheck conditions N1, N2, split and 04:139 rule, doc fixes).**
+
+## Changelog v2 -> v2.1 (recheck APPROVE-with-conditions + verify doc fixes)
+N1: the +105 % one-sided lepton-coverage systematic on the lost-lepton part of ZH_Zajj_eFake (04:139,:181) and the 100 % PS-jet-fraction systematic (nominal +-45 % of yield) on the QCD-type rows (04:136) are in the nuisance list (below) with their impact table (sec. 9) and their overlap with the C systematic. eFake is split into its e->gamma and lost-lepton parts and the 04:139 rule is evaluated (sec. 9): it FIRES (lost-lepton part 15 % of the PEAK background): the dedicated loose-cut sample F_QCD_llajj_loose is costed and produced as a v1.1 row (sec. 9). Small fixes: PEAK heavy-flavour nominal = factorised variant (0.055 for Q_aajjj); two-fake floor follows c^2 (-36 %/+44 %); EW C parts harmonised to C >= 1 (eFake EW 1.025 [1, 1.05], Zaajj EW 1.016 [1, 1.032] from the twin loss fractions; v2 used 1 and 0.958); PRE C bound labelled a stated bound (human question D42); r_tau on Z rows justified (sec. 5); the nominal one-fake is deliberately high (about 2.5x, sec. 2). Doc fixes: the switches are --nonprompt-lo/--nonprompt-hi (not --f-high); matched rows (H_QCD_WH_mlm, H_ZH_tautau_wh: sum w/N_gen is 1.8-1.9 % below sigma because of the matching/decay acceptance, FORMAT 0.981) are normalised AS IS with N_generated_LHE as FORMAT.md prescribes (the offset is the acceptance, not an error; no correction); Zaajj EW is quoted post-C (v2 value 0.113 post-C with C=0.958, pre-C 0.1185, v2.1 with C=1.016: see table); the C range [1, 2.732] is a chosen asymmetric range about 1.866 (floor 1, upper = 1.866 + 0.866), not a symmetric 87 % error; F_QCD_Wajjj sum w/N is -0.50 % below sigma (table in sec. 6).
 
 ## Changelog v1 -> v2 (review HOLD, all items)
 1. (sev-1) Frozen multi-directory ZH rows: directory label now derived from the file-name prefix (skim metadata held bare file names), N and sum w per directory. Check below: sum w/N equals SAMPLES sigma for every row (ZH_Zajj_eFake 0.08039 vs 0.08051 pb). PEAK eFake before C 2.41 (v1: 1.14), Zaajj EW 0.113 (v1: 0.040).
@@ -32,15 +35,17 @@ Rate table (genuine in-jet photons), per jet-pT bin [25,35,50,75,100,150,1000] (
 - disjoint even/odd closure of the W rate: {'measure_even_test_odd': {'chi2': 14.89572022461594, 'ndof': 12}, 'measure_odd_test_even': {'chi2': 14.236578042230526, 'ndof': 12}}
 
 **2j F_QCD row (brief 2a): not needed.** The nominal fake consumes a jet; one-fake topologies with two tag jets plus the converted jet need three hard jets, which F_QCD_Wajjj (3 ME jets, regions with >=3 reco jets incl. the converted jet: automatic here) covers; two-fake topologies need four jets (F_Wjjjj, W+4j). The Delphes artefact class, which would have needed the 2j sample, is excluded from the nominal. The remaining missing 2j+PS-jet topology is covered by the pre-declared 100 % PS-modelling uncertainty of D29 (statistics stage, not folded into the bounds below).
+**The nominal one-fake yield is deliberately high:** the direct genuine count is about 0.4 of the fake-factor expectation (closure, sec. 6), i.e. the nominal over-predicts by about 2.5x; this is kept (conservative) and only the low bound carries the -60 % non-closure.
 **Calibration to CMS (D34, open decision D39 = D-WH-17).** Record verified: CMS-SMP-19-013, JHEP 10 (2021) 174, arXiv:2105.12780, Table 2: misidentified-jet background 918 +- 23 (stat) +- 180 (syst) (e nu gamma gamma), 1441 +- 27 +- 280 (mu nu gamma gamma) of 2052 / 2334 predicted events (45 % / 62 %); Z channels 42 +- 4 +- 9 and 98 +- 5 +- 27; HEPData ins1865855 (DOI 10.17182/hepdata.113759.v1), Fig. 2 gives the pT(gamma gamma) distribution per process. No comparison with this model is possible: the frozen samples contain no inclusive (no-VBS-cut, <=2-jet) W+jets / W gamma+jets sample, the CMS selection is inclusive in jets, and F_Wjjjj / F_QCD_Wajjj are exclusive 4- and 3-parton rows. Default: calibration factor c = 1 (switch `--ccal-photon`, one-fake x c, two-fake x c^2), systematic floor +-20 % (CMS syst/yield 19.6 %), the D36 scan x0.3-x3, and the direct-count upper variation. A human answer (or a new inclusive sample) is a re-run of bg_yields.py with a different c, not a redesign.
 
 ## 3. Non-prompt leptons (D35, D40 = D-WH-18)
-Heavy-flavour leptons: directly from the Delphes MC (rows with a reco lepton in Q_aajjj / H_VBFH_jj, weight 1, lepton isolation <0.15). Light-hadron misID: each jet pT>25, |eta|<2.4 of the sample's own jets is the lepton with weight f_l, lepton pT = x*pT_jet (x~N(0.85,0.1) truncated [0.5,1]: an uncited assumption), events without a reco lepton, jet consumed. Nominal rows: Q_aajjj (gamma gamma + 3 jets, replaces Q_aajj per D29), H_VBFH_jj; H_ggF_jj missing (gridpack 893012 still running; D38 fallback). Q_aajj is a cross-check, not in the class. f_e = 2e-5 (tight, ATLAS EPJC 72 (2012) 1909, arXiv:1110.3174 sec. 4.4, jet rejection about 5e4, identification only); f_mu = 2e-5 is a PLACEHOLDER equal to the electron value (D40: no citable per-jet muon value found; the CMS per-hadron value 0.1-0.5 % of arXiv:1804.04528 cannot be converted without an invented multiplicity); switches `--f-electron --f-muon --f-high`. Bounds (v2): low = x0.3, nominal = 4e-5 total (e + mu placeholder), high = x3 (D36 envelope, human question a pending). Robustness variants, NOT bounds: 2e-4 and 2e-3 per flavour (D35: 2e-3 is not an upper bound) and the x100 scan (beyond D36). Calibration to a published CMS non-prompt-lepton fraction: none found in a comparable final state (CMS Wgg/Zgg lists only misid jets, misid electrons, others). Heavy flavour: nominal = direct Delphes rows; factorised variant = direct PRE rate x (kind-5 yield region/PRE), +-100 % (about 0.055 in PEAK for Q_aajjj, entering the high bound as 2x); the zero-raw-row UL (0.47 + 0.28) is kept as the conservative variant.
+Heavy-flavour leptons: directly from the Delphes MC (rows with a reco lepton in Q_aajjj / H_VBFH_jj, weight 1, lepton isolation <0.15). Light-hadron misID: each jet pT>25, |eta|<2.4 of the sample's own jets is the lepton with weight f_l, lepton pT = x*pT_jet (x~N(0.85,0.1) truncated [0.5,1]: an uncited assumption), events without a reco lepton, jet consumed. Nominal rows: Q_aajjj (gamma gamma + 3 jets, replaces Q_aajj per D29), H_VBFH_jj; H_ggF_jj missing (gridpack 893012 still running; D38 fallback). Q_aajj is a cross-check, not in the class. f_e = 2e-5 (tight, ATLAS EPJC 72 (2012) 1909, arXiv:1110.3174 sec. 4.4, jet rejection about 5e4, identification only); f_mu = 2e-5 is a PLACEHOLDER equal to the electron value (D40: no citable per-jet muon value found; the CMS per-hadron value 0.1-0.5 % of arXiv:1804.04528 cannot be converted without an invented multiplicity); switches `--f-electron --f-muon --nonprompt-lo --nonprompt-hi`. Bounds (v2): low = x0.3, nominal = 4e-5 total (e + mu placeholder), high = x3 (D36 envelope, human question a pending). Robustness variants, NOT bounds: 2e-4 and 2e-3 per flavour (D35: 2e-3 is not an upper bound) and the x100 scan (beyond D36). Calibration to a published CMS non-prompt-lepton fraction: none found in a comparable final state (CMS Wgg/Zgg lists only misid jets, misid electrons, others). Heavy flavour: nominal = direct Delphes rows; factorised variant = direct PRE rate x (kind-5 yield region/PRE), +-100 % (about 0.055 in PEAK for Q_aajjj, entering the high bound as 2x); the zero-raw-row UL (0.47 + 0.28) is kept as the conservative variant.
 
 ## 4. e->gamma and lost lepton
 Direct Delphes MC (V_WWa/WZa/ZZa without ME jets, frozen ZH_Zaajj lost-lepton rows, ZH_Zajj_eFake with the Delphes e->gamma object, photon class cls1 = within dR<0.2 of a prompt generator lepton). The measured Delphes e->gamma rate of FORMAT.md 6b (3.8-15 % for electrons, 0.5-0.7 % for muons) is the rate the direct MC already contains (cross-check in work/postprod/egamma_rate.json); no extra weighting. Generator-cut factors C (vbs rows mmjj>400; measured at the WH reco-SR proxy mjj>500, |deta|>2.5, 04 sec. 15(7)): Zajj QCD part 1.866 (range [1, 2.732] = full difference, the 87 % systematic), Zaajj EW 0.958 +- 0.061, applied in VBS/PEAK; the EW part of ZH_Zajj_eFake gets C = 1 (EW twin loss 2.4 +- 0.3 %). PRE has no mjj cut (the skim superset has mjj>300): C = 1 (lower limit) with bound [min(1,C), max(1,C)]. The Zaajj nomjj row needs none. Bounds: 7-point scale envelope and tau factor; V_* rows additionally carry the D29 100 % PS-modelling uncertainty (statistics stage).
 
 ## 5. Tau factor (D9)
+r_tau on the Z-lepton rows (lost-lepton, ZH_*): the lepton from Z->tau tau->l nu nu enters with the same per-tau branching ratio (0.352) and a similar soft-lepton acceptance as the lepton from W->tau nu, so the W-measured r_tau transfers to first order; it is applied to these rows with the same +-100 % envelope (an effect of +-8 % on a row that is itself bounded by the C and coverage systematics).
 r_tau = Y(S_EW_WHjj_taunu)/Y(S_EW_WHjj) per region (about 0.082). W/Z-containing classes: nominal x(1+r_tau), bounds [1, 1+2 r_tau]. S_EW_WHjj_taunu is listed separately as a signal-like feed-down.
 
 ## 6. Class tables (events at 500 fb^-1, Delphes level, BR applied once)
@@ -52,13 +57,13 @@ Bounds are low/high of the declared variations (bg_yields.py docstring); stat = 
 |---|---|---|---|---|---|---|---|
 | prompt_irreducible | 57.65 | 44.3 | 76.2 | 1.3 | 0 | 0 | - |
 | fake_photon_1 | 2.826 | 0.575 | 19.7 | 0.006 | 0 | 0 | - |
-| fake_photon_2 | 0.06888 | 0.0277 | 0.171 | 8.8e-05 | 0 | 323 | - |
-| nonprompt_lepton | 1.867 | 1.11 | 5.6 | 0.35 | 0.283 | 0 | H_ggF_jj |
-| lost_lepton_egamma | 32.34 | 25.4 | 61.5 | 0.6 | 0.0316 | 0 | - |
+| fake_photon_2 | 0.06888 | 0.0221 | 0.205 | 8.8e-05 | 0 | 323 | - |
+| nonprompt_lepton | 1.867 | 0.323 | 5.6 | 0.35 | 0.283 | 0 | H_ggF_jj |
+| lost_lepton_egamma | 32.34 | 25.4 | 62 | 0.6 | 0.0316 | 0 | - |
 | other_higgs | 1.568 | 1.33 | 1.88 | 0.04 | 0 | 0 | - |
 | tau_feeddown | 0.09721 | 0.0908 | 0.105 | 0.0028 | 0 | 0 | - |
 | signal | 1.184 | 1.11 | 1.27 | 0.0095 | 0 | 0 | - |
-| xcheck | 1.289 | 0.72 | 3.87 | 0.27 | 0 | 0 | - |
+| xcheck | 1.289 | 0.244 | 3.87 | 0.27 | 0 | 0 | - |
 
 | sample | nominal Y | raw N | N_eff | variants / UL |
 |---|---|---|---|---|
@@ -98,13 +103,13 @@ Bounds are low/high of the declared variations (bg_yields.py docstring); stat = 
 |---|---|---|---|---|---|---|---|
 | prompt_irreducible | 33.68 | 26.2 | 44.1 | 0.9 | 0 | 0 | - |
 | fake_photon_1 | 1.381 | 0.28 | 9.68 | 0.0042 | 0 | 0.0587 | - |
-| fake_photon_2 | 0.03458 | 0.0138 | 0.0864 | 6.3e-05 | 0 | 323 | - |
-| nonprompt_lepton | 0.8031 | 0.463 | 2.49 | 0.22 | 0.283 | 0 | H_ggF_jj |
-| lost_lepton_egamma | 29.21 | 16.3 | 49.1 | 0.59 | 0.498 | 0 | - |
+| fake_photon_2 | 0.03458 | 0.011 | 0.104 | 6.3e-05 | 0 | 323 | - |
+| nonprompt_lepton | 0.8433 | 0.146 | 2.49 | 0.22 | 0.283 | 0 | H_ggF_jj |
+| lost_lepton_egamma | 29.53 | 16.4 | 49.8 | 0.59 | 0.498 | 0 | - |
 | other_higgs | 0.7719 | 0.658 | 0.926 | 0.027 | 0 | 0 | - |
 | tau_feeddown | 0.08482 | 0.0788 | 0.0918 | 0.0026 | 0 | 0 | - |
 | signal | 1.02 | 0.949 | 1.1 | 0.0088 | 0 | 0 | - |
-| xcheck | 0.6597 | 0.42 | 1.74 | 0.22 | 0 | 0 | - |
+| xcheck | 0.5426 | 0.103 | 1.74 | 0.22 | 0 | 0 | - |
 
 | sample | nominal Y | raw N | N_eff | variants / UL |
 |---|---|---|---|---|
@@ -123,8 +128,8 @@ Bounds are low/high of the declared variations (bg_yields.py docstring); stat = 
 | V_WZa_WH | 0.1531 | 3 | 3 |  |
 | V_ZZa_WH | 0 | 0 | 0 | UL95 0.0316 |
 | ZH_Zaajj_QCD_nomjj_lostlep | 0.3448 | 258 | 258 |  |
-| ZH_Zaajj_EW_lostlep | 0.7896 | 2565 | 2269 |  |
-| ZH_Zajj_eFake | 25.68 | 2377 | 2329 |  |
+| ZH_Zaajj_EW_lostlep | 0.8374 | 2565 | 2269 |  |
+| ZH_Zajj_eFake | 25.92 | 2377 | 2327 |  |
 | H_QCD_WH_mlm | 0.2974 | 186 | 186 |  |
 | H_ggZH_wh | 0.01776 | 155 | 155 |  |
 | H_ZH_tautau_wh | 0.005945 | 11 | 11 |  |
@@ -144,13 +149,13 @@ Bounds are low/high of the declared variations (bg_yields.py docstring); stat = 
 |---|---|---|---|---|---|---|---|
 | prompt_irreducible | 5.148 | 4 | 6.72 | 0.35 | 0 | 0 | - |
 | fake_photon_1 | 0.185 | 0.0375 | 1.29 | 0.0015 | 0 | 0.965 | - |
-| fake_photon_2 | 0.004677 | 0.00186 | 0.0117 | 2.3e-05 | 0 | 323 | - |
-| nonprompt_lepton | 0.07871 | 0.0236 | 0.347 | 0.0007 | 0.757 | 0 | H_ggF_jj |
-| lost_lepton_egamma | 3.841 | 2.16 | 6.43 | 0.21 | 0.651 | 0 | - |
+| fake_photon_2 | 0.004677 | 0.00149 | 0.0141 | 2.3e-05 | 0 | 323 | - |
+| nonprompt_lepton | 0.1341 | 0.0236 | 0.347 | 0.0007 | 0.757 | 0 | H_ggF_jj |
+| lost_lepton_egamma | 3.883 | 2.17 | 6.52 | 0.21 | 0.651 | 0 | - |
 | other_higgs | 0.7493 | 0.64 | 0.898 | 0.026 | 0 | 0 | - |
 | tau_feeddown | 0.08233 | 0.0765 | 0.0891 | 0.0026 | 0 | 0 | - |
 | signal | 0.9905 | 0.921 | 1.07 | 0.0087 | 0 | 0 | - |
-| xcheck | 0.05306 | 0.0159 | 0.221 | 0.00058 | 0.475 | 0 | - |
+| xcheck | 0.08407 | 0.0159 | 0.221 | 0.00058 | 0.475 | 0 | - |
 
 | sample | nominal Y | raw N | N_eff | variants / UL |
 |---|---|---|---|---|
@@ -169,8 +174,8 @@ Bounds are low/high of the declared variations (bg_yields.py docstring); stat = 
 | V_WZa_WH | 0 | 0 | 0 | UL95 0.153 |
 | V_ZZa_WH | 0 | 0 | 0 | UL95 0.0316 |
 | ZH_Zaajj_QCD_nomjj_lostlep | 0.04945 | 37 | 37 |  |
-| ZH_Zaajj_EW_lostlep | 0.1136 | 376 | 332 |  |
-| ZH_Zajj_eFake | 3.383 | 316 | 304 |  |
+| ZH_Zaajj_EW_lostlep | 0.1204 | 376 | 332 |  |
+| ZH_Zajj_eFake | 3.415 | 316 | 304 |  |
 | H_QCD_WH_mlm | 0.2926 | 183 | 183 |  |
 | H_ggZH_wh | 0.01661 | 145 | 145 |  |
 | H_ZH_tautau_wh | 0.005945 | 11 | 11 |  |
@@ -193,5 +198,17 @@ Bounds are low/high of the declared variations (bg_yields.py docstring); stat = 
 - ZH_Zajj_eFake dominates the lost-lepton class; its C range is wide (the 87 % systematic); human question (c) (top-up) open.
 - PS-modelling (D29 100 %) and D27 f-scenarios are statistics-stage nuisances, not in low/high.
 
-## 8. Next
-Wait for verification/review of this block; then selection (05_selection.md). H_ggF_jj when 893012 ends (D38 fallback UL otherwise).
+## 9. Lost-lepton / e->gamma: eFake split, N1 nuisances, the 04:139 rule
+Split (rows with >= 1 photon of class cls1 = Delphes photon object near a prompt generator lepton: e->gamma part; rows with two cls0 photons: lost-lepton part), events at 500 fb^-1 incl. C central and tau factor:
+
+
+- PRE: eFake e->gamma part 17, lost-lepton part 12.6 = 13.1 % of the total background 96.4; +105 % coverage bound: +13.3; C systematic eFake QCD [29.7, 45.1] (nominal 29.7); PS-jet-fraction +-45 %: +-28.3 (per row {B_QCD_Waajj_nomjj: 41.9, F_QCD_Wajjj_nomjj: 2.61, ZH_Zaajj_QCD_nomjj_lostlep: 0.864, T_tta_1l: 0.102, T_tWa_1l: 0.0152, ZH_Zajj_eFake(QCD part): 17.5})
+- VBS: eFake e->gamma part 16, lost-lepton part 12.1 = 18.3 % of the total background 66.3; +105 % coverage bound: +12.8; C systematic eFake QCD [19.7, 36.4] (nominal 28.1); PS-jet-fraction +-45 %: +-18 (per row {B_QCD_Waajj_nomjj: 20.8, F_QCD_Wajjj_nomjj: 1.26, ZH_Zaajj_QCD_nomjj_lostlep: 0.373, T_tta_1l: 0.0466, T_tWa_1l: 0.00628, ZH_Zajj_eFake(QCD part): 17.4})
+- PEAK: eFake e->gamma part 2.15, lost-lepton part 1.55 = 15.2 % of the total background 10.2; +105 % coverage bound: +1.63; C systematic eFake QCD [2.61, 4.79] (nominal 3.7); PS-jet-fraction +-45 %: +-2.56 (per row {B_QCD_Waajj_nomjj: 3.19, F_QCD_Wajjj_nomjj: 0.169, ZH_Zaajj_QCD_nomjj_lostlep: 0.0536, T_tta_1l: 0.00664, T_tWa_1l: 0.000912, ZH_Zajj_eFake(QCD part): 2.27})
+
+**Overlap / correlation:** the C systematic (generator mmjj>400 vs none), the +105 % coverage (generator lepton cuts) and the PS-jet-fraction (tag jets from PS) all act on the QCD part of ZH_Zajj_eFake. They are declared as separate nuisances; for the eFake QCD part the PS-jet-fraction (45 %) is subsumed by the C range (87 %) and is NOT added on top (the larger is used); C and coverage multiply (different generator cuts) but all three are removed together for that part if the loose-cut sample replaces it (no mmjj cut, loose lepton cuts).
+**04:139 rule (pre-declared): lost-lepton part > 10 % of the SR background => dedicated loose-cut sample.** Evaluated above: it FIRES in VBS (16-17 %) and PEAK (15 %). Treated like Q_aajjj: row `F_QCD_llajj_loose` (card F_QCD_llajj_loose, p p > l+ l- a j j QCD=2 QED=3, ptl>5, |eta_l|<3.5, mmll>10, no mjj cut; gridpack s2134100, sigma 1.679 pb, k = 1 (leptons in the ME)). Cost (N rule N = sigma*k*3000 fb^-1 * 1.05 = 5.29e6 events, 106 jobs x 50 000): about 2.8 kB/event = 14.8 GB (total 128 -> 143 GB of 200 GB), 0.083-0.2 s/event = 122-294 core-h; production seeds J >= 600 (2134600...), seeds check, test job 899914 (seed 2134101, 5 000 events); status in STATUS.md and work/prod_submission_ledger.csv. Until the sample is delivered the nominal keeps the ZH_Zajj_eFake rows with C and the coverage / C systematics.
+**Nuisance list additions (N1):** (12) +105 % one-sided lepton coverage on the eFake lost-lepton part; (13) PS-jet-fraction +-45 % correlated on B_QCD_Waajj, F_QCD_Wajjj (its own D29 100 % PS), ZH_Zaajj_QCD, eFake QCD part, T_tta/T_tWa (Q_aajj cross-check only).
+
+## 10. Next
+Selection fixed in 05_selection.md (verification pending). Loose-cut eFake sample (sec. 9) and H_ggF_jj (893012) are the open production items; zero-support UL sums (V_* 0.65, non-prompt 0.76, direct 0.97 at PEAK) are carried as sensitivity variants in the statistics stage.

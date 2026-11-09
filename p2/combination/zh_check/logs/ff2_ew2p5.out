@@ -1,0 +1,10 @@
+coupling: observable mllgg {'lambda|500|fixed': [[-2.0, 2.0]], 'lambda|500|resolved': [[-1.7, 2.0]], 'lambda|1000|fixed': [[-2.0, 2.0]], 'lambda|1000|resolved': [[-1.35, 2.0]], 'lambda|3000|fixed': [[-1.85, 2.0]], 'lambda|3000|resolved': [[-0.95, 1.85]]}
+optimum: {'zwin': 25.0, 'mllgg': 100.0, 'gpt': 25.0, 'ratio': (0.3333333333333333, 0.25), 'bveto': False, 'zep': 99.0, 'mjj': 500.0, 'deta': 3.5, 'wk': 2.0}
+missing: []
+500_a: s=0.0879+-0.0008 b=0.4701+-0.0142 Zeq1=0.124+-0.002 Zsyst(cnt)=0.124 mu95=34.50 | fit Z_syst=0.131 mu95_fit=31.80
+500_b: s=0.1353+-0.0025 b=0.4227+-0.0140 Zeq1=0.198+-0.005 Zsyst(cnt)=0.197 mu95=22.72 | fit Z_syst=0.210 mu95_fit=20.32
+1000_a: s=0.1758+-0.0016 b=0.9402+-0.0284 Zeq1=0.176+-0.003 Zsyst(cnt)=0.174 mu95=23.90 | fit Z_syst=0.184 mu95_fit=18.78
+1000_b: s=0.2705+-0.0049 b=0.8454+-0.0280 Zeq1=0.280+-0.006 Zsyst(cnt)=0.278 mu95=15.92 | fit Z_syst=0.295 mu95_fit=11.93
+3000_a: s=0.5273+-0.0048 b=2.8206+-0.0852 Zeq1=0.305+-0.005 Zsyst(cnt)=0.297 mu95=10.65 | fit Z_syst=0.314 mu95_fit=8.78
+3000_b: s=0.8116+-0.0147 b=2.5363+-0.0841 Zeq1=0.486+-0.011 Zsyst(cnt)=0.471 mu95=5.88 | fit Z_syst=0.502 mu95_fit=5.52
+rc=0 wall_s=633 host=b9p19p7239.cern.ch
