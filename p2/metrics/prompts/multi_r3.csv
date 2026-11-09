@@ -1,0 +1,3 @@
+utc,run_id,phase,class,assisted,verbatim_or_ref,note
+2026-11-08T20:15:26Z,multi_r3,P01,task,unknown,S-start-repeat (N=3) + clause "Spawn roles as general-purpose agents with an explicit model override and the role prompt from .claude/agents as in multi_r1" + "Read ... SPEC_G0.md" in place of ../../SPEC.md,adds spawn-mode clause vs verbatim §7 text; assisted flag to be set by human
+2026-11-09T00:00:00Z,multi_r3,P01,continue,no,"Your claude.ai usage limit has reset. Continue the task ...",S-continue equivalent after API 5-hour usage limit interrupt (timestamp approximate; orchestrator resumed 00:01:06Z)

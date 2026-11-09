@@ -22,7 +22,7 @@ CFG = {  # sample: (mode, rate class, keep LHE weights: 0 none, 1 all 145, 2 the
     "H_QCD_WH_mlm": ("real2", None, 1), "H_QCD_WHjj_fixed": ("real2", None, 1), "H_ggZH_wh": ("real2", None, 2), "H_ZH_tautau_wh": ("real2", None, 2), "H_ttH_1l": ("real2", None, 2),
     "H_ttH_dilep_wh": ("real2", None, 2), "H_tHq_lep": ("real2", None, 2), "H_tHW_1l": ("real2", None, 2), "H_VBFH_jj": ("qlep", None, 2), "H_ggF_jj": ("qlep", None, 2),
     "Q_aajj": ("qlep", None, 2), "Q_aajjj": ("qlep", None, 2),
-    "ZH_Zaajj_QCD_nomjj_lostlep": ("real2", None, 2), "ZH_Zaajj_EW_lostlep": ("real2", None, 2), "ZH_Zajj_eFake": ("real2", None, 2), "ZH_EW_ZHjj_lostlep": ("real2", None, 2), "ZH_QCD_ZHjj_lostlep": ("real2", None, 2)}
+    "ZH_Zaajj_QCD_nomjj_lostlep": ("real2", None, 2), "ZH_Zaajj_EW_lostlep": ("real2", None, 2), "ZH_Zajj_eFake": ("real2", None, 2), "ZH_EW_ZHjj_lostlep": ("real2", None, 2), "ZH_QCD_ZHjj_lostlep": ("real2", None, 2), "F_QCD_llajj_loose": ("real2", None, 2)}
 for s in ("lam_m100", "lam_m050", "lam_p000", "lam_p050", "lam_p100", "lam_p150", "kap_W15_Z075", "kap_W05_Z15", "cpo_p2", "cpo_m2"): CFG["K_EW_WHjj_" + s] = ("real2", None, 1)
 PTG, JETPT, TAGPT = 20.0, 25.0, 30.0
 def dphi(a, b): return (a-b+np.pi) % (2*np.pi)-np.pi

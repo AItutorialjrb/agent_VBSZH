@@ -7,6 +7,7 @@ WH = "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/multi_r1/wh"; PR = "/eos/h
 SK = f"{WH}/work/bgmodel/skim"; LUMI = 500.0
 FC = {"nom": 0, "up": 1, "dn": 2, "all": 3, "r03": 4, "r07": 5}
 SAMP = {r["sample"]: r for r in csv.DictReader(open(f"{PR}/SAMPLES.csv"))}
+SAMP["ZH_Zajj_eFake_EWonly"] = SAMP["ZH_Zajj_eFake"]
 def dkey(path):
     """directory label of a skimmed file: skim metadata stores the (local) file name only, so the directory is identified by the file-name prefix (name without _s<seed>.root); review wh_05a item 1"""
     return re.sub(r"_s\d+\.root$", "", os.path.basename(path))
@@ -15,6 +16,9 @@ CFAC = {"F_QCD_llajj_vbs": (1.866, 1.0, 2.732),      # Z gamma jj QCD, nomjj/vbs
         "F_EW_llajj_vbs": (1.025, 1.0, 1.05),      # EW part: C >= 1 from the twin loss fraction (W EW proxy 1.025); range [1, 1+2*0.025] (v2.1, review N2; v2 had C=1)
         "B_EW_zaajj_vbs_is1h": (1.016, 1.0, 1.032), "B_EW_zaajj_vbs_is2": (1.016, 1.0, 1.032), "B_EW_zaajj_vbs_is3": (1.016, 1.0, 1.032)}   # twin loss 1.56 % -> 1.016 (v2.1; v2 used 0.958 < 1, unphysical for nomjj containing vbs)
 def load(sample):
+    if sample.endswith("_EWonly"):   # virtual sample: EW directories of a multi-directory frozen row only (v1.1: the QCD part is replaced by F_QCD_llajj_loose)
+        D = load(sample[:-7]); keep = ~np.char.startswith(D["dirname"].astype(str), "F_QCD"); n = len(D["w"])
+        return {k: (v[keep] if isinstance(v, np.ndarray) and v.ndim >= 1 and len(v) == n else v) for k, v in D.items()}
     """-> dict of concatenated arrays + per-row norm array 'norm' (= 1e3*k/N_gen_of_its_directory, fb per pb), and cutflow sums."""
     fs = sorted(glob.glob(f"{SK}/skim_{sample}__*.npz")); k = float(SAMP[sample]["k"]); D = {}; nd = {}; metas = []
     for f in fs:

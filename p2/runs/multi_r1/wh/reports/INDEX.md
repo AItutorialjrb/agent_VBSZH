@@ -8,3 +8,4 @@
 Templates: reports/0[234]_*.md.in; regenerate with scripts/assemble_reports.py (+ scripts/make_plan.py). Git commit: recorded by orchestrator.
 | 05a | background model | VERIFY pending | reports/05a_background_model.md |
 | 05 | selection | VERIFY pending | reports/05_selection.md |
+| 06,07,08,comb | statistics/couplings/combination | VERIFY pending | reports/07_sensitivity.md |

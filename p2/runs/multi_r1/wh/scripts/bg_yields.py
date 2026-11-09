@@ -10,7 +10,7 @@ Bounds (declared; low/high = min/max over the listed variations, multiplied by t
   non-prompt lept.: misID per jet nominal = f_e + f_mu (2e-5 + 2e-5 placeholder D40); low = x0.3, high = x3 (D36 envelope, D35 reading pending human question a);
                     robustness variants (labelled, NOT bounds): per flavour 2e-4 (medium), 2e-3 (loose), and the x100 scan (beyond D36). Heavy flavour: direct rows (nominal), factorised variant
                     (direct PRE rate x kind-5 eff PEAK/PRE, +-100 %), UL kept as conservative variant; HIGH includes 2 x factorised.
-  frozen ZH rows  : generator-cut factors C (bgmodel.CFAC, 04 sec. 15(7)) applied in VBS/PEAK with range low/high (Zajj QCD [1, 2.732], i.e. the 87 % C systematic; Zaajj EW 0.958 +- 0.061);
+  frozen ZH rows  : generator-cut factors C (bgmodel.CFAC, 04 sec. 15(7)) applied in VBS/PEAK with range low/high (Zajj QCD [1, 2.732], i.e. the 87 % C systematic; Zaajj EW 1.016 [1, 1.032], eFake EW 1.025 [1, 1.05] (v2.1: EW parts C >= 1 from the twin loss fractions));
                     PRE has no mjj cut: nominal C = 1 (LOWER limit), high = C central.
 Zero MC support: 95 % Poisson UL = 2.996 x per-event weight (unit) is reported (also for the direct variation), never 0."""
 import sys, json, numpy as np
@@ -18,6 +18,7 @@ sys.path.insert(0, "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/multi_r1/wh/
 from bgmodel import *
 def _arg(n, d): return float(sys.argv[sys.argv.index(n)+1]) if n in sys.argv else d
 ISO = "--noiso" not in sys.argv
+V11 = "--v11" in sys.argv   # v1.1: F_QCD_llajj_loose replaces the QCD part of ZH_Zajj_eFake (no C, no lepton-coverage nuisance for it)
 OUTTAG = sys.argv[sys.argv.index("--tag")+1] if "--tag" in sys.argv else ""
 CCAL = _arg("--ccal-photon", 1.0)      # D39 switch: calibration factor of the per-photon j->gamma rate (one-fake x c, two-fake x c^2)
 FE = _arg("--f-electron", 2e-5); FMU = _arg("--f-muon", 2e-5)   # D35 / D40 switch (muon = placeholder)
@@ -25,7 +26,7 @@ NPLO = _arg("--nonprompt-lo", 0.3); NPHI = _arg("--nonprompt-hi", 3.0)   # D36 e
 NONCLO = _arg("--nonclosure", 0.4); FLOOR = _arg("--floor", 0.2)
 FNOM = FE+FMU; FL = {"low": NPLO*FNOM, "nom": FNOM, "high": NPHI*FNOM, "rob_med": 2*2e-4, "rob_loose": 2*2e-3, "scan100": 100*FNOM}
 CL = {"prompt_irreducible": ["B_QCD_Waajj_nomjj", "B_EW_Waajj_nomjj", "T_ttaa_1l"], "fake_photon_1": ["F_QCD_Wajjj_nomjj", "F_EW_Wajj_nomjj", "T_tta_1l", "T_tWa_1l"], "fake_photon_2": ["F_Wjjjj", "T_ttjj_1l"],
-      "nonprompt_lepton": ["Q_aajjj", "H_VBFH_jj", "H_ggF_jj"], "lost_lepton_egamma": ["V_WWa_WH", "V_WZa_WH", "V_ZZa_WH", "ZH_Zaajj_QCD_nomjj_lostlep", "ZH_Zaajj_EW_lostlep", "ZH_Zajj_eFake"],
+      "nonprompt_lepton": ["Q_aajjj", "H_VBFH_jj", "H_ggF_jj"], "lost_lepton_egamma": ["V_WWa_WH", "V_WZa_WH", "V_ZZa_WH", "ZH_Zaajj_QCD_nomjj_lostlep", "ZH_Zaajj_EW_lostlep"] + (["ZH_Zajj_eFake_EWonly", "F_QCD_llajj_loose"] if V11 else ["ZH_Zajj_eFake"]),
       "other_higgs": ["H_QCD_WH_mlm", "H_ggZH_wh", "H_ZH_tautau_wh", "H_ttH_1l", "H_ttH_dilep_wh", "H_tHq_lep", "H_tHW_1l", "ZH_EW_ZHjj_lostlep", "ZH_QCD_ZHjj_lostlep"], "tau_feeddown": ["S_EW_WHjj_taunu"], "signal": ["S_EW_WHjj"],
       "xcheck": ["Q_aajj"]}
 TAUCLASSES = {"prompt_irreducible", "fake_photon_1", "fake_photon_2", "lost_lepton_egamma", "other_higgs"}   # r_tau measured on W (signal taunu/signal); applied to Z-lepton rows (lost-lepton, ZH) as the same +-100 % envelope: Z->tau tau->l l feed-down is of the same size (BR(tau->l nu nu)=0.35 vs 0.18 per W-lepton...), conservative, +-8 % effect
@@ -54,7 +55,7 @@ def sample_yields(s, reg):
         return r
     def scale_env(mm, f=None):
         if "lhe" not in D or len(D["lhe"]) != len(mm) or not mm.any(): return None
-        L9 = D["lhe"]; nomc = L9[:, 4] if L9.shape[1] == 9 else L9[:, 22]; ok = np.abs(nomc) > 0; idx = SC7 if L9.shape[1] == 9 else [0, 5, 10, 15, 22, 24, 34, 39]
+        L9 = D["lhe"]; nomc = L9[:, 4] if L9.shape[1] == 9 else L9[:, 22]; ok = np.abs(nomc) > 0; idx = SC7 if L9.shape[1] == 9 else [0, 5, 15, 22, 24, 34, 39]
         w = base*cn*(1.0 if f is None else D["f"][:, FC[f]]); v = [float((w[mm & ok]*L9[mm & ok, i]/nomc[mm & ok]).sum()) for i in idx]; return dict(min=min(v), max=max(v), nominal=float(w[mm].sum()))
     if s in CL["fake_photon_1"] or s in CL["fake_photon_2"]:
         fk = 1 if s in CL["fake_photon_1"] else 2; mm = m & (kind == fk)
@@ -78,9 +79,9 @@ def sample_yields(s, reg):
         out["scale"] = scale_env(mf)
     else:
         out["nom"] = Y(m); out["scale"] = scale_env(m)
-        if s == "ZH_Zajj_eFake":
-            ncls1 = (D["ph"][:, :, 3] == 1).sum(1); out["egamma_part"] = Y(m & (ncls1 >= 1)); out["lostlep_part"] = Y(m & (ncls1 == 0)); out["qcd_part"] = Y(m & np.char.startswith(D["dirname"].astype(str), "F_QCD"))
-            out["qcd_lostlep_part"] = Y(m & (ncls1 == 0) & np.char.startswith(D["dirname"].astype(str), "F_QCD"))
+        if s in ("ZH_Zajj_eFake", "F_QCD_llajj_loose", "ZH_Zajj_eFake_EWonly"):
+            ncls1 = (D["ph"][:, :, 3] == 1).sum(1); out["egamma_part"] = Y(m & (ncls1 >= 1)); out["lostlep_part"] = Y(m & (ncls1 == 0)); out["qcd_part"] = Y(m & (np.char.startswith(D["dirname"].astype(str), "F_QCD") | (s == "F_QCD_llajj_loose")))
+            out["qcd_lostlep_part"] = Y(m & (ncls1 == 0) & (np.char.startswith(D["dirname"].astype(str), "F_QCD") | (s == "F_QCD_llajj_loose")))
         if s in ("ZH_Zaajj_QCD_nomjj_lostlep", "B_QCD_Waajj_nomjj"): out["qcd_part"] = out["nom"]
         if np.any(cl != cn) or np.any(ch != cn): out["C_low"] = Y(m, cvar="low"); out["C_high"] = Y(m, cvar="high")
     return out
@@ -115,8 +116,9 @@ def run():
                 comps[s] = dict(nom=n_*tf["nom"], low=l_*tf["low"], high=h_*tf["high"], stat=st*tf["nom"], UL95_zero_support_nominal=ul, UL95_zero_support_direct_variation=uld)
             C[c] = dict(nom=nom, low=lo, high=hi, stat=float(np.sqrt(st2)), UL95_sum_zero_support_rows=ulsum, UL95_sum_direct_variation=uldir, components=comps, missing_samples=missing)
         tfn = 1+rtau; g = lambda x, k="nom": S[x][k]["Y"] if x in S else 0.0
-        qcd = {x: g(x)*tfn for x in ("B_QCD_Waajj_nomjj", "F_QCD_Wajjj_nomjj", "ZH_Zaajj_QCD_nomjj_lostlep", "T_tta_1l", "T_tWa_1l")}; qcd["ZH_Zajj_eFake(QCD part)"] = S["ZH_Zajj_eFake"]["qcd_part"]["Y"]*tfn
-        eC = S["ZH_Zajj_eFake"]
+        qcd = {x: g(x)*tfn for x in ("B_QCD_Waajj_nomjj", "F_QCD_Wajjj_nomjj", "ZH_Zaajj_QCD_nomjj_lostlep", "T_tta_1l", "T_tWa_1l")}; qcd["ZH_Zajj_eFake(QCD part)" if not V11 else "F_QCD_llajj_loose"] = (S["F_QCD_llajj_loose"] if V11 else S["ZH_Zajj_eFake"])["qcd_part"]["Y"]*tfn
+        eC = S["F_QCD_llajj_loose"] if V11 else S["ZH_Zajj_eFake"]
+        if V11: eC.setdefault("C_low", eC["nom"]); eC.setdefault("C_high", eC["nom"])
         res.setdefault("nuisance_impacts_events", {})[rn] = dict(
             PS_jet_fraction_100pct_nominal_pm45pct={"total_pm": 0.45*sum(qcd.values()), "per_row_yield": qcd, "note": "04:136; correlated across QCD-type rows; for the eFake QCD part it overlaps with the C systematic (take the larger, not the sum); Q_aajj is a cross-check; the ME-jet rows F_Wjjjj/T_ttjj carry LO scale envelope + D27 instead"},
             lepton_coverage_plus105pct_eFake_lostlepton_part={"plus": 1.053*eC["lostlep_part"]["Y"]*tfn, "lostlep_part_yield": eC["lostlep_part"]["Y"]*tfn, "note": "04:139,:181 one-sided; overlaps with C (both act on the eFake QCD part; both removed for that part if the loose-cut sample replaces it)"},

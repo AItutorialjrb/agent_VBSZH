@@ -48,3 +48,6 @@
 - 2026-11-09 background-model block done: reports/05a_background_model.md, VERIFY_REQUEST.md written; 1502 skim + 484 rate jobs OK. Selection not started (waiting for verify/review).
 - 2026-11-09 05a v2 reissued after HOLD; VERIFY_REQUEST rewritten
 - 2026-11-09 selection fixed (05_selection.md), 05a v2.1, loose sample 899916 submitted
+- 2026-11-09 stats/couplings/combination done, VERIFY_REQUEST blocks 3-5; waiting condor 899916/893012/899919
+- 2026-11-09 verifier fixes done, v1.1 loose sample integrated (validated, SAMPLES+SHA appended), reports regenerated; waiting 893012
+- v1.1 disclosure + crosscheck + V1.1_NOTES
