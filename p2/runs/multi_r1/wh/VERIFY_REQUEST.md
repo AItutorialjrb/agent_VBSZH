@@ -5,3 +5,5 @@ v1.1 integration (cluster 899916 validated: 106/106 exit 0, N = 5.3e6, sum w/(N 
 Verify: (a) skim -> table_v11 (sel_tables V11=1), repro_counting V11 (identical s, b); (b) stat v11 results (pl/d36/reso/bounds/comb _v11.json) vs the unchanged model; (c) manifest hashes; (d) the generator edits listed above.
 Still open: H_ggF_jj (cluster 893012, wall limit ~13:13Z): D38 fallback UL if it fails; then one more re-evaluation. Human D39, D40, D35 reading, D42, D44, D45.
 Update 2026-11-09: v1.1 disclosure (N_eff 7.6, loose QCD part = 1 raw row, cross-check table in 05a sec. 11), V1.1_NOTES.md traceability, ps_qcd/C exclusive assignment documented. Still waiting on 893012.
+Update 2026-11-13: H_ggF_jj failed, D38 UL fallback (ggf_ul.py, ggf_variant.py; 05a sec. 12); FINAL no longer DRAFT. Verify: ggf_ul numbers (R = 52.23/4.124, proxy rows), ggf_variant Z0 -0.6 %, wording in 05a sec. 12/07/FINAL.
+Update 2026-11-13 (G3 fixes): verify 07 sec. 4 convention text, kzneg numbers (couplings_kzneg*_v11.json), FINAL, VH_combination.md modes, 05a sec. 12.

@@ -53,3 +53,17 @@ No condor job was submitted, released or removed by the pause. All subagents are
   - repeat runs launched by the human;
   - multi_r1 final analysis D32 after relaunch;
   - H_ggF_jj v1.1.
+
+## 2026-11-13T18:25:20Z: multi_r1 WH FINAL result and VH combination; G3 PASSED (D20 auto-pass); STOP for human
+- **Done:**
+  - H1/D34–D38 implemented: background model 05a (v1.1), cut-based selection (primary, D44 default), statistics, couplings, VH combination with the corrected ZH (ZH_erratum.md), comparison with CMS/ATLAS.
+  - The H_ggF_jj gridpack failed, so D38 is replaced by a scaled central proxy.
+- **Reviews:** wh_05a_background.md, wh_05_selection.md, wh_G3_final.md (HOLD → recheck APPROVE-with-conditions; conditions fixed).
+- **Headline (expected, Delphes level, 500/1000/3000 fb⁻¹):**
+  - WH PL Z0 0.43/0.59/0.97;
+  - exact-Poisson μ95 8.0/4.2/2.3;
+  - VH μ95 6.5/4.2/2.4;
+  - λWZ=−1: 3.8σ at 500 fb⁻¹ (convention-independent; band 3.1–4.4), ≈6σ in the κW<0 convention;
+  - λ<0 ≈0.35σ.
+- **Open human decisions on defaults:** D39–D46 and the D38 substitution. D44 and D46 can change headlines.
+- **Next (human):** answer the open decisions; the repeat runs proceed separately; G4 (AI-metrics tables, tag p2-final-v1) is after all runs.

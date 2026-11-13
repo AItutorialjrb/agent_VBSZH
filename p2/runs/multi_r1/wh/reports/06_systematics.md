@@ -1,9 +1,9 @@
 # 06 Systematic and mass-window models (executor-wh FINAL, block 3)
-Date UTC: 2026-11-09 09:01. Status: **PASS for verification** (expected results only; no data). Git commit: see orchestrator commit.
+Date UTC: 2026-11-13 18:23. Status: **PASS for verification** (expected results only; no data). Git commit: see orchestrator commit.
 ## Goal
 Fix the signal-window / m_gg model and the nuisance model before the sensitivity numbers (07): window and resolution dependence, the pre-declared nuisance list of 05a v2.1 (sec. 'nuisance list') and 05 addendum, Barlow-Beeston, with/without MC stat.
 ## Inputs / commands
-Cut-based PRIMARY selection (05_selection.md: mjj>600, |deta|>4.0, pT(gg)>75, rest baseline), table work/sel/table.npz (nominal 05a v2.1 weights). Code: scripts/stat_lib.py (model), stat_run.py (tasks), condor job_stat.sh (clusters 899917 removed after the Z0 factor-2 bug and the unsmoothed-template bias, 899918 results, 899919 ranking; schedd bigbird103). pyhf 0.7.6 (asymptotic q0 / q_mu~), seeds: none (Asimov, no toys).
+Cut-based PRIMARY selection (05_selection.md: mjj>600, |deta|>4.0, pT(gg)>75, rest baseline), table work/sel/table_v11.npz (05a v2.1 nominal weights with the v1.1 loose eFake sample; the v2.1 table.npz only for the robustness row and the ranking). Code: scripts/stat_lib.py (model), stat_run.py (tasks), condor job_stat.sh (clusters 899917 removed after the Z0 factor-2 bug and the unsmoothed-template bias, 899918 results, 899919 ranking; schedd bigbird103). pyhf 0.7.6 (asymptotic q0 / q_mu~), seeds: none (Asimov, no toys).
 ## 1. m_gg model
 Signal resolution: sigma_eff = 2.10 GeV, mean 125.06 GeV (selected signal). Fit range 100-180 GeV in 40 bins of 2 GeV. Window of the cut-based counting selection: |m_gg-125|<3.5 GeV (declared grid {2.5,3.5,5.0}). Sidebands (outside the window) constrain the background in the fit; no data are used.
 **Background templates are smoothed (bias fix):** an Asimov dataset built from the unsmoothed MC in 2 GeV bins is biased high (bins with a low-fluctuating b inflate Z; the first PL numbers, Z0 about 0.66, were of this kind and are discarded, files work/stat_unsmoothed/). Non-resonant groups are replaced by exp(slope*(m-140 GeV)) x group integral (slope fitted per group when N_eff>=20, else the total-background slope); resonant groups (signal, tau feed-down, QCD WH, other Higgs) are kept raw. Barlow-Beeston-lite errors of smoothed groups = sqrt(h_smooth * wbar).
@@ -17,11 +17,11 @@ Mass scale/resolution: photon energy scale 0.5 % (histosys on the signal), resol
 | tau_r | W/Z groups | (1+2 r_tau)/(1+r_tau), 1/(1+r_tau), r_tau = 0.083 | D9 human-set +-100 % of the MC-measured tau uplift | human rule (judgement on the size) |
 | scale_<group> | per group | 7-point QCD scale envelope of the 05a VBS-region sample envelopes (signal: selection-level from the LHE weights) | LHE weights | MC-derived (LO only) |
 | pdf_sig | signal | rms of 100 NNPDF3.1 replicas at the selection | LHE weights | MC-derived |
-| ps_qcd | B_QCD_Waajj, F_QCD_Wajjj/T_tta/T_tWa, ZH_Zaajj_QCD | 1.45 / 0.55 (correlated) | 04:136 declared 100 % PS-jet fraction (twin loss fractions 15-45 %) | judgement |
-| C_eFake | eFake QCD part | 1.464 / 0.536 | C range [1, 2.732] about 1.866 (twin ratio with a full-difference systematic) | MC-derived range, judgement on the width |
+| ps_qcd | B_QCD_Waajj, F_QCD_Wajjj/T_tta/T_tWa, ZH_Zaajj_QCD, and (v1.1) the loose eFake QCD part | 1.45 / 0.55 (correlated) | 04:136 declared 100 % PS-jet fraction (twin loss fractions 15-45 %) | judgement |
+| C_eFake | eFake QCD part (v2.1 model only; NOT used in v1.1: replaced by ps_qcd on the loose sample) | 1.464 / 0.536 | C range [1, 2.732] about 1.866 (twin ratio with a full-difference systematic) | MC-derived range, judgement on the width |
 | C_EW | eFake EW part | +-2.5 % | EW twin loss fraction 2.4 +- 0.3 % | MC-derived / judgement |
 | C_ZaaEW | other lost-lepton (Zaajj EW, V_*) | +-6.4 % | 05a item 6 declared (twin statistics 0.061/0.958; reconciled in v3: v1/v2 of this block used 2.5 %) | MC-derived |
-| cov_eFake | eFake QCD lost-lepton part | one-sided +105 % (theta in [0,3], half-normal) | 04:139 sigma ratio 1.679/0.818 pb | MC-derived bound, pessimistic by construction |
+| cov_eFake | eFake QCD lost-lepton part (v2.1 model only; NOT used in v1.1) | one-sided +105 % (theta in [0,3], half-normal) | 04:139 sigma ratio 1.679/0.818 pb | MC-derived bound, pessimistic by construction |
 | fakerate | fake photons | one-fake +-20 %, two-fake -36 %/+44 % (c^2) | D39 floor (CMS syst/yield 19.6 %, record verified but no comparable phase space) | judgement |
 | nonclosure | one-fake | one-sided -60 % (theta in [0,1.6]) | direct/FF closure 0.39-0.41 (3-6 raw events) | MC-derived, low statistics |
 | fake2_scen | two-fake | x9 / x0.09 | D27 per-photon x3 / x0.3 scenarios | judgement (human D27) |
@@ -31,6 +31,7 @@ Mass scale/resolution: photon energy scale 0.5 % (histosys on the signal), resol
 | mcstat | all | per-bin Barlow-Beeston-lite (staterror) | MC statistics | MC-derived |
 Every nuisance not derived from MC or data is an ASSUMPTION or a judgement (stated in the last column); the combination of ps_qcd, C_eFake, cov_eFake, fakerate, nonclosure, npl_norm and hf_var constrains nothing from data (no data exist) and only widens the expected profile.
 D29 100 % PS on V_WWa/WZa/ZZa (05a item 4): the three rows have ZERO MC rows at the selection, so the nuisance would act on nothing and is not added (logged deviation; the UL variant at PEAK, 0.65 events, is in sec. 5).
+(The tables of this report are the v1.1 model: the v2.1-only nuisances are listed for the robustness row of sec. 5.)
 Not in the fit (variants in 07): zero-support ULs (V_* 0.65, non-prompt 0.76, direct-fake variation 0.97 events at PEAK, 05a), class lower/upper bounds, D29 PS 100 % on V_* (zero events at the selection).
 Correlations: nuisances with the same name act coherently on all listed groups (e.g. tau_r, ps_qcd, fakerate). Correlation with ZH (combination) is handled in the combination block.
 
@@ -120,6 +121,12 @@ Correlations: nuisances with the same name act coherently on all listed groups (
 | UL variant all_three (UL 325.80 ev in PEAK, 205.11 ev in the +-3.5 GeV window, 2012.4 in 100-180 at 500) | 500 | 0.043 | 0.042 | - |
 | UL variant all_three (UL 325.80 ev in PEAK, 205.11 ev in the +-3.5 GeV window, 2012.4 in 100-180 at 500) | 1000 | 0.060 | 0.059 | - |
 | UL variant all_three (UL 325.80 ev in PEAK, 205.11 ev in the +-3.5 GeV window, 2012.4 in 100-180 at 500) | 3000 | 0.104 | 0.102 | - |
+| ROBUSTNESS v1 model: vbs x C eFake QCD (C_eFake, cov_eFake nuisances), full syst+BB | 500 | - | 0.434 | 6.91 (4.34, 11.29) |
+| ROBUSTNESS v1 model: vbs x C eFake QCD (C_eFake, cov_eFake nuisances), full syst+BB | 1000 | - | 0.606 | 4.34 (2.83, 7.04) |
+| ROBUSTNESS v1 model: vbs x C eFake QCD (C_eFake, cov_eFake nuisances), full syst+BB | 3000 | - | 1.017 | 2.35 (1.58, 3.61) |
+| H_ggF_jj D38 scaled proxy added (0.024 ev in the window at 500) | 500 | - | 0.425 (PL; nominal 0.427) | - |
+| H_ggF_jj D38 scaled proxy added (0.024 ev in the window at 500) | 1000 | - | 0.589 (PL; nominal 0.592) | - |
+| H_ggF_jj D38 scaled proxy added (0.024 ev in the window at 500) | 3000 | - | 0.968 (PL; nominal 0.973) | - |
 
 ## 6. Caveats
 All nuisance widths marked ASSUMPTION are placeholders; the dominant impacts are in sec. 3. Asymptotic formulas with b of order 0.1 events/bin are approximate; the counting exact-Poisson numbers of 07 are the cross-check. Systematics from the ZH side (combination) are not in this block.

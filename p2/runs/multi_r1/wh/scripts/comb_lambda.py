@@ -9,7 +9,7 @@ for l in (500, 1000, 3000):
     for d in ("a", "b"):
         c = json.load(open(f"{WH}/work/stat/comb_{l}_{d}_v11.json" if os.path.exists(f"{WH}/work/stat/comb_{l}_{d}_v11.json") else f"{WH}/work/stat/comb_{l}_{d}.json")); out["mu95_Z0"][f"{l}_{d}"] = dict(WH_Z0=c["WH"]["Z0"], WH_mu95=c["WH"]["mu95"], combined_Z0=c["combined"]["Z0"], combined_mu95=c["combined"]["mu95"], ZH_alone_table=c["ZH_alone_table"], zh_variant=c["zh_variant"])
     tag = "" if l == 500 else f"_L{l}"
-    for mode, wtag, zk in (("primary_withBR", "", "resolved"), ("variant_noBR", "_nobr", "fixed")):
+    for mode, wtag, zk in (("convention_kZneg_primary", "_kzneg", "fixed"), ("convention_kWneg", "", "resolved"), ("noBR_unphysical", "_nobr", "fixed")):   # kZneg: sign on kZ (R_BR from kW=-lambda), ZH fixed-BR curve (APPROXIMATE: the ZH curve has no kW-dependent BR); kWneg: sign on kW with R_BR, ZH rate-resolved curve (same sign convention); noBR: R_BR = 1 for all lambda, NOT physical
         w = json.load(open(f"{WH}/work/stat/couplings{wtag}{tag}_v11.json" if os.path.exists(f"{WH}/work/stat/couplings{wtag}{tag}_v11.json") else f"{WH}/work/stat/couplings{wtag}{tag}.json"))["expected_exclusion"]["reduced_model"]["q"]; lam = np.array(sorted(float(x) for x in w)); qw = np.array([w[str(float(x))] if str(float(x)) in w else w[repr(float(x))] for x in lam])
         z = F[f"lambda|{l}|{zk}"]; qz = np.interp(lam, z["lam"], z["q"]); qc = qw+qz; neg = lam <= 0
         out["lambda_"][f"{l}_{mode}"] = dict(Z_lambda_m1=dict(WH=float(np.sqrt(np.interp(-1.0, lam, qw))), ZH=float(np.sqrt(np.interp(-1.0, lam, qz))), combined=float(np.sqrt(np.interp(-1.0, lam, qc)))),

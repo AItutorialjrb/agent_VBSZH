@@ -1,8 +1,9 @@
 {
- "status": "expected-only, loose eFake sample integrated (v1.1), H_ggF_jj pending",
- "date": "2026-11-09 10:11",
+ "status": "expected-only; v1.1 loose eFake sample integrated; H_ggF_jj by the D38 scaled central proxy (gridpack failed)",
+ "date": "2026-11-13 18:23",
  "selection": {
   "primary": "cut-based",
+  "version": "v1.1 (loose eFake sample)",
   "cuts": {
    "mjj": 600,
    "deta": 4.0,
@@ -14,9 +15,14 @@
    "zs": 99
   },
   "s": 0.6122125229724551,
-  "b": 1.801140091435315,
-  "neff": 134.99393483993714,
-  "Z_eq1": 0.4334220882219092,
+  "b": 1.7970163935496832,
+  "neff": 62.82291983257458,
+  "Z_eq1": 0.4338728746310672,
+  "v21": {
+   "b": 1.801140091435315,
+   "neff": 134.99393483993714,
+   "Z_eq1": 0.4334220882219092
+  },
   "mva_alt_nested_Z": 0.6015990703713656
  },
  "counting": {
@@ -131,8 +137,33 @@
   }
  },
  "couplings": {
+  "Z_lambda_m1_convention_independent_kZneg_primary": 3.764018306107765,
+  "closure_band_pm30pct_kZneg": {
+   "0.7": {
+    "Z_lam_m1": 3.053187362221271,
+    "Z_lam_0": 0.3472656486687105
+   },
+   "1.0": {
+    "Z_lam_m1": 3.764018306107765,
+    "Z_lam_0": 0.36965142550061514
+   },
+   "1.3": {
+    "Z_lam_m1": 4.3728461603091935,
+    "Z_lam_0": 0.4100438105251484
+   }
+  },
+  "legacy_note": "keys below marked legacy: Z_lambda_m1_withBR = kW-sign convention (not the headline); Z_lambda_neg_noBR = R_BR=1 for all lambda, UNPHYSICAL",
+  "convention_independent_kZneg": {
+   "Z_lambda_m1": 3.764018306107765,
+   "Z_lambda_neg": 0.347092403549172
+  },
+  "kWneg_convention": {
+   "Z_lambda_m1": 6.197068594197647,
+   "Z_lambda_neg": 0.36965142550061514,
+   "note": "sign on kW with kt=+1: BR x2.45; asymptotic, closure +-30 % gives 5.1-7.1"
+  },
   "model": "reduced nuisance model (not the full 06 model)",
-  "closure_sensitivity": {
+  "closure_sensitivity_kWneg_convention": {
    "0.7": {
     "Z_lam_m1": 5.1049054025757385,
     "Z_lam_0": 0.3472656486687105
@@ -147,10 +178,10 @@
    }
   },
   "binning": "mtwgg",
-  "Z_lambda_m1_withBR": 6.197068594197647,
-  "Z_lambda_neg_withBR": 0.36965142550061514,
-  "Z_lambda_m1_noBR": 3.764018306107765,
-  "Z_lambda_neg_noBR": 1.605942164931084
+  "legacy_Z_lambda_m1_withBR_kWneg_convention": 6.197068594197647,
+  "Z_lambda_neg_kWneg_convention": 0.36965142550061514,
+  "legacy_Z_lambda_m1_noBR_equals_kZneg_value_at_lambda_m1": 3.764018306107765,
+  "legacy_Z_lambda_neg_noBR_UNPHYSICAL": 1.605942164931084
  },
  "VH_combination": {
   "500_a": {
@@ -293,7 +324,20 @@
   }
  },
  "VH_lambda": {
-  "500_primary_withBR": {
+  "500_convention_kZneg_primary": {
+   "Z_lambda_m1": {
+    "WH": 3.764018306107765,
+    "ZH": 0.42905223789113217,
+    "combined": 3.7883927504356985
+   },
+   "Z_lambda_neg": {
+    "WH": 0.347092403549172,
+    "ZH": 0.1254573946703756,
+    "combined": 0.3728028873607162,
+    "lambda_at_min_combined": -0.05
+   }
+  },
+  "500_convention_kWneg": {
    "Z_lambda_m1": {
     "WH": 6.197068594197647,
     "ZH": 0.8139033354843787,
@@ -306,7 +350,7 @@
     "lambda_at_min_combined": 0.0
    }
   },
-  "500_variant_noBR": {
+  "500_noBR_unphysical": {
    "Z_lambda_m1": {
     "WH": 3.764018306107765,
     "ZH": 0.42905223789113217,
@@ -319,7 +363,20 @@
     "lambda_at_min_combined": 0.0
    }
   },
-  "1000_primary_withBR": {
+  "1000_convention_kZneg_primary": {
+   "Z_lambda_m1": {
+    "WH": 5.279557258391456,
+    "ZH": 0.6062360580824239,
+    "combined": 5.314249429858672
+   },
+   "Z_lambda_neg": {
+    "WH": 0.47632113502477036,
+    "ZH": 0.1773772163723558,
+    "combined": 0.5136989341915759,
+    "lambda_at_min_combined": -0.05
+   }
+  },
+  "1000_convention_kWneg": {
    "Z_lambda_m1": {
     "WH": 8.596902372261246,
     "ZH": 1.148940473691173,
@@ -332,7 +389,7 @@
     "lambda_at_min_combined": 0.0
    }
   },
-  "1000_variant_noBR": {
+  "1000_noBR_unphysical": {
    "Z_lambda_m1": {
     "WH": 5.279557258391456,
     "ZH": 0.6062360580824239,
@@ -345,7 +402,20 @@
     "lambda_at_min_combined": 0.0
    }
   },
-  "3000_primary_withBR": {
+  "3000_convention_kZneg_primary": {
+   "Z_lambda_m1": {
+    "WH": 8.85475302121511,
+    "ZH": 1.0464268986878131,
+    "combined": 8.916370355756625
+   },
+   "Z_lambda_neg": {
+    "WH": 0.7509493691089436,
+    "ZH": 0.3069144795557597,
+    "combined": 0.8220474729596213,
+    "lambda_at_min_combined": -0.05
+   }
+  },
+  "3000_convention_kWneg": {
    "Z_lambda_m1": {
     "WH": 13.963564417554263,
     "ZH": 1.9759874854469748,
@@ -358,7 +428,7 @@
     "lambda_at_min_combined": 0.0
    }
   },
-  "3000_variant_noBR": {
+  "3000_noBR_unphysical": {
    "Z_lambda_m1": {
     "WH": 8.85475302121511,
     "ZH": 1.0464268986878131,

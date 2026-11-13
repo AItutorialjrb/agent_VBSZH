@@ -51,3 +51,6 @@
 - 2026-11-09 stats/couplings/combination done, VERIFY_REQUEST blocks 3-5; waiting condor 899916/893012/899919
 - 2026-11-09 verifier fixes done, v1.1 loose sample integrated (validated, SAMPLES+SHA appended), reports regenerated; waiting 893012
 - v1.1 disclosure + crosscheck + V1.1_NOTES
+- 2026-11-13 H_ggF_jj failed -> D38 UL; reports regenerated; FINAL complete
+- 2026-11-13 G3 HOLD fixes (docs/relabel), kZ-sign coupling variant, STATUS READY FOR G3 RECHECK
+- 2026-11-13 G3 recheck label fixes; STATUS G3 PASSED FINAL

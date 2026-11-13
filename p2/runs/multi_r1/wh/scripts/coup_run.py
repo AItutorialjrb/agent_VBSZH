@@ -10,7 +10,8 @@ import sys, os, json, numpy as np
 from scipy.optimize import minimize
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__))))
 from stat_lib import WH, GROUPS, hist, load, selmask, scale_unc, SUF
-NOBR = "--no-br" in sys.argv; LUM = float(sys.argv[sys.argv.index("--lumi")+1]) if "--lumi" in sys.argv else 500.0; TAG = ("_nobr" if NOBR else "") + ("" if LUM == 500.0 else f"_L{int(LUM)}") + SUF
+NOBR = "--no-br" in sys.argv; KZNEG = "--kz-neg" in sys.argv   # sign convention: lambda = kW/kZ tested at kZ = -1 (kW = -lambda): the yield is even under (kW,kZ)->(-kW,-kZ), only R_BR differs (convention-independent treatment of the sign, D46)
+LUM = float(sys.argv[sys.argv.index("--lumi")+1]) if "--lumi" in sys.argv else 500.0; TAG = ("_nobr" if NOBR else "") + ("_kzneg" if KZNEG else "") + ("" if LUM == 500.0 else f"_L{int(LUM)}") + SUF
 t, meta, Y = load(); K = dict(np.load(f"{WH}/work/sel/table_K.npz")); Km = json.load(open(f"{WH}/work/sel/table_K_meta.json"))
 PTS = {"K_EW_WHjj_lam_m100": (-1.0, 1.0), "K_EW_WHjj_lam_m050": (-0.5, 1.0), "K_EW_WHjj_lam_p000": (0.0, 1.0), "K_EW_WHjj_lam_p050": (0.5, 1.0), "K_EW_WHjj_lam_p100": (1.0, 1.0), "K_EW_WHjj_lam_p150": (1.5, 1.0),
        "K_EW_WHjj_kap_W15_Z075": (1.5, 0.75), "K_EW_WHjj_kap_W05_Z15": (0.5, 1.5)}
@@ -67,7 +68,7 @@ class Fit:
     def mu_exp(s, th, kW, kZ):
         ncl = len(s.classes); ts = th[ncl] if s.syst else 0.0; tl = th[ncl+1] if s.syst else 0.0; g = th[ncl+2:ncl+2+s.nb] if s.bb else np.zeros(s.nb)
         b = sum(s.bkgc[c]*(1+s.sig_c[c]*th[j]) for j, c in enumerate(s.classes)) if s.syst else s.bkg.copy()
-        sg = sig_pred(s.co, kW, kZ)*(1+0.05*ts)*(1+0.025*tl)*(s.sscale if (abs(kW) < 1e-9 or kW != 1.0) else 1.0)
+        sg = sig_pred(s.co, kW, kZ)*(1+0.05*ts)*(1+0.025*tl)*(1.0 if (kW == 1.0 and kZ == 1.0) else s.sscale)
         return sg+b+s.bkgerr*g
     def nll2(s, th, data, kW, kZ):
         nu = np.maximum(s.mu_exp(th, kW, kZ), 1e-9); v = 2*np.sum(nu-data*np.log(nu)+0)
@@ -77,7 +78,7 @@ class Fit:
         return v+pen
     def prof(s, data, kW, kZ):
         n = len(s.classes)+2+s.nb; th0 = np.zeros(n); r = minimize(s.nll2, th0, args=(data, kW, kZ), method="L-BFGS-B", bounds=[(-4, 4)]*n); return r.fun
-def q_curve(fit, data, lam_grid, kZ=1.0, ref=None):
+def q_curve(fit, data, lam_grid, kZ=(-1.0 if KZNEG else 1.0), ref=None):
     base = fit.prof(data, 1.0, 1.0) if ref is None else ref; return {float(l): max(fit.prof(data, l*kZ, kZ)-base, 0.0) for l in lam_grid}
 res = dict(no_br=NOBR, assumptions=dict(signal_theory=0.05, lumi=0.025), points=PTS, rbr={str(k): rbr(*v) for k, v in PTS.items()})
 # 1. quadratic closure for a given binning
@@ -109,7 +110,7 @@ res["expected_exclusion"] = out
 # 3b. closure sensitivity: the per-bin quadratic misses by up to ~3 sigma in single bins at lambda=0/-0.5 (LOO): vary the predicted signal of the TESTED hypothesis by +-30 % (cheap closure systematic; SM Asimov data unchanged)
 f = Fit(co, G); data = sig_pred(co, 1.0, 1.0)+f.bkg; base0 = f.prof(data, 1.0, 1.0); cs = {}
 for sc_ in (0.7, 1.0, 1.3):
-    f.sscale = sc_; cs[str(sc_)] = dict(Z_lam_m1=float(np.sqrt(max(f.prof(data, -1.0, 1.0)-base0, 0))), Z_lam_0=float(np.sqrt(max(f.prof(data, 0.0, 1.0)-base0, 0))))
+    f.sscale = sc_; cs[str(sc_)] = dict(Z_lam_m1=float(np.sqrt(max(f.prof(data, -1.0*(-1.0 if KZNEG else 1.0), (-1.0 if KZNEG else 1.0))-base0, 0))), Z_lam_0=float(np.sqrt(max(f.prof(data, 0.0, (-1.0 if KZNEG else 1.0))-base0, 0))))   # tested point (lambda*kZ, kZ) in the convention of the run
 res["closure_sensitivity_signal_scale_of_tested_hypothesis"] = cs
 # 4. 2D map (full)
 f = Fit(co, G); data = sig_pred(co, 1.0, 1.0)+f.bkg; base = f.prof(data, 1.0, 1.0); kWg = np.arange(-2.0, 3.01, 0.5); kZg = np.arange(0.25, 2.01, 0.25)
