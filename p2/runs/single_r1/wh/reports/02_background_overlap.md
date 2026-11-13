@@ -25,22 +25,22 @@ Reco target: exactly one isolated e/μ (p_T > 25 GeV, second lepton p_T > 10 vet
 | ZHjj lost ℓ | resonant | **frozen ZH** `production/v1/{ew,qcd}_zhjj_zll` | jets only, ℓ uncut | 1.296 / 10.19 | ZF·BGG | 0.0029 / 0.0226 | 50k | Z→ℓℓ with 1 ℓ lost; 2nd-ℓ veto | reuse (§4) |
 | ggZH lost ℓ | resonant | **frozen** `final/H_ggZH_py8dec` | — | 74.33 | B_ℓℓ·BGG | 0.0114 | 50k (have 20k) | as above | reuse, **N FAIL** |
 | ZH(ττ) | resonant | **frozen** `final/H_ZH_tautau` | — | 76.03 | BGG | 0.173 | 50k (have 5.2k) | as above | reuse, **N FAIL** |
-| B_EW_w±aajj (20, 21) | continuum | (0,5) W±γγjj, on-shell W chain | p_T^γ > 20, 90 < m_γγ < 200, m_jj > 400 | pending (gridpack running) | WF | — | — | N_pγ ≥ 2 | pending |
-| B_QCD_lvaajj (22) | continuum | (2,3) | as above | pending | WF | — | — | N_pγ ≥ 2 | pending |
-| B_QCD_lvaajj_nomjj (23) | twin | (2,3), no m_jj cut | — | pending | — | — | — | gen-cut-safety twin | pending |
+| B_EW_wpaajj / B_EW_wmaajj (20, 21) | continuum | (0,5) W±γγjj, on-shell W chain | p_T^γ > 20, 90 < m_γγ < 200, m_jj > 400 | W⁺: 0.2344; W⁻: **gridpack attempt 1 failed** (corrupted survey channel), retry 912997 | WF | W⁺: 0.225 | 50k | N_pγ ≥ 2 | W⁺ done; W⁻ pending retry |
+| B_QCD_lvaajj (22) | continuum | (2,3) | as above | 1.138 | WF | 1.093 | 50k | N_pγ ≥ 2 | done |
+| B_QCD_lvaajj_nomjj (23) | twin | (2,3), no m_jj cut | as above without m_jj | 6.365 | WF | 6.11 | 50k (twin) | gen-cut-safety twin | done |
 | Zγγjj lost ℓ | continuum | **frozen** `final/B_{QCD,EW}_zaajj_vbs*` | p_T^γ > 25, 100 < m_γγ < 170, m_jj > 400, ℓ uncut | 0.0356 / 0.0167+0.0158+0.0068 | ZF | 0.035 / 0.039 | 50k each | N_pγ ≥ 2 | reuse; EW splits **N FAIL** (20k each) |
 | F_QCD_lvajj (24) | 1 j→γ fake | (2,2) W±γjj | p_T^γ > 20, m_jj > 400 | 881.6 | WF | 846 | 2.54 M | N_pγ = 1 (veto ≥ 2) | done |
 | F_EW_lvajj (25) | 1 fake | (0,4) | as above | 107.2 | WF | 103 | 309k | N_pγ = 1 | done |
 | F_Wjj (26) | 2 fakes | (2,1) W±jj | m_jj > 400 | 2.62·10⁵ | WF | 2.5·10⁵ | **7.5·10⁸** | N_pγ = 0 | done (bound, D-WH-2) |
 | T_tta_1l (27) | top, prompt+1 fake | tt̄γ, ≥ 1 W→ℓν (ℓ = e, μ, τ), decays in ME | p_T^γ > 20 | 779.2 | — (ME) | 779 | 2.34 M | N_pγ = 1 | done |
-| T_ttaa_1l (28) | top, prompt | tt̄γγ | p_T^γ > 20, 90 < m_γγ < 200 | pending | — | — | — | N_pγ ≥ 2 | pending |
+| T_ttaa_1l (28) | top, prompt | tt̄γγ ≥ 1ℓ | p_T^γ > 20, 90 < m_γγ < 200 | 0.9352 | — | 0.935 | 50k | N_pγ ≥ 2 | done |
 | T_tWa_1l (29) | top | tWγ DR, ≥ 1 ℓ | p_T^γ > 20 | 115.6 | — | 116 | 347k | N_pγ = 1; DR vs tt̄γ | done |
 | T_tt_1l (41) | top, 2 fakes | tt̄ ≥ 1 ℓ | none | 2.654·10⁵ | — | 2.7·10⁵ | **8.0·10⁸** | N_pγ = 0 | done (bound, D-WH-2) |
 | B_QCD_aajj (35) | continuum via fake ℓ | (2,2) γγjj | p_T^γ > 20, 90 < m_γγ < 200, m_jj > 400 | 504.4 | — | 504 | 1.51 M | N_pγ ≥ 2; prompt reco ℓ vetoed in weighting | done |
 | Zγjj, e→γ | 1 e→γ | **frozen** `final/F_{QCD,EW}_llajj_vbs` | ℓ p_T > 10, \|η\| < 2.5 (in-acceptance only) | 69.46 / 11.05 | — | — | 208k / 50k (have 6.0M / 0.5M) | N_pγ = 1; Delphes γ matched to a prompt e removed before applying f_e→γ | reuse |
 | γ+3j (36) | ℓ-fake × γ-fake | σ only | p_T^γ > 20, m_jj > 400 | 25 240 | — | — | bound only | — | σ-only |
 
-Generated and tested: 16 test jobs + 9 σ-only/validation runs; pending: B_EW_w±aajj, B_QCD_lvaajj (+ twin), T_ttaa_1l (03 §1).
+Generated and tested: 20 test jobs + 9 σ-only/validation runs; pending: B_EW_wmaajj (gridpack retry 912997 + test 912998 after attempt-1 failure).
 
 ## 3. Overlap-removal contract (phase-space partitions, not ancestry labels)
 1. **Prompt photons** are defined once, in `lib/scripts/slim_gentruth.py` (inherited from ZH): status-1 photons with no hadron ancestor, p_T > 15, |η| < 2.5, isolated (ΔR > 0.4) from prompt leptons, other such photons and gen jets → `n_prompt_photons` (N_pγ). Per family: W+jets keeps N_pγ = 0, Wγ+jets N_pγ = 1, Wγγ+jets N_pγ ≥ 2; the same for tt̄ / tt̄γ / tt̄γγ, tWγ (=1), Zγjj (=1) and Zγγjj (≥ 2). The QED shower stays on in all samples (`py8_common_CP5.cmnd`). The generator thresholds (p_T^γ > 20, ΔR > 0.4) are looser than the partition threshold only for N_pγ ≥ 2 → residual migration is measured in the test jobs (N_pγ histograms in `work/p03/delphes_validation.json`).
@@ -77,7 +77,7 @@ Consequences: (i) the WH fit range must lie inside 100 < m_γγ < 170 and p_T^γ
 | 90 < m_γγ < 200 | 105 < m_γγ < 160 | 15 / 40 GeV | m_γγ resolution 2.1 GeV (03 §4) |
 | W-decay leptons uncut (`cut_decays False`) | p_T^ℓ > 25 | — | safe by construction |
 | HEFT/VBF H: m_jj > 400 | m_jj > 500 | as above | as above |
-Status: the twin pilot is pending the heavy QCD Wγγjj gridpacks (03 §1). **This item is not yet demonstrated.**
+**Twin result (QCD W±γγjj, 2000 events each, `work/p03/delphes_validation.json`):** σ after the full baseline up to the b-veto: m_jj > 400 sample 0.0148 ± 0.0029 fb (26 MC) vs no-m_jj twin 0.0318 ± 0.0101 fb (10 MC), **ratio 0.47 ± 0.17 (pull −1.6)**. Generator-cut safety is **NOT demonstrated**; the data hint at a ×2 loss: the reco tag pair can contain shower/ISR jets while the two ME partons have m_jj < 400. Up to the ≥ 2-jet step the samples differ as expected for a cut that only removes low-m_jj events. Production action: generate Wγγjj without the parton-level m_jj cut (twin cross section 6.4 fb, N_req still the 50k floor, so affordable), or demonstrate safety with ≥ 10× twin statistics. Severity 1 in the self-review (S1-7).
 
 ## 6. Fake-rate scenarios (parametrised, NOT data-driven; inherited from ZH 02 §4 except where marked)
 | Rate | Scenarios (low / nominal / high) | Justification |
@@ -117,7 +117,7 @@ All "not negligible" classes are continua constrained by the m_γγ sidebands. T
 - **D-WH-4 (object-efficiency treatment):** the stock Delphes card gives electron efficiency 0.63 (barrel) / 0.50 (endcap) for prompt W-decay electrons (muons 0.83), reproducing the ZH deficit (ZH D11). WH has one electron in half the events. Recommendation: use the same CMS-like object-efficiency treatment as the ZH final analysis (`lib/scripts/analysis/final_analysis.py`) for consistency in the VH combination, with stock Delphes as a robustness variant.
 
 ## 10. Checks done / pending
-Done: N_pγ partition implemented via frozen ZH code; coverage of reused ZH samples (table §4); BR factors once per sample (code); σ for 23 of 27 non-σ-only sample types (03 §1). Pending: Wγγjj EW/QCD and tt̄γγ σ + test jobs, F_EW_lvajj; generator-cut twin pilot. **Caveats:** LO everywhere; fake scenarios are assumptions; the pilot bounds use 2000-event samples with large MC errors.
+Done: N_pγ partition implemented via frozen ZH code; coverage of reused ZH samples (table §4); BR factors once per sample (code); σ and test jobs for all sample types except EW W⁻γγjj (retry pending; the W⁺ sample validates the type); twin pilot executed: **generator-cut safety not demonstrated** (§5). **Caveats:** LO everywhere; fake scenarios are assumptions; the pilot bounds use 2000-event samples with large MC errors.
 
 **Commands:** `python3 -P wh/scripts/make_cards.py`; `python3 -P wh/scripts/xsec_table.py`; `python3 -P wh/scripts/validate_delphes.py`; frozen-ZH coverage checks: inline Python (uproot) on `production/<s>/*_gen.root` and `tar -xzOf <gridpack> madevent/Cards/run_card.dat`, recorded in this report.
 **Git commit:** see `wh/reports/INDEX.md`.

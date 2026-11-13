@@ -89,6 +89,72 @@
    }
   },
   {
+   "sample": "B_EW_wpaajj",
+   "seed": 2420001,
+   "expected_seed": 2420001,
+   "n_req": 2000,
+   "n_lhe": 2000,
+   "n_delphes": 2000,
+   "sig_gp": 0.2344,
+   "sig_lhe": 0.2313714,
+   "sig_py8": 0.23099999999999998,
+   "kb_per_ev": 2.3034443359375,
+   "t_gp": 360,
+   "t_py": 129,
+   "host": "b9p23p9543.cern.ch",
+   "files": {
+    ".root": true,
+    "_gen.root": true,
+    "_logs.tgz": true,
+    ".lhe.gz": true,
+    "_full.root": false
+   }
+  },
+  {
+   "sample": "B_QCD_lvaajj",
+   "seed": 2422001,
+   "expected_seed": 2422001,
+   "n_req": 2000,
+   "n_lhe": 2000,
+   "n_delphes": 2000,
+   "sig_gp": 1.138,
+   "sig_lhe": 1.1307346,
+   "sig_py8": 1.1340000000000001,
+   "kb_per_ev": 2.75810009765625,
+   "t_gp": 332,
+   "t_py": 183,
+   "host": "b9p27p1310.cern.ch",
+   "files": {
+    ".root": true,
+    "_gen.root": true,
+    "_logs.tgz": true,
+    ".lhe.gz": true,
+    "_full.root": false
+   }
+  },
+  {
+   "sample": "B_QCD_lvaajj_nomjj",
+   "seed": 2423001,
+   "expected_seed": 2423001,
+   "n_req": 2000,
+   "n_lhe": 2000,
+   "n_delphes": 2000,
+   "sig_gp": 6.365,
+   "sig_lhe": 6.329610000000001,
+   "sig_py8": 6.3340000000000005,
+   "kb_per_ev": 2.60519580078125,
+   "t_gp": 383,
+   "t_py": 216,
+   "host": "b9p14p0562.cern.ch",
+   "files": {
+    ".root": true,
+    "_gen.root": true,
+    "_logs.tgz": true,
+    ".lhe.gz": true,
+    "_full.root": false
+   }
+  },
+  {
    "sample": "F_QCD_lvajj",
    "seed": 2424001,
    "expected_seed": 2424001,
@@ -168,6 +234,28 @@
    "t_gp": 55,
    "t_py": 172,
    "host": "b9p12p0201.cern.ch",
+   "files": {
+    ".root": true,
+    "_gen.root": true,
+    "_logs.tgz": true,
+    ".lhe.gz": true,
+    "_full.root": false
+   }
+  },
+  {
+   "sample": "T_ttaa_1l",
+   "seed": 2428001,
+   "expected_seed": 2428001,
+   "n_req": 2000,
+   "n_lhe": 2000,
+   "n_delphes": 2000,
+   "sig_gp": 0.9351999999999999,
+   "sig_lhe": 0.9229155,
+   "sig_py8": 0.9238,
+   "kb_per_ev": 2.96246240234375,
+   "t_gp": 157,
+   "t_py": 176,
+   "host": "b9p30p5740.cern.ch",
    "files": {
     ".root": true,
     "_gen.root": true,
@@ -400,6 +488,18 @@
    0
   ],
   "900136.009": [
+   0
+  ],
+  "900136.012": [
+   0
+  ],
+  "900136.006": [
+   0
+  ],
+  "900136.007": [
+   0
+  ],
+  "900136.004": [
    0
   ]
  }

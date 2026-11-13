@@ -33,6 +33,10 @@
 | F_QCD_lvajj | genuine | 0.9601 | 0 ± 0 (0) | 0 ± 0 (0) |
 | F_QCD_lvajj | fake_g1_nom | 0.9601 | 3.83 ± 1.2 (15) | 0.367 ± 0.27 (2) |
 | S_EW_WHjj_offshell | genuine | 0.00227 | 1.14 ± 0.086 (174) | 1.11 ± 0.085 (169) |
+| B_QCD_lvaajj | genuine | 0.9601 | 7.1 ± 1.4 (26) | 0.819 ± 0.47 (3) |
+| T_ttaa_1l | genuine | 1 | 0.234 ± 0.23 (1) | 0 ± 0 (0) |
+| B_EW_wpaajj | genuine | 0.9601 | 5.37 ± 0.55 (95) | 0.961 ± 0.23 (17) |
+| B_QCD_lvaajj_nomjj | genuine | 0.9601 | 15.3 ± 4.8 (10) | 4.58 ± 2.6 (3) |
 | F_QCD_llajj_vbs (frozen ZH) | e→γ low | 1 | 0.174 ± 0.17 (1) | 0 ± 0 (0) |
 | F_QCD_llajj_vbs (frozen ZH) | e→γ nom | 1 | 0.348 ± 0.35 (1) | 0 ± 0 (0) |
 | F_QCD_llajj_vbs (frozen ZH) | e→γ high | 1 | 0.87 ± 0.87 (1) | 0 ± 0 (0) |

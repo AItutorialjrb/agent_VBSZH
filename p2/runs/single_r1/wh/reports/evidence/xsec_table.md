@@ -10,15 +10,15 @@
 | H_QCD_WHjj_nodec | validation | 265.8 | 1.5 | 0 | 133x4 | `work/xsec/H_QCD_WHjj_nodec_s2408000.status.txt` |
 | I_WHjj_nodec | interference | -0.2558 | 0.014 | 0 | 105x4 | `work/xsec/I_WHjj_nodec_s2409000.status.txt` |
 | C_WHjj_nodec | validation | 317 | 2.3 | 0 | 242x4 | `work/xsec/C_WHjj_nodec_s2410000.status.txt` |
-| B_EW_wpaajj | cont_bkg | — | — | pending | | |
+| B_EW_wpaajj | cont_bkg | 0.2344 | 0.00035 | 0 | 15360x16 | `work/gridpacks/B_EW_wpaajj_status.txt` |
 | B_EW_wmaajj | cont_bkg | — | — | pending | | |
-| B_QCD_lvaajj | cont_bkg | — | — | pending | | |
-| B_QCD_lvaajj_nomjj | twin | — | — | pending | | |
+| B_QCD_lvaajj | cont_bkg | 1.138 | 0.0018 | 0 | 7338x16 | `work/gridpacks/B_QCD_lvaajj_status.txt` |
+| B_QCD_lvaajj_nomjj | twin | 6.365 | 0.0072 | 0 | 8477x16 | `work/gridpacks/B_QCD_lvaajj_nomjj_status.txt` |
 | F_QCD_lvajj | fake1_bkg | 881.6 | 2.1 | 0 | 1093x8 | `work/gridpacks/F_QCD_lvajj_status.txt` |
 | F_EW_lvajj | fake1_bkg | 107.2 | 0.2 | 0 | 1434x8 | `work/gridpacks/F_EW_lvajj_status.txt` |
 | F_Wjj | fake2_bound | 2.62e+05 | 2.1e+03 | 0 | 163x8 | `work/gridpacks/F_Wjj_status.txt` |
 | T_tta_1l | top_bkg | 779.2 | 1.3 | 0 | 667x4 | `work/gridpacks/T_tta_1l_status.txt` |
-| T_ttaa_1l | top_bkg | — | — | pending | | |
+| T_ttaa_1l | top_bkg | 0.9352 | 0.0013 | 0 | 4435x8 | `work/gridpacks/T_ttaa_1l_status.txt` |
 | T_tWa_1l | top_bkg | 115.6 | 0.19 | 0 | 524x4 | `work/gridpacks/T_tWa_1l_status.txt` |
 | H_ttH | resonant_bkg | 384.8 | 1.6 | 0 | 37x4 | `work/gridpacks/H_ttH_status.txt` |
 | H_tHq | resonant_bkg | 76.79 | 0.32 | 0 | 44x4 | `work/gridpacks/H_tHq_status.txt` |
@@ -57,10 +57,14 @@
 | PY8 sigma closure S_EW_WHjj_offshell | lhe=11.538, py8=11.55, ratio=1.0011, gridpack=11.52, gp_vs_lhe_pull=0.21142 |
 | PY8 sigma closure S_EW_WHjj_taunu | lhe=6.9668, py8=6.936, ratio=0.99558, gridpack=6.919, gp_vs_lhe_pull=0.96663 |
 | PY8 sigma closure H_QCD_WHjj | lhe=59.27, py8=59.25, ratio=0.99966, gridpack=58.75, gp_vs_lhe_pull=1.2442 |
+| PY8 sigma closure B_EW_wpaajj | lhe=0.23137, py8=0.231, ratio=0.99839, gridpack=0.2344, gp_vs_lhe_pull=-2.3723 |
+| PY8 sigma closure B_QCD_lvaajj | lhe=1.1307, py8=1.134, ratio=1.0029, gridpack=1.138, gp_vs_lhe_pull=-1.1942 |
+| PY8 sigma closure B_QCD_lvaajj_nomjj | lhe=6.3296, py8=6.334, ratio=1.0007, gridpack=6.365, gp_vs_lhe_pull=-1.1282 |
 | PY8 sigma closure F_QCD_lvajj | lhe=880.33, py8=882.1, ratio=1.002, gridpack=881.6, gp_vs_lhe_pull=-0.24101 |
 | PY8 sigma closure F_EW_lvajj | lhe=105.66, py8=105.6, ratio=0.99947, gridpack=107.2, gp_vs_lhe_pull=-2.4814 |
 | PY8 sigma closure F_Wjj | lhe=2.6442e+05, py8=2.65e+05, ratio=1.0022, gridpack=2.62e+05, gp_vs_lhe_pull=0.87526 |
 | PY8 sigma closure T_tta_1l | lhe=776.21, py8=776.9, ratio=1.0009, gridpack=779.2, gp_vs_lhe_pull=-0.54584 |
+| PY8 sigma closure T_ttaa_1l | lhe=0.92292, py8=0.9238, ratio=1.001, gridpack=0.9352, gp_vs_lhe_pull=-2.0887 |
 | PY8 sigma closure T_tWa_1l | lhe=115.67, py8=115.7, ratio=1.0002, gridpack=115.6, gp_vs_lhe_pull=0.095152 |
 | PY8 sigma closure H_ttH | lhe=386.19, py8=386.3, ratio=1.0003, gridpack=384.8, gp_vs_lhe_pull=0.58123 |
 | PY8 sigma closure H_tHq | lhe=76.661, py8=76.3, ratio=0.99529, gridpack=76.79, gp_vs_lhe_pull=-0.21313 |
@@ -75,10 +79,14 @@
 | S_EW_WHjj | 0.03014 | 50,000 |
 | S_EW_WHjj_taunu | 0.01608 | 50,000 |
 | H_QCD_WHjj | 0.128 | 50,000 |
+| B_EW_wpaajj | 0.225 | 50,000 |
+| B_QCD_lvaajj | 1.093 | 50,000 |
+| B_QCD_lvaajj_nomjj | 6.111 | 50,000 |
 | F_QCD_lvajj | 846.4 | 2,539,273 |
 | F_EW_lvajj | 102.9 | 308,769 |
 | F_Wjj | 2.515e+05 | 754,638,600 |
 | T_tta_1l | 779.2 | 2,337,600 |
+| T_ttaa_1l | 0.9352 | 50,000 |
 | T_tWa_1l | 115.6 | 346,800 |
 | H_ttH | 0.8735 | 50,000 |
 | H_tHq | 0.1743 | 50,000 |
