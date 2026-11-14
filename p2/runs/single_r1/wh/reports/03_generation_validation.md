@@ -98,3 +98,7 @@ LO throughout; 2000-event test jobs (MC errors up to 100 %); fake rates are scen
 Wait for the heavy gridpacks → test jobs → rerun `xsec_table.py`, `validate_delphes.py` (cached), `test_audit.py`, `bounds_table.py`; twin pilot; then the G1 report. G2 items: production N table under D-WH-2/3.
 
 **Git commit:** see `wh/reports/INDEX.md`.
+
+## Addendum 2026-11-14 (after G1)
+- **EW W⁻γγjj gridpack retry (cluster 912997, seed 2421000): FAILED again**, with the same survey-channel error (`P1_qq_wmaaqq_wm_lvl/G871.025/results.dat`: "not enough values to unpack", "Error opening grid"). Wrapper status rc=0 again (S1-8). The retry used the same seed and the failure is deterministic. Its test job 912998 never had a gridpack. Not retried (D-WH-11): from G1 on, Phase 05–07 use the canonical frozen `B_EW_Waajj_nomjj`, which covers both W charges. Phase 03 of this run therefore stays at **20/21 sample types**, and the W⁻ σ is not independently validated here.
+- New own sample for Phase 05 (A2): `H_ggF_jj_nomjj` (idx 42; HEFT, no m_jj cut). Gridpack 913309: σ = 7.141 ± 0.026 pb, rc=0, gridpack present. Test 913310: 2000/2000 events, σ_PY8 = 7.059 pb, PY8/LHE = 1.001, generator H mass 125. Production 913321: 30 × 2000 events, seeds 2442002–2442031, all exit 0, N = 59 945. See 05 §1.

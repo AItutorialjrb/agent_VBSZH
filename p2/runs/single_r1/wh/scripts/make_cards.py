@@ -132,6 +132,11 @@ for k, (nm, pr) in enumerate((("S_EW_WHjj_nodec_hp", EW), ("H_QCD_WHjj_nodec_hp"
 add(41, "T_tt_1l", [x.replace(" t~ ,", " t~,") for x in TT1L("")], {**NOJET}, "fake2_bound", [], "py8_generic.cmnd",
     "tt~ >=1 W->l nu, two j->gamma fakes: quantitative bound (added 2026-11-09)", mode="batch")
 
+# --- added 2026-11-14 (Phase 05, amendment A2): H_ggF_jj was not produced in wh-prod-v1(.1); own sample, NO generator mjj cut
+add(42, "H_ggF_jj_nomjj", ["generate p p > h j j HIG<=1 QED=0"], {**JETS}, "fakelep_bkg", ["BGG"], "py8_qcd_wh_haa.cmnd",
+    "ggF H+2j in HEFT (mt->inf, LO), no mjj cut; non-prompt-lepton background row replacing the missing H_ggF_jj", mode="batch",
+    model="heft-no_b_mass")
+
 BRF = dict(  # BR ledger factors (01 report §4); each sample lists the factors it needs, each at most once
     BGG=0.002270,                     # YR4 B(H->gamma gamma), mH=125
     WF=0.9601,                        # [B_PDG(e)+B_PDG(mu)] / [2*B_MG5(l nu)] ; B_PDG e,mu = 10.71, 10.63 %; B_MG5 = 0.111137

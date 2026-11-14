@@ -1,0 +1,4 @@
+2026-11-14T09:57:55Z 913309 gridpack H_ggF_jj_nomjj seed 2442000; 913310 test seed 2442001 (p03_*_p05.sub)
+2026-11-14T10:03:28Z p05_nt.sub 1003 ntuple jobs (no generation)
+2026-11-14T10:10:38Z p05_nt.sub resubmitted (999 jobs; first cluster 913314 removed: condor split comma args)
+2026-11-14T10:12:38Z p05_prod_ggF.sub H_ggF_jj_nomjj 30x2000 seeds 2442002-2442031 (test 913310 OK: 2000/2000, sigma_PY8 7.059 pb)

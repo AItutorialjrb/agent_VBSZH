@@ -34,3 +34,4 @@ samples:
   - {"idx": 39, "name": "I_WHjj_nodec_hp", "role": "validation", "br": [], "py8": null, "mode": "smoke", "seed_gp": 2439000, "note": "order-closure repeat, 10x event target, independent seed"}
   - {"idx": 40, "name": "C_WHjj_nodec_hp", "role": "validation", "br": [], "py8": null, "mode": "smoke", "seed_gp": 2440000, "note": "order-closure repeat, 10x event target, independent seed"}
   - {"idx": 41, "name": "T_tt_1l", "role": "fake2_bound", "br": [], "py8": "py8_generic.cmnd", "mode": "batch", "seed_gp": 2441000, "note": "tt~ >=1 W->l nu, two j->gamma fakes: quantitative bound (added 2026-11-09)"}
+  - {"idx": 42, "name": "H_ggF_jj_nomjj", "role": "fakelep_bkg", "br": ["BGG"], "py8": "py8_qcd_wh_haa.cmnd", "mode": "batch", "seed_gp": 2442000, "note": "ggF H+2j in HEFT (mt->inf, LO), no mjj cut; non-prompt-lepton background row replacing the missing H_ggF_jj"}

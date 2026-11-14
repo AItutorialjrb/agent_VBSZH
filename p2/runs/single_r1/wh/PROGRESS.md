@@ -18,3 +18,11 @@ Spec: `p2/SPEC_G0.md` (repeat runs read it in place of SPEC.md). Arm: single, no
 | — | PENDING: gridpacks B_EW_wpaajj, B_EW_wmaajj, B_QCD_lvaajj(+_nomjj), T_ttaa_1l and their test jobs (900136.4–7, .12, held until gridpack) | running | `condor_q 900134 900136` |
 
 Restart recipe: `source p2/lib/scripts/setup_stack.sh`; check `condor_q`; when the pending gridpacks finish, run `condor_release` on the held tests (or wait ≤ 30 min), then `python3 -P scripts/xsec_table.py; python3 -P scripts/validate_delphes.py` (cached per sample) `; python3 -P scripts/test_audit.py`, then update 03 report §1/§4/§5 and 02 report §2/§5.
+| 2026-11-14T09:48 | G1 accepted (human, defaults D-WH-1..4); amendment A2: Phase 05–07 on frozen wh-prod-v1 | logged | metrics/ledger.csv |
+| 09:57 | own H_ggF_jj_nomjj: gridpack 913309, test 913310, production 913321 (30 × 2000) | done | 05 §1, 03 addendum |
+| 10:10 | ntuples: 913314 (removed, comma-arg split), 913320 (999 jobs) + 2 local ggF chunks | done | wh/work/nt |
+| 10:25 | p05_run.py (inventory, SHA, N check, closures, optimisation) | done | work/p05/p05.json |
+| 10:35 | p05_bdt.py (k-fold, adopted), p07_stats.py, figures, reports 05/06/07, FINAL, final.json | done | reports/ |
+| — | W⁻γγjj own gridpack retry 912997 failed again (deterministic); not retried (D-WH-11) | closed | 03 addendum |
+
+Restart recipe (Phase 05–07): see FINAL_report.md §6.

@@ -1,14 +1,12 @@
-# single_r1 WH STATUS (≤ 25 lines) — 2026-11-13
-Done: P01 signal definition (4F-jet EW W±Hjj (0,4); orders/diagrams closed; W BR WF = 0.9601 closed (pull −0.5); σ(signal) = 13.83 fb → 0.0301 fb after WF·BGG).
-Done: P02 ledger (all classes sampled, reused with coverage proof, or bounded; fake pilots are LOWER bounds).
-Done: P03 for 20/21 sample types: σ order closure (hp, pull 0.8), PY8/LHE (20), BR closure, Delphes objects, 20 clean test jobs.
-Running: 912997 (EW W⁻γγjj gridpack retry; attempt 1 aborted on a corrupted survey channel), 912998 (its test, held until gridpack).
-Pilot (illustrative, 500 fb⁻¹, peak window): signal 1.13; prompt Wγγjj continuum ≈ 1.8 (EW W⁺ + QCD), fakes ≈ 1 nominal.
-Blockers: generator-cut safety of m_jj > 400 not demonstrated (twin ratio 0.47 ± 0.17) → production design change (no cut).
-Decisions needed:
- D-WH-1 signal jet flavour: 4F jets (rec.) vs 5F with $ t t~ vs 5F full (5F = 2.08 × 4F, resonant tHq).
- D-WH-2 N_MC rule for parametrised-fake samples (W+jj 7.5e8, tt̄ 8e8 needed): adopt HH effective-N / truth-weighting for WH fakes?
- D-WH-3 frozen ZH samples below N_req (ggZH, ZH→ττ, EW Zγγjj splits): extend in canonical production vs MC-stat nuisance.
- D-WH-4 electron efficiency (stock Delphes 0.63/0.50): adopt the ZH-final CMS-like object efficiencies for VH consistency?
-Self-review: reviews/wh_01-03_self_review.md (8 sev-1, 7 sev-2, 5 sev-3).
-Next: G1 (human). EW W⁻γγjj retry result to be appended when it finishes.
+# single_r1 WH STATUS (≤ 25 lines) — 2026-11-14 — FINAL
+Done: P01–P03 (G1 accepted with declared defaults D-WH-1..4); P05–P07 on frozen wh-prod-v1(.1) + own H_ggF_jj_nomjj (59 945 ev).
+Final selection: BDT (5-fold xgboost, adopted by the declared rule, marginal stability) + window ±2σ; cut-based alongside.
+Result (def. a, Eq. 1 stat ± MC / Z with σ_b / μ95 CLs): 500 fb⁻¹ 0.94 ± 0.01 / 0.91 / 3.5; 1000 fb⁻¹ 1.33 / 1.24 / 2.0; 3000 fb⁻¹ 2.30 ± 0.04 / 1.93 / 1.06.
+Def. b: 1.02 / 1.44 / 2.50 (500/1000/3000). Cut-based def. a: 0.58 / 0.82 / 1.41.
+m_γγ fit (syst), def. a: Z 0.90 / 1.27 / 2.15; μ95 3.1 / 1.9 / 0.99.
+λ_WZ (BR fixed): λ = −1 excluded at 4.2 / 5.9 / 10.1σ; λ < 0 at 1.2 / 1.7 / 2.9σ; 95 % λ ∈ [−0.27, 1.82] at 500 fb⁻¹.
+Running: nothing (all condor clusters finished: 913309/10/14(removed)/20/21).
+Blockers: none. Open caveats: BDT stability (S1-9), e→γ closure factor 4 (S1-10), jet-modelling nuisance (S1-11).
+Decisions taken (A2 defaults): D-WH-5..15 (FINAL_report §5).
+Self-reviews: reviews/wh_01-03_self_review.md, reviews/wh_05-07_self_review.md.
+Next: human G3-type review of FINAL_report.md.
