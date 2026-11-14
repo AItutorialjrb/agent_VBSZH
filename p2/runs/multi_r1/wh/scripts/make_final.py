@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Writes reports/08_reproducibility.md, reports/FINAL_report.md and reports/final.json (WH final analysis, expected results; v1.1 re-evaluations pending)."""
 import json, datetime, os
+import sys as _s0, os as _o0; _s0.path.insert(0, _o0.path.dirname(_o0.path.abspath(__file__)))
+from pin import COMMIT
 WH = "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/multi_r1/wh"; CB = "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/combination"; S = f"{WH}/work/stat"; now = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M")
 def J(p):
-    q = p[:-5]+"_v11.json"; return json.load(open(q if os.path.exists(q) else p))
+    q = next((p[:-5]+x+".json" for x in ("_v12", "_v11") if os.path.exists(p[:-5]+x+".json")), p); return json.load(open(q))
 c = J(f"{S}/counting.json"); sel = J(f"{WH}/work/sel/selection_final.json"); cp = J(f"{S}/couplings.json"); cn = J(f"{S}/couplings_nobr.json"); vh = J(f"{CB}/VH_combination.json"); rep = J(f"{S}/repro_counting.json"); y = J(f"{WH}/work/bgmodel/yields.json")
 s11 = J(f"{WH}/work/sel/selection_v11.json"); ck = J(f"{S}/couplings_kzneg.json"); xp = [__import__("scipy.stats", fromlist=["poisson"])]
 pl = {f"{l}_{d}": J(f"{S}/pl_{l}_{d}.json") for l in (500, 1000, 3000) for d in "ab"}
@@ -21,7 +23,7 @@ fin = dict(status="expected-only; v1.1 loose eFake sample integrated; H_ggF_jj b
            VH_combination=vh["mu95_Z0"], VH_lambda={k: dict(Z_lambda_m1=v["Z_lambda_m1"], Z_lambda_neg=v["Z_lambda_neg_region"]) for k, v in vh["lambda_"].items()}, repro=rep)
 json.dump(fin, open(f"{WH}/reports/final.json", "w"), indent=1, default=float)
 R = f"""# 08 Reproducibility (executor-wh FINAL)
-Date UTC: {now}. Analysis commit: ORCH_COMMIT_PLACEHOLDER. Status: **PASS (independent re-derivation of the counting numbers only; PL, couplings and combination were reproduced by the verifier agent)**.
+Date UTC: {now}. Analysis commit: {COMMIT}. Status: **PASS (independent re-derivation of the counting numbers only; PL, couplings and combination were reproduced by the verifier agent)**.
 ## Versions
 LCG_110 (x86_64-el9-gcc13-opt): Python 3.13, ROOT/uproot/awkward as in p2/lib/scripts/setup_stack.sh; pyhf 0.7.6, xgboost 2.1.3, scipy 1.17.1, numpy; MG5_aMC v3.6.3, Pythia 8.317 (CP5), Delphes 3.5.1, NNPDF3.1 NNLO (LHAPDF 303600) for the production (wh-prod-v1). Seeds: production seeds in SAMPLES.csv; skim RNG seed = file seed + 777; MVA seeds 11, 22, 33; no toys (Asimov).
 ## Command chain (all under p2/runs/multi_r1/wh; stack via scripts/envrun.sh)
@@ -39,7 +41,7 @@ none for the production (H_ggF_jj: D38 fallback applied; F_QCD_llajj_loose integ
 """
 open(f"{WH}/reports/08_reproducibility.md", "w").write(R)
 F = f"""# WH (W -> l nu, H -> gamma gamma) VBS-enriched final analysis, multi_r1: FINAL report (complete except open human decisions)
-Date UTC: {now}. Analysis commit: ORCH_COMMIT_PLACEHOLDER. Status: **PASS with limitations (expected-only; complete except the open human decisions D39 (CMS calibration of the j->gamma rate), D40 (muon misID placeholder), D41 (D35 light-misID bounds x0.3/x3), D42 (PRE C bound), D43 (ZH erratum calibration/Zgamma+3j, non-blocking), D44 (MVA 'stable' reading; can change a headline: MVA +35-40 % in Z), D45 (retraining policy), D46 (lambda_WZ sign convention; changes the lambda=-1 headline 3.8 vs ~6 sigma), all on their declared defaults; the F_QCD_llajj_loose v1.1 row is integrated; H_ggF_jj is covered by the D38 SUBSTITUTION (gridpack 893012 failed): a scaled VBF-proxy, because no ggF H + jets sample exists: for the human to confirm)**.
+Date UTC: {now}. Analysis commit: {COMMIT}. Status: **PASS with limitations (expected-only; complete except the open human decisions D39 (CMS calibration of the j->gamma rate), D40 (muon misID placeholder), D41 (D35 light-misID bounds x0.3/x3), D42 (PRE C bound), D43 (ZH erratum calibration/Zgamma+3j, non-blocking), D44 (MVA 'stable' reading; can change a headline: MVA +35-40 % in Z), D45 (retraining policy), D46 (lambda_WZ sign convention; changes the lambda=-1 headline 3.8 vs ~6 sigma), all on their declared defaults; the F_QCD_llajj_loose v1.1 row is integrated; H_ggF_jj is covered by the D38 SUBSTITUTION (gridpack 893012 failed): a scaled VBF-proxy, because no ggF H + jets sample exists: for the human to confirm)**.
 ## Summary (all EXPECTED, Delphes level, 13.6 TeV LO, L = 500 / 1000 / 3000 fb^-1; no data, no discovery claim)
 * Signal after the primary cut-based selection (mjj>600, |deta|>4.0, pT(gg)>75 GeV, |m_gg-125|<3.5): s = {sel['cut_based']['s']:.2f} events at 500 fb^-1 against b = {sel['cut_based']['b']:.2f} (prompt W gamma gamma 54 %, lost-lepton / e->gamma 28 % (v1.1 loose sample), other Higgs 12 %, fake photons 1.6 %, non-prompt leptons 1.1 %, tau feed-down 2.9 %). The sensitivity is below 1 sigma at 500 fb^-1.
 * Eq. 1 Z = {c['L500']['Z_eq1']:.2f} / {c['L1000']['Z_eq1']:.2f} / {c['L3000']['Z_eq1']:.2f}; profile-likelihood (m_gg shape, all nuisances, Barlow-Beeston) Z0 = {pl['500_a']['full_syst_BB']['Z0']:.2f} / {pl['1000_a']['full_syst_BB']['Z0']:.2f} / {pl['3000_a']['full_syst_BB']['Z0']:.2f}; profile-likelihood asymptotic (q~, pyhf) CLs mu95 (median, NOT the exact-Poisson counting limit, which is {c['L500']['mu95_poisson']['median']:.1f} / {c['L1000']['mu95_poisson']['median']:.1f} / {c['L3000']['mu95_poisson']['median']:.1f}) = {pl['500_a']['full_syst_BB']['mu95_exp'][1]:.1f} / {pl['1000_a']['full_syst_BB']['mu95_exp'][1]:.1f} / {pl['3000_a']['full_syst_BB']['mu95_exp'][1]:.1f}; definition (b): {pl['500_b']['full_syst_BB']['Z0']:.2f} / {pl['1000_b']['full_syst_BB']['Z0']:.2f} / {pl['3000_b']['full_syst_BB']['Z0']:.2f}, mu95 {pl['500_b']['full_syst_BB']['mu95_exp'][1]:.1f} / {pl['1000_b']['full_syst_BB']['mu95_exp'][1]:.1f} / {pl['3000_b']['full_syst_BB']['mu95_exp'][1]:.1f}.

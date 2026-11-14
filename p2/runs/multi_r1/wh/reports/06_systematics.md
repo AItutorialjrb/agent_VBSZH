@@ -1,5 +1,5 @@
 # 06 Systematic and mass-window models (executor-wh FINAL, block 3)
-Date UTC: 2026-11-13 18:23. Status: **PASS for verification** (expected results only; no data). Git commit: see orchestrator commit.
+Date UTC: 2026-11-14 09:53. Status: **PASS for verification** (expected results only; no data). Analysis commit: ORCH_COMMIT_PLACEHOLDER.
 ## Goal
 Fix the signal-window / m_gg model and the nuisance model before the sensitivity numbers (07): window and resolution dependence, the pre-declared nuisance list of 05a v2.1 (sec. 'nuisance list') and 05 addendum, Barlow-Beeston, with/without MC stat.
 ## Inputs / commands

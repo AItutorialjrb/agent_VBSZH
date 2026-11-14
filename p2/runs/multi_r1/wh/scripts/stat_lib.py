@@ -10,7 +10,7 @@ EDGES = np.arange(100.0, 180.01, 2.0); NB = len(EDGES)-1
 CUTS = dict(mjj=600.0, deta=4.0, ptgg=75.0)
 ASSUME = dict(lumi=0.025, photon_eff_per_photon=0.02, lepton_eff=0.01, phscale=0.005, phres=0.10)   # ASSUMPTIONS (no data, Delphes has no scale factors): labelled as such in 07
 pyhf.set_backend("numpy", pyhf.optimize.scipy_optimizer())
-V11 = os.environ.get("STAT_V11") == "1"; TABLE = os.environ.get("STAT_TABLE", "table"); YIELDS = os.environ.get("STAT_YIELDS", "yields"); SUF = "_v11" if V11 else ""
+V12 = os.environ.get("STAT_V12") == "1"; V11 = os.environ.get("STAT_V11") == "1" or V12; TABLE = os.environ.get("STAT_TABLE", "table"); YIELDS = os.environ.get("STAT_YIELDS", "yields"); SUF = "_v12" if V12 else ("_v11" if V11 else "")
 def load():
     t = dict(np.load(f"{WH}/work/sel/{TABLE}.npz")); meta = json.load(open(f"{WH}/work/sel/{TABLE}_meta.json")); Y = json.load(open(f"{WH}/work/bgmodel/{YIELDS}.json")); return t, meta, Y
 GROUPS = {  # name: (samples, extra mask key, weight key)
@@ -20,14 +20,17 @@ GROUPS = {  # name: (samples, extra mask key, weight key)
     "efake_qcd_ll": ((["F_QCD_llajj_loose"], "ll") if V11 else (["ZH_Zajj_eFake"], "efqcd_ll")), "efake_qcd_eg": ((["F_QCD_llajj_loose"], "eg") if V11 else (["ZH_Zajj_eFake"], "efqcd_eg")), "efake_ew": (["ZH_Zajj_eFake"], "efew"),
     "ll_qcd": (["ZH_Zaajj_QCD_nomjj_lostlep"], None), "ll_other": (["ZH_Zaajj_EW_lostlep", "V_WWa_WH", "V_WZa_WH", "V_ZZa_WH"], None),
     "higgs_other": (["H_ggZH_wh", "H_ZH_tautau_wh", "H_ttH_1l", "H_ttH_dilep_wh", "H_tHq_lep", "H_tHW_1l", "ZH_EW_ZHjj_lostlep", "ZH_QCD_ZHjj_lostlep"], None)}
-TAUG = {"prompt_qcd", "prompt_ew", "fake1_qcd", "fake1_ew", "fake2", "efake_qcd_ll", "efake_qcd_eg", "efake_ew", "ll_qcd", "ll_other", "higgs_other", "hqcd"}   # r_tau groups (D9; hqcd is a W process too)
+GROUPS_VH_EXTRA = {"zhjj_ew": (["ZH_EW_ZHjj_lostlep"], None), "zhjj_qcd": (["ZH_QCD_ZHjj_lostlep"], None)}   # VH mode: ZH signal-like samples in the WH SR (lost lepton), scaled by mu_ZH / mu_VH
+ALLGROUPS = dict(GROUPS); ALLGROUPS.update(GROUPS_VH_EXTRA)
+TAUG_Z = {"efake_qcd_ll", "efake_qcd_eg", "efake_ew", "ll_qcd", "ll_other", "zhjj_ew", "zhjj_qcd"}
+TAUG = {"zhjj_ew", "zhjj_qcd", "prompt_qcd", "prompt_ew", "fake1_qcd", "fake1_ew", "fake2", "efake_qcd_ll", "efake_qcd_eg", "efake_ew", "ll_qcd", "ll_other", "higgs_other", "hqcd"}   # r_tau groups (D9; hqcd is a W process too)
 def selmask(t, cuts=CUTS, window=False):
     m = (t["mjj"] > cuts["mjj"]) & (t["deta"] > cuts["deta"]) & (t["ptgg"] > cuts["ptgg"]) & (t["met"] > 30) & (t["ptl"] > 25)
     if window: m &= np.abs(t["mgg"]-125) < 3.5
     return m
 def hist(t, meta, g, m0, mgg=None):
     """-> (sumw, sumw2) per bin for group g, selection mask m0"""
-    ss, key = GROUPS[g]; sid = [i for i, s in enumerate(meta["samples"]) if s in ss]; m = m0 & np.isin(t["sid"], sid)
+    ss, key = ALLGROUPS[g]; sid = [i for i, s in enumerate(meta["samples"]) if s in ss]; m = m0 & np.isin(t["sid"], sid)
     w = t["w"].copy()
     if key == "misid": w = w-t["whf"]
     elif key == "hf": w = t["whf"]
@@ -70,13 +73,15 @@ def sig_theory(t, meta, m0):
     m = m0[rows]; w = t["w"][rows][m]; L = L[m]; nom = L[:, 22]; ok = np.abs(nom) > 0
     v = [float((w[ok]*L[ok, i]/nom[ok]).sum()) for i in (0, 5, 15, 22, 24, 34, 39)]; rep = np.array([float((w[ok]*L[ok, i]/nom[ok]).sum()) for i in range(45, 145)])
     n0 = float(w.sum()); return min(v)/n0, max(v)/n0, float(rep.std()/rep.mean())
-def build(t, meta, Y, lumi=500.0, mu_groups=("sig",), nuis=True, mcstat=True, fscale=None, shape_sig=None, drop=(), extra_bkg=None, sig_mgg=None, class_scale=None, smooth=True, drop_nuis=(), zh_channel=None):
+def build(t, meta, Y, lumi=500.0, mu_groups=("sig",), nuis=True, mcstat=True, fscale=None, shape_sig=None, drop=(), extra_bkg=None, sig_mgg=None, class_scale=None, smooth=True, drop_nuis=(), zh_channel=None, vh=False, poi="mu", zh_samples=None):
     """returns (model, data_asimov_bonly, spec). fscale: dict group-> multiplicative factor on nominal (D36 scans). shape_sig: dict(shift=..., res=...) templates for signal.
     nuis=False -> only mu and (optionally) mcstat."""
-    m0 = selmask(t); H = {g: hist(t, meta, g, m0, mgg=(sig_mgg if g == "sig" else None)) for g in GROUPS}
+    m0 = selmask(t); GV = dict(GROUPS)
+    if vh: GV.update(GROUPS_VH_EXTRA); GV["higgs_other"] = ([x for x in GV["higgs_other"][0] if x not in ("ZH_EW_ZHjj_lostlep", "ZH_QCD_ZHjj_lostlep")], None)
+    H = {g: hist(t, meta, g, m0, mgg=(sig_mgg if g == "sig" else None)) for g in GV}
     fs = dict(fscale or {}); k = lumi/500.0
     if smooth: H, _ = smooth_hists(H)
-    sc = {g: scale_unc(Y, GROUPS[g][0]) for g in GROUPS}; sc["sig"] = sig_theory(t, meta, m0)[:2]; pdf_sig = sig_theory(t, meta, m0)[2]
+    sc = {g: scale_unc(Y, GV[g][0]) for g in GV}; sc["sig"] = sig_theory(t, meta, m0)[:2]; pdf_sig = sig_theory(t, meta, m0)[2]
     rtau = Y["regions"]["VBS"]["r_tau"]; samples = []; nuisdef = {}
     def nsys(name, g, hi, lo, bounds=None, kind="normsys"):
         nuisdef.setdefault(name, dict(bounds=bounds, kind=kind))
@@ -84,7 +89,7 @@ def build(t, meta, Y, lumi=500.0, mu_groups=("sig",), nuis=True, mcstat=True, fs
     for g, (h, h2) in H.items():
         if g in drop or h.sum() == 0: continue
         h = h*k*fs.get(g, 1.0); err = np.sqrt(h2)*k*fs.get(g, 1.0); mods = []
-        if g in mu_groups: mods.append(dict(name="mu", type="normfactor", data=None))
+        if g in mu_groups: mods.append(dict(name=(mu_groups[g] if isinstance(mu_groups, dict) else "mu"), type="normfactor", data=None))
         if mcstat: mods.append(dict(name="mcstat", type="staterror", data=list(np.maximum(err, 1e-12))))
         if nuis:
             mods.append(nsys("lumi", g, 1+ASSUME["lumi"], 1-ASSUME["lumi"]))
@@ -92,9 +97,9 @@ def build(t, meta, Y, lumi=500.0, mu_groups=("sig",), nuis=True, mcstat=True, fs
             elif g.startswith("fake1"): mods.append(nsys("pheff", g, 1+ASSUME["photon_eff_per_photon"], 1-ASSUME["photon_eff_per_photon"]))
             else: mods.append(nsys("pheff", g, 1+2*ASSUME["photon_eff_per_photon"], 1-2*ASSUME["photon_eff_per_photon"]))
             if not g.startswith("npl"): mods.append(nsys("lepeff", g, 1+ASSUME["lepton_eff"], 1-ASSUME["lepton_eff"]))
-            if g in TAUG: mods.append(nsys("tau_r", g, (1+2*rtau)/(1+rtau), 1/(1+rtau)))
+            if g in TAUG: mods.append(nsys("tau_r_zrows" if g in TAUG_Z else "tau_r", g, (1+2*rtau)/(1+rtau), 1/(1+rtau)))   # Z-lepton rows (lost lepton, ZHjj) carry their own tau nuisance (not correlated with the W uplift; ZH channel has none: Z->tautau->ll is 0.31 %)
             lo_, hi_ = sc[g]
-            if abs(hi_-1) > 1e-4 or abs(lo_-1) > 1e-4: mods.append(nsys("scale_"+g, g, hi_, lo_))
+            if abs(hi_-1) > 1e-4 or abs(lo_-1) > 1e-4: mods.append(nsys({"zhjj_ew": "scale_sig", "zhjj_qcd": "scale_hqcd"}.get(g, "scale_"+g), g, hi_, lo_))
             if g == "sig": mods.append(nsys("pdf_sig", g, 1+pdf_sig, 1-pdf_sig))
             if g in ("prompt_qcd", "fake1_qcd", "ll_qcd") or (V11 and g in ("efake_qcd_ll", "efake_qcd_eg")): mods.append(nsys("ps_qcd", g, 1.45, 0.55))   # v1.1: the loose sample has no C range, so the PS-jet-fraction nuisance applies to it
             if g in ("efake_qcd_ll", "efake_qcd_eg") and not V11: mods.append(nsys("C_eFake", g, 1.464, 0.536))
@@ -123,12 +128,16 @@ def build(t, meta, Y, lumi=500.0, mu_groups=("sig",), nuis=True, mcstat=True, fs
                 mm.append(nsys(nn, "zh", hi, lo, bounds=bnd))
             zs.append(dict(name=nm, data=[float(y)], modifiers=mm))
         chans.append(dict(name="ZH", samples=zs)); obs.append(dict(name="ZH", data=[0.0]))
+    if zh_samples is not None:
+        nb_z = len(zh_samples[0]["data"]); chans.append(dict(name="ZH", samples=zh_samples)); obs.append(dict(name="ZH", data=[0.0]*nb_z))
     spec = dict(channels=chans, observations=obs, measurements=[dict(name="m", config=dict(poi="mu", parameters=[]))], version="1.0.0")
-    model = pyhf.Model(spec, poi_name="mu", validate=False)
+    model = pyhf.Model(spec, poi_name=poi, validate=False); model._spec_for_ws = spec
     bounds = model.config.suggested_bounds(); init = model.config.suggested_init()
     for name, d in nuisdef.items():
         if d["bounds"] is not None and name in model.config.par_map: sl = model.config.par_slice(name); bounds[sl.start] = d["bounds"]
     bounds[model.config.poi_index] = (0.0, 50.0)
+    for nm_ in model.config.par_map:
+        if nm_.startswith('mu'): bounds[model.config.par_slice(nm_).start] = (0.0, 50.0)
     model._bounds = bounds
     return model
 def asimov(model, mu=0.0):

@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
 """Writes reports/06_systematics.md and reports/07_sensitivity.md from work/stat/*.json (all expected-only)."""
 import json, os, datetime, numpy as np, sys
+import sys as _s0, os as _o0; _s0.path.insert(0, _o0.path.dirname(_o0.path.abspath(__file__)))
+from pin import COMMIT
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 WH = "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/multi_r1/wh"; S = f"{WH}/work/stat"
-def _p(n): return f"{S}/{n}_v11.json" if os.path.exists(f"{S}/{n}_v11.json") else f"{S}/{n}.json"   # v1.1 results preferred (loose eFake QCD sample); rank has no v1.1 rerun
+def _p(n): return next((f"{S}/{n}{x}.json" for x in ("_v12", "_v11", "") if os.path.exists(f"{S}/{n}{x}.json")), f"{S}/{n}.json")   # v1.1 results preferred (loose eFake QCD sample); rank has no v1.1 rerun
 J = lambda n: json.load(open(_p(n))) if os.path.exists(_p(n)) else None
 now = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"); L = [500, 1000, 3000]
 c = J("counting"); sel = json.load(open(f"{WH}/work/sel/selection_final.json"))
 # ---------------- 06
 A = []; a = A.append
 a(f"""# 06 Systematic and mass-window models (executor-wh FINAL, block 3)
-Date UTC: {now}. Status: **PASS for verification** (expected results only; no data). Git commit: see orchestrator commit.
+Date UTC: {now}. Status: **PASS for verification** (expected results only; no data). Analysis commit: {COMMIT}.
 ## Goal
 Fix the signal-window / m_gg model and the nuisance model before the sensitivity numbers (07): window and resolution dependence, the pre-declared nuisance list of 05a v2.1 (sec. 'nuisance list') and 05 addendum, Barlow-Beeston, with/without MC stat.
 ## Inputs / commands
@@ -71,7 +73,7 @@ open(f"{WH}/reports/06_systematics.md", "w").write("\n".join(A))
 # ---------------- 07
 B = []; a = B.append
 a(f"""# 07 Sensitivity (executor-wh FINAL, block 3)
-Date UTC: {now}. Status: **PASS for verification**; ALL numbers are EXPECTED (Asimov datasets, nominal background model of 05a v2.1 + the v1.1 loose-cut eFake sample, primary = cut-based selection; D44). No claim of a result; a null or sub-1-sigma expectation is stated as such. Git commit: see orchestrator commit.
+Date UTC: {now}. Status: **PASS for verification**; ALL numbers are EXPECTED (Asimov datasets, nominal background model of 05a v2.1 + the v1.1 loose-cut eFake sample, primary = cut-based selection; D44). No claim of a result; a null or sub-1-sigma expectation is stated as such. Analysis commit: {COMMIT}.
 ## Selection (frozen in 05): mjj>600, |deta_jj|>4.0, pT(gg)>75, MET>30, pT(l)>25, |m_gg-125|<3.5 (counting); MVA alternative not adopted.
 ## 1. Counting window (Eq. 1, stat only) and exact-Poisson CLs
 Window yields at 500 fb^-1: s = {c['window_500']['s']:.3f}, b = {c['window_500']['b']:.3f} +- {c['window_500']['sigma_b_MC']:.3f} (MC stat).

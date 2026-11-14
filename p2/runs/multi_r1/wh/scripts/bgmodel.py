@@ -7,7 +7,12 @@ WH = "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/multi_r1/wh"; PR = "/eos/h
 SK = f"{WH}/work/bgmodel/skim"; LUMI = 500.0
 FC = {"nom": 0, "up": 1, "dn": 2, "all": 3, "r03": 4, "r07": 5}
 SAMP = {r["sample"]: r for r in csv.DictReader(open(f"{PR}/SAMPLES.csv"))}
+for _k in [k for k in list(SAMP) if k.endswith("_v12")]:   # v1.2 union rows supersede the v1.1 row of the same base name (V1.2_NOTES.md)
+    SAMP[_k[:-4]] = dict(SAMP[_k], sample=_k[:-4])
 SAMP["ZH_Zajj_eFake_EWonly"] = SAMP["ZH_Zajj_eFake"]
+# frozen ZH coupling samples used for the EW ZHjj signal-like row in the WH SR (VH fits): same k as ZH_EW_ZHjj_lostlep (BR(H->gg) x ZF), per-directory N from the skim jsons
+for _n in ("lam_m100", "lam_m050", "lam_p000", "lam_p050", "lam_p100", "lam_p150"):
+    SAMP["K_EW_ZHjj_" + _n] = dict(SAMP["ZH_EW_ZHjj_lostlep"], sample="K_EW_ZHjj_" + _n, files_glob="/eos/home-r/rjiang/vbs_zh_codex_starter/production/final/K_EW_ZHjj_" + _n, N_generated_LHE="50000")
 def dkey(path):
     """directory label of a skimmed file: skim metadata stores the (local) file name only, so the directory is identified by the file-name prefix (name without _s<seed>.root); review wh_05a item 1"""
     return re.sub(r"_s\d+\.root$", "", os.path.basename(path))

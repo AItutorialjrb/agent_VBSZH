@@ -44,11 +44,12 @@ def quad_fit(sb, loo=None):
         co[i] = np.linalg.lstsq(A*W[:, None], y*W, rcond=None)[0]
     return co
 def sig_pred(co, kW, kZ): return np.maximum((co[:, 0]*kW**2+co[:, 1]*kW*kZ+co[:, 2]*kZ**2)*rbr(kW, kZ), 0.0)
+GRP = dict(GROUPS); GRP["higgs_other"] = ([x for x in GROUPS["higgs_other"][0] if x not in ("H_tHq_lep", "H_tHW_1l")], None); GRP["tH"] = (["H_tHq_lep", "H_tHW_1l"], None)   # tH split out so that its growth under kW*kt<0 can be tested
 def bkg_bins(var, edges, fs=None):
     mw = selmask(t) & (np.abs(t["mgg"]-125) < 3.5); G = {}; fs = fs or {}
-    for g in GROUPS:
+    for g in GRP:
         if g in ("sig",): continue
-        ss, key = GROUPS[g]; sid = [i for i, s in enumerate(meta["samples"]) if s in ss]; m = mw & np.isin(t["sid"], sid); w = t["w"].copy()
+        ss, key = GRP[g]; sid = [i for i, s in enumerate(meta["samples"]) if s in ss]; m = mw & np.isin(t["sid"], sid); w = t["w"].copy()
         if key == "misid": w = w-t["whf"]
         elif key == "hf": w = t["whf"]
         elif key == "efqcd_ll": m &= t["qcddir"].astype(bool) & (t["ncls1"] == 0)
@@ -57,18 +58,19 @@ def bkg_bins(var, edges, fs=None):
         f = fs.get(g, 1.0); G[g] = (np.histogram(t[var][m], bins=edges, weights=w[m])[0]*f*LUM/500.0, np.sqrt(np.histogram(t[var][m], bins=edges, weights=w[m]**2)[0])*f*LUM/500.0)
     return G
 CLS = {"prompt_qcd": "prompt_irreducible", "prompt_ew": "prompt_irreducible", "fake1_qcd": "fake_photon_1", "fake1_ew": "fake_photon_1", "fake2": "fake_photon_2", "npl_misid": "nonprompt_lepton", "npl_hf": "nonprompt_lepton",
-       "efake_qcd_ll": "lost_lepton_egamma", "efake_qcd_eg": "lost_lepton_egamma", "efake_ew": "lost_lepton_egamma", "ll_qcd": "lost_lepton_egamma", "ll_other": "lost_lepton_egamma", "higgs_other": "other_higgs", "hqcd": "other_higgs", "tau": "tau_feeddown"}
+       "efake_qcd_ll": "lost_lepton_egamma", "efake_qcd_eg": "lost_lepton_egamma", "efake_ew": "lost_lepton_egamma", "ll_qcd": "lost_lepton_egamma", "ll_other": "lost_lepton_egamma", "higgs_other": "other_higgs", "tH": "other_higgs", "hqcd": "other_higgs", "tau": "tau_feeddown"}
 def class_sigma():
     C = Y["regions"]["VBS"]["classes"]; return {c: max((C[c]["high"]-C[c]["low"])/(2*C[c]["nom"]), 0.05) if C[c]["nom"] > 0 else 0.1 for c in set(CLS.values())}
 class Fit:
     def __init__(s, co, G, syst=True, bb=True):
-        s.co = co; s.G = G; s.sscale = 1.0; s.syst = syst; s.bb = bb; s.classes = sorted(set(CLS.values())); s.sig_c = class_sigma(); s.nb = len(co)
+        s.co = co; s.G = G; s.sscale = 1.0; s.tscale = 1.0; s.tH = G["tH"][0] if "tH" in G else 0.0; s.syst = syst; s.bb = bb; s.classes = sorted(set(CLS.values())); s.sig_c = class_sigma(); s.nb = len(co)
         s.bkg = np.array([sum(G[g][0][i] for g in G) for i in range(s.nb)]); s.bkgc = {c: np.array([sum(G[g][0][i] for g in G if CLS[g] == c) for i in range(s.nb)]) for c in s.classes}
         s.bkgerr = np.sqrt(np.array([sum(G[g][1][i]**2 for g in G) for i in range(s.nb)]))
     def mu_exp(s, th, kW, kZ):
         ncl = len(s.classes); ts = th[ncl] if s.syst else 0.0; tl = th[ncl+1] if s.syst else 0.0; g = th[ncl+2:ncl+2+s.nb] if s.bb else np.zeros(s.nb)
         b = sum(s.bkgc[c]*(1+s.sig_c[c]*th[j]) for j, c in enumerate(s.classes)) if s.syst else s.bkg.copy()
         sg = sig_pred(s.co, kW, kZ)*(1+0.05*ts)*(1+0.025*tl)*(1.0 if (kW == 1.0 and kZ == 1.0) else s.sscale)
+        if s.tscale != 1.0 and not (kW == 1.0 and kZ == 1.0): b = b+(s.tscale-1.0)*s.tH   # tested-hypothesis only: tH rows grow when kW*kt<0 (kW-sign convention)
         return sg+b+s.bkgerr*g
     def nll2(s, th, data, kW, kZ):
         nu = np.maximum(s.mu_exp(th, kW, kZ), 1e-9); v = 2*np.sum(nu-data*np.log(nu)+0)
@@ -112,6 +114,10 @@ f = Fit(co, G); data = sig_pred(co, 1.0, 1.0)+f.bkg; base0 = f.prof(data, 1.0, 1
 for sc_ in (0.7, 1.0, 1.3):
     f.sscale = sc_; cs[str(sc_)] = dict(Z_lam_m1=float(np.sqrt(max(f.prof(data, -1.0*(-1.0 if KZNEG else 1.0), (-1.0 if KZNEG else 1.0))-base0, 0))), Z_lam_0=float(np.sqrt(max(f.prof(data, 0.0, (-1.0 if KZNEG else 1.0))-base0, 0))))   # tested point (lambda*kZ, kZ) in the convention of the run
 res["closure_sensitivity_signal_scale_of_tested_hypothesis"] = cs
+f.sscale = 1.0; ths = {}
+for ts_ in (1.0, 3.0, 10.0):
+    f.tscale = ts_; ths[str(ts_)] = dict(Z_lam_m1=float(np.sqrt(max(f.prof(data, -1.0*(-1.0 if KZNEG else 1.0), (-1.0 if KZNEG else 1.0))-base0, 0))))
+f.tscale = 1.0; res["tH_growth_test_tested_hypothesis"] = dict(note="tH (tHq + tHW) rows scaled by the factor in the TESTED hypothesis only; physical growth (~x10) only for kW*kt<0 (kW-sign convention); the kZ-sign convention has kW>0 and no growth", tH_yield_bins=[float(x) for x in f.tH] if not np.isscalar(f.tH) else [], results=ths)
 # 4. 2D map (full)
 f = Fit(co, G); data = sig_pred(co, 1.0, 1.0)+f.bkg; base = f.prof(data, 1.0, 1.0); kWg = np.arange(-2.0, 3.01, 0.5); kZg = np.arange(0.25, 2.01, 0.25)
 res["map2d"] = dict(kW=[float(x) for x in kWg], kZ=[float(x) for x in kZg], q=[[float(max(f.prof(data, a, b)-base, 0.0)) for b in kZg] for a in kWg])

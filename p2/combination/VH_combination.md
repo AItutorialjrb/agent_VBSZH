@@ -1,37 +1,65 @@
-# VH combination (WH final analysis x frozen ZH), D32 item 5 / D37
-Date UTC: 2026-11-13 18:23. Status: **PASS for verification**. All numbers are EXPECTED (Asimov), Delphes level, 13.6 TeV, LO, no data. Analysis commit: 4a12ce9 (analysis content; this pin added in the following commit). Writer: executor-wh (VH files only; ZH_erratum.md belongs to the ZH-erratum executor).
-## Inputs
-* WH: p2/runs/multi_r1/wh/reports/07_sensitivity.md model (cut-based primary selection, m_gg 100-180 GeV 40-bin shape fit, nuisances of 06, Barlow-Beeston).
-* ZH: SWAPPABLE table p2/combination/VH_inputs_zh.json, made by p2/runs/multi_r1/wh/scripts/make_zh_table.py from p2/combination/zh_check/zh_corrected_inputs.json (variant `corrected_nominal` = the D37 corrected fake-photon component; `frozen` (zh-final-v1.1 numbers) and the other variants are selectable with `python3 make_zh_table.py <variant>`; then rerun the six condor tasks comb:<L>:<a|b>, scripts/comb_run.py, and scripts/comb_lambda.py). The ZH channel in the fit is TWO single-bin samples: the signal rows (EW ZHjj, + H_QCD_ZHjj in definition b) merged, and all other rows merged into one background sample with yield-weighted nuisance magnitudes (y, MC error and magnitudes from the frozen final.json); the per-row table is kept in VH_inputs_zh.json. 1000 fb^-1 ZH rows = linear scaling of the 500 fb^-1 components.
-## Correlation model (declared)
-Shared (one parameter in both channels): luminosity (2.5 %, ASSUMPTION), photon efficiency (4 % for two photons, ASSUMPTION), lepton efficiency (WH 1 %, ZH 2 %, ASSUMPTION), VH signal theory (scale_sig: WH and ZH EW VH, magnitudes of each study), per-process-class theory (scale_prompt_qcd = QCD V gamma gamma, scale_prompt_ew = EW V gamma gamma, scale_hqcd = QCD VH, scale_higgs_other = ggZH/ttH/tHW/other), fake-photon rate (D39 floor 20 %). Not shared: ZH off-shell, Z gamma gamma interference, ggZH normalisation, top theory, the ZH CMS-calibration factor (26 %), per-row MC statistics, all WH-specific nuisances (tau, PS, C, coverage, non-closure, ...). The common signal strength mu multiplies the WH and ZH signals (SM VH ratio).
-## Results: signal strength (expected)
-| L [fb^-1] | def | WH Z0 | WH PL asymptotic (q~) CLs mu95 (-1s, median, +1s) | VH Z0 | VH PL asymptotic CLs mu95 (-1s, median, +1s) | ZH alone (copied from the ZH table, frozen-code PL, NOT refit) Z, mu95 |
-|---|---|---|---|---|---|---|
-| 500 | a | 0.427 | 4.46, 7.09, 11.58 | 0.444 | 4.13, 6.52, 10.77 | 0.131, 31.8 |
-| 500 | b | 0.484 | 3.93, 6.04, 10.23 | 0.522 | 3.59, 5.54, 8.72 | 0.210, 20.3 |
-| 1000 | a | 0.592 | 2.91, 4.54, 7.36 | 0.616 | 2.77, 4.16, 6.76 | 0.184, 18.8 |
-| 1000 | b | 0.671 | 2.62, 3.97, 6.21 | 0.724 | 2.39, 3.63, 5.65 | 0.295, 11.9 |
-| 3000 | a | 0.973 | 1.67, 2.50, 3.83 | 1.014 | 1.59, 2.37, 3.63 | 0.314, 8.8 |
-| 3000 | b | 1.103 | 1.44, 2.16, 3.39 | 1.195 | 1.30, 1.91, 2.87 | 0.502, 5.5 |
+# VH combination: joint WH + ZH likelihood (D47 (1))
+Date UTC: 2026-11-14 14:40. Analysis commit: ORCH_COMMIT_PLACEHOLDER. Status: **PASS for verification**. All numbers EXPECTED (Asimov SM data), Delphes level, 13.6 TeV, LO. Writer: executor-wh (ZH channel inputs: ZH-erratum executor, vh_ws/zh_channel_inputs.json, corrected fake-photon rows).
+## Model
+ONE pyhf workspace (committed: p2/combination/vh_ws/VH_workspace.json = common mu_VH, definition (a); VH_workspace_2d.json = (mu_WH, mu_ZH); *_defb.json for definition (b); WH_workspace.json and ZH_workspace.json = the single-channel versions built by the same code, scripts/vh_build.py; observations = SM Asimov data at 500 fb^-1, luminosity scaling is linear). WH channel: m_gg 100-180 GeV in 40 bins, cut-based primary selection, all WH nuisances, Barlow-Beeston-lite per bin. ZH channel: m_gg 105-165 GeV in 30 bins, 15 process samples with per-bin templates, per-bin MC statistics, systematics (zh_channel_inputs.json).
+**Signal-like cross-feed samples (not fixed backgrounds):** the EW ZHjj lost-lepton rows in the WH SR (groups zhjj_ew, and zhjj_qcd in definition (b)) are scaled by the ZH signal strength (mu_ZH in the 2D fit, the common mu_VH otherwise) and carry the ZH theory nuisances; their yield in the WH SR is 0.015909970316799082 events (500 fb^-1, selection window) against 0.6226164066715941 of WH signal. The WH signal in the ZH SR has ZERO MC support (0 raw events of 300k): UL95 0.000465 events, not in the fit (it would carry mu_WH). In the coupling fits both cross-feeds follow their own (kappa_W, kappa_Z) quadratic forms (ZHjj in the WH SR from the frozen K_EW_ZHjj samples through the WH selection).
+**Orthogonality:** overlap 0 raw / 0 weighted over 47 samples (vh_ws/orthogonality.json); the SRs are exclusive by construction (ZH: two leptons pT>15; WH: exactly one lepton pT>10).
+## Correlation scheme (vh_ws/correlation_scheme.json)
+Correlated (one parameter in both channels): lumi, pheff, lepeff, phscale, phres (histosys on the real-photon EW signal samples), scale_sig and pdf_sig (EW VH signal family WH/ZH), scale_hqcd (QCD VH), scale_prompt_qcd / scale_prompt_ew (QCD / EW V gamma gamma), scale_higgs_other (ggZH, ttH, tH), fakerate (D39 floor, fake-photon rows), and scale_efake_qcd_ll (the same QCD Z gamma + jets process: ZH fake-photon rows F_QCD_Zajj = the frozen F_QCD_llajj files, WH lost-lepton e->gamma rows). Uncorrelated: MC statistics (mcstat per bin WH, mcstat_zh per bin ZH), channel-specific normalisations and modelling (WH: ps_qcd, C_*, cov_eFake, nonclosure, fake2_scen, npl_norm, hf_var, tau_r, tau_r_zrows; ZH: zh_* normalisations, scale_top_zh, zh_offshell, zh_int_zaa, zh_genmjj_*). tau: the ZH channel has no tau nuisance (Z->tautau->ll 0.31 %); in the WH SR the Z-lepton rows carry their own tau_r_zrows (not correlated with the W uplift tau_r).
 
-The ZH channel adds little (its own expected Z0 is 0.13-0.5, mu95 6-32): the combination improves the WH numbers by 4-8 % in Z0 and 5-8 % in mu95. The VH signal strength is defined with respect to the SM WH+ZH ratio. The 'WH' column here differs from 07 in the second decimal (e.g. 7.10 vs 7.09 at 500 fb^-1) because the combination's WH-alone reference is built without the photon scale/resolution histosys; 07 is the single source for WH-alone numbers.
+| parameter | type | channels | status | declared common |
+|---|---|---|---|---|
+| fakerate | normsys | SR,ZH | correlated | True |
+| lepeff | normsys | SR,ZH | correlated | True |
+| lumi | normsys | SR,ZH | correlated | True |
+| mu | normfactor | SR,ZH | correlated | True |
+| pdf_sig | normsys | SR,ZH | correlated | True |
+| pheff | normsys | SR,ZH | correlated | True |
+| phres | histosys | SR,ZH | correlated | True |
+| phscale | histosys | SR,ZH | correlated | True |
+| scale_efake_qcd_ll | normsys | SR,ZH | correlated | False |
+| scale_higgs_other | normsys | SR,ZH | correlated | True |
+| scale_hqcd | normsys | SR,ZH | correlated | True |
+| scale_prompt_ew | normsys | SR,ZH | correlated | True |
+| scale_prompt_qcd | normsys | SR,ZH | correlated | True |
+| scale_sig | normsys | SR,ZH | correlated | True |
 
-## Results: lambda_WZ (expected exclusion at the SM point, WH + ZH)
-q_VH(lambda) = q_WH + q_ZH (independent channels; WH-ZH nuisance correlations are NOT propagated in this additive approximation; ZH q curves are the FROZEN zh-final-v1.1 curves while the mu95/Z0 rows use the corrected ZH table: the erratum changes ZH b by -10 %, i.e. q_ZH by about +10 %, which changes the combined Z(lambda<0) by < 0.01 sigma (q_ZH is 0.009 against q_WH 0.14 at 500 fb^-1) and Z(lambda=-1) by < 0.05 sigma; not propagated, quantified here). Modes: (1) `convention_kZneg_primary` = sign carried by kZ (convention-independent for the VBS yield; WH with R_BR evaluated at kW = -lambda) paired with the ZH fixed-BR curve (APPROXIMATE: the ZH curve has no kW-dependent BR); (2) `convention_kWneg` = sign on kW (kt = +1, W-top interference x2.45 in BR) paired with the ZH rate-resolved curve, which uses the same kW-sign convention; (3) `noBR_unphysical` = R_BR = 1 for all lambda: NOT physical, listed only to document what the samples alone would give. See SPEC D46: the convention-independent VH number is mode (1) (3.8 / 5.3 / 8.9 sigma at 500 / 1000 / 3000 fb^-1 for lambda = -1); the 14.1 sigma at 3000 fb^-1 is the kW-convention number.
+## Results: common mu_VH (SM Asimov; Z0 asymptotic q0; mu95 asymptotic CLs q~, median and +-1 sigma)
 
-| L | mode | Z(lambda=-1) WH / ZH / VH | Z(lambda<0 region, closest point) WH / ZH / VH |
+| L | def | WH Z0 | WH mu95 (-1s, med, +1s) | ZH Z0 | ZH mu95 | VH Z0 | VH mu95 |
+|---|---|---|---|---|---|---|---|
+| 500 | a | -- | -- | -- | -- | -- | -- |
+| 1000 | a | -- | -- | -- | -- | -- | -- |
+| 3000 | a | -- | -- | -- | -- | -- | -- |
+| 500 | b | -- | -- | -- | -- | -- | -- |
+| 1000 | b | -- | -- | -- | -- | -- | -- |
+| 3000 | b | -- | -- | -- | -- | -- | -- |
+
+The ZH channel is a weak constraint (its own Z0 is 0.1-0.5); the common mu improves the WH numbers by a few percent. The WH-alone rows here come from the joint-workspace code (WH_workspace.json); the 07 numbers from stat_run.py agree to the second decimal (differences: the workspace adds the signal-like ZHjj rows).
+
+## Results: (mu_WH, mu_ZH) and channel compatibility
+
+
+## Results: lambda_WZ and (kappa_W, kappa_Z) (joint templates, same sign convention and R_BR in both channels)
+**Convention (D46):** kZ-sign (kZ = -1, kW = -lambda; convention-independent, PRIMARY) with R_BR evaluated at the actual signs; the kW-sign variant (kW<0, kZ = kt = +1: W-top interference raises BR(gamma gamma) by x2.45) is quoted only with that statement. The ZH q-curves are RE-DERIVED (not inherited from the frozen ZH study) from the corrected ZH inputs (the ZH executor's pyhf curves and the reduced-model curves here agree: lambda = -1 at 500 fb^-1 0.29 sigma). Reduced nuisance model (per-class normalisations, signal theory 5 %, lumi 2.5 % shared, per-bin BB); the joint likelihood of mu is the pyhf one above.
+
+| L | convention | lambda=-1: WH / ZH / VH | lambda<0 region: WH / ZH / VH |
 |---|---|---|---|
-| 500 | convention_kZneg_primary | 3.76 / 0.43 / 3.79 | 0.35 / 0.13 / 0.37 |
-| 500 | convention_kWneg | 6.20 / 0.81 / 6.25 | 0.37 / 0.09 / 0.39 |
-| 500 | noBR_unphysical | 3.76 / 0.43 / 3.79 | 1.61 / 0.13 / 1.61 |
-| 1000 | convention_kZneg_primary | 5.28 / 0.61 / 5.31 | 0.48 / 0.18 / 0.51 |
-| 1000 | convention_kWneg | 8.60 / 1.15 / 8.67 | 0.51 / 0.13 / 0.53 |
-| 1000 | noBR_unphysical | 5.28 / 0.61 / 5.31 | 2.27 / 0.18 / 2.27 |
-| 3000 | convention_kZneg_primary | 8.85 / 1.05 / 8.92 | 0.75 / 0.31 / 0.82 |
-| 3000 | convention_kWneg | 13.96 / 1.98 / 14.10 | 0.83 / 0.22 / 0.87 |
-| 3000 | noBR_unphysical | 8.85 / 1.05 / 8.92 | 3.89 / 0.31 / 3.90 |
+| 500 | kZ-sign (primary) | 3.77 / 0.29 / 3.78 | 0.36 / 0.01 / 0.38 |
+| 1000 | kZ-sign (primary) | 5.28 / 0.41 / 5.30 | 0.50 / 0.02 / 0.53 |
+| 3000 | kZ-sign (primary) | 8.86 / 0.70 / 8.88 | 0.78 / 0.03 / 0.84 |
+| 500 | kW-sign variant | 6.20 / 0.72 / 6.24 | 0.38 / 0.01 / 0.40 |
+| 1000 | kW-sign variant | 8.61 / 1.02 / 8.65 | 0.53 / 0.01 / 0.55 |
+| 3000 | kW-sign variant | 13.98 / 1.76 / 14.04 | 0.85 / 0.02 / 0.90 |
 
-Interpretation (expected sensitivity, not a result; asymptotic, no toy check of the tail): lambda_WZ = -1 is excluded at a moderate-to-high expected level mainly through the WH channel (rate and high-pT / mT shapes; the extra H->gamma gamma rate gain is convention dependent); the whole negative range is limited by its boundary point lambda about 0, where (with R_BR) the H->gamma gamma amplitude cancels and the signal vanishes. The ZH curve adds a minor contribution.
-## Caveats
-Expected only; additive-q approximation for lambda_WZ; ZH inputs: counting channel per row, no m_gg shape; ASSUMPTION nuisances (lumi, efficiencies); 13.6 TeV LO Delphes samples; the WH v1.1 row F_QCD_llajj_loose is included, H_ggF_jj is bounded by the D38 scaled central proxy (Z0 -0.6 %, not in the nominal); ZH_erratum numbers may be updated: the ZH table is swappable (above). Files: VH_combination.json, VH_combination_mu95.csv, VH_combination_lambda.csv.
+(kappa_W, kappa_Z) maps for WH, ZH and VH: work/stat/couplings_vh*_v12.json['maps'] and the paper figures fig_kappa_map_*. Entries at lambda>0 in the kZ-sign scan are computed at kZ = -1 (kW<0 for lambda>0): not meaningful, use the kW-sign scan for lambda>0.
+
+## Validation of the asymptotic numbers with toys (D47 (2))
+toys pending (condor).
+
+## Limitations (D47 (3))
+* **f_mu placeholder (D40):** the per-jet muon misID is 2e-5 (= the electron value); no cited value exists; the whole light-misID normalisation is covered by x0.3-x3 (D36) and by the npl_norm nuisance; non-prompt leptons are 1.1 % of b at the selection.
+* **Fake-photon calibration reference mismatch (D39/D43):** CMS-SMP-19-013 (JHEP 10 (2021) 174, Table 2) is inclusive in jets and cannot calibrate the VBS-like j->gamma rate; WH uses c = 1, ZH kappa = 0.956 (rough closure); the x0.3-x3 per-photon scan covers it (fake photons are 1.7 % of b in WH).
+* **Other-Higgs backgrounds are not rescaled under the coupling hypotheses** (12 % of b): the tH rows (which grow about x10 for kW*kt<0, kW-sign convention) scaled in the tested hypothesis change Z(lambda=-1) from 6.20 to 6.26 (x10) in the kW-sign convention and from 3.76 to 3.84 in the kZ-sign convention (no growth physically there): leaving them fixed is slightly conservative (couplings_v12.json['tH_growth_test_tested_hypothesis']).
+* **No Z gamma + 3 jets row in ZH (D43):** the fake-photon component in ZH may be underestimated (the converted jet needs a third ME jet); WH has the 3-jet row.
+* ZH and WH MC samples at LO, Delphes without pile-up; ASSUMPTION nuisances (lumi, efficiencies, photon scale/resolution) have no data basis; the lambda curves use the reduced nuisance model and asymptotics (toy check above); closure of the per-bin quadratic is not shown to cover the 3.3 sigma leave-one-out pulls.

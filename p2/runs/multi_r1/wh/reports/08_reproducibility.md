@@ -1,5 +1,5 @@
 # 08 Reproducibility (executor-wh FINAL)
-Date UTC: 2026-11-13 18:23. Analysis commit: 4a12ce9 (analysis content; this pin added in the following commit). Status: **PASS (independent re-derivation of the counting numbers only; PL, couplings and combination were reproduced by the verifier agent)**.
+Date UTC: 2026-11-14 09:53. Analysis commit: ORCH_COMMIT_PLACEHOLDER. Status: **PASS (independent re-derivation of the counting numbers only; PL, couplings and combination were reproduced by the verifier agent)**.
 ## Versions
 LCG_110 (x86_64-el9-gcc13-opt): Python 3.13, ROOT/uproot/awkward as in p2/lib/scripts/setup_stack.sh; pyhf 0.7.6, xgboost 2.1.3, scipy 1.17.1, numpy; MG5_aMC v3.6.3, Pythia 8.317 (CP5), Delphes 3.5.1, NNPDF3.1 NNLO (LHAPDF 303600) for the production (wh-prod-v1). Seeds: production seeds in SAMPLES.csv; skim RNG seed = file seed + 777; MVA seeds 11, 22, 33; no toys (Asimov).
 ## Command chain (all under p2/runs/multi_r1/wh; stack via scripts/envrun.sh)

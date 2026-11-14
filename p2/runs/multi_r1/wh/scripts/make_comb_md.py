@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 import json, datetime
+import sys as _s0, os as _o0; _s0.path.insert(0, _o0.path.dirname(_o0.path.abspath(__file__)))
+from pin import COMMIT
 CB = "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/combination"; d = json.load(open(f"{CB}/VH_combination.json")); now = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"); L = []; a = L.append
 a(f"""# VH combination (WH final analysis x frozen ZH), D32 item 5 / D37
-Date UTC: {now}. Status: **PASS for verification**. All numbers are EXPECTED (Asimov), Delphes level, 13.6 TeV, LO, no data. Analysis commit: ORCH_COMMIT_PLACEHOLDER. Writer: executor-wh (VH files only; ZH_erratum.md belongs to the ZH-erratum executor).
+Date UTC: {now}. Status: **PASS for verification**. All numbers are EXPECTED (Asimov), Delphes level, 13.6 TeV, LO, no data. Analysis commit: {COMMIT}. Writer: executor-wh (VH files only; ZH_erratum.md belongs to the ZH-erratum executor).
 ## Inputs
 * WH: p2/runs/multi_r1/wh/reports/07_sensitivity.md model (cut-based primary selection, m_gg 100-180 GeV 40-bin shape fit, nuisances of 06, Barlow-Beeston).
 * ZH: SWAPPABLE table p2/combination/VH_inputs_zh.json, made by p2/runs/multi_r1/wh/scripts/make_zh_table.py from p2/combination/zh_check/zh_corrected_inputs.json (variant `corrected_nominal` = the D37 corrected fake-photon component; `frozen` (zh-final-v1.1 numbers) and the other variants are selectable with `python3 make_zh_table.py <variant>`; then rerun the six condor tasks comb:<L>:<a|b>, scripts/comb_run.py, and scripts/comb_lambda.py). The ZH channel in the fit is TWO single-bin samples: the signal rows (EW ZHjj, + H_QCD_ZHjj in definition b) merged, and all other rows merged into one background sample with yield-weighted nuisance magnitudes (y, MC error and magnitudes from the frozen final.json); the per-row table is kept in VH_inputs_zh.json. 1000 fb^-1 ZH rows = linear scaling of the 500 fb^-1 components.

@@ -4,7 +4,7 @@ import sys, os, json, numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
 from stat_lib import *
-t, meta, Y = load(); m0 = selmask(t); F = f"{WH}/figures"; nm = lambda n: n+"_v11" if os.path.exists(f"{WH}/work/stat/{n}_v11.json") else n; ex = lambda n: os.path.exists(f"{WH}/work/stat/{nm(n)}.json"); J = lambda n: json.load(open(f"{WH}/work/stat/{nm(n)}.json"))
+t, meta, Y = load(); m0 = selmask(t); F = f"{WH}/figures"; nm = lambda n: next((n+x for x in ("_v12", "_v11") if os.path.exists(f"{WH}/work/stat/{n}{x}.json")), n); ex = lambda n: os.path.exists(f"{WH}/work/stat/{nm(n)}.json"); J = lambda n: json.load(open(f"{WH}/work/stat/{nm(n)}.json"))
 def save(fig, n): fig.savefig(f"{F}/{n}.pdf"); fig.savefig(f"{F}/{n}.png", dpi=130); plt.close(fig)
 H = {g: hist(t, meta, g, m0) for g in GROUPS}; fig, ax = plt.subplots(figsize=(7, 4.5)); bot = np.zeros(NB); cent = 0.5*(EDGES[:-1]+EDGES[1:])
 cols = plt.cm.tab20(np.linspace(0, 1, 20)); order = [g for g in GROUPS if g != "sig"]

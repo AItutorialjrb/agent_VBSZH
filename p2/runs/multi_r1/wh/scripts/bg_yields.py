@@ -28,7 +28,7 @@ FNOM = FE+FMU; FL = {"low": NPLO*FNOM, "nom": FNOM, "high": NPHI*FNOM, "rob_med"
 CL = {"prompt_irreducible": ["B_QCD_Waajj_nomjj", "B_EW_Waajj_nomjj", "T_ttaa_1l"], "fake_photon_1": ["F_QCD_Wajjj_nomjj", "F_EW_Wajj_nomjj", "T_tta_1l", "T_tWa_1l"], "fake_photon_2": ["F_Wjjjj", "T_ttjj_1l"],
       "nonprompt_lepton": ["Q_aajjj", "H_VBFH_jj", "H_ggF_jj"], "lost_lepton_egamma": ["V_WWa_WH", "V_WZa_WH", "V_ZZa_WH", "ZH_Zaajj_QCD_nomjj_lostlep", "ZH_Zaajj_EW_lostlep"] + (["ZH_Zajj_eFake_EWonly", "F_QCD_llajj_loose"] if V11 else ["ZH_Zajj_eFake"]),
       "other_higgs": ["H_QCD_WH_mlm", "H_ggZH_wh", "H_ZH_tautau_wh", "H_ttH_1l", "H_ttH_dilep_wh", "H_tHq_lep", "H_tHW_1l", "ZH_EW_ZHjj_lostlep", "ZH_QCD_ZHjj_lostlep"], "tau_feeddown": ["S_EW_WHjj_taunu"], "signal": ["S_EW_WHjj"],
-      "xcheck": ["Q_aajj"]}
+      "xcheck": ["Q_aajj"], "ll_nomjj_xcheck": ["F_QCD_llajj_nomjj"]}
 TAUCLASSES = {"prompt_irreducible", "fake_photon_1", "fake_photon_2", "lost_lepton_egamma", "other_higgs"}   # r_tau measured on W (signal taunu/signal); applied to Z-lepton rows (lost-lepton, ZH) as the same +-100 % envelope: Z->tau tau->l l feed-down is of the same size (BR(tau->l nu nu)=0.35 vs 0.18 per W-lepton...), conservative, +-8 % effect
 SC7 = [0, 1, 3, 4, 5, 7, 8]; DATA = {}
 def get(s):

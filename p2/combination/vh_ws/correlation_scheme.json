@@ -1,0 +1,948 @@
+{
+ "description": "Correlation scheme of the joint WH+ZH pyhf likelihood (A3, D47 (1)). correlated = one parameter acting in both channels (same name); uncorrelated = acts in one channel only (names carry the channel: mcstat = WH per-bin, mcstat_zh = ZH per-bin, zh_* ZH-only; WH-only names listed).",
+ "rule": "correlated: luminosity, photon efficiency, lepton efficiency, photon energy scale and m_gg resolution (histosys on the real-photon signal samples), QCD scale and PDF of the common processes (EW VH signal family WH/ZH EW, QCD VH, QCD/EW V gamma gamma, ggZH/ttH/tH 'other Higgs'); fake-photon rate (D39 floor) correlated across the fake-photon rows of both channels; uncorrelated: MC statistics (per bin, per channel), channel-specific background normalisations (class norms, PS, C factors, coverage, non-closure, non-prompt, ZH-only theory/normalisations) unless the same process in both channels.",
+ "tau": "tau_r (W rows, WH) and tau_r_zrows (Z-lepton rows in the WH SR) are WH-only; the ZH channel has no tau nuisance (Z->tautau->ll is 0.31 %); ZH rows in the WH SR (EW/QCD ZHjj lost lepton) are SIGNAL-LIKE samples: scaled by mu_ZH (2D) or the common mu (mu_VH), share scale_sig / scale_hqcd with the ZH channel.",
+ "wh_signal_in_zh_sr": "not in the fit: 0 raw events of 300k in the ZH SR, UL95 4.65e-4 events (zh_channel_inputs.json['wh_signal_in_zh_sr']); would carry mu_WH.",
+ "parameters": {
+  "C_EW": {
+   "type": "normsys",
+   "channels": [
+    "SR"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "SR": [
+     "efake_ew"
+    ]
+   },
+   "declared_common": false
+  },
+  "C_ZaaEW": {
+   "type": "normsys",
+   "channels": [
+    "SR"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "SR": [
+     "ll_other"
+    ]
+   },
+   "declared_common": false
+  },
+  "fake2_scen": {
+   "type": "normsys",
+   "channels": [
+    "SR"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "SR": [
+     "fake2"
+    ]
+   },
+   "declared_common": false
+  },
+  "fakerate": {
+   "type": "normsys",
+   "channels": [
+    "SR",
+    "ZH"
+   ],
+   "status": "correlated",
+   "samples": {
+    "SR": [
+     "fake1_qcd",
+     "fake1_ew",
+     "fake2"
+    ],
+    "ZH": [
+     "zh_fake1_qcd",
+     "zh_fake1_ew"
+    ]
+   },
+   "declared_common": true
+  },
+  "hf_var": {
+   "type": "normsys",
+   "channels": [
+    "SR"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "SR": [
+     "npl_hf"
+    ]
+   },
+   "declared_common": false
+  },
+  "lepeff": {
+   "type": "normsys",
+   "channels": [
+    "SR",
+    "ZH"
+   ],
+   "status": "correlated",
+   "samples": {
+    "SR": [
+     "sig",
+     "hqcd",
+     "tau",
+     "prompt_qcd",
+     "prompt_ew",
+     "fake1_qcd",
+     "fake1_ew",
+     "fake2",
+     "efake_qcd_ll",
+     "efake_qcd_eg",
+     "efake_ew",
+     "ll_qcd",
+     "ll_other",
+     "higgs_other",
+     "zhjj_ew",
+     "zhjj_qcd"
+    ],
+    "ZH": [
+     "zh_zhjj_ew",
+     "zh_zhjj_qcd",
+     "zh_ggzh",
+     "zh_tth",
+     "zh_zh_tautau",
+     "zh_thw",
+     "zh_zaajj_qcd",
+     "zh_zaajj_ew_is1",
+     "zh_zaajj_ew_is2",
+     "zh_zaajj_ew_is3",
+     "zh_ttaa",
+     "zh_fake1_qcd",
+     "zh_fake1_ew",
+     "zh_tta",
+     "zh_twa"
+    ]
+   },
+   "declared_common": true
+  },
+  "lumi": {
+   "type": "normsys",
+   "channels": [
+    "SR",
+    "ZH"
+   ],
+   "status": "correlated",
+   "samples": {
+    "SR": [
+     "sig",
+     "hqcd",
+     "tau",
+     "prompt_qcd",
+     "prompt_ew",
+     "fake1_qcd",
+     "fake1_ew",
+     "fake2",
+     "npl_misid",
+     "npl_hf",
+     "efake_qcd_ll",
+     "efake_qcd_eg",
+     "efake_ew",
+     "ll_qcd",
+     "ll_other",
+     "higgs_other",
+     "zhjj_ew",
+     "zhjj_qcd"
+    ],
+    "ZH": [
+     "zh_zhjj_ew",
+     "zh_zhjj_qcd",
+     "zh_ggzh",
+     "zh_tth",
+     "zh_zh_tautau",
+     "zh_thw",
+     "zh_zaajj_qcd",
+     "zh_zaajj_ew_is1",
+     "zh_zaajj_ew_is2",
+     "zh_zaajj_ew_is3",
+     "zh_ttaa",
+     "zh_fake1_qcd",
+     "zh_fake1_ew",
+     "zh_tta",
+     "zh_twa"
+    ]
+   },
+   "declared_common": true
+  },
+  "mcstat": {
+   "type": "staterror",
+   "channels": [
+    "SR"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "SR": [
+     "sig",
+     "hqcd",
+     "tau",
+     "prompt_qcd",
+     "prompt_ew",
+     "fake1_qcd",
+     "fake1_ew",
+     "fake2",
+     "npl_misid",
+     "npl_hf",
+     "efake_qcd_ll",
+     "efake_qcd_eg",
+     "efake_ew",
+     "ll_qcd",
+     "ll_other",
+     "higgs_other",
+     "zhjj_ew",
+     "zhjj_qcd"
+    ]
+   },
+   "declared_common": false
+  },
+  "mcstat_zh": {
+   "type": "staterror",
+   "channels": [
+    "ZH"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "ZH": [
+     "zh_zhjj_ew",
+     "zh_zhjj_qcd",
+     "zh_ggzh",
+     "zh_tth",
+     "zh_zh_tautau",
+     "zh_thw",
+     "zh_zaajj_qcd",
+     "zh_zaajj_ew_is1",
+     "zh_zaajj_ew_is2",
+     "zh_zaajj_ew_is3",
+     "zh_ttaa",
+     "zh_fake1_qcd",
+     "zh_fake1_ew",
+     "zh_tta",
+     "zh_twa"
+    ]
+   },
+   "declared_common": false
+  },
+  "mu": {
+   "type": "normfactor",
+   "channels": [
+    "SR",
+    "ZH"
+   ],
+   "status": "correlated",
+   "samples": {
+    "SR": [
+     "sig",
+     "zhjj_ew"
+    ],
+    "ZH": [
+     "zh_zhjj_ew"
+    ]
+   },
+   "declared_common": true
+  },
+  "nonclosure": {
+   "type": "normsys",
+   "channels": [
+    "SR"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "SR": [
+     "fake1_qcd",
+     "fake1_ew"
+    ]
+   },
+   "declared_common": false
+  },
+  "npl_norm": {
+   "type": "normsys",
+   "channels": [
+    "SR"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "SR": [
+     "npl_misid"
+    ]
+   },
+   "declared_common": false
+  },
+  "pdf_sig": {
+   "type": "normsys",
+   "channels": [
+    "SR",
+    "ZH"
+   ],
+   "status": "correlated",
+   "samples": {
+    "SR": [
+     "sig"
+    ],
+    "ZH": [
+     "zh_zhjj_ew"
+    ]
+   },
+   "declared_common": true
+  },
+  "pheff": {
+   "type": "normsys",
+   "channels": [
+    "SR",
+    "ZH"
+   ],
+   "status": "correlated",
+   "samples": {
+    "SR": [
+     "sig",
+     "hqcd",
+     "tau",
+     "prompt_qcd",
+     "prompt_ew",
+     "fake1_qcd",
+     "fake1_ew",
+     "npl_misid",
+     "npl_hf",
+     "efake_qcd_ll",
+     "efake_qcd_eg",
+     "efake_ew",
+     "ll_qcd",
+     "ll_other",
+     "higgs_other",
+     "zhjj_ew",
+     "zhjj_qcd"
+    ],
+    "ZH": [
+     "zh_zhjj_ew",
+     "zh_zhjj_qcd",
+     "zh_ggzh",
+     "zh_tth",
+     "zh_zh_tautau",
+     "zh_thw",
+     "zh_zaajj_qcd",
+     "zh_zaajj_ew_is1",
+     "zh_zaajj_ew_is2",
+     "zh_zaajj_ew_is3",
+     "zh_ttaa",
+     "zh_fake1_qcd",
+     "zh_fake1_ew",
+     "zh_tta",
+     "zh_twa"
+    ]
+   },
+   "declared_common": true
+  },
+  "phres": {
+   "type": "histosys",
+   "channels": [
+    "SR",
+    "ZH"
+   ],
+   "status": "correlated",
+   "samples": {
+    "SR": [
+     "sig"
+    ],
+    "ZH": [
+     "zh_zhjj_ew"
+    ]
+   },
+   "declared_common": true
+  },
+  "phscale": {
+   "type": "histosys",
+   "channels": [
+    "SR",
+    "ZH"
+   ],
+   "status": "correlated",
+   "samples": {
+    "SR": [
+     "sig"
+    ],
+    "ZH": [
+     "zh_zhjj_ew"
+    ]
+   },
+   "declared_common": true
+  },
+  "ps_qcd": {
+   "type": "normsys",
+   "channels": [
+    "SR"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "SR": [
+     "prompt_qcd",
+     "fake1_qcd",
+     "efake_qcd_ll",
+     "efake_qcd_eg",
+     "ll_qcd"
+    ]
+   },
+   "declared_common": false
+  },
+  "scale_efake_ew": {
+   "type": "normsys",
+   "channels": [
+    "ZH"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "ZH": [
+     "zh_fake1_ew"
+    ]
+   },
+   "declared_common": false
+  },
+  "scale_efake_qcd_eg": {
+   "type": "normsys",
+   "channels": [
+    "SR"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "SR": [
+     "efake_qcd_eg"
+    ]
+   },
+   "declared_common": false
+  },
+  "scale_efake_qcd_ll": {
+   "type": "normsys",
+   "channels": [
+    "SR",
+    "ZH"
+   ],
+   "status": "correlated",
+   "samples": {
+    "SR": [
+     "efake_qcd_ll"
+    ],
+    "ZH": [
+     "zh_fake1_qcd"
+    ]
+   },
+   "declared_common": false
+  },
+  "scale_fake1_ew": {
+   "type": "normsys",
+   "channels": [
+    "SR"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "SR": [
+     "fake1_ew"
+    ]
+   },
+   "declared_common": false
+  },
+  "scale_fake1_qcd": {
+   "type": "normsys",
+   "channels": [
+    "SR"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "SR": [
+     "fake1_qcd"
+    ]
+   },
+   "declared_common": false
+  },
+  "scale_fake2": {
+   "type": "normsys",
+   "channels": [
+    "SR"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "SR": [
+     "fake2"
+    ]
+   },
+   "declared_common": false
+  },
+  "scale_higgs_other": {
+   "type": "normsys",
+   "channels": [
+    "SR",
+    "ZH"
+   ],
+   "status": "correlated",
+   "samples": {
+    "SR": [
+     "higgs_other"
+    ],
+    "ZH": [
+     "zh_ggzh",
+     "zh_tth",
+     "zh_zh_tautau",
+     "zh_thw"
+    ]
+   },
+   "declared_common": true
+  },
+  "scale_hqcd": {
+   "type": "normsys",
+   "channels": [
+    "SR",
+    "ZH"
+   ],
+   "status": "correlated",
+   "samples": {
+    "SR": [
+     "hqcd",
+     "zhjj_qcd"
+    ],
+    "ZH": [
+     "zh_zhjj_qcd"
+    ]
+   },
+   "declared_common": true
+  },
+  "scale_ll_other": {
+   "type": "normsys",
+   "channels": [
+    "SR"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "SR": [
+     "ll_other"
+    ]
+   },
+   "declared_common": false
+  },
+  "scale_ll_qcd": {
+   "type": "normsys",
+   "channels": [
+    "SR"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "SR": [
+     "ll_qcd"
+    ]
+   },
+   "declared_common": false
+  },
+  "scale_npl_hf": {
+   "type": "normsys",
+   "channels": [
+    "SR"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "SR": [
+     "npl_hf"
+    ]
+   },
+   "declared_common": false
+  },
+  "scale_npl_misid": {
+   "type": "normsys",
+   "channels": [
+    "SR"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "SR": [
+     "npl_misid"
+    ]
+   },
+   "declared_common": false
+  },
+  "scale_prompt_ew": {
+   "type": "normsys",
+   "channels": [
+    "SR",
+    "ZH"
+   ],
+   "status": "correlated",
+   "samples": {
+    "SR": [
+     "prompt_ew"
+    ],
+    "ZH": [
+     "zh_zaajj_ew_is1",
+     "zh_zaajj_ew_is2",
+     "zh_zaajj_ew_is3",
+     "zh_ttaa"
+    ]
+   },
+   "declared_common": true
+  },
+  "scale_prompt_qcd": {
+   "type": "normsys",
+   "channels": [
+    "SR",
+    "ZH"
+   ],
+   "status": "correlated",
+   "samples": {
+    "SR": [
+     "prompt_qcd"
+    ],
+    "ZH": [
+     "zh_zaajj_qcd"
+    ]
+   },
+   "declared_common": true
+  },
+  "scale_sig": {
+   "type": "normsys",
+   "channels": [
+    "SR",
+    "ZH"
+   ],
+   "status": "correlated",
+   "samples": {
+    "SR": [
+     "sig",
+     "zhjj_ew"
+    ],
+    "ZH": [
+     "zh_zhjj_ew"
+    ]
+   },
+   "declared_common": true
+  },
+  "scale_tau": {
+   "type": "normsys",
+   "channels": [
+    "SR"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "SR": [
+     "tau"
+    ]
+   },
+   "declared_common": false
+  },
+  "scale_top_zh": {
+   "type": "normsys",
+   "channels": [
+    "ZH"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "ZH": [
+     "zh_tta",
+     "zh_twa"
+    ]
+   },
+   "declared_common": false
+  },
+  "tau_r": {
+   "type": "normsys",
+   "channels": [
+    "SR"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "SR": [
+     "hqcd",
+     "prompt_qcd",
+     "prompt_ew",
+     "fake1_qcd",
+     "fake1_ew",
+     "fake2",
+     "higgs_other"
+    ]
+   },
+   "declared_common": false
+  },
+  "tau_r_zrows": {
+   "type": "normsys",
+   "channels": [
+    "SR"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "SR": [
+     "efake_qcd_ll",
+     "efake_qcd_eg",
+     "efake_ew",
+     "ll_qcd",
+     "ll_other",
+     "zhjj_ew",
+     "zhjj_qcd"
+    ]
+   },
+   "declared_common": false
+  },
+  "zh_genmjj_B_QCD_Zaajj_vbs": {
+   "type": "normsys",
+   "channels": [
+    "ZH"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "ZH": [
+     "zh_zaajj_qcd"
+    ]
+   },
+   "declared_common": false
+  },
+  "zh_genmjj_F_QCD_Zajj": {
+   "type": "normsys",
+   "channels": [
+    "ZH"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "ZH": [
+     "zh_fake1_qcd"
+    ]
+   },
+   "declared_common": false
+  },
+  "zh_ggzh_norm": {
+   "type": "normsys",
+   "channels": [
+    "ZH"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "ZH": [
+     "zh_ggzh"
+    ]
+   },
+   "declared_common": false
+  },
+  "zh_int_zaa": {
+   "type": "normsys",
+   "channels": [
+    "ZH"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "ZH": [
+     "zh_zaajj_ew_is1",
+     "zh_zaajj_ew_is2",
+     "zh_zaajj_ew_is3"
+    ]
+   },
+   "declared_common": false
+  },
+  "zh_norm_B_EW_Zaajj_vbs_is1": {
+   "type": "normsys",
+   "channels": [
+    "ZH"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "ZH": [
+     "zh_zaajj_ew_is1"
+    ]
+   },
+   "declared_common": false
+  },
+  "zh_norm_B_EW_Zaajj_vbs_is2": {
+   "type": "normsys",
+   "channels": [
+    "ZH"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "ZH": [
+     "zh_zaajj_ew_is2"
+    ]
+   },
+   "declared_common": false
+  },
+  "zh_norm_B_EW_Zaajj_vbs_is3": {
+   "type": "normsys",
+   "channels": [
+    "ZH"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "ZH": [
+     "zh_zaajj_ew_is3"
+    ]
+   },
+   "declared_common": false
+  },
+  "zh_norm_B_QCD_Zaajj_vbs": {
+   "type": "normsys",
+   "channels": [
+    "ZH"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "ZH": [
+     "zh_zaajj_qcd"
+    ]
+   },
+   "declared_common": false
+  },
+  "zh_norm_F_EW_Zajj": {
+   "type": "normsys",
+   "channels": [
+    "ZH"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "ZH": [
+     "zh_fake1_ew"
+    ]
+   },
+   "declared_common": false
+  },
+  "zh_norm_F_QCD_Zajj": {
+   "type": "normsys",
+   "channels": [
+    "ZH"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "ZH": [
+     "zh_fake1_qcd"
+    ]
+   },
+   "declared_common": false
+  },
+  "zh_norm_H_QCD_ZHjj": {
+   "type": "normsys",
+   "channels": [
+    "ZH"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "ZH": [
+     "zh_zhjj_qcd"
+    ]
+   },
+   "declared_common": false
+  },
+  "zh_norm_H_ZH_tautau": {
+   "type": "normsys",
+   "channels": [
+    "ZH"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "ZH": [
+     "zh_zh_tautau"
+    ]
+   },
+   "declared_common": false
+  },
+  "zh_norm_H_ggZH": {
+   "type": "normsys",
+   "channels": [
+    "ZH"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "ZH": [
+     "zh_ggzh"
+    ]
+   },
+   "declared_common": false
+  },
+  "zh_norm_H_tHW": {
+   "type": "normsys",
+   "channels": [
+    "ZH"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "ZH": [
+     "zh_thw"
+    ]
+   },
+   "declared_common": false
+  },
+  "zh_norm_H_ttH": {
+   "type": "normsys",
+   "channels": [
+    "ZH"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "ZH": [
+     "zh_tth"
+    ]
+   },
+   "declared_common": false
+  },
+  "zh_norm_S_EW_ZHjj": {
+   "type": "normsys",
+   "channels": [
+    "ZH"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "ZH": [
+     "zh_zhjj_ew"
+    ]
+   },
+   "declared_common": false
+  },
+  "zh_norm_T_tWa": {
+   "type": "normsys",
+   "channels": [
+    "ZH"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "ZH": [
+     "zh_twa"
+    ]
+   },
+   "declared_common": false
+  },
+  "zh_norm_T_tta": {
+   "type": "normsys",
+   "channels": [
+    "ZH"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "ZH": [
+     "zh_tta"
+    ]
+   },
+   "declared_common": false
+  },
+  "zh_norm_T_ttaa": {
+   "type": "normsys",
+   "channels": [
+    "ZH"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "ZH": [
+     "zh_ttaa"
+    ]
+   },
+   "declared_common": false
+  },
+  "zh_offshell": {
+   "type": "normsys",
+   "channels": [
+    "ZH"
+   ],
+   "status": "channel-specific",
+   "samples": {
+    "ZH": [
+     "zh_zaajj_qcd",
+     "zh_zaajj_ew_is1",
+     "zh_zaajj_ew_is2",
+     "zh_zaajj_ew_is3"
+    ]
+   },
+   "declared_common": false
+  }
+ }
+}

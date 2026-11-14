@@ -54,3 +54,9 @@
 - 2026-11-13 H_ggF_jj failed -> D38 UL; reports regenerated; FINAL complete
 - 2026-11-13 G3 HOLD fixes (docs/relabel), kZ-sign coupling variant, STATUS READY FOR G3 RECHECK
 - 2026-11-13 G3 recheck label fixes; STATUS G3 PASSED FINAL
+ROLE=executor-wh PHASE=FINAL-R2 (2026-11-14 start)
+ROLE=executor-wh PHASE=FINAL-R2: A1 submitted 913304 (test) 913305 (loose top-up)
+- A7 pin.py done
+- A1: 913304 test OK, 913319 nomjj prod, 913305 loose topup; vh mode in stat_lib; K_EW_ZHjj skims
+- toys.py tested; STATUS waiting on 913305/913319
+- 2026-11-14 round2: A1,A2 done; A3 workspace + vh_coup; A6 skeleton; waiting 913363/913373/913374

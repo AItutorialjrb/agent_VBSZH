@@ -1,0 +1,16 @@
+{"shared_candidates": {
+  "lumi": "luminosity, all MC samples (ASSUMPTION 2.5 %)",
+  "pheff": "photon ID/iso efficiency (ASSUMPTION 2 % per photon)",
+  "lepeff": "lepton efficiency (ASSUMPTION 1 % per lepton; WH 1 lepton, ZH 2 leptons)",
+  "phscale": "photon energy scale, m_gg shift of real-photon samples (histosys; 0.5 %, ASSUMPTION)",
+  "phres": "m_gg resolution (histosys; 10 %, ASSUMPTION)",
+  "scale_sig": "QCD scale + PDF of the EW VH signal family (WH, ZH EW; same process class V H jj EW)",
+  "pdf_sig": "PDF of the EW VH signal family",
+  "scale_hqcd": "QCD scale of QCD VH jj (WH, ZH)",
+  "scale_prompt_qcd": "QCD scale of QCD V gamma gamma jj",
+  "scale_prompt_ew": "QCD scale of EW V gamma gamma jj",
+  "scale_higgs_other": "scale of ggZH / ttH / tH",
+  "fakerate": "j->gamma fake-photon rate (D39 floor), shared by the fake-photon rows of both channels",
+  "tau_r": "tau feed-down +-100 % of the measured uplift (W/Z leptonic samples)"},
+ "wh_only": ["mcstat (per-bin, WH channel)", "ps_qcd", "C_eFake", "C_EW", "C_ZaaEW", "cov_eFake", "nonclosure", "fake2_scen", "npl_norm", "hf_var"],
+ "zh_only_prefix": "zh_"}

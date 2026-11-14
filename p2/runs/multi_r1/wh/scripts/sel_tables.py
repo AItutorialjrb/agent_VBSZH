@@ -8,14 +8,14 @@ sys.path.insert(0, "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/multi_r1/wh/
 from bgmodel import *
 Y = json.load(open(f"{WH}/work/bgmodel/yields.json")); RTAU = Y["regions"]["VBS"]["r_tau"]
 CL = {"signal": ["S_EW_WHjj"], "prompt_irreducible": ["B_QCD_Waajj_nomjj", "B_EW_Waajj_nomjj", "T_ttaa_1l"], "fake_photon_1": ["F_QCD_Wajjj_nomjj", "F_EW_Wajj_nomjj", "T_tta_1l", "T_tWa_1l"], "fake_photon_2": ["F_Wjjjj", "T_ttjj_1l"],
-      "nonprompt_lepton": ["Q_aajjj", "H_VBFH_jj", "H_ggF_jj"], "lost_lepton_egamma": ["V_WWa_WH", "V_WZa_WH", "V_ZZa_WH", "ZH_Zaajj_QCD_nomjj_lostlep", "ZH_Zaajj_EW_lostlep", "ZH_Zajj_eFake"] + (["F_QCD_llajj_loose"] if os.environ.get("V11") == "1" else []),
+      "nonprompt_lepton": ["Q_aajjj", "H_VBFH_jj", "H_ggF_jj"], "lost_lepton_egamma": ["V_WWa_WH", "V_WZa_WH", "V_ZZa_WH", "ZH_Zaajj_QCD_nomjj_lostlep", "ZH_Zaajj_EW_lostlep", "ZH_Zajj_eFake"] + (["F_QCD_llajj_loose"] if os.environ.get("V11") == "1" or os.environ.get("V12") == "1" else []),
       "other_higgs": ["H_QCD_WH_mlm", "H_ggZH_wh", "H_ZH_tautau_wh", "H_ttH_1l", "H_ttH_dilep_wh", "H_tHq_lep", "H_tHW_1l", "ZH_EW_ZHjj_lostlep", "ZH_QCD_ZHjj_lostlep"], "tau_feeddown": ["S_EW_WHjj_taunu"]}
-V11 = os.environ.get('V11') == '1'   # v1.1: F_QCD_llajj_loose replaces the QCD part of ZH_Zajj_eFake (EW part kept)
+V12 = os.environ.get('V12') == '1'; V11 = os.environ.get('V11') == '1' or V12   # v1.1: F_QCD_llajj_loose replaces the QCD part of ZH_Zajj_eFake (EW part kept)
 KMODE = os.environ.get('KSAMPLES') == '1'
-if KMODE: CL = {'K': ['K_EW_WHjj_' + x for x in ('lam_m100', 'lam_m050', 'lam_p000', 'lam_p050', 'lam_p100', 'lam_p150', 'kap_W15_Z075', 'kap_W05_Z15', 'cpo_p2', 'cpo_m2')]}
+if KMODE: CL = {'K': ['K_EW_WHjj_' + x for x in ('lam_m100', 'lam_m050', 'lam_p000', 'lam_p050', 'lam_p100', 'lam_p150', 'kap_W15_Z075', 'kap_W05_Z15', 'cpo_p2', 'cpo_m2')] + ['K_EW_ZHjj_' + x for x in ('lam_m100', 'lam_m050', 'lam_p000', 'lam_p050', 'lam_p100', 'lam_p150')]}   # + frozen ZH coupling samples (EW ZHjj in the WH SR, VH coupling fits)
 TAUC = {"prompt_irreducible", "fake_photon_1", "fake_photon_2", "lost_lepton_egamma", "other_higgs"}; FNOM = 4e-5
 CID = {c: i for i, c in enumerate(CL)}
-OUTN = 'table_K' if KMODE else ('table_v11' if V11 else 'table'); cols = {}; meta = {"classes": CID, "samples": [], "r_tau": RTAU}
+OUTN = 'table_K' if KMODE else ('table_v12' if V12 else ('table_v11' if V11 else 'table')); cols = {}; meta = {"classes": CID, "samples": [], "r_tau": RTAU}
 def add(k, v): cols.setdefault(k, []).append(v)
 for c, ss in CL.items():
     for s in ss:

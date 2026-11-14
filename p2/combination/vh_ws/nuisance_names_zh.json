@@ -1,0 +1,180 @@
+{
+ "version": "R2-1",
+ "written": "2026-11-14",
+ "writer": "executor-zh-erratum (Part B1)",
+ "purpose": "Names of the ZH-channel nuisances in vh_ws/zh_channel_inputs.json, chosen to follow the A3 correlation scheme (correlated = lumi, photon efficiency, lepton efficiency, photon energy scale / m_gg resolution, theory scale+PDF of common processes; uncorrelated = MC statistics, channel-specific normalisations). WH names are those of wh/scripts/stat_lib.py (lumi, pheff, lepeff, phscale, phres, scale_<group>, pdf_sig). The A3 owner may rename; ZH inputs carry the key 'name' for every nuisance, so a rename is a one-line mapping.",
+ "nuisances": {
+  "lumi": {
+   "kind": "normsys",
+   "applies": "all processes",
+   "hi_lo": "1.025 / 0.975",
+   "correlated_with_WH": true,
+   "wh_name": "lumi",
+   "basis": "ASSUMPTION (same as WH); frozen ZH LUMI_UNC = 2.5 %"
+  },
+  "pheff": {
+   "kind": "normsys",
+   "applies": "all processes with real photons: +-4 % (two real photons: signal, other Higgs, Zgg, top), +-2 % (one real photon: F_QCD_Zajj, F_EW_Zajj)",
+   "correlated_with_WH": true,
+   "wh_name": "pheff",
+   "basis": "ASSUMPTION, 2 % per photon as in WH 06_systematics. NEW with respect to the frozen ZH study (which reweighted CMS-like efficiencies, no nuisance)"
+  },
+  "lepeff": {
+   "kind": "normsys",
+   "applies": "all processes (two leptons): +-2 %",
+   "correlated_with_WH": true,
+   "wh_name": "lepeff",
+   "basis": "ASSUMPTION, 1 % per lepton as in WH (two leptons here). NEW with respect to the frozen ZH study"
+  },
+  "phscale": {
+   "kind": "histosys",
+   "applies": "signal-like samples S_EW_ZHjj and WH signal in the ZH SR: m_gg x (1 +- 0.005)",
+   "correlated_with_WH": true,
+   "wh_name": "phscale",
+   "basis": "ASSUMPTION as in WH. NEW"
+  },
+  "phres": {
+   "kind": "histosys",
+   "applies": "signal-like samples: m_gg = mu + (m_gg - mu)(1 +- 0.10), mu = 125.06 GeV",
+   "correlated_with_WH": true,
+   "wh_name": "phres",
+   "basis": "ASSUMPTION as in WH. NEW"
+  },
+  "scale_sig": {
+   "kind": "normsys",
+   "applies": "S_EW_ZHjj (and the WH signal in the ZH SR is NOT given this name: it carries the WH value)",
+   "hi_lo": "1+scale_up / 1-scale_down = 1.085 / 0.927",
+   "correlated_with_WH": true,
+   "wh_name": "scale_sig",
+   "basis": "QCD-scale envelope of the EW VH signal family, work/theory/theory_summary.json S_EW_ZHjj (region R, n=18664)"
+  },
+  "pdf_sig": {
+   "kind": "normsys",
+   "applies": "S_EW_ZHjj",
+   "hi_lo": "1.011 / 0.989",
+   "correlated_with_WH": true,
+   "wh_name": "pdf_sig",
+   "basis": "PDF rms, same source"
+  },
+  "scale_hqcd": {
+   "kind": "normsys",
+   "applies": "H_QCD_ZHjj (scale and PDF added in quadrature, total 0.33)",
+   "correlated_with_WH": true,
+   "wh_name": "scale_hqcd",
+   "basis": "frozen th_qcdzh"
+  },
+  "scale_higgs_other": {
+   "kind": "normsys",
+   "applies": "H_ggZH (0.274), H_ttH and H_tHW (0.296), H_ZH_tautau (0.330, QCD ZHjj proxy): each process with its own relative value, one common parameter as in WH",
+   "correlated_with_WH": true,
+   "wh_name": "scale_higgs_other",
+   "basis": "frozen th_ggzh, th_tth, th_zhtt (total)"
+  },
+  "scale_prompt_qcd": {
+   "kind": "normsys",
+   "applies": "B_QCD_Zaajj_vbs (total 0.326)",
+   "correlated_with_WH": true,
+   "wh_name": "scale_prompt_qcd",
+   "basis": "frozen th_qcdzaa"
+  },
+  "scale_prompt_ew": {
+   "kind": "normsys",
+   "applies": "B_EW_Zaajj_vbs_is1..3 (0.083-0.094), T_ttaa (0.282)",
+   "correlated_with_WH": true,
+   "wh_name": "scale_prompt_ew",
+   "basis": "frozen th_ewzaa, th_top"
+  },
+  "scale_efake_qcd_ll": {
+   "kind": "normsys",
+   "applies": "F_QCD_Zajj (0.316)",
+   "correlated_with_WH": true,
+   "wh_name": "scale_efake_qcd_ll",
+   "wh_note": "ZH_Zajj_eFake QCD part is the same frozen sample",
+   "basis": "frozen th_fqcd"
+  },
+  "scale_efake_ew": {
+   "kind": "normsys",
+   "applies": "F_EW_Zajj (0.073)",
+   "correlated_with_WH": true,
+   "wh_name": "scale_efake_ew",
+   "basis": "frozen th_few"
+  },
+  "scale_top_zh": {
+   "kind": "normsys",
+   "applies": "T_tta (0.292), T_tWa (0.105)",
+   "correlated_with_WH": false,
+   "wh_name": null,
+   "basis": "frozen th_top. RENAMED from scale_fake1_qcd (R3 fix 2): WH uses scale_fake1_qcd for its fake1_qcd group (F_QCD_Wajjj, T_tta_1l, T_tWa_1l: single-lepton top samples and a W gamma jjj sample); the ZH T_tta/T_tWa are the dilepton samples, a different process/sample, so no correlation is imposed"
+  },
+  "fakerate": {
+   "kind": "normsys",
+   "applies": "F_QCD_Zajj, F_EW_Zajj (one-fake rows): +-20 % (D39 default c = 1 +- 20 %)",
+   "correlated_with_WH": true,
+   "wh_name": "fakerate",
+   "basis": "D39; in addition the ZH-only zh_norm_<sid> keeps the frozen 50 % per-process normalisation (hypot with the calibration difference), so the ZH fake rows are not tighter than frozen"
+  },
+  "zh_offshell": {
+   "kind": "normsys",
+   "applies": "B_QCD_Zaajj_vbs, B_EW_Zaajj_vbs_is*",
+   "correlated_with_WH": false,
+   "basis": "frozen off-shell/FSR correction uncertainty (ZH-only: the WH Zaajj lost-lepton rows use the frozen sample but no such nuisance)"
+  },
+  "zh_int_zaa": {
+   "kind": "normsys",
+   "applies": "B_EW_Zaajj_vbs_is*",
+   "correlated_with_WH": false,
+   "basis": "Zgg EW x QCD interference"
+  },
+  "zh_ggzh_norm": {
+   "kind": "normsys",
+   "applies": "H_ggZH",
+   "hi_lo": "2.0 / 0.5",
+   "correlated_with_WH": false,
+   "basis": "frozen x2 / x0.5 normalisation"
+  },
+  "zh_genmjj_<sid>": {
+   "kind": "normsys",
+   "applies": "F_QCD_Zajj, B_QCD_Zaajj_vbs (generator-mjj correction, twin statistics)",
+   "correlated_with_WH": false,
+   "basis": "frozen A1 correction nuisance"
+  },
+  "zh_norm_<sid>": {
+   "kind": "normsys",
+   "hi_lo": "up = 1 + r, down = 1/(1 + r) (log-normal-style, symmetric in ln; R3 fix 5: the former floor 1 - r >= 0.001 made the F_EW row one-sided)",
+   "applies": "per process: 10 % (prompt, resonant) or 50 % (fake-photon rows; hypot(0.5, FFD) with the calibration difference for the corrected rows, F_EW also hypot(0.5, 1.5) after the D3 closure fix)",
+   "correlated_with_WH": false,
+   "basis": "frozen per-process normalisation; a ZH-only name because the processes differ from the WH classes. Same SAMPLE in both channels (F_QCD_llajj_vbs in the ZH SR and in the WH eFake row) is a decision for A3 (frozen samples, but different regions and different normalisation models)."
+  },
+  "mcstat_zh": {
+   "kind": "staterror",
+   "applies": "all processes, one per m_gg bin (Barlow-Beeston-lite, err_bin = sqrt(nu_bin e^2/y) so that the sum equals the total MC uncertainty of the process estimate)",
+   "correlated_with_WH": false,
+   "basis": "MC statistics are uncorrelated between channels"
+  }
+ },
+ "frozen_to_new_group_map": {
+  "th_sig": "scale_sig + pdf_sig",
+  "th_qcdzh": "scale_hqcd",
+  "th_ggzh": "scale_higgs_other",
+  "th_tth": "scale_higgs_other",
+  "th_zhtt": "scale_higgs_other",
+  "th_qcdzaa": "scale_prompt_qcd",
+  "th_ewzaa": "scale_prompt_ew",
+  "th_fqcd": "scale_efake_qcd_ll",
+  "th_few": "scale_efake_ew",
+  "th_top": "scale_prompt_ew (T_ttaa) / scale_top_zh (T_tta, T_tWa)",
+  "lumi": "lumi",
+  "offshell": "zh_offshell",
+  "int_zaa": "zh_int_zaa",
+  "ggzh_norm": "zh_ggzh_norm"
+ },
+ "tau_r_decision": {
+  "applied_in_ZH_channel": false,
+  "argument": "tau_r in WH is the +-100 % uncertainty of the W->tau nu -> l nu feed-down uplift r_tau = 0.083 (D9) of the W leptonic samples. The ZH-channel rows have the Z decaying to ee/mumu in the ME with a 25 GeV Z-mass window, no W. Z->tautau->(ee,mumu) same-flavour OSSF pairs relative to Z->ee+mumu are BR(Z->tautau) x [BR(tau->e nunu)^2 + BR(tau->mu nunu)^2] / BR(Z->ee+mumu) = 0.0337 x (0.1782^2 + 0.1739^2) / 0.0673 = 0.31 % before any cut, and their m_ll is shifted well below the Z window, so the effective uplift in the ZH SR is below 0.3 %, 30 times smaller than r_tau = 0.083; +-100 % of it is a sub-per-mille effect on the ZH rows and is not modelled (H->gg ZH(tautau) is its own sample, H_ZH_tautau). Therefore no tau_r in the ZH channel. RECOMMENDATION to the WH side: tau_r is applied by WH to the ZH-sample rows that sit in the WH SR (ZH_*_lostlep, ZH_Zajj_eFake, ZH_Zaajj_*); for those rows the relevant tau effect is the Z->tautau->l + lost lepton topology, not the W r_tau = 0.083, so the name should be channel/process specific there (e.g. tau_r_zrows) rather than the shared tau_r, or the uplift for these rows should be derived separately. Not edited by the ZH executor.",
+  "ZH_value_if_it_were_applied": 0.0031
+ },
+ "signal_like_samples_in_ZH_channel": [
+  "S_EW_ZHjj (scaled by mu_VH / mu_ZH and by the ZH coupling dependence)",
+  "NONE in the fit: the WH signal in the ZH SR has zero MC support (0 raw events in 300k): it is recorded as a stated bound (UL95 events at 500 fb^-1) in zh_channel_inputs.json['wh_signal_in_zh_sr'] and is not a sample of the ZH channel (R3 fix 3)"
+ ]
+}

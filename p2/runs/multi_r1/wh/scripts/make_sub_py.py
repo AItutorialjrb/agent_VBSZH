@@ -4,9 +4,9 @@ Skips files whose output exists (idempotent)."""
 import sys, glob, os
 mode, sub, outdir, mem, flav = sys.argv[1:6]; WH = "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/multi_r1/wh"; PR = "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/production/wh"
 ZF = "/eos/home-r/rjiang/vbs_zh_codex_starter/production"
-ZH = {"ZH_Zaajj_QCD_nomjj_lostlep": [f"{ZF}/final/B_QCD_zaajj_nomjj"], "ZH_Zaajj_EW_lostlep": [f"{ZF}/final/B_EW_zaajj_vbs_is{x}" for x in ("1h", "2", "3")],
+ZH = {**{"K_EW_ZHjj_" + _x: [f"{ZF}/final/K_EW_ZHjj_" + _x] for _x in ("lam_m100", "lam_m050", "lam_p000", "lam_p050", "lam_p100", "lam_p150")}, "ZH_Zaajj_QCD_nomjj_lostlep": [f"{ZF}/final/B_QCD_zaajj_nomjj"], "ZH_Zaajj_EW_lostlep": [f"{ZF}/final/B_EW_zaajj_vbs_is{x}" for x in ("1h", "2", "3")],
       "ZH_Zajj_eFake": [f"{ZF}/final/F_QCD_llajj_vbs", f"{ZF}/final/F_EW_llajj_vbs"], "ZH_EW_ZHjj_lostlep": [f"{ZF}/v1/ew_zhjj_zll"], "ZH_QCD_ZHjj_lostlep": [f"{ZF}/v1/qcd_zhjj_zll"]}
-GROUP = {"F_QCD_llajj_loose": 4, "ZH_Zajj_eFake": 30, "ZH_Zaajj_QCD_nomjj_lostlep": 4, "ZH_Zaajj_EW_lostlep": 4, "ZH_EW_ZHjj_lostlep": 4, "ZH_QCD_ZHjj_lostlep": 4, "H_QCD_WHjj_fixed": 2}
+GROUP = {**{"K_EW_ZHjj_" + _x: 5 for _x in ("lam_m100", "lam_m050", "lam_p000", "lam_p050", "lam_p100", "lam_p150")}, "F_QCD_llajj_loose": 4, "ZH_Zajj_eFake": 30, "ZH_Zaajj_QCD_nomjj_lostlep": 4, "ZH_Zaajj_EW_lostlep": 4, "ZH_EW_ZHjj_lostlep": 4, "ZH_QCD_ZHjj_lostlep": 4, "H_QCD_WHjj_fixed": 2}
 os.makedirs(outdir, exist_ok=True); ext = {"skim": "npz", "rate": "json"}[mode]; q = []
 for sp in sys.argv[6:]:
     s, k = (sp.split(":") + ["1"])[:2]
