@@ -67,3 +67,7 @@ No condor job was submitted, released or removed by the pause. All subagents are
   - λ<0 ≈0.35σ.
 - **Open human decisions on defaults:** D39–D46 and the D38 substitution. D44 and D46 can change headlines.
 - **Next (human):** answer the open decisions; the repeat runs proceed separately; G4 (AI-metrics tables, tag p2-final-v1) is after all runs.
+
+## 2026-11-14T09:51:15Z — final round started (D39–D48)
+Human: D39–D41, D43–D45 defaults; D46 3.8σ primary; D42 top-up + N_eff≥10 all SR classes; D47 joint VH likelihood, toys, limitations, repin, paper package; D48 G4 after single_r1 final.
+Brief: brief_final_round.md. executor-wh (Part A) and ZH-erratum executor (Part B) running.
