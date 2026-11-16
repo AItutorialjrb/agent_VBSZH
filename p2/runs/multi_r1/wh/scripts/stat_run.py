@@ -53,6 +53,12 @@ elif task == "reso":
         _, b_, _ = window_sb(); mod = build(t, meta, Y, lumi=500.0, sig_mgg=mgg_s); z, _ = z0_asimov(mod); mu = mu95_expected(mod)
         res["scan"].append(dict(resolution_factor=r, s_window=sw, b_window=b_, Z_eq1=eq1(sw, b_), Z0_PL=z, mu95_exp=mu))
     res["note"] = "signal m_gg smeared about 125 GeV by the factor r (fixed +-3.5 GeV counting window; PL uses all 40 bins); the ASSUMED photon scale (0.5 %) and resolution (10 %) nuisances are in the nominal fit"
+elif task.startswith("ll4:"):
+    # D49 option (4): the QCD lost-lepton / e->gamma estimate is the ONE-EVENT loose-sample value Y0 = 0.1212 (raw 1); scenarios scale the two QCD groups fed by LLQ to the 95 % Garwood interval [0.0031, 0.6754]
+    _, L = task.split(":"); L = float(L); Y0 = 0.12122709932707053; shp = templates(); res.update(lumi=L, Y0=Y0, interval95=[0.003069204423255208, 0.6754341667683659], rows=[])
+    for lab, yv in (("lower95", 0.003069204423255208), ("central", Y0), ("upper95", 0.6754341667683659)):
+        fs = {"efake_qcd_ll": yv/Y0, "efake_qcd_eg": yv/Y0}; mod = build(t, meta, Y, lumi=L, fscale=fs, shape_sig=shp); z, _ = z0_asimov(mod); s_, b_, sg_ = window_sb(fs)
+        res["rows"].append(dict(scenario=lab, Y_QCD_llpart=yv, scale=yv/Y0, Z0_PL=z, mu95_exp=mu95_expected(mod), Z_eq1_counting=eq1(s_*L/500, b_*L/500), b_window=b_*L/500))
 elif task == "bounds":
     Cl = {c: Y["regions"]["VBS"]["classes"][c] for c in Y["regions"]["VBS"]["classes"]}; res["rows"] = []
     shp = templates()

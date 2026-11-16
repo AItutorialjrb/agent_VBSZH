@@ -1548,7 +1548,7 @@
 ]
 },
 {
-"name": "scale_efake_qcd_ll",
+"name": "scale_zjfake_qcd_zh",
 "type": "normsys",
 "data": {
 "hi": 1.3160701078317785,
@@ -1677,7 +1677,7 @@
 ]
 },
 {
-"name": "scale_efake_ew",
+"name": "scale_zjfake_ew_zh",
 "type": "normsys",
 "data": {
 "hi": 1.07313535261086,

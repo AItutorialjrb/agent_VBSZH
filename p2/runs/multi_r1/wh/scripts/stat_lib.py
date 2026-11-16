@@ -10,6 +10,8 @@ EDGES = np.arange(100.0, 180.01, 2.0); NB = len(EDGES)-1
 CUTS = dict(mjj=600.0, deta=4.0, ptgg=75.0)
 ASSUME = dict(lumi=0.025, photon_eff_per_photon=0.02, lepton_eff=0.01, phscale=0.005, phres=0.10)   # ASSUMPTIONS (no data, Delphes has no scale factors): labelled as such in 07
 pyhf.set_backend("numpy", pyhf.optimize.scipy_optimizer())
+import sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from llcfg import LLQ, USE_VBS
 V12 = os.environ.get("STAT_V12") == "1"; V11 = os.environ.get("STAT_V11") == "1" or V12; TABLE = os.environ.get("STAT_TABLE", "table"); YIELDS = os.environ.get("STAT_YIELDS", "yields"); SUF = "_v12" if V12 else ("_v11" if V11 else "")
 def load():
     t = dict(np.load(f"{WH}/work/sel/{TABLE}.npz")); meta = json.load(open(f"{WH}/work/sel/{TABLE}_meta.json")); Y = json.load(open(f"{WH}/work/bgmodel/{YIELDS}.json")); return t, meta, Y
@@ -17,7 +19,7 @@ GROUPS = {  # name: (samples, extra mask key, weight key)
     "sig": (["S_EW_WHjj"], None), "hqcd": (["H_QCD_WH_mlm"], None), "tau": (["S_EW_WHjj_taunu"], None), "prompt_qcd": (["B_QCD_Waajj_nomjj"], None), "prompt_ew": (["B_EW_Waajj_nomjj", "T_ttaa_1l"], None),
     "fake1_qcd": (["F_QCD_Wajjj_nomjj", "T_tta_1l", "T_tWa_1l"], None), "fake1_ew": (["F_EW_Wajj_nomjj"], None), "fake2": (["F_Wjjjj", "T_ttjj_1l"], None),
     "npl_misid": (["Q_aajjj", "H_VBFH_jj", "H_ggF_jj"], "misid"), "npl_hf": (["Q_aajjj", "H_VBFH_jj", "H_ggF_jj"], "hf"),
-    "efake_qcd_ll": ((["F_QCD_llajj_loose"], "ll") if V11 else (["ZH_Zajj_eFake"], "efqcd_ll")), "efake_qcd_eg": ((["F_QCD_llajj_loose"], "eg") if V11 else (["ZH_Zajj_eFake"], "efqcd_eg")), "efake_ew": (["ZH_Zajj_eFake"], "efew"),
+    "efake_qcd_ll": (([LLQ], "ll") if (V11 and not USE_VBS) else (["ZH_Zajj_eFake"], "efqcd_ll")), "efake_qcd_eg": (([LLQ], "eg") if (V11 and not USE_VBS) else (["ZH_Zajj_eFake"], "efqcd_eg")), "efake_ew": (["ZH_Zajj_eFake"], "efew"),
     "ll_qcd": (["ZH_Zaajj_QCD_nomjj_lostlep"], None), "ll_other": (["ZH_Zaajj_EW_lostlep", "V_WWa_WH", "V_WZa_WH", "V_ZZa_WH"], None),
     "higgs_other": (["H_ggZH_wh", "H_ZH_tautau_wh", "H_ttH_1l", "H_ttH_dilep_wh", "H_tHq_lep", "H_tHW_1l", "ZH_EW_ZHjj_lostlep", "ZH_QCD_ZHjj_lostlep"], None)}
 GROUPS_VH_EXTRA = {"zhjj_ew": (["ZH_EW_ZHjj_lostlep"], None), "zhjj_qcd": (["ZH_QCD_ZHjj_lostlep"], None)}   # VH mode: ZH signal-like samples in the WH SR (lost lepton), scaled by mu_ZH / mu_VH
@@ -41,7 +43,7 @@ def hist(t, meta, g, m0, mgg=None):
     elif key == "efew": m &= ~t["qcddir"].astype(bool)
     x = t["mgg"] if mgg is None else mgg
     h = np.histogram(x[m], bins=EDGES, weights=w[m])[0]; h2 = np.histogram(x[m], bins=EDGES, weights=w[m]**2)[0]; return h, h2
-RESONANT = {"sig", "tau", "hqcd", "higgs_other"}
+RESONANT = {"sig", "tau", "hqcd", "higgs_other", "zhjj_ew", "zhjj_qcd"}   # v1.2 fix (verifier W1): the ZHjj H->gg cross-feed rows are RESONANT and must not be smoothed
 CENT = 0.5*(EDGES[:-1]+EDGES[1:])
 def _fit_slope(h, h2, wbar):
     from scipy.optimize import minimize_scalar
@@ -130,14 +132,14 @@ def build(t, meta, Y, lumi=500.0, mu_groups=("sig",), nuis=True, mcstat=True, fs
         chans.append(dict(name="ZH", samples=zs)); obs.append(dict(name="ZH", data=[0.0]))
     if zh_samples is not None:
         nb_z = len(zh_samples[0]["data"]); chans.append(dict(name="ZH", samples=zh_samples)); obs.append(dict(name="ZH", data=[0.0]*nb_z))
-    spec = dict(channels=chans, observations=obs, measurements=[dict(name="m", config=dict(poi="mu", parameters=[]))], version="1.0.0")
+    spec = dict(channels=chans, observations=obs, measurements=[dict(name=("m" if poi == "mu" else "m_2d_" + poi), config=dict(poi=poi, parameters=[]))], version="1.0.0")
     model = pyhf.Model(spec, poi_name=poi, validate=False); model._spec_for_ws = spec
     bounds = model.config.suggested_bounds(); init = model.config.suggested_init()
     for name, d in nuisdef.items():
         if d["bounds"] is not None and name in model.config.par_map: sl = model.config.par_slice(name); bounds[sl.start] = d["bounds"]
-    bounds[model.config.poi_index] = (0.0, 50.0)
+    bounds[model.config.poi_index] = (0.0, 200.0)
     for nm_ in model.config.par_map:
-        if nm_.startswith('mu'): bounds[model.config.par_slice(nm_).start] = (0.0, 50.0)
+        if nm_.startswith('mu'): bounds[model.config.par_slice(nm_).start] = (0.0, 200.0)
     model._bounds = bounds
     return model
 def asimov(model, mu=0.0):
@@ -150,15 +152,17 @@ def fit_nll(model, data, mu=None, init=None):
 def z0_asimov(model):  # note: pyhf mle.fit returns -2 ln L (twice_nll), so q0 = difference without factor 2
     """expected discovery significance: Asimov data at mu=1 (signal+background), q0 = 2 (NLL(mu=0) - NLL(mu_hat))"""
     d = asimov(model, 1.0); p0, n0 = fit_nll(model, d, mu=0.0); ph, nh = fit_nll(model, d); q0 = max(n0-nh, 0.0); return float(np.sqrt(q0)), float(ph[model.config.poi_index])
-def mu95_expected(model, scan=None):
-    """expected CLs mu95 (median and +-1 sigma band as [-1s, median, +1s]) on the background-only Asimov dataset, asymptotic q_mu~ (pyhf hypotest, expected set), found by interpolating CLs(mu) = 0.05 on a scan"""
-    d = asimov(model, 0.0); scan = np.geomspace(0.3, 40.0, 14) if scan is None else scan; E = []
-    for mu in scan:
-        r = pyhf.infer.hypotest(float(mu), d, model, test_stat="qtilde", par_bounds=model._bounds, return_expected_set=True); E.append([float(x) for x in r[1]])
-    E = np.array(E); out = []
+def _cls_set(model, d, mu):
+    r = pyhf.infer.hypotest(float(mu), d, model, test_stat="qtilde", par_bounds=model._bounds, return_expected_set=True); return [float(x) for x in r[1]]
+def mu95_expected(model, scan=None, refine=True):
+    """expected CLs mu95 ([-1 sigma, median, +1 sigma] of the expected set) on the background-only Asimov dataset, asymptotic q_mu~ (pyhf). Coarse log grid, then (refine=True) a 9-point fine log grid inside the bracketing interval of each band (v1.2 fix: the 16-point grid alone gave 6.51 for a direct crossing of about 6.3); quoted grid uncertainty = half the final bracket width."""
+    d = asimov(model, 0.0); scan = np.geomspace(0.3, 100.0, 16) if scan is None else np.asarray(scan); E = np.array([_cls_set(model, d, mu) for mu in scan]); out = []
     for idx in (1, 2, 3):   # -1 sigma, median, +1 sigma of the expected CLs set (index 0..4 = -2s..+2s)
         c = E[:, idx]; lm = np.log(scan)
-        out.append(float(np.exp(np.interp(0.05, c[::-1], lm[::-1]))) if c.min() < 0.05 < c.max() else (float(scan[-1]) if c.min() > 0.05 else float(scan[0])))
+        if not (c.min() < 0.05 < c.max()): out.append(float(scan[-1]) if c.min() > 0.05 else float(scan[0])); continue
+        k = int(np.nonzero((c[:-1] >= 0.05) & (c[1:] < 0.05))[0][0]) if np.any((c[:-1] >= 0.05) & (c[1:] < 0.05)) else None
+        if k is None or not refine: out.append(float(np.exp(np.interp(0.05, c[::-1], lm[::-1])))); continue
+        fine = np.geomspace(scan[k], scan[k+1], 9); cf = np.array([_cls_set(model, d, mu)[idx] for mu in fine]); out.append(float(np.exp(np.interp(0.05, cf[::-1], np.log(fine)[::-1]))))
     return out
 def eq1(s, b): return float(np.sqrt(2*((s+b)*np.log1p(s/b)-s))) if s > 0 and b > 0 else 0.0
 def pois_cls_mu95(s, b, n):

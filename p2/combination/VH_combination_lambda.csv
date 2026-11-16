@@ -1,10 +1,7 @@
-lumi_fb,mode,Z_lambda_-1_WH,Z_lambda_-1_ZH,Z_lambda_-1_VH,Z_lambda<0_WH,Z_lambda<0_ZH,Z_lambda<0_VH,lambda_at_min
-500,convention_kZneg_primary,3.764,0.429,3.788,0.347,0.125,0.373,-0.05
-500,convention_kWneg,6.197,0.814,6.25,0.37,0.093,0.385,0.0
-500,noBR_unphysical,3.764,0.429,3.788,1.606,0.125,1.611,0.0
-1000,convention_kZneg_primary,5.28,0.606,5.314,0.476,0.177,0.514,-0.05
-1000,convention_kWneg,8.597,1.149,8.673,0.511,0.131,0.534,0.0
-1000,noBR_unphysical,5.28,0.606,5.314,2.266,0.177,2.273,0.0
-3000,convention_kZneg_primary,8.855,1.046,8.916,0.751,0.307,0.822,-0.05
-3000,convention_kWneg,13.964,1.976,14.103,0.829,0.224,0.869,0.0
-3000,noBR_unphysical,8.855,1.046,8.916,3.889,0.307,3.901,0.0
+lumi_fb,mode,Z_lambda_-1_WH,Z_lambda_-1_ZH,Z_lambda_-1_VH,Z_lambda<0_WH,Z_lambda<0_ZH,Z_lambda<0_VH
+500,convention_kZneg_primary,3.766,0.29,3.776,0.361,0.012,0.381
+500,convention_kWneg,6.204,0.724,6.241,0.381,0.007,0.399
+1000,convention_kZneg_primary,5.282,0.409,5.296,0.496,0.017,0.525
+1000,convention_kWneg,8.605,1.022,8.653,0.527,0.009,0.553
+3000,convention_kZneg_primary,8.859,0.704,8.877,0.783,0.029,0.837
+3000,convention_kWneg,13.975,1.761,14.04,0.854,0.016,0.901

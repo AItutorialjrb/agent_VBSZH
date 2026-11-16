@@ -84,19 +84,20 @@
    "wh_name": "scale_prompt_ew",
    "basis": "frozen th_ewzaa, th_top"
   },
-  "scale_efake_qcd_ll": {
+  "scale_zjfake_qcd_zh": {
    "kind": "normsys",
    "applies": "F_QCD_Zajj (0.316)",
-   "correlated_with_WH": true,
-   "wh_name": "scale_efake_qcd_ll",
-   "wh_note": "ZH_Zajj_eFake QCD part is the same frozen sample",
+   "correlated_with_WH": false,
+   "wh_name": null,
+   "wh_note": "RENAMED from scale_efake_qcd_ll (R4): WH scale_efake_qcd_ll belongs to ZH_Zajj_eFake, the e->gamma lost-lepton mechanism; the ZH F_QCD_Zajj row is the j->gamma fake-factor estimate. The generator sample is the same frozen one but the fake mechanism and the modelled region differ, so executor-wh decorrelates the two and the ZH name is channel-specific",
    "basis": "frozen th_fqcd"
   },
-  "scale_efake_ew": {
+  "scale_zjfake_ew_zh": {
    "kind": "normsys",
    "applies": "F_EW_Zajj (0.073)",
-   "correlated_with_WH": true,
-   "wh_name": "scale_efake_ew",
+   "correlated_with_WH": false,
+   "wh_name": null,
+   "wh_note": "RENAMED from scale_efake_ew (R4), same reason as scale_zjfake_qcd_zh (j->gamma fake-factor row vs WH e->gamma eFake row)",
    "basis": "frozen th_few"
   },
   "scale_top_zh": {
@@ -160,8 +161,8 @@
   "th_zhtt": "scale_higgs_other",
   "th_qcdzaa": "scale_prompt_qcd",
   "th_ewzaa": "scale_prompt_ew",
-  "th_fqcd": "scale_efake_qcd_ll",
-  "th_few": "scale_efake_ew",
+  "th_fqcd": "scale_zjfake_qcd_zh",
+  "th_few": "scale_zjfake_ew_zh",
   "th_top": "scale_prompt_ew (T_ttaa) / scale_top_zh (T_tta, T_tWa)",
   "lumi": "lumi",
   "offshell": "zh_offshell",

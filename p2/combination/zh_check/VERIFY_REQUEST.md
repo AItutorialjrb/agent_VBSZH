@@ -25,10 +25,14 @@ Please check: (a) the lepton-multiplicity exclusivity claim and the re-implement
 3. whsig_in_zh dropped from defs a/b (zero MC support). Bound kept in zh_channel_inputs.json['wh_signal_in_zh_sr']: in_fit = false, UL95 = 4.65e-4 events at 500 fb^-1 (both WH signal samples together), 0.1 % of the ZH background; per-point raw counts in the ZH SR are stored.
 4. coupling.points: per point 'generated_point' (kW=lambda, kZ=+1, as generated), 'kW_sign_variant' (same, with R_BR) and 'kZ_sign_primary' (kW=-lambda, kZ=-1, R_BR); same yields, only R_BR differs.
 5. zh_norm_<sid>: norm_up = 1+r, norm_down = 1/(1+r) (log-normal-style), no floor: F_EW row 2.581 / 0.3874.
-6. window definition stated in zh_channel_inputs.json['window_definition']; per sample yield_window_500 (exact +-2 sigma window, 120.86-129.14 GeV, 8.28 GeV) and yield_bins_121_129_500 (whole 2 GeV bins, 8 GeV): fake1_qcd 0.007155 vs 0.006921.
+6. window definition stated in zh_channel_inputs.json['window_definition']; per sample yield_window_500 (exact +-2 sigma window, 120.84-129.11 GeV (mu 124.975, sigma_core 2.067), 8.27 GeV) and yield_bins_121_129_500 (whole 2 GeV bins, 8 GeV): fake1_qcd 0.007155 vs 0.006921.
 7. orthogonality.json: now 47 samples, 13.2 M events, overlap 0; added WH_F_QCD_llajj_loose (5.75 M events: 3 ZH-SR, 1 WH-SR, 0 both; includes the v1.2 top-up) and WH_F_QCD_llajj_nomjj (v1.2, 2.6 M events: 4 ZH-SR, 0 WH-SR, 0 both; k = 1 assumed, the row is not in SAMPLES.csv). Notes added: fake rows tested with the real-photon selection only + the photon-independent exclusivity argument (lepton collection) for the one-photon fake method + the isolation remark (the veto in the code has no isolation).
 8. zh_pyhf.py docstring corrected (q-curves exclude the signal phscale/phres histosys; everything else included).
 9. R2 item 1 corrected (see above).
 10. c_A note now lists every interval that differs (generated): 1000|noclip|int95 [-1.3,1.3] -> [-1.2,1.3] and 1000|clip500|int68 [-3.5,3.5] -> [-3.5,3.4].
 11. wh_name fields are names only; prose moved to wh_note.
 Please check: nuisance_names_zh.json tau_r_decision, the renamed key in zh_channel_inputs.json, and that no sample in defs carries role signal_like.
+
+## R4
+(1) window reconciled: 120.84-129.11 GeV (mu 124.975, sigma 2.067, 8.27 GeV) everywhere (zh_channel_inputs.json window_definition recomputed).
+(2) ZH j->gamma fake-factor theory nuisances renamed scale_efake_qcd_ll -> scale_zjfake_qcd_zh and scale_efake_ew -> scale_zjfake_ew_zh (not correlated with WH's e->gamma eFake names; same frozen generator sample, different fake mechanism); nuisance_names_zh.json and zh_channel_inputs.json updated, wh_note rewritten.

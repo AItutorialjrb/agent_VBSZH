@@ -1,5 +1,5 @@
 # 06 Systematic and mass-window models (executor-wh FINAL, block 3)
-Date UTC: 2026-11-14 09:53. Status: **PASS for verification** (expected results only; no data). Analysis commit: ORCH_COMMIT_PLACEHOLDER.
+Date UTC: 2026-11-16 05:17. Status: **PASS for verification** (expected results only; no data). Analysis commit: ORCH_COMMIT_PLACEHOLDER.
 ## Goal
 Fix the signal-window / m_gg model and the nuisance model before the sensitivity numbers (07): window and resolution dependence, the pre-declared nuisance list of 05a v2.1 (sec. 'nuisance list') and 05 addendum, Barlow-Beeston, with/without MC stat.
 ## Inputs / commands
@@ -39,88 +39,88 @@ Correlations: nuisances with the same name act coherently on all listed groups (
 
 | removed | Z0 | mu95 median |
 |---|---|---|
-| none | 0.4344 | 6.908 |
-| lumi | 0.4346 | 6.896 |
-| pheff | 0.4348 | 6.875 |
-| lepeff | 0.4345 | 6.906 |
-| tau_r | 0.4357 | 6.900 |
-| scale_sig | 0.4344 | 6.834 |
-| pdf_sig | 0.4344 | 6.907 |
-| scale_prompt_qcd | 0.4352 | 6.904 |
-| scale_prompt_ew | 0.4345 | 6.908 |
-| scale_efake_qcd_ll | 0.4344 | 6.908 |
-| scale_efake_ew | 0.4346 | 6.907 |
-| ps_qcd | 0.4377 | 6.886 |
-| C_eFake | 0.4351 | 6.904 |
-| C_EW | 0.4344 | 6.908 |
-| cov_eFake | 0.4345 | 6.908 |
-| fakerate | 0.4344 | 6.908 |
-| nonclosure | 0.4344 | 6.908 |
-| fake2_scen | 0.4344 | 6.908 |
-| npl_norm | 0.4344 | 6.908 |
-| hf_var | 0.4344 | 6.908 |
-| phscale | 0.4344 | 6.908 |
-| phres | 0.4344 | 6.900 |
+| none | 0.4280 | 6.814 |
+| lumi | 0.4281 | 6.804 |
+| pheff | 0.4283 | 6.788 |
+| lepeff | 0.4280 | 6.812 |
+| tau_r | 0.4285 | 6.812 |
+| scale_sig | 0.4280 | 6.751 |
+| pdf_sig | 0.4280 | 6.813 |
+| scale_prompt_qcd | 0.4286 | 6.812 |
+| scale_prompt_ew | 0.4281 | 6.814 |
+| scale_efake_qcd_ll | 0.4281 | 6.814 |
+| scale_efake_ew | 0.4280 | 6.814 |
+| ps_qcd | 0.4352 | 6.773 |
+| C_eFake | 0.4280 | 6.814 |
+| C_EW | 0.4280 | 6.814 |
+| cov_eFake | 0.4280 | 6.814 |
+| fakerate | 0.4280 | 6.814 |
+| nonclosure | 0.4280 | 6.814 |
+| fake2_scen | 0.4280 | 6.814 |
+| npl_norm | 0.4280 | 6.814 |
+| hf_var | 0.4280 | 6.814 |
+| phscale | 0.4280 | 6.814 |
+| phres | 0.4280 | 6.806 |
 
 ## 4a. With / without systematics and MC stat, signal definition (a)
 
 | L | variant | expected Z0 | PL asymptotic CLs mu95 (-1s, median, +1s) | n par |
 |---|---|---|---|---|
-| 500 | full_syst_BB | 0.427 | 4.46, 7.10, 11.59 | 71 |
-| 500 | syst_noMCstat | 0.432 | 4.33, 6.87, 11.18 | 31 |
-| 500 | MCstat_only | 0.439 | 4.33, 6.89, 11.26 | 41 |
-| 500 | stat_only | 0.444 | 4.18, 6.64, 10.81 | 1 |
-| 1000 | full_syst_BB | 0.592 | 2.92, 4.55, 7.37 | 71 |
-| 1000 | syst_noMCstat | 0.604 | 2.82, 4.27, 6.90 | 31 |
-| 1000 | MCstat_only | 0.615 | 2.83, 4.33, 7.04 | 41 |
-| 1000 | stat_only | 0.627 | 2.75, 4.11, 6.48 | 1 |
-| 3000 | full_syst_BB | 0.973 | 1.68, 2.50, 3.84 | 71 |
-| 3000 | syst_noMCstat | 1.033 | 1.54, 2.28, 3.48 | 31 |
-| 3000 | MCstat_only | 1.027 | 1.60, 2.39, 3.67 | 41 |
-| 3000 | stat_only | 1.087 | 1.45, 2.14, 3.24 | 1 |
+| 500 | full_syst_BB | 0.428 | 4.37, 6.81, 11.06 | 72 |
+| 500 | syst_noMCstat | 0.432 | 4.28, 6.65, 10.69 | 32 |
+| 500 | MCstat_only | 0.440 | 4.27, 6.63, 10.68 | 41 |
+| 500 | stat_only | 0.443 | 4.19, 6.47, 10.31 | 1 |
+| 1000 | full_syst_BB | 0.594 | 2.88, 4.40, 6.94 | 72 |
+| 1000 | syst_noMCstat | 0.604 | 2.80, 4.24, 6.62 | 32 |
+| 1000 | MCstat_only | 0.617 | 2.79, 4.24, 6.65 | 41 |
+| 1000 | stat_only | 0.627 | 2.71, 4.09, 6.33 | 1 |
+| 3000 | full_syst_BB | 0.983 | 1.59, 2.36, 3.62 | 72 |
+| 3000 | syst_noMCstat | 1.033 | 1.49, 2.19, 3.30 | 32 |
+| 3000 | MCstat_only | 1.036 | 1.52, 2.25, 3.42 | 41 |
+| 3000 | stat_only | 1.086 | 1.42, 2.08, 3.10 | 1 |
 
 ## 4b. With / without systematics and MC stat, signal definition (b)
 
 | L | variant | expected Z0 | PL asymptotic CLs mu95 (-1s, median, +1s) | n par |
 |---|---|---|---|---|
-| 500 | full_syst_BB | 0.484 | 3.93, 6.05, 10.24 | 71 |
-| 500 | syst_noMCstat | 0.489 | 3.86, 5.92, 9.73 | 31 |
-| 500 | MCstat_only | 0.498 | 3.86, 5.94, 9.86 | 41 |
-| 500 | stat_only | 0.503 | 3.79, 5.81, 9.28 | 1 |
-| 1000 | full_syst_BB | 0.671 | 2.62, 3.97, 6.22 | 71 |
-| 1000 | syst_noMCstat | 0.684 | 2.54, 3.84, 5.91 | 31 |
-| 1000 | MCstat_only | 0.697 | 2.55, 3.87, 5.98 | 41 |
-| 1000 | stat_only | 0.711 | 2.47, 3.73, 5.74 | 1 |
-| 3000 | full_syst_BB | 1.103 | 1.44, 2.17, 3.40 | 71 |
-| 3000 | syst_noMCstat | 1.170 | 1.32, 1.93, 2.91 | 31 |
-| 3000 | MCstat_only | 1.166 | 1.35, 2.03, 3.19 | 41 |
-| 3000 | stat_only | 1.232 | 1.27, 1.87, 2.78 | 1 |
+| 500 | full_syst_BB | 0.485 | 3.84, 6.00, 9.75 | 72 |
+| 500 | syst_noMCstat | 0.489 | 3.77, 5.86, 9.43 | 32 |
+| 500 | MCstat_only | 0.498 | 3.76, 5.86, 9.45 | 41 |
+| 500 | stat_only | 0.502 | 3.69, 5.71, 9.13 | 1 |
+| 1000 | full_syst_BB | 0.673 | 2.53, 3.86, 6.10 | 72 |
+| 1000 | syst_noMCstat | 0.684 | 2.46, 3.73, 5.83 | 32 |
+| 1000 | MCstat_only | 0.699 | 2.46, 3.74, 5.87 | 41 |
+| 1000 | stat_only | 0.710 | 2.39, 3.60, 5.59 | 1 |
+| 3000 | full_syst_BB | 1.114 | 1.39, 2.07, 3.17 | 72 |
+| 3000 | syst_noMCstat | 1.169 | 1.31, 1.92, 2.89 | 32 |
+| 3000 | MCstat_only | 1.176 | 1.33, 1.97, 3.00 | 41 |
+| 3000 | stat_only | 1.231 | 1.25, 1.83, 2.73 | 1 |
 
 ## 5. Class lower/upper bounds and zero-support variants (def. a)
 
 | variant | L | Z (Eq. 1 window) | Z0 (PL, syst+BB) | PL asymptotic mu95 median (-1s,+1s) |
 |---|---|---|---|---|
-| bounds low | 500 | 0.487 | 0.482 | 6.34 (4.02, 10.75) |
-| bounds low | 1000 | 0.689 | 0.670 | - |
-| bounds low | 3000 | 1.194 | 1.112 | 2.17 (1.44, 3.41) |
-| bounds nom | 500 | 0.434 | 0.427 | 7.10 (4.46, 11.59) |
-| bounds nom | 1000 | 0.614 | 0.592 | - |
-| bounds nom | 3000 | 1.063 | 0.973 | 2.50 (1.68, 3.84) |
-| bounds high | 500 | 0.371 | 0.364 | 7.98 (5.18, 12.58) |
-| bounds high | 1000 | 0.525 | 0.503 | - |
-| bounds high | 3000 | 0.910 | 0.819 | 2.86 (1.94, 4.50) |
-| UL variant V_star_UL (UL 0.65 ev in PEAK, 0.41 ev in the +-3.5 GeV window, 4.0 in 100-180 at 500) | 500 | 0.395 | 0.388 | - |
-| UL variant V_star_UL (UL 0.65 ev in PEAK, 0.41 ev in the +-3.5 GeV window, 4.0 in 100-180 at 500) | 1000 | 0.559 | 0.539 | - |
-| UL variant V_star_UL (UL 0.65 ev in PEAK, 0.41 ev in the +-3.5 GeV window, 4.0 in 100-180 at 500) | 3000 | 0.968 | 0.893 | - |
-| UL variant nonprompt_UL (UL 0.76 ev in PEAK, 0.48 ev in the +-3.5 GeV window, 4.7 in 100-180 at 500) | 500 | 0.390 | 0.383 | - |
-| UL variant nonprompt_UL (UL 0.76 ev in PEAK, 0.48 ev in the +-3.5 GeV window, 4.7 in 100-180 at 500) | 1000 | 0.551 | 0.532 | - |
-| UL variant nonprompt_UL (UL 0.76 ev in PEAK, 0.48 ev in the +-3.5 GeV window, 4.7 in 100-180 at 500) | 3000 | 0.954 | 0.881 | - |
-| UL variant direct_fake_variation_UL (UL 324.39 ev in PEAK, 204.22 ev in the +-3.5 GeV window, 2003.7 in 100-180 at 500) | 500 | 0.043 | 0.042 | - |
-| UL variant direct_fake_variation_UL (UL 324.39 ev in PEAK, 204.22 ev in the +-3.5 GeV window, 2003.7 in 100-180 at 500) | 1000 | 0.060 | 0.059 | - |
-| UL variant direct_fake_variation_UL (UL 324.39 ev in PEAK, 204.22 ev in the +-3.5 GeV window, 2003.7 in 100-180 at 500) | 3000 | 0.104 | 0.102 | - |
-| UL variant all_three (UL 325.80 ev in PEAK, 205.11 ev in the +-3.5 GeV window, 2012.4 in 100-180 at 500) | 500 | 0.043 | 0.042 | - |
-| UL variant all_three (UL 325.80 ev in PEAK, 205.11 ev in the +-3.5 GeV window, 2012.4 in 100-180 at 500) | 1000 | 0.060 | 0.059 | - |
-| UL variant all_three (UL 325.80 ev in PEAK, 205.11 ev in the +-3.5 GeV window, 2012.4 in 100-180 at 500) | 3000 | 0.104 | 0.102 | - |
+| bounds low | 500 | 0.494 | 0.483 | 6.24 (3.96, 10.22) |
+| bounds low | 1000 | 0.698 | 0.672 | - |
+| bounds low | 3000 | 1.209 | 1.120 | 2.08 (1.39, 3.19) |
+| bounds nom | 500 | 0.440 | 0.428 | 6.81 (4.37, 11.06) |
+| bounds nom | 1000 | 0.622 | 0.594 | - |
+| bounds nom | 3000 | 1.077 | 0.983 | 2.36 (1.59, 3.62) |
+| bounds high | 500 | 0.376 | 0.365 | 7.67 (4.97, 12.30) |
+| bounds high | 1000 | 0.532 | 0.506 | - |
+| bounds high | 3000 | 0.921 | 0.830 | 2.79 (1.89, 4.25) |
+| UL variant V_star_UL (UL 0.65 ev in PEAK, 0.41 ev in the +-3.5 GeV window, 4.0 in 100-180 at 500) | 500 | 0.399 | 0.389 | - |
+| UL variant V_star_UL (UL 0.65 ev in PEAK, 0.41 ev in the +-3.5 GeV window, 4.0 in 100-180 at 500) | 1000 | 0.565 | 0.541 | - |
+| UL variant V_star_UL (UL 0.65 ev in PEAK, 0.41 ev in the +-3.5 GeV window, 4.0 in 100-180 at 500) | 3000 | 0.978 | 0.900 | - |
+| UL variant nonprompt_UL (UL 0.76 ev in PEAK, 0.48 ev in the +-3.5 GeV window, 4.7 in 100-180 at 500) | 500 | 0.394 | 0.383 | - |
+| UL variant nonprompt_UL (UL 0.76 ev in PEAK, 0.48 ev in the +-3.5 GeV window, 4.7 in 100-180 at 500) | 1000 | 0.557 | 0.534 | - |
+| UL variant nonprompt_UL (UL 0.76 ev in PEAK, 0.48 ev in the +-3.5 GeV window, 4.7 in 100-180 at 500) | 3000 | 0.964 | 0.889 | - |
+| UL variant direct_fake_variation_UL (UL 324.39 ev in PEAK, 204.20 ev in the +-3.5 GeV window, 1996.2 in 100-180 at 500) | 500 | 0.043 | 0.042 | - |
+| UL variant direct_fake_variation_UL (UL 324.39 ev in PEAK, 204.20 ev in the +-3.5 GeV window, 1996.2 in 100-180 at 500) | 1000 | 0.060 | 0.059 | - |
+| UL variant direct_fake_variation_UL (UL 324.39 ev in PEAK, 204.20 ev in the +-3.5 GeV window, 1996.2 in 100-180 at 500) | 3000 | 0.104 | 0.102 | - |
+| UL variant all_three (UL 325.80 ev in PEAK, 205.08 ev in the +-3.5 GeV window, 2004.8 in 100-180 at 500) | 500 | 0.043 | 0.042 | - |
+| UL variant all_three (UL 325.80 ev in PEAK, 205.08 ev in the +-3.5 GeV window, 2004.8 in 100-180 at 500) | 1000 | 0.060 | 0.059 | - |
+| UL variant all_three (UL 325.80 ev in PEAK, 205.08 ev in the +-3.5 GeV window, 2004.8 in 100-180 at 500) | 3000 | 0.104 | 0.102 | - |
 | ROBUSTNESS v1 model: vbs x C eFake QCD (C_eFake, cov_eFake nuisances), full syst+BB | 500 | - | 0.434 | 6.91 (4.34, 11.29) |
 | ROBUSTNESS v1 model: vbs x C eFake QCD (C_eFake, cov_eFake nuisances), full syst+BB | 1000 | - | 0.606 | 4.34 (2.83, 7.04) |
 | ROBUSTNESS v1 model: vbs x C eFake QCD (C_eFake, cov_eFake nuisances), full syst+BB | 3000 | - | 1.017 | 2.35 (1.58, 3.61) |
@@ -130,3 +130,22 @@ Correlations: nuisances with the same name act coherently on all listed groups (
 
 ## 6. Caveats
 All nuisance widths marked ASSUMPTION are placeholders; the dominant impacts are in sec. 3. Asymptotic formulas with b of order 0.1 events/bin are approximate; the counting exact-Poisson numbers of 07 are the cross-check. Systematics from the ZH side (combination) are not in this block.
+
+
+## D49 option (4): central and upper-end result (systematic range of the QCD lost-lepton part)
+
+D49 SETTLED by D50 = option (4): the QCD lost-lepton / e->gamma part is the one-event estimate 0.121 events (one selected raw F_QCD_llajj_loose row, 7.5M-event union), 95 % Garwood interval [0.0031, 0.675] (1-sigma central interval [0.021, 0.400]); the pre-declared reco-SR twin correction C has a stat floor of 100 % (> 30 %), so no cut sample was produced (work/d49_floor.json); the v1 vbs x C estimate (0.176 [0.094, 0.257]) is a CROSS-CHECK, not an independent estimate; the upper-end result is shown with the central one (table in this report). The class still does NOT meet the D42 N_eff >= 10 rule (one-event dominated; stated limitation).
+
+WH alone, definition (a), stand-alone WH workspace, full systematics (task ll4:L, the two QCD groups efake_qcd_ll + efake_qcd_eg scaled to the interval ends, whole m_gg template; the central row reproduces the nominal fit). Y0 uses the gridpack sigma (the closure sigma gives 0.12101, -0.17 %, a normalisation note, not a change of the estimate). The sample ZH_Zaajj_QCD_nomjj_lostlep of the same class has N_eff = 2.0 (yield 0.0029): it too is below the N_eff >= 10 rule.
+
+| L (fb-1) | QCD lost-lepton part | Y at 500 fb-1 (events) | Z0 (PL) | mu95 median (-1s, +1s) |
+|---|---|---|---|---|
+| 500 | lower95 | 0.0031 | 0.460 | 6.42 (4.10, 10.43) |
+| 500 | central | 0.1212 | 0.428 | 6.81 (4.37, 11.06) |
+| 500 | upper95 | 0.6754 | 0.309 | 10.91 (6.51, 21.54) |
+| 1000 | lower95 | 0.0031 | 0.642 | 4.09 (2.68, 6.46) |
+| 1000 | central | 0.1212 | 0.594 | 4.40 (2.88, 6.94) |
+| 1000 | upper95 | 0.6754 | 0.400 | 8.32 (4.92, 17.21) |
+| 3000 | lower95 | 0.0031 | 1.078 | 2.14 (1.44, 3.26) |
+| 3000 | central | 0.1212 | 0.983 | 2.36 (1.59, 3.62) |
+| 3000 | upper95 | 0.6754 | 0.544 | 6.45 (3.69, 14.24) |

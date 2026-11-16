@@ -1,0 +1,51 @@
+{
+ "per_run": {
+  "single_r2": {
+   "label": "A",
+   "unresolved": 1,
+   "flagged": 9
+  },
+  "multi_r1": {
+   "label": "B",
+   "unresolved": 1,
+   "flagged": 8
+  },
+  "single_r3": {
+   "label": "C",
+   "unresolved": 0,
+   "flagged": 9
+  },
+  "single_r1": {
+   "label": "D",
+   "unresolved": 2,
+   "flagged": 7
+  },
+  "multi_r2": {
+   "label": "E",
+   "unresolved": 3,
+   "flagged": 8
+  },
+  "multi_r3": {
+   "label": "F",
+   "unresolved": 3,
+   "flagged": 8
+  }
+ },
+ "multi": [
+  1,
+  3,
+  3
+ ],
+ "single": [
+  2,
+  1,
+  0
+ ],
+ "mean_multi": 2.3333333333333335,
+ "mean_single": 1,
+ "sd_multi": 1.1547005383792515,
+ "sd_single": 1.0,
+ "diff_multi_minus_single": 1.3333333333333335,
+ "perm_p_one_sided_H1": 0.95,
+ "n_perm": 20
+}

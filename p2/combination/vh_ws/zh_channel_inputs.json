@@ -54,7 +54,7 @@
 120.84146689706931,
 129.10863520770278
 ],
-"window_definition": "yield_window_500 = exact +-2 sigma_core window of the counting analysis: mu=124.975, sigma_core=2.067 -> 120.84-129.11 GeV (8.28 GeV wide); yield_bins_121_129_500 = sum of the 2 GeV bins with centres inside 121-129 (8 GeV wide), 3.4 percent smaller for flat shapes, e.g. fake1_qcd 0.00692 vs 0.0072",
+"window_definition": "yield_window_500 = exact +-2 sigma_core window of the counting analysis: mu=124.975, sigma_core=2.067 -> 120.84-129.11 GeV (8.27 GeV wide); yield_bins_121_129_500 = sum of the 2 GeV bins with centres inside 121-129 (8 GeV wide), 3.4 percent smaller for flat shapes, e.g. fake1_qcd 0.00692 vs 0.0072",
 "sigma_core": 2.0667920776583655,
 "mu_core": 124.97505105238604,
 "normalisation": "events per 500 fb^-1 at 13.6 TeV, BR(H->gg) = 0.00227 and Z->ee,mumu applied once (k in the sample weights); luminosity scaling linear for events and MC errors",
@@ -1380,7 +1380,7 @@
 2.6425527585917237e-05
 ],
 "nuis": {
-"scale_efake_qcd_ll": {
+"scale_zjfake_qcd_zh": {
 "norm_up": 1.3160701078317785,
 "norm_down": 0.6839298921682214
 },
@@ -1486,7 +1486,7 @@
 1.0279227534955246e-05
 ],
 "nuis": {
-"scale_efake_ew": {
+"scale_zjfake_ew_zh": {
 "norm_up": 1.07313535261086,
 "norm_down": 0.9268646473891399
 },
@@ -3038,7 +3038,7 @@
 2.6425527585917237e-05
 ],
 "nuis": {
-"scale_efake_qcd_ll": {
+"scale_zjfake_qcd_zh": {
 "norm_up": 1.3160701078317785,
 "norm_down": 0.6839298921682214
 },
@@ -3144,7 +3144,7 @@
 1.0279227534955246e-05
 ],
 "nuis": {
-"scale_efake_ew": {
+"scale_zjfake_ew_zh": {
 "norm_up": 1.07313535261086,
 "norm_down": 0.9268646473891399
 },

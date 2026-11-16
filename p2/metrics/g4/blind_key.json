@@ -1,0 +1,19 @@
+{
+ "key": {
+  "multi_r1": "B",
+  "multi_r2": "E",
+  "multi_r3": "F",
+  "single_r1": "D",
+  "single_r2": "A",
+  "single_r3": "C"
+ },
+ "sources": {
+  "multi_r1": "cfaed00",
+  "multi_r2": null,
+  "multi_r3": null,
+  "single_r1": "0050e7b",
+  "single_r2": "bac21a0",
+  "single_r3": null
+ },
+ "seed": 20261115
+}

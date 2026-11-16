@@ -69,6 +69,8 @@ if b:
     if gg:
         for r_ in gg["rows"]: a(f"| H_ggF_jj D38 scaled proxy added ({gg['UL_events_in_window_500']:.3f} ev in the window at 500) | {r_['lumi']:.0f} | - | {r_['Z0_with_ggF_UL']:.3f} (PL; nominal {r_['Z0_nominal']:.3f}) | - |")
 a("\n## 6. Caveats\nAll nuisance widths marked ASSUMPTION are placeholders; the dominant impacts are in sec. 3. Asymptotic formulas with b of order 0.1 events/bin are approximate; the counting exact-Poisson numbers of 07 are the cross-check. Systematics from the ZH side (combination) are not in this block.\n")
+import sys as _s; _s.path.insert(0, "/eos/home-r/rjiang/vbs_zh_codex_starter/p2/runs/multi_r1/wh/scripts"); import d49_text as D49
+A.append(D49.section_md("D49 option (4): central and upper-end result (systematic range of the QCD lost-lepton part)"))
 open(f"{WH}/reports/06_systematics.md", "w").write("\n".join(A))
 # ---------------- 07
 B = []; a = B.append
@@ -128,4 +130,5 @@ Expected only; the sensitivity is below 1 sigma at 500 fb^-1 and about 1 sigma a
 ## 8. Next
 Verification; VH combination with the frozen ZH (swappable ZH table); comparison with CMS/ATLAS; reproducibility and FINAL report; v1.1 re-evaluations.
 """)
+B.append(D49.section_md("D49 option (4): central and upper-end result"))
 open(f"{WH}/reports/07_sensitivity.md", "w").write("\n".join(B)); print("written")

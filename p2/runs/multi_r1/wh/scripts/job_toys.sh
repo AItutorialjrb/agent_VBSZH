@@ -8,7 +8,7 @@ for f in zh_channel_inputs.json VH_workspace.json VH_workspace_2d.json WH_worksp
 cp stat_lib.py coup_run.py vh_coup.py toys.py wh/scripts/; export STAT_WH=$PWD/wh VH_WS=$PWD/wh/vh_ws STAT_V12=1 STAT_V11=1 STAT_TABLE=table_v12 STAT_YIELDS=yields_v12
 case $KIND in
  coup) conv=$1; L=$2; SD=$3; N=$4; fl=""; [ $conv = kzneg ] && fl="--kz-neg"; python3 -P wh/scripts/vh_coup.py $fl --lumi $L --toys $N --seed $SD || exit 14;;
- q0) python3 -P wh/scripts/toys.py q0 wh/vh_ws/$1_workspace.json $2 $3 $4 || exit 14;;
+ q0) python3 -P wh/scripts/toys.py q0 wh/vh_ws/$1_workspace.json $2 $3 $4 $5 || exit 14;;
  qmu) python3 -P wh/scripts/toys.py qmu wh/vh_ws/$1_workspace.json $2 $3 $4 $5 $6 || exit 14;;
 esac
 for f in wh/work/toys/*; do xrdcp -f -s $f $EOSURL/$W/work/toys/$(basename $f) || exit 15; done

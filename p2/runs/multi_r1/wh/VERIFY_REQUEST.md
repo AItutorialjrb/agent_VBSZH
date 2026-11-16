@@ -1,9 +1,6 @@
-# VERIFY_REQUEST (executor-wh FINAL): verifier fixes + v1.1 integration, 2026-11-09
-Report set regenerated: reports/05a (sec. 11), 05_selection (addendum + sec. 6), 06_systematics, 07_sensitivity, 08_reproducibility, FINAL_report, final.json; p2/combination/VH_combination.{md,json,csv}; work/refs/ (paper PDFs + EXTRACTS.md).
-Verifier items 1-8 addressed: (1) mu95 labels (PL asymptotic q~ vs exact-Poisson counting) everywhere; (2a) C_ZaaEW +-6.4 % (declared), (2b) V_* PS: zero MC rows at the selection, logged deviation, (2c) eFake QCD PS subsumed by C (05a consistent; in v1.1 the PS nuisance applies to the loose sample); (3) UL variants fixed (shape-weighted, v in 120-130 GeV; 06 sec. 5 regenerated); (4) MVA leak reduced not removed, per-bin MC errors quoted, 0.6145 vs 0.621 explained; (5) basis column (ASSUMPTION / judgement / MC-derived) in the 06 table; (6) coupling model relabelled 'reduced', A_W/A_t citation, closure +-30 % sensitivity; (7) ZH q curves frozen vs corrected table: impact < 0.01 sigma stated; (8) paper extracts in work/refs/.
-v1.1 integration (cluster 899916 validated: 106/106 exit 0, N = 5.3e6, sum w/(N sigma) = 0.9982, seeds 2134600-705; SAMPLES.csv row + 212 SHA256SUMS lines appended, v1 rows/lines byte-identical; work/v11_manifest_{before,after}.txt): loose sample replaces the QCD part of ZH_Zajj_eFake; frozen cuts/models re-evaluated (b 1.797, Z 0.434, N_eff 63); D45 trigger NOT fired (lost-lepton share -0.6 %, non-prompt +0.2 %).
-Verify: (a) skim -> table_v11 (sel_tables V11=1), repro_counting V11 (identical s, b); (b) stat v11 results (pl/d36/reso/bounds/comb _v11.json) vs the unchanged model; (c) manifest hashes; (d) the generator edits listed above.
-Still open: H_ggF_jj (cluster 893012, wall limit ~13:13Z): D38 fallback UL if it fails; then one more re-evaluation. Human D39, D40, D35 reading, D42, D44, D45.
-Update 2026-11-09: v1.1 disclosure (N_eff 7.6, loose QCD part = 1 raw row, cross-check table in 05a sec. 11), V1.1_NOTES.md traceability, ps_qcd/C exclusive assignment documented. Still waiting on 893012.
-Update 2026-11-13: H_ggF_jj failed, D38 UL fallback (ggf_ul.py, ggf_variant.py; 05a sec. 12); FINAL no longer DRAFT. Verify: ggf_ul numbers (R = 52.23/4.124, proxy rows), ggf_variant Z0 -0.6 %, wording in 05a sec. 12/07/FINAL.
-Update 2026-11-13 (G3 fixes): verify 07 sec. 4 convention text, kzneg numbers (couplings_kzneg*_v11.json), FINAL, VH_combination.md modes, 05a sec. 12.
+# VERIFY_REQUEST index (executor-wh FINAL-R2): per block
+* VERIFY_REQUEST_production_reeval.md: v1.2 production, frozen-cut re-evaluation, D49 settled by D50 = option 4
+* VERIFY_REQUEST_workspace.md: joint likelihood and combination (old -> new numbers)
+* VERIFY_REQUEST_toys.md: asymptotic vs toys
+* VERIFY_REQUEST_paper.md: paper package
+Settled: D49 by D50 = option 4 (QCD lost-lepton one-event estimate, 95 % interval, upper end shown; the N_eff >= 10 rule is NOT met for that part: limitation). Pending (not D49): VH nuisance ranking not delivered (913470.001 removed once by SYSTEM_PERIODIC_REMOVE after about 24 h; 913470.000 WH rank rc 0), D38 substitution, other human defaults as in FINAL_report.md.

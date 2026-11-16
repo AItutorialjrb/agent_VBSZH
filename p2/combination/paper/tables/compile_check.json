@@ -1,0 +1,22 @@
+{
+ "T10_toys": "OK",
+ "T11_limitations": "OK",
+ "T1_samples_WH": "OK",
+ "T1_samples_ZH": "OK",
+ "T2_cutflow_WH": "OK",
+ "T2_cutflow_ZH": "OK",
+ "T2b_cutflow_ZH_fake_rows": "OK",
+ "T3_composition_WH": "OK",
+ "T3_composition_ZH": "OK",
+ "T4_Z_mu95": "OK",
+ "T4b_ZH_codes": "OK",
+ "T4c_D49_upper_end": "OK",
+ "T5_systematics_VH": "OK",
+ "T5_systematics_WH": "OK",
+ "T5_systematics_ZH": "OK",
+ "T6_nonprompt_scans": "OK",
+ "T7_lambda": "OK",
+ "T7b_kappa": "OK",
+ "T8_cA_ZH": "OK",
+ "T9_comparison": "OK"
+}

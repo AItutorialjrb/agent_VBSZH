@@ -1,0 +1,3349 @@
+{
+ "wh.samples.S_EW_WHjj.sigma_pb": {
+  "value": 0.01377,
+  "source": "p2/production/wh/SAMPLES.csv::S_EW_WHjj (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.S_EW_WHjj.k": {
+  "value": 0.00217937,
+  "source": "p2/production/wh/SAMPLES.csv::S_EW_WHjj (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.S_EW_WHjj.N": {
+  "value": 200000,
+  "source": "p2/production/wh/SAMPLES.csv::S_EW_WHjj (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.S_EW_WHjj_taunu.sigma_pb": {
+  "value": 0.006884,
+  "source": "p2/production/wh/SAMPLES.csv::S_EW_WHjj_taunu (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.S_EW_WHjj_taunu.k": {
+  "value": 0.00232439,
+  "source": "p2/production/wh/SAMPLES.csv::S_EW_WHjj_taunu (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.S_EW_WHjj_taunu.N": {
+  "value": 100000,
+  "source": "p2/production/wh/SAMPLES.csv::S_EW_WHjj_taunu (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.B_QCD_Waajj_nomjj.sigma_pb": {
+  "value": 0.003582,
+  "source": "p2/production/wh/SAMPLES.csv::B_QCD_Waajj_nomjj (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.B_QCD_Waajj_nomjj.k": {
+  "value": 0.960076,
+  "source": "p2/production/wh/SAMPLES.csv::B_QCD_Waajj_nomjj (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.B_QCD_Waajj_nomjj.N": {
+  "value": 50000,
+  "source": "p2/production/wh/SAMPLES.csv::B_QCD_Waajj_nomjj (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.B_EW_Waajj_nomjj.sigma_pb": {
+  "value": 0.0002882,
+  "source": "p2/production/wh/SAMPLES.csv::B_EW_Waajj_nomjj (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.B_EW_Waajj_nomjj.k": {
+  "value": 0.960076,
+  "source": "p2/production/wh/SAMPLES.csv::B_EW_Waajj_nomjj (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.B_EW_Waajj_nomjj.N": {
+  "value": 50000,
+  "source": "p2/production/wh/SAMPLES.csv::B_EW_Waajj_nomjj (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.F_QCD_Wajjj_nomjj.sigma_pb": {
+  "value": 2.885,
+  "source": "p2/production/wh/SAMPLES.csv::F_QCD_Wajjj_nomjj (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.F_QCD_Wajjj_nomjj.k": {
+  "value": 0.960076,
+  "source": "p2/production/wh/SAMPLES.csv::F_QCD_Wajjj_nomjj (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.F_QCD_Wajjj_nomjj.N": {
+  "value": 8750000,
+  "source": "p2/production/wh/SAMPLES.csv::F_QCD_Wajjj_nomjj (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.F_EW_Wajj_nomjj.sigma_pb": {
+  "value": 0.1677,
+  "source": "p2/production/wh/SAMPLES.csv::F_EW_Wajj_nomjj (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.F_EW_Wajj_nomjj.k": {
+  "value": 0.960076,
+  "source": "p2/production/wh/SAMPLES.csv::F_EW_Wajj_nomjj (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.F_EW_Wajj_nomjj.N": {
+  "value": 550000,
+  "source": "p2/production/wh/SAMPLES.csv::F_EW_Wajj_nomjj (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.F_Wjjjj.sigma_pb": {
+  "value": 414.7,
+  "source": "p2/production/wh/SAMPLES.csv::F_Wjjjj (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.F_Wjjjj.k": {
+  "value": 0.960076,
+  "source": "p2/production/wh/SAMPLES.csv::F_Wjjjj (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.F_Wjjjj.N": {
+  "value": 18715000,
+  "source": "p2/production/wh/SAMPLES.csv::F_Wjjjj (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.T_ttjj_1l.sigma_pb": {
+  "value": 85.79,
+  "source": "p2/production/wh/SAMPLES.csv::T_ttjj_1l (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.T_ttjj_1l.k": {
+  "value": 0.970555,
+  "source": "p2/production/wh/SAMPLES.csv::T_ttjj_1l (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.T_ttjj_1l.N": {
+  "value": 428000,
+  "source": "p2/production/wh/SAMPLES.csv::T_ttjj_1l (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.T_tta_1l.sigma_pb": {
+  "value": 0.512,
+  "source": "p2/production/wh/SAMPLES.csv::T_tta_1l (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.T_tta_1l.k": {
+  "value": 0.970555,
+  "source": "p2/production/wh/SAMPLES.csv::T_tta_1l (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.T_tta_1l.N": {
+  "value": 1600000,
+  "source": "p2/production/wh/SAMPLES.csv::T_tta_1l (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.T_tWa_1l.sigma_pb": {
+  "value": 0.0786,
+  "source": "p2/production/wh/SAMPLES.csv::T_tWa_1l (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.T_tWa_1l.k": {
+  "value": 0.970555,
+  "source": "p2/production/wh/SAMPLES.csv::T_tWa_1l (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.T_tWa_1l.N": {
+  "value": 1950000,
+  "source": "p2/production/wh/SAMPLES.csv::T_tWa_1l (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.T_ttaa_1l.sigma_pb": {
+  "value": 0.0005816,
+  "source": "p2/production/wh/SAMPLES.csv::T_ttaa_1l (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.T_ttaa_1l.k": {
+  "value": 0.970555,
+  "source": "p2/production/wh/SAMPLES.csv::T_ttaa_1l (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.T_ttaa_1l.N": {
+  "value": 50000,
+  "source": "p2/production/wh/SAMPLES.csv::T_ttaa_1l (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.V_WWa_WH.sigma_pb": {
+  "value": 0.02809,
+  "source": "p2/production/wh/SAMPLES.csv::V_WWa_WH (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.V_WWa_WH.k": {
+  "value": 1.0,
+  "source": "p2/production/wh/SAMPLES.csv::V_WWa_WH (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.V_WWa_WH.N": {
+  "value": 90000,
+  "source": "p2/production/wh/SAMPLES.csv::V_WWa_WH (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.V_WZa_WH.sigma_pb": {
+  "value": 0.005128,
+  "source": "p2/production/wh/SAMPLES.csv::V_WZa_WH (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.V_WZa_WH.k": {
+  "value": 1.0,
+  "source": "p2/production/wh/SAMPLES.csv::V_WZa_WH (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.V_WZa_WH.N": {
+  "value": 50000,
+  "source": "p2/production/wh/SAMPLES.csv::V_WZa_WH (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.V_ZZa_WH.sigma_pb": {
+  "value": 0.001054,
+  "source": "p2/production/wh/SAMPLES.csv::V_ZZa_WH (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.V_ZZa_WH.k": {
+  "value": 1.0,
+  "source": "p2/production/wh/SAMPLES.csv::V_ZZa_WH (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.V_ZZa_WH.N": {
+  "value": 50000,
+  "source": "p2/production/wh/SAMPLES.csv::V_ZZa_WH (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.H_QCD_WH_mlm.sigma_pb": {
+  "value": 0.3023,
+  "source": "p2/production/wh/SAMPLES.csv::H_QCD_WH_mlm (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.H_QCD_WH_mlm.k": {
+  "value": 0.00217937,
+  "source": "p2/production/wh/SAMPLES.csv::H_QCD_WH_mlm (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.H_QCD_WH_mlm.N": {
+  "value": 600000,
+  "source": "p2/production/wh/SAMPLES.csv::H_QCD_WH_mlm (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.H_ggZH_wh.sigma_pb": {
+  "value": 0.07494,
+  "source": "p2/production/wh/SAMPLES.csv::H_ggZH_wh (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.H_ggZH_wh.k": {
+  "value": 0.000152757,
+  "source": "p2/production/wh/SAMPLES.csv::H_ggZH_wh (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.H_ggZH_wh.N": {
+  "value": 50000,
+  "source": "p2/production/wh/SAMPLES.csv::H_ggZH_wh (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.H_ZH_tautau_wh.sigma_pb": {
+  "value": 0.02535,
+  "source": "p2/production/wh/SAMPLES.csv::H_ZH_tautau_wh (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.H_ZH_tautau_wh.k": {
+  "value": 0.00227,
+  "source": "p2/production/wh/SAMPLES.csv::H_ZH_tautau_wh (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.H_ZH_tautau_wh.N": {
+  "value": 160000,
+  "source": "p2/production/wh/SAMPLES.csv::H_ZH_tautau_wh (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.H_ttH_1l.sigma_pb": {
+  "value": 0.1078,
+  "source": "p2/production/wh/SAMPLES.csv::H_ttH_1l (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.H_ttH_1l.k": {
+  "value": 0.00220316,
+  "source": "p2/production/wh/SAMPLES.csv::H_ttH_1l (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.H_ttH_1l.N": {
+  "value": 200000,
+  "source": "p2/production/wh/SAMPLES.csv::H_ttH_1l (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.H_ttH_dilep_wh.sigma_pb": {
+  "value": 0.01826,
+  "source": "p2/production/wh/SAMPLES.csv::H_ttH_dilep_wh (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.H_ttH_dilep_wh.k": {
+  "value": 0.00209237,
+  "source": "p2/production/wh/SAMPLES.csv::H_ttH_dilep_wh (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.H_ttH_dilep_wh.N": {
+  "value": 50000,
+  "source": "p2/production/wh/SAMPLES.csv::H_ttH_dilep_wh (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.H_tHq_lep.sigma_pb": {
+  "value": 0.01563,
+  "source": "p2/production/wh/SAMPLES.csv::H_tHq_lep (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.H_tHq_lep.k": {
+  "value": 0.00217937,
+  "source": "p2/production/wh/SAMPLES.csv::H_tHq_lep (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.H_tHq_lep.N": {
+  "value": 100000,
+  "source": "p2/production/wh/SAMPLES.csv::H_tHq_lep (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.H_tHW_1l.sigma_pb": {
+  "value": 0.004679,
+  "source": "p2/production/wh/SAMPLES.csv::H_tHW_1l (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.H_tHW_1l.k": {
+  "value": 0.00220316,
+  "source": "p2/production/wh/SAMPLES.csv::H_tHW_1l (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.H_tHW_1l.N": {
+  "value": 100000,
+  "source": "p2/production/wh/SAMPLES.csv::H_tHW_1l (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.H_VBFH_jj.sigma_pb": {
+  "value": 4.124,
+  "source": "p2/production/wh/SAMPLES.csv::H_VBFH_jj (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.H_VBFH_jj.k": {
+  "value": 0.00227,
+  "source": "p2/production/wh/SAMPLES.csv::H_VBFH_jj (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.H_VBFH_jj.N": {
+  "value": 50000,
+  "source": "p2/production/wh/SAMPLES.csv::H_VBFH_jj (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.Q_aajjj.sigma_pb": {
+  "value": 1.662,
+  "source": "p2/production/wh/SAMPLES.csv::Q_aajjj (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.Q_aajjj.k": {
+  "value": 1.0,
+  "source": "p2/production/wh/SAMPLES.csv::Q_aajjj (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.Q_aajjj.N": {
+  "value": 5250000,
+  "source": "p2/production/wh/SAMPLES.csv::Q_aajjj (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.F_QCD_llajj_loose_v12.sigma_pb": {
+  "value": 1.679,
+  "source": "p2/production/wh/SAMPLES.csv::F_QCD_llajj_loose_v12 (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.F_QCD_llajj_loose_v12.k": {
+  "value": 1.0,
+  "source": "p2/production/wh/SAMPLES.csv::F_QCD_llajj_loose_v12 (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.F_QCD_llajj_loose_v12.N": {
+  "value": 7500000,
+  "source": "p2/production/wh/SAMPLES.csv::F_QCD_llajj_loose_v12 (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.F_QCD_llajj_nomjj.sigma_pb": {
+  "value": 0.8155,
+  "source": "p2/production/wh/SAMPLES.csv::F_QCD_llajj_nomjj (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.F_QCD_llajj_nomjj.k": {
+  "value": 1.0,
+  "source": "p2/production/wh/SAMPLES.csv::F_QCD_llajj_nomjj (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.F_QCD_llajj_nomjj.N": {
+  "value": 2600000,
+  "source": "p2/production/wh/SAMPLES.csv::F_QCD_llajj_nomjj (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.ZH_Zajj_eFake.sigma_pb": {
+  "value": 0.08051,
+  "source": "p2/production/wh/SAMPLES.csv::ZH_Zajj_eFake (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.ZH_Zajj_eFake.k": {
+  "value": 1.0,
+  "source": "p2/production/wh/SAMPLES.csv::ZH_Zajj_eFake (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.ZH_Zajj_eFake.N": {
+  "value": 6489548,
+  "source": "p2/production/wh/SAMPLES.csv::ZH_Zajj_eFake (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.ZH_Zaajj_QCD_nomjj_lostlep.sigma_pb": {
+  "value": 0.0002739,
+  "source": "p2/production/wh/SAMPLES.csv::ZH_Zaajj_QCD_nomjj_lostlep (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.ZH_Zaajj_QCD_nomjj_lostlep.k": {
+  "value": 0.9783,
+  "source": "p2/production/wh/SAMPLES.csv::ZH_Zaajj_QCD_nomjj_lostlep (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.ZH_Zaajj_QCD_nomjj_lostlep.N": {
+  "value": 100000,
+  "source": "p2/production/wh/SAMPLES.csv::ZH_Zaajj_QCD_nomjj_lostlep (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.ZH_Zaajj_EW_lostlep.sigma_pb": {
+  "value": 3.921e-05,
+  "source": "p2/production/wh/SAMPLES.csv::ZH_Zaajj_EW_lostlep (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.ZH_Zaajj_EW_lostlep.k": {
+  "value": 0.9783,
+  "source": "p2/production/wh/SAMPLES.csv::ZH_Zaajj_EW_lostlep (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.ZH_Zaajj_EW_lostlep.N": {
+  "value": 60000,
+  "source": "p2/production/wh/SAMPLES.csv::ZH_Zaajj_EW_lostlep (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.ZH_EW_ZHjj_lostlep.sigma_pb": {
+  "value": 0.001295,
+  "source": "p2/production/wh/SAMPLES.csv::ZH_EW_ZHjj_lostlep (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.ZH_EW_ZHjj_lostlep.k": {
+  "value": 0.00222074,
+  "source": "p2/production/wh/SAMPLES.csv::ZH_EW_ZHjj_lostlep (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.ZH_EW_ZHjj_lostlep.N": {
+  "value": 200000,
+  "source": "p2/production/wh/SAMPLES.csv::ZH_EW_ZHjj_lostlep (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.ZH_QCD_ZHjj_lostlep.sigma_pb": {
+  "value": 0.01021,
+  "source": "p2/production/wh/SAMPLES.csv::ZH_QCD_ZHjj_lostlep (column sigma_pb_pre_decay)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.ZH_QCD_ZHjj_lostlep.k": {
+  "value": 0.00222074,
+  "source": "p2/production/wh/SAMPLES.csv::ZH_QCD_ZHjj_lostlep (column k)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.samples.ZH_QCD_ZHjj_lostlep.N": {
+  "value": 100000,
+  "source": "p2/production/wh/SAMPLES.csv::ZH_QCD_ZHjj_lostlep (column N_generated_LHE)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.S_EW_ZHjj.sigma_pb": {
+  "value": 0.0012946289195697603,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/S_EW_ZHjj/sigma_fb (sigma_fb / 1000 (pb))",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.S_EW_ZHjj.k": {
+  "value": 0.0022207409999999996,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/S_EW_ZHjj/k",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.S_EW_ZHjj.N": {
+  "value": 200000,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/S_EW_ZHjj/N_delphes",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.H_QCD_ZHjj.sigma_pb": {
+  "value": 0.010211669100262532,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/H_QCD_ZHjj/sigma_fb (sigma_fb / 1000 (pb))",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.H_QCD_ZHjj.k": {
+  "value": 0.0022207409999999996,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/H_QCD_ZHjj/k",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.H_QCD_ZHjj.N": {
+  "value": 100000,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/H_QCD_ZHjj/N_delphes",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.H_ggZH.sigma_pb": {
+  "value": 0.07433,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/H_ggZH/sigma_fb (sigma_fb / 1000 (pb))",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.H_ggZH.k": {
+  "value": 0.00015275737999999997,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/H_ggZH/k",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.H_ggZH.N": {
+  "value": 20000,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/H_ggZH/N_delphes",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.H_ttH.sigma_pb": {
+  "value": 0.01811,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/H_ttH/sigma_fb (sigma_fb / 1000 (pb))",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.H_ttH.k": {
+  "value": 0.00227,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/H_ttH/k",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.H_ttH.N": {
+  "value": 42000,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/H_ttH/N_delphes",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.H_ZH_tautau.sigma_pb": {
+  "value": 0.0249725,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/H_ZH_tautau/sigma_fb (sigma_fb / 1000 (pb))",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.H_ZH_tautau.k": {
+  "value": 0.00227,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/H_ZH_tautau/k",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.H_ZH_tautau.N": {
+  "value": 6565,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/H_ZH_tautau/N_delphes",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.H_tHW.sigma_pb": {
+  "value": 0.0007868,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/H_tHW/sigma_fb (sigma_fb / 1000 (pb))",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.H_tHW.k": {
+  "value": 0.00227,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/H_tHW/k",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.H_tHW.N": {
+  "value": 2000,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/H_tHW/N_delphes",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.B_QCD_Zaajj_vbs.sigma_pb": {
+  "value": 3.56e-05,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/B_QCD_Zaajj_vbs/sigma_fb (sigma_fb / 1000 (pb))",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.B_QCD_Zaajj_vbs.k": {
+  "value": 0.9783,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/B_QCD_Zaajj_vbs/k",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.B_QCD_Zaajj_vbs.N": {
+  "value": 100000,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/B_QCD_Zaajj_vbs/N_delphes",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.B_EW_Zaajj_vbs_is1.sigma_pb": {
+  "value": 1.666e-05,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/B_EW_Zaajj_vbs_is1/sigma_fb (sigma_fb / 1000 (pb))",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.B_EW_Zaajj_vbs_is1.k": {
+  "value": 0.9783,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/B_EW_Zaajj_vbs_is1/k",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.B_EW_Zaajj_vbs_is1.N": {
+  "value": 20000,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/B_EW_Zaajj_vbs_is1/N_delphes",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.B_EW_Zaajj_vbs_is2.sigma_pb": {
+  "value": 1.575e-05,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/B_EW_Zaajj_vbs_is2/sigma_fb (sigma_fb / 1000 (pb))",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.B_EW_Zaajj_vbs_is2.k": {
+  "value": 0.9783,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/B_EW_Zaajj_vbs_is2/k",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.B_EW_Zaajj_vbs_is2.N": {
+  "value": 20000,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/B_EW_Zaajj_vbs_is2/N_delphes",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.B_EW_Zaajj_vbs_is3.sigma_pb": {
+  "value": 6.8e-06,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/B_EW_Zaajj_vbs_is3/sigma_fb (sigma_fb / 1000 (pb))",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.B_EW_Zaajj_vbs_is3.k": {
+  "value": 0.9783,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/B_EW_Zaajj_vbs_is3/k",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.B_EW_Zaajj_vbs_is3.N": {
+  "value": 20000,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/B_EW_Zaajj_vbs_is3/N_delphes",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.T_ttaa.sigma_pb": {
+  "value": 9.7e-05,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/T_ttaa/sigma_fb (sigma_fb / 1000 (pb))",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.T_ttaa.k": {
+  "value": 1.0,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/T_ttaa/k",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.T_ttaa.N": {
+  "value": 22000,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/T_ttaa/N_delphes",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.F_QCD_Zajj.sigma_pb": {
+  "value": 0.06946,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/F_QCD_Zajj/sigma_fb (sigma_fb / 1000 (pb))",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.F_QCD_Zajj.k": {
+  "value": 1.0,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/F_QCD_Zajj/k",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.F_QCD_Zajj.N": {
+  "value": 5989548,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/F_QCD_Zajj/N_delphes",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.F_EW_Zajj.sigma_pb": {
+  "value": 0.01105,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/F_EW_Zajj/sigma_fb (sigma_fb / 1000 (pb))",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.F_EW_Zajj.k": {
+  "value": 1.0,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/F_EW_Zajj/k",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.F_EW_Zajj.N": {
+  "value": 500000,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/F_EW_Zajj/N_delphes",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.T_tta.sigma_pb": {
+  "value": 0.08558,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/T_tta/sigma_fb (sigma_fb / 1000 (pb))",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.T_tta.k": {
+  "value": 1.0,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/T_tta/k",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.T_tta.N": {
+  "value": 1040000,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/T_tta/N_delphes",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.T_tWa.sigma_pb": {
+  "value": 0.01304,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/T_tWa/sigma_fb (sigma_fb / 1000 (pb))",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.T_tWa.k": {
+  "value": 1.0,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/T_tWa/k",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.samples.T_tWa.N": {
+  "value": 160000,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::samples/T_tWa/N_delphes",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.cutflow.0.s": {
+  "value": 1.0197950646669025,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cutflow/0/s",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.cutflow.0.b": {
+  "value": 69.75060099463052,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cutflow/0/b",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.cutflow.0.rawb": {
+  "value": 851267,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cutflow/0/raw_b",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.cutflow.1.s": {
+  "value": 0.9356471040899599,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cutflow/1/s",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.cutflow.1.b": {
+  "value": 57.6750282039815,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cutflow/1/b",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.cutflow.1.rawb": {
+  "value": 653480,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cutflow/1/raw_b",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.cutflow.2.s": {
+  "value": 0.8407068054719868,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cutflow/2/s",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.cutflow.2.b": {
+  "value": 29.424967068663037,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cutflow/2/b",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.cutflow.2.rawb": {
+  "value": 332880,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cutflow/2/raw_b",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.cutflow.3.s": {
+  "value": 0.6798902895602678,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cutflow/3/s",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.cutflow.3.b": {
+  "value": 16.02656197203786,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cutflow/3/b",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.cutflow.3.rawb": {
+  "value": 184999,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cutflow/3/raw_b",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.cutflow.4.s": {
+  "value": 0.6122881303333896,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cutflow/4/s",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.cutflow.4.b": {
+  "value": 1.7467762991153808,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cutflow/4/b",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.cutflow.4.rawb": {
+  "value": 21391,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cutflow/4/raw_b",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cutflow.0.s": {
+  "value": 1.4375177607371343,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/frozen_steps/0/S_EW_ZHjj/y",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cutflow.0.b": {
+  "value": 89716.9009311524,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/frozen_steps/0 (sum of the y of all non-signal rows of the step)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cutflow.1.s": {
+  "value": 0.19924714922697048,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/frozen_steps/1/S_EW_ZHjj/y",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cutflow.1.b": {
+  "value": 44.10517539602931,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/frozen_steps/1 (sum of the y of all non-signal rows of the step)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cutflow.2.s": {
+  "value": 0.19545928992742814,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/frozen_steps/2/S_EW_ZHjj/y",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cutflow.2.b": {
+  "value": 22.23204328892226,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/frozen_steps/2 (sum of the y of all non-signal rows of the step)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cutflow.3.s": {
+  "value": 0.16913833972833123,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/frozen_steps/3/S_EW_ZHjj/y",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cutflow.3.b": {
+  "value": 13.501794006103998,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/frozen_steps/3 (sum of the y of all non-signal rows of the step)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cutflow.4.s": {
+  "value": 0.16913833972833123,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/frozen_steps/4/S_EW_ZHjj/y",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cutflow.4.b": {
+  "value": 13.501794006103998,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/frozen_steps/4 (sum of the y of all non-signal rows of the step)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cutflow.5.s": {
+  "value": 0.09453116794607395,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/frozen_steps/5/S_EW_ZHjj/y",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cutflow.5.b": {
+  "value": 3.6873294768993583,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/frozen_steps/5 (sum of the y of all non-signal rows of the step)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cutflow.6.s": {
+  "value": 0.09453116794607395,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/frozen_steps/6/S_EW_ZHjj/y",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cutflow.6.b": {
+  "value": 3.6873294768993583,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/frozen_steps/6 (sum of the y of all non-signal rows of the step)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cutflow.7.s": {
+  "value": 0.08787546071386101,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/frozen_steps/7/S_EW_ZHjj/y",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cutflow.7.b": {
+  "value": 0.4504819465672831,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/frozen_steps/7 (sum of the y of all non-signal rows of the step)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.b.frozen": {
+  "value": 0.5195994599179528,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::results/500_a/frozen/b",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.b.corrected": {
+  "value": 0.46871417873754195,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::results/500_a/corrected/b",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.ffcut.F_QCD_Zajj.0.y": {
+  "value": 1.4738030511328564,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/ff_cutflow/F_QCD_Zajj/0/y_500",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.ffcut.F_QCD_Zajj.0.mc": {
+  "value": 0.0018771669012344013,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/ff_cutflow/F_QCD_Zajj/0/mc_500",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.ffcut.F_QCD_Zajj.1.y": {
+  "value": 1.1590626993653568,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/ff_cutflow/F_QCD_Zajj/1/y_500",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.ffcut.F_QCD_Zajj.1.mc": {
+  "value": 0.0016753130012391582,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/ff_cutflow/F_QCD_Zajj/1/mc_500",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.ffcut.F_QCD_Zajj.2.y": {
+  "value": 0.6798131249288498,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/ff_cutflow/F_QCD_Zajj/2/y_500",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.ffcut.F_QCD_Zajj.2.mc": {
+  "value": 0.0010796790482720006,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/ff_cutflow/F_QCD_Zajj/2/mc_500",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.ffcut.F_QCD_Zajj.3.y": {
+  "value": 0.082615078261694,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/ff_cutflow/F_QCD_Zajj/3/y_500",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.ffcut.F_QCD_Zajj.3.mc": {
+  "value": 0.0002822583506520099,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/ff_cutflow/F_QCD_Zajj/3/mc_500",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.ffcut.F_QCD_Zajj.4.y": {
+  "value": 0.0034861827443243947,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/ff_cutflow/F_QCD_Zajj/4/y_500",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.ffcut.F_QCD_Zajj.4.mc": {
+  "value": 3.6208209113940746e-05,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/ff_cutflow/F_QCD_Zajj/4/mc_500",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.ffcut.F_EW_Zajj.0.y": {
+  "value": 0.1628321317748132,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/ff_cutflow/F_EW_Zajj/0/y_500",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.ffcut.F_EW_Zajj.0.mc": {
+  "value": 0.0007628635374898825,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/ff_cutflow/F_EW_Zajj/0/mc_500",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.ffcut.F_EW_Zajj.1.y": {
+  "value": 0.1511497071576574,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/ff_cutflow/F_EW_Zajj/1/y_500",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.ffcut.F_EW_Zajj.1.mc": {
+  "value": 0.0007347889212723205,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/ff_cutflow/F_EW_Zajj/1/mc_500",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.ffcut.F_EW_Zajj.2.y": {
+  "value": 0.08080434194997067,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/ff_cutflow/F_EW_Zajj/2/y_500",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.ffcut.F_EW_Zajj.2.mc": {
+  "value": 0.0004615761592350788,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/ff_cutflow/F_EW_Zajj/2/mc_500",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.ffcut.F_EW_Zajj.3.y": {
+  "value": 0.024095730120990352,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/ff_cutflow/F_EW_Zajj/3/y_500",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.ffcut.F_EW_Zajj.3.mc": {
+  "value": 0.00020748420305353261,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/ff_cutflow/F_EW_Zajj/3/mc_500",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.ffcut.F_EW_Zajj.4.y": {
+  "value": 0.0009280244195295296,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/ff_cutflow/F_EW_Zajj/4/y_500",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.ffcut.F_EW_Zajj.4.mc": {
+  "value": 2.5796196696021946e-05,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cutflow/ff_cutflow/F_EW_Zajj/4/mc_500",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.standalone.500.Z0": {
+  "value": 0.4280088905321857,
+  "source": "p2/runs/multi_r1/wh/work/stat/pl_500_a_v12.json::full_syst_BB/Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.standalone.500.mu95": {
+  "value": 6.814033710949154,
+  "source": "p2/runs/multi_r1/wh/work/stat/pl_500_a_v12.json::full_syst_BB/mu95_exp/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.Y0": {
+  "value": 0.12122709932707053,
+  "source": "p2/runs/multi_r1/wh/work/v12_lostlep_neff.json::QCD_part_poisson/Y",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.i95.lo": {
+  "value": 0.003069204423255208,
+  "source": "p2/runs/multi_r1/wh/work/v12_lostlep_neff.json::QCD_part_poisson/interval95/0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.i95.hi": {
+  "value": 0.6754341667683659,
+  "source": "p2/runs/multi_r1/wh/work/v12_lostlep_neff.json::QCD_part_poisson/interval95/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.i1s.lo": {
+  "value": 0.020948887040803766,
+  "source": "p2/runs/multi_r1/wh/work/v12_lostlep_neff.json::QCD_part_poisson/interval68/0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.i1s.hi": {
+  "value": 0.39994748741954744,
+  "source": "p2/runs/multi_r1/wh/work/v12_lostlep_neff.json::QCD_part_poisson/interval68/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.floor": {
+  "value": 1.0,
+  "source": "p2/runs/multi_r1/wh/work/d49_floor.json::floor_rel_err_C",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.crosscheck.central": {
+  "value": 0.176,
+  "source": "p2/runs/multi_r1/wh/work/v12_lostlep_neff.json (v1 vbs x C cross-check, 05a sec. 11 (0.176 [0.094, 0.257]))",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.crosscheck.lo": {
+  "value": 0.094,
+  "source": "p2/runs/multi_r1/wh/work/v12_lostlep_neff.json (same)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.crosscheck.hi": {
+  "value": 0.257,
+  "source": "p2/runs/multi_r1/wh/work/v12_lostlep_neff.json (same)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.500.lower95.Y": {
+  "value": 0.003069204423255208,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/0/Y_QCD_llpart",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.500.lower95.Z0": {
+  "value": 0.46028612098571275,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/0/Z0_PL",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.500.lower95.mu95": {
+  "value": 6.416700023247395,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/0/mu95_exp/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.500.lower95.mu95m": {
+  "value": 4.097679777366467,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/0/mu95_exp/0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.500.lower95.mu95p": {
+  "value": 10.433027795782477,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/0/mu95_exp/2",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.500.central.Y": {
+  "value": 0.12122709932707053,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/1/Y_QCD_llpart",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.500.central.Z0": {
+  "value": 0.4280088921146046,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/1/Z0_PL",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.500.central.mu95": {
+  "value": 6.814033710177708,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/1/mu95_exp/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.500.central.mu95m": {
+  "value": 4.3651125693552615,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/1/mu95_exp/0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.500.central.mu95p": {
+  "value": 11.062910324347666,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/1/mu95_exp/2",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.500.upper95.Y": {
+  "value": 0.6754341667683659,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/2/Y_QCD_llpart",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.500.upper95.Z0": {
+  "value": 0.30903440015360467,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/2/Z0_PL",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.500.upper95.mu95": {
+  "value": 10.905358650671243,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/2/mu95_exp/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.500.upper95.mu95m": {
+  "value": 6.514792920676219,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/2/mu95_exp/0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.500.upper95.mu95p": {
+  "value": 21.539337123579255,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/2/mu95_exp/2",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.1000.lower95.Y": {
+  "value": 0.003069204423255208,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/0/Y_QCD_llpart",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.1000.lower95.Z0": {
+  "value": 0.641944573127989,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/0/Z0_PL",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.1000.lower95.mu95": {
+  "value": 4.086006203565768,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/0/mu95_exp/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.1000.lower95.mu95m": {
+  "value": 2.67798542705734,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/0/mu95_exp/0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.1000.lower95.mu95p": {
+  "value": 6.458614196291008,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/0/mu95_exp/2",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.1000.central.Y": {
+  "value": 0.12122709932707053,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/1/Y_QCD_llpart",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.1000.central.Z0": {
+  "value": 0.5943142861396655,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/1/Z0_PL",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.1000.central.mu95": {
+  "value": 4.396353922696063,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/1/mu95_exp/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.1000.central.mu95m": {
+  "value": 2.883340314813912,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/1/mu95_exp/0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.1000.central.mu95p": {
+  "value": 6.9446839066937365,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/1/mu95_exp/2",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.1000.upper95.Y": {
+  "value": 0.6754341667683659,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/2/Y_QCD_llpart",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.1000.upper95.Z0": {
+  "value": 0.3996395294617614,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/2/Z0_PL",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.1000.upper95.mu95": {
+  "value": 8.323369687688905,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/2/mu95_exp/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.1000.upper95.mu95m": {
+  "value": 4.915769180115456,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/2/mu95_exp/0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.1000.upper95.mu95p": {
+  "value": 17.212164454058655,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/2/mu95_exp/2",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.3000.lower95.Y": {
+  "value": 0.003069204423255208,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/0/Y_QCD_llpart",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.3000.lower95.Z0": {
+  "value": 1.0777062689844277,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/0/Z0_PL",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.3000.lower95.mu95": {
+  "value": 2.137693942128273,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/0/mu95_exp/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.3000.lower95.mu95m": {
+  "value": 1.4426735392252648,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/0/mu95_exp/0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.3000.lower95.mu95p": {
+  "value": 3.258817602612971,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/0/mu95_exp/2",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.3000.central.Y": {
+  "value": 0.12122709932707053,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/1/Y_QCD_llpart",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.3000.central.Z0": {
+  "value": 0.9833700910703965,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/1/Z0_PL",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.3000.central.mu95": {
+  "value": 2.364307696552655,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/1/mu95_exp/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.3000.central.mu95m": {
+  "value": 1.5919632479464993,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/1/mu95_exp/0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.3000.central.mu95p": {
+  "value": 3.622856155982636,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/1/mu95_exp/2",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.3000.upper95.Y": {
+  "value": 0.6754341667683659,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/2/Y_QCD_llpart",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.3000.upper95.Z0": {
+  "value": 0.5443159914664965,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/2/Z0_PL",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.3000.upper95.mu95": {
+  "value": 6.453965501875256,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/2/mu95_exp/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.3000.upper95.mu95m": {
+  "value": 3.692369627979399,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/2/mu95_exp/0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.ll4.3000.upper95.mu95p": {
+  "value": 14.242165192531461,
+  "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/2/mu95_exp/2",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.signal.Y": {
+  "value": 0.6122125229724551,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/signal/Y",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.signal.stat": {
+  "value": 0.006822041329753705,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/signal/stat",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.signal.raw": {
+  "value": 8157,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/signal/nraw",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.signal.neff": {
+  "value": 8053.334267802593,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/signal/neff",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.prompt_irreducible.Y": {
+  "value": 0.9766760436532806,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/prompt_irreducible/Y",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.prompt_irreducible.stat": {
+  "value": 0.13476031751406006,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/prompt_irreducible/stat",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.prompt_irreducible.raw": {
+  "value": 193,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/prompt_irreducible/nraw",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.prompt_irreducible.neff": {
+  "value": 52.52632535496927,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/prompt_irreducible/neff",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.fake_photon_1.Y": {
+  "value": 0.02938014667967961,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/fake_photon_1/Y",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.fake_photon_1.stat": {
+  "value": 0.0006427147833462601,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/fake_photon_1/stat",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.fake_photon_1.raw": {
+  "value": 2577,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/fake_photon_1/nraw",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.fake_photon_1.neff": {
+  "value": 2089.63936268231,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/fake_photon_1/neff",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.fake_photon_2.Y": {
+  "value": 0.0007642134038825593,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/fake_photon_2/Y",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.fake_photon_2.stat": {
+  "value": 9.507386343432964e-06,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/fake_photon_2/stat",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.fake_photon_2.raw": {
+  "value": 12874,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/fake_photon_2/nraw",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.fake_photon_2.neff": {
+  "value": 6461.108242038169,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/fake_photon_2/neff",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.nonprompt_lepton.Y": {
+  "value": 0.020669916723483134,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/nonprompt_lepton/Y",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.nonprompt_lepton.stat": {
+  "value": 0.00046343156177387974,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/nonprompt_lepton/stat",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.nonprompt_lepton.raw": {
+  "value": 2204,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/nonprompt_lepton/nraw",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.nonprompt_lepton.neff": {
+  "value": 1989.32727934518,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/nonprompt_lepton/neff",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.lost_lepton_egamma.Y": {
+  "value": 0.45251221689556653,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/lost_lepton_egamma/Y",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.lost_lepton_egamma.stat": {
+  "value": 0.13544165438433675,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/lost_lepton_egamma/stat",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.lost_lepton_egamma.raw": {
+  "value": 116,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/lost_lepton_egamma/nraw",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.lost_lepton_egamma.neff": {
+  "value": 11.162362382870128,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/lost_lepton_egamma/neff",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.other_higgs.Y": {
+  "value": 0.21507632535940327,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/other_higgs/Y",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.other_higgs.stat": {
+  "value": 0.012667166512982006,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/other_higgs/stat",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.other_higgs.raw": {
+  "value": 2774,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/other_higgs/nraw",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.other_higgs.neff": {
+  "value": 288.28779516320736,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/other_higgs/neff",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.tau_feeddown.Y": {
+  "value": 0.05161684809484818,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/tau_feeddown/Y",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.tau_feeddown.stat": {
+  "value": 0.002049773674727325,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/tau_feeddown/stat",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.tau_feeddown.raw": {
+  "value": 650,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/tau_feeddown/nraw",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.comp.tau_feeddown.neff": {
+  "value": 634.1195468436338,
+  "source": "p2/runs/multi_r1/wh/work/sel/selection_v12.json::v12/cut_based/classes/tau_feeddown/neff",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.comp.EW ZHjj (signal)": {
+  "value": 0.08787546071386101,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::results/500_a/corrected/classes/EW ZHjj (signal)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.comp.QCD ZHjj": {
+  "value": 0.047395917001216974,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::results/500_a/corrected/classes/QCD ZHjj",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.comp.other H->gg": {
+  "value": 0.06701364414941154,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::results/500_a/corrected/classes/other H->gg",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.comp.Zgg (QCD+EW)": {
+  "value": 0.3417382971265054,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::results/500_a/corrected/classes/Zgg (QCD+EW)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.comp.top (ttgg, ttg, tWg)": {
+  "value": 0.00448301850597566,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::results/500_a/corrected/classes/top (ttgg, ttg, tWg)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.comp.Zg + fake g (QCD+EW)": {
+  "value": 0.00808330195443233,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::results/500_a/corrected/classes/Zg + fake g (QCD+EW)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.WH.a.500.Z0": {
+  "value": 0.43812489240194924,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_500_a_wh_v12.json::Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.WH.a.500.mu95": {
+  "value": 6.637476908546192,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_500_a_wh_v12.json::mu95/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.ZH.a.500.Z0": {
+  "value": 0.13099752296120376,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_500_a_zh_v12.json::Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.ZH.a.500.mu95": {
+  "value": 32.259257545058084,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_500_a_zh_v12.json::mu95/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.VH.a.500.Z0": {
+  "value": 0.45668594170961885,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_500_a_both_v12.json::Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.VH.a.500.mu95": {
+  "value": 6.197180149342542,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_500_a_both_v12.json::mu95/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.WH.eq1.500": {
+  "value": 0.4395328031477376,
+  "source": "p2/runs/multi_r1/wh/work/stat/counting_v12.json::L500/Z_eq1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.ZH.eq1.a.500": {
+  "value": 0.12462876147390645,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::results/500_a/corrected/Z_eq1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.WH.a.1000.Z0": {
+  "value": 0.608402937076771,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_1000_a_wh_v12.json::Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.WH.a.1000.mu95": {
+  "value": 4.282830213994578,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_1000_a_wh_v12.json::mu95/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.ZH.a.1000.Z0": {
+  "value": 0.18395949695156014,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_1000_a_zh_v12.json::Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.ZH.a.1000.mu95": {
+  "value": 19.092827284438634,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_1000_a_zh_v12.json::mu95/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.VH.a.1000.Z0": {
+  "value": 0.6344953274524123,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_1000_a_both_v12.json::Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.VH.a.1000.mu95": {
+  "value": 4.021824355137524,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_1000_a_both_v12.json::mu95/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.WH.eq1.1000": {
+  "value": 0.6215932513193944,
+  "source": "p2/runs/multi_r1/wh/work/stat/counting_v12.json::L1000/Z_eq1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.ZH.eq1.a.1000": {
+  "value": 0.17625168473815997,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::results/1000_a/corrected/Z_eq1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.WH.a.3000.Z0": {
+  "value": 1.0069714825918172,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_3000_a_wh_v12.json::Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.WH.a.3000.mu95": {
+  "value": 2.3025431383823385,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_3000_a_wh_v12.json::mu95/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.ZH.a.3000.Z0": {
+  "value": 0.31251377850435785,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_3000_a_zh_v12.json::Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.ZH.a.3000.mu95": {
+  "value": 8.978530263386228,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_3000_a_zh_v12.json::mu95/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.VH.a.3000.Z0": {
+  "value": 1.051317146405386,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_3000_a_both_v12.json::Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.VH.a.3000.mu95": {
+  "value": 2.1731181850040806,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_3000_a_both_v12.json::mu95/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.WH.eq1.3000": {
+  "value": 1.0766310929271206,
+  "source": "p2/runs/multi_r1/wh/work/stat/counting_v12.json::L3000/Z_eq1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.ZH.eq1.a.3000": {
+  "value": 0.3052768728861052,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::results/3000_a/corrected/Z_eq1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.WH.b.500.Z0": {
+  "value": 0.4992575617870167,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_500_b_wh_v12.json::Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.WH.b.500.mu95": {
+  "value": 5.811593548243425,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_500_b_wh_v12.json::mu95/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.ZH.b.500.Z0": {
+  "value": 0.2096313302502321,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_500_b_zh_v12.json::Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.ZH.b.500.mu95": {
+  "value": 20.657261579174193,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_500_b_zh_v12.json::mu95/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.VH.b.500.Z0": {
+  "value": 0.5406144573574407,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_500_b_both_v12.json::Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.VH.b.500.mu95": {
+  "value": 5.18505097250889,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_500_b_both_v12.json::mu95/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.WH.eq1b.500": {
+  "value": 0.49696405380886033,
+  "source": "p2/runs/multi_r1/wh/work/stat/counting_v12.json::def_b_L500/Z_eq1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.ZH.eq1.b.500": {
+  "value": 0.19852096136421712,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::results/500_b/corrected/Z_eq1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.WH.b.1000.Z0": {
+  "value": 0.6932033644102259,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_1000_b_wh_v12.json::Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.WH.b.1000.mu95": {
+  "value": 3.7387913681388207,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_1000_b_wh_v12.json::mu95/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.ZH.b.1000.Z0": {
+  "value": 0.2948133395062137,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_1000_b_zh_v12.json::Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.ZH.b.1000.mu95": {
+  "value": 12.153333950002036,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_1000_b_zh_v12.json::mu95/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.VH.b.1000.Z0": {
+  "value": 0.7515307776328446,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_1000_b_both_v12.json::Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.VH.b.1000.mu95": {
+  "value": 3.355357947256233,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_1000_b_both_v12.json::mu95/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.WH.eq1b.1000": {
+  "value": 0.7028133049084029,
+  "source": "p2/runs/multi_r1/wh/work/stat/counting_v12.json::def_b_L1000/Z_eq1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.ZH.eq1.b.1000": {
+  "value": 0.28075103597662104,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::results/1000_b/corrected/Z_eq1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.WH.b.3000.Z0": {
+  "value": 1.147768342988423,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_3000_b_wh_v12.json::Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.WH.b.3000.mu95": {
+  "value": 2.001692391419152,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_3000_b_wh_v12.json::mu95/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.ZH.b.3000.Z0": {
+  "value": 0.5001543480218936,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_3000_b_zh_v12.json::Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.ZH.b.3000.mu95": {
+  "value": 5.659533244839717,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_3000_b_zh_v12.json::mu95/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.VH.b.3000.Z0": {
+  "value": 1.2472693676155122,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_3000_b_both_v12.json::Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.VH.b.3000.mu95": {
+  "value": 1.8031735144585377,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_3000_b_both_v12.json::mu95/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.WH.eq1b.3000": {
+  "value": 1.21730835233675,
+  "source": "p2/runs/multi_r1/wh/work/stat/counting_v12.json::def_b_L3000/Z_eq1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "res.ZH.eq1.b.3000": {
+  "value": 0.4862750585891054,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::results/3000_b/corrected/Z_eq1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.frozencode.mu95.500": {
+  "value": 31.782531367648033,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::results/500_a/corrected/fit_mu95_syst",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.frozencode.Z.500": {
+  "value": 0.13088875357220184,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::results/500_a/corrected/fit_Z_syst",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.frozencode.mu95.1000": {
+  "value": 18.762782795370924,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::results/1000_a/corrected/fit_mu95_syst",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.frozencode.Z.1000": {
+  "value": 0.18429831009795103,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::results/1000_a/corrected/fit_Z_syst",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.frozencode.mu95.3000": {
+  "value": 8.76969185984921,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::results/3000_a/corrected/fit_mu95_syst",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.frozencode.Z.3000": {
+  "value": 0.3140405484869273,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::results/3000_a/corrected/fit_Z_syst",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.0.Z0": {
+  "value": 0.4280088905321857,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/0/Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.0.mu95": {
+  "value": 6.814033710949154,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/0/mu95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.1.Z0": {
+  "value": 0.42812728238507963,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/1/Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.1.mu95": {
+  "value": 6.803958220079659,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/1/mu95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.2.Z0": {
+  "value": 0.428310575705729,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/2/Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.2.mu95": {
+  "value": 6.787907410524765,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/2/mu95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.3.Z0": {
+  "value": 0.4280273867977045,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/3/Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.3.mu95": {
+  "value": 6.812443632498985,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/3/mu95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.4.Z0": {
+  "value": 0.4285230910201588,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/4/Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.4.mu95": {
+  "value": 6.811581837392586,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/4/mu95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.5.Z0": {
+  "value": 0.42800889065591385,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/5/Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.5.mu95": {
+  "value": 6.75063553383828,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/5/mu95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.6.Z0": {
+  "value": 0.42800889065591385,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/6/Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.6.mu95": {
+  "value": 6.8131146067412525,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/6/mu95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.7.Z0": {
+  "value": 0.4285710906851874,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/7/Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.7.mu95": {
+  "value": 6.811696713038942,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/7/mu95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.8.Z0": {
+  "value": 0.4280963934734137,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/8/Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.8.mu95": {
+  "value": 6.81355512964548,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/8/mu95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.9.Z0": {
+  "value": 0.42806332488604076,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/9/Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.9.mu95": {
+  "value": 6.813798532189192,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/9/mu95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.10.Z0": {
+  "value": 0.4280088905321857,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/10/Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.10.mu95": {
+  "value": 6.814033710949154,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/10/mu95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.11.Z0": {
+  "value": 0.43519052198106534,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/11/Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.11.mu95": {
+  "value": 6.772529993321968,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/11/mu95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.12.Z0": {
+  "value": 0.4280088905321857,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/12/Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.12.mu95": {
+  "value": 6.814033710949154,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/12/mu95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.13.Z0": {
+  "value": 0.4280109453356467,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/13/Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.13.mu95": {
+  "value": 6.814022800586568,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/13/mu95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.14.Z0": {
+  "value": 0.4280088905321857,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/14/Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.14.mu95": {
+  "value": 6.814033710949154,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/14/mu95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.15.Z0": {
+  "value": 0.4280100188368237,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/15/Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.15.mu95": {
+  "value": 6.814029093925226,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/15/mu95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.16.Z0": {
+  "value": 0.42800889327406005,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/16/Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.16.mu95": {
+  "value": 6.814018762936164,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/16/mu95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.17.Z0": {
+  "value": 0.4280089861845801,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/17/Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.17.mu95": {
+  "value": 6.814033225136725,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/17/mu95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.18.Z0": {
+  "value": 0.42801660623826876,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/18/Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.18.mu95": {
+  "value": 6.81399092903299,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/18/mu95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.19.Z0": {
+  "value": 0.42801412086318874,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/19/Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.19.mu95": {
+  "value": 6.81400424537831,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/19/mu95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.20.Z0": {
+  "value": 0.4280088918223418,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/20/Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.20.mu95": {
+  "value": 6.813972929651191,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/20/mu95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.21.Z0": {
+  "value": 0.4280088918223418,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/21/Z0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.rank.21.mu95": {
+  "value": 6.806489982041662,
+  "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/21/mu95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.syst.th_qcdzh": {
+  "value": 0.015617358062699135,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::systematics_groups_b_500_a/corrected/th_qcdzh",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.syst.lumi": {
+  "value": 0.011717854468438548,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::systematics_groups_b_500_a/corrected/lumi",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.syst.th_ggzh": {
+  "value": 0.014756459064558481,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::systematics_groups_b_500_a/corrected/th_ggzh",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.syst.ggzh_norm": {
+  "value": 0.037383968707563456,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::systematics_groups_b_500_a/corrected/ggzh_norm",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.syst.th_tth": {
+  "value": 0.002413638259735472,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::systematics_groups_b_500_a/corrected/th_tth",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.syst.th_zhtt": {
+  "value": 0.001621790087101312,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::systematics_groups_b_500_a/corrected/th_zhtt",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.syst.th_qcdzaa": {
+  "value": 0.024104693502289637,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::systematics_groups_b_500_a/corrected/th_qcdzaa",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.syst.offshell": {
+  "value": 0.019438994665566155,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::systematics_groups_b_500_a/corrected/offshell",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.syst.genmjj_B_QCD_Zaajj_vbs": {
+  "value": 0.0041633312607929985,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::systematics_groups_b_500_a/corrected/genmjj_B_QCD_Zaajj_vbs",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.syst.th_ewzaa": {
+  "value": 0.023764251498777575,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::systematics_groups_b_500_a/corrected/th_ewzaa",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.syst.int_zaa": {
+  "value": 0.006076538756886353,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::systematics_groups_b_500_a/corrected/int_zaa",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.syst.th_top": {
+  "value": 0.0012360365110952068,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::systematics_groups_b_500_a/corrected/th_top",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.syst.th_fqcd": {
+  "value": 0.0022615693420230307,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::systematics_groups_b_500_a/corrected/th_fqcd",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.syst.genmjj_F_QCD_Zajj": {
+  "value": 0.00024259554054355826,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::systematics_groups_b_500_a/corrected/genmjj_F_QCD_Zajj",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.syst.th_few": {
+  "value": 6.787139315378092e-05,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::systematics_groups_b_500_a/corrected/th_few",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.fake.0.3.Z0": {
+  "value": 0.4302280654570818,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/0/Z0_PL",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.fake.0.3.mu95": {
+  "value": 6.790766599263286,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/0/mu95_exp/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.fake.0.5.Z0": {
+  "value": 0.4295981829553374,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/1/Z0_PL",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.fake.0.5.mu95": {
+  "value": 6.797363380187007,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/1/mu95_exp/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.fake.1.0.Z0": {
+  "value": 0.4280088905321857,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/2/Z0_PL",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.fake.1.0.mu95": {
+  "value": 6.814033710949154,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/2/mu95_exp/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.fake.2.0.Z0": {
+  "value": 0.42477026852276867,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/3/Z0_PL",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.fake.2.0.mu95": {
+  "value": 6.848161374233338,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/3/mu95_exp/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.fake.3.0.Z0": {
+  "value": 0.421455414800628,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/4/Z0_PL",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.fake.3.0.mu95": {
+  "value": 6.883291485109289,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/4/mu95_exp/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.fake.10.0.Z0": {
+  "value": 0.3963705627676521,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/5/Z0_PL",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.fake.10.0.mu95": {
+  "value": 7.172555379966162,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/5/mu95_exp/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.fake.30.0.Z0": {
+  "value": 0.32261063238034743,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/6/Z0_PL",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.fake.30.0.mu95": {
+  "value": 8.28611224964951,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/6/mu95_exp/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.fake.100.0.Z0": {
+  "value": 0.17420849092007223,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/7/Z0_PL",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.fake.100.0.mu95": {
+  "value": 13.576186812468707,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/7/mu95_exp/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.npl.0.3.Z0": {
+  "value": 0.42931316737253644,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/0/Z0_PL",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.npl.0.3.mu95": {
+  "value": 6.799665378503574,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/0/mu95_exp/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.npl.0.5.Z0": {
+  "value": 0.4289406841726185,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/1/Z0_PL",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.npl.0.5.mu95": {
+  "value": 6.803774347427727,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/1/mu95_exp/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.npl.1.0.Z0": {
+  "value": 0.4280088905321857,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/2/Z0_PL",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.npl.1.0.mu95": {
+  "value": 6.814033710949154,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/2/mu95_exp/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.npl.2.0.Z0": {
+  "value": 0.42614289424141516,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/3/Z0_PL",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.npl.2.0.mu95": {
+  "value": 6.8344958858770095,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/3/mu95_exp/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.npl.3.0.Z0": {
+  "value": 0.4242740411120661,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/4/Z0_PL",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.npl.3.0.mu95": {
+  "value": 6.8548894177075965,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/4/mu95_exp/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.npl.10.0.Z0": {
+  "value": 0.4112000510081741,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/5/Z0_PL",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.npl.10.0.mu95": {
+  "value": 6.9974678949406846,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/5/mu95_exp/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.npl.30.0.Z0": {
+  "value": 0.37710298254856933,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/6/Z0_PL",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.npl.30.0.mu95": {
+  "value": 7.413614353138756,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/6/mu95_exp/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.npl.100.0.Z0": {
+  "value": 0.3036664828252174,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/7/Z0_PL",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "wh.d36.npl.100.0.mu95": {
+  "value": 8.657241038139238,
+  "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/7/mu95_exp/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.fakescan.x0.0.Z": {
+  "value": 0.12565619850869011,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::fake_photon_scan/500/x0.0/Z_eq1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.fakescan.x0.3.Z": {
+  "value": 0.12534529709327177,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::fake_photon_scan/500/x0.3/Z_eq1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.fakescan.x0.5.Z": {
+  "value": 0.12513930979547758,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::fake_photon_scan/500/x0.5/Z_eq1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.fakescan.x1.0.Z": {
+  "value": 0.12462876147390622,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::fake_photon_scan/500/x1.0/Z_eq1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.fakescan.x2.0.Z": {
+  "value": 0.12362617429261265,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::fake_photon_scan/500/x2.0/Z_eq1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.fakescan.x3.0.Z": {
+  "value": 0.12264744918388619,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::fake_photon_scan/500/x3.0/Z_eq1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.fakescan.direct_count_frozen_equivalent.Z": {
+  "value": 0.11869374927947778,
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::fake_photon_scan/500/direct_count_frozen_equivalent/Z_eq1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kzneg.500.WH.Zm1": {
+  "value": 3.7659288078747792,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_v12.json::curves/WH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kzneg.500.WH.Zneg": {
+  "value": 0.3610059549154808,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_v12.json::curves/WH/Z_lambda_neg",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kzneg.500.ZH.Zm1": {
+  "value": 0.28963098465632425,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_v12.json::curves/ZH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kzneg.500.ZH.Zneg": {
+  "value": 0.012031666510539264,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_v12.json::curves/ZH/Z_lambda_neg",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kzneg.500.VH.Zm1": {
+  "value": 3.7763564185841205,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_v12.json::curves/VH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kzneg.500.VH.Zneg": {
+  "value": 0.3811366139856531,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_v12.json::curves/VH/Z_lambda_neg",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kzneg.1000.WH.Zm1": {
+  "value": 5.282120189029925,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_L1000_v12.json::curves/WH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kzneg.1000.WH.Zneg": {
+  "value": 0.49598365001809247,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_L1000_v12.json::curves/WH/Z_lambda_neg",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kzneg.1000.ZH.Zm1": {
+  "value": 0.4089275706117404,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_L1000_v12.json::curves/ZH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kzneg.1000.ZH.Zneg": {
+  "value": 0.01697724510545999,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_L1000_v12.json::curves/ZH/Z_lambda_neg",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kzneg.1000.VH.Zm1": {
+  "value": 5.296008329337811,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_L1000_v12.json::curves/VH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kzneg.1000.VH.Zneg": {
+  "value": 0.5250947511449133,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_L1000_v12.json::curves/VH/Z_lambda_neg",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kzneg.3000.WH.Zm1": {
+  "value": 8.858585736792955,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_L3000_v12.json::curves/WH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kzneg.3000.WH.Zneg": {
+  "value": 0.7830873493928565,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_L3000_v12.json::curves/WH/Z_lambda_neg",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kzneg.3000.ZH.Zm1": {
+  "value": 0.7039941551657616,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_L3000_v12.json::curves/ZH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kzneg.3000.ZH.Zneg": {
+  "value": 0.02916620699923213,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_L3000_v12.json::curves/ZH/Z_lambda_neg",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kzneg.3000.VH.Zm1": {
+  "value": 8.877387571796607,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_L3000_v12.json::curves/VH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kzneg.3000.VH.Zneg": {
+  "value": 0.8371003089087821,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_L3000_v12.json::curves/VH/Z_lambda_neg",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kw.500.WH.Zm1": {
+  "value": 6.20360584965263,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_v12.json::curves/WH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kw.500.WH.Zneg": {
+  "value": 0.3810223503147733,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_v12.json::curves/WH/Z_lambda_neg",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kw.500.ZH.Zm1": {
+  "value": 0.7239892750454442,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_v12.json::curves/ZH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kw.500.ZH.Zneg": {
+  "value": 0.006719914314742945,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_v12.json::curves/ZH/Z_lambda_neg",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kw.500.VH.Zm1": {
+  "value": 6.2408537888468505,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_v12.json::curves/VH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kw.500.VH.Zneg": {
+  "value": 0.3988205980812584,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_v12.json::curves/VH/Z_lambda_neg",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kw.1000.WH.Zm1": {
+  "value": 8.605264781748625,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L1000_v12.json::curves/WH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kw.1000.WH.Zneg": {
+  "value": 0.5273644149760763,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L1000_v12.json::curves/WH/Z_lambda_neg",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kw.1000.ZH.Zm1": {
+  "value": 1.0223366818815611,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L1000_v12.json::curves/ZH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kw.1000.ZH.Zneg": {
+  "value": 0.009492817723322314,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L1000_v12.json::curves/ZH/Z_lambda_neg",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kw.1000.VH.Zm1": {
+  "value": 8.652515019322063,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L1000_v12.json::curves/VH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kw.1000.VH.Zneg": {
+  "value": 0.5529294840339933,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L1000_v12.json::curves/VH/Z_lambda_neg",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kw.3000.WH.Zm1": {
+  "value": 13.975077746481174,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L3000_v12.json::curves/WH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kw.3000.WH.Zneg": {
+  "value": 0.8541947779782476,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L3000_v12.json::curves/WH/Z_lambda_neg",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kw.3000.ZH.Zm1": {
+  "value": 1.7606383477056573,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L3000_v12.json::curves/ZH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kw.3000.ZH.Zneg": {
+  "value": 0.0163751850452134,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L3000_v12.json::curves/ZH/Z_lambda_neg",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kw.3000.VH.Zm1": {
+  "value": 14.040301218902012,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L3000_v12.json::curves/VH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "coup.kw.3000.VH.Zneg": {
+  "value": 0.9005440627838217,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L3000_v12.json::curves/VH/Z_lambda_neg",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.WH.500.kW68": {
+  "value": [
+   0.0,
+   1.0
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_v12.json::maps/WH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.WH.500.kW95": {
+  "value": [
+   0.0,
+   1.5
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_v12.json::maps/WH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.WH.500.kZ68": {
+  "value": [
+   0.25,
+   1.75
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_v12.json::maps/WH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.WH.500.kZ95": {
+  "value": [
+   0.25,
+   2.0
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_v12.json::maps/WH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.WH.1000.kW68": {
+  "value": [
+   0.0,
+   1.0
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L1000_v12.json::maps/WH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.WH.1000.kW95": {
+  "value": [
+   0.0,
+   1.5
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L1000_v12.json::maps/WH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.WH.1000.kZ68": {
+  "value": [
+   0.5,
+   1.5
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L1000_v12.json::maps/WH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.WH.1000.kZ95": {
+  "value": [
+   0.25,
+   2.0
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L1000_v12.json::maps/WH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.WH.3000.kW68": {
+  "value": [
+   0.0,
+   1.0
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L3000_v12.json::maps/WH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.WH.3000.kW95": {
+  "value": [
+   0.0,
+   1.0
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L3000_v12.json::maps/WH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.WH.3000.kZ68": {
+  "value": [
+   0.75,
+   1.25
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L3000_v12.json::maps/WH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.WH.3000.kZ95": {
+  "value": [
+   0.5,
+   1.5
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L3000_v12.json::maps/WH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.ZH.500.kW68": {
+  "value": [
+   -1.0,
+   2.0
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_v12.json::maps/ZH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.ZH.500.kW95": {
+  "value": [
+   -2.0,
+   3.0
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_v12.json::maps/ZH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.ZH.500.kZ68": {
+  "value": [
+   0.25,
+   2.0
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_v12.json::maps/ZH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.ZH.500.kZ95": {
+  "value": [
+   0.25,
+   2.0
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_v12.json::maps/ZH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.ZH.1000.kW68": {
+  "value": [
+   -1.0,
+   2.0
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L1000_v12.json::maps/ZH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.ZH.1000.kW95": {
+  "value": [
+   -1.5,
+   2.5
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L1000_v12.json::maps/ZH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.ZH.1000.kZ68": {
+  "value": [
+   0.25,
+   2.0
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L1000_v12.json::maps/ZH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.ZH.1000.kZ95": {
+  "value": [
+   0.25,
+   2.0
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L1000_v12.json::maps/ZH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.ZH.3000.kW68": {
+  "value": [
+   -0.5,
+   1.5
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L3000_v12.json::maps/ZH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.ZH.3000.kW95": {
+  "value": [
+   -1.0,
+   2.0
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L3000_v12.json::maps/ZH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.ZH.3000.kZ68": {
+  "value": [
+   0.25,
+   2.0
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L3000_v12.json::maps/ZH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.ZH.3000.kZ95": {
+  "value": [
+   0.25,
+   2.0
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L3000_v12.json::maps/ZH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.VH.500.kW68": {
+  "value": [
+   0.0,
+   1.0
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_v12.json::maps/VH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.VH.500.kW95": {
+  "value": [
+   0.0,
+   1.5
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_v12.json::maps/VH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.VH.500.kZ68": {
+  "value": [
+   0.25,
+   1.75
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_v12.json::maps/VH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.VH.500.kZ95": {
+  "value": [
+   0.25,
+   2.0
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_v12.json::maps/VH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.VH.1000.kW68": {
+  "value": [
+   0.0,
+   1.0
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L1000_v12.json::maps/VH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.VH.1000.kW95": {
+  "value": [
+   0.0,
+   1.5
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L1000_v12.json::maps/VH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.VH.1000.kZ68": {
+  "value": [
+   0.5,
+   1.5
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L1000_v12.json::maps/VH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.VH.1000.kZ95": {
+  "value": [
+   0.25,
+   2.0
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L1000_v12.json::maps/VH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.VH.3000.kW68": {
+  "value": [
+   0.0,
+   1.0
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L3000_v12.json::maps/VH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.VH.3000.kW95": {
+  "value": [
+   0.0,
+   1.0
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L3000_v12.json::maps/VH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.VH.3000.kZ68": {
+  "value": [
+   0.75,
+   1.25
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L3000_v12.json::maps/VH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "kappa.VH.3000.kZ95": {
+  "value": [
+   0.5,
+   1.5
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L3000_v12.json::maps/VH (extent of the q<2.30 / 5.99 region on the grid (step 0.5 in kW, 0.25 in kZ) along kW at kZ=1 or along kZ at kW=1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cA.500|noclip.int68.frozen": {
+  "value": [
+   [
+    -0.9,
+    1.0
+   ]
+  ],
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cA/intervals/500|noclip/frozen/int68",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cA.500|noclip.int68.corrected": {
+  "value": [
+   [
+    -0.9,
+    1.0
+   ]
+  ],
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cA/intervals/500|noclip/corrected/int68",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cA.500|noclip.int95.frozen": {
+  "value": [
+   [
+    -1.7,
+    1.8
+   ]
+  ],
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cA/intervals/500|noclip/frozen/int95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cA.500|noclip.int95.corrected": {
+  "value": [
+   [
+    -1.7,
+    1.8
+   ]
+  ],
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cA/intervals/500|noclip/corrected/int95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cA.500|clip500.int68.frozen": {
+  "value": [
+   [
+    -4.0,
+    4.0
+   ]
+  ],
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cA/intervals/500|clip500/frozen/int68",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cA.500|clip500.int68.corrected": {
+  "value": [
+   [
+    -4.0,
+    4.0
+   ]
+  ],
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cA/intervals/500|clip500/corrected/int68",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cA.500|clip500.int95.frozen": {
+  "value": [
+   [
+    -4.0,
+    4.0
+   ]
+  ],
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cA/intervals/500|clip500/frozen/int95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cA.500|clip500.int95.corrected": {
+  "value": [
+   [
+    -4.0,
+    4.0
+   ]
+  ],
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cA/intervals/500|clip500/corrected/int95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cA.1000|noclip.int68.frozen": {
+  "value": [
+   [
+    -0.7,
+    0.7
+   ]
+  ],
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cA/intervals/1000|noclip/frozen/int68",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cA.1000|noclip.int68.corrected": {
+  "value": [
+   [
+    -0.7,
+    0.7
+   ]
+  ],
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cA/intervals/1000|noclip/corrected/int68",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cA.1000|noclip.int95.frozen": {
+  "value": [
+   [
+    -1.3,
+    1.3
+   ]
+  ],
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cA/intervals/1000|noclip/frozen/int95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cA.1000|noclip.int95.corrected": {
+  "value": [
+   [
+    -1.2,
+    1.3
+   ]
+  ],
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cA/intervals/1000|noclip/corrected/int95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cA.1000|clip500.int68.frozen": {
+  "value": [
+   [
+    -3.5,
+    3.5
+   ]
+  ],
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cA/intervals/1000|clip500/frozen/int68",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cA.1000|clip500.int68.corrected": {
+  "value": [
+   [
+    -3.5,
+    3.4
+   ]
+  ],
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cA/intervals/1000|clip500/corrected/int68",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cA.1000|clip500.int95.frozen": {
+  "value": [
+   [
+    -4.0,
+    4.0
+   ]
+  ],
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cA/intervals/1000|clip500/frozen/int95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cA.1000|clip500.int95.corrected": {
+  "value": [
+   [
+    -4.0,
+    4.0
+   ]
+  ],
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cA/intervals/1000|clip500/corrected/int95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cA.3000|noclip.int68.frozen": {
+  "value": [
+   [
+    -0.4,
+    0.4
+   ]
+  ],
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cA/intervals/3000|noclip/frozen/int68",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cA.3000|noclip.int68.corrected": {
+  "value": [
+   [
+    -0.4,
+    0.4
+   ]
+  ],
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cA/intervals/3000|noclip/corrected/int68",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cA.3000|noclip.int95.frozen": {
+  "value": [
+   [
+    -0.7,
+    0.8
+   ]
+  ],
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cA/intervals/3000|noclip/frozen/int95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cA.3000|noclip.int95.corrected": {
+  "value": [
+   [
+    -0.7,
+    0.8
+   ]
+  ],
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cA/intervals/3000|noclip/corrected/int95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cA.3000|clip500.int68.frozen": {
+  "value": [
+   [
+    -2.4,
+    2.4
+   ]
+  ],
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cA/intervals/3000|clip500/frozen/int68",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cA.3000|clip500.int68.corrected": {
+  "value": [
+   [
+    -2.4,
+    2.4
+   ]
+  ],
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cA/intervals/3000|clip500/corrected/int68",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cA.3000|clip500.int95.frozen": {
+  "value": [
+   [
+    -3.8,
+    3.8
+   ]
+  ],
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cA/intervals/3000|clip500/frozen/int95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "zh.cA.3000|clip500.int95.corrected": {
+  "value": [
+   [
+    -3.8,
+    3.8
+   ]
+  ],
+  "source": "p2/combination/vh_ws/zh_paper_inputs.json::cA/intervals/3000|clip500/corrected/int95",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "pub.cms.mu95_obs": {
+  "value": 14.3,
+  "source": "p2/runs/multi_r1/wh/work/refs/EXTRACTS.md (text extract) / PDFs in p2/runs/multi_r1/wh/work/refs/; CMS arXiv:2405.16566 (INSPIRE doi 10.1016/j.physletb.2024.139202), abstract and text before Sec. BSM (14.3 observed upper limit)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "pub.cms.mu95_exp": {
+  "value": 9.9,
+  "source": "p2/runs/multi_r1/wh/work/refs/EXTRACTS.md (text extract) / PDFs in p2/runs/multi_r1/wh/work/refs/; same, expected 9.9",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "pub.cms.signif_obs": {
+  "value": 0.34,
+  "source": "p2/runs/multi_r1/wh/work/refs/EXTRACTS.md (text extract) / PDFs in p2/runs/multi_r1/wh/work/refs/; same, observed significance 0.34 sigma",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "pub.cms.signif_exp": {
+  "value": 0.22,
+  "source": "p2/runs/multi_r1/wh/work/refs/EXTRACTS.md (text extract) / PDFs in p2/runs/multi_r1/wh/work/refs/; same, expected 0.22 sigma",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "pub.cms.lumi": {
+  "value": 138,
+  "source": "p2/runs/multi_r1/wh/work/refs/EXTRACTS.md (text extract) / PDFs in p2/runs/multi_r1/wh/work/refs/; same, integrated luminosity 138 fb^-1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "pub.atlas.mu95_obs": {
+  "value": 9.0,
+  "source": "p2/runs/multi_r1/wh/work/refs/EXTRACTS.md (text extract) / PDFs in p2/runs/multi_r1/wh/work/refs/; ATLAS PRL 133 (2024) 141801 = arXiv:2402.00426, abstract: observed 9.0",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "pub.atlas.mu95_exp": {
+  "value": 8.7,
+  "source": "p2/runs/multi_r1/wh/work/refs/EXTRACTS.md (text extract) / PDFs in p2/runs/multi_r1/wh/work/refs/; same, expected 8.7",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "pub.atlas.lumi": {
+  "value": 140,
+  "source": "p2/runs/multi_r1/wh/work/refs/EXTRACTS.md (text extract) / PDFs in p2/runs/multi_r1/wh/work/refs/; same, integrated luminosity 140 fb^-1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "cmp.wh140.mu95_poisson": {
+  "value": 17.473871048742673,
+  "source": "p2/runs/multi_r1/wh/work/stat/counting_v12.json::window_500 (exact-Poisson median expected mu95 from the window s,b scaled to 140 fb^-1)",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "cmp.wh140.mu95_pl": {
+  "value": 16.3858765811539,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_140_a_wh_v12.json::mu95/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "cmp.vh140.mu95_pl": {
+  "value": 15.065270872737107,
+  "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_140_a_both_v12.json::mu95/1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "cmp.lam.kz.140": {
+  "value": 2.010452839605197,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_L140_v12.json::curves/VH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "cmp.lamneg.kz.140": {
+  "value": 0.20592275765527665,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_L140_v12.json::curves/VH/Z_lambda_neg",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "cmp.lam.kw.140": {
+  "value": 3.3504184468242015,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L140_v12.json::curves/VH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "cmp.lamneg.kw.140": {
+  "value": 0.21442916129204365,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L140_v12.json::curves/VH/Z_lambda_neg",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.WH.Z0_asimov": {
+  "value": 0.43812489240194924,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/WH/Z0_asimov",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.WH.Z0_toy_median": {
+  "value": 0.4056497076989145,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/WH/Z0_toy_median",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.WH.Z0_toy_range": {
+  "value": [
+   0.37857969874529823,
+   0.4357749779926946
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/WH/Z0_toy_range",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.WH.p_mid_at_median": {
+  "value": 0.3425,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/WH/p_mid_at_median",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.WH.ntoys": {
+  "value": 2000,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/WH/ntoys",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.WH.ntoys_null": {
+  "value": 2000,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/WH/ntoys_null",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.WH.frac_q0_exact_zero_sb": {
+  "value": 0.139,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/WH/frac_q0_exact_zero_sb",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.WH.frac_q0_lt_1em6_sb": {
+  "value": 0.293,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/WH/frac_q0_lt_1em6_sb",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.WH.frac_q0_exact_zero_null": {
+  "value": 0.192,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/WH/frac_q0_exact_zero_null",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.WH.frac_q0_lt_1em6_null": {
+  "value": 0.408,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/WH/frac_q0_lt_1em6_null",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.ZH.Z0_asimov": {
+  "value": 0.13099752296120376,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/ZH/Z0_asimov",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.ZH.Z0_toy_median": {
+  "value": 0.0,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/ZH/Z0_toy_median",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.ZH.Z0_toy_range": {
+  "value": [
+   0.0,
+   0.0
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/ZH/Z0_toy_range",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.ZH.p_mid_at_median": {
+  "value": 0.6772499999999999,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/ZH/p_mid_at_median",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.ZH.ntoys": {
+  "value": 2000,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/ZH/ntoys",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.ZH.ntoys_null": {
+  "value": 2000,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/ZH/ntoys_null",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.ZH.frac_q0_exact_zero_sb": {
+  "value": 0.312,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/ZH/frac_q0_exact_zero_sb",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.ZH.frac_q0_lt_1em6_sb": {
+  "value": 0.613,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/ZH/frac_q0_lt_1em6_sb",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.ZH.frac_q0_exact_zero_null": {
+  "value": 0.3115,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/ZH/frac_q0_exact_zero_null",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.ZH.frac_q0_lt_1em6_null": {
+  "value": 0.643,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/ZH/frac_q0_lt_1em6_null",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.VH.Z0_asimov": {
+  "value": 0.45668594170961885,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/VH/Z0_asimov",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.VH.Z0_toy_median": {
+  "value": 0.4056497076989145,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/VH/Z0_toy_median",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.VH.Z0_toy_range": {
+  "value": [
+   0.36648929388943374,
+   0.44129423383055216
+  ],
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/VH/Z0_toy_range",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.VH.p_mid_at_median": {
+  "value": 0.3425,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/VH/p_mid_at_median",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.VH.ntoys": {
+  "value": 2000,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/VH/ntoys",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.VH.ntoys_null": {
+  "value": 2000,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/VH/ntoys_null",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.VH.frac_q0_exact_zero_sb": {
+  "value": 0.1245,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/VH/frac_q0_exact_zero_sb",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.VH.frac_q0_lt_1em6_sb": {
+  "value": 0.297,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/VH/frac_q0_lt_1em6_sb",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.VH.frac_q0_exact_zero_null": {
+  "value": 0.182,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/VH/frac_q0_exact_zero_null",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.q0.VH.frac_q0_lt_1em6_null": {
+  "value": 0.3945,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/VH/frac_q0_lt_1em6_null",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.mu95.WH.asym": {
+  "value": 6.637476908546192,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::mu95/WH/mu95_asymptotic",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.mu95.WH.fit": {
+  "value": 8.375460338550852,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::mu95/WH/mu95_toy_fit",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.mu95.WH.fit_err": {
+  "value": 1.1061808894318563,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::mu95/WH/mu95_toy_fit_err",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.mu95.ZH.asym": {
+  "value": 32.259257545058084,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::mu95/ZH/mu95_asymptotic",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.mu95.ZH.fit": {
+  "value": 34.28721428778403,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::mu95/ZH/mu95_toy_fit",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.mu95.ZH.fit_err": {
+  "value": 1.9289985462692012,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::mu95/ZH/mu95_toy_fit_err",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.mu95.VH.asym": {
+  "value": 6.197180149342542,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::mu95/VH/mu95_asymptotic",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.mu95.VH.fit": {
+  "value": 6.406619574051193,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::mu95/VH/mu95_toy_fit",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.mu95.VH.fit_err": {
+  "value": 0.3471661432461804,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::mu95/VH/mu95_toy_fit_err",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kZ-sign:WH.Z_asimov": {
+  "value": 3.7659288078747792,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kZ-sign:WH/Z_asimov",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kZ-sign:WH.Z_toy_median": {
+  "value": 3.92042456337296,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kZ-sign:WH/Z_toy_median",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kZ-sign:WH.Z_toy_16": {
+  "value": 3.491556879140843,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kZ-sign:WH/Z_toy_16",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kZ-sign:WH.Z_toy_84": {
+  "value": 4.276283667739381,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kZ-sign:WH/Z_toy_84",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kZ-sign:WH.frac_q_lt_1": {
+  "value": 0.0002,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kZ-sign:WH/frac_q_lt_1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kZ-sign:WH.plateau": {
+  "value": false,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kZ-sign:WH/plateau",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kZ-sign:ZH.Z_asimov": {
+  "value": 0.28963098465632425,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kZ-sign:ZH/Z_asimov",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kZ-sign:ZH.Z_toy_median": {
+  "value": 0.8153231994608596,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kZ-sign:ZH/Z_toy_median",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kZ-sign:ZH.Z_toy_16": {
+  "value": 0.3285939301341641,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kZ-sign:ZH/Z_toy_16",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kZ-sign:ZH.Z_toy_84": {
+  "value": 0.8222326403673056,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kZ-sign:ZH/Z_toy_84",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kZ-sign:ZH.frac_q_lt_1": {
+  "value": 0.9128,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kZ-sign:ZH/frac_q_lt_1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kZ-sign:ZH.plateau": {
+  "value": false,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kZ-sign:ZH/plateau",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kZ-sign:VH.Z_asimov": {
+  "value": 3.7763564185841205,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kZ-sign:VH/Z_asimov",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kZ-sign:VH.Z_toy_median": {
+  "value": 3.9651474009538603,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kZ-sign:VH/Z_toy_median",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kZ-sign:VH.Z_toy_16": {
+  "value": 3.424751537018369,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kZ-sign:VH/Z_toy_16",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kZ-sign:VH.Z_toy_84": {
+  "value": 4.257297085483361,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kZ-sign:VH/Z_toy_84",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kZ-sign:VH.frac_q_lt_1": {
+  "value": 0.0006,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kZ-sign:VH/frac_q_lt_1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kZ-sign:VH.plateau": {
+  "value": false,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kZ-sign:VH/plateau",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kW-sign:WH.Z_asimov": {
+  "value": 6.20360584965263,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kW-sign:WH/Z_asimov",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kW-sign:WH.Z_toy_median": {
+  "value": 6.329435353075664,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kW-sign:WH/Z_toy_median",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kW-sign:WH.Z_toy_16": {
+  "value": 5.8316762013003,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kW-sign:WH/Z_toy_16",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kW-sign:WH.Z_toy_84": {
+  "value": 6.699469127242107,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kW-sign:WH/Z_toy_84",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kW-sign:WH.frac_q_lt_1": {
+  "value": 0.0,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kW-sign:WH/frac_q_lt_1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kW-sign:WH.plateau": {
+  "value": true,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kW-sign:WH/plateau",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kW-sign:ZH.Z_asimov": {
+  "value": 0.7239892750454442,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kW-sign:ZH/Z_asimov",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kW-sign:ZH.Z_toy_median": {
+  "value": 1.1261589719155716,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kW-sign:ZH/Z_toy_median",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kW-sign:ZH.Z_toy_16": {
+  "value": 0.22528205714108288,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kW-sign:ZH/Z_toy_16",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kW-sign:ZH.Z_toy_84": {
+  "value": 1.2963506544460461,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kW-sign:ZH/Z_toy_84",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kW-sign:ZH.frac_q_lt_1": {
+  "value": 0.4252,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kW-sign:ZH/frac_q_lt_1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kW-sign:ZH.plateau": {
+  "value": false,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kW-sign:ZH/plateau",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kW-sign:VH.Z_asimov": {
+  "value": 6.2408537888468505,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kW-sign:VH/Z_asimov",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kW-sign:VH.Z_toy_median": {
+  "value": 6.368443630825554,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kW-sign:VH/Z_toy_median",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kW-sign:VH.Z_toy_16": {
+  "value": 5.867476869710658,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kW-sign:VH/Z_toy_16",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kW-sign:VH.Z_toy_84": {
+  "value": 6.707060942058751,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kW-sign:VH/Z_toy_84",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kW-sign:VH.frac_q_lt_1": {
+  "value": 0.0,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kW-sign:VH/frac_q_lt_1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lam.kW-sign:VH.plateau": {
+  "value": false,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kW-sign:VH/plateau",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "limitations.count": {
+  "value": 15,
+  "source": "make_paper.py T11 list",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "_missing": [],
+ "_meta": {
+  "commit": "ORCH_COMMIT_PLACEHOLDER",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ }
+}

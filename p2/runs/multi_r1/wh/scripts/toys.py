@@ -15,13 +15,15 @@ def prep(wsf, poi):
     for n_ in m.config.par_map:
         if n_.startswith("mu"): b[m.config.par_slice(n_).start] = (0.0, 50.0)
     return m, b
-def run_q0(wsf, poi, seed, nt):
-    m, b = prep(wsf, poi); rng = np.random.default_rng(seed); pyhf.set_backend("numpy", pyhf.optimize.scipy_optimizer()); init = m.config.suggested_init(); pars = list(init); pars[m.config.par_slice(poi).start] = 1.0
+def run_q0(wsf, poi, seed, nt, hyp="sb"):
+    np.random.seed(seed)   # T1: pyhf samples from the GLOBAL numpy RNG: seed it per chunk (the first toy production was not seed-reproducible)
+    m, b = prep(wsf, poi); rng = np.random.default_rng(seed); pyhf.set_backend("numpy", pyhf.optimize.scipy_optimizer()); init = m.config.suggested_init(); pars = list(init); pars[m.config.par_slice(poi).start] = (1.0 if hyp == "sb" else 0.0)
     pdf = m.make_pdf(pyhf.tensorlib.astensor(pars)); out = []
     for i in range(nt):
         d = pdf.sample((1,))[0]; q = pyhf.infer.test_statistics.q0(0.0, d, m, init, b, m.config.suggested_fixed()); out.append(float(q))
-    np.save(f"{OUT}/q0_{os.path.basename(wsf)[:-5]}_{poi}_s{seed}.npy", np.array(out))
+    np.save(f"{OUT}/q0{'' if hyp == 'sb' else 'null'}_{os.path.basename(wsf)[:-5]}_{poi}_s{seed}.npy", np.array(out))
 def run_qmu(wsf, poi, mu, seed, nt, hyp):
+    np.random.seed(seed)
     m, b = prep(wsf, poi); init = m.config.suggested_init(); pars = list(init); pars[m.config.par_slice(poi).start] = (mu if hyp == "sb" else 0.0)
     pdf = m.make_pdf(pyhf.tensorlib.astensor(pars)); out = []
     for i in range(nt):
@@ -29,5 +31,5 @@ def run_qmu(wsf, poi, mu, seed, nt, hyp):
     np.save(f"{OUT}/qmu_{os.path.basename(wsf)[:-5]}_{poi}_mu{mu}_{hyp}_s{seed}.npy", np.array(out))
 if __name__ == "__main__":
     t = sys.argv[1]
-    if t == "q0": run_q0(sys.argv[2], sys.argv[3], int(sys.argv[4]), int(sys.argv[5]))
+    if t == "q0": run_q0(sys.argv[2], sys.argv[3], int(sys.argv[4]), int(sys.argv[5]), sys.argv[6] if len(sys.argv) > 6 else "sb")
     elif t == "qmu": run_qmu(sys.argv[2], sys.argv[3], float(sys.argv[4]), int(sys.argv[5]), int(sys.argv[6]), sys.argv[7])

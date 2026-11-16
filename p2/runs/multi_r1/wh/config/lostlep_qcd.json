@@ -1,0 +1,6 @@
+{
+ "_comment": "D49 (human, option (2) with the fallback): the pre-declared reco-SR twin correction C has a stat floor of 100 % (the no-cut twin F_QCD_llajj_loose union, 7.5M events, has n=1 raw event in the reco SR; work/d49_floor.json, scripts/d49_floor.py) > 30 % -> option (4): yield = one-event estimate 0.121, uncertainty = its 95 % interval [0.003, 0.68], Z/mu95 also at the upper end (stat_run task ll4:<L>). No cut sample produced. Swappable: set 'sample' to another SAMPLES.csv row and rerun scripts/run_all_v12.sh; 'vbs_x_C' = v1 cross-check (0.176 [0.094, 0.257]).",
+ "source": "D49_option4_floor_gt30pct",
+ "sample": "F_QCD_llajj_loose",
+ "use_vbs_x_C": false
+}
