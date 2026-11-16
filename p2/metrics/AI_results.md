@@ -151,23 +151,23 @@ Written by the multi_r1 orchestrator on 2026-11-16 under D48 (G4 (b), (c)).
 | primary selection | BDT (cut-based alongside) | cut-based (MVA on HOLD at 05; frozen) |
 | s / b (window) | 1.19 / 1.26 | 0.612 / 1.747 |
 | Z (Eq. 1) | 0.94 (cut-based 0.58) | 0.440 |
-| Z0 (profile likelihood) | — (counting / fit / CLs) | 0.428 (stat-only 0.443); toy 0.406 |
-| μ95 median | 3.50 exact Poisson (cut-based 5.07) | 8.08 exact Poisson; PL 6.64 (joint-workspace basis); toy 8.4 ± 1.1 (1.6σ from asymptotic, not validated) |
-| λWZ = −1 exclusion | 4.2σ, rate-only, BR fixed to SM | 3.77σ (κZ-sign, R_BR included; convention-independent primary); 6.20σ in the κW-sign convention; toy 3.92σ |
-| lost-lepton QCD row | — | D49 option 4: 0.121 [0.003, 0.68]. At the upper end, Z0 0.31, μ95 10.9 |
+| Z0 (profile likelihood) | — (counting / fit / CLs) | 0.445 stand-alone (stat-only 0.458); joint workspace 0.456, toy 0.425 |
+| μ95 median | 3.50 exact Poisson (cut-based 5.07) | 8.08 exact Poisson; PL 6.58 stand-alone, 6.41 joint workspace; toy 7.12 ± 0.30 (+2.4σ_fit above asymptotic; asymptotic likely low by 10–25 %, not validated) |
+| λWZ = −1 exclusion | 4.2σ, rate-only, BR fixed to SM | 3.77σ (κZ-sign, R_BR included; convention-independent primary); 6.20σ in the κW-sign convention; median-q toy 3.92σ (SM pseudo-data); λ=−1 thrown toys follow χ²₁ to p ≈ 0.001, the 3.8σ tail itself is not toy-resolved |
+| lost-lepton QCD row | — | D49 option 4: 0.121 [0.003, 0.68] in the m_γγ window (PL template normalised to it after the final-review fix R4). At the upper end, Z0 0.379, μ95 7.82; λ=−1 unchanged (3.77σ) |
 
 **multi_r1 only, VH combination at 500 fb⁻¹, def (a):**
 
 | channel | Z0 | μ95 median |
 |---|---|---|
-| WH | 0.438 | 6.64 |
+| WH | 0.456 | 6.41 |
 | ZH (corrected) | 0.131 | 32.3 |
-| VH | 0.457 | 6.20 (±1σ band 4.00–9.97) |
+| VH | 0.473 | 6.01 (±1σ band 3.87–9.66) |
 
-- Toys: VH Z0 0.406 (asymptotic 12.6 % higher), μ95 6.41 ± 0.35 (fit error understated: seeds reused across μ points).
+- Toys: VH Z0 0.461, μ95 6.82 ± 0.58 (fit error understated: seeds reused across μ points).
 - λ = −1 for VH: 3.78σ (κZ-sign), 6.24σ (κW-sign).
-- Def (b): VH Z0 0.54, μ95 5.19.
-- At 3000 fb⁻¹: VH Z0 1.05, μ95 2.17.
+- Def (b): VH Z0 0.56, μ95 5.03.
+- At 3000 fb⁻¹: VH Z0 1.10, μ95 2.06.
 - Channel compatibility: the SM Asimov point has p = 1 by construction. Expected sensitivity is p = 0.03 at (μ_WH, μ_ZH) = (1, 32) at 500 fb⁻¹.
 
 **Reading:**
@@ -237,7 +237,7 @@ Written by the multi_r1 orchestrator on 2026-11-16 under D48 (G4 (b), (c)).
    - **leakage between pipeline stages:** m_γγ rebuilt from BDT inputs; a lepton-contaminated j→γ rate table used to size top-ups;
    - **scope expansion before a gate:** HH pilots counted toward production.
    - All were caught by the reviewer or verifier, not by a human. They cost reruns (the contaminated-rate top-ups were kept but re-justified) and extra rounds: 05a HOLD → v2, 05 MVA HOLD, G3 HOLD → relabel.
-3. **Single-arm residuals (single_r1):** the same physics weak points (non-prompt photon calibration, e→γ closure, BDT stability) are present and *flagged* by its self-review but not fixed. With no independent check, nothing forces a fix. Its headline Z (0.94, BDT) is about 2× the multi_r1 WH Z (0.44, Eq. 1). This is consistent with the open S1-9/S1-10 items, but it is not proven by them.
+3. **Single-arm residuals (single_r1):** the same physics weak points (non-prompt photon calibration, e→γ closure, BDT stability) are present and *flagged* by its self-review but not fixed. With no independent check, nothing forces a fix. Its headline Z (0.94, BDT) is about 2× the multi_r1 WH Z (0.44 Eq. 1; PL 0.445). This is consistent with the open S1-9/S1-10 items, but it is not proven by them.
 4. **Remaining human load in multi_r1 is decisions, not corrections.**
    - The agents raised about 50 D-items.
    - The human answered about 10 with non-default choices: H1 fake-factor nominal, A1 stop HH, A2, D29/D30, D42, D46, D49, D50.
@@ -265,8 +265,14 @@ Final-round verifier sev-1 catches:
 | workspace | 5 |
 | toys | 4 |
 | paper | ≥ 4 |
+| R2 recheck (workspace/toys: stale VH headline; production and paper: D49 option 4 not shown) | 3 |
+| final-package review (opus): LLQ PL template normalised over 100–180 GeV, not to the D49 window yield (≈2.1 Y0 in the window; upper end ≈2.1× too high) | 1 |
 
 None reached a human as a correction.
+
+The final-review catch is the clearest example of the gate structure working. Three haiku verifier passes had checked every number against its source key, and all of them passed this inconsistency. It was a mismatch between the decision's definition (a window yield) and how the code implemented the template. Only the opus physics review caught it.
+
+It changed the WH stand-alone headline from 0.428 / 6.81 to 0.445 / 6.58, and the D49 upper end from 0.309 / 10.9 to 0.379 / 7.82.
 
 ## 4. Totals and compute
 - **Condor core-h since 2026-11-03** (`g4/condor_core_hours.json`; lower bounds, history retention):

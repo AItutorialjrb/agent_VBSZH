@@ -47,6 +47,15 @@ bkgc = {c: np.array([sum(G[g][0][i] for g in G if CLS[g] == c) for i in range(4)
 chW = dict(name="WH", co=co_wh+co_zhwh, bkgc=bkgc, err=np.sqrt(np.array([sum(G[g][1][i]**2 for g in G) for i in range(4)])), sigma=sg_)
 chZ = dict(name="ZH", co=co_z, bkgc={"zh_bkg": zb}, err=zerr, sigma={"zh_bkg": max(zsig_rel, 0.05)})
 KZ = -1.0 if KZNEG else 1.0
+if "--toys-lam1" in sys.argv:   # R4/F2: toys THROWN AT lambda = -1 (nuisances N(0,1), Poisson counts): q(lambda=-1) vs the best fit should follow chi2(1 dof); tests the q -> p conversion in the tail
+    NT = int(sys.argv[sys.argv.index("--toys-lam1")+1]); SD = int(sys.argv[sys.argv.index("--seed")+1]); rng = np.random.default_rng(SD); gl = np.arange(-2.0, 3.01, 0.5); out = {}
+    for lab, use in (("WH", ("WH",)), ("ZH", ("ZH",)), ("VH", ("WH", "ZH"))):
+        f = VHFit([chW, chZ], use); qs = []
+        for i in range(NT):
+            th = rng.normal(size=f.npar()); d = rng.poisson(np.maximum(f.mu(th, -1.0*KZ, KZ), 1e-9)).astype(float); n1 = f.prof(d, -1.0*KZ, KZ)
+            nb = min([f.prof(d, 1.0, 1.0)]+[f.prof(d, l*KZ, KZ) for l in gl]+[n1]); qs.append(max(n1-nb, 0.0))
+        out[lab] = qs
+    json.dump(dict(convention=("kZ-sign" if KZNEG else "kW-sign"), lumi=LUM, seed=SD, ntoys=NT, q_true_lambda_m1=out), open(f"{WH}/work/toys/vhcoup_lam1_toys{TAG}_s{SD}.json", "w")); sys.exit(0)
 if "--toys" in sys.argv:   # A4: toy validation of the lambda = -1 exclusion: q(lambda=-1) of pseudo-data thrown at the SM (all constrained nuisances thrown N(0,1), Poisson counts); base = minimum of the profile over the SM point and the lambda grid
     NT = int(sys.argv[sys.argv.index("--toys")+1]); SD = int(sys.argv[sys.argv.index("--seed")+1]); rng = np.random.default_rng(SD); gl = np.arange(-2.0, 3.01, 0.5); out = {}
     for lab, use in (("WH", ("WH",)), ("ZH", ("ZH",)), ("VH", ("WH", "ZH"))):

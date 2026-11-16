@@ -1,4 +1,4 @@
 """Reads config/lostlep_qcd.json (the single input of the QCD lost-lepton estimate)."""
 import json, os
 _p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "config", "lostlep_qcd.json"); CFG = json.load(open(_p)) if os.path.exists(_p) else {"sample": "F_QCD_llajj_loose", "use_vbs_x_C": False}
-LLQ = CFG["sample"]; USE_VBS = bool(CFG.get("use_vbs_x_C", False))
+LLQ = CFG["sample"]; USE_VBS = bool(CFG.get("use_vbs_x_C", False)); LL_WIN = CFG.get("window_yield", 0.12122709932707053)   # D49 option (4): the nominal window yield of the QCD lost-lepton part (events at 500 fb-1, |m_gg-125|<3.5)

@@ -940,12 +940,12 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.standalone.500.Z0": {
-  "value": 0.4280088905321857,
+  "value": 0.44511059687467436,
   "source": "p2/runs/multi_r1/wh/work/stat/pl_500_a_v12.json::full_syst_BB/Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.standalone.500.mu95": {
-  "value": 6.814033710949154,
+  "value": 6.579626037364214,
   "source": "p2/runs/multi_r1/wh/work/stat/pl_500_a_v12.json::full_syst_BB/mu95_exp/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
@@ -1000,23 +1000,43 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.500.lower95.Z0": {
-  "value": 0.46028612098571275,
+  "value": 0.46074085752543564,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/0/Z0_PL",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.500.lower95.mu95": {
-  "value": 6.416700023247395,
+  "value": 6.412311900957053,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/0/mu95_exp/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.500.lower95.mu95m": {
-  "value": 4.097679777366467,
+  "value": 4.09461272125596,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/0/mu95_exp/0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.500.lower95.mu95p": {
-  "value": 10.433027795782477,
+  "value": 10.427016495379256,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/0/mu95_exp/2",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kz.500.lower95.WH": {
+  "value": 3.7659461033127295,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_ll0.0253_v12.json::curves/WH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kz.500.lower95.VH": {
+  "value": 3.7763737594796902,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_ll0.0253_v12.json::curves/VH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kw.500.lower95.WH": {
+  "value": 6.20437537899685,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_ll0.0253_v12.json::curves/WH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kw.500.lower95.VH": {
+  "value": 6.241615094520504,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_ll0.0253_v12.json::curves/VH/Z_lambda_m1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.500.central.Y": {
@@ -1025,23 +1045,43 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.500.central.Z0": {
-  "value": 0.4280088921146046,
+  "value": 0.4451105970352331,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/1/Z0_PL",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.500.central.mu95": {
-  "value": 6.814033710177708,
+  "value": 6.579626043529855,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/1/mu95_exp/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.500.central.mu95m": {
-  "value": 4.3651125693552615,
+  "value": 4.213533789173086,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/1/mu95_exp/0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.500.central.mu95p": {
-  "value": 11.062910324347666,
+  "value": 10.674778271265914,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/1/mu95_exp/2",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kz.500.central.WH": {
+  "value": 3.7659288078747792,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_v12.json::curves/WH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kz.500.central.VH": {
+  "value": 3.7763564185841205,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_v12.json::curves/VH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kw.500.central.WH": {
+  "value": 6.20360584965263,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_v12.json::curves/WH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kw.500.central.VH": {
+  "value": 6.2408537888468505,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_v12.json::curves/VH/Z_lambda_m1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.500.upper95.Y": {
@@ -1050,23 +1090,43 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.500.upper95.Z0": {
-  "value": 0.30903440015360467,
+  "value": 0.37903096067651343,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/2/Z0_PL",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.500.upper95.mu95": {
-  "value": 10.905358650671243,
+  "value": 7.824023355939405,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/2/mu95_exp/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.500.upper95.mu95m": {
-  "value": 6.514792920676219,
+  "value": 4.963731230376157,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/2/mu95_exp/0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.500.upper95.mu95p": {
-  "value": 21.539337123579255,
+  "value": 12.989402545071279,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_500_v12.json::rows/2/mu95_exp/2",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kz.500.upper95.WH": {
+  "value": 3.765884820521175,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_ll5.57_v12.json::curves/WH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kz.500.upper95.VH": {
+  "value": 3.776312346790944,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_ll5.57_v12.json::curves/VH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kw.500.upper95.WH": {
+  "value": 6.201976222509512,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_ll5.57_v12.json::curves/WH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kw.500.upper95.VH": {
+  "value": 6.239242182259952,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_ll5.57_v12.json::curves/VH/Z_lambda_m1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.1000.lower95.Y": {
@@ -1075,23 +1135,43 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.1000.lower95.Z0": {
-  "value": 0.641944573127989,
+  "value": 0.6425810510382695,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/0/Z0_PL",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.1000.lower95.mu95": {
-  "value": 4.086006203565768,
+  "value": 4.083044390538731,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/0/mu95_exp/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.1000.lower95.mu95m": {
-  "value": 2.67798542705734,
+  "value": 2.6756717464363597,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/0/mu95_exp/0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.1000.lower95.mu95p": {
-  "value": 6.458614196291008,
+  "value": 6.454261890703882,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/0/mu95_exp/2",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kz.1000.lower95.WH": {
+  "value": 5.282184348117417,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_L1000_ll0.0253_v12.json::curves/WH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kz.1000.lower95.VH": {
+  "value": 5.296072745738364,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_L1000_ll0.0253_v12.json::curves/VH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kw.1000.lower95.WH": {
+  "value": 8.606095710626107,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L1000_ll0.0253_v12.json::curves/WH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kw.1000.lower95.VH": {
+  "value": 8.653332547514466,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L1000_ll0.0253_v12.json::curves/VH/Z_lambda_m1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.1000.central.Y": {
@@ -1100,23 +1180,43 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.1000.central.Z0": {
-  "value": 0.5943142861396655,
+  "value": 0.6201195959459972,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/1/Z0_PL",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.1000.central.mu95": {
-  "value": 4.396353922696063,
+  "value": 4.21110872272384,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/1/mu95_exp/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.1000.central.mu95m": {
-  "value": 2.883340314813912,
+  "value": 2.762629051620524,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/1/mu95_exp/0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.1000.central.mu95p": {
-  "value": 6.9446839066937365,
+  "value": 6.638010170892523,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/1/mu95_exp/2",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kz.1000.central.WH": {
+  "value": 5.282120189029925,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_L1000_v12.json::curves/WH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kz.1000.central.VH": {
+  "value": 5.296008329337811,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_L1000_v12.json::curves/VH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kw.1000.central.WH": {
+  "value": 8.605264781748625,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L1000_v12.json::curves/WH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kw.1000.central.VH": {
+  "value": 8.652515019322063,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L1000_v12.json::curves/VH/Z_lambda_m1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.1000.upper95.Y": {
@@ -1125,23 +1225,43 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.1000.upper95.Z0": {
-  "value": 0.3996395294617614,
+  "value": 0.5154469826968955,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/2/Z0_PL",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.1000.upper95.mu95": {
-  "value": 8.323369687688905,
+  "value": 5.273238924017954,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/2/mu95_exp/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.1000.upper95.mu95m": {
-  "value": 4.915769180115456,
+  "value": 3.4042082272162895,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/2/mu95_exp/0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.1000.upper95.mu95p": {
-  "value": 17.212164454058655,
+  "value": 8.61610526560545,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_1000_v12.json::rows/2/mu95_exp/2",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kz.1000.upper95.WH": {
+  "value": 5.281927806008748,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_L1000_ll5.57_v12.json::curves/WH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kz.1000.upper95.VH": {
+  "value": 5.295815483715943,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_L1000_ll5.57_v12.json::curves/VH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kw.1000.upper95.WH": {
+  "value": 8.603678706936751,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L1000_ll5.57_v12.json::curves/WH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kw.1000.upper95.VH": {
+  "value": 8.650956564669132,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L1000_ll5.57_v12.json::curves/VH/Z_lambda_m1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.3000.lower95.Y": {
@@ -1150,23 +1270,43 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.3000.lower95.Z0": {
-  "value": 1.0777062689844277,
+  "value": 1.0787313098829985,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/0/Z0_PL",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.3000.lower95.mu95": {
-  "value": 2.137693942128273,
+  "value": 2.135893206053748,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/0/mu95_exp/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.3000.lower95.mu95m": {
-  "value": 1.4426735392252648,
+  "value": 1.4413589692261894,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/0/mu95_exp/0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.3000.lower95.mu95p": {
-  "value": 3.258817602612971,
+  "value": 3.256207010845848,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/0/mu95_exp/2",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kz.3000.lower95.WH": {
+  "value": 8.859486674727709,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_L3000_ll0.0253_v12.json::curves/WH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kz.3000.lower95.VH": {
+  "value": 8.878291617815597,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_L3000_ll0.0253_v12.json::curves/VH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kw.3000.lower95.WH": {
+  "value": 13.975321098735211,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L3000_ll0.0253_v12.json::curves/WH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kw.3000.lower95.VH": {
+  "value": 14.040539885850325,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L3000_ll0.0253_v12.json::curves/VH/Z_lambda_m1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.3000.central.Y": {
@@ -1175,23 +1315,43 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.3000.central.Z0": {
-  "value": 0.9833700910703965,
+  "value": 1.0382708357528794,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/1/Z0_PL",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.3000.central.mu95": {
-  "value": 2.364307696552655,
+  "value": 2.219298649818114,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/1/mu95_exp/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.3000.central.mu95m": {
-  "value": 1.5919632479464993,
+  "value": 1.4982305116526087,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/1/mu95_exp/0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.3000.central.mu95p": {
-  "value": 3.622856155982636,
+  "value": 3.3808488949218214,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/1/mu95_exp/2",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kz.3000.central.WH": {
+  "value": 8.858585736792955,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_L3000_v12.json::curves/WH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kz.3000.central.VH": {
+  "value": 8.877387571796607,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_L3000_v12.json::curves/VH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kw.3000.central.WH": {
+  "value": 13.975077746481174,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L3000_v12.json::curves/WH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kw.3000.central.VH": {
+  "value": 14.040301218902012,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L3000_v12.json::curves/VH/Z_lambda_m1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.3000.upper95.Y": {
@@ -1200,23 +1360,43 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.3000.upper95.Z0": {
-  "value": 0.5443159914664965,
+  "value": 0.7960522886653573,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/2/Z0_PL",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.3000.upper95.mu95": {
-  "value": 6.453965501875256,
+  "value": 3.1911742772213687,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/2/mu95_exp/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.3000.upper95.mu95m": {
-  "value": 3.692369627979399,
+  "value": 2.080587148821075,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/2/mu95_exp/0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "d49.ll4.3000.upper95.mu95p": {
-  "value": 14.242165192531461,
+  "value": 5.195223977053858,
   "source": "p2/runs/multi_r1/wh/work/stat/ll4_3000_v12.json::rows/2/mu95_exp/2",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kz.3000.upper95.WH": {
+  "value": 8.856276490954178,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_L3000_ll5.57_v12.json::curves/WH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kz.3000.upper95.VH": {
+  "value": 8.87507474114498,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_kzneg_L3000_ll5.57_v12.json::curves/VH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kw.3000.upper95.WH": {
+  "value": 13.9750502534084,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L3000_ll5.57_v12.json::curves/WH/Z_lambda_m1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "d49.lam.kw.3000.upper95.VH": {
+  "value": 14.0402770524703,
+  "source": "p2/runs/multi_r1/wh/work/stat/couplings_vh_L3000_ll5.57_v12.json::curves/VH/Z_lambda_m1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.comp.signal.Y": {
@@ -1410,12 +1590,12 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "res.WH.a.500.Z0": {
-  "value": 0.43812489240194924,
+  "value": 0.4555390792224998,
   "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_500_a_wh_v12.json::Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "res.WH.a.500.mu95": {
-  "value": 6.637476908546192,
+  "value": 6.414475510213668,
   "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_500_a_wh_v12.json::mu95/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
@@ -1430,12 +1610,12 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "res.VH.a.500.Z0": {
-  "value": 0.45668594170961885,
+  "value": 0.47337542697213447,
   "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_500_a_both_v12.json::Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "res.VH.a.500.mu95": {
-  "value": 6.197180149342542,
+  "value": 6.005150397146548,
   "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_500_a_both_v12.json::mu95/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
@@ -1450,12 +1630,12 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "res.WH.a.1000.Z0": {
-  "value": 0.608402937076771,
+  "value": 0.6346705950753612,
   "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_1000_a_wh_v12.json::Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "res.WH.a.1000.mu95": {
-  "value": 4.282830213994578,
+  "value": 4.103118361704927,
   "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_1000_a_wh_v12.json::mu95/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
@@ -1470,12 +1650,12 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "res.VH.a.1000.Z0": {
-  "value": 0.6344953274524123,
+  "value": 0.6595705457981452,
   "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_1000_a_both_v12.json::Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "res.VH.a.1000.mu95": {
-  "value": 4.021824355137524,
+  "value": 3.869625571595383,
   "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_1000_a_both_v12.json::mu95/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
@@ -1490,12 +1670,12 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "res.WH.a.3000.Z0": {
-  "value": 1.0069714825918172,
+  "value": 1.0628146630856767,
   "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_3000_a_wh_v12.json::Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "res.WH.a.3000.mu95": {
-  "value": 2.3025431383823385,
+  "value": 2.1629552674528054,
   "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_3000_a_wh_v12.json::mu95/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
@@ -1510,12 +1690,12 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "res.VH.a.3000.Z0": {
-  "value": 1.051317146405386,
+  "value": 1.1044735683741176,
   "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_3000_a_both_v12.json::Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "res.VH.a.3000.mu95": {
-  "value": 2.1731181850040806,
+  "value": 2.0551311863271895,
   "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_3000_a_both_v12.json::mu95/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
@@ -1530,12 +1710,12 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "res.WH.b.500.Z0": {
-  "value": 0.4992575617870167,
+  "value": 0.5196676146727229,
   "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_500_b_wh_v12.json::Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "res.WH.b.500.mu95": {
-  "value": 5.811593548243425,
+  "value": 5.611989752573714,
   "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_500_b_wh_v12.json::mu95/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
@@ -1550,12 +1730,12 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "res.VH.b.500.Z0": {
-  "value": 0.5406144573574407,
+  "value": 0.5593994561840054,
   "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_500_b_both_v12.json::Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "res.VH.b.500.mu95": {
-  "value": 5.18505097250889,
+  "value": 5.033678943557388,
   "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_500_b_both_v12.json::mu95/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
@@ -1570,12 +1750,12 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "res.WH.b.1000.Z0": {
-  "value": 0.6932033644102259,
+  "value": 0.7238754133405305,
   "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_1000_b_wh_v12.json::Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "res.WH.b.1000.mu95": {
-  "value": 3.7387913681388207,
+  "value": 3.5808783647002915,
   "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_1000_b_wh_v12.json::mu95/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
@@ -1590,12 +1770,12 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "res.VH.b.1000.Z0": {
-  "value": 0.7515307776328446,
+  "value": 0.7796400161738801,
   "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_1000_b_both_v12.json::Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "res.VH.b.1000.mu95": {
-  "value": 3.355357947256233,
+  "value": 3.2353182876994087,
   "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_1000_b_both_v12.json::mu95/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
@@ -1610,12 +1790,12 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "res.WH.b.3000.Z0": {
-  "value": 1.147768342988423,
+  "value": 1.2123493323472594,
   "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_3000_b_wh_v12.json::Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "res.WH.b.3000.mu95": {
-  "value": 2.001692391419152,
+  "value": 1.8788334187871143,
   "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_3000_b_wh_v12.json::mu95/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
@@ -1630,12 +1810,12 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "res.VH.b.3000.Z0": {
-  "value": 1.2472693676155122,
+  "value": 1.3061621832399353,
   "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_3000_b_both_v12.json::Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "res.VH.b.3000.mu95": {
-  "value": 1.8031735144585377,
+  "value": 1.7112726777209495,
   "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_3000_b_both_v12.json::mu95/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
@@ -1680,222 +1860,222 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.0.Z0": {
-  "value": 0.4280088905321857,
+  "value": 0.4451105970352331,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/0/Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.0.mu95": {
-  "value": 6.814033710949154,
+  "value": 6.579626043529855,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/0/mu95",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.1.Z0": {
-  "value": 0.42812728238507963,
+  "value": 0.44524676992673184,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/1/Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.1.mu95": {
-  "value": 6.803958220079659,
+  "value": 6.569916631102776,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/1/mu95",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.2.Z0": {
-  "value": 0.428310575705729,
+  "value": 0.44545704367588224,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/2/Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.2.mu95": {
-  "value": 6.787907410524765,
+  "value": 6.554453098450313,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/2/mu95",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.3.Z0": {
-  "value": 0.4280273867977045,
+  "value": 0.44513183693826575,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/3/Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.3.mu95": {
-  "value": 6.812443632498985,
+  "value": 6.578091523956818,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/3/mu95",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.4.Z0": {
-  "value": 0.4285230910201588,
+  "value": 0.4457824727313777,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/4/Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.4.mu95": {
-  "value": 6.811581837392586,
+  "value": 6.576728921094113,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/4/mu95",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.5.Z0": {
-  "value": 0.42800889065591385,
+  "value": 0.4451105967638014,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/5/Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.5.mu95": {
-  "value": 6.75063553383828,
+  "value": 6.520198000295484,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/5/mu95",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.6.Z0": {
-  "value": 0.42800889065591385,
+  "value": 0.4451105967638014,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/6/Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.6.mu95": {
-  "value": 6.8131146067412525,
+  "value": 6.578760983179254,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/6/mu95",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.7.Z0": {
-  "value": 0.4285710906851874,
+  "value": 0.44589368056852,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/7/Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.7.mu95": {
-  "value": 6.811696713038942,
+  "value": 6.576656959966812,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/7/mu95",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.8.Z0": {
-  "value": 0.4280963934734137,
+  "value": 0.4452280402821058,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/8/Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.8.mu95": {
-  "value": 6.81355512964548,
+  "value": 6.579045874991541,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/8/mu95",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.9.Z0": {
-  "value": 0.42806332488604076,
+  "value": 0.44512745532303155,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/9/Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.9.mu95": {
-  "value": 6.813798532189192,
+  "value": 6.5795585632713305,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/9/mu95",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.10.Z0": {
-  "value": 0.4280088905321857,
+  "value": 0.4451105970352331,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/10/Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.10.mu95": {
-  "value": 6.814033710949154,
+  "value": 6.579626043529855,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/10/mu95",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.11.Z0": {
-  "value": 0.43519052198106534,
+  "value": 0.4511484399046534,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/11/Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.11.mu95": {
-  "value": 6.772529993321968,
+  "value": 6.548561013206517,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/11/mu95",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.12.Z0": {
-  "value": 0.4280088905321857,
+  "value": 0.4451105970352331,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/12/Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.12.mu95": {
-  "value": 6.814033710949154,
+  "value": 6.579626043529855,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/12/mu95",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.13.Z0": {
-  "value": 0.4280109453356467,
+  "value": 0.44511344353556304,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/13/Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.13.mu95": {
-  "value": 6.814022800586568,
+  "value": 6.579612221696525,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/13/mu95",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.14.Z0": {
-  "value": 0.4280088905321857,
+  "value": 0.4451105970352331,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/14/Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.14.mu95": {
-  "value": 6.814033710949154,
+  "value": 6.579626043529855,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/14/mu95",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.15.Z0": {
-  "value": 0.4280100188368237,
+  "value": 0.4451122557702719,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/15/Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.15.mu95": {
-  "value": 6.814029093925226,
+  "value": 6.579619640019779,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/15/mu95",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.16.Z0": {
-  "value": 0.42800889327406005,
+  "value": 0.4451105970779269,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/16/Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.16.mu95": {
-  "value": 6.814018762936164,
+  "value": 6.579601974215877,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/16/mu95",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.17.Z0": {
-  "value": 0.4280089861845801,
+  "value": 0.44511073585228184,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/17/Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.17.mu95": {
-  "value": 6.814033225136725,
+  "value": 6.579625378648839,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/17/mu95",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.18.Z0": {
-  "value": 0.42801660623826876,
+  "value": 0.44512089728294035,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/18/Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.18.mu95": {
-  "value": 6.81399092903299,
+  "value": 6.579574548281888,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/18/mu95",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.19.Z0": {
-  "value": 0.42801412086318874,
+  "value": 0.44511757236114136,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/19/Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.19.mu95": {
-  "value": 6.81400424537831,
+  "value": 6.579590532707214,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/19/mu95",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.20.Z0": {
-  "value": 0.4280088918223418,
+  "value": 0.4451105968137106,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/20/Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.20.mu95": {
-  "value": 6.813972929651191,
+  "value": 6.579564127221484,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/20/mu95",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.21.Z0": {
-  "value": 0.4280088918223418,
+  "value": 0.4451105968137106,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/21/Z0",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.rank.21.mu95": {
-  "value": 6.806489982041662,
+  "value": 6.572833440666231,
   "source": "p2/runs/multi_r1/wh/work/stat/rank_v12.json::rows/21/mu95",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
@@ -1975,162 +2155,162 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.fake.0.3.Z0": {
-  "value": 0.4302280654570818,
+  "value": 0.4476084947512905,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/0/Z0_PL",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.fake.0.3.mu95": {
-  "value": 6.790766599263286,
+  "value": 6.5556564419162155,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/0/mu95_exp/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.fake.0.5.Z0": {
-  "value": 0.4295981829553374,
+  "value": 0.44689610728093554,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/1/Z0_PL",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.fake.0.5.mu95": {
-  "value": 6.797363380187007,
+  "value": 6.562449465707665,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/1/mu95_exp/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.fake.1.0.Z0": {
-  "value": 0.4280088905321857,
+  "value": 0.4451105970352331,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/2/Z0_PL",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.fake.1.0.mu95": {
-  "value": 6.814033710949154,
+  "value": 6.579626043529855,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/2/mu95_exp/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.fake.2.0.Z0": {
-  "value": 0.42477026852276867,
+  "value": 0.44147408729810605,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/3/Z0_PL",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.fake.2.0.mu95": {
-  "value": 6.848161374233338,
+  "value": 6.614760406583065,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/3/mu95_exp/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.fake.3.0.Z0": {
-  "value": 0.421455414800628,
+  "value": 0.4377543267776731,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/4/Z0_PL",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.fake.3.0.mu95": {
-  "value": 6.883291485109289,
+  "value": 6.651270469877261,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/4/mu95_exp/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.fake.10.0.Z0": {
-  "value": 0.3963705627676521,
+  "value": 0.4096873428352189,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/5/Z0_PL",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.fake.10.0.mu95": {
-  "value": 7.172555379966162,
+  "value": 6.957098278801553,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/5/mu95_exp/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.fake.30.0.Z0": {
-  "value": 0.32261063238034743,
+  "value": 0.32951272660799136,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/6/Z0_PL",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.fake.30.0.mu95": {
-  "value": 8.28611224964951,
+  "value": 8.118028234747465,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/6/mu95_exp/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.fake.100.0.Z0": {
-  "value": 0.17420849092007223,
+  "value": 0.175230582961256,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/7/Z0_PL",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.fake.100.0.mu95": {
-  "value": 13.576186812468707,
+  "value": 13.497417221425925,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_fake_500_v12.json::scan/7/mu95_exp/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.npl.0.3.Z0": {
-  "value": 0.42931316737253644,
+  "value": 0.4465731560780407,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/0/Z0_PL",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.npl.0.3.mu95": {
-  "value": 6.799665378503574,
+  "value": 6.564832419934104,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/0/mu95_exp/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.npl.0.5.Z0": {
-  "value": 0.4289406841726185,
+  "value": 0.446155667704653,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/1/Z0_PL",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.npl.0.5.mu95": {
-  "value": 6.803774347427727,
+  "value": 6.56906133008939,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/1/mu95_exp/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.npl.1.0.Z0": {
-  "value": 0.4280088905321857,
+  "value": 0.4451105970352331,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/2/Z0_PL",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.npl.1.0.mu95": {
-  "value": 6.814033710949154,
+  "value": 6.579626043529855,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/2/mu95_exp/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.npl.2.0.Z0": {
-  "value": 0.42614289424141516,
+  "value": 0.4430149187048437,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/3/Z0_PL",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.npl.2.0.mu95": {
-  "value": 6.8344958858770095,
+  "value": 6.600699673128831,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/3/mu95_exp/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.npl.3.0.Z0": {
-  "value": 0.4242740411120661,
+  "value": 0.44091263459231184,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/4/Z0_PL",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.npl.3.0.mu95": {
-  "value": 6.8548894177075965,
+  "value": 6.621707099296577,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/4/mu95_exp/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.npl.10.0.Z0": {
-  "value": 0.4112000510081741,
+  "value": 0.42615866119503,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/5/Z0_PL",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.npl.10.0.mu95": {
-  "value": 6.9974678949406846,
+  "value": 6.779429277008556,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/5/mu95_exp/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.npl.30.0.Z0": {
-  "value": 0.37710298254856933,
+  "value": 0.38819491017733154,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/6/Z0_PL",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.npl.30.0.mu95": {
-  "value": 7.413614353138756,
+  "value": 7.2157847415452805,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/6/mu95_exp/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.npl.100.0.Z0": {
-  "value": 0.3036664828252174,
+  "value": 0.3094726948475857,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/7/Z0_PL",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "wh.d36.npl.100.0.mu95": {
-  "value": 8.657241038139238,
+  "value": 8.497963000783061,
   "source": "p2/runs/multi_r1/wh/work/stat/d36_npl_500_v12.json::scan/7/mu95_exp/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
@@ -2923,12 +3103,12 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "cmp.wh140.mu95_pl": {
-  "value": 16.3858765811539,
+  "value": 16.01081384226961,
   "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_140_a_wh_v12.json::mu95/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "cmp.vh140.mu95_pl": {
-  "value": 15.065270872737107,
+  "value": 14.763058717607224,
   "source": "p2/runs/multi_r1/wh/work/stat/vh_z0mu_140_a_both_v12.json::mu95/1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
@@ -2953,25 +3133,25 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.q0.WH.Z0_asimov": {
-  "value": 0.43812489240194924,
+  "value": 0.4555390792224998,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/WH/Z0_asimov",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.q0.WH.Z0_toy_median": {
-  "value": 0.4056497076989145,
+  "value": 0.4247759655300155,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/WH/Z0_toy_median",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.q0.WH.Z0_toy_range": {
   "value": [
-   0.37857969874529823,
-   0.4357749779926946
+   0.38127392479528904,
+   0.4718974335952135
   ],
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/WH/Z0_toy_range",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.q0.WH.p_mid_at_median": {
-  "value": 0.3425,
+  "value": 0.3355,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/WH/p_mid_at_median",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
@@ -2986,22 +3166,22 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.q0.WH.frac_q0_exact_zero_sb": {
-  "value": 0.139,
+  "value": 0.154,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/WH/frac_q0_exact_zero_sb",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.q0.WH.frac_q0_lt_1em6_sb": {
-  "value": 0.293,
+  "value": 0.265,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/WH/frac_q0_lt_1em6_sb",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.q0.WH.frac_q0_exact_zero_null": {
-  "value": 0.192,
+  "value": 0.208,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/WH/frac_q0_exact_zero_null",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.q0.WH.frac_q0_lt_1em6_null": {
-  "value": 0.408,
+  "value": 0.373,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/WH/frac_q0_lt_1em6_null",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
@@ -3024,7 +3204,7 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.q0.ZH.p_mid_at_median": {
-  "value": 0.6772499999999999,
+  "value": 0.677,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/ZH/p_mid_at_median",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
@@ -3039,7 +3219,7 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.q0.ZH.frac_q0_exact_zero_sb": {
-  "value": 0.312,
+  "value": 0.311,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/ZH/frac_q0_exact_zero_sb",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
@@ -3049,35 +3229,35 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.q0.ZH.frac_q0_exact_zero_null": {
-  "value": 0.3115,
+  "value": 0.311,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/ZH/frac_q0_exact_zero_null",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.q0.ZH.frac_q0_lt_1em6_null": {
-  "value": 0.643,
+  "value": 0.6435,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/ZH/frac_q0_lt_1em6_null",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.q0.VH.Z0_asimov": {
-  "value": 0.45668594170961885,
+  "value": 0.47337542697213447,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/VH/Z0_asimov",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.q0.VH.Z0_toy_median": {
-  "value": 0.4056497076989145,
+  "value": 0.4607193088903253,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/VH/Z0_toy_median",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.q0.VH.Z0_toy_range": {
   "value": [
-   0.36648929388943374,
-   0.44129423383055216
+   0.4330203305877187,
+   0.5029491838950579
   ],
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/VH/Z0_toy_range",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.q0.VH.p_mid_at_median": {
-  "value": 0.3425,
+  "value": 0.3225,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/VH/p_mid_at_median",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
@@ -3092,37 +3272,37 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.q0.VH.frac_q0_exact_zero_sb": {
-  "value": 0.1245,
+  "value": 0.117,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/VH/frac_q0_exact_zero_sb",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.q0.VH.frac_q0_lt_1em6_sb": {
-  "value": 0.297,
+  "value": 0.239,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/VH/frac_q0_lt_1em6_sb",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.q0.VH.frac_q0_exact_zero_null": {
-  "value": 0.182,
+  "value": 0.1655,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/VH/frac_q0_exact_zero_null",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.q0.VH.frac_q0_lt_1em6_null": {
-  "value": 0.3945,
+  "value": 0.3315,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::q0/VH/frac_q0_lt_1em6_null",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.mu95.WH.asym": {
-  "value": 6.637476908546192,
+  "value": 6.414475510213668,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::mu95/WH/mu95_asymptotic",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.mu95.WH.fit": {
-  "value": 8.375460338550852,
+  "value": 7.123968970798107,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::mu95/WH/mu95_toy_fit",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.mu95.WH.fit_err": {
-  "value": 1.1061808894318563,
+  "value": 0.30082132321577487,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::mu95/WH/mu95_toy_fit_err",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
@@ -3132,27 +3312,27 @@
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.mu95.ZH.fit": {
-  "value": 34.28721428778403,
+  "value": 33.51032158294204,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::mu95/ZH/mu95_toy_fit",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.mu95.ZH.fit_err": {
-  "value": 1.9289985462692012,
+  "value": 1.8382784837440884,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::mu95/ZH/mu95_toy_fit_err",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.mu95.VH.asym": {
-  "value": 6.197180149342542,
+  "value": 6.005150397146548,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::mu95/VH/mu95_asymptotic",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.mu95.VH.fit": {
-  "value": 6.406619574051193,
+  "value": 6.819201081573426,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::mu95/VH/mu95_toy_fit",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "toys.mu95.VH.fit_err": {
-  "value": 0.3471661432461804,
+  "value": 0.5759235876966453,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::mu95/VH/mu95_toy_fit_err",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
@@ -3334,6 +3514,306 @@
  "toys.lam.kW-sign:VH.plateau": {
   "value": false,
   "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_m1/kW-sign:VH/plateau",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:WH.ntoys": {
+  "value": 5000,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:WH/ntoys",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:WH.q_mean": {
+  "value": 0.48659787765705015,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:WH/q_mean",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:WH.q_asimov": {
+  "value": 14.182219785981156,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:WH/q_asimov",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:WH.n_ge_qasimov": {
+  "value": 0,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:WH/n_ge_qasimov",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:WH.P3.84": {
+  "value": 0.047,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:WH/tail/3.84/toy",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:WH.chi2_3.84": {
+  "value": 0.05004352124870519,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:WH/tail/3.84/chi2_1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:WH.P6.63": {
+  "value": 0.0108,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:WH/tail/6.63/toy",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:WH.chi2_6.63": {
+  "value": 0.010027526446317957,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:WH/tail/6.63/chi2_1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:WH.P10.83": {
+  "value": 0.0012,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:WH/tail/10.83/toy",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:WH.chi2_10.83": {
+  "value": 0.0009986863791802592,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:WH/tail/10.83/chi2_1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:ZH.ntoys": {
+  "value": 5000,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:ZH/ntoys",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:ZH.q_mean": {
+  "value": 0.6796735144595228,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:ZH/q_mean",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:ZH.q_asimov": {
+  "value": 0.08388610727299194,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:ZH/q_asimov",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:ZH.n_ge_qasimov": {
+  "value": 4277,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:ZH/n_ge_qasimov",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:ZH.P3.84": {
+  "value": 0.0194,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:ZH/tail/3.84/toy",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:ZH.chi2_3.84": {
+  "value": 0.05004352124870519,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:ZH/tail/3.84/chi2_1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:ZH.P6.63": {
+  "value": 0.0032,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:ZH/tail/6.63/toy",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:ZH.chi2_6.63": {
+  "value": 0.010027526446317957,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:ZH/tail/6.63/chi2_1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:ZH.P10.83": {
+  "value": 0.0,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:ZH/tail/10.83/toy",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:ZH.chi2_10.83": {
+  "value": 0.0009986863791802592,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:ZH/tail/10.83/chi2_1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:VH.ntoys": {
+  "value": 5000,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:VH/ntoys",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:VH.q_mean": {
+  "value": 0.4378146100146348,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:VH/q_mean",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:VH.q_asimov": {
+  "value": 14.260867800181485,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:VH/q_asimov",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:VH.n_ge_qasimov": {
+  "value": 1,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:VH/n_ge_qasimov",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:VH.P3.84": {
+  "value": 0.039,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:VH/tail/3.84/toy",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:VH.chi2_3.84": {
+  "value": 0.05004352124870519,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:VH/tail/3.84/chi2_1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:VH.P6.63": {
+  "value": 0.013,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:VH/tail/6.63/toy",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:VH.chi2_6.63": {
+  "value": 0.010027526446317957,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:VH/tail/6.63/chi2_1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:VH.P10.83": {
+  "value": 0.0024,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:VH/tail/10.83/toy",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kZ-sign:VH.chi2_10.83": {
+  "value": 0.0009986863791802592,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kZ-sign:VH/tail/10.83/chi2_1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:WH.ntoys": {
+  "value": 5000,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:WH/ntoys",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:WH.q_mean": {
+  "value": 0.3663718520303391,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:WH/q_mean",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:WH.q_asimov": {
+  "value": 38.48472553784433,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:WH/q_asimov",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:WH.n_ge_qasimov": {
+  "value": 0,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:WH/n_ge_qasimov",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:WH.P3.84": {
+  "value": 0.034,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:WH/tail/3.84/toy",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:WH.chi2_3.84": {
+  "value": 0.05004352124870519,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:WH/tail/3.84/chi2_1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:WH.P6.63": {
+  "value": 0.0094,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:WH/tail/6.63/toy",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:WH.chi2_6.63": {
+  "value": 0.010027526446317957,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:WH/tail/6.63/chi2_1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:WH.P10.83": {
+  "value": 0.001,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:WH/tail/10.83/toy",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:WH.chi2_10.83": {
+  "value": 0.0009986863791802592,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:WH/tail/10.83/chi2_1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:ZH.ntoys": {
+  "value": 5000,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:ZH/ntoys",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:ZH.q_mean": {
+  "value": 0.9018653987633483,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:ZH/q_mean",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:ZH.q_asimov": {
+  "value": 0.5241604703808278,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:ZH/q_asimov",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:ZH.n_ge_qasimov": {
+  "value": 2305,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:ZH/n_ge_qasimov",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:ZH.P3.84": {
+  "value": 0.0212,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:ZH/tail/3.84/toy",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:ZH.chi2_3.84": {
+  "value": 0.05004352124870519,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:ZH/tail/3.84/chi2_1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:ZH.P6.63": {
+  "value": 0.0046,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:ZH/tail/6.63/toy",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:ZH.chi2_6.63": {
+  "value": 0.010027526446317957,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:ZH/tail/6.63/chi2_1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:ZH.P10.83": {
+  "value": 0.0006,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:ZH/tail/10.83/toy",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:ZH.chi2_10.83": {
+  "value": 0.0009986863791802592,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:ZH/tail/10.83/chi2_1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:VH.ntoys": {
+  "value": 5000,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:VH/ntoys",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:VH.q_mean": {
+  "value": 0.33703911803061193,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:VH/q_mean",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:VH.q_asimov": {
+  "value": 38.94825601376409,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:VH/q_asimov",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:VH.n_ge_qasimov": {
+  "value": 0,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:VH/n_ge_qasimov",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:VH.P3.84": {
+  "value": 0.032,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:VH/tail/3.84/toy",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:VH.chi2_3.84": {
+  "value": 0.05004352124870519,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:VH/tail/3.84/chi2_1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:VH.P6.63": {
+  "value": 0.0102,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:VH/tail/6.63/toy",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:VH.chi2_6.63": {
+  "value": 0.010027526446317957,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:VH/tail/6.63/chi2_1",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:VH.P10.83": {
+  "value": 0.0008,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:VH/tail/10.83/toy",
+  "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
+ },
+ "toys.lamtrue.kW-sign:VH.chi2_10.83": {
+  "value": 0.0009986863791802592,
+  "source": "p2/runs/multi_r1/wh/work/stat/toys_summary_v12.json::lambda_true_m1/kW-sign:VH/tail/10.83/chi2_1",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  },
  "limitations.count": {

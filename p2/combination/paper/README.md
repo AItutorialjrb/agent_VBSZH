@@ -13,8 +13,8 @@
 * **D49: QCD lost-lepton one-event estimate**: settled by D50 = option 4: yield 0.121 events, 95 % interval [0.0031, 0.675]; the D42 N_eff >= 10 rule is NOT met for that part; upper end in Table T4c; the v1 vbs x C value is a cross-check
 * **VH nuisance ranking not delivered**: vh_run.py rankvh (913470.001) was removed once by SYSTEM_PERIODIC_REMOVE after about 24 h; 913470.000 (WH rank) rc 0; not rerun; Table T5-VH is a placeholder row
 * **ZH non-prompt-lepton class**: no MC exists and none will be produced (D50): unestimated and unbounded, NOT negligible (Tables T3-ZH, T6)
-* **toys**: mu95 toys reuse the same seeds at every mu point (fit errors understated); the WH/ZH/VH toy sets share seeds; the lambda toys were generated on the pre-W1 stack but the coupling inputs reproduce bit-identically with the current code and the rebuilt workspaces are byte-identical to the committed ones
+* **toys**: mu95 toys reuse the same seeds at every mu point (fit errors understated); the WH/ZH/VH toy sets share seeds; the SM lambda toys use the raw window MC of the reduced coupling model and do NOT read the workspaces (the R4 workspace change does not affect them; the coupling outputs reproduce bit-identically with the current code)
 * **H_ggF_jj**: D38 substitution (scaled VBF-proxy; no ggF H + jets sample)
 * **expected-only**: all results are Asimov expectations at Delphes level, 13.6 TeV, LO, no data, assumed photon / lepton scales and resolution (no Delphes scale factors)
 
-D49 is settled by D50 = option 4 (Table T4c shows the central and upper-end result). The VH nuisance ranking is not delivered (T5-VH is a placeholder row). Basis: T4 = joint-workspace code; T4c, T5-WH, T6 = stand-alone WH model.
+D49 is settled by D50 = option 4 (Table T4c shows the central and upper-end result). The VH nuisance ranking is not delivered (T5-VH is a placeholder row). Basis: T4 = joint-workspace code; T4c, T5-WH, T6 = stand-alone WH model. counting_v12.json and the couplings_* outputs are workspace-independent (event-level window counts and the reduced coupling model), so their older mtimes are expected after a workspace rebuild.

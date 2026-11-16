@@ -11,7 +11,7 @@ CUTS = dict(mjj=600.0, deta=4.0, ptgg=75.0)
 ASSUME = dict(lumi=0.025, photon_eff_per_photon=0.02, lepton_eff=0.01, phscale=0.005, phres=0.10)   # ASSUMPTIONS (no data, Delphes has no scale factors): labelled as such in 07
 pyhf.set_backend("numpy", pyhf.optimize.scipy_optimizer())
 import sys
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from llcfg import LLQ, USE_VBS
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from llcfg import LLQ, USE_VBS, LL_WIN
 V12 = os.environ.get("STAT_V12") == "1"; V11 = os.environ.get("STAT_V11") == "1" or V12; TABLE = os.environ.get("STAT_TABLE", "table"); YIELDS = os.environ.get("STAT_YIELDS", "yields"); SUF = "_v12" if V12 else ("_v11" if V11 else "")
 def load():
     t = dict(np.load(f"{WH}/work/sel/{TABLE}.npz")); meta = json.load(open(f"{WH}/work/sel/{TABLE}_meta.json")); Y = json.load(open(f"{WH}/work/bgmodel/{YIELDS}.json")); return t, meta, Y
@@ -43,6 +43,7 @@ def hist(t, meta, g, m0, mgg=None):
     elif key == "efew": m &= ~t["qcddir"].astype(bool)
     x = t["mgg"] if mgg is None else mgg
     h = np.histogram(x[m], bins=EDGES, weights=w[m])[0]; h2 = np.histogram(x[m], bins=EDGES, weights=w[m]**2)[0]; return h, h2
+LLNORM = {}   # filled by build(): window content before/after the D49 normalisation of the LLQ templates
 RESONANT = {"sig", "tau", "hqcd", "higgs_other", "zhjj_ew", "zhjj_qcd"}   # v1.2 fix (verifier W1): the ZHjj H->gg cross-feed rows are RESONANT and must not be smoothed
 CENT = 0.5*(EDGES[:-1]+EDGES[1:])
 def _fit_slope(h, h2, wbar):
@@ -83,6 +84,13 @@ def build(t, meta, Y, lumi=500.0, mu_groups=("sig",), nuis=True, mcstat=True, fs
     H = {g: hist(t, meta, g, m0, mgg=(sig_mgg if g == "sig" else None)) for g in GV}
     fs = dict(fscale or {}); k = lumi/500.0
     if smooth: H, _ = smooth_hists(H)
+    if smooth and V11 and not USE_VBS and LL_WIN:   # R4 / D49 option (4): the smoothed LLQ templates were normalised to their 100-180 GeV integral (about 2.54 events, 0.255 in the +-3.5 GeV window); the D49 estimate is defined IN THE WINDOW (Y0 = 0.121): rescale both groups by one factor so that their window content is Y0 (upper/lower ends of D49 then scale this nominal by the window ratio)
+        gl = [g for g in ("efake_qcd_ll", "efake_qcd_eg") if g in H]; wf = np.array([max(0.0, min(EDGES[i+1], 128.5)-max(EDGES[i], 121.5))/(EDGES[i+1]-EDGES[i]) for i in range(len(EDGES)-1)])
+        win = sum(float((H[g][0]*wf).sum()) for g in gl)
+        if win > 0:
+            kk = LL_WIN/win
+            for g in gl: H[g] = (H[g][0]*kk, H[g][1]*kk*kk)
+            LLNORM.update(window_before=win, factor=kk, window_after=LL_WIN)
     sc = {g: scale_unc(Y, GV[g][0]) for g in GV}; sc["sig"] = sig_theory(t, meta, m0)[:2]; pdf_sig = sig_theory(t, meta, m0)[2]
     rtau = Y["regions"]["VBS"]["r_tau"]; samples = []; nuisdef = {}
     def nsys(name, g, hi, lo, bounds=None, kind="normsys"):

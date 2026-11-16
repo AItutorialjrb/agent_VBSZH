@@ -10,8 +10,9 @@ import sys, os, json, numpy as np
 from scipy.optimize import minimize
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__))))
 from stat_lib import WH, GROUPS, hist, load, selmask, scale_unc, SUF
+LLS = float(sys.argv[sys.argv.index("--ll-scale")+1]) if "--ll-scale" in sys.argv else 1.0   # R4/F4: D49 upper/lower end: scale of the QCD lost-lepton groups (window yield ratio, 0.675/0.1212 = 5.57)
 NOBR = "--no-br" in sys.argv; KZNEG = "--kz-neg" in sys.argv   # sign convention: lambda = kW/kZ tested at kZ = -1 (kW = -lambda): the yield is even under (kW,kZ)->(-kW,-kZ), only R_BR differs (convention-independent treatment of the sign, D46)
-LUM = float(sys.argv[sys.argv.index("--lumi")+1]) if "--lumi" in sys.argv else 500.0; TAG = ("_nobr" if NOBR else "") + ("_kzneg" if KZNEG else "") + ("" if LUM == 500.0 else f"_L{int(LUM)}") + SUF
+LUM = float(sys.argv[sys.argv.index("--lumi")+1]) if "--lumi" in sys.argv else 500.0; TAG = ("_nobr" if NOBR else "") + ("_kzneg" if KZNEG else "") + ("" if LUM == 500.0 else f"_L{int(LUM)}") + ("" if LLS == 1.0 else "_ll%.3g" % LLS) + SUF
 t, meta, Y = load(); K = dict(np.load(f"{WH}/work/sel/table_K.npz")); Km = json.load(open(f"{WH}/work/sel/table_K_meta.json"))
 PTS = {"K_EW_WHjj_lam_m100": (-1.0, 1.0), "K_EW_WHjj_lam_m050": (-0.5, 1.0), "K_EW_WHjj_lam_p000": (0.0, 1.0), "K_EW_WHjj_lam_p050": (0.5, 1.0), "K_EW_WHjj_lam_p100": (1.0, 1.0), "K_EW_WHjj_lam_p150": (1.5, 1.0),
        "K_EW_WHjj_kap_W15_Z075": (1.5, 0.75), "K_EW_WHjj_kap_W05_Z15": (0.5, 1.5)}
@@ -46,7 +47,7 @@ def quad_fit(sb, loo=None):
 def sig_pred(co, kW, kZ): return np.maximum((co[:, 0]*kW**2+co[:, 1]*kW*kZ+co[:, 2]*kZ**2)*rbr(kW, kZ), 0.0)
 GRP = dict(GROUPS); GRP["higgs_other"] = ([x for x in GROUPS["higgs_other"][0] if x not in ("H_tHq_lep", "H_tHW_1l")], None); GRP["tH"] = (["H_tHq_lep", "H_tHW_1l"], None)   # tH split out so that its growth under kW*kt<0 can be tested
 def bkg_bins(var, edges, fs=None):
-    mw = selmask(t) & (np.abs(t["mgg"]-125) < 3.5); G = {}; fs = fs or {}
+    mw = selmask(t) & (np.abs(t["mgg"]-125) < 3.5); G = {}; fs = {**({"efake_qcd_ll": LLS, "efake_qcd_eg": LLS} if LLS != 1.0 else {}), **(fs or {})}
     for g in GRP:
         if g in ("sig",): continue
         ss, key = GRP[g]; sid = [i for i, s in enumerate(meta["samples"]) if s in ss]; m = mw & np.isin(t["sid"], sid); w = t["w"].copy()

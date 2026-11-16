@@ -10,6 +10,20 @@ for l in (500, 1000, 3000):
     for mode, tag in (("convention_kZneg_primary", "_kzneg"), ("convention_kWneg", "")):
         c = J(f"{S}/couplings_vh{tag}{'' if l == 500 else '_L%d' % l}_v12.json")
         if c: cv = c["curves"]; out["lambda_"][f"{l}_{mode}"] = dict(Z_lambda_m1=dict(WH=cv["WH"]["Z_lambda_m1"], ZH=cv["ZH"]["Z_lambda_m1"], combined=cv["VH"]["Z_lambda_m1"]), Z_lambda_neg_region=dict(WH=cv["WH"]["Z_lambda_neg"], ZH=cv["ZH"]["Z_lambda_neg"], combined=cv["VH"]["Z_lambda_neg"]), lam=cv["VH"]["lam"], q_WH=cv["WH"]["q"], q_ZH=cv["ZH"]["q"], q_comb=cv["VH"]["q"])
+# R5 (V4): D49 option-4 ends, toys and 2D-map best fits in the json
+out["D49_option4"] = dict(note="settled by D50 = option 4; WH stand-alone workspace, definition (a); lambda=-1 from the reduced coupling model (insensitive to the lost-lepton level)", Y0_window=0.12122709932707053, interval95=[0.003069204423255208, 0.6754341667683659], rows={})
+for L in (500, 1000, 3000):
+    c4 = J(f"{S}/ll4_{L}_v12.json")
+    if not c4: continue
+    for r in c4["rows"]:
+        sf = {"lower95": "_ll0.0253", "central": "", "upper95": "_ll5.57"}[r["scenario"]]; lam = {}
+        for cv, tg in (("kZ-sign", "_kzneg"), ("kW-sign", "")):
+            cc = J(f"{S}/couplings_vh{tg}{'' if L == 500 else '_L%d' % L}{sf}_v12.json")
+            if cc: lam[cv] = dict(WH=cc["curves"]["WH"]["Z_lambda_m1"], VH=cc["curves"]["VH"]["Z_lambda_m1"])
+        out["D49_option4"]["rows"][f"{L}_{r['scenario']}"] = dict(Y=r["Y_QCD_llpart"], Z0_WH_standalone=r["Z0_PL"], mu95_WH_standalone=r["mu95_exp"], lambda_m1=lam)
+ts_ = J(f"{S}/toys_summary_v12.json")
+if ts_: out["toys_500_a"] = {k: ts_[k] for k in ("q0", "mu95", "lambda_m1", "lambda_true_m1")}
+out["map2d_best_fit"] = {f"{L}_{d}": (J(f"{S}/vh_map2d_{L}_{d}_v12.json") or {}).get("best_fit") for L in (500, 1000, 3000) for d in "ab"}
 json.dump(out, open(f"{CB}/VH_combination.json", "w"), indent=1)
 with open(f"{CB}/VH_combination_mu95.csv", "w", newline="") as f:
     w = csv.writer(f); w.writerow(["lumi_fb", "signal_def", "WH_Z0", "WH_mu95_median", "ZH_Z0", "ZH_mu95_median", "VH_Z0", "VH_mu95_median", "VH_mu95_-1s", "VH_mu95_+1s"])

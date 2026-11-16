@@ -2,11 +2,11 @@
  "source": "joint pyhf workspace (vh_ws/VH_workspace.json) and joint coupling templates; written by wh/scripts/make_vh_json.py",
  "mu95_Z0": {
   "500_a": {
-   "WH_Z0": 0.43812489240194924,
+   "WH_Z0": 0.4555390792224998,
    "WH_mu95": [
-    4.255226512739423,
-    6.637476908546192,
-    10.770856389630154
+    4.106752379595367,
+    6.414475510213668,
+    10.403253021486279
    ],
    "ZH_Z0": 0.13099752296120376,
    "ZH_mu95": [
@@ -14,11 +14,11 @@
     32.259257545058084,
     56.1328174712186
    ],
-   "combined_Z0": 0.45668594170961885,
+   "combined_Z0": 0.47337542697213447,
    "combined_mu95": [
-    4.000157211456578,
-    6.197180149342542,
-    9.966542233162317
+    3.87344450514082,
+    6.005150397146548,
+    9.659812680357698
    ],
    "ZH_alone_table": {
     "fit_Z_syst": 0.13099752296120376,
@@ -27,11 +27,11 @@
    "zh_variant": "corrected (zh_channel_inputs.json)"
   },
   "500_b": {
-   "WH_Z0": 0.4992575617870167,
+   "WH_Z0": 0.5196676146727229,
    "WH_mu95": [
-    3.7189398063282684,
-    5.811593548243425,
-    9.438511712699443
+    3.5889905908797424,
+    5.611989752573714,
+    9.110839185258117
    ],
    "ZH_Z0": 0.2096313302502321,
    "ZH_mu95": [
@@ -39,11 +39,11 @@
     20.657261579174193,
     36.50227065850245
    ],
-   "combined_Z0": 0.5406144573574407,
+   "combined_Z0": 0.5593994561840054,
    "combined_mu95": [
-    3.34712997370056,
-    5.18505097250889,
-    8.337804537932595
+    3.2457974663002793,
+    5.033678943557388,
+    8.089567075493711
    ],
    "ZH_alone_table": {
     "fit_Z_syst": 0.2096313302502321,
@@ -52,11 +52,11 @@
    "zh_variant": "corrected (zh_channel_inputs.json)"
   },
   "1000_a": {
-   "WH_Z0": 0.608402937076771,
+   "WH_Z0": 0.6346705950753612,
    "WH_mu95": [
-    2.8109198603693217,
-    4.282830213994578,
-    6.768814994634597
+    2.694741392052702,
+    4.103118361704927,
+    6.473864139420881
    ],
    "ZH_Z0": 0.18395949695156014,
    "ZH_mu95": [
@@ -64,11 +64,11 @@
     19.092827284438634,
     32.18495780926368
    ],
-   "combined_Z0": 0.6344953274524123,
+   "combined_Z0": 0.6595705457981452,
    "combined_mu95": [
-    2.653601306657868,
-    4.021824355137524,
-    6.299718051060574
+    2.5549112587517953,
+    3.869625571595383,
+    6.055352059727081
    ],
    "ZH_alone_table": {
     "fit_Z_syst": 0.18395949695156014,
@@ -77,11 +77,11 @@
    "zh_variant": "corrected (zh_channel_inputs.json)"
   },
   "1000_b": {
-   "WH_Z0": 0.6932033644102259,
+   "WH_Z0": 0.7238754133405305,
    "WH_mu95": [
-    2.45262088055267,
-    3.7387913681388207,
-    5.910514291001531
+    2.349046799533328,
+    3.5808783647002915,
+    5.65039349542403
    ],
    "ZH_Z0": 0.2948133395062137,
    "ZH_mu95": [
@@ -89,11 +89,11 @@
     12.153333950002036,
     20.813580322905644
    ],
-   "combined_Z0": 0.7515307776328446,
+   "combined_Z0": 0.7796400161738801,
    "combined_mu95": [
-    2.2169969627695645,
-    3.355357947256233,
-    5.25179816380568
+    2.1376260123197555,
+    3.2353182876994087,
+    5.061615503298905
    ],
    "ZH_alone_table": {
     "fit_Z_syst": 0.2948133395062137,
@@ -102,11 +102,11 @@
    "zh_variant": "corrected (zh_channel_inputs.json)"
   },
   "3000_a": {
-   "WH_Z0": 1.0069714825918172,
+   "WH_Z0": 1.0628146630856767,
    "WH_mu95": [
-    1.5507959859419858,
-    2.3025431383823385,
-    3.5258736321163315
+    1.4610068545095989,
+    2.1629552674528054,
+    3.2969036320471714
    ],
    "ZH_Z0": 0.31251377850435785,
    "ZH_mu95": [
@@ -114,11 +114,11 @@
     8.978530263386228,
     14.395275110882118
    ],
-   "combined_Z0": 1.051317146405386,
+   "combined_Z0": 1.1044735683741176,
    "combined_mu95": [
-    1.4709530733150562,
-    2.1731181850040806,
-    3.3066090497511085
+    1.3936658209013497,
+    2.0551311863271895,
+    3.1145575396042595
    ],
    "ZH_alone_table": {
     "fit_Z_syst": 0.31251377850435785,
@@ -127,11 +127,11 @@
    "zh_variant": "corrected (zh_channel_inputs.json)"
   },
   "3000_b": {
-   "WH_Z0": 1.147768342988423,
+   "WH_Z0": 1.2123493323472594,
    "WH_mu95": [
-    1.3480437228737334,
-    2.001692391419152,
-    3.0617206216839232
+    1.269138518082587,
+    1.8788334187871143,
+    2.8630961157882346
    ],
    "ZH_Z0": 0.5001543480218936,
    "ZH_mu95": [
@@ -139,11 +139,11 @@
     5.659533244839717,
     9.226578447604695
    ],
-   "combined_Z0": 1.2472693676155122,
+   "combined_Z0": 1.3061621832399353,
    "combined_mu95": [
-    1.2223647779823668,
-    1.8031735144585377,
-    2.73664215692556
+    1.1620401907622497,
+    1.7112726777209495,
+    2.5894638372240157
    ],
    "ZH_alone_table": {
     "fit_Z_syst": 0.5001543480218936,
@@ -2696,6 +2696,754 @@
     476.6168742174636,
     506.2186688954028
    ]
+  }
+ },
+ "D49_option4": {
+  "note": "settled by D50 = option 4; WH stand-alone workspace, definition (a); lambda=-1 from the reduced coupling model (insensitive to the lost-lepton level)",
+  "Y0_window": 0.12122709932707053,
+  "interval95": [
+   0.003069204423255208,
+   0.6754341667683659
+  ],
+  "rows": {
+   "500_lower95": {
+    "Y": 0.003069204423255208,
+    "Z0_WH_standalone": 0.46074085752543564,
+    "mu95_WH_standalone": [
+     4.09461272125596,
+     6.412311900957053,
+     10.427016495379256
+    ],
+    "lambda_m1": {
+     "kZ-sign": {
+      "WH": 3.7659461033127295,
+      "VH": 3.7763737594796902
+     },
+     "kW-sign": {
+      "WH": 6.20437537899685,
+      "VH": 6.241615094520504
+     }
+    }
+   },
+   "500_central": {
+    "Y": 0.12122709932707053,
+    "Z0_WH_standalone": 0.4451105970352331,
+    "mu95_WH_standalone": [
+     4.213533789173086,
+     6.579626043529855,
+     10.674778271265914
+    ],
+    "lambda_m1": {
+     "kZ-sign": {
+      "WH": 3.7659288078747792,
+      "VH": 3.7763564185841205
+     },
+     "kW-sign": {
+      "WH": 6.20360584965263,
+      "VH": 6.2408537888468505
+     }
+    }
+   },
+   "500_upper95": {
+    "Y": 0.6754341667683659,
+    "Z0_WH_standalone": 0.37903096067651343,
+    "mu95_WH_standalone": [
+     4.963731230376157,
+     7.824023355939405,
+     12.989402545071279
+    ],
+    "lambda_m1": {
+     "kZ-sign": {
+      "WH": 3.765884820521175,
+      "VH": 3.776312346790944
+     },
+     "kW-sign": {
+      "WH": 6.201976222509512,
+      "VH": 6.239242182259952
+     }
+    }
+   },
+   "1000_lower95": {
+    "Y": 0.003069204423255208,
+    "Z0_WH_standalone": 0.6425810510382695,
+    "mu95_WH_standalone": [
+     2.6756717464363597,
+     4.083044390538731,
+     6.454261890703882
+    ],
+    "lambda_m1": {
+     "kZ-sign": {
+      "WH": 5.282184348117417,
+      "VH": 5.296072745738364
+     },
+     "kW-sign": {
+      "WH": 8.606095710626107,
+      "VH": 8.653332547514466
+     }
+    }
+   },
+   "1000_central": {
+    "Y": 0.12122709932707053,
+    "Z0_WH_standalone": 0.6201195959459972,
+    "mu95_WH_standalone": [
+     2.762629051620524,
+     4.21110872272384,
+     6.638010170892523
+    ],
+    "lambda_m1": {
+     "kZ-sign": {
+      "WH": 5.282120189029925,
+      "VH": 5.296008329337811
+     },
+     "kW-sign": {
+      "WH": 8.605264781748625,
+      "VH": 8.652515019322063
+     }
+    }
+   },
+   "1000_upper95": {
+    "Y": 0.6754341667683659,
+    "Z0_WH_standalone": 0.5154469826968955,
+    "mu95_WH_standalone": [
+     3.4042082272162895,
+     5.273238924017954,
+     8.61610526560545
+    ],
+    "lambda_m1": {
+     "kZ-sign": {
+      "WH": 5.281927806008748,
+      "VH": 5.295815483715943
+     },
+     "kW-sign": {
+      "WH": 8.603678706936751,
+      "VH": 8.650956564669132
+     }
+    }
+   },
+   "3000_lower95": {
+    "Y": 0.003069204423255208,
+    "Z0_WH_standalone": 1.0787313098829985,
+    "mu95_WH_standalone": [
+     1.4413589692261894,
+     2.135893206053748,
+     3.256207010845848
+    ],
+    "lambda_m1": {
+     "kZ-sign": {
+      "WH": 8.859486674727709,
+      "VH": 8.878291617815597
+     },
+     "kW-sign": {
+      "WH": 13.975321098735211,
+      "VH": 14.040539885850325
+     }
+    }
+   },
+   "3000_central": {
+    "Y": 0.12122709932707053,
+    "Z0_WH_standalone": 1.0382708357528794,
+    "mu95_WH_standalone": [
+     1.4982305116526087,
+     2.219298649818114,
+     3.3808488949218214
+    ],
+    "lambda_m1": {
+     "kZ-sign": {
+      "WH": 8.858585736792955,
+      "VH": 8.877387571796607
+     },
+     "kW-sign": {
+      "WH": 13.975077746481174,
+      "VH": 14.040301218902012
+     }
+    }
+   },
+   "3000_upper95": {
+    "Y": 0.6754341667683659,
+    "Z0_WH_standalone": 0.7960522886653573,
+    "mu95_WH_standalone": [
+     2.080587148821075,
+     3.1911742772213687,
+     5.195223977053858
+    ],
+    "lambda_m1": {
+     "kZ-sign": {
+      "WH": 8.856276490954178,
+      "VH": 8.87507474114498
+     },
+     "kW-sign": {
+      "WH": 13.9750502534084,
+      "VH": 14.0402770524703
+     }
+    }
+   }
+  }
+ },
+ "toys_500_a": {
+  "q0": {
+   "WH": {
+    "Z0_asimov": 0.4555390792224998,
+    "ntoys": 2000,
+    "median_q0_sb": 0.08821429972795158,
+    "frac_q0_exact_zero_sb": 0.154,
+    "frac_q0_lt_1em6_sb": 0.265,
+    "frac_q0_lt_1em3_sb": 0.4145,
+    "mean_q0_sb": 0.9010508565177401,
+    "asimov_q0": 0.20751585269888295,
+    "ntoys_null": 2000,
+    "frac_q0_exact_zero_null": 0.208,
+    "frac_q0_lt_1em6_null": 0.373,
+    "frac_q0_lt_1em3_null": 0.5735,
+    "p_mid_at_median": 0.3355,
+    "Z0_toy_median": 0.4247759655300155,
+    "Z0_toy_range": [
+     0.38127392479528904,
+     0.4718974335952135
+    ],
+    "Z0_toy_err": 0.04531175439996224,
+    "Z0_toy_raw_p_ge": 0.4247759655300155,
+    "note": "Z0_toy_raw_p_ge uses the strict raw median with p = P(q0_null >= median) (no tie treatment): shown for transparency"
+   },
+   "ZH": {
+    "Z0_asimov": 0.13099752296120376,
+    "ntoys": 2000,
+    "median_q0_sb": 1.4377973300838676e-07,
+    "frac_q0_exact_zero_sb": 0.311,
+    "frac_q0_lt_1em6_sb": 0.613,
+    "frac_q0_lt_1em3_sb": 0.624,
+    "mean_q0_sb": 0.514486736901977,
+    "asimov_q0": 0.017160351021971106,
+    "ntoys_null": 2000,
+    "frac_q0_exact_zero_null": 0.311,
+    "frac_q0_lt_1em6_null": 0.6435,
+    "frac_q0_lt_1em3_null": 0.654,
+    "p_mid_at_median": 0.677,
+    "Z0_toy_median": 0.0,
+    "Z0_toy_range": [
+     0.0,
+     0.0
+    ],
+    "Z0_toy_err": 0.0,
+    "Z0_toy_raw_p_ge": -0.007519955698540524,
+    "note": "Z0_toy_raw_p_ge uses the strict raw median with p = P(q0_null >= median) (no tie treatment): shown for transparency"
+   },
+   "VH": {
+    "Z0_asimov": 0.47337542697213447,
+    "ntoys": 2000,
+    "median_q0_sb": 0.11492847596800004,
+    "frac_q0_exact_zero_sb": 0.117,
+    "frac_q0_lt_1em6_sb": 0.239,
+    "frac_q0_lt_1em3_sb": 0.3995,
+    "mean_q0_sb": 0.9106080988521481,
+    "asimov_q0": 0.2240842948610506,
+    "ntoys_null": 2000,
+    "frac_q0_exact_zero_null": 0.1655,
+    "frac_q0_lt_1em6_null": 0.3315,
+    "frac_q0_lt_1em3_null": 0.569,
+    "p_mid_at_median": 0.3225,
+    "Z0_toy_median": 0.4607193088903253,
+    "Z0_toy_range": [
+     0.4330203305877187,
+     0.5029491838950579
+    ],
+    "Z0_toy_err": 0.03496442665366961,
+    "Z0_toy_raw_p_ge": 0.4607193088903253,
+    "note": "Z0_toy_raw_p_ge uses the strict raw median with p = P(q0_null >= median) (no tie treatment): shown for transparency"
+   }
+  },
+  "mu95": {
+   "WH": {
+    "mu95_asymptotic": 6.414475510213668,
+    "mu95_toy_interp": 7.0807501720306805,
+    "mu95_toy_fit": 7.123968970798107,
+    "mu95_toy_fit_err": 0.30082132321577487,
+    "points": [
+     {
+      "mu": 5.5,
+      "CLs_exp": 0.13,
+      "err": 0.027633608508935852,
+      "n_sb": 400,
+      "n_b": 400
+     },
+     {
+      "mu": 6.5,
+      "CLs_exp": 0.085,
+      "err": 0.022710963861531108,
+      "n_sb": 400,
+      "n_b": 400
+     },
+     {
+      "mu": 7.5,
+      "CLs_exp": 0.035,
+      "err": 0.014125681231033835,
+      "n_sb": 400,
+      "n_b": 400
+     },
+     {
+      "mu": 9.0,
+      "CLs_exp": 0.015,
+      "err": 0.008127356582381883,
+      "n_sb": 400,
+      "n_b": 400
+     }
+    ]
+   },
+   "ZH": {
+    "mu95_asymptotic": 32.259257545058084,
+    "mu95_toy_interp": 33.60468165470821,
+    "mu95_toy_fit": 33.51032158294204,
+    "mu95_toy_fit_err": 1.8382784837440884,
+    "points": [
+     {
+      "mu": 22.0,
+      "CLs_exp": 0.17,
+      "err": 0.02792240761563305,
+      "n_sb": 400,
+      "n_b": 400
+     },
+     {
+      "mu": 30.0,
+      "CLs_exp": 0.09,
+      "err": 0.02051512250549989,
+      "n_sb": 400,
+      "n_b": 400
+     },
+     {
+      "mu": 36.0,
+      "CLs_exp": 0.035,
+      "err": 0.013546620798813662,
+      "n_sb": 400,
+      "n_b": 400
+     },
+     {
+      "mu": 46.0,
+      "CLs_exp": 0.005,
+      "err": 0.004888427555996028,
+      "n_sb": 400,
+      "n_b": 400
+     }
+    ]
+   },
+   "VH": {
+    "mu95_asymptotic": 6.005150397146548,
+    "mu95_toy_interp": 6.260258740392544,
+    "mu95_toy_fit": 6.819201081573426,
+    "mu95_toy_fit_err": 0.5759235876966453,
+    "points": [
+     {
+      "mu": 5.0,
+      "CLs_exp": 0.11666666666666667,
+      "err": 0.031790801186574784,
+      "n_sb": 240,
+      "n_b": 240
+     },
+     {
+      "mu": 6.0,
+      "CLs_exp": 0.058333333333333334,
+      "err": 0.024229409515935788,
+      "n_sb": 240,
+      "n_b": 240
+     },
+     {
+      "mu": 7.0,
+      "CLs_exp": 0.03333333333333333,
+      "err": 0.017268004776824594,
+      "n_sb": 240,
+      "n_b": 240
+     },
+     {
+      "mu": 8.5,
+      "CLs_exp": 0.03333333333333333,
+      "err": 0.017829649543631552,
+      "n_sb": 240,
+      "n_b": 240
+     }
+    ]
+   }
+  },
+  "lambda_m1": {
+   "kZ-sign:WH": {
+    "Z_asimov": 3.7659288078747792,
+    "Z_toy_median": 3.92042456337296,
+    "Z_toy_16": 3.491556879140843,
+    "Z_toy_84": 4.276283667739381,
+    "Z_toy_bracket": [
+     3.9198881987290703,
+     3.92042456337296
+    ],
+    "plateau": false,
+    "n_distinct_q": 207,
+    "frac_q_lt_1": 0.0002,
+    "asimov_q": 14.182219785981156,
+    "toy_median_q": 15.369728757098063,
+    "ntoys": 5000,
+    "note": "median of a DISCRETE q distribution (plateau when bracket is degenerate: the bracket error is then not meaningful, use the 16-84 % band); for q << 1 (ZH alone) the median is fluctuation-dominated and not comparable with the Asimov value"
+   },
+   "kZ-sign:ZH": {
+    "Z_asimov": 0.28963098465632425,
+    "Z_toy_median": 0.8153231994608596,
+    "Z_toy_16": 0.3285939301341641,
+    "Z_toy_84": 0.8222326403673056,
+    "Z_toy_bracket": [
+     0.807372707945884,
+     0.8182455511025611
+    ],
+    "plateau": false,
+    "n_distinct_q": 2107,
+    "frac_q_lt_1": 0.9128,
+    "asimov_q": 0.08388610727299194,
+    "toy_median_q": 0.6647519195790927,
+    "ntoys": 5000,
+    "note": "median of a DISCRETE q distribution (plateau when bracket is degenerate: the bracket error is then not meaningful, use the 16-84 % band); for q << 1 (ZH alone) the median is fluctuation-dominated and not comparable with the Asimov value"
+   },
+   "kZ-sign:VH": {
+    "Z_asimov": 3.7763564185841205,
+    "Z_toy_median": 3.9651474009538603,
+    "Z_toy_16": 3.424751537018369,
+    "Z_toy_84": 4.257297085483361,
+    "Z_toy_bracket": [
+     3.964932244387448,
+     3.966949103356801
+    ],
+    "plateau": false,
+    "n_distinct_q": 4112,
+    "frac_q_lt_1": 0.0006,
+    "asimov_q": 14.260867800181485,
+    "toy_median_q": 15.722393911291153,
+    "ntoys": 5000,
+    "note": "median of a DISCRETE q distribution (plateau when bracket is degenerate: the bracket error is then not meaningful, use the 16-84 % band); for q << 1 (ZH alone) the median is fluctuation-dominated and not comparable with the Asimov value"
+   },
+   "kW-sign:WH": {
+    "Z_asimov": 6.20360584965263,
+    "Z_toy_median": 6.329435353075664,
+    "Z_toy_16": 5.8316762013003,
+    "Z_toy_84": 6.699469127242107,
+    "Z_toy_bracket": [
+     6.329435353075664,
+     6.329435353075664
+    ],
+    "plateau": true,
+    "n_distinct_q": 207,
+    "frac_q_lt_1": 0.0,
+    "asimov_q": 38.48472553784433,
+    "toy_median_q": 40.06175188876405,
+    "ntoys": 5000,
+    "note": "median of a DISCRETE q distribution (plateau when bracket is degenerate: the bracket error is then not meaningful, use the 16-84 % band); for q << 1 (ZH alone) the median is fluctuation-dominated and not comparable with the Asimov value"
+   },
+   "kW-sign:ZH": {
+    "Z_asimov": 0.7239892750454442,
+    "Z_toy_median": 1.1261589719155716,
+    "Z_toy_16": 0.22528205714108288,
+    "Z_toy_84": 1.2963506544460461,
+    "Z_toy_bracket": [
+     1.1257011298386586,
+     1.1275736347874463
+    ],
+    "plateau": false,
+    "n_distinct_q": 2285,
+    "frac_q_lt_1": 0.4252,
+    "asimov_q": 0.5241604703808278,
+    "toy_median_q": 1.268234030025937,
+    "ntoys": 5000,
+    "note": "median of a DISCRETE q distribution (plateau when bracket is degenerate: the bracket error is then not meaningful, use the 16-84 % band); for q << 1 (ZH alone) the median is fluctuation-dominated and not comparable with the Asimov value"
+   },
+   "kW-sign:VH": {
+    "Z_asimov": 6.2408537888468505,
+    "Z_toy_median": 6.368443630825554,
+    "Z_toy_16": 5.867476869710658,
+    "Z_toy_84": 6.707060942058751,
+    "Z_toy_bracket": [
+     6.358163134244338,
+     6.369473875190398
+    ],
+    "plateau": false,
+    "n_distinct_q": 4121,
+    "frac_q_lt_1": 0.0,
+    "asimov_q": 38.94825601376409,
+    "toy_median_q": 40.55707427900256,
+    "ntoys": 5000,
+    "note": "median of a DISCRETE q distribution (plateau when bracket is degenerate: the bracket error is then not meaningful, use the 16-84 % band); for q << 1 (ZH alone) the median is fluctuation-dominated and not comparable with the Asimov value"
+   }
+  },
+  "lambda_true_m1": {
+   "kZ-sign:WH": {
+    "ntoys": 5000,
+    "q_asimov": 14.182219785981156,
+    "Z_asimov": 3.7659288078747792,
+    "n_ge_qasimov": 0,
+    "p_chi2_at_qasimov": 0.00016593107186660383,
+    "tail": {
+     "1.0": {
+      "toy": 0.1278,
+      "chi2_1": 0.31731050786291115,
+      "n_toy": 639
+     },
+     "2.71": {
+      "toy": 0.0756,
+      "chi2_1": 0.09972099148422231,
+      "n_toy": 378
+     },
+     "3.84": {
+      "toy": 0.047,
+      "chi2_1": 0.05004352124870519,
+      "n_toy": 235
+     },
+     "6.63": {
+      "toy": 0.0108,
+      "chi2_1": 0.010027526446317957,
+      "n_toy": 54
+     },
+     "9.0": {
+      "toy": 0.0036,
+      "chi2_1": 0.0026997960632601883,
+      "n_toy": 18
+     },
+     "10.83": {
+      "toy": 0.0012,
+      "chi2_1": 0.0009986863791802592,
+      "n_toy": 6
+     }
+    },
+    "q_mean": 0.48659787765705015,
+    "q_max": 12.55646124049552,
+    "note": "toys thrown at lambda=-1 (nuisances N(0,1), Poisson counts), q = fit(-1) minus the minimum over the SM point and the lambda grid; chi2(1 dof) expected; the toy count resolves p down to about 1/ntoys (about 3.5 sigma for 5000 toys): the 3.8 sigma tail itself is not toy-resolved"
+   },
+   "kZ-sign:ZH": {
+    "ntoys": 5000,
+    "q_asimov": 0.08388610727299194,
+    "Z_asimov": 0.28963098465632425,
+    "n_ge_qasimov": 4277,
+    "p_chi2_at_qasimov": 0.7720985601933754,
+    "tail": {
+     "1.0": {
+      "toy": 0.1498,
+      "chi2_1": 0.31731050786291115,
+      "n_toy": 749
+     },
+     "2.71": {
+      "toy": 0.0394,
+      "chi2_1": 0.09972099148422231,
+      "n_toy": 197
+     },
+     "3.84": {
+      "toy": 0.0194,
+      "chi2_1": 0.05004352124870519,
+      "n_toy": 97
+     },
+     "6.63": {
+      "toy": 0.0032,
+      "chi2_1": 0.010027526446317957,
+      "n_toy": 16
+     },
+     "9.0": {
+      "toy": 0.0014,
+      "chi2_1": 0.0026997960632601883,
+      "n_toy": 7
+     },
+     "10.83": {
+      "toy": 0.0,
+      "chi2_1": 0.0009986863791802592,
+      "n_toy": 0
+     }
+    },
+    "q_mean": 0.6796735144595228,
+    "q_max": 9.879763615962922,
+    "note": "toys thrown at lambda=-1 (nuisances N(0,1), Poisson counts), q = fit(-1) minus the minimum over the SM point and the lambda grid; chi2(1 dof) expected; the toy count resolves p down to about 1/ntoys (about 3.5 sigma for 5000 toys): the 3.8 sigma tail itself is not toy-resolved"
+   },
+   "kZ-sign:VH": {
+    "ntoys": 5000,
+    "q_asimov": 14.260867800181485,
+    "Z_asimov": 3.7763564185841205,
+    "n_ge_qasimov": 1,
+    "p_chi2_at_qasimov": 0.0001591392264679315,
+    "tail": {
+     "1.0": {
+      "toy": 0.1172,
+      "chi2_1": 0.31731050786291115,
+      "n_toy": 586
+     },
+     "2.71": {
+      "toy": 0.0614,
+      "chi2_1": 0.09972099148422231,
+      "n_toy": 307
+     },
+     "3.84": {
+      "toy": 0.039,
+      "chi2_1": 0.05004352124870519,
+      "n_toy": 195
+     },
+     "6.63": {
+      "toy": 0.013,
+      "chi2_1": 0.010027526446317957,
+      "n_toy": 65
+     },
+     "9.0": {
+      "toy": 0.0048,
+      "chi2_1": 0.0026997960632601883,
+      "n_toy": 24
+     },
+     "10.83": {
+      "toy": 0.0024,
+      "chi2_1": 0.0009986863791802592,
+      "n_toy": 12
+     }
+    },
+    "q_mean": 0.4378146100146348,
+    "q_max": 20.93928217771134,
+    "note": "toys thrown at lambda=-1 (nuisances N(0,1), Poisson counts), q = fit(-1) minus the minimum over the SM point and the lambda grid; chi2(1 dof) expected; the toy count resolves p down to about 1/ntoys (about 3.5 sigma for 5000 toys): the 3.8 sigma tail itself is not toy-resolved"
+   },
+   "kW-sign:WH": {
+    "ntoys": 5000,
+    "q_asimov": 38.48472553784433,
+    "Z_asimov": 6.20360584965263,
+    "n_ge_qasimov": 0,
+    "p_chi2_at_qasimov": 5.518389361283445e-10,
+    "tail": {
+     "1.0": {
+      "toy": 0.0984,
+      "chi2_1": 0.31731050786291115,
+      "n_toy": 492
+     },
+     "2.71": {
+      "toy": 0.0528,
+      "chi2_1": 0.09972099148422231,
+      "n_toy": 264
+     },
+     "3.84": {
+      "toy": 0.034,
+      "chi2_1": 0.05004352124870519,
+      "n_toy": 170
+     },
+     "6.63": {
+      "toy": 0.0094,
+      "chi2_1": 0.010027526446317957,
+      "n_toy": 47
+     },
+     "9.0": {
+      "toy": 0.003,
+      "chi2_1": 0.0026997960632601883,
+      "n_toy": 15
+     },
+     "10.83": {
+      "toy": 0.001,
+      "chi2_1": 0.0009986863791802592,
+      "n_toy": 5
+     }
+    },
+    "q_mean": 0.3663718520303391,
+    "q_max": 13.376073751499845,
+    "note": "toys thrown at lambda=-1 (nuisances N(0,1), Poisson counts), q = fit(-1) minus the minimum over the SM point and the lambda grid; chi2(1 dof) expected; the toy count resolves p down to about 1/ntoys (about 3.5 sigma for 5000 toys): the 3.8 sigma tail itself is not toy-resolved"
+   },
+   "kW-sign:ZH": {
+    "ntoys": 5000,
+    "q_asimov": 0.5241604703808278,
+    "Z_asimov": 0.7239892750454442,
+    "n_ge_qasimov": 2305,
+    "p_chi2_at_qasimov": 0.4690723194364994,
+    "tail": {
+     "1.0": {
+      "toy": 0.4224,
+      "chi2_1": 0.31731050786291115,
+      "n_toy": 2112
+     },
+     "2.71": {
+      "toy": 0.0418,
+      "chi2_1": 0.09972099148422231,
+      "n_toy": 209
+     },
+     "3.84": {
+      "toy": 0.0212,
+      "chi2_1": 0.05004352124870519,
+      "n_toy": 106
+     },
+     "6.63": {
+      "toy": 0.0046,
+      "chi2_1": 0.010027526446317957,
+      "n_toy": 23
+     },
+     "9.0": {
+      "toy": 0.0012,
+      "chi2_1": 0.0026997960632601883,
+      "n_toy": 6
+     },
+     "10.83": {
+      "toy": 0.0006,
+      "chi2_1": 0.0009986863791802592,
+      "n_toy": 3
+     }
+    },
+    "q_mean": 0.9018653987633483,
+    "q_max": 18.105730254416336,
+    "note": "toys thrown at lambda=-1 (nuisances N(0,1), Poisson counts), q = fit(-1) minus the minimum over the SM point and the lambda grid; chi2(1 dof) expected; the toy count resolves p down to about 1/ntoys (about 3.5 sigma for 5000 toys): the 3.8 sigma tail itself is not toy-resolved"
+   },
+   "kW-sign:VH": {
+    "ntoys": 5000,
+    "q_asimov": 38.94825601376409,
+    "Z_asimov": 6.2408537888468505,
+    "n_ge_qasimov": 0,
+    "p_chi2_at_qasimov": 4.3518889387784075e-10,
+    "tail": {
+     "1.0": {
+      "toy": 0.0894,
+      "chi2_1": 0.31731050786291115,
+      "n_toy": 447
+     },
+     "2.71": {
+      "toy": 0.0486,
+      "chi2_1": 0.09972099148422231,
+      "n_toy": 243
+     },
+     "3.84": {
+      "toy": 0.032,
+      "chi2_1": 0.05004352124870519,
+      "n_toy": 160
+     },
+     "6.63": {
+      "toy": 0.0102,
+      "chi2_1": 0.010027526446317957,
+      "n_toy": 51
+     },
+     "9.0": {
+      "toy": 0.0024,
+      "chi2_1": 0.0026997960632601883,
+      "n_toy": 12
+     },
+     "10.83": {
+      "toy": 0.0008,
+      "chi2_1": 0.0009986863791802592,
+      "n_toy": 4
+     }
+    },
+    "q_mean": 0.33703911803061193,
+    "q_max": 13.879935103049007,
+    "note": "toys thrown at lambda=-1 (nuisances N(0,1), Poisson counts), q = fit(-1) minus the minimum over the SM point and the lambda grid; chi2(1 dof) expected; the toy count resolves p down to about 1/ntoys (about 3.5 sigma for 5000 toys): the 3.8 sigma tail itself is not toy-resolved"
+   }
+  }
+ },
+ "map2d_best_fit": {
+  "500_a": {
+   "mu_WH": 1.0,
+   "mu_ZH": 1.0
+  },
+  "500_b": {
+   "mu_WH": 1.0,
+   "mu_ZH": 1.0
+  },
+  "1000_a": {
+   "mu_WH": 1.0,
+   "mu_ZH": 1.0
+  },
+  "1000_b": {
+   "mu_WH": 1.0,
+   "mu_ZH": 1.0
+  },
+  "3000_a": {
+   "mu_WH": 1.0,
+   "mu_ZH": 1.0
+  },
+  "3000_b": {
+   "mu_WH": 1.0,
+   "mu_ZH": 1.0
   }
  }
 }

@@ -1,5 +1,5 @@
 # 07 Sensitivity (executor-wh FINAL, block 3)
-Date UTC: 2026-11-16 05:17. Status: **PASS for verification**; ALL numbers are EXPECTED (Asimov datasets, nominal background model of 05a v2.1 + the v1.1 loose-cut eFake sample, primary = cut-based selection; D44). No claim of a result; a null or sub-1-sigma expectation is stated as such. Analysis commit: ORCH_COMMIT_PLACEHOLDER.
+Date UTC: 2026-11-16 10:31. Status: **PASS for verification**; ALL numbers are EXPECTED (Asimov datasets, nominal background model of 05a v2.1 + the v1.1 loose-cut eFake sample, primary = cut-based selection; D44). No claim of a result; a null or sub-1-sigma expectation is stated as such. Analysis commit: ORCH_COMMIT_PLACEHOLDER.
 ## Selection (frozen in 05): mjj>600, |deta_jj|>4.0, pT(gg)>75, MET>30, pT(l)>25, |m_gg-125|<3.5 (counting); MVA alternative not adopted.
 ## 1. Counting window (Eq. 1, stat only) and exact-Poisson CLs
 Window yields at 500 fb^-1: s = 0.612, b = 1.747 +- 0.191 (MC stat).
@@ -15,12 +15,12 @@ NOT the same quantity as the profile-likelihood mu95 of sec. 2 (asymptotic q~ CL
 
 | L | def | expected Z0 | PL asymptotic (q~) CLs mu95 median (-1s, +1s) | Z0 stat-only | Z0 without MC stat | Z0 MC-stat only |
 |---|---|---|---|---|---|---|
-| 500 | a | 0.428 | 6.81 (4.37, 11.06) | 0.443 | 0.432 | 0.440 |
-| 1000 | a | 0.594 | 4.40 (2.88, 6.94) | 0.627 | 0.604 | 0.617 |
-| 3000 | a | 0.983 | 2.36 (1.59, 3.62) | 1.086 | 1.033 | 1.036 |
-| 500 | b | 0.485 | 6.00 (3.84, 9.75) | 0.502 | 0.489 | 0.498 |
-| 1000 | b | 0.673 | 3.86 (2.53, 6.10) | 0.710 | 0.684 | 0.699 |
-| 3000 | b | 1.114 | 2.07 (1.39, 3.17) | 1.231 | 1.169 | 1.176 |
+| 500 | a | 0.445 | 6.58 (4.21, 10.67) | 0.458 | 0.447 | 0.456 |
+| 1000 | a | 0.620 | 4.21 (2.76, 6.64) | 0.648 | 0.626 | 0.641 |
+| 3000 | a | 1.038 | 2.22 (1.50, 3.38) | 1.122 | 1.069 | 1.091 |
+| 500 | b | 0.505 | 5.79 (3.70, 9.41) | 0.519 | 0.507 | 0.517 |
+| 1000 | b | 0.703 | 3.70 (2.42, 5.83) | 0.735 | 0.709 | 0.728 |
+| 3000 | b | 1.177 | 1.94 (1.31, 2.96) | 1.272 | 1.211 | 1.239 |
 
 With/without MC-stat impact on Z0 at 500 fb^-1 and mu95 is in 06 sec. 4: Barlow-Beeston is mandatory (cut-based b N_eff 63 in v1.1, 135 in v2.1).
 
@@ -29,56 +29,56 @@ D36 range x0.3-x3; f = 10, 30, 100 are BEYOND D36 (robustness only).
 
 | f | Z0 (PL) | mu95 median (-1s, +1s) | Z Eq. 1 counting | b window |
 |---|---|---|---|---|
-| 0.3 | 0.430 | 6.79 (4.35, 11.03) | 0.442 | 1.726 |
-| 0.5 | 0.430 | 6.80 (4.35, 11.04) | 0.441 | 1.732 |
-| 1.0 | 0.428 | 6.81 (4.37, 11.06) | 0.440 | 1.747 |
-| 2.0 | 0.425 | 6.85 (4.39, 11.11) | 0.436 | 1.778 |
-| 3.0 | 0.421 | 6.88 (4.42, 11.15) | 0.432 | 1.812 |
-| 10.0 (beyond D36) | 0.396 | 7.17 (4.63, 11.54) | 0.405 | 2.087 |
-| 30.0 (beyond D36) | 0.323 | 8.29 (5.44, 13.04) | 0.328 | 3.286 |
-| 100.0 (beyond D36) | 0.174 | 13.58 (9.25, 20.44) | 0.173 | 12.298 |
+| 0.3 | 0.448 | 6.56 (4.20, 10.64) | 0.442 | 1.726 |
+| 0.5 | 0.447 | 6.56 (4.20, 10.65) | 0.441 | 1.732 |
+| 1.0 | 0.445 | 6.58 (4.21, 10.67) | 0.440 | 1.747 |
+| 2.0 | 0.441 | 6.61 (4.24, 10.72) | 0.436 | 1.778 |
+| 3.0 | 0.438 | 6.65 (4.27, 10.77) | 0.432 | 1.812 |
+| 10.0 (beyond D36) | 0.410 | 6.96 (4.49, 11.19) | 0.405 | 2.087 |
+| 30.0 (beyond D36) | 0.330 | 8.12 (5.33, 12.78) | 0.328 | 3.286 |
+| 100.0 (beyond D36) | 0.175 | 13.50 (9.19, 20.31) | 0.173 | 12.298 |
 
 ## 3. D36 scan: fake photons (per-photon rate x f; one-fake x f, two-fake x f^2), 3000 fb^-1 (def. a, PL with all nuisances)
 D36 range x0.3-x3; f = 10, 30, 100 are BEYOND D36 (robustness only).
 
 | f | Z0 (PL) | mu95 median (-1s, +1s) | Z Eq. 1 counting | b window |
 |---|---|---|---|---|
-| 0.3 | 0.988 | 2.36 (1.59, 3.61) | 1.083 | 10.353 |
-| 0.5 | 0.987 | 2.36 (1.59, 3.61) | 1.081 | 10.389 |
-| 1.0 | 0.983 | 2.36 (1.59, 3.62) | 1.077 | 10.481 |
-| 2.0 | 0.977 | 2.38 (1.60, 3.64) | 1.068 | 10.671 |
-| 3.0 | 0.970 | 2.39 (1.61, 3.66) | 1.059 | 10.870 |
-| 10.0 (beyond D36) | 0.919 | 2.51 (1.70, 3.81) | 0.993 | 12.521 |
-| 30.0 (beyond D36) | 0.764 | 2.94 (2.01, 4.41) | 0.803 | 19.716 |
-| 100.0 (beyond D36) | 0.421 | 5.09 (3.55, 7.42) | 0.424 | 73.787 |
+| 0.3 | 1.044 | 2.21 (1.49, 3.37) | 1.083 | 10.353 |
+| 0.5 | 1.042 | 2.21 (1.49, 3.37) | 1.081 | 10.389 |
+| 1.0 | 1.038 | 2.22 (1.50, 3.38) | 1.077 | 10.481 |
+| 2.0 | 1.031 | 2.23 (1.51, 3.40) | 1.068 | 10.671 |
+| 3.0 | 1.023 | 2.25 (1.52, 3.42) | 1.059 | 10.870 |
+| 10.0 (beyond D36) | 0.963 | 2.37 (1.61, 3.59) | 0.993 | 12.521 |
+| 30.0 (beyond D36) | 0.790 | 2.83 (1.94, 4.24) | 0.803 | 19.716 |
+| 100.0 (beyond D36) | 0.425 | 5.03 (3.51, 7.33) | 0.424 | 73.787 |
 
 ## 3. D36 scan: non-prompt leptons (light misID and heavy flavour x f), 500 fb^-1 (def. a, PL with all nuisances)
 D36 range x0.3-x3; f = 10, 30, 100 are BEYOND D36 (robustness only).
 
 | f | Z0 (PL) | mu95 median (-1s, +1s) | Z Eq. 1 counting | b window |
 |---|---|---|---|---|
-| 0.3 | 0.429 | 6.80 (4.35, 11.04) | 0.441 | 1.732 |
-| 0.5 | 0.429 | 6.80 (4.36, 11.05) | 0.441 | 1.736 |
-| 1.0 | 0.428 | 6.81 (4.37, 11.06) | 0.440 | 1.747 |
-| 2.0 | 0.426 | 6.83 (4.38, 11.09) | 0.437 | 1.767 |
-| 3.0 | 0.424 | 6.85 (4.40, 11.12) | 0.435 | 1.788 |
-| 10.0 (beyond D36) | 0.411 | 7.00 (4.50, 11.30) | 0.420 | 1.933 |
-| 30.0 (beyond D36) | 0.377 | 7.41 (4.81, 11.86) | 0.384 | 2.346 |
-| 100.0 (beyond D36) | 0.304 | 8.66 (5.71, 13.56) | 0.306 | 3.793 |
+| 0.3 | 0.447 | 6.56 (4.20, 10.65) | 0.441 | 1.732 |
+| 0.5 | 0.446 | 6.57 (4.21, 10.66) | 0.441 | 1.736 |
+| 1.0 | 0.445 | 6.58 (4.21, 10.67) | 0.440 | 1.747 |
+| 2.0 | 0.443 | 6.60 (4.23, 10.70) | 0.437 | 1.767 |
+| 3.0 | 0.441 | 6.62 (4.24, 10.73) | 0.435 | 1.788 |
+| 10.0 (beyond D36) | 0.426 | 6.78 (4.36, 10.95) | 0.420 | 1.933 |
+| 30.0 (beyond D36) | 0.388 | 7.22 (4.68, 11.54) | 0.384 | 2.346 |
+| 100.0 (beyond D36) | 0.309 | 8.50 (5.61, 13.31) | 0.306 | 3.793 |
 
 ## 3. D36 scan: non-prompt leptons (light misID and heavy flavour x f), 3000 fb^-1 (def. a, PL with all nuisances)
 D36 range x0.3-x3; f = 10, 30, 100 are BEYOND D36 (robustness only).
 
 | f | Z0 (PL) | mu95 median (-1s, +1s) | Z Eq. 1 counting | b window |
 |---|---|---|---|---|
-| 0.3 | 0.986 | 2.36 (1.59, 3.61) | 1.081 | 10.394 |
-| 0.5 | 0.985 | 2.36 (1.59, 3.62) | 1.080 | 10.419 |
-| 1.0 | 0.983 | 2.36 (1.59, 3.62) | 1.077 | 10.481 |
-| 2.0 | 0.979 | 2.37 (1.60, 3.63) | 1.071 | 10.605 |
-| 3.0 | 0.975 | 2.38 (1.60, 3.65) | 1.065 | 10.729 |
-| 10.0 (beyond D36) | 0.947 | 2.44 (1.65, 3.72) | 1.028 | 11.597 |
-| 30.0 (beyond D36) | 0.875 | 2.61 (1.77, 3.95) | 0.941 | 14.077 |
-| 100.0 (beyond D36) | 0.720 | 3.10 (2.13, 4.63) | 0.751 | 22.759 |
+| 0.3 | 1.042 | 2.21 (1.49, 3.37) | 1.081 | 10.394 |
+| 0.5 | 1.041 | 2.21 (1.49, 3.37) | 1.080 | 10.419 |
+| 1.0 | 1.038 | 2.22 (1.50, 3.38) | 1.077 | 10.481 |
+| 2.0 | 1.034 | 2.23 (1.51, 3.39) | 1.071 | 10.605 |
+| 3.0 | 1.029 | 2.24 (1.51, 3.41) | 1.065 | 10.729 |
+| 10.0 (beyond D36) | 0.995 | 2.30 (1.56, 3.50) | 1.028 | 11.597 |
+| 30.0 (beyond D36) | 0.914 | 2.48 (1.69, 3.74) | 0.941 | 14.077 |
+| 100.0 (beyond D36) | 0.741 | 3.00 (2.06, 4.46) | 0.751 | 22.759 |
 
 ## 4. Couplings (lambda_WZ = kappa_W/kappa_Z, (kappa_W, kappa_Z)) from the direct samples, expected, SM data (Asimov), asymptotic
 **Sign convention (SPEC D46, orchestrator default pending the human).** The signal yield is even under (kW, kZ) -> (-kW, -kZ), so (kW, kZ) = (-1, 1) and (1, -1) are the same point for the VBS yield; they differ only in the H->gamma gamma branching ratio, through the sign of kW*kt in the W-top loop (A_W = -8.32 kW, A_t = +1.84 kt, standard loop functions, e.g. A. Djouadi, Phys. Rept. 457 (2008) 1, hep-ph/0503172; recomputed here at mH = 125 GeV, mW = 80.4, mt = 172.5; YR4 BRs; kb = kt = ktau = kc = 1).
@@ -155,11 +155,11 @@ Leave-one-out closure of the per-bin quadratic (LSQ covariance included): totals
 
 | r | s (+-3.5 window) | b | Z Eq. 1 | Z0 PL | mu95 median |
 |---|---|---|---|---|---|
-| 0.8 | 0.649 | 1.747 | 0.465 | 0.469 | 6.40 |
-| 1.0 | 0.612 | 1.747 | 0.440 | 0.428 | 6.81 |
-| 1.25 | 0.556 | 1.747 | 0.401 | 0.388 | 7.28 |
-| 1.5 | 0.502 | 1.747 | 0.364 | 0.358 | 7.72 |
-| 2.0 | 0.413 | 1.747 | 0.301 | 0.313 | 8.51 |
+| 0.8 | 0.649 | 1.747 | 0.465 | 0.486 | 6.19 |
+| 1.0 | 0.612 | 1.747 | 0.440 | 0.445 | 6.57 |
+| 1.25 | 0.556 | 1.747 | 0.401 | 0.405 | 7.02 |
+| 1.5 | 0.502 | 1.747 | 0.364 | 0.373 | 7.43 |
+| 2.0 | 0.413 | 1.747 | 0.301 | 0.328 | 8.17 |
 
 ## 7. Caveats / what this is not
 Expected only; the sensitivity is below 1 sigma at 500 fb^-1 and about 1 sigma at 3000 fb^-1 (PL, cut-based): no evidence is expected and none is claimed. Delphes-level, LO, no pile-up. ASSUMPTION nuisances (lumi, photon/lepton efficiency, mass scale/resolution) have no data basis. **The v1.1 lost-lepton class has N_eff = 7.6 at the selection, below the SPEC sec. 4.3 standard N_eff >= 10 (36 % MC stat; its QCD part is one raw row); the v1 estimate (vbs x C) is carried as the robustness row in 06 sec. 5; the v1.1 nominal is kept (pre-declared by 04:139 and D45).** Signal definition (b) adds QCD WHjj (H_QCD_WH_mlm) as signal; its interference (-0.3 % of EW) is neglected. The v1.1 row F_QCD_llajj_loose IS included (replaces the QCD part of ZH_Zajj_eFake; all numbers in this report are the v1.1 evaluation, files *_v11.json; D45 trigger not fired); H_ggF_jj is NOT in the nominal: its gridpack (893012) failed, the D38 scaled central proxy (05a sec. 12, 0.024 events in the window, +1.3 % of b) is a bound variant that lowers Z0 by about 0.6 % (work/stat/ggf_variant_v11.json). MVA alternative not carried through the statistics here (D44: alternative only). Figures: figures/mgg_selection, Z_vs_lumi, d36_*, lambda_exclusion*.
@@ -174,14 +174,16 @@ D49 SETTLED by D50 = option (4): the QCD lost-lepton / e->gamma part is the one-
 
 WH alone, definition (a), stand-alone WH workspace, full systematics (task ll4:L, the two QCD groups efake_qcd_ll + efake_qcd_eg scaled to the interval ends, whole m_gg template; the central row reproduces the nominal fit). Y0 uses the gridpack sigma (the closure sigma gives 0.12101, -0.17 %, a normalisation note, not a change of the estimate). The sample ZH_Zaajj_QCD_nomjj_lostlep of the same class has N_eff = 2.0 (yield 0.0029): it too is below the N_eff >= 10 rule.
 
-| L (fb-1) | QCD lost-lepton part | Y at 500 fb-1 (events) | Z0 (PL) | mu95 median (-1s, +1s) |
-|---|---|---|---|---|
-| 500 | lower95 | 0.0031 | 0.460 | 6.42 (4.10, 10.43) |
-| 500 | central | 0.1212 | 0.428 | 6.81 (4.37, 11.06) |
-| 500 | upper95 | 0.6754 | 0.309 | 10.91 (6.51, 21.54) |
-| 1000 | lower95 | 0.0031 | 0.642 | 4.09 (2.68, 6.46) |
-| 1000 | central | 0.1212 | 0.594 | 4.40 (2.88, 6.94) |
-| 1000 | upper95 | 0.6754 | 0.400 | 8.32 (4.92, 17.21) |
-| 3000 | lower95 | 0.0031 | 1.078 | 2.14 (1.44, 3.26) |
-| 3000 | central | 0.1212 | 0.983 | 2.36 (1.59, 3.62) |
-| 3000 | upper95 | 0.6754 | 0.544 | 6.45 (3.69, 14.24) |
+| L (fb-1) | QCD lost-lepton part | Y at 500 fb-1 (window, events; scaled with L in the fit) | Z0 (PL) | mu95 median (-1s, +1s) | lambda=-1 Z WH / VH, kZ-sign (primary) | lambda=-1 Z WH / VH, kW-sign (kW<0, kZ=kt=+1, BR x2.45; D46) |
+|---|---|---|---|---|---|---|
+| 500 | lower95 | 0.0031 | 0.461 | 6.41 (4.09, 10.43) | 3.766 / 3.776 | 6.204 / 6.242 |
+| 500 | central | 0.1212 | 0.445 | 6.58 (4.21, 10.67) | 3.766 / 3.776 | 6.204 / 6.241 |
+| 500 | upper95 | 0.6754 | 0.379 | 7.82 (4.96, 12.99) | 3.766 / 3.776 | 6.202 / 6.239 |
+| 1000 | lower95 | 0.0031 | 0.643 | 4.08 (2.68, 6.45) | 5.282 / 5.296 | 8.606 / 8.653 |
+| 1000 | central | 0.1212 | 0.620 | 4.21 (2.76, 6.64) | 5.282 / 5.296 | 8.605 / 8.653 |
+| 1000 | upper95 | 0.6754 | 0.515 | 5.27 (3.40, 8.62) | 5.282 / 5.296 | 8.604 / 8.651 |
+| 3000 | lower95 | 0.0031 | 1.079 | 2.14 (1.44, 3.26) | 8.859 / 8.878 | 13.975 / 14.041 |
+| 3000 | central | 0.1212 | 1.038 | 2.22 (1.50, 3.38) | 8.859 / 8.877 | 13.975 / 14.040 |
+| 3000 | upper95 | 0.6754 | 0.796 | 3.19 (2.08, 5.20) | 8.856 / 8.875 | 13.975 / 14.040 |
+
+The lambda=-1 exclusion (reduced coupling model, QCD lost-lepton groups scaled to the same interval ends) is INSENSITIVE to the lost-lepton level; the Z0 / mu95 columns move.
