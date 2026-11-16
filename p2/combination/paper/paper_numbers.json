@@ -3823,7 +3823,7 @@
  },
  "_missing": [],
  "_meta": {
-  "commit": "ORCH_COMMIT_PLACEHOLDER",
+  "commit": "5fa3825e99bd1bb6623c2fd2b6f6036559c0d20c",
   "script": "p2/runs/multi_r1/wh/scripts/make_paper.py"
  }
 }

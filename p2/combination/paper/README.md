@@ -13,7 +13,7 @@
 * **D49: QCD lost-lepton one-event estimate**: settled by D50 = option 4: yield 0.121 events, 95 % interval [0.0031, 0.675]; the D42 N_eff >= 10 rule is NOT met for that part; upper end in Table T4c; the v1 vbs x C value is a cross-check
 * **VH nuisance ranking not delivered**: vh_run.py rankvh (913470.001) was removed once by SYSTEM_PERIODIC_REMOVE after about 24 h; 913470.000 (WH rank) rc 0; not rerun; Table T5-VH is a placeholder row
 * **ZH non-prompt-lepton class**: no MC exists and none will be produced (D50): unestimated and unbounded, NOT negligible (Tables T3-ZH, T6)
-* **toys**: mu95 toys reuse the same seeds at every mu point (fit errors understated); the WH/ZH/VH toy sets share seeds; the SM lambda toys use the raw window MC of the reduced coupling model and do NOT read the workspaces (the R4 workspace change does not affect them; the coupling outputs reproduce bit-identically with the current code)
+* **toys**: VH mu95 toys: R4 used 4 mu points x 240 toys (previously 5 x 480); the change 6.41 -> 6.82 mixes the R4 workspace correction with the grid/toy-statistics change. The mu95 toys reuse the same seeds at every mu point (fit errors understated); the WH/ZH/VH toy sets share seeds; the SM lambda toys use the raw window MC of the reduced coupling model and do NOT read the workspaces (the R4 workspace change does not affect them; the coupling outputs reproduce bit-identically with the current code)
 * **H_ggF_jj**: D38 substitution (scaled VBF-proxy; no ggF H + jets sample)
 * **expected-only**: all results are Asimov expectations at Delphes level, 13.6 TeV, LO, no data, assumed photon / lepton scales and resolution (no Delphes scale factors)
 

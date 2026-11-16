@@ -1,6 +1,6 @@
 {
  "status": "expected-only; v1.1 loose eFake sample integrated; H_ggF_jj by the D38 scaled central proxy (gridpack failed)",
- "date": "2026-11-16 10:31",
+ "date": "2026-11-16 10:38",
  "selection": {
   "primary": "cut-based",
   "version": "v1.1 (loose eFake sample)",
@@ -151,7 +151,7 @@
     "convention": "kW<0, kZ=kt=+1, BR x2.45"
    }
   },
-  "NOTE_WH_only": "the keys Z_lambda_m1_WH_only_reduced_model_kZneg, convention_independent_kZneg and kWneg_convention below come from the older WH-only reduced model (coup_run.py, couplings_kzneg_v12.json: 3.764 / 6.197), NOT from the joint basis of the headline (3.766 / 6.204)",
+  "NOTE_WH_only": "the keys Z_lambda_m1_WH_only_reduced_model_kZneg, WH_only_convention_independent_kZneg and WH_only_kWneg_convention below come from the older WH-only reduced model (coup_run.py, couplings_kzneg_v12.json: 3.764 / 6.197), NOT from the joint basis of the headline (3.766 / 6.204)",
   "Z_lambda_m1_WH_only_reduced_model_kZneg": 3.764024414847916,
   "closure_band_pm30pct_kZneg": {
    "0.7": {
@@ -168,11 +168,11 @@
    }
   },
   "legacy_note": "keys below marked legacy: Z_lambda_m1_withBR = kW-sign convention (not the headline); Z_lambda_neg_noBR = R_BR=1 for all lambda, UNPHYSICAL",
-  "convention_independent_kZneg": {
+  "WH_only_convention_independent_kZneg": {
    "Z_lambda_m1": 3.764024414847916,
    "Z_lambda_neg": 0.35222287915632705
   },
-  "kWneg_convention": {
+  "WH_only_kWneg_convention": {
    "Z_lambda_m1": 6.197319137636947,
    "Z_lambda_neg": 0.3743773232265962,
    "note": "sign on kW with kt=+1: BR x2.45; asymptotic, closure +-30 % gives 5.1-7.1"

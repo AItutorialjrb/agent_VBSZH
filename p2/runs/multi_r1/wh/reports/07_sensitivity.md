@@ -1,5 +1,5 @@
 # 07 Sensitivity (executor-wh FINAL, block 3)
-Date UTC: 2026-11-16 10:31. Status: **PASS for verification**; ALL numbers are EXPECTED (Asimov datasets, nominal background model of 05a v2.1 + the v1.1 loose-cut eFake sample, primary = cut-based selection; D44). No claim of a result; a null or sub-1-sigma expectation is stated as such. Analysis commit: ORCH_COMMIT_PLACEHOLDER.
+Date UTC: 2026-11-16 10:38. Status: **PASS for verification**; ALL numbers are EXPECTED (Asimov datasets, nominal background model of 05a v2.1 + the v1.1 loose-cut eFake sample, primary = cut-based selection; D44). No claim of a result; a null or sub-1-sigma expectation is stated as such. Analysis commit: 5fa3825e99bd1bb6623c2fd2b6f6036559c0d20c.
 ## Selection (frozen in 05): mjj>600, |deta_jj|>4.0, pT(gg)>75, MET>30, pT(l)>25, |m_gg-125|<3.5 (counting); MVA alternative not adopted.
 ## 1. Counting window (Eq. 1, stat only) and exact-Poisson CLs
 Window yields at 500 fb^-1: s = 0.612, b = 1.747 +- 0.191 (MC stat).

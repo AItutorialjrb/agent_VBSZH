@@ -87,21 +87,21 @@
     "tokens_total": 89500475.0
    },
    "FINAL_R2_round": {
-    "api_msgs": 568.0,
-    "cost_usd": 53.582,
-    "input": 1212.0,
-    "output": 712008.0,
-    "cache_create": 9884808.0,
-    "cache_read": 182326699.0,
-    "cost_claude-opus-5-5": 13.7946,
-    "out_claude-opus-5-5": 69537.0,
+    "api_msgs": 1064.0,
+    "cost_usd": 65.1385,
+    "input": 2214.0,
+    "output": 1342252.0,
+    "cache_create": 12685944.0,
+    "cache_read": 249469131.0,
+    "cost_claude-opus-5-5": 15.444,
+    "out_claude-opus-5-5": 99060.0,
     "human_msgs": 3.0,
-    "cost_claude-sonnet-5-5": 39.443,
-    "out_claude-sonnet-5-5": 373529.0,
-    "cost_claude-haiku-5-5": 0.3445,
-    "out_claude-haiku-5-5": 268942.0,
-    "active_h": 3.4509,
-    "tokens_total": 192924727.0
+    "cost_claude-sonnet-5-5": 48.7078,
+    "out_claude-sonnet-5-5": 524047.0,
+    "cost_claude-haiku-5-5": 0.9866,
+    "out_claude-haiku-5-5": 719145.0,
+    "active_h": 5.344,
+    "tokens_total": 263499541.0
    },
    "wall_h_E2E": 242.86,
    "by_role_P01_03": {
@@ -518,16 +518,16 @@
    "tokens_total": 11970378.0
   },
   "multi_r1:g4_eval": {
-   "api_msgs": 18.0,
-   "cost_usd": 0.9171,
-   "input": 36.0,
-   "output": 4676.0,
-   "cache_create": 123492.0,
-   "cache_read": 952819.0,
-   "cost_claude-opus-5-5": 0.9171,
-   "out_claude-opus-5-5": 4676.0,
-   "active_h": 0.0056,
-   "tokens_total": 1081023.0
+   "api_msgs": 136.0,
+   "cost_usd": 12.8605,
+   "input": 318.0,
+   "output": 170976.0,
+   "cache_create": 763566.0,
+   "cache_read": 20103220.0,
+   "cost_claude-opus-5-5": 12.8605,
+   "out_claude-opus-5-5": 170976.0,
+   "active_h": 1.4473,
+   "tokens_total": 21038080.0
   },
   "single_r1:human_error": {
    "human_msgs": 4.0,

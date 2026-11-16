@@ -25,7 +25,7 @@ Written by the multi_r1 orchestrator on 2026-11-16 under D48 (G4 (b), (c)).
 |---|---|---|---|---|---|---|
 | single_r1 launched twice (~2026-11-08T20:15Z); both sessions stopped by the human (sessions e11a5b3e*, ffcf95fa*) | single_r1 | $4.25 | 6.87 M | 0.14 h | 4 | human error; outputs in p2/_to_delete/ |
 | multi_r2 start prompt pasted into the multi_r1 session (2026-11-08T20:14:43–20:29:58Z) | multi_r1 | $3.12 | 11.97 M | 0.25 h | 1 | human error; not acted on |
-| G4 evaluation (blind-audit reviewers, metrics scripts, this file) | multi_r1 | ≥ $0.92 at the last parse (still growing; final value in ai_metrics.json `excluded.multi_r1:g4_eval`) | — | — | — | evaluation, not analysis work |
+| G4 evaluation (blind-audit reviewers, metrics scripts, this file; upper bound, see §4) | multi_r1 | ≤ $12.86 | 21.0 M | 1.45 h | 0 | evaluation, not analysis work |
 | Pause 2026-11-04T13:40Z → 2026-11-06T12:57Z (credit limit) | multi_r1 | — | — | — | 1 (pause order) | wall time only; active-time metric unaffected |
 | single_r1 idle 2026-11-09T13:56Z → 2026-11-13T18:08Z (background waiter reaped by Claude Code; session idle until a human "continue") | single_r1 | — | — | — | 1 (continue) | inside the P01–03 wall window; see H4 |
 | multi_r1 session interruptions (2026-11-03 17:45–21:26Z restart; 2026-11-04 API usage-limit stop; 2026-11-13 session end) | multi_r1 | — | — | — | 3 (continue) | wall only |
@@ -186,15 +186,15 @@ Written by the multi_r1 orchestrator on 2026-11-16 under D48 (G4 (b), (c)).
 ### Cost, tokens, time, prompts (exclusions in §0 applied)
 | | single_r1 E2E | multi_r1 WH E2E to first final (2026-11-13T18:25Z) | multi_r1 FINAL-R2 round | multi_r1 HH (stopped) | multi_r1 ZH erratum |
 |---|---|---|---|---|---|
-| cost-eq | $30.94 | $145.39 | E2E_R2_COST | $19.31 | $2.90 |
-| tokens | 59.8 M | 557.1 M | E2E_R2_TOK | 89.5 M | 10.9 M |
-| output tokens | 0.39 M | 3.24 M | E2E_R2_OUT | 0.47 M | 0.04 M |
-| active | 1.90 h | 14.77 h | E2E_R2_ACT | 3.48 h | 0.86 h |
-| wall | 134.4 h (incl. 100.2 h idle) | 242.9 h (incl. the 47 h pause) | E2E_R2_WALL | | |
-| human msgs | 3 (start, continue, G1 accept) | 14 | E2E_R2_HUM | | |
+| cost-eq | $30.94 | $145.39 | $65.14 | $19.31 | $2.90 |
+| tokens | 59.8 M | 557.1 M | 263.5 M | 89.5 M | 10.9 M |
+| output tokens | 0.39 M | 3.24 M | 1.34 M | 0.47 M | 0.04 M |
+| active | 1.90 h | 14.77 h | 5.34 h | 3.48 h | 0.86 h |
+| wall | 134.4 h (incl. 100.2 h idle) | 242.9 h (incl. the 47 h pause) | ≈ 49 h (2026-11-14T09:49Z prompt → tag, 2026-11-16) | | |
+| human msgs | 3 (start, continue, G1 accept) | 14 | 3 (D39–D48 round, D49, D50) | | |
 | condor core-h (since 2026-11-03; lower bound) | 379 | 7791 (WH) + 28 (combination) | | 145 | in "ZH tree" 1959 |
 
-- **Scale:** multi_r1's end-to-end WH work cost about 4.7× more than single_r1 and took about 7.8× more active time.
+- **Scale:** multi_r1's end-to-end WH work to its first final cost about 4.7× more than single_r1 and took about 7.8× more active time. Including the FINAL-R2 round (joint VH combination, toys, paper package, five verify/review rounds): $210.5 and 20.1 h active, about 6.8× and 10.6×.
 - **Most of that is scope**, not arm efficiency:
   - full production with N-rule enforcement (the 7791 core-h);
   - the 05a background model with three production rounds;
@@ -289,4 +289,4 @@ It changed the WH stand-alone headline from 0.428 / 6.81 to 0.445 / 6.58, and th
   | single_r3 | 226 |
   | ZH tree (erratum checks + earlier) | 1959 |
 
-- **G4 evaluation cost (excluded):** G4_EVAL_COST.
+- **G4 evaluation cost (excluded):** ≤ $12.86 (1.45 h active, opus). This is an upper bound: ai_metrics.py classifies every multi_r1 orchestrator turn after G4 start (2026-11-15T17:08Z) as G4 evaluation, including the orchestration of the FINAL-R2 rounds R2–R5 done in the same session. The executor, verifier and reviewer subagents of those rounds stay in FINAL-R2. The six blind-audit reviewers (phase G4a) are included.
